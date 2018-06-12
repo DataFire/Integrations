@@ -77,27 +77,6 @@ smart_me.Actions_Get({
 * output `array`
   * items [ActionInformation](#actioninformation)
 
-### ChargingUser_Get
-Gets the informations for the user.
-
-
-```js
-smart_me.ChargingUser_Get({
-  "userId": 0,
-  "date": 0,
-  "passwordToken": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * userId **required** `integer`: The ID of the user
-  * date **required** `integer`: The current Date
-  * passwordToken **required** `string`: The Password token
-
-#### Output
-* output [User](#user)
-
 ### api.CustomDevice.get
 Gets all Devices
 
@@ -653,6 +632,8 @@ smart_me.VirtualTariffConsumption_Get({
   * AnalogOutput1 `integer`: The analog output number 1 (PWM signal) (0 - 32183)
   * AnalogOutput2 `integer`: The analog output number 2 (PWM signal) (0 - 32183)
   * CounterReading `number`: The Meter Counter Reading (Total Energy used)
+  * CounterReadingExport `number`: The Meter Counter Reading only export
+  * CounterReadingImport `number`: The Meter Counter Reading only import
   * CounterReadingT1 `number`: The Meter Counter Reading Tariff 1
   * CounterReadingT2 `number`: The Meter Counter Reading Tariff 2
   * CounterReadingT3 `number`: The Meter Counter Reading Tariff 3

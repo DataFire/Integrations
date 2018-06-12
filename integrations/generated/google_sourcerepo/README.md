@@ -129,6 +129,98 @@ google_sourcerepo.projects.repos.get({
 #### Output
 * output [Repo](#repo)
 
+### projects.repos.patch
+Updates information about a repo.
+
+
+```js
+google_sourcerepo.projects.repos.patch({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [UpdateRepoRequest](#updatereporequest)
+  * name **required** `string`: The name of the requested repository. Values are of the form
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Repo](#repo)
+
+### projects.getConfig
+Returns the Cloud Source Repositories configuration of the project.
+
+
+```js
+google_sourcerepo.projects.getConfig({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: The name of the requested project. Values are of the form
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ProjectConfig](#projectconfig)
+
+### projects.updateConfig
+Updates the Cloud Source Repositories configuration of the project.
+
+
+```js
+google_sourcerepo.projects.updateConfig({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [UpdateProjectConfigRequest](#updateprojectconfigrequest)
+  * name **required** `string`: The name of the requested project. Values are of the form
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ProjectConfig](#projectconfig)
+
 ### projects.repos.list
 Returns all repos belonging to a project. The sizes of the repos are
 not set by ListRepos.  To get the size of a repo, use GetRepo.
@@ -301,8 +393,6 @@ google_sourcerepo.projects.repos.testIamPermissions({
 * AuditConfig `object`: Specifies the audit configuration for a service.
   * auditLogConfigs `array`: The configuration for logging of each type of permission.
     * items [AuditLogConfig](#auditlogconfig)
-  * exemptedMembers `array`
-    * items `string`
   * service `string`: Specifies a service that will be enabled for audit logging.
 
 ### AuditLogConfig
@@ -313,20 +403,12 @@ google_sourcerepo.projects.repos.testIamPermissions({
 
 ### Binding
 * Binding `object`: Associates `members` with a `role`.
-  * condition [Expr](#expr)
   * members `array`: Specifies the identities requesting access for a Cloud Platform resource.
     * items `string`
   * role `string`: Role that is assigned to `members`.
 
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
-
-### Expr
-* Expr `object`: Represents an expression text. Example:
-  * description `string`: An optional description of the expression. This is a longer text which
-  * expression `string`: Textual representation of an expression in
-  * location `string`: An optional string indicating the location of the expression for error
-  * title `string`: An optional title for the expression, i.e. a short string describing
 
 ### ListReposResponse
 * ListReposResponse `object`: Response for ListRepos.  The size is not set in the returned repositories.
@@ -347,13 +429,25 @@ google_sourcerepo.projects.repos.testIamPermissions({
   * bindings `array`: Associates a list of `members` to a `role`.
     * items [Binding](#binding)
   * etag `string`: `etag` is used for optimistic concurrency control as a way to help
-  * iamOwned `boolean`
-  * version `integer`: Version of the `Policy`. The default version is 0.
+  * version `integer`: Deprecated.
+
+### ProjectConfig
+* ProjectConfig `object`: Cloud Source Repositories configuration of a project.
+  * enablePrivateKeyCheck `boolean`: Reject a Git push that contains a private key.
+  * name `string`: The name of the project. Values are of the form `projects/<project>`.
+  * pubsubConfigs `object`: How this project publishes a change in the repositories through Cloud
+
+### PubsubConfig
+* PubsubConfig `object`: Configuration to publish a Cloud Pub/Sub message.
+  * messageFormat `string` (values: MESSAGE_FORMAT_UNSPECIFIED, PROTOBUF, JSON): The format of the Cloud Pub/Sub messages.
+  * serviceAccountEmail `string`: Email address of the service account used for publishing Cloud Pub/Sub
+  * topic `string`: A topic of Cloud Pub/Sub. Values are of the form
 
 ### Repo
 * Repo `object`: A repository (or repo) is a Git repository storing versioned source content.
   * mirrorConfig [MirrorConfig](#mirrorconfig)
   * name `string`: Resource name of the repository, of the form
+  * pubsubConfigs `object`: How this repository publishes a change in the repository through Cloud
   * size `string`: The disk usage of the repo, in bytes. Read-only field. Size is only
   * url `string`: URL to clone the repository from Google Cloud Source Repositories.
 
@@ -371,5 +465,15 @@ google_sourcerepo.projects.repos.testIamPermissions({
 * TestIamPermissionsResponse `object`: Response message for `TestIamPermissions` method.
   * permissions `array`: A subset of `TestPermissionsRequest.permissions` that the caller is
     * items `string`
+
+### UpdateProjectConfigRequest
+* UpdateProjectConfigRequest `object`: Request for UpdateProjectConfig.
+  * projectConfig [ProjectConfig](#projectconfig)
+  * updateMask `string`: A FieldMask specifying which fields of the project_config to modify. Only
+
+### UpdateRepoRequest
+* UpdateRepoRequest `object`: Request for UpdateRepo.
+  * repo [Repo](#repo)
+  * updateMask `string`: A FieldMask specifying which fields of the repo to modify. Only the fields
 
 

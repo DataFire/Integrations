@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/cloudfront/2017-03-25/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/cloudfront/2017-10-30/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

@@ -321,6 +321,267 @@ azure_logic.Agreements_CreateOrUpdate({
 #### Output
 * output [IntegrationAccountAgreement](#integrationaccountagreement)
 
+### Agreements_ListContentCallbackUrl
+Get the content callback url.
+
+
+```js
+azure_logic.Agreements_ListContentCallbackUrl({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "agreementName": "",
+  "api-version": "",
+  "listContentCallbackUrl": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * agreementName **required** `string`: The integration account agreement name.
+  * api-version **required** `string`: The API version.
+  * listContentCallbackUrl **required** [GetCallbackUrlParameters](#getcallbackurlparameters)
+
+#### Output
+* output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
+
+### IntegrationAccountAssemblies_List
+List the assemblies for an integration account.
+
+
+```js
+azure_logic.IntegrationAccountAssemblies_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [AssemblyCollection](#assemblycollection)
+
+### IntegrationAccountAssemblies_Delete
+Delete an assembly for an integration account.
+
+
+```js
+azure_logic.IntegrationAccountAssemblies_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "assemblyArtifactName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * assemblyArtifactName **required** `string`: The assembly artifact name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
+
+### IntegrationAccountAssemblies_Get
+Get an assembly for an integration account.
+
+
+```js
+azure_logic.IntegrationAccountAssemblies_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "assemblyArtifactName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * assemblyArtifactName **required** `string`: The assembly artifact name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [AssemblyDefinition](#assemblydefinition)
+
+### IntegrationAccountAssemblies_CreateOrUpdate
+Create or update an assembly for an integration account.
+
+
+```js
+azure_logic.IntegrationAccountAssemblies_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "assemblyArtifactName": "",
+  "assemblyArtifact": {
+    "properties": {
+      "assemblyName": ""
+    }
+  },
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * assemblyArtifactName **required** `string`: The assembly artifact name.
+  * assemblyArtifact **required** [AssemblyDefinition](#assemblydefinition)
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [AssemblyDefinition](#assemblydefinition)
+
+### IntegrationAccountAssemblies_ListContentCallbackUrl
+Get the content callback url for an integration account assembly.
+
+
+```js
+azure_logic.IntegrationAccountAssemblies_ListContentCallbackUrl({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "assemblyArtifactName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * assemblyArtifactName **required** `string`: The assembly artifact name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
+
+### IntegrationAccountBatchConfigurations_List
+List the batch configurations for an integration account.
+
+
+```js
+azure_logic.IntegrationAccountBatchConfigurations_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [BatchConfigurationCollection](#batchconfigurationcollection)
+
+### IntegrationAccountBatchConfigurations_Delete
+Delete a batch configuration for an integration account.
+
+
+```js
+azure_logic.IntegrationAccountBatchConfigurations_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "batchConfigurationName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * batchConfigurationName **required** `string`: The batch configuration name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
+
+### IntegrationAccountBatchConfigurations_Get
+Get a batch configuration for an integration account.
+
+
+```js
+azure_logic.IntegrationAccountBatchConfigurations_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "batchConfigurationName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * batchConfigurationName **required** `string`: The batch configuration name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [BatchConfiguration](#batchconfiguration)
+
+### IntegrationAccountBatchConfigurations_CreateOrUpdate
+Create or update a batch configuration for an integration account.
+
+
+```js
+azure_logic.IntegrationAccountBatchConfigurations_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "batchConfigurationName": "",
+  "batchConfiguration": {
+    "properties": {
+      "batchGroupName": "",
+      "releaseCriteria": {}
+    }
+  },
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * batchConfigurationName **required** `string`: The batch configuration name.
+  * batchConfiguration **required** [BatchConfiguration](#batchconfiguration)
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [BatchConfiguration](#batchconfiguration)
+
 ### Certificates_ListByIntegrationAccounts
 Gets a list of integration account certificates.
 
@@ -449,6 +710,61 @@ azure_logic.IntegrationAccounts_GetCallbackUrl({
 #### Output
 * output [CallbackUrl](#callbackurl)
 
+### IntegrationAccounts_ListKeyVaultKeys
+Gets the integration account's Key Vault keys.
+
+
+```js
+azure_logic.IntegrationAccounts_ListKeyVaultKeys({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "api-version": "",
+  "listKeyVaultKeys": {
+    "keyVault": {}
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * api-version **required** `string`: The API version.
+  * listKeyVaultKeys **required** [ListKeyVaultKeysDefinition](#listkeyvaultkeysdefinition)
+
+#### Output
+* output [KeyVaultKeyCollection](#keyvaultkeycollection)
+
+### IntegrationAccounts_LogTrackingEvents
+Logs the integration account's tracking events.
+
+
+```js
+azure_logic.IntegrationAccounts_LogTrackingEvents({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "api-version": "",
+  "logTrackingEvents": {
+    "sourceType": "",
+    "events": []
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * api-version **required** `string`: The API version.
+  * logTrackingEvents **required** [TrackingEventsDefinition](#trackingeventsdefinition)
+
+#### Output
+*Output schema unknown*
+
 ### Maps_ListByIntegrationAccounts
 Gets a list of integration account maps.
 
@@ -554,6 +870,33 @@ azure_logic.Maps_CreateOrUpdate({
 
 #### Output
 * output [IntegrationAccountMap](#integrationaccountmap)
+
+### Maps_ListContentCallbackUrl
+Get the content callback url.
+
+
+```js
+azure_logic.Maps_ListContentCallbackUrl({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "mapName": "",
+  "api-version": "",
+  "listContentCallbackUrl": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * mapName **required** `string`: The integration account map name.
+  * api-version **required** `string`: The API version.
+  * listContentCallbackUrl **required** [GetCallbackUrlParameters](#getcallbackurlparameters)
+
+#### Output
+* output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
 
 ### Partners_ListByIntegrationAccounts
 Gets a list of integration account partners.
@@ -662,6 +1005,58 @@ azure_logic.Partners_CreateOrUpdate({
 #### Output
 * output [IntegrationAccountPartner](#integrationaccountpartner)
 
+### Partners_ListContentCallbackUrl
+Get the content callback url.
+
+
+```js
+azure_logic.Partners_ListContentCallbackUrl({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "partnerName": "",
+  "api-version": "",
+  "listContentCallbackUrl": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * partnerName **required** `string`: The integration account partner name.
+  * api-version **required** `string`: The API version.
+  * listContentCallbackUrl **required** [GetCallbackUrlParameters](#getcallbackurlparameters)
+
+#### Output
+* output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
+
+### IntegrationAccounts_RegenerateAccessKey
+Regenerates the integration account access key.
+
+
+```js
+azure_logic.IntegrationAccounts_RegenerateAccessKey({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "api-version": "",
+  "regenerateAccessKey": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * api-version **required** `string`: The API version.
+  * regenerateAccessKey **required** [RegenerateActionParameter](#regenerateactionparameter)
+
+#### Output
+* output [IntegrationAccount](#integrationaccount)
+
 ### Schemas_ListByIntegrationAccounts
 Gets a list of integration account schemas.
 
@@ -767,6 +1162,33 @@ azure_logic.Schemas_CreateOrUpdate({
 
 #### Output
 * output [IntegrationAccountSchema](#integrationaccountschema)
+
+### Schemas_ListContentCallbackUrl
+Get the content callback url.
+
+
+```js
+azure_logic.Schemas_ListContentCallbackUrl({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "integrationAccountName": "",
+  "schemaName": "",
+  "api-version": "",
+  "listContentCallbackUrl": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * integrationAccountName **required** `string`: The integration account name.
+  * schemaName **required** `string`: The integration account schema name.
+  * api-version **required** `string`: The API version.
+  * listContentCallbackUrl **required** [GetCallbackUrlParameters](#getcallbackurlparameters)
+
+#### Output
+* output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
 
 ### Sessions_ListByIntegrationAccounts
 Gets a list of integration account sessions.
@@ -1089,6 +1511,31 @@ azure_logic.Workflows_GenerateUpgradedDefinition({
 #### Output
 * output [Object](#object)
 
+### Workflows_ListCallbackUrl
+Get the workflow callback Url.
+
+
+```js
+azure_logic.Workflows_ListCallbackUrl({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "listCallbackUrl": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * listCallbackUrl **required** [GetCallbackUrlParameters](#getcallbackurlparameters)
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
+
 ### Workflows_ListSwagger
 Gets an OpenAPI definition for the workflow.
 
@@ -1111,6 +1558,31 @@ azure_logic.Workflows_ListSwagger({
 
 #### Output
 * output [Object](#object)
+
+### Workflows_Move
+Moves an existing workflow.
+
+
+```js
+azure_logic.Workflows_Move({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "move": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * move **required** [Workflow](#workflow)
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
 
 ### Workflows_RegenerateAccessKey
 Regenerates the callback URL access key for request triggers.
@@ -1241,6 +1713,174 @@ azure_logic.WorkflowRunActions_Get({
 #### Output
 * output [WorkflowRunAction](#workflowrunaction)
 
+### WorkflowRunActions_ListExpressionTraces
+Lists a workflow run expression trace.
+
+
+```js
+azure_logic.WorkflowRunActions_ListExpressionTraces({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [ExpressionTraces](#expressiontraces)
+
+### WorkflowRunActionRepetitions_List
+Get all of a workflow run action repetitions.
+
+
+```js
+azure_logic.WorkflowRunActionRepetitions_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [WorkflowRunActionRepetitionDefinitionCollection](#workflowrunactionrepetitiondefinitioncollection)
+
+### WorkflowRunActionRepetitions_Get
+Get a workflow run action repetition.
+
+
+```js
+azure_logic.WorkflowRunActionRepetitions_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "repetitionName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * repetitionName **required** `string`: The workflow repetition.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [WorkflowRunActionRepetitionDefinition](#workflowrunactionrepetitiondefinition)
+
+### WorkflowRunActionRepetitions_ListExpressionTraces
+Lists a workflow run expression trace.
+
+
+```js
+azure_logic.WorkflowRunActionRepetitions_ListExpressionTraces({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "repetitionName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * repetitionName **required** `string`: The workflow repetition.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [ExpressionTraces](#expressiontraces)
+
+### WorkflowRunActionScopedRepetitions_List
+List the workflow run action scoped repetitions.
+
+
+```js
+azure_logic.WorkflowRunActionScopedRepetitions_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [WorkflowRunActionRepetitionDefinitionCollection](#workflowrunactionrepetitiondefinitioncollection)
+
+### WorkflowRunActionScopedRepetitions_Get
+Get a workflow run action scoped repetition.
+
+
+```js
+azure_logic.WorkflowRunActionScopedRepetitions_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "repetitionName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * repetitionName **required** `string`: The workflow repetition.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [WorkflowRunActionRepetitionDefinition](#workflowrunactionrepetitiondefinition)
+
 ### WorkflowRuns_Cancel
 Cancels a workflow run.
 
@@ -1265,6 +1905,33 @@ azure_logic.WorkflowRuns_Cancel({
 
 #### Output
 *Output schema unknown*
+
+### WorkflowRunOperations_Get
+Gets an operation for a run.
+
+
+```js
+azure_logic.WorkflowRunOperations_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "operationId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * operationId **required** `string`: The workflow operation id.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [WorkflowRun](#workflowrun)
 
 ### WorkflowTriggers_List
 Gets a list of workflow triggers.
@@ -1398,7 +2065,7 @@ azure_logic.WorkflowTriggerHistories_Resubmit({
 *Output schema unknown*
 
 ### WorkflowTriggers_ListCallbackUrl
-Gets the callback URL for a workflow trigger.
+Get the callback URL for a workflow trigger.
 
 
 ```js
@@ -1421,6 +2088,31 @@ azure_logic.WorkflowTriggers_ListCallbackUrl({
 
 #### Output
 * output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
+
+### WorkflowTriggers_Reset
+Resets a workflow trigger.
+
+
+```js
+azure_logic.WorkflowTriggers_Reset({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "triggerName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * triggerName **required** `string`: The workflow trigger name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
 
 ### WorkflowTriggers_Run
 Runs a workflow trigger.
@@ -1446,6 +2138,85 @@ azure_logic.WorkflowTriggers_Run({
 
 #### Output
 * output [Object](#object)
+
+### WorkflowTriggers_GetSchemaJson
+Get the trigger schema as JSON.
+
+
+```js
+azure_logic.WorkflowTriggers_GetSchemaJson({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "triggerName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * triggerName **required** `string`: The workflow trigger name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [JsonSchema](#jsonschema)
+
+### WorkflowTriggers_SetState
+Sets the state of a workflow trigger.
+
+
+```js
+azure_logic.WorkflowTriggers_SetState({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "triggerName": "",
+  "setState": {
+    "source": {}
+  },
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * triggerName **required** `string`: The workflow trigger name.
+  * setState **required** [SetTriggerStateActionDefinition](#settriggerstateactiondefinition)
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
+
+### Workflows_ValidateWorkflow
+Validates the workflow.
+
+
+```js
+azure_logic.Workflows_ValidateWorkflow({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "validate": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * validate **required** [Workflow](#workflow)
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
 
 ### WorkflowVersions_List
 Gets a list of workflow versions.
@@ -1497,7 +2268,7 @@ azure_logic.WorkflowVersions_Get({
 * output [WorkflowVersion](#workflowversion)
 
 ### WorkflowVersions_ListCallbackUrl
-Lists the callback URL for a trigger of a workflow version.
+Get the callback url for a trigger of a workflow version.
 
 
 ```js
@@ -1529,7 +2300,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 ## Definitions
 
 ### AS2AcknowledgementConnectionSettings
-* AS2AcknowledgementConnectionSettings `object`: The AS2 agreement acknowledegment connection settings.
+* AS2AcknowledgementConnectionSettings `object`: The AS2 agreement acknowledgement connection settings.
   * ignoreCertificateNameMismatch **required** `boolean`: The value indicating whether to ignore mismatch in certificate name.
   * keepHttpConnectionAlive **required** `boolean`: The value indicating whether to keep the connection alive.
   * supportHttpStatusCodeContinue **required** `boolean`: The value indicating whether to support HTTP status code 'CONTINUE'.
@@ -1573,7 +2344,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * unfoldHttpHeaders **required** `boolean`: The value indicating whether to unfold the HTTP headers.
 
 ### AS2OneWayAgreement
-* AS2OneWayAgreement `object`: The integration account AS2 oneway agreement.
+* AS2OneWayAgreement `object`: The integration account AS2 one-way agreement.
   * protocolSettings **required** [AS2ProtocolSettings](#as2protocolsettings)
   * receiverBusinessIdentity **required** [BusinessIdentity](#businessidentity)
   * senderBusinessIdentity **required** [BusinessIdentity](#businessidentity)
@@ -1614,6 +2385,13 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * signMessage **required** `boolean`: The value indicating whether the message has to be signed.
   * signingAlgorithm [SigningAlgorithm](#signingalgorithm)
 
+### AccessKeyRegenerateActionDefinition
+* AccessKeyRegenerateActionDefinition `object`
+  * keyType **required** [AccessKeyType](#accesskeytype)
+
+### AccessKeyType
+* AccessKeyType `string` (values: NotSpecified, Primary, Secondary): The access key type.
+
 ### AgreementContent
 * AgreementContent `object`: The integration account agreement content.
   * aS2 [AS2AgreementContent](#as2agreementcontent)
@@ -1623,10 +2401,83 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 ### AgreementType
 * AgreementType `string` (values: NotSpecified, AS2, X12, Edifact)
 
+### ArtifactContentPropertiesDefinition
+* ArtifactContentPropertiesDefinition `object`: The artifact content properties definition.
+  * contentLink [ContentLink](#contentlink)
+  * contentType `string`: The content type.
+  * changedTime `string`: The artifact changed time.
+  * createdTime `string`: The artifact creation time.
+
+### ArtifactProperties
+* ArtifactProperties `object`: The artifact properties definition.
+  * changedTime `string`: The artifact changed time.
+  * createdTime `string`: The artifact creation time.
+
+### AssemblyCollection
+* AssemblyCollection `object`: A collection of assembly definitions.
+  * value `array`
+    * items [AssemblyDefinition](#assemblydefinition)
+
+### AssemblyDefinition
+* AssemblyDefinition `object`: The assembly definition.
+  * properties **required** [AssemblyProperties](#assemblyproperties)
+  * id `string`: The resource id.
+  * location `string`: The resource location.
+  * name `string`: Gets the resource name.
+  * tags `object`: The resource tags.
+  * type `string`: Gets the resource type.
+
+### AssemblyProperties
+* AssemblyProperties `object`: The assembly properties definition.
+  * assemblyCulture `string`: The assembly culture.
+  * assemblyName **required** `string`: The assembly name.
+  * assemblyPublicKeyToken `string`: The assembly public key token.
+  * assemblyVersion `string`: The assembly version.
+  * contentLink [ContentLink](#contentlink)
+  * contentType `string`: The content type.
+  * changedTime `string`: The artifact changed time.
+  * createdTime `string`: The artifact creation time.
+
+### AzureResourceErrorInfo
+* AzureResourceErrorInfo `object`: The azure resource error info.
+  * details `array`: The error details.
+    * items [AzureResourceErrorInfo](#azureresourceerrorinfo)
+  * message **required** `string`: The error message.
+  * code **required** `string`: The error code.
+
 ### B2BPartnerContent
 * B2BPartnerContent `object`: The B2B partner content.
   * businessIdentities `array`: The list of partner business identities.
     * items [BusinessIdentity](#businessidentity)
+
+### BatchConfiguration
+* BatchConfiguration `object`: The batch configuration resource definition.
+  * properties **required** [BatchConfigurationProperties](#batchconfigurationproperties)
+  * id `string`: The resource id.
+  * location `string`: The resource location.
+  * name `string`: Gets the resource name.
+  * tags `object`: The resource tags.
+  * type `string`: Gets the resource type.
+
+### BatchConfigurationCollection
+* BatchConfigurationCollection `object`: A collection of batch configurations.
+  * value `array`
+    * items [BatchConfiguration](#batchconfiguration)
+
+### BatchConfigurationProperties
+* BatchConfigurationProperties `object`: The batch configuration properties definition.
+  * batchGroupName **required** `string`: The name of the batch group.
+  * changedTime `string`: The changed time.
+  * createdTime `string`: The created time.
+  * releaseCriteria **required** [BatchReleaseCriteria](#batchreleasecriteria)
+  * changedTime `string`: The artifact changed time.
+  * createdTime `string`: The artifact creation time.
+
+### BatchReleaseCriteria
+* BatchReleaseCriteria `object`: The batch release criteria.
+  * batchSize `integer`: The batch size in bytes.
+  * messageCount `integer`: The message count.
+  * recurrence [WorkflowTriggerRecurrence](#workflowtriggerrecurrence)
 
 ### BusinessIdentity
 * BusinessIdentity `object`: The integration account partner's business identity.
@@ -1689,7 +2540,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * decimalPointIndicator **required** [EdifactDecimalIndicator](#edifactdecimalindicator)
   * messageAssociationAssignedCode `string`: The message association assigned code.
   * messageId `string`: The message id.
-  * messageRelease `string`: The message releaseversion.
+  * messageRelease `string`: The message release.
   * messageVersion `string`: The message version.
   * releaseIndicator **required** `integer`: The release indicator.
   * repetitionSeparator **required** `integer`: The repetition separator.
@@ -1698,7 +2549,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * targetNamespace `string`: The target namespace on which this delimiter settings has to be applied.
 
 ### EdifactEnvelopeOverride
-* EdifactEnvelopeOverride `object`: The Edifact enevlope override settings.
+* EdifactEnvelopeOverride `object`: The Edifact envelope override settings.
   * applicationPassword `string`: The application password.
   * associationAssignedCode `string`: The association assigned code.
   * controllingAgencyCode `string`: The controlling agency code.
@@ -1850,14 +2701,41 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 ### EncryptionAlgorithm
 * EncryptionAlgorithm `string` (values: NotSpecified, None, DES3, RC2, AES128, AES192, AES256)
 
+### ErrorInfo
+* ErrorInfo `object`: The error info.
+  * code **required** `string`: The error code.
+
 ### ErrorProperties
 * ErrorProperties `object`: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
   * code `string`: Error code.
   * message `string`: Error message indicating why the operation failed.
 
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates Logic service is not able to process the incoming request. The error property contains the error details.
+* ErrorResponse `object`: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
   * error [ErrorProperties](#errorproperties)
+
+### EventLevel
+* EventLevel `string` (values: LogAlways, Critical, Error, Warning, Informational, Verbose): The event level.
+
+### Expression
+* Expression `object`
+  * error [AzureResourceErrorInfo](#azureresourceerrorinfo)
+  * subexpressions `array`
+    * items [Expression](#expression)
+  * text `string`
+
+### ExpressionRoot
+* ExpressionRoot `object`
+  * path `string`: The path.
+  * error [AzureResourceErrorInfo](#azureresourceerrorinfo)
+  * subexpressions `array`
+    * items [Expression](#expression)
+  * text `string`
+
+### ExpressionTraces
+* ExpressionTraces `object`
+  * inputs `array`
+    * items [ExpressionRoot](#expressionroot)
 
 ### GenerateUpgradedDefinitionParameters
 * GenerateUpgradedDefinitionParameters `object`: The parameters to generate upgraded definition.
@@ -2066,8 +2944,27 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 ### IntegrationAccountSkuName
 * IntegrationAccountSkuName `string` (values: NotSpecified, Free, Standard)
 
+### JsonSchema
+* JsonSchema `object`: The JSON schema.
+  * content `string`: The JSON content.
+  * title `string`: The JSON title.
+
 ### KeyType
 * KeyType `string` (values: NotSpecified, Primary, Secondary)
+
+### KeyVaultKey
+* KeyVaultKey `object`: The key vault key.
+  * attributes `object`: The key attributes.
+    * created `integer`: When the key was created.
+    * enabled `boolean`: Whether the key is enabled or not.
+    * updated `integer`: When the key was updated.
+  * kid `string`: The key id.
+
+### KeyVaultKeyCollection
+* KeyVaultKeyCollection `object`: Collection of key vault keys.
+  * skipToken `string`: The skip token.
+  * value `array`: The key vault keys.
+    * items [KeyVaultKey](#keyvaultkey)
 
 ### KeyVaultKeyReference
 * KeyVaultKeyReference `object`: The reference to the key vault key.
@@ -2077,6 +2974,18 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
     * name `string`: The resource name.
     * type `string`: The resource type.
   * keyVersion `string`: The private key version in key vault.
+
+### KeyVaultReference
+* KeyVaultReference `object`: The key vault reference.
+  * name `string`: The key vault name.
+  * id `string`: The resource id.
+  * name `string`: Gets the resource name.
+  * type `string`: Gets the resource type.
+
+### ListKeyVaultKeysDefinition
+* ListKeyVaultKeysDefinition `object`: The list key vault keys definition.
+  * keyVault **required** [KeyVaultReference](#keyvaultreference)
+  * skipToken `string`: The skip token.
 
 ### MapType
 * MapType `string` (values: NotSpecified, Xslt)
@@ -2100,6 +3009,31 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * nextLink `string`: URL to get the next set of operation list results if there are any.
   * value `array`: List of Logic operations supported by the Logic resource provider.
     * items [Operation](#operation)
+
+### OperationResult
+* OperationResult `object`: The operation result definition.
+  * inputs [Object](#object)
+  * inputsLink [ContentLink](#contentlink)
+  * iterationCount `integer`
+  * outputs [Object](#object)
+  * outputsLink [ContentLink](#contentlink)
+  * retryHistory `array`: Gets the retry histories.
+    * items [RetryHistory](#retryhistory)
+  * trackedProperties [Object](#object)
+  * trackingId `string`: Gets the tracking id.
+  * code `string`: The workflow scope repetition code.
+  * correlation [RunActionCorrelation](#runactioncorrelation)
+  * endTime `string`: The end time of the workflow scope repetition.
+  * startTime `string`: The start time of the workflow scope repetition.
+  * status [WorkflowStatus](#workflowstatus)
+
+### OperationResultProperties
+* OperationResultProperties `object`: The run operation result properties.
+  * code `string`: The workflow scope repetition code.
+  * correlation [RunActionCorrelation](#runactioncorrelation)
+  * endTime `string`: The end time of the workflow scope repetition.
+  * startTime `string`: The start time of the workflow scope repetition.
+  * status [WorkflowStatus](#workflowstatus)
 
 ### ParameterType
 * ParameterType `string` (values: NotSpecified, String, SecureString, Int, Float, Bool, Array, Object, SecureObject)
@@ -2128,13 +3062,18 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
     * items `string` (values: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday)
 
 ### RecurrenceScheduleOccurrence
-* RecurrenceScheduleOccurrence `object`: The recurrence schedule occurence.
+* RecurrenceScheduleOccurrence `object`: The recurrence schedule occurrence.
   * day [DayOfWeek](#dayofweek)
   * occurrence `integer`: The occurrence.
 
 ### RegenerateActionParameter
 * RegenerateActionParameter `object`: The access key regenerate action content.
   * keyType [KeyType](#keytype)
+
+### RepetitionIndex
+* RepetitionIndex `object`: The workflow run action repetition index.
+  * itemIndex **required** `integer`: The index.
+  * scopeName `string`: The scope.
 
 ### Resource
 * Resource `object`: The base resource type.
@@ -2159,11 +3098,28 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * serviceRequestId `string`: Gets the service request Id.
   * startTime `string`: Gets the start time.
 
+### RunActionCorrelation
+* RunActionCorrelation `object`: The workflow run action correlation properties.
+  * actionTrackingId `string`: The action tracking identifier.
+  * clientKeywords `array`: The client keywords.
+    * items `string`
+  * clientTrackingId `string`: The client tracking identifier.
+
+### RunCorrelation
+* RunCorrelation `object`: The correlation properties.
+  * clientKeywords `array`: The client keywords.
+    * items `string`
+  * clientTrackingId `string`: The client tracking identifier.
+
 ### SchemaType
 * SchemaType `string` (values: NotSpecified, Xml)
 
 ### SegmentTerminatorSuffix
 * SegmentTerminatorSuffix `string` (values: NotSpecified, None, CR, LF, CRLF)
+
+### SetTriggerStateActionDefinition
+* SetTriggerStateActionDefinition `object`
+  * source **required** [WorkflowTrigger](#workflowtrigger)
 
 ### SigningAlgorithm
 * SigningAlgorithm `string` (values: NotSpecified, Default, SHA1, SHA2256, SHA2384, SHA2512)
@@ -2179,6 +3135,31 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 ### SubResource
 * SubResource `object`: The sub resource type.
   * id `string`: The resource id.
+
+### TrackEventsOperationOptions
+* TrackEventsOperationOptions `string` (values: None, DisableSourceInfoEnrich): The track events operation options.
+
+### TrackingEvent
+* TrackingEvent `object`
+  * error [TrackingEventErrorInfo](#trackingeventerrorinfo)
+  * eventLevel **required** [EventLevel](#eventlevel)
+  * eventTime **required** `string`
+  * recordType **required** [TrackingRecordType](#trackingrecordtype)
+
+### TrackingEventErrorInfo
+* TrackingEventErrorInfo `object`
+  * code `string`
+  * message `string`
+
+### TrackingEventsDefinition
+* TrackingEventsDefinition `object`
+  * events **required** `array`
+    * items [TrackingEvent](#trackingevent)
+  * sourceType **required** `string`
+  * trackEventsOptions [TrackEventsOperationOptions](#trackeventsoperationoptions)
+
+### TrackingRecordType
+* TrackingRecordType `string` (values: NotSpecified, Custom, AS2Message, AS2MDN, X12Interchange, X12FunctionalGroup, X12TransactionSet, X12InterchangeAcknowledgment, X12FunctionalGroupAcknowledgment, X12TransactionSetAcknowledgment, EdifactInterchange, EdifactFunctionalGroup, EdifactTransactionSet, EdifactInterchangeAcknowledgment, EdifactFunctionalGroupAcknowledgment, EdifactTransactionSetAcknowledgment): The tracking record type.
 
 ### TrailingSeparatorPolicy
 * TrailingSeparatorPolicy `string` (values: NotSpecified, NotAllowed, Optional, Mandatory)
@@ -2275,6 +3256,39 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * trackedProperties [Object](#object)
   * trackingId `string`: Gets the tracking id.
 
+### WorkflowRunActionRepetitionDefinition
+* WorkflowRunActionRepetitionDefinition `object`: The workflow run action repetition definition.
+  * properties **required** [WorkflowRunActionRepetitionProperties](#workflowrunactionrepetitionproperties)
+  * id `string`: The resource id.
+  * location `string`: The resource location.
+  * name `string`: Gets the resource name.
+  * tags `object`: The resource tags.
+  * type `string`: Gets the resource type.
+
+### WorkflowRunActionRepetitionDefinitionCollection
+* WorkflowRunActionRepetitionDefinitionCollection `object`: A collection of workflow run action repetitions.
+  * value `array`
+    * items [WorkflowRunActionRepetitionDefinition](#workflowrunactionrepetitiondefinition)
+
+### WorkflowRunActionRepetitionProperties
+* WorkflowRunActionRepetitionProperties `object`: The workflow run action repetition properties definition.
+  * repetitionIndexes `array`: The repetition indexes.
+    * items [RepetitionIndex](#repetitionindex)
+  * inputs [Object](#object)
+  * inputsLink [ContentLink](#contentlink)
+  * iterationCount `integer`
+  * outputs [Object](#object)
+  * outputsLink [ContentLink](#contentlink)
+  * retryHistory `array`: Gets the retry histories.
+    * items [RetryHistory](#retryhistory)
+  * trackedProperties [Object](#object)
+  * trackingId `string`: Gets the tracking id.
+  * code `string`: The workflow scope repetition code.
+  * correlation [RunActionCorrelation](#runactioncorrelation)
+  * endTime `string`: The end time of the workflow scope repetition.
+  * startTime `string`: The start time of the workflow scope repetition.
+  * status [WorkflowStatus](#workflowstatus)
+
 ### WorkflowRunFilter
 * WorkflowRunFilter `object`: The workflow run filter.
   * status [WorkflowStatus](#workflowstatus)
@@ -2297,6 +3311,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * startTime `string`: Gets the start time.
   * status [WorkflowStatus](#workflowstatus)
   * trigger [WorkflowRunTrigger](#workflowruntrigger)
+  * waitEndTime `string`: Gets the wait end time.
   * workflow [ResourceReference](#resourcereference)
 
 ### WorkflowRunTrigger
@@ -2310,6 +3325,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * name `string`: Gets the name.
   * outputs [Object](#object)
   * outputsLink [ContentLink](#contentlink)
+  * scheduledTime `string`: Gets the scheduled time.
   * startTime `string`: Gets the start time.
   * status [WorkflowStatus](#workflowstatus)
   * trackedProperties [Object](#object)
@@ -2376,6 +3392,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 ### WorkflowTriggerListCallbackUrlQueries
 * WorkflowTriggerListCallbackUrlQueries `object`: Gets the workflow trigger callback URL query parameters.
   * api-version `string`: The api version.
+  * se `string`: The SAS timestamp.
   * sig `string`: The SAS signature.
   * sp `string`: The SAS permissions.
   * sv `string`: The SAS version.
@@ -2537,7 +3554,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * messageId **required** `string`: The message id.
 
 ### X12OneWayAgreement
-* X12OneWayAgreement `object`: The X12 oneway agreement.
+* X12OneWayAgreement `object`: The X12 one-way agreement.
   * protocolSettings **required** [X12ProtocolSettings](#x12protocolsettings)
   * receiverBusinessIdentity **required** [BusinessIdentity](#businessidentity)
   * senderBusinessIdentity **required** [BusinessIdentity](#businessidentity)

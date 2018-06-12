@@ -14,7 +14,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each thing (Thing Registry), configure logging, and create and manage policies and credentials to authenticate things.</p> <p>For more information about how AWS IoT works, see the <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p>",
+    "description": "<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>For more information about how AWS IoT works, see the <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -668,7 +668,7 @@
         }
       ],
       "post": {
-        "description": "Invoke the specified custom authorizer for testing purposes.",
+        "description": "Tests a custom authorization behavior by invoking a specified custom authorizer. Use this to test and debug the custom authorization behavior of devices that connect to the AWS IoT device gateway.",
         "operationId": "TestInvokeAuthorizer",
         "parameters": [
           {
@@ -2185,6 +2185,12 @@
             "schema": {
               "$ref": "#/definitions/InternalFailureException"
             }
+          },
+          "486": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
           }
         }
       }
@@ -2220,7 +2226,7 @@
         }
       ],
       "post": {
-        "description": "Gets effective policies.",
+        "description": "Gets a list of the policies that have an effect on the authorization behavior of the specified device when it connects to the AWS IoT device gateway.",
         "operationId": "GetEffectivePolicies",
         "parameters": [
           {
@@ -2958,6 +2964,67 @@
       ]
     },
     "/jobs/{jobId}": {
+      "delete": {
+        "description": "<p>Deletes a job and its related job executions.</p> <p>Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as \"DELETION_IN_PROGRESS\". Attempting to delete or cancel a job whose status is already \"DELETION_IN_PROGRESS\" will result in an error.</p> <p>Only 10 jobs may have status \"DELETION_IN_PROGRESS\" at the same time, or a LimitExceededException will occur.</p>",
+        "operationId": "DeleteJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InvalidStateTransitionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateTransitionException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Describes a job.",
         "operationId": "DescribeJob",
@@ -6859,7 +6926,7 @@
         }
       ],
       "post": {
-        "description": "Test custom authorization.",
+        "description": "Tests if a specified principal is authorized to perform an AWS IoT action on a specified resource. Use this to test and debug the authorization behavior of devices that connect to the AWS IoT device gateway.",
         "operationId": "TestAuthorization",
         "parameters": [
           {
@@ -8774,7 +8841,7 @@
         }
       },
       "post": {
-        "description": "Creates a thing record in the thing registry.",
+        "description": "Creates a thing record in the registry.",
         "operationId": "CreateThing",
         "parameters": [
           {
@@ -8994,6 +9061,217 @@
             }
           },
           "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/things/{thingName}/jobs/{jobId}/cancel": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Cancels the execution of a job for a given thing.",
+        "operationId": "CancelJobExecution",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancelJobExecutionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "thingName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "thingName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InvalidStateTransitionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateTransitionException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "VersionConflictException",
+            "schema": {
+              "$ref": "#/definitions/VersionConflictException"
+            }
+          }
+        }
+      }
+    },
+    "/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}": {
+      "delete": {
+        "description": "Deletes a job execution.",
+        "operationId": "DeleteJobExecution",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteJobExecutionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "thingName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "executionNumber",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "executionNumber",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "thingName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InvalidStateTransitionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateTransitionException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
@@ -9757,6 +10035,10 @@
           "$ref": "#/definitions/FirehoseAction",
           "description": "Write to an Amazon Kinesis Firehose stream."
         },
+        "iotAnalytics": {
+          "$ref": "#/definitions/IotAnalyticsAction",
+          "description": "Sends message data to an AWS IoT Analytics channel."
+        },
         "kinesis": {
           "$ref": "#/definitions/KinesisAction",
           "description": "Write data to an Amazon Kinesis stream."
@@ -10188,6 +10470,18 @@
           "$ref": "#/definitions/DateType",
           "description": "The date the CA certificate was created."
         },
+        "customerVersion": {
+          "$ref": "#/definitions/CustomerVersion",
+          "description": "The customer version of the CA certificate."
+        },
+        "generationId": {
+          "$ref": "#/definitions/GenerationId",
+          "description": "The generation ID of the CA certificate."
+        },
+        "lastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the CA certificate was last modified."
+        },
         "ownedBy": {
           "$ref": "#/definitions/AwsAccountId",
           "description": "The owner of the CA certificate."
@@ -10215,6 +10509,19 @@
     "CancelCertificateTransferRequest": {
       "description": "The input for the CancelCertificateTransfer operation.",
       "properties": {},
+      "type": "object"
+    },
+    "CancelJobExecutionRequest": {
+      "properties": {
+        "expectedVersion": {
+          "$ref": "#/definitions/ExpectedVersion",
+          "description": "(Optional) The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)"
+        },
+        "statusDetails": {
+          "$ref": "#/definitions/DetailsMap",
+          "description": "A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs."
+        }
+      },
       "type": "object"
     },
     "CancelJobRequest": {
@@ -10268,7 +10575,7 @@
         },
         "certificateId": {
           "$ref": "#/definitions/CertificateId",
-          "description": "The ID of the certificate."
+          "description": "The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)"
         },
         "creationDate": {
           "$ref": "#/definitions/DateType",
@@ -10316,6 +10623,14 @@
         "creationDate": {
           "$ref": "#/definitions/DateType",
           "description": "The date and time the certificate was created."
+        },
+        "customerVersion": {
+          "$ref": "#/definitions/CustomerVersion",
+          "description": "The customer version of the certificate."
+        },
+        "generationId": {
+          "$ref": "#/definitions/GenerationId",
+          "description": "The generation ID of the certificate."
         },
         "lastModifiedDate": {
           "$ref": "#/definitions/DateType",
@@ -10395,6 +10710,9 @@
         "$ref": "#/definitions/Certificate"
       },
       "type": "array"
+    },
+    "ChannelName": {
+      "type": "string"
     },
     "ClearDefaultAuthorizerRequest": {
       "properties": {},
@@ -11043,6 +11361,10 @@
       },
       "type": "object"
     },
+    "CustomerVersion": {
+      "minimum": 1,
+      "type": "integer"
+    },
     "DateType": {
       "format": "date-time",
       "type": "string"
@@ -11078,6 +11400,14 @@
           "description": "The message for the exception."
         }
       },
+      "type": "object"
+    },
+    "DeleteJobExecutionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteJobRequest": {
+      "properties": {},
       "type": "object"
     },
     "DeleteOTAUpdateRequest": {
@@ -11802,6 +12132,9 @@
     "ExecutionNumber": {
       "type": "integer"
     },
+    "ExpectedVersion": {
+      "type": "integer"
+    },
     "ExpiresInSec": {
       "maximum": 3600,
       "minimum": 60,
@@ -11860,6 +12193,12 @@
     "ForceDelete": {
       "type": "boolean"
     },
+    "ForceFlag": {
+      "type": "boolean"
+    },
+    "Forced": {
+      "type": "boolean"
+    },
     "FunctionArn": {
       "type": "string"
     },
@@ -11867,6 +12206,9 @@
       "maximum": 10000,
       "minimum": 1,
       "type": "integer"
+    },
+    "GenerationId": {
+      "type": "string"
     },
     "GetEffectivePoliciesRequest": {
       "properties": {
@@ -11956,9 +12298,21 @@
     "GetPolicyResponse": {
       "description": "The output from the GetPolicy operation.",
       "properties": {
+        "creationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the policy was created."
+        },
         "defaultVersionId": {
           "$ref": "#/definitions/PolicyVersionId",
           "description": "The default policy version ID."
+        },
+        "generationId": {
+          "$ref": "#/definitions/GenerationId",
+          "description": "The generation ID of the policy."
+        },
+        "lastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the policy was last modified."
         },
         "policyArn": {
           "$ref": "#/definitions/PolicyArn",
@@ -11983,9 +12337,21 @@
     "GetPolicyVersionResponse": {
       "description": "The output from the GetPolicyVersion operation.",
       "properties": {
+        "creationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the policy version was created."
+        },
+        "generationId": {
+          "$ref": "#/definitions/GenerationId",
+          "description": "The generation ID of the policy version."
+        },
         "isDefaultVersion": {
           "$ref": "#/definitions/IsDefaultVersion",
           "description": "Specifies whether the policy version is the default."
+        },
+        "lastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the policy version was last modified."
         },
         "policyArn": {
           "$ref": "#/definitions/PolicyArn",
@@ -12180,6 +12546,33 @@
       },
       "type": "object"
     },
+    "InvalidStateTransitionException": {
+      "description": "An attempt was made to change to an invalid state, for example by deleting a job or a job execution which is \"IN_PROGRESS\" without setting the <code>force</code> parameter.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "IotAnalyticsAction": {
+      "description": "Sends messge data to an AWS IoT Analytics channel.",
+      "properties": {
+        "channelArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "(deprecated) The ARN of the IoT Analytics channel to which message data will be sent."
+        },
+        "channelName": {
+          "$ref": "#/definitions/ChannelName",
+          "description": "The name of the IoT Analytics channel to which message data will be sent."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage)."
+        }
+      },
+      "type": "object"
+    },
     "IsAuthenticated": {
       "type": "boolean"
     },
@@ -12211,6 +12604,10 @@
         "documentParameters": {
           "$ref": "#/definitions/JobDocumentParameters",
           "description": "The parameters specified for the job document."
+        },
+        "forceCanceled": {
+          "$ref": "#/definitions/Forced",
+          "description": "Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to <code>true</code>."
         },
         "jobArn": {
           "$ref": "#/definitions/JobArn",
@@ -12290,6 +12687,10 @@
           "$ref": "#/definitions/ExecutionNumber",
           "description": "A string (consisting of the digits \"0\" through \"9\") which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information. "
         },
+        "forceCanceled": {
+          "$ref": "#/definitions/Forced",
+          "description": "Will be <code>true</code> if the job execution was canceled with the optional <code>force</code> parameter set to <code>true</code>."
+        },
         "jobId": {
           "$ref": "#/definitions/JobId",
           "description": "The unique identifier you assigned to the job when it was created."
@@ -12317,6 +12718,10 @@
         "thingArn": {
           "$ref": "#/definitions/ThingArn",
           "description": "The ARN of the thing on which the job execution is running."
+        },
+        "versionNumber": {
+          "$ref": "#/definitions/VersionNumber",
+          "description": "The version of the job execution. Job execution versions are incremented each time they are updated by a device."
         }
       },
       "type": "object"
@@ -12458,7 +12863,7 @@
         },
         "processingTargets": {
           "$ref": "#/definitions/ProcessingTargetNameList",
-          "description": "The devices on which the job is executing."
+          "description": "The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices."
         }
       },
       "type": "object"
@@ -12467,7 +12872,8 @@
       "enum": [
         "IN_PROGRESS",
         "CANCELED",
-        "COMPLETED"
+        "COMPLETED",
+        "DELETION_IN_PROGRESS"
       ],
       "type": "string"
     },
@@ -12597,7 +13003,7 @@
       "type": "string"
     },
     "LimitExceededException": {
-      "description": "The number of attached entities exceeds the limit.",
+      "description": "A limit has been exceeded.",
       "properties": {
         "message": {
           "$ref": "#/definitions/errorMessage",
@@ -13759,11 +14165,11 @@
       "properties": {
         "parameters": {
           "$ref": "#/definitions/Parameters",
-          "description": "The parameters for provisioning a thing."
+          "description": "The parameters for provisioning a thing. See <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\">Programmatic Provisioning</a> for more information."
         },
         "templateBody": {
           "$ref": "#/definitions/TemplateBody",
-          "description": "The provisioning template. "
+          "description": "The provisioning template. See <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\">Programmatic Provisioning</a> for more information."
         }
       },
       "required": [
@@ -14012,6 +14418,10 @@
         "roleAlias": {
           "$ref": "#/definitions/RoleAlias",
           "description": "The role alias."
+        },
+        "roleAliasArn": {
+          "$ref": "#/definitions/RoleAliasArn",
+          "description": "The ARN of the role alias."
         },
         "roleArn": {
           "$ref": "#/definitions/RoleArn",
@@ -14305,7 +14715,7 @@
       "properties": {
         "messageFormat": {
           "$ref": "#/definitions/MessageFormat",
-          "description": "The message format of the message to publish. Optional. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation."
+          "description": "(Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation."
         },
         "roleArn": {
           "$ref": "#/definitions/AwsArn",
@@ -14700,7 +15110,7 @@
         },
         "shadow": {
           "$ref": "#/definitions/JsonDocument",
-          "description": "The thing shadow."
+          "description": "The shadow."
         },
         "thingGroupNames": {
           "$ref": "#/definitions/ThingGroupNameList",
@@ -15345,7 +15755,7 @@
       "type": "integer"
     },
     "VersionConflictException": {
-      "description": "An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter.",
+      "description": "An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.",
       "properties": {
         "message": {
           "$ref": "#/definitions/errorMessage",
@@ -15353,6 +15763,9 @@
         }
       },
       "type": "object"
+    },
+    "VersionNumber": {
+      "type": "integer"
     },
     "VersionsLimitExceededException": {
       "description": "The number of policy versions exceeds the limit.",

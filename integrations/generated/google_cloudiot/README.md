@@ -1,6 +1,6 @@
 # @datafire/google_cloudiot
 
-Client library for Google Cloud IoT
+Client library for Cloud IoT
 
 ## Installation and Usage
 ```bash
@@ -389,14 +389,14 @@ google_cloudiot.projects.locations.registries.create({
 #### Output
 * output [DeviceRegistry](#deviceregistry)
 
-### projects.locations.registries.getIamPolicy
+### projects.locations.registries.groups.getIamPolicy
 Gets the access control policy for a resource.
 Returns an empty policy if the resource exists and does not have a policy
 set.
 
 
 ```js
-google_cloudiot.projects.locations.registries.getIamPolicy({
+google_cloudiot.projects.locations.registries.groups.getIamPolicy({
   "resource": ""
 }, context)
 ```
@@ -422,13 +422,13 @@ google_cloudiot.projects.locations.registries.getIamPolicy({
 #### Output
 * output [Policy](#policy)
 
-### projects.locations.registries.setIamPolicy
+### projects.locations.registries.groups.setIamPolicy
 Sets the access control policy on the specified resource. Replaces any
 existing policy.
 
 
 ```js
-google_cloudiot.projects.locations.registries.setIamPolicy({
+google_cloudiot.projects.locations.registries.groups.setIamPolicy({
   "resource": ""
 }, context)
 ```
@@ -454,14 +454,14 @@ google_cloudiot.projects.locations.registries.setIamPolicy({
 #### Output
 * output [Policy](#policy)
 
-### projects.locations.registries.testIamPermissions
+### projects.locations.registries.groups.testIamPermissions
 Returns permissions that a caller has on the specified resource.
 If the resource does not exist, this will return an empty set of
 permissions, not a NOT_FOUND error.
 
 
 ```js
-google_cloudiot.projects.locations.registries.testIamPermissions({
+google_cloudiot.projects.locations.registries.groups.testIamPermissions({
   "resource": ""
 }, context)
 ```
@@ -493,7 +493,6 @@ google_cloudiot.projects.locations.registries.testIamPermissions({
 
 ### Binding
 * Binding `object`: Associates `members` with a `role`.
-  * condition [Expr](#expr)
   * members `array`: Specifies the identities requesting access for a Cloud Platform resource.
     * items `string`
   * role `string`: Role that is assigned to `members`.
@@ -510,7 +509,7 @@ google_cloudiot.projects.locations.registries.testIamPermissions({
   * lastErrorStatus [Status](#status)
   * lastErrorTime `string`: [Output only] The time the most recent error occurred, such as a failure to
   * lastEventTime `string`: [Output only] The last time a telemetry event was received. Timestamps are
-  * lastHeartbeatTime `string`: [Output only] The last time a heartbeat was received. Timestamps are
+  * lastHeartbeatTime `string`: [Output only] The last time an MQTT `PINGREQ` was received. This field
   * lastStateTime `string`: [Output only] The last time a state event was received. Timestamps are
   * metadata `object`: The metadata key-value pairs assigned to the device. This metadata is not
   * name `string`: The resource path name. For example,
@@ -550,15 +549,9 @@ google_cloudiot.projects.locations.registries.testIamPermissions({
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
 
 ### EventNotificationConfig
-* EventNotificationConfig `object`: The configuration to forward telemetry events.
+* EventNotificationConfig `object`: The configuration for forwarding telemetry events.
   * pubsubTopicName `string`: A Cloud Pub/Sub topic name. For example,
-
-### Expr
-* Expr `object`: Represents an expression text. Example:
-  * description `string`: An optional description of the expression. This is a longer text which
-  * expression `string`: Textual representation of an expression in
-  * location `string`: An optional string indicating the location of the expression for error
-  * title `string`: An optional title for the expression, i.e. a short string describing
+  * subfolderMatches `string`: If the subfolder name matches this string exactly, this configuration will
 
 ### GetIamPolicyRequest
 * GetIamPolicyRequest `object`: Request message for `GetIamPolicy` method.
@@ -623,7 +616,6 @@ google_cloudiot.projects.locations.registries.testIamPermissions({
 ### SetIamPolicyRequest
 * SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.
   * policy [Policy](#policy)
-  * updateMask `string`: OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
 
 ### StateNotificationConfig
 * StateNotificationConfig `object`: The configuration for notification of new states received from the device.

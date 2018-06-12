@@ -12,11 +12,6 @@
       "x-twitter": "youtube"
     },
     "description": "Retrieves your YouTube Analytics data.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "YouTube Analytics",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -33,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/youtubeAnalytics/v1/rest",
@@ -54,7 +49,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/youtube": "Manage your YouTube account",
@@ -63,20 +58,6 @@
         "https://www.googleapis.com/auth/yt-analytics-monetary.readonly": "View monetary and non-monetary YouTube Analytics reports for your YouTube content",
         "https://www.googleapis.com/auth/yt-analytics.readonly": "View YouTube Analytics reports for your YouTube content"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/youtube": "Manage your YouTube account",
-        "https://www.googleapis.com/auth/youtube.readonly": "View your YouTube account",
-        "https://www.googleapis.com/auth/youtubepartner": "View and manage your assets and associated content on YouTube",
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly": "View monetary and non-monetary YouTube Analytics reports for your YouTube content",
-        "https://www.googleapis.com/auth/yt-analytics.readonly": "View YouTube Analytics reports for your YouTube content"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -132,13 +113,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -184,16 +165,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -232,32 +207,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtubepartner"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/yt-analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/yt-analytics.readonly"
             ]
           }
@@ -319,16 +282,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -366,16 +323,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -425,32 +376,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtubepartner"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/yt-analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/yt-analytics.readonly"
             ]
           }
@@ -512,16 +451,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -560,16 +493,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -669,32 +596,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/yt-analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/yt-analytics.readonly"
             ]
           }

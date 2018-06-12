@@ -2105,7 +2105,7 @@
         }
       },
       "get": {
-        "description": "Get an APNS VoipSandbox channel",
+        "description": "Get an APNS VoIPSandbox channel",
         "operationId": "GetApnsVoipSandboxChannel",
         "parameters": [
           {
@@ -3250,6 +3250,76 @@
       }
     },
     "/v1/apps/{application-id}/endpoints/{endpoint-id}": {
+      "delete": {
+        "description": "Deletes an endpoint.",
+        "operationId": "DeleteEndpoint",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteEndpointRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "endpoint-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteEndpointResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Returns information about an endpoint.",
         "operationId": "GetEndpoint",
@@ -3642,6 +3712,266 @@
           }
         }
       }
+    },
+    "/v1/apps/{application-id}/jobs/export": {
+      "get": {
+        "description": "Returns information about your export jobs.",
+        "operationId": "GetExportJobs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetExportJobsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetExportJobsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates an export job.",
+        "operationId": "CreateExportJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateExportJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateExportJobResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/apps/{application-id}/jobs/export/{job-id}": {
+      "get": {
+        "description": "Returns information about an export job.",
+        "operationId": "GetExportJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetExportJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "job-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetExportJobResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
     },
     "/v1/apps/{application-id}/jobs/import": {
       "get": {
@@ -4398,6 +4728,107 @@
         }
       }
     },
+    "/v1/apps/{application-id}/segments/{segment-id}/jobs/export": {
+      "get": {
+        "description": "Returns a list of export jobs for a specific segment.",
+        "operationId": "GetSegmentExportJobs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSegmentExportJobsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "segment-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSegmentExportJobsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
     "/v1/apps/{application-id}/segments/{segment-id}/jobs/import": {
       "get": {
         "description": "Returns a list of import jobs for a specific segment.",
@@ -4986,7 +5417,7 @@
       "properties": {
         "ApplicationId": {
           "$ref": "#/definitions/__string",
-          "description": "Application id"
+          "description": "The ID of the application to which the channel applies."
         },
         "CreationDate": {
           "$ref": "#/definitions/__string",
@@ -4998,7 +5429,7 @@
         },
         "HasCredential": {
           "$ref": "#/definitions/__boolean",
-          "description": "If the channel is registered with a credential for authentication."
+          "description": "Indicates whether the channel is configured with ADM credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with ADM. Provide your credentials by setting the ClientId and ClientSecret attributes."
         },
         "Id": {
           "$ref": "#/definitions/__string",
@@ -5156,11 +5587,11 @@
         },
         "HasCredential": {
           "$ref": "#/definitions/__boolean",
-          "description": "If the channel is registered with a credential for authentication."
+          "description": "Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes."
         },
         "HasTokenKey": {
           "$ref": "#/definitions/__boolean",
-          "description": "If the channel is registered with a token key for authentication."
+          "description": "Indicates whether the channel is configured with a key for APNs token authentication. Provide a token key by setting the TokenKey attribute."
         },
         "Id": {
           "$ref": "#/definitions/__string",
@@ -5210,7 +5641,7 @@
         },
         "CollapseId": {
           "$ref": "#/definitions/__string",
-          "description": "Multiple notifications with the same collapse identifier are displayed to the user as a single notification. The value of this key must not exceed 64 bytes."
+          "description": "An ID that, if assigned to multiple messages, causes APNs to coalesce the messages into a single push notification instead of delivering each message individually. The value must not exceed 64 bytes. Amazon Pinpoint uses this value to set the apns-collapse-id request header when it sends the message to APNs."
         },
         "Data": {
           "$ref": "#/definitions/MapOf__string",
@@ -5226,7 +5657,7 @@
         },
         "Priority": {
           "$ref": "#/definitions/__string",
-          "description": "Is this a transaction priority message or lower priority."
+          "description": "The message priority. Amazon Pinpoint uses this value to set the apns-priority request header when it sends the message to APNs. Accepts the following values:\n\n\"5\" - Low priority. Messages might be delayed, delivered in groups, and throttled.\n\n\"10\" - High priority. Messages are sent immediately. High priority messages must cause an alert, sound, or badge on the receiving device.\n\nThe default value is \"10\".\n\nThe equivalent values for FCM or GCM messages are \"normal\" and \"high\". Amazon Pinpoint accepts these values for APNs messages and converts them.\n\nFor more information about the apns-priority parameter, see Communicating with APNs in the APNs Local and Remote Notification Programming Guide."
         },
         "RawContent": {
           "$ref": "#/definitions/__string",
@@ -5250,7 +5681,7 @@
         },
         "TimeToLive": {
           "$ref": "#/definitions/__integer",
-          "description": "This parameter specifies how long (in seconds) the message should be kept if APNS is unable to deliver the notification the first time. If the value is 0, APNS treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to APNS"
+          "description": "The length of time (in seconds) that APNs stores and attempts to deliver the message. If the value is 0, APNs does not store the message or attempt to deliver it more than once. Amazon Pinpoint uses this value to set the apns-expiration request header when it sends the message to APNs."
         },
         "Title": {
           "$ref": "#/definitions/__string",
@@ -5306,7 +5737,7 @@
       "properties": {
         "ApplicationId": {
           "$ref": "#/definitions/__string",
-          "description": "Application id"
+          "description": "The ID of the application to which the channel applies."
         },
         "CreationDate": {
           "$ref": "#/definitions/__string",
@@ -5322,11 +5753,11 @@
         },
         "HasCredential": {
           "$ref": "#/definitions/__boolean",
-          "description": "If the channel is registered with a credential for authentication."
+          "description": "Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes."
         },
         "HasTokenKey": {
           "$ref": "#/definitions/__boolean",
-          "description": "If the channel is registered with a token key for authentication."
+          "description": "Indicates whether the channel is configured with a key for APNs token authentication. Provide a token key by setting the TokenKey attribute."
         },
         "Id": {
           "$ref": "#/definitions/__string",
@@ -5624,7 +6055,7 @@
         },
         "ChannelType": {
           "$ref": "#/definitions/ChannelType",
-          "description": "The channel type.\n\nValid values: GCM | APNS | SMS | EMAIL"
+          "description": "The channel type.\n\nValid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU"
         },
         "Context": {
           "$ref": "#/definitions/MapOf__string",
@@ -5665,6 +6096,10 @@
         "ApplicationId": {
           "$ref": "#/definitions/__string",
           "description": "The unique ID for the application."
+        },
+        "CampaignHook": {
+          "$ref": "#/definitions/CampaignHook",
+          "description": "Default campaign hook."
         },
         "LastModifiedDate": {
           "$ref": "#/definitions/__string",
@@ -5769,7 +6204,7 @@
         },
         "HasCredential": {
           "$ref": "#/definitions/__boolean",
-          "description": "If the channel is registered with a credential for authentication."
+          "description": "Indicates whether the channel is configured with Baidu Cloud Push credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with Baidu Cloud Push. Provide your credentials by setting the ApiKey and SecretKey attributes."
         },
         "Id": {
           "$ref": "#/definitions/__string",
@@ -5878,6 +6313,23 @@
       },
       "type": "object"
     },
+    "CampaignHook": {
+      "properties": {
+        "LambdaFunctionName": {
+          "$ref": "#/definitions/__string",
+          "description": "Lambda function name or arn to be called for delivery"
+        },
+        "Mode": {
+          "$ref": "#/definitions/Mode",
+          "description": "What mode Lambda should be invoked in."
+        },
+        "WebUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request"
+        }
+      },
+      "type": "object"
+    },
     "CampaignLimits": {
       "description": "Campaign Limits are used to limit the number of messages that can be sent to a user.",
       "properties": {
@@ -5887,11 +6339,11 @@
         },
         "MaximumDuration": {
           "$ref": "#/definitions/__integer",
-          "description": "The maximum duration of a campaign from the scheduled start. Must be a minimum of 60 seconds."
+          "description": "The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60."
         },
         "MessagesPerSecond": {
           "$ref": "#/definitions/__integer",
-          "description": "The maximum number of messages per second that the campaign will send. This is a best effort maximum cap and can go as high as 20000 and as low as 50"
+          "description": "The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000."
         },
         "Total": {
           "$ref": "#/definitions/__integer",
@@ -5926,6 +6378,10 @@
         "HoldoutPercent": {
           "$ref": "#/definitions/__integer",
           "description": "The allocated percentage of end users who will not receive messages from this campaign."
+        },
+        "Hook": {
+          "$ref": "#/definitions/CampaignHook",
+          "description": "Campaign hook information."
         },
         "Id": {
           "$ref": "#/definitions/__string",
@@ -6044,7 +6500,8 @@
         "ADM",
         "SMS",
         "EMAIL",
-        "BAIDU"
+        "BAIDU",
+        "CUSTOM"
       ],
       "type": "string"
     },
@@ -6099,6 +6556,28 @@
       },
       "required": [
         "CampaignResponse"
+      ],
+      "type": "object"
+    },
+    "CreateExportJobRequest": {
+      "properties": {
+        "ExportJobRequest": {
+          "$ref": "#/definitions/ExportJobRequest"
+        }
+      },
+      "required": [
+        "ExportJobRequest"
+      ],
+      "type": "object"
+    },
+    "CreateExportJobResponse": {
+      "properties": {
+        "ExportJobResponse": {
+          "$ref": "#/definitions/ExportJobResponse"
+        }
+      },
+      "required": [
+        "ExportJobResponse"
       ],
       "type": "object"
     },
@@ -6329,6 +6808,21 @@
       ],
       "type": "object"
     },
+    "DeleteEndpointRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteEndpointResponse": {
+      "properties": {
+        "EndpointResponse": {
+          "$ref": "#/definitions/EndpointResponse"
+        }
+      },
+      "required": [
+        "EndpointResponse"
+      ],
+      "type": "object"
+    },
     "DeleteEventStreamRequest": {
       "description": "DeleteEventStream Request",
       "properties": {},
@@ -6541,11 +7035,11 @@
         },
         "Attributes": {
           "$ref": "#/definitions/MapOfListOf__string",
-          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+          "description": "Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the values [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign.\n\nThe following characters are not recommended in attribute names: # : ? \\ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values."
         },
         "ChannelType": {
           "$ref": "#/definitions/ChannelType",
-          "description": "The channel type.\n\nValid values: GCM | APNS | SMS | EMAIL"
+          "description": "The channel type.\n\nValid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU"
         },
         "Demographic": {
           "$ref": "#/definitions/EndpointDemographic",
@@ -6699,11 +7193,11 @@
         },
         "Attributes": {
           "$ref": "#/definitions/MapOfListOf__string",
-          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+          "description": "Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the values [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign.\n\nThe following characters are not recommended in attribute names: # : ? \\ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values."
         },
         "ChannelType": {
           "$ref": "#/definitions/ChannelType",
-          "description": "The channel type.\n\nValid values: GCM | APNS | SMS | EMAIL"
+          "description": "The channel type.\n\nValid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU"
         },
         "Demographic": {
           "$ref": "#/definitions/EndpointDemographic",
@@ -6753,11 +7247,11 @@
         },
         "Attributes": {
           "$ref": "#/definitions/MapOfListOf__string",
-          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+          "description": "Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the values [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign.\n\nThe following characters are not recommended in attribute names: # : ? \\ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values."
         },
         "ChannelType": {
           "$ref": "#/definitions/ChannelType",
-          "description": "The channel type.\n\nValid values: GCM | APNS | SMS | EMAIL"
+          "description": "The channel type.\n\nValid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU"
         },
         "CohortId": {
           "$ref": "#/definitions/__string",
@@ -6837,7 +7331,7 @@
       "properties": {
         "UserAttributes": {
           "$ref": "#/definitions/MapOfListOf__string",
-          "description": "Custom attributes specific to the user."
+          "description": "Custom attributes that describe an end user by associating a name with an array of values. For example, an attribute named \"interests\" might have the values [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign.\n\nThe following characters are not recommended in attribute names: # : ? \\ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values."
         },
         "UserId": {
           "$ref": "#/definitions/__string",
@@ -6859,7 +7353,7 @@
         },
         "ExternalId": {
           "$ref": "#/definitions/__string",
-          "description": "The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream."
+          "description": "DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint."
         },
         "LastModifiedDate": {
           "$ref": "#/definitions/__string",
@@ -6872,6 +7366,111 @@
         "RoleArn": {
           "$ref": "#/definitions/__string",
           "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account."
+        }
+      },
+      "type": "object"
+    },
+    "ExportJobRequest": {
+      "properties": {
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that endpoints will be exported to."
+        },
+        "S3UrlPrefix": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL that points to the location within an Amazon S3 bucket that will receive the export. The location is typically a folder with multiple files.\nThe URL should follow this format: s3://bucket-name/folder-name/\n\nAmazon Pinpoint will export endpoints to this location."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to export endpoints from. If not present all endpoints will be exported."
+        }
+      },
+      "type": "object"
+    },
+    "ExportJobResource": {
+      "properties": {
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that endpoints will be exported to."
+        },
+        "S3UrlPrefix": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL that points to the location within an Amazon S3 bucket that will receive the export. The location is typically a folder with multiple files.\nThe URL should follow this format: s3://bucket-name/folder-name/\n\nAmazon Pinpoint will export endpoints to this location."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to export endpoints from. If not present, all endpoints are exported."
+        }
+      },
+      "type": "object"
+    },
+    "ExportJobResponse": {
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the application to which the job applies."
+        },
+        "CompletedPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of pieces that have successfully completed as of the time of the request."
+        },
+        "CompletionDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the job completed in ISO 8601 format."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the job was created in ISO 8601 format."
+        },
+        "Definition": {
+          "$ref": "#/definitions/ExportJobResource",
+          "description": "The export job settings."
+        },
+        "FailedPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of pieces that failed to be processed as of the time of the request."
+        },
+        "Failures": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Provides up to 100 of the first failed entries for the job, if any exist."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the job."
+        },
+        "JobStatus": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "The status of the job.\nValid values: CREATED, INITIALIZING, PROCESSING, COMPLETING, COMPLETED, FAILING, FAILED\n\nThe job status is FAILED if one or more pieces failed."
+        },
+        "TotalFailures": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of endpoints that were not processed; for example, because of syntax errors."
+        },
+        "TotalPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of pieces that must be processed to finish the job. Each piece is an approximately equal portion of the endpoints."
+        },
+        "TotalProcessed": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of endpoints that were processed by the job."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The job type. Will be 'EXPORT'."
+        }
+      },
+      "type": "object"
+    },
+    "ExportJobsResponse": {
+      "description": "Export job list.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfExportJobResponse",
+          "description": "A list of export jobs for the application."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
         }
       },
       "type": "object"
@@ -6942,7 +7541,7 @@
         },
         "HasCredential": {
           "$ref": "#/definitions/__boolean",
-          "description": "If the channel is registered with a credential for authentication."
+          "description": "Indicates whether the channel is configured with FCM or GCM credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with FCM or GCM. Provide your credentials by setting the ApiKey attribute."
         },
         "Id": {
           "$ref": "#/definitions/__string",
@@ -7004,7 +7603,7 @@
         },
         "Priority": {
           "$ref": "#/definitions/__string",
-          "description": "Is this a transaction priority message or lower priority."
+          "description": "The message priority. Amazon Pinpoint uses this value to set the FCM or GCM priority parameter when it sends the message. Accepts the following values:\n\n\"Normal\" - Messages might be delayed. Delivery is optimized for battery usage on the receiving device. Use normal priority unless immediate delivery is required.\n\n\"High\" - Messages are sent immediately and might wake a sleeping device.\n\nThe equivalent values for APNs messages are \"5\" and \"10\". Amazon Pinpoint accepts these values here and converts them.\n\nFor more information, see About FCM Messages in the Firebase documentation."
         },
         "RawContent": {
           "$ref": "#/definitions/__string",
@@ -7032,7 +7631,7 @@
         },
         "TimeToLive": {
           "$ref": "#/definitions/__integer",
-          "description": "This parameter specifies how long (in seconds) the message should be kept in GCM storage if the device is offline. The maximum time to live supported is 4 weeks, and the default value is 4 weeks."
+          "description": "The length of time (in seconds) that FCM or GCM stores and attempts to deliver the message. If unspecified, the value defaults to the maximum, which is 2,419,200 seconds (28 days). Amazon Pinpoint uses this value to set the FCM or GCM time_to_live parameter."
         },
         "Title": {
           "$ref": "#/definitions/__string",
@@ -7301,6 +7900,36 @@
       ],
       "type": "object"
     },
+    "GetExportJobRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetExportJobResponse": {
+      "properties": {
+        "ExportJobResponse": {
+          "$ref": "#/definitions/ExportJobResponse"
+        }
+      },
+      "required": [
+        "ExportJobResponse"
+      ],
+      "type": "object"
+    },
+    "GetExportJobsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetExportJobsResponse": {
+      "properties": {
+        "ExportJobsResponse": {
+          "$ref": "#/definitions/ExportJobsResponse"
+        }
+      },
+      "required": [
+        "ExportJobsResponse"
+      ],
+      "type": "object"
+    },
     "GetGcmChannelRequest": {
       "properties": {},
       "type": "object"
@@ -7343,6 +7972,21 @@
       },
       "required": [
         "ImportJobsResponse"
+      ],
+      "type": "object"
+    },
+    "GetSegmentExportJobsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSegmentExportJobsResponse": {
+      "properties": {
+        "ExportJobsResponse": {
+          "$ref": "#/definitions/ExportJobsResponse"
+        }
+      },
+      "required": [
+        "ExportJobsResponse"
       ],
       "type": "object"
     },
@@ -7444,7 +8088,7 @@
         },
         "ExternalId": {
           "$ref": "#/definitions/__string",
-          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role.\t"
+          "description": "DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint."
         },
         "Format": {
           "$ref": "#/definitions/Format",
@@ -7481,7 +8125,7 @@
         },
         "ExternalId": {
           "$ref": "#/definitions/__string",
-          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role.\t"
+          "description": "DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint."
         },
         "Format": {
           "$ref": "#/definitions/Format",
@@ -7628,6 +8272,12 @@
     "ListOfEndpointBatchItem": {
       "items": {
         "$ref": "#/definitions/EndpointBatchItem"
+      },
+      "type": "array"
+    },
+    "ListOfExportJobResponse": {
+      "items": {
+        "$ref": "#/definitions/ExportJobResponse"
       },
       "type": "array"
     },
@@ -7985,6 +8635,13 @@
       },
       "type": "object"
     },
+    "Mode": {
+      "enum": [
+        "DELIVERY",
+        "FILTER"
+      ],
+      "type": "string"
+    },
     "NotFoundException": {
       "description": "Simple message object.",
       "properties": {
@@ -8140,9 +8797,13 @@
           "$ref": "#/definitions/MessageType",
           "description": "Is this a transaction priority message or lower priority."
         },
+        "OriginationNumber": {
+          "$ref": "#/definitions/__string",
+          "description": "The phone number that the SMS message originates from. Specify one of the dedicated long codes or short codes that you requested from AWS Support and that is assigned to your account. If this attribute is not specified, Amazon Pinpoint randomly assigns a long code."
+        },
         "SenderId": {
           "$ref": "#/definitions/__string",
-          "description": "Sender ID of sent message."
+          "description": "The sender ID that is shown as the message sender on the recipient's device. Support for sender IDs varies by country or region."
         },
         "Substitutions": {
           "$ref": "#/definitions/MapOfListOf__string",
@@ -8256,7 +8917,7 @@
         },
         "ExternalId": {
           "$ref": "#/definitions/__string",
-          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role."
+          "description": "DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint."
         },
         "Format": {
           "$ref": "#/definitions/Format",
@@ -8803,6 +9464,10 @@
     "WriteApplicationSettingsRequest": {
       "description": "Creating application setting request",
       "properties": {
+        "CampaignHook": {
+          "$ref": "#/definitions/CampaignHook",
+          "description": "Default campaign hook information."
+        },
         "Limits": {
           "$ref": "#/definitions/CampaignLimits",
           "description": "The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own."
@@ -8828,6 +9493,10 @@
         "HoldoutPercent": {
           "$ref": "#/definitions/__integer",
           "description": "The allocated percentage of end users who will not receive messages from this campaign."
+        },
+        "Hook": {
+          "$ref": "#/definitions/CampaignHook",
+          "description": "Campaign hook information."
         },
         "IsPaused": {
           "$ref": "#/definitions/__boolean",

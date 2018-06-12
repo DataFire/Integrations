@@ -16,7 +16,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "swagger",
         "url": "https://developer.pandorabots.com/swagger/spec.json",

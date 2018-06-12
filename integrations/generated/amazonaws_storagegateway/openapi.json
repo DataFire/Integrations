@@ -164,7 +164,7 @@
         }
       ],
       "post": {
-        "description": "<p>Activates the gateway you previously deployed on your host. For more information, see <a href=\"http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html\"> Activate the AWS Storage Gateway</a>. In the activation process, you specify information such as the region you want to use for storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window, an activation key, and a name for your gateway. The activation process also associates your gateway with your account; for more information, see <a>UpdateGatewayInformation</a>.</p> <note> <p>You must turn on the gateway VM before you can activate your gateway.</p> </note>",
+        "description": "<p>Activates the gateway you previously deployed on your host. In the activation process, you specify information such as the region you want to use for storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window, an activation key, and a name for your gateway. The activation process also associates your gateway with your account; for more information, see <a>UpdateGatewayInformation</a>.</p> <note> <p>You must turn on the gateway VM before you can activate your gateway.</p> </note>",
         "operationId": "ActivateGateway",
         "parameters": [
           {
@@ -3250,7 +3250,7 @@
         }
       ],
       "post": {
-        "description": "<p>Sends you notification when all file data written to the NFS file share has been uploaded to Amazon S3.</p> <p>AWS Storage Gateway can send a notification through Amazon CloudWatch Events when all files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the NFS file share up to the time that you make a request for notification. When the upload is done, Storage Gateway sends you notification through an Amazon CloudWatch event. You can configure CloudWatch Events to sent the notification through event targets such as email, SNS or a Lambda function. text or Lambda functions. This operation is only supported in the file gateway type.</p>",
+        "description": "<p>Sends you notification through CloudWatch Events when all files written to your NFS file share have been uploaded to Amazon S3.</p> <p>AWS Storage Gateway can send a notification through Amazon CloudWatch Events when all files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the NFS file share up to the time that you make a request for notification. When the upload is done, Storage Gateway sends you notification through an Amazon CloudWatch Event. You can configure CloudWatch Events to send the notification through event targets such as Amazon SNS or AWS Lambda function. This operation is only supported in the file gateway type.</p> <p>For more information, see Getting File Upload Notification in the Storage Gateway User Guide (https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification). </p>",
         "operationId": "NotifyWhenUploaded",
         "parameters": [
           {
@@ -3445,7 +3445,7 @@
         }
       ],
       "post": {
-        "description": "<p>Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters a error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point you can reconfigure the disks as cache disks. This operation is only supported in the cached volume, tape and file gateway types.</p> <important> <p>If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.</p> </important>",
+        "description": "<p>Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters a error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point you can reconfigure the disks as cache disks. This operation is only supported in the cached volume and tape types.</p> <important> <p>If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.</p> </important>",
         "operationId": "ResetCache",
         "parameters": [
           {
@@ -4340,7 +4340,7 @@
       "properties": {
         "ActivationKey": {
           "$ref": "#/definitions/ActivationKey",
-          "description": "Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter <code>activationKey</code>. It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the <code>ActivateGateway</code> API call determine the actual configuration of your gateway."
+          "description": "<p>Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter <code>activationKey</code>. It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the <code>ActivateGateway</code> API call determine the actual configuration of your gateway. </p> <p>For more information, see https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html in the Storage Gateway User Guide.</p>"
         },
         "GatewayName": {
           "$ref": "#/definitions/GatewayName",
@@ -4348,7 +4348,7 @@
         },
         "GatewayRegion": {
           "$ref": "#/definitions/RegionId",
-          "description": "<p>A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your <code>Host</code> header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region\">Regions and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</p> <p> Valid Values: \"us-east-1\", \"us-east-2\", \"us-west-1\", \"us-west-2\", \"ca-central-1\", \"eu-west-1\", \"eu-central-1\", \"eu-west-2\", \"ap-northeast-1\", \"ap-northeast-2\", \"ap-southeast-1\", \"ap-southeast-2\", \"ap-south-1\", \"sa-east-1\"</p>"
+          "description": "<p>A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your <code>Host</code> header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region\">Regions and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</p> <p> Valid Values: \"us-east-1\", \"us-east-2\", \"us-west-1\", \"us-west-2\", \"ca-central-1\", \"eu-west-1\", \"eu-central-1\", \"eu-west-2\", \"eu-west-3\", \"ap-northeast-1\", \"ap-northeast-2\", \"ap-southeast-1\", \"ap-southeast-2\", \"ap-south-1\", \"sa-east-1\"</p>"
         },
         "GatewayTimezone": {
           "$ref": "#/definitions/GatewayTimezone",
@@ -4548,7 +4548,6 @@
       "type": "integer"
     },
     "Boolean": {
-      "description": "A value that indicates whether the write status of a file share is read-only: \"true\" if write status is read-only, and otherwise \"false\".",
       "type": "boolean"
     },
     "CachediSCSIVolume": {
@@ -4557,6 +4556,9 @@
         "CreatedDate": {
           "$ref": "#/definitions/CreatedDate",
           "description": "The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp."
+        },
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey"
         },
         "SourceSnapshotId": {
           "$ref": "#/definitions/SnapshotId",
@@ -4725,6 +4727,14 @@
         "GatewayARN": {
           "$ref": "#/definitions/GatewayARN"
         },
+        "KMSEncrypted": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional."
+        },
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey",
+          "description": "The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional."
+        },
         "NetworkInterfaceId": {
           "$ref": "#/definitions/NetworkInterfaceId"
         },
@@ -4779,7 +4789,7 @@
         },
         "DefaultStorageClass": {
           "$ref": "#/definitions/StorageClass",
-          "description": "The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
+          "description": "The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD, S3_STANDARD_IA or S3_ONEZONE_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
         },
         "GatewayARN": {
           "$ref": "#/definitions/GatewayARN",
@@ -4787,7 +4797,7 @@
         },
         "GuessMIMETypeEnabled": {
           "$ref": "#/definitions/Boolean",
-          "description": "Enables guessing of the MIME type for uploaded objects based on file extensions: \"true\" to enable MIME type guessing, and otherwise \"false\"."
+          "description": "Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true."
         },
         "KMSEncrypted": {
           "$ref": "#/definitions/Boolean",
@@ -4795,7 +4805,7 @@
         },
         "KMSKey": {
           "$ref": "#/definitions/KMSKey",
-          "description": "The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional."
+          "description": "The Amazon Resource Name (ARN) KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional."
         },
         "LocationARN": {
           "$ref": "#/definitions/LocationARN",
@@ -4805,9 +4815,17 @@
           "$ref": "#/definitions/NFSFileShareDefaults",
           "description": "File share default values. Optional."
         },
+        "ObjectACL": {
+          "$ref": "#/definitions/ObjectACL",
+          "description": "Sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is \"private\"."
+        },
         "ReadOnly": {
           "$ref": "#/definitions/Boolean",
-          "description": "Sets the write status of a file share: \"true\" if the write status is read-only, and otherwise \"false\"."
+          "description": "Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false."
+        },
+        "RequesterPays": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if you want the requester to pay instead of the bucket owner, and otherwise to false."
         },
         "Role": {
           "$ref": "#/definitions/Role",
@@ -4993,6 +5011,14 @@
           "$ref": "#/definitions/GatewayARN",
           "description": "The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tape with. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region."
         },
+        "KMSEncrypted": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional."
+        },
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey",
+          "description": "The Amazon Resource Name (ARN) of the KMS Key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional."
+        },
         "TapeBarcode": {
           "$ref": "#/definitions/TapeBarcode",
           "description": "<p>The barcode that you want to assign to the tape.</p> <note> <p>Barcodes cannot be reused. This includes barcodes used for tapes that have been deleted.</p> </note>"
@@ -5039,6 +5065,14 @@
         "GatewayARN": {
           "$ref": "#/definitions/GatewayARN",
           "description": "The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region."
+        },
+        "KMSEncrypted": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional."
+        },
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey",
+          "description": "The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional."
         },
         "NumTapesToCreate": {
           "$ref": "#/definitions/NumTapesToCreate",
@@ -6449,7 +6483,7 @@
       "type": "string"
     },
     "KMSKey": {
-      "description": "The ARN of the KMS key used for Amazon S3 server side encryption. ",
+      "description": "The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.",
       "maxLength": 2048,
       "minLength": 20,
       "type": "string"
@@ -6841,7 +6875,7 @@
         },
         "DefaultStorageClass": {
           "$ref": "#/definitions/StorageClass",
-          "description": "The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
+          "description": "The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD, S3_STANDARD_IA or S3_ONEZONE_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
         },
         "FileShareARN": {
           "$ref": "#/definitions/FileShareARN"
@@ -6857,7 +6891,7 @@
         },
         "GuessMIMETypeEnabled": {
           "$ref": "#/definitions/Boolean",
-          "description": "Enables guessing of the MIME type for uploaded objects based on file extensions: \"true\" to enable MIME type guessing, and otherwise \"false\"."
+          "description": "Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true."
         },
         "KMSEncrypted": {
           "$ref": "#/definitions/boolean",
@@ -6872,11 +6906,19 @@
         "NFSFileShareDefaults": {
           "$ref": "#/definitions/NFSFileShareDefaults"
         },
+        "ObjectACL": {
+          "$ref": "#/definitions/ObjectACL"
+        },
         "Path": {
           "$ref": "#/definitions/Path"
         },
         "ReadOnly": {
-          "$ref": "#/definitions/Boolean"
+          "$ref": "#/definitions/Boolean",
+          "description": "Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false."
+        },
+        "RequesterPays": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if you want the requester to pay instead of the bucket owner, and otherwise to false."
         },
         "Role": {
           "$ref": "#/definitions/Role"
@@ -6952,6 +6994,19 @@
       "maximum": 10,
       "minimum": 1,
       "type": "integer"
+    },
+    "ObjectACL": {
+      "description": "Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is \"private\".",
+      "enum": [
+        "private",
+        "public-read",
+        "public-read-write",
+        "authenticated-read",
+        "bucket-owner-read",
+        "bucket-owner-full-control",
+        "aws-exec-read"
+      ],
+      "type": "string"
     },
     "Path": {
       "description": "The file share path used by the NFS client to identify the mount point. ",
@@ -7379,6 +7434,9 @@
     "Tape": {
       "description": "Describes a virtual tape object.",
       "properties": {
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey"
+        },
         "Progress": {
           "$ref": "#/definitions/DoubleObject",
           "description": "<p>For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.</p> <p>Range: 0 (not started) to 100 (complete).</p>"
@@ -7417,7 +7475,7 @@
     "TapeARN": {
       "maxLength": 500,
       "minLength": 50,
-      "pattern": "^arn:(aws|aws-cn):storagegateway:[a-z\\-0-9]+:[0-9]+:tape\\/[0-9A-Z]{7,16}$",
+      "pattern": "^arn:(aws|aws-cn|aws-us-gov):storagegateway:[a-z\\-0-9]+:[0-9]+:tape\\/[0-9A-Z]{7,16}$",
       "type": "string"
     },
     "TapeARNs": {
@@ -7432,7 +7490,10 @@
       "properties": {
         "CompletionTime": {
           "$ref": "#/definitions/Time",
-          "description": "<p>The time that the archiving of the virtual tape was completed.</p> <p>The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.</p>"
+          "description": "<p>The time that the archiving of the virtual tape was completed.</p> <p>The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.</p>"
+        },
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey"
         },
         "RetrievedTo": {
           "$ref": "#/definitions/GatewayARN",
@@ -7447,7 +7508,8 @@
           "description": "The barcode that identifies the archived virtual tape."
         },
         "TapeCreatedDate": {
-          "$ref": "#/definitions/Time"
+          "$ref": "#/definitions/Time",
+          "description": "The date the virtual tape was created."
         },
         "TapeSizeInBytes": {
           "$ref": "#/definitions/TapeSize",
@@ -7532,7 +7594,7 @@
         },
         "TapeRecoveryPointTime": {
           "$ref": "#/definitions/Time",
-          "description": "<p>The time when the point-in-time view of the virtual tape was replicated for later recovery.</p> <p>The string format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.</p>"
+          "description": "<p>The time when the point-in-time view of the virtual tape was replicated for later recovery.</p> <p>The default time stamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.</p>"
         },
         "TapeSizeInBytes": {
           "$ref": "#/definitions/TapeSize",
@@ -7790,7 +7852,7 @@
         },
         "DefaultStorageClass": {
           "$ref": "#/definitions/StorageClass",
-          "description": "The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
+          "description": "The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are S3_STANDARD, S3_STANDARD_IA or S3_ONEZONE_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
         },
         "FileShareARN": {
           "$ref": "#/definitions/FileShareARN",
@@ -7798,7 +7860,7 @@
         },
         "GuessMIMETypeEnabled": {
           "$ref": "#/definitions/Boolean",
-          "description": "Enables guessing of the MIME type for uploaded objects based on file extensions: \"true\" to enable MIME type guessing, and otherwise \"false\"."
+          "description": "Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true."
         },
         "KMSEncrypted": {
           "$ref": "#/definitions/Boolean",
@@ -7806,15 +7868,23 @@
         },
         "KMSKey": {
           "$ref": "#/definitions/KMSKey",
-          "description": "The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional. "
+          "description": "The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional. "
         },
         "NFSFileShareDefaults": {
           "$ref": "#/definitions/NFSFileShareDefaults",
           "description": "The default values for the file share. Optional."
         },
+        "ObjectACL": {
+          "$ref": "#/definitions/ObjectACL",
+          "description": "Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is \"private\"."
+        },
         "ReadOnly": {
           "$ref": "#/definitions/Boolean",
-          "description": "Sets the write status of a file share: \"true\" if the write status is read-only, otherwise \"false\"."
+          "description": "Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false."
+        },
+        "RequesterPays": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if you want the requester to pay instead of the bucket owner, and otherwise to false."
         },
         "Squash": {
           "$ref": "#/definitions/Squash",

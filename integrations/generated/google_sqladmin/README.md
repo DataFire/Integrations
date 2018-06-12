@@ -83,8 +83,8 @@ google_sqladmin.flags.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [FlagsListResponse](#flagslistresponse)
@@ -110,8 +110,8 @@ google_sqladmin.instances.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstancesListResponse](#instanceslistresponse)
@@ -135,8 +135,8 @@ google_sqladmin.instances.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -161,8 +161,8 @@ google_sqladmin.instances.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -187,8 +187,8 @@ google_sqladmin.instances.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DatabaseInstance](#databaseinstance)
@@ -214,8 +214,8 @@ google_sqladmin.instances.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -241,8 +241,34 @@ google_sqladmin.instances.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### instances.addServerCa
+Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used in a certificate rotation, this operation replaces that version. There can not be more than one CA version waiting to be rotated in.
+
+
+```js
+google_sqladmin.instances.addServerCa({
+  "instance": "",
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -269,8 +295,8 @@ google_sqladmin.backupRuns.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackupRunsListResponse](#backuprunslistresponse)
@@ -296,8 +322,8 @@ google_sqladmin.backupRuns.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -324,8 +350,8 @@ google_sqladmin.backupRuns.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -352,8 +378,8 @@ google_sqladmin.backupRuns.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackupRun](#backuprun)
@@ -379,8 +405,8 @@ google_sqladmin.instances.clone({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -406,8 +432,8 @@ google_sqladmin.sslCerts.createEphemeral({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SslCert](#sslcert)
@@ -432,8 +458,8 @@ google_sqladmin.databases.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DatabasesListResponse](#databaseslistresponse)
@@ -459,8 +485,8 @@ google_sqladmin.databases.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -487,8 +513,8 @@ google_sqladmin.databases.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -515,8 +541,8 @@ google_sqladmin.databases.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Database](#database)
@@ -544,8 +570,8 @@ google_sqladmin.databases.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -573,8 +599,8 @@ google_sqladmin.databases.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -600,8 +626,8 @@ google_sqladmin.instances.demoteMaster({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -627,8 +653,8 @@ google_sqladmin.instances.export({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -654,8 +680,8 @@ google_sqladmin.instances.failover({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -681,11 +707,37 @@ google_sqladmin.instances.import({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
+
+### instances.listServerCas
+Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has previously rotated out.
+
+
+```js
+google_sqladmin.instances.listServerCas({
+  "instance": "",
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [InstancesListServerCasResponse](#instanceslistservercasresponse)
 
 ### instances.promoteReplica
 Promotes the read replica instance to be a stand-alone Cloud SQL instance.
@@ -707,8 +759,8 @@ google_sqladmin.instances.promoteReplica({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -733,8 +785,8 @@ google_sqladmin.instances.resetSslConfig({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -759,8 +811,8 @@ google_sqladmin.instances.restart({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -786,8 +838,35 @@ google_sqladmin.instances.restoreBackup({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### instances.rotateServerCa
+Rotates the server certificate to one signed by the Certificate Authority (CA) version previously added with the addServerCA method.
+
+
+```js
+google_sqladmin.instances.rotateServerCa({
+  "instance": "",
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [InstancesRotateServerCaRequest](#instancesrotateservercarequest)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -812,8 +891,8 @@ google_sqladmin.sslCerts.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SslCertsListResponse](#sslcertslistresponse)
@@ -839,8 +918,8 @@ google_sqladmin.sslCerts.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SslCertsInsertResponse](#sslcertsinsertresponse)
@@ -867,8 +946,8 @@ google_sqladmin.sslCerts.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -895,8 +974,8 @@ google_sqladmin.sslCerts.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SslCert](#sslcert)
@@ -921,8 +1000,8 @@ google_sqladmin.instances.startReplica({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -947,8 +1026,8 @@ google_sqladmin.instances.stopReplica({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -974,8 +1053,8 @@ google_sqladmin.instances.truncateLog({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1004,8 +1083,8 @@ google_sqladmin.users.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1030,8 +1109,8 @@ google_sqladmin.users.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [UsersListResponse](#userslistresponse)
@@ -1057,8 +1136,8 @@ google_sqladmin.users.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1088,8 +1167,8 @@ google_sqladmin.users.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1116,8 +1195,8 @@ google_sqladmin.operations.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OperationsListResponse](#operationslistresponse)
@@ -1142,8 +1221,8 @@ google_sqladmin.operations.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1166,8 +1245,8 @@ google_sqladmin.tiers.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TiersListResponse](#tierslistresponse)
@@ -1188,7 +1267,7 @@ google_sqladmin.tiers.list({
   * binaryLogEnabled `boolean`: Whether binary log is enabled. If backup configuration is disabled, binary log must be disabled as well.
   * enabled `boolean`: Whether this configuration is enabled.
   * kind `string`: This is always sql#backupConfiguration.
-  * replicationLogArchivingEnabled `boolean`: Whether replication log archiving is enabled. Replication log archiving is required for the point-in-time recovery (PITR) feature. PostgreSQL instances only.
+  * replicationLogArchivingEnabled `boolean`: Reserved for future use.
   * startTime `string`: Start time for the daily backup configuration in UTC timezone in the 24 hour format - HH:MM.
 
 ### BackupRun
@@ -1224,7 +1303,7 @@ google_sqladmin.tiers.list({
   * binLogCoordinates [BinLogCoordinates](#binlogcoordinates)
   * destinationInstanceName `string`: Name of the Cloud SQL instance to be created as a clone.
   * kind `string`: This is always sql#cloneContext.
-  * pitrTimestampMs `string`: The epoch timestamp, in milliseconds, of the time to which a point-in-time recovery (PITR) is performed. PostgreSQL instances only. For MySQL instances, use the binLogCoordinates property.
+  * pitrTimestampMs `string`: Reserved for future use.
 
 ### Database
 * Database `object`: A database resource inside a Cloud SQL instance.
@@ -1291,6 +1370,7 @@ google_sqladmin.tiers.list({
   * kind `string`: This is always sql#demoteMasterContext.
   * masterInstanceName `string`: The name of the instance which will act as on-premises master in the replication setup.
   * replicaConfiguration [DemoteMasterConfiguration](#demotemasterconfiguration)
+  * verifyGtidConsistency `boolean`: Verify GTID consistency for demote operation. Default value: True. Second Generation instances only. Setting this flag to false enables you to bypass GTID consistency check between on-premises master and Cloud SQL instance during the demotion operation but also exposes you to the risk of future replication failures. Change the value only if you know the reason for the GTID divergence and are confident that doing so will not cause any replication issues.
 
 ### DemoteMasterMySqlReplicaConfiguration
 * DemoteMasterMySqlReplicaConfiguration `object`: Read-replica configuration specific to MySQL databases.
@@ -1378,9 +1458,20 @@ google_sqladmin.tiers.list({
   * kind `string`: This is always sql#instancesList.
   * nextPageToken `string`: The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results.
 
+### InstancesListServerCasResponse
+* InstancesListServerCasResponse `object`: Instances ListServerCas response.
+  * activeVersion `string`
+  * certs `array`: List of server CA certificates for the instance.
+    * items [SslCert](#sslcert)
+  * kind `string`: This is always sql#instancesListServerCas.
+
 ### InstancesRestoreBackupRequest
 * InstancesRestoreBackupRequest `object`: Database instance restore backup request.
   * restoreBackupContext [RestoreBackupContext](#restorebackupcontext)
+
+### InstancesRotateServerCaRequest
+* InstancesRotateServerCaRequest `object`: Rotate Server CA request.
+  * rotateServerCaContext [RotateServerCaContext](#rotateservercacontext)
 
 ### InstancesTruncateLogRequest
 * InstancesTruncateLogRequest `object`: Instance truncate log request.
@@ -1479,6 +1570,11 @@ google_sqladmin.tiers.list({
   * backupRunId `string`: The ID of the backup run to restore from.
   * instanceId `string`: The ID of the instance that the backup was taken from.
   * kind `string`: This is always sql#restoreBackupContext.
+
+### RotateServerCaContext
+* RotateServerCaContext `object`: Instance rotate server CA context.
+  * kind `string`: This is always sql#rotateServerCaContext.
+  * nextVersion `string`: The fingerprint of the next version to be rotated to. If left unspecified, will be rotated to the most recently added server CA version.
 
 ### Settings
 * Settings `object`: Database instance settings.

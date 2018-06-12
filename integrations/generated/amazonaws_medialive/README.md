@@ -50,10 +50,11 @@ amazonaws_medialive.CreateChannel({}, context)
 
 #### Input
 * input `object`
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
   * EncoderSettings [EncoderSettings](#encodersettings)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * RequestId [__string](#__string)
   * Reserved [__string](#__string)
@@ -109,9 +110,11 @@ amazonaws_medialive.UpdateChannel({
 #### Input
 * input `object`
   * channelId **required** `string`
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
   * EncoderSettings [EncoderSettings](#encodersettings)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * RoleArn [__string](#__string)
 
@@ -178,7 +181,7 @@ amazonaws_medialive.CreateInputSecurityGroup({}, context)
 
 #### Input
 * input `object`
-  * WhitelistRules [ListOfInputWhitelistRuleCidr](#listofinputwhitelistrulecidr)
+  * WhitelistRules [__listOfInputWhitelistRuleCidr](#__listofinputwhitelistrulecidr)
 
 #### Output
 * output [CreateInputSecurityGroupResponse](#createinputsecuritygroupresponse)
@@ -217,6 +220,24 @@ amazonaws_medialive.DescribeInputSecurityGroup({
 #### Output
 * output [DescribeInputSecurityGroupResponse](#describeinputsecuritygroupresponse)
 
+### UpdateInputSecurityGroup
+
+
+
+```js
+amazonaws_medialive.UpdateInputSecurityGroup({
+  "inputSecurityGroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * inputSecurityGroupId **required** `string`
+  * WhitelistRules [__listOfInputWhitelistRuleCidr](#__listofinputwhitelistrulecidr)
+
+#### Output
+* output [UpdateInputSecurityGroupResponse](#updateinputsecuritygroupresponse)
+
 ### ListInputs
 
 
@@ -243,11 +264,11 @@ amazonaws_medialive.CreateInput({}, context)
 
 #### Input
 * input `object`
-  * Destinations [ListOfInputDestinationRequest](#listofinputdestinationrequest)
-  * InputSecurityGroups [ListOf__string](#listof__string)
+  * Destinations [__listOfInputDestinationRequest](#__listofinputdestinationrequest)
+  * InputSecurityGroups [__listOf__string](#__listof__string)
   * Name [__string](#__string)
   * RequestId [__string](#__string)
-  * Sources [ListOfInputSourceRequest](#listofinputsourcerequest)
+  * Sources [__listOfInputSourceRequest](#__listofinputsourcerequest)
   * Type [InputType](#inputtype)
 
 #### Output
@@ -286,6 +307,27 @@ amazonaws_medialive.DescribeInput({
 
 #### Output
 * output [DescribeInputResponse](#describeinputresponse)
+
+### UpdateInput
+
+
+
+```js
+amazonaws_medialive.UpdateInput({
+  "inputId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * inputId **required** `string`
+  * Destinations [__listOfInputDestinationRequest](#__listofinputdestinationrequest)
+  * InputSecurityGroups [__listOf__string](#__listof__string)
+  * Name [__string](#__string)
+  * Sources [__listOfInputSourceRequest](#__listofinputsourcerequest)
+
+#### Output
+* output [UpdateInputResponse](#updateinputresponse)
 
 
 
@@ -344,7 +386,7 @@ amazonaws_medialive.DescribeInput({
   * Bitrate [__double](#__double)
   * BitstreamMode [Ac3BitstreamMode](#ac3bitstreammode)
   * CodingMode [Ac3CodingMode](#ac3codingmode)
-  * Dialnorm [__integer](#__integer)
+  * Dialnorm [__integerMin1Max31](#__integermin1max31)
   * DrcProfile [Ac3DrcProfile](#ac3drcprofile)
   * LfeFilter [Ac3LfeFilter](#ac3lfefilter)
   * MetadataControl [Ac3MetadataControl](#ac3metadatacontrol)
@@ -362,12 +404,12 @@ amazonaws_medialive.DescribeInput({
 
 ### ArchiveGroupSettings
 * ArchiveGroupSettings `object`: Placeholder documentation for ArchiveGroupSettings
-  * Destination [OutputLocationRef](#outputlocationref)
-  * RolloverInterval [__integer](#__integer)
+  * Destination **required** [OutputLocationRef](#outputlocationref)
+  * RolloverInterval [__integerMin1](#__integermin1)
 
 ### ArchiveOutputSettings
 * ArchiveOutputSettings `object`: Placeholder documentation for ArchiveOutputSettings
-  * ContainerSettings [ArchiveContainerSettings](#archivecontainersettings)
+  * ContainerSettings **required** [ArchiveContainerSettings](#archivecontainersettings)
   * Extension [__string](#__string)
   * NameModifier [__string](#__string)
 
@@ -379,8 +421,8 @@ amazonaws_medialive.DescribeInput({
 
 ### AudioChannelMapping
 * AudioChannelMapping `object`: Placeholder documentation for AudioChannelMapping
-  * InputChannelLevels [ListOfInputChannelLevel](#listofinputchannellevel)
-  * OutputChannel [__integer](#__integer)
+  * InputChannelLevels **required** [__listOfInputChannelLevel](#__listofinputchannellevel)
+  * OutputChannel **required** [__integerMin0Max7](#__integermin0max7)
 
 ### AudioCodecSettings
 * AudioCodecSettings `object`: Placeholder documentation for AudioCodecSettings
@@ -393,13 +435,13 @@ amazonaws_medialive.DescribeInput({
 ### AudioDescription
 * AudioDescription `object`: Placeholder documentation for AudioDescription
   * AudioNormalizationSettings [AudioNormalizationSettings](#audionormalizationsettings)
-  * AudioSelectorName [__string](#__string)
+  * AudioSelectorName **required** [__string](#__string)
   * AudioType [AudioType](#audiotype)
   * AudioTypeControl [AudioDescriptionAudioTypeControl](#audiodescriptionaudiotypecontrol)
   * CodecSettings [AudioCodecSettings](#audiocodecsettings)
-  * LanguageCode [__string](#__string)
+  * LanguageCode [__stringMin3Max3](#__stringmin3max3)
   * LanguageCodeControl [AudioDescriptionLanguageCodeControl](#audiodescriptionlanguagecodecontrol)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * RemixSettings [RemixSettings](#remixsettings)
   * StreamName [__string](#__string)
 
@@ -411,7 +453,7 @@ amazonaws_medialive.DescribeInput({
 
 ### AudioLanguageSelection
 * AudioLanguageSelection `object`: Placeholder documentation for AudioLanguageSelection
-  * LanguageCode [__string](#__string)
+  * LanguageCode **required** [__string](#__string)
   * LanguageSelectionPolicy [AudioLanguageSelectionPolicy](#audiolanguageselectionpolicy)
 
 ### AudioLanguageSelectionPolicy
@@ -427,7 +469,7 @@ amazonaws_medialive.DescribeInput({
 * AudioNormalizationSettings `object`: Placeholder documentation for AudioNormalizationSettings
   * Algorithm [AudioNormalizationAlgorithm](#audionormalizationalgorithm)
   * AlgorithmControl [AudioNormalizationAlgorithmControl](#audionormalizationalgorithmcontrol)
-  * TargetLkfs [__double](#__double)
+  * TargetLkfs [__doubleMinNegative59Max0](#__doubleminnegative59max0)
 
 ### AudioOnlyHlsSettings
 * AudioOnlyHlsSettings `object`: Placeholder documentation for AudioOnlyHlsSettings
@@ -440,11 +482,11 @@ amazonaws_medialive.DescribeInput({
 
 ### AudioPidSelection
 * AudioPidSelection `object`: Placeholder documentation for AudioPidSelection
-  * Pid [__integer](#__integer)
+  * Pid **required** [__integerMin0Max8191](#__integermin0max8191)
 
 ### AudioSelector
 * AudioSelector `object`: Placeholder documentation for AudioSelector
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * SelectorSettings [AudioSelectorSettings](#audioselectorsettings)
 
 ### AudioSelectorSettings
@@ -454,6 +496,9 @@ amazonaws_medialive.DescribeInput({
 
 ### AudioType
 * AudioType `string` (values: CLEAN_EFFECTS, HEARING_IMPAIRED, UNDEFINED, VISUAL_IMPAIRED_COMMENTARY): Placeholder documentation for AudioType
+
+### AuthenticationScheme
+* AuthenticationScheme `string` (values: AKAMAI, COMMON): Placeholder documentation for AuthenticationScheme
 
 ### AvailBlanking
 * AvailBlanking `object`: Placeholder documentation for AvailBlanking
@@ -485,7 +530,7 @@ amazonaws_medialive.DescribeInput({
   * BlackoutSlateImage [InputLocation](#inputlocation)
   * NetworkEndBlackout [BlackoutSlateNetworkEndBlackout](#blackoutslatenetworkendblackout)
   * NetworkEndBlackoutImage [InputLocation](#inputlocation)
-  * NetworkId [__string](#__string)
+  * NetworkId [__stringMin34Max34](#__stringmin34max34)
   * State [BlackoutSlateState](#blackoutslatestate)
 
 ### BlackoutSlateNetworkEndBlackout
@@ -504,21 +549,21 @@ amazonaws_medialive.DescribeInput({
 * BurnInDestinationSettings `object`: Placeholder documentation for BurnInDestinationSettings
   * Alignment [BurnInAlignment](#burninalignment)
   * BackgroundColor [BurnInBackgroundColor](#burninbackgroundcolor)
-  * BackgroundOpacity [__integer](#__integer)
+  * BackgroundOpacity [__integerMin0Max255](#__integermin0max255)
   * Font [InputLocation](#inputlocation)
   * FontColor [BurnInFontColor](#burninfontcolor)
-  * FontOpacity [__integer](#__integer)
-  * FontResolution [__integer](#__integer)
+  * FontOpacity [__integerMin0Max255](#__integermin0max255)
+  * FontResolution [__integerMin96Max600](#__integermin96max600)
   * FontSize [__string](#__string)
   * OutlineColor [BurnInOutlineColor](#burninoutlinecolor)
-  * OutlineSize [__integer](#__integer)
+  * OutlineSize [__integerMin0Max10](#__integermin0max10)
   * ShadowColor [BurnInShadowColor](#burninshadowcolor)
-  * ShadowOpacity [__integer](#__integer)
+  * ShadowOpacity [__integerMin0Max255](#__integermin0max255)
   * ShadowXOffset [__integer](#__integer)
   * ShadowYOffset [__integer](#__integer)
   * TeletextGridControl [BurnInTeletextGridControl](#burninteletextgridcontrol)
-  * XPosition [__integer](#__integer)
-  * YPosition [__integer](#__integer)
+  * XPosition [__integerMin0](#__integermin0)
+  * YPosition [__integerMin0](#__integermin0)
 
 ### BurnInFontColor
 * BurnInFontColor `string` (values: BLACK, BLUE, GREEN, RED, WHITE, YELLOW): Placeholder documentation for BurnInFontColor
@@ -534,11 +579,11 @@ amazonaws_medialive.DescribeInput({
 
 ### CaptionDescription
 * CaptionDescription `object`: Output groups for this Live Event. Output groups contain information about where streams should be distributed.
-  * CaptionSelectorName [__string](#__string)
+  * CaptionSelectorName **required** [__string](#__string)
   * DestinationSettings [CaptionDestinationSettings](#captiondestinationsettings)
   * LanguageCode [__string](#__string)
   * LanguageDescription [__string](#__string)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
 
 ### CaptionDestinationSettings
 * CaptionDestinationSettings `object`: Placeholder documentation for CaptionDestinationSettings
@@ -547,6 +592,7 @@ amazonaws_medialive.DescribeInput({
   * DvbSubDestinationSettings [DvbSubDestinationSettings](#dvbsubdestinationsettings)
   * EmbeddedDestinationSettings [EmbeddedDestinationSettings](#embeddeddestinationsettings)
   * EmbeddedPlusScte20DestinationSettings [EmbeddedPlusScte20DestinationSettings](#embeddedplusscte20destinationsettings)
+  * RtmpCaptionInfoDestinationSettings [RtmpCaptionInfoDestinationSettings](#rtmpcaptioninfodestinationsettings)
   * Scte20PlusEmbeddedDestinationSettings [Scte20PlusEmbeddedDestinationSettings](#scte20plusembeddeddestinationsettings)
   * Scte27DestinationSettings [Scte27DestinationSettings](#scte27destinationsettings)
   * SmpteTtDestinationSettings [SmpteTtDestinationSettings](#smptettdestinationsettings)
@@ -556,14 +602,14 @@ amazonaws_medialive.DescribeInput({
 
 ### CaptionLanguageMapping
 * CaptionLanguageMapping `object`: Maps a caption channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2), with an optional description.
-  * CaptionChannel [__integer](#__integer)
-  * LanguageCode [__string](#__string)
-  * LanguageDescription [__string](#__string)
+  * CaptionChannel **required** [__integerMin1Max4](#__integermin1max4)
+  * LanguageCode **required** [__stringMin3Max3](#__stringmin3max3)
+  * LanguageDescription **required** [__stringMin1](#__stringmin1)
 
 ### CaptionSelector
 * CaptionSelector `object`: Output groups for this Live Event. Output groups contain information about where streams should be distributed.
   * LanguageCode [__string](#__string)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * SelectorSettings [CaptionSelectorSettings](#captionselectorsettings)
 
 ### CaptionSelectorSettings
@@ -578,12 +624,13 @@ amazonaws_medialive.DescribeInput({
 ### Channel
 * Channel `object`: Placeholder documentation for Channel
   * Arn [__string](#__string)
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
-  * EgressEndpoints [ListOfChannelEgressEndpoint](#listofchannelegressendpoint)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
+  * EgressEndpoints [__listOfChannelEgressEndpoint](#__listofchannelegressendpoint)
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -592,7 +639,7 @@ amazonaws_medialive.DescribeInput({
 ### ChannelConfigurationValidationError
 * ChannelConfigurationValidationError `object`: Placeholder documentation for ChannelConfigurationValidationError
   * Message [__string](#__string)
-  * ValidationErrors [ListOfValidationError](#listofvalidationerror)
+  * ValidationErrors [__listOfValidationError](#__listofvalidationerror)
 
 ### ChannelEgressEndpoint
 * ChannelEgressEndpoint `object`: Placeholder documentation for ChannelEgressEndpoint
@@ -604,11 +651,12 @@ amazonaws_medialive.DescribeInput({
 ### ChannelSummary
 * ChannelSummary `object`: Placeholder documentation for ChannelSummary
   * Arn [__string](#__string)
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
-  * EgressEndpoints [ListOfChannelEgressEndpoint](#listofchannelegressendpoint)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
+  * EgressEndpoints [__listOfChannelEgressEndpoint](#__listofchannelegressendpoint)
   * Id [__string](#__string)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -620,10 +668,11 @@ amazonaws_medialive.DescribeInput({
 
 ### CreateChannel
 * CreateChannel `object`: Placeholder documentation for CreateChannel
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
   * EncoderSettings [EncoderSettings](#encodersettings)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * RequestId [__string](#__string)
   * Reserved [__string](#__string)
@@ -631,10 +680,11 @@ amazonaws_medialive.DescribeInput({
 
 ### CreateChannelRequest
 * CreateChannelRequest `object`: A request to create a channel
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
   * EncoderSettings [EncoderSettings](#encodersettings)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * RequestId [__string](#__string)
   * Reserved [__string](#__string)
@@ -650,20 +700,20 @@ amazonaws_medialive.DescribeInput({
 
 ### CreateInput
 * CreateInput `object`: Placeholder documentation for CreateInput
-  * Destinations [ListOfInputDestinationRequest](#listofinputdestinationrequest)
-  * InputSecurityGroups [ListOf__string](#listof__string)
+  * Destinations [__listOfInputDestinationRequest](#__listofinputdestinationrequest)
+  * InputSecurityGroups [__listOf__string](#__listof__string)
   * Name [__string](#__string)
   * RequestId [__string](#__string)
-  * Sources [ListOfInputSourceRequest](#listofinputsourcerequest)
+  * Sources [__listOfInputSourceRequest](#__listofinputsourcerequest)
   * Type [InputType](#inputtype)
 
 ### CreateInputRequest
 * CreateInputRequest `object`: The name of the input
-  * Destinations [ListOfInputDestinationRequest](#listofinputdestinationrequest)
-  * InputSecurityGroups [ListOf__string](#listof__string)
+  * Destinations [__listOfInputDestinationRequest](#__listofinputdestinationrequest)
+  * InputSecurityGroups [__listOf__string](#__listof__string)
   * Name [__string](#__string)
   * RequestId [__string](#__string)
-  * Sources [ListOfInputSourceRequest](#listofinputsourcerequest)
+  * Sources [__listOfInputSourceRequest](#__listofinputsourcerequest)
   * Type [InputType](#inputtype)
 
 ### CreateInputResponse
@@ -676,7 +726,7 @@ amazonaws_medialive.DescribeInput({
 
 ### CreateInputSecurityGroupRequest
 * CreateInputSecurityGroupRequest `object`: The IPv4 CIDRs to whitelist for this Input Security Group
-  * WhitelistRules [ListOfInputWhitelistRuleCidr](#listofinputwhitelistrulecidr)
+  * WhitelistRules [__listOfInputWhitelistRuleCidr](#__listofinputwhitelistrulecidr)
 
 ### CreateInputSecurityGroupResponse
 * CreateInputSecurityGroupResponse `object`: Placeholder documentation for CreateInputSecurityGroupResponse
@@ -692,12 +742,13 @@ amazonaws_medialive.DescribeInput({
 ### DeleteChannelResponse
 * DeleteChannelResponse `object`: Placeholder documentation for DeleteChannelResponse
   * Arn [__string](#__string)
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
-  * EgressEndpoints [ListOfChannelEgressEndpoint](#listofchannelegressendpoint)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
+  * EgressEndpoints [__listOfChannelEgressEndpoint](#__listofchannelegressendpoint)
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -721,12 +772,13 @@ amazonaws_medialive.DescribeInput({
 ### DescribeChannelResponse
 * DescribeChannelResponse `object`: Placeholder documentation for DescribeChannelResponse
   * Arn [__string](#__string)
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
-  * EgressEndpoints [ListOfChannelEgressEndpoint](#listofchannelegressendpoint)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
+  * EgressEndpoints [__listOfChannelEgressEndpoint](#__listofchannelegressendpoint)
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -738,12 +790,12 @@ amazonaws_medialive.DescribeInput({
 ### DescribeInputResponse
 * DescribeInputResponse `object`: Placeholder documentation for DescribeInputResponse
   * Arn [__string](#__string)
-  * AttachedChannels [ListOf__string](#listof__string)
-  * Destinations [ListOfInputDestination](#listofinputdestination)
+  * AttachedChannels [__listOf__string](#__listof__string)
+  * Destinations [__listOfInputDestination](#__listofinputdestination)
   * Id [__string](#__string)
   * Name [__string](#__string)
-  * SecurityGroups [ListOf__string](#listof__string)
-  * Sources [ListOfInputSource](#listofinputsource)
+  * SecurityGroups [__listOf__string](#__listof__string)
+  * Sources [__listOfInputSource](#__listofinputsource)
   * State [InputState](#inputstate)
   * Type [InputType](#inputtype)
 
@@ -754,13 +806,15 @@ amazonaws_medialive.DescribeInput({
 * DescribeInputSecurityGroupResponse `object`: Placeholder documentation for DescribeInputSecurityGroupResponse
   * Arn [__string](#__string)
   * Id [__string](#__string)
-  * WhitelistRules [ListOfInputWhitelistRule](#listofinputwhitelistrule)
+  * Inputs [__listOf__string](#__listof__string)
+  * State [InputSecurityGroupState](#inputsecuritygroupstate)
+  * WhitelistRules [__listOfInputWhitelistRule](#__listofinputwhitelistrule)
 
 ### DvbNitSettings
 * DvbNitSettings `object`: DVB Network Information Table (NIT)
-  * NetworkId [__integer](#__integer)
-  * NetworkName [__string](#__string)
-  * RepInterval [__integer](#__integer)
+  * NetworkId **required** [__integerMin0Max65536](#__integermin0max65536)
+  * NetworkName **required** [__stringMin1Max256](#__stringmin1max256)
+  * RepInterval [__integerMin25Max10000](#__integermin25max10000)
 
 ### DvbSdtOutputSdt
 * DvbSdtOutputSdt `string` (values: SDT_FOLLOW, SDT_FOLLOW_IF_PRESENT, SDT_MANUAL, SDT_NONE): Placeholder documentation for DvbSdtOutputSdt
@@ -768,9 +822,9 @@ amazonaws_medialive.DescribeInput({
 ### DvbSdtSettings
 * DvbSdtSettings `object`: DVB Service Description Table (SDT)
   * OutputSdt [DvbSdtOutputSdt](#dvbsdtoutputsdt)
-  * RepInterval [__integer](#__integer)
-  * ServiceName [__string](#__string)
-  * ServiceProviderName [__string](#__string)
+  * RepInterval [__integerMin25Max2000](#__integermin25max2000)
+  * ServiceName [__stringMin1Max256](#__stringmin1max256)
+  * ServiceProviderName [__stringMin1Max256](#__stringmin1max256)
 
 ### DvbSubDestinationAlignment
 * DvbSubDestinationAlignment `string` (values: CENTERED, LEFT, SMART): Placeholder documentation for DvbSubDestinationAlignment
@@ -788,21 +842,21 @@ amazonaws_medialive.DescribeInput({
 * DvbSubDestinationSettings `object`: Placeholder documentation for DvbSubDestinationSettings
   * Alignment [DvbSubDestinationAlignment](#dvbsubdestinationalignment)
   * BackgroundColor [DvbSubDestinationBackgroundColor](#dvbsubdestinationbackgroundcolor)
-  * BackgroundOpacity [__integer](#__integer)
+  * BackgroundOpacity [__integerMin0Max255](#__integermin0max255)
   * Font [InputLocation](#inputlocation)
   * FontColor [DvbSubDestinationFontColor](#dvbsubdestinationfontcolor)
-  * FontOpacity [__integer](#__integer)
-  * FontResolution [__integer](#__integer)
+  * FontOpacity [__integerMin0Max255](#__integermin0max255)
+  * FontResolution [__integerMin96Max600](#__integermin96max600)
   * FontSize [__string](#__string)
   * OutlineColor [DvbSubDestinationOutlineColor](#dvbsubdestinationoutlinecolor)
-  * OutlineSize [__integer](#__integer)
+  * OutlineSize [__integerMin0Max10](#__integermin0max10)
   * ShadowColor [DvbSubDestinationShadowColor](#dvbsubdestinationshadowcolor)
-  * ShadowOpacity [__integer](#__integer)
+  * ShadowOpacity [__integerMin0Max255](#__integermin0max255)
   * ShadowXOffset [__integer](#__integer)
   * ShadowYOffset [__integer](#__integer)
   * TeletextGridControl [DvbSubDestinationTeletextGridControl](#dvbsubdestinationteletextgridcontrol)
-  * XPosition [__integer](#__integer)
-  * YPosition [__integer](#__integer)
+  * XPosition [__integerMin0](#__integermin0)
+  * YPosition [__integerMin0](#__integermin0)
 
 ### DvbSubDestinationShadowColor
 * DvbSubDestinationShadowColor `string` (values: BLACK, NONE, WHITE): Placeholder documentation for DvbSubDestinationShadowColor
@@ -812,11 +866,11 @@ amazonaws_medialive.DescribeInput({
 
 ### DvbSubSourceSettings
 * DvbSubSourceSettings `object`: Placeholder documentation for DvbSubSourceSettings
-  * Pid [__integer](#__integer)
+  * Pid [__integerMin1](#__integermin1)
 
 ### DvbTdtSettings
 * DvbTdtSettings `object`: DVB Time and Date Table (SDT)
-  * RepInterval [__integer](#__integer)
+  * RepInterval [__integerMin1000Max30000](#__integermin1000max30000)
 
 ### Eac3AttenuationControl
 * Eac3AttenuationControl `string` (values: ATTENUATE_3_DB, NONE): Placeholder documentation for Eac3AttenuationControl
@@ -858,7 +912,7 @@ amazonaws_medialive.DescribeInput({
   * BitstreamMode [Eac3BitstreamMode](#eac3bitstreammode)
   * CodingMode [Eac3CodingMode](#eac3codingmode)
   * DcFilter [Eac3DcFilter](#eac3dcfilter)
-  * Dialnorm [__integer](#__integer)
+  * Dialnorm [__integerMin1Max31](#__integermin1max31)
   * DrcLine [Eac3DrcLine](#eac3drcline)
   * DrcRf [Eac3DrcRf](#eac3drcrf)
   * LfeControl [Eac3LfeControl](#eac3lfecontrol)
@@ -899,32 +953,32 @@ amazonaws_medialive.DescribeInput({
 * EmbeddedSourceSettings `object`: Placeholder documentation for EmbeddedSourceSettings
   * Convert608To708 [EmbeddedConvert608To708](#embeddedconvert608to708)
   * Scte20Detection [EmbeddedScte20Detection](#embeddedscte20detection)
-  * Source608ChannelNumber [__integer](#__integer)
-  * Source608TrackNumber [__integer](#__integer)
+  * Source608ChannelNumber [__integerMin1Max4](#__integermin1max4)
+  * Source608TrackNumber [__integerMin1Max5](#__integermin1max5)
 
 ### Empty
 * Empty `object`: Placeholder documentation for Empty
 
 ### EncoderSettings
 * EncoderSettings `object`: Placeholder documentation for EncoderSettings
-  * AudioDescriptions [ListOfAudioDescription](#listofaudiodescription)
+  * AudioDescriptions **required** [__listOfAudioDescription](#__listofaudiodescription)
   * AvailBlanking [AvailBlanking](#availblanking)
   * AvailConfiguration [AvailConfiguration](#availconfiguration)
   * BlackoutSlate [BlackoutSlate](#blackoutslate)
-  * CaptionDescriptions [ListOfCaptionDescription](#listofcaptiondescription)
+  * CaptionDescriptions [__listOfCaptionDescription](#__listofcaptiondescription)
   * GlobalConfiguration [GlobalConfiguration](#globalconfiguration)
-  * OutputGroups [ListOfOutputGroup](#listofoutputgroup)
-  * TimecodeConfig [TimecodeConfig](#timecodeconfig)
-  * VideoDescriptions [ListOfVideoDescription](#listofvideodescription)
+  * OutputGroups **required** [__listOfOutputGroup](#__listofoutputgroup)
+  * TimecodeConfig **required** [TimecodeConfig](#timecodeconfig)
+  * VideoDescriptions **required** [__listOfVideoDescription](#__listofvideodescription)
 
 ### FecOutputIncludeFec
 * FecOutputIncludeFec `string` (values: COLUMN, COLUMN_AND_ROW): Placeholder documentation for FecOutputIncludeFec
 
 ### FecOutputSettings
 * FecOutputSettings `object`: Placeholder documentation for FecOutputSettings
-  * ColumnDepth [__integer](#__integer)
+  * ColumnDepth [__integerMin4Max20](#__integermin4max20)
   * IncludeFec [FecOutputIncludeFec](#fecoutputincludefec)
-  * RowLength [__integer](#__integer)
+  * RowLength [__integerMin1Max20](#__integermin1max20)
 
 ### FixedAfd
 * FixedAfd `string` (values: AFD_0000, AFD_0010, AFD_0011, AFD_0100, AFD_1000, AFD_1001, AFD_1010, AFD_1011, AFD_1101, AFD_1110, AFD_1111): Placeholder documentation for FixedAfd
@@ -939,7 +993,7 @@ amazonaws_medialive.DescribeInput({
 
 ### GlobalConfiguration
 * GlobalConfiguration `object`: Placeholder documentation for GlobalConfiguration
-  * InitialAudioGain [__integer](#__integer)
+  * InitialAudioGain [__integerMinNegative60Max60](#__integerminnegative60max60)
   * InputEndAction [GlobalConfigurationInputEndAction](#globalconfigurationinputendaction)
   * InputLossBehavior [InputLossBehavior](#inputlossbehavior)
   * OutputTimingSource [GlobalConfigurationOutputTimingSource](#globalconfigurationoutputtimingsource)
@@ -1000,9 +1054,9 @@ amazonaws_medialive.DescribeInput({
 * H264Settings `object`: Placeholder documentation for H264Settings
   * AdaptiveQuantization [H264AdaptiveQuantization](#h264adaptivequantization)
   * AfdSignaling [AfdSignaling](#afdsignaling)
-  * Bitrate [__integer](#__integer)
-  * BufFillPct [__integer](#__integer)
-  * BufSize [__integer](#__integer)
+  * Bitrate [__integerMin1000](#__integermin1000)
+  * BufFillPct [__integerMin0Max100](#__integermin0max100)
+  * BufSize [__integerMin0](#__integermin0)
   * ColorMetadata [H264ColorMetadata](#h264colormetadata)
   * EntropyEncoding [H264EntropyEncoding](#h264entropyencoding)
   * FixedAfd [FixedAfd](#fixedafd)
@@ -1011,24 +1065,24 @@ amazonaws_medialive.DescribeInput({
   * FramerateDenominator [__integer](#__integer)
   * FramerateNumerator [__integer](#__integer)
   * GopBReference [H264GopBReference](#h264gopbreference)
-  * GopClosedCadence [__integer](#__integer)
-  * GopNumBFrames [__integer](#__integer)
-  * GopSize [__double](#__double)
+  * GopClosedCadence [__integerMin0](#__integermin0)
+  * GopNumBFrames [__integerMin0Max7](#__integermin0max7)
+  * GopSize [__doubleMin1](#__doublemin1)
   * GopSizeUnits [H264GopSizeUnits](#h264gopsizeunits)
   * Level [H264Level](#h264level)
   * LookAheadRateControl [H264LookAheadRateControl](#h264lookaheadratecontrol)
-  * MaxBitrate [__integer](#__integer)
-  * MinIInterval [__integer](#__integer)
-  * NumRefFrames [__integer](#__integer)
+  * MaxBitrate [__integerMin1000](#__integermin1000)
+  * MinIInterval [__integerMin0Max30](#__integermin0max30)
+  * NumRefFrames [__integerMin1Max6](#__integermin1max6)
   * ParControl [H264ParControl](#h264parcontrol)
-  * ParDenominator [__integer](#__integer)
+  * ParDenominator [__integerMin1](#__integermin1)
   * ParNumerator [__integer](#__integer)
   * Profile [H264Profile](#h264profile)
   * RateControlMode [H264RateControlMode](#h264ratecontrolmode)
   * ScanType [H264ScanType](#h264scantype)
   * SceneChangeDetect [H264SceneChangeDetect](#h264scenechangedetect)
-  * Slices [__integer](#__integer)
-  * Softness [__integer](#__integer)
+  * Slices [__integerMin1Max32](#__integermin1max32)
+  * Softness [__integerMin0Max128](#__integermin0max128)
   * SpatialAq [H264SpatialAq](#h264spatialaq)
   * Syntax [H264Syntax](#h264syntax)
   * TemporalAq [H264TemporalAq](#h264temporalaq)
@@ -1054,20 +1108,20 @@ amazonaws_medialive.DescribeInput({
 
 ### HlsAkamaiSettings
 * HlsAkamaiSettings `object`: Placeholder documentation for HlsAkamaiSettings
-  * ConnectionRetryInterval [__integer](#__integer)
-  * FilecacheDuration [__integer](#__integer)
+  * ConnectionRetryInterval [__integerMin0](#__integermin0)
+  * FilecacheDuration [__integerMin0Max600](#__integermin0max600)
   * HttpTransferMode [HlsAkamaiHttpTransferMode](#hlsakamaihttptransfermode)
-  * NumRetries [__integer](#__integer)
-  * RestartDelay [__integer](#__integer)
+  * NumRetries [__integerMin0](#__integermin0)
+  * RestartDelay [__integerMin0Max15](#__integermin0max15)
   * Salt [__string](#__string)
   * Token [__string](#__string)
 
 ### HlsBasicPutSettings
 * HlsBasicPutSettings `object`: Placeholder documentation for HlsBasicPutSettings
-  * ConnectionRetryInterval [__integer](#__integer)
-  * FilecacheDuration [__integer](#__integer)
-  * NumRetries [__integer](#__integer)
-  * RestartDelay [__integer](#__integer)
+  * ConnectionRetryInterval [__integerMin0](#__integermin0)
+  * FilecacheDuration [__integerMin0Max600](#__integermin0max600)
+  * NumRetries [__integerMin0](#__integermin0)
+  * RestartDelay [__integerMin0Max15](#__integermin0max15)
 
 ### HlsCaptionLanguageSetting
 * HlsCaptionLanguageSetting `string` (values: INSERT, NONE, OMIT): Placeholder documentation for HlsCaptionLanguageSetting
@@ -1093,48 +1147,48 @@ amazonaws_medialive.DescribeInput({
 
 ### HlsGroupSettings
 * HlsGroupSettings `object`: Placeholder documentation for HlsGroupSettings
-  * AdMarkers [ListOfHlsAdMarkers](#listofhlsadmarkers)
+  * AdMarkers [__listOfHlsAdMarkers](#__listofhlsadmarkers)
   * BaseUrlContent [__string](#__string)
   * BaseUrlManifest [__string](#__string)
-  * CaptionLanguageMappings [ListOfCaptionLanguageMapping](#listofcaptionlanguagemapping)
+  * CaptionLanguageMappings [__listOfCaptionLanguageMapping](#__listofcaptionlanguagemapping)
   * CaptionLanguageSetting [HlsCaptionLanguageSetting](#hlscaptionlanguagesetting)
   * ClientCache [HlsClientCache](#hlsclientcache)
   * CodecSpecification [HlsCodecSpecification](#hlscodecspecification)
-  * ConstantIv [__string](#__string)
-  * Destination [OutputLocationRef](#outputlocationref)
+  * ConstantIv [__stringMin32Max32](#__stringmin32max32)
+  * Destination **required** [OutputLocationRef](#outputlocationref)
   * DirectoryStructure [HlsDirectoryStructure](#hlsdirectorystructure)
   * EncryptionType [HlsEncryptionType](#hlsencryptiontype)
   * HlsCdnSettings [HlsCdnSettings](#hlscdnsettings)
-  * IndexNSegments [__integer](#__integer)
+  * IndexNSegments [__integerMin3](#__integermin3)
   * InputLossAction [InputLossActionForHlsOut](#inputlossactionforhlsout)
   * IvInManifest [HlsIvInManifest](#hlsivinmanifest)
   * IvSource [HlsIvSource](#hlsivsource)
-  * KeepSegments [__integer](#__integer)
+  * KeepSegments [__integerMin1](#__integermin1)
   * KeyFormat [__string](#__string)
   * KeyFormatVersions [__string](#__string)
   * KeyProviderSettings [KeyProviderSettings](#keyprovidersettings)
   * ManifestCompression [HlsManifestCompression](#hlsmanifestcompression)
   * ManifestDurationFormat [HlsManifestDurationFormat](#hlsmanifestdurationformat)
-  * MinSegmentLength [__integer](#__integer)
+  * MinSegmentLength [__integerMin0](#__integermin0)
   * Mode [HlsMode](#hlsmode)
   * OutputSelection [HlsOutputSelection](#hlsoutputselection)
   * ProgramDateTime [HlsProgramDateTime](#hlsprogramdatetime)
-  * ProgramDateTimePeriod [__integer](#__integer)
-  * SegmentLength [__integer](#__integer)
+  * ProgramDateTimePeriod [__integerMin0Max3600](#__integermin0max3600)
+  * SegmentLength [__integerMin1](#__integermin1)
   * SegmentationMode [HlsSegmentationMode](#hlssegmentationmode)
-  * SegmentsPerSubdirectory [__integer](#__integer)
+  * SegmentsPerSubdirectory [__integerMin1](#__integermin1)
   * StreamInfResolution [HlsStreamInfResolution](#hlsstreaminfresolution)
   * TimedMetadataId3Frame [HlsTimedMetadataId3Frame](#hlstimedmetadataid3frame)
-  * TimedMetadataId3Period [__integer](#__integer)
-  * TimestampDeltaMilliseconds [__integer](#__integer)
+  * TimedMetadataId3Period [__integerMin0](#__integermin0)
+  * TimestampDeltaMilliseconds [__integerMin0](#__integermin0)
   * TsFileMode [HlsTsFileMode](#hlstsfilemode)
 
 ### HlsInputSettings
 * HlsInputSettings `object`: Placeholder documentation for HlsInputSettings
-  * Bandwidth [__integer](#__integer)
-  * BufferSegments [__integer](#__integer)
-  * Retries [__integer](#__integer)
-  * RetryInterval [__integer](#__integer)
+  * Bandwidth [__integerMin0](#__integermin0)
+  * BufferSegments [__integerMin0](#__integermin0)
+  * Retries [__integerMin0](#__integermin0)
+  * RetryInterval [__integerMin0](#__integermin0)
 
 ### HlsIvInManifest
 * HlsIvInManifest `string` (values: EXCLUDE, INCLUDE): Placeholder documentation for HlsIvInManifest
@@ -1150,11 +1204,11 @@ amazonaws_medialive.DescribeInput({
 
 ### HlsMediaStoreSettings
 * HlsMediaStoreSettings `object`: Placeholder documentation for HlsMediaStoreSettings
-  * ConnectionRetryInterval [__integer](#__integer)
-  * FilecacheDuration [__integer](#__integer)
+  * ConnectionRetryInterval [__integerMin0](#__integermin0)
+  * FilecacheDuration [__integerMin0Max600](#__integermin0max600)
   * MediaStoreStorageClass [HlsMediaStoreStorageClass](#hlsmediastorestorageclass)
-  * NumRetries [__integer](#__integer)
-  * RestartDelay [__integer](#__integer)
+  * NumRetries [__integerMin0](#__integermin0)
+  * RestartDelay [__integerMin0Max15](#__integermin0max15)
 
 ### HlsMediaStoreStorageClass
 * HlsMediaStoreStorageClass `string` (values: TEMPORAL): Placeholder documentation for HlsMediaStoreStorageClass
@@ -1167,8 +1221,8 @@ amazonaws_medialive.DescribeInput({
 
 ### HlsOutputSettings
 * HlsOutputSettings `object`: Placeholder documentation for HlsOutputSettings
-  * HlsSettings [HlsSettings](#hlssettings)
-  * NameModifier [__string](#__string)
+  * HlsSettings **required** [HlsSettings](#hlssettings)
+  * NameModifier [__stringMin1](#__stringmin1)
   * SegmentModifier [__string](#__string)
 
 ### HlsProgramDateTime
@@ -1196,21 +1250,21 @@ amazonaws_medialive.DescribeInput({
 
 ### HlsWebdavSettings
 * HlsWebdavSettings `object`: Placeholder documentation for HlsWebdavSettings
-  * ConnectionRetryInterval [__integer](#__integer)
-  * FilecacheDuration [__integer](#__integer)
+  * ConnectionRetryInterval [__integerMin0](#__integermin0)
+  * FilecacheDuration [__integerMin0Max600](#__integermin0max600)
   * HttpTransferMode [HlsWebdavHttpTransferMode](#hlswebdavhttptransfermode)
-  * NumRetries [__integer](#__integer)
-  * RestartDelay [__integer](#__integer)
+  * NumRetries [__integerMin0](#__integermin0)
+  * RestartDelay [__integerMin0Max15](#__integermin0max15)
 
 ### Input
 * Input `object`: Placeholder documentation for Input
   * Arn [__string](#__string)
-  * AttachedChannels [ListOf__string](#listof__string)
-  * Destinations [ListOfInputDestination](#listofinputdestination)
+  * AttachedChannels [__listOf__string](#__listof__string)
+  * Destinations [__listOfInputDestination](#__listofinputdestination)
   * Id [__string](#__string)
   * Name [__string](#__string)
-  * SecurityGroups [ListOf__string](#listof__string)
-  * Sources [ListOfInputSource](#listofinputsource)
+  * SecurityGroups [__listOf__string](#__listof__string)
+  * Sources [__listOfInputSource](#__listofinputsource)
   * State [InputState](#inputstate)
   * Type [InputType](#inputtype)
 
@@ -1221,8 +1275,8 @@ amazonaws_medialive.DescribeInput({
 
 ### InputChannelLevel
 * InputChannelLevel `object`: Placeholder documentation for InputChannelLevel
-  * Gain [__integer](#__integer)
-  * InputChannel [__integer](#__integer)
+  * Gain **required** [__integerMinNegative60Max6](#__integerminnegative60max6)
+  * InputChannel **required** [__integerMin0Max15](#__integermin0max15)
 
 ### InputCodec
 * InputCodec `string` (values: MPEG2, AVC, HEVC): codec in increasing order of complexity
@@ -1249,7 +1303,7 @@ amazonaws_medialive.DescribeInput({
 ### InputLocation
 * InputLocation `object`: Placeholder documentation for InputLocation
   * PasswordParam [__string](#__string)
-  * Uri [__string](#__string)
+  * Uri **required** [__string](#__string)
   * Username [__string](#__string)
 
 ### InputLossActionForHlsOut
@@ -1263,11 +1317,11 @@ amazonaws_medialive.DescribeInput({
 
 ### InputLossBehavior
 * InputLossBehavior `object`: Placeholder documentation for InputLossBehavior
-  * BlackFrameMsec [__integer](#__integer)
-  * InputLossImageColor [__string](#__string)
+  * BlackFrameMsec [__integerMin0Max1000000](#__integermin0max1000000)
+  * InputLossImageColor [__stringMin6Max6](#__stringmin6max6)
   * InputLossImageSlate [InputLocation](#inputlocation)
   * InputLossImageType [InputLossImageType](#inputlossimagetype)
-  * RepeatFrameMsec [__integer](#__integer)
+  * RepeatFrameMsec [__integerMin0Max1000000](#__integermin0max1000000)
 
 ### InputLossImageType
 * InputLossImageType `string` (values: COLOR, SLATE): Placeholder documentation for InputLossImageType
@@ -1282,19 +1336,24 @@ amazonaws_medialive.DescribeInput({
 * InputSecurityGroup `object`: An Input Security Group
   * Arn [__string](#__string)
   * Id [__string](#__string)
-  * WhitelistRules [ListOfInputWhitelistRule](#listofinputwhitelistrule)
+  * Inputs [__listOf__string](#__listof__string)
+  * State [InputSecurityGroupState](#inputsecuritygroupstate)
+  * WhitelistRules [__listOfInputWhitelistRule](#__listofinputwhitelistrule)
+
+### InputSecurityGroupState
+* InputSecurityGroupState `string` (values: IDLE, IN_USE, UPDATING, DELETED): Placeholder documentation for InputSecurityGroupState
 
 ### InputSecurityGroupWhitelistRequest
 * InputSecurityGroupWhitelistRequest `object`: Request of IPv4 CIDR addresses to whitelist in a security group.
-  * WhitelistRules [ListOfInputWhitelistRuleCidr](#listofinputwhitelistrulecidr)
+  * WhitelistRules [__listOfInputWhitelistRuleCidr](#__listofinputwhitelistrulecidr)
 
 ### InputSettings
 * InputSettings `object`: Live Event input parameters. There can be multiple inputs in a single Live Event.
-  * AudioSelectors [ListOfAudioSelector](#listofaudioselector)
-  * CaptionSelectors [ListOfCaptionSelector](#listofcaptionselector)
+  * AudioSelectors [__listOfAudioSelector](#__listofaudioselector)
+  * CaptionSelectors [__listOfCaptionSelector](#__listofcaptionselector)
   * DeblockFilter [InputDeblockFilter](#inputdeblockfilter)
   * DenoiseFilter [InputDenoiseFilter](#inputdenoisefilter)
-  * FilterStrength [__integer](#__integer)
+  * FilterStrength [__integerMin1Max5](#__integermin1max5)
   * InputFilter [InputFilter](#inputfilter)
   * NetworkInputSettings [NetworkInputSettings](#networkinputsettings)
   * SourceEndBehavior [InputSourceEndBehavior](#inputsourceendbehavior)
@@ -1360,12 +1419,12 @@ amazonaws_medialive.DescribeInput({
 
 ### ListChannelsResponse
 * ListChannelsResponse `object`: Placeholder documentation for ListChannelsResponse
-  * Channels [ListOfChannelSummary](#listofchannelsummary)
+  * Channels [__listOfChannelSummary](#__listofchannelsummary)
   * NextToken [__string](#__string)
 
 ### ListChannelsResultModel
 * ListChannelsResultModel `object`: Placeholder documentation for ListChannelsResultModel
-  * Channels [ListOfChannelSummary](#listofchannelsummary)
+  * Channels [__listOfChannelSummary](#__listofchannelsummary)
   * NextToken [__string](#__string)
 
 ### ListInputSecurityGroupsRequest
@@ -1373,12 +1432,12 @@ amazonaws_medialive.DescribeInput({
 
 ### ListInputSecurityGroupsResponse
 * ListInputSecurityGroupsResponse `object`: Placeholder documentation for ListInputSecurityGroupsResponse
-  * InputSecurityGroups [ListOfInputSecurityGroup](#listofinputsecuritygroup)
+  * InputSecurityGroups [__listOfInputSecurityGroup](#__listofinputsecuritygroup)
   * NextToken [__string](#__string)
 
 ### ListInputSecurityGroupsResultModel
 * ListInputSecurityGroupsResultModel `object`: Result of input security group list request
-  * InputSecurityGroups [ListOfInputSecurityGroup](#listofinputsecuritygroup)
+  * InputSecurityGroups [__listOfInputSecurityGroup](#__listofinputsecuritygroup)
   * NextToken [__string](#__string)
 
 ### ListInputsRequest
@@ -1386,117 +1445,16 @@ amazonaws_medialive.DescribeInput({
 
 ### ListInputsResponse
 * ListInputsResponse `object`: Placeholder documentation for ListInputsResponse
-  * Inputs [ListOfInput](#listofinput)
+  * Inputs [__listOfInput](#__listofinput)
   * NextToken [__string](#__string)
 
 ### ListInputsResultModel
 * ListInputsResultModel `object`: Placeholder documentation for ListInputsResultModel
-  * Inputs [ListOfInput](#listofinput)
+  * Inputs [__listOfInput](#__listofinput)
   * NextToken [__string](#__string)
 
-### ListOfAudioChannelMapping
-* ListOfAudioChannelMapping `array`: Placeholder documentation for ListOfAudioChannelMapping
-  * items [AudioChannelMapping](#audiochannelmapping)
-
-### ListOfAudioDescription
-* ListOfAudioDescription `array`: Placeholder documentation for ListOfAudioDescription
-  * items [AudioDescription](#audiodescription)
-
-### ListOfAudioSelector
-* ListOfAudioSelector `array`: Placeholder documentation for ListOfAudioSelector
-  * items [AudioSelector](#audioselector)
-
-### ListOfCaptionDescription
-* ListOfCaptionDescription `array`: Placeholder documentation for ListOfCaptionDescription
-  * items [CaptionDescription](#captiondescription)
-
-### ListOfCaptionLanguageMapping
-* ListOfCaptionLanguageMapping `array`: Placeholder documentation for ListOfCaptionLanguageMapping
-  * items [CaptionLanguageMapping](#captionlanguagemapping)
-
-### ListOfCaptionSelector
-* ListOfCaptionSelector `array`: Placeholder documentation for ListOfCaptionSelector
-  * items [CaptionSelector](#captionselector)
-
-### ListOfChannelEgressEndpoint
-* ListOfChannelEgressEndpoint `array`: Placeholder documentation for ListOfChannelEgressEndpoint
-  * items [ChannelEgressEndpoint](#channelegressendpoint)
-
-### ListOfChannelSummary
-* ListOfChannelSummary `array`: Placeholder documentation for ListOfChannelSummary
-  * items [ChannelSummary](#channelsummary)
-
-### ListOfHlsAdMarkers
-* ListOfHlsAdMarkers `array`: Placeholder documentation for ListOfHlsAdMarkers
-  * items [HlsAdMarkers](#hlsadmarkers)
-
-### ListOfInput
-* ListOfInput `array`: Placeholder documentation for ListOfInput
-  * items [Input](#input)
-
-### ListOfInputAttachment
-* ListOfInputAttachment `array`: Placeholder documentation for ListOfInputAttachment
-  * items [InputAttachment](#inputattachment)
-
-### ListOfInputChannelLevel
-* ListOfInputChannelLevel `array`: Placeholder documentation for ListOfInputChannelLevel
-  * items [InputChannelLevel](#inputchannellevel)
-
-### ListOfInputDestination
-* ListOfInputDestination `array`: Placeholder documentation for ListOfInputDestination
-  * items [InputDestination](#inputdestination)
-
-### ListOfInputDestinationRequest
-* ListOfInputDestinationRequest `array`: Placeholder documentation for ListOfInputDestinationRequest
-  * items [InputDestinationRequest](#inputdestinationrequest)
-
-### ListOfInputSecurityGroup
-* ListOfInputSecurityGroup `array`: Placeholder documentation for ListOfInputSecurityGroup
-  * items [InputSecurityGroup](#inputsecuritygroup)
-
-### ListOfInputSource
-* ListOfInputSource `array`: Placeholder documentation for ListOfInputSource
-  * items [InputSource](#inputsource)
-
-### ListOfInputSourceRequest
-* ListOfInputSourceRequest `array`: Placeholder documentation for ListOfInputSourceRequest
-  * items [InputSourceRequest](#inputsourcerequest)
-
-### ListOfInputWhitelistRule
-* ListOfInputWhitelistRule `array`: Placeholder documentation for ListOfInputWhitelistRule
-  * items [InputWhitelistRule](#inputwhitelistrule)
-
-### ListOfInputWhitelistRuleCidr
-* ListOfInputWhitelistRuleCidr `array`: Placeholder documentation for ListOfInputWhitelistRuleCidr
-  * items [InputWhitelistRuleCidr](#inputwhitelistrulecidr)
-
-### ListOfOutput
-* ListOfOutput `array`: Placeholder documentation for ListOfOutput
-  * items [Output](#output)
-
-### ListOfOutputDestination
-* ListOfOutputDestination `array`: Placeholder documentation for ListOfOutputDestination
-  * items [OutputDestination](#outputdestination)
-
-### ListOfOutputDestinationSettings
-* ListOfOutputDestinationSettings `array`: Placeholder documentation for ListOfOutputDestinationSettings
-  * items [OutputDestinationSettings](#outputdestinationsettings)
-
-### ListOfOutputGroup
-* ListOfOutputGroup `array`: Placeholder documentation for ListOfOutputGroup
-  * items [OutputGroup](#outputgroup)
-
-### ListOfValidationError
-* ListOfValidationError `array`: Placeholder documentation for ListOfValidationError
-  * items [ValidationError](#validationerror)
-
-### ListOfVideoDescription
-* ListOfVideoDescription `array`: Placeholder documentation for ListOfVideoDescription
-  * items [VideoDescription](#videodescription)
-
-### ListOf__string
-* ListOf__string `array`: Placeholder documentation for ListOf__string
-  * items [__string](#__string)
+### LogLevel
+* LogLevel `string` (values: ERROR, WARNING, INFO, DEBUG, DISABLED): The log level the user wants for their channel.
 
 ### M2tsAbsentInputAudioBehavior
 * M2tsAbsentInputAudioBehavior `string` (values: DROP, ENCODE_SILENCE): Placeholder documentation for M2tsAbsentInputAudioBehavior
@@ -1556,10 +1514,10 @@ amazonaws_medialive.DescribeInput({
   * AribCaptionsPid [__string](#__string)
   * AribCaptionsPidControl [M2tsAribCaptionsPidControl](#m2tsaribcaptionspidcontrol)
   * AudioBufferModel [M2tsAudioBufferModel](#m2tsaudiobuffermodel)
-  * AudioFramesPerPes [__integer](#__integer)
+  * AudioFramesPerPes [__integerMin0](#__integermin0)
   * AudioPids [__string](#__string)
   * AudioStreamType [M2tsAudioStreamType](#m2tsaudiostreamtype)
-  * Bitrate [__integer](#__integer)
+  * Bitrate [__integerMin0](#__integermin0)
   * BufferModel [M2tsBufferModel](#m2tsbuffermodel)
   * CcDescriptor [M2tsCcDescriptor](#m2tsccdescriptor)
   * DvbNitSettings [DvbNitSettings](#dvbnitsettings)
@@ -1569,33 +1527,33 @@ amazonaws_medialive.DescribeInput({
   * DvbTeletextPid [__string](#__string)
   * Ebif [M2tsEbifControl](#m2tsebifcontrol)
   * EbpAudioInterval [M2tsAudioInterval](#m2tsaudiointerval)
-  * EbpLookaheadMs [__integer](#__integer)
+  * EbpLookaheadMs [__integerMin0Max10000](#__integermin0max10000)
   * EbpPlacement [M2tsEbpPlacement](#m2tsebpplacement)
   * EcmPid [__string](#__string)
   * EsRateInPes [M2tsEsRateInPes](#m2tsesrateinpes)
   * EtvPlatformPid [__string](#__string)
   * EtvSignalPid [__string](#__string)
-  * FragmentTime [__double](#__double)
+  * FragmentTime [__doubleMin0](#__doublemin0)
   * Klv [M2tsKlv](#m2tsklv)
   * KlvDataPids [__string](#__string)
-  * NullPacketBitrate [__double](#__double)
-  * PatInterval [__integer](#__integer)
+  * NullPacketBitrate [__doubleMin0](#__doublemin0)
+  * PatInterval [__integerMin0Max1000](#__integermin0max1000)
   * PcrControl [M2tsPcrControl](#m2tspcrcontrol)
-  * PcrPeriod [__integer](#__integer)
+  * PcrPeriod [__integerMin0Max500](#__integermin0max500)
   * PcrPid [__string](#__string)
-  * PmtInterval [__integer](#__integer)
+  * PmtInterval [__integerMin0Max1000](#__integermin0max1000)
   * PmtPid [__string](#__string)
-  * ProgramNum [__integer](#__integer)
+  * ProgramNum [__integerMin0Max65535](#__integermin0max65535)
   * RateMode [M2tsRateMode](#m2tsratemode)
   * Scte27Pids [__string](#__string)
   * Scte35Control [M2tsScte35Control](#m2tsscte35control)
   * Scte35Pid [__string](#__string)
   * SegmentationMarkers [M2tsSegmentationMarkers](#m2tssegmentationmarkers)
   * SegmentationStyle [M2tsSegmentationStyle](#m2tssegmentationstyle)
-  * SegmentationTime [__double](#__double)
+  * SegmentationTime [__doubleMin1](#__doublemin1)
   * TimedMetadataBehavior [M2tsTimedMetadataBehavior](#m2tstimedmetadatabehavior)
   * TimedMetadataPid [__string](#__string)
-  * TransportStreamId [__integer](#__integer)
+  * TransportStreamId [__integerMin0Max65535](#__integermin0max65535)
   * VideoPid [__string](#__string)
 
 ### M2tsTimedMetadataBehavior
@@ -1609,20 +1567,21 @@ amazonaws_medialive.DescribeInput({
 
 ### M3u8Settings
 * M3u8Settings `object`: Settings information for the .m3u8 container
-  * AudioFramesPerPes [__integer](#__integer)
+  * AudioFramesPerPes [__integerMin0](#__integermin0)
   * AudioPids [__string](#__string)
   * EcmPid [__string](#__string)
-  * PatInterval [__integer](#__integer)
+  * PatInterval [__integerMin0Max1000](#__integermin0max1000)
   * PcrControl [M3u8PcrControl](#m3u8pcrcontrol)
-  * PcrPeriod [__integer](#__integer)
+  * PcrPeriod [__integerMin0Max500](#__integermin0max500)
   * PcrPid [__string](#__string)
-  * PmtInterval [__integer](#__integer)
+  * PmtInterval [__integerMin0Max1000](#__integermin0max1000)
   * PmtPid [__string](#__string)
-  * ProgramNum [__integer](#__integer)
+  * ProgramNum [__integerMin0Max65535](#__integermin0max65535)
   * Scte35Behavior [M3u8Scte35Behavior](#m3u8scte35behavior)
   * Scte35Pid [__string](#__string)
   * TimedMetadataBehavior [M3u8TimedMetadataBehavior](#m3u8timedmetadatabehavior)
-  * TransportStreamId [__integer](#__integer)
+  * TimedMetadataPid [__string](#__string)
+  * TransportStreamId [__integerMin0Max65535](#__integermin0max65535)
   * VideoPid [__string](#__string)
 
 ### M3u8TimedMetadataBehavior
@@ -1645,18 +1604,18 @@ amazonaws_medialive.DescribeInput({
   * AcquisitionPointId [__string](#__string)
   * AudioOnlyTimecodeControl [SmoothGroupAudioOnlyTimecodeControl](#smoothgroupaudioonlytimecodecontrol)
   * CertificateMode [SmoothGroupCertificateMode](#smoothgroupcertificatemode)
-  * ConnectionRetryInterval [__integer](#__integer)
-  * Destination [OutputLocationRef](#outputlocationref)
+  * ConnectionRetryInterval [__integerMin0](#__integermin0)
+  * Destination **required** [OutputLocationRef](#outputlocationref)
   * EventId [__string](#__string)
   * EventIdMode [SmoothGroupEventIdMode](#smoothgroupeventidmode)
   * EventStopBehavior [SmoothGroupEventStopBehavior](#smoothgroupeventstopbehavior)
-  * FilecacheDuration [__integer](#__integer)
-  * FragmentLength [__integer](#__integer)
+  * FilecacheDuration [__integerMin0](#__integermin0)
+  * FragmentLength [__integerMin1](#__integermin1)
   * InputLossAction [InputLossActionForMsSmoothOut](#inputlossactionformssmoothout)
-  * NumRetries [__integer](#__integer)
-  * RestartDelay [__integer](#__integer)
+  * NumRetries [__integerMin0](#__integermin0)
+  * RestartDelay [__integerMin0](#__integermin0)
   * SegmentationMode [SmoothGroupSegmentationMode](#smoothgroupsegmentationmode)
-  * SendDelayMs [__integer](#__integer)
+  * SendDelayMs [__integerMin0Max10000](#__integermin0max10000)
   * SparseTrackType [SmoothGroupSparseTrackType](#smoothgroupsparsetracktype)
   * StreamManifestBehavior [SmoothGroupStreamManifestBehavior](#smoothgroupstreammanifestbehavior)
   * TimestampOffset [__string](#__string)
@@ -1680,34 +1639,36 @@ amazonaws_medialive.DescribeInput({
 
 ### Output
 * Output `object`: Output settings. There can be multiple outputs within a group.
-  * AudioDescriptionNames [ListOf__string](#listof__string)
-  * CaptionDescriptionNames [ListOf__string](#listof__string)
-  * OutputName [__string](#__string)
-  * OutputSettings [OutputSettings](#outputsettings)
+  * AudioDescriptionNames [__listOf__string](#__listof__string)
+  * CaptionDescriptionNames [__listOf__string](#__listof__string)
+  * OutputName [__stringMin1Max255](#__stringmin1max255)
+  * OutputSettings **required** [OutputSettings](#outputsettings)
   * VideoDescriptionName [__string](#__string)
 
 ### OutputDestination
 * OutputDestination `object`: Placeholder documentation for OutputDestination
   * Id [__string](#__string)
-  * Settings [ListOfOutputDestinationSettings](#listofoutputdestinationsettings)
+  * Settings [__listOfOutputDestinationSettings](#__listofoutputdestinationsettings)
 
 ### OutputDestinationSettings
 * OutputDestinationSettings `object`: Placeholder documentation for OutputDestinationSettings
   * PasswordParam [__string](#__string)
+  * StreamName [__string](#__string)
   * Url [__string](#__string)
   * Username [__string](#__string)
 
 ### OutputGroup
 * OutputGroup `object`: Output groups for this Live Event. Output groups contain information about where streams should be distributed.
-  * Name [__string](#__string)
-  * OutputGroupSettings [OutputGroupSettings](#outputgroupsettings)
-  * Outputs [ListOfOutput](#listofoutput)
+  * Name [__stringMax32](#__stringmax32)
+  * OutputGroupSettings **required** [OutputGroupSettings](#outputgroupsettings)
+  * Outputs **required** [__listOfOutput](#__listofoutput)
 
 ### OutputGroupSettings
 * OutputGroupSettings `object`: Placeholder documentation for OutputGroupSettings
   * ArchiveGroupSettings [ArchiveGroupSettings](#archivegroupsettings)
   * HlsGroupSettings [HlsGroupSettings](#hlsgroupsettings)
   * MsSmoothGroupSettings [MsSmoothGroupSettings](#mssmoothgroupsettings)
+  * RtmpGroupSettings [RtmpGroupSettings](#rtmpgroupsettings)
   * UdpGroupSettings [UdpGroupSettings](#udpgroupsettings)
 
 ### OutputLocationRef
@@ -1719,6 +1680,7 @@ amazonaws_medialive.DescribeInput({
   * ArchiveOutputSettings [ArchiveOutputSettings](#archiveoutputsettings)
   * HlsOutputSettings [HlsOutputSettings](#hlsoutputsettings)
   * MsSmoothOutputSettings [MsSmoothOutputSettings](#mssmoothoutputsettings)
+  * RtmpOutputSettings [RtmpOutputSettings](#rtmpoutputsettings)
   * UdpOutputSettings [UdpOutputSettings](#udpoutputsettings)
 
 ### PassThroughSettings
@@ -1726,9 +1688,9 @@ amazonaws_medialive.DescribeInput({
 
 ### RemixSettings
 * RemixSettings `object`: Placeholder documentation for RemixSettings
-  * ChannelMappings [ListOfAudioChannelMapping](#listofaudiochannelmapping)
-  * ChannelsIn [__integer](#__integer)
-  * ChannelsOut [__integer](#__integer)
+  * ChannelMappings **required** [__listOfAudioChannelMapping](#__listofaudiochannelmapping)
+  * ChannelsIn [__integerMin1Max16](#__integermin1max16)
+  * ChannelsOut [__integerMin1Max8](#__integermin1max8)
 
 ### ResourceConflict
 * ResourceConflict `object`: Placeholder documentation for ResourceConflict
@@ -1737,6 +1699,33 @@ amazonaws_medialive.DescribeInput({
 ### ResourceNotFound
 * ResourceNotFound `object`: Placeholder documentation for ResourceNotFound
   * Message [__string](#__string)
+
+### RtmpCacheFullBehavior
+* RtmpCacheFullBehavior `string` (values: DISCONNECT_IMMEDIATELY, WAIT_FOR_SERVER): Placeholder documentation for RtmpCacheFullBehavior
+
+### RtmpCaptionData
+* RtmpCaptionData `string` (values: ALL, FIELD1_608, FIELD1_AND_FIELD2_608): Placeholder documentation for RtmpCaptionData
+
+### RtmpCaptionInfoDestinationSettings
+* RtmpCaptionInfoDestinationSettings `object`: Placeholder documentation for RtmpCaptionInfoDestinationSettings
+
+### RtmpGroupSettings
+* RtmpGroupSettings `object`: Placeholder documentation for RtmpGroupSettings
+  * AuthenticationScheme [AuthenticationScheme](#authenticationscheme)
+  * CacheFullBehavior [RtmpCacheFullBehavior](#rtmpcachefullbehavior)
+  * CacheLength [__integerMin30](#__integermin30)
+  * CaptionData [RtmpCaptionData](#rtmpcaptiondata)
+  * RestartDelay [__integerMin0](#__integermin0)
+
+### RtmpOutputCertificateMode
+* RtmpOutputCertificateMode `string` (values: SELF_SIGNED, VERIFY_AUTHENTICITY): Placeholder documentation for RtmpOutputCertificateMode
+
+### RtmpOutputSettings
+* RtmpOutputSettings `object`: Placeholder documentation for RtmpOutputSettings
+  * CertificateMode [RtmpOutputCertificateMode](#rtmpoutputcertificatemode)
+  * ConnectionRetryInterval [__integerMin1](#__integermin1)
+  * Destination **required** [OutputLocationRef](#outputlocationref)
+  * NumRetries [__integerMin0](#__integermin0)
 
 ### Scte20Convert608To708
 * Scte20Convert608To708 `string` (values: DISABLED, UPCONVERT): Placeholder documentation for Scte20Convert608To708
@@ -1747,14 +1736,14 @@ amazonaws_medialive.DescribeInput({
 ### Scte20SourceSettings
 * Scte20SourceSettings `object`: Placeholder documentation for Scte20SourceSettings
   * Convert608To708 [Scte20Convert608To708](#scte20convert608to708)
-  * Source608ChannelNumber [__integer](#__integer)
+  * Source608ChannelNumber [__integerMin1Max4](#__integermin1max4)
 
 ### Scte27DestinationSettings
 * Scte27DestinationSettings `object`: Placeholder documentation for Scte27DestinationSettings
 
 ### Scte27SourceSettings
 * Scte27SourceSettings `object`: Placeholder documentation for Scte27SourceSettings
-  * Pid [__integer](#__integer)
+  * Pid [__integerMin1](#__integermin1)
 
 ### Scte35AposNoRegionalBlackoutBehavior
 * Scte35AposNoRegionalBlackoutBehavior `string` (values: FOLLOW, IGNORE): Placeholder documentation for Scte35AposNoRegionalBlackoutBehavior
@@ -1764,7 +1753,7 @@ amazonaws_medialive.DescribeInput({
 
 ### Scte35SpliceInsert
 * Scte35SpliceInsert `object`: Placeholder documentation for Scte35SpliceInsert
-  * AdAvailOffset [__integer](#__integer)
+  * AdAvailOffset [__integerMinNegative1000Max1000](#__integerminnegative1000max1000)
   * NoRegionalBlackoutFlag [Scte35SpliceInsertNoRegionalBlackoutBehavior](#scte35spliceinsertnoregionalblackoutbehavior)
   * WebDeliveryAllowedFlag [Scte35SpliceInsertWebDeliveryAllowedBehavior](#scte35spliceinsertwebdeliveryallowedbehavior)
 
@@ -1776,7 +1765,7 @@ amazonaws_medialive.DescribeInput({
 
 ### Scte35TimeSignalApos
 * Scte35TimeSignalApos `object`: Placeholder documentation for Scte35TimeSignalApos
-  * AdAvailOffset [__integer](#__integer)
+  * AdAvailOffset [__integerMinNegative1000Max1000](#__integerminnegative1000max1000)
   * NoRegionalBlackoutFlag [Scte35AposNoRegionalBlackoutBehavior](#scte35aposnoregionalblackoutbehavior)
   * WebDeliveryAllowedFlag [Scte35AposWebDeliveryAllowedBehavior](#scte35aposwebdeliveryallowedbehavior)
 
@@ -1810,7 +1799,7 @@ amazonaws_medialive.DescribeInput({
 ### StandardHlsSettings
 * StandardHlsSettings `object`: Placeholder documentation for StandardHlsSettings
   * AudioRenditionSets [__string](#__string)
-  * M3u8Settings [M3u8Settings](#m3u8settings)
+  * M3u8Settings **required** [M3u8Settings](#m3u8settings)
 
 ### StartChannelRequest
 * StartChannelRequest `object`: Placeholder documentation for StartChannelRequest
@@ -1818,12 +1807,13 @@ amazonaws_medialive.DescribeInput({
 ### StartChannelResponse
 * StartChannelResponse `object`: Placeholder documentation for StartChannelResponse
   * Arn [__string](#__string)
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
-  * EgressEndpoints [ListOfChannelEgressEndpoint](#listofchannelegressendpoint)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
+  * EgressEndpoints [__listOfChannelEgressEndpoint](#__listofchannelegressendpoint)
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -1832,7 +1822,7 @@ amazonaws_medialive.DescribeInput({
 ### StaticKeySettings
 * StaticKeySettings `object`: Placeholder documentation for StaticKeySettings
   * KeyProviderServer [InputLocation](#inputlocation)
-  * StaticKeyValue [__string](#__string)
+  * StaticKeyValue **required** [__stringMin32Max32](#__stringmin32max32)
 
 ### StopChannelRequest
 * StopChannelRequest `object`: Placeholder documentation for StopChannelRequest
@@ -1840,12 +1830,13 @@ amazonaws_medialive.DescribeInput({
 ### StopChannelResponse
 * StopChannelResponse `object`: Placeholder documentation for StopChannelResponse
   * Arn [__string](#__string)
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
-  * EgressEndpoints [ListOfChannelEgressEndpoint](#listofchannelegressendpoint)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
+  * EgressEndpoints [__listOfChannelEgressEndpoint](#__listofchannelegressendpoint)
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
-  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -1860,8 +1851,8 @@ amazonaws_medialive.DescribeInput({
 
 ### TimecodeConfig
 * TimecodeConfig `object`: Placeholder documentation for TimecodeConfig
-  * Source [TimecodeConfigSource](#timecodeconfigsource)
-  * SyncThreshold [__integer](#__integer)
+  * Source **required** [TimecodeConfigSource](#timecodeconfigsource)
+  * SyncThreshold [__integerMin1Max1000000](#__integermin1max1000000)
 
 ### TimecodeConfigSource
 * TimecodeConfigSource `string` (values: EMBEDDED, SYSTEMCLOCK, ZEROBASED): Placeholder documentation for TimecodeConfigSource
@@ -1885,13 +1876,13 @@ amazonaws_medialive.DescribeInput({
 * UdpGroupSettings `object`: Placeholder documentation for UdpGroupSettings
   * InputLossAction [InputLossActionForUdpOut](#inputlossactionforudpout)
   * TimedMetadataId3Frame [UdpTimedMetadataId3Frame](#udptimedmetadataid3frame)
-  * TimedMetadataId3Period [__integer](#__integer)
+  * TimedMetadataId3Period [__integerMin0](#__integermin0)
 
 ### UdpOutputSettings
 * UdpOutputSettings `object`: Placeholder documentation for UdpOutputSettings
-  * BufferMsec [__integer](#__integer)
-  * ContainerSettings [UdpContainerSettings](#udpcontainersettings)
-  * Destination [OutputLocationRef](#outputlocationref)
+  * BufferMsec [__integerMin0Max10000](#__integermin0max10000)
+  * ContainerSettings **required** [UdpContainerSettings](#udpcontainersettings)
+  * Destination **required** [OutputLocationRef](#outputlocationref)
   * FecOutputSettings [FecOutputSettings](#fecoutputsettings)
 
 ### UdpTimedMetadataId3Frame
@@ -1900,21 +1891,25 @@ amazonaws_medialive.DescribeInput({
 ### UnprocessableEntityException
 * UnprocessableEntityException `object`: Placeholder documentation for UnprocessableEntityException
   * Message [__string](#__string)
-  * ValidationErrors [ListOfValidationError](#listofvalidationerror)
+  * ValidationErrors [__listOfValidationError](#__listofvalidationerror)
 
 ### UpdateChannel
 * UpdateChannel `object`: Placeholder documentation for UpdateChannel
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
   * EncoderSettings [EncoderSettings](#encodersettings)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * RoleArn [__string](#__string)
 
 ### UpdateChannelRequest
 * UpdateChannelRequest `object`: A request to update a channel.
-  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * Destinations [__listOfOutputDestination](#__listofoutputdestination)
   * EncoderSettings [EncoderSettings](#encodersettings)
+  * InputAttachments [__listOfInputAttachment](#__listofinputattachment)
   * InputSpecification [InputSpecification](#inputspecification)
+  * LogLevel [LogLevel](#loglevel)
   * Name [__string](#__string)
   * RoleArn [__string](#__string)
 
@@ -1925,6 +1920,40 @@ amazonaws_medialive.DescribeInput({
 ### UpdateChannelResultModel
 * UpdateChannelResultModel `object`: The updated channel's description.
   * Channel [Channel](#channel)
+
+### UpdateInput
+* UpdateInput `object`: Placeholder documentation for UpdateInput
+  * Destinations [__listOfInputDestinationRequest](#__listofinputdestinationrequest)
+  * InputSecurityGroups [__listOf__string](#__listof__string)
+  * Name [__string](#__string)
+  * Sources [__listOfInputSourceRequest](#__listofinputsourcerequest)
+
+### UpdateInputRequest
+* UpdateInputRequest `object`: A request to update an input.
+  * Destinations [__listOfInputDestinationRequest](#__listofinputdestinationrequest)
+  * InputSecurityGroups [__listOf__string](#__listof__string)
+  * Name [__string](#__string)
+  * Sources [__listOfInputSourceRequest](#__listofinputsourcerequest)
+
+### UpdateInputResponse
+* UpdateInputResponse `object`: Placeholder documentation for UpdateInputResponse
+  * Input [Input](#input)
+
+### UpdateInputResultModel
+* UpdateInputResultModel `object`: Placeholder documentation for UpdateInputResultModel
+  * Input [Input](#input)
+
+### UpdateInputSecurityGroupRequest
+* UpdateInputSecurityGroupRequest `object`: The request to update some combination of the Input Security Group name and the IPv4 CIDRs the Input Security Group should allow.
+  * WhitelistRules [__listOfInputWhitelistRuleCidr](#__listofinputwhitelistrulecidr)
+
+### UpdateInputSecurityGroupResponse
+* UpdateInputSecurityGroupResponse `object`: Placeholder documentation for UpdateInputSecurityGroupResponse
+  * SecurityGroup [InputSecurityGroup](#inputsecuritygroup)
+
+### UpdateInputSecurityGroupResultModel
+* UpdateInputSecurityGroupResultModel `object`: Placeholder documentation for UpdateInputSecurityGroupResultModel
+  * SecurityGroup [InputSecurityGroup](#inputsecuritygroup)
 
 ### ValidationError
 * ValidationError `object`: Placeholder documentation for ValidationError
@@ -1939,10 +1968,10 @@ amazonaws_medialive.DescribeInput({
 * VideoDescription `object`: Video settings for this stream.
   * CodecSettings [VideoCodecSettings](#videocodecsettings)
   * Height [__integer](#__integer)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * RespondToAfd [VideoDescriptionRespondToAfd](#videodescriptionrespondtoafd)
   * ScalingBehavior [VideoDescriptionScalingBehavior](#videodescriptionscalingbehavior)
-  * Sharpness [__integer](#__integer)
+  * Sharpness [__integerMin0Max100](#__integermin0max100)
   * Width [__integer](#__integer)
 
 ### VideoDescriptionRespondToAfd
@@ -1965,11 +1994,11 @@ amazonaws_medialive.DescribeInput({
 
 ### VideoSelectorPid
 * VideoSelectorPid `object`: Placeholder documentation for VideoSelectorPid
-  * Pid [__integer](#__integer)
+  * Pid [__integerMin0Max8191](#__integermin0max8191)
 
 ### VideoSelectorProgramId
 * VideoSelectorProgramId `object`: Placeholder documentation for VideoSelectorProgramId
-  * ProgramId [__integer](#__integer)
+  * ProgramId [__integerMin0Max65536](#__integermin0max65536)
 
 ### VideoSelectorSettings
 * VideoSelectorSettings `object`: Placeholder documentation for VideoSelectorSettings
@@ -1985,13 +2014,264 @@ amazonaws_medialive.DescribeInput({
 ### __double
 * __double `number`: Placeholder documentation for __double
 
+### __doubleMin0
+* __doubleMin0 `number`: Placeholder documentation for __doubleMin0
+
+### __doubleMin1
+* __doubleMin1 `number`: Placeholder documentation for __doubleMin1
+
+### __doubleMinNegative59Max0
+* __doubleMinNegative59Max0 `number`: Placeholder documentation for __doubleMinNegative59Max0
+
 ### __integer
 * __integer `integer`: Placeholder documentation for __integer
+
+### __integerMin0
+* __integerMin0 `integer`: Placeholder documentation for __integerMin0
+
+### __integerMin0Max10
+* __integerMin0Max10 `integer`: Placeholder documentation for __integerMin0Max10
+
+### __integerMin0Max100
+* __integerMin0Max100 `integer`: Placeholder documentation for __integerMin0Max100
+
+### __integerMin0Max1000
+* __integerMin0Max1000 `integer`: Placeholder documentation for __integerMin0Max1000
+
+### __integerMin0Max10000
+* __integerMin0Max10000 `integer`: Placeholder documentation for __integerMin0Max10000
+
+### __integerMin0Max1000000
+* __integerMin0Max1000000 `integer`: Placeholder documentation for __integerMin0Max1000000
+
+### __integerMin0Max128
+* __integerMin0Max128 `integer`: Placeholder documentation for __integerMin0Max128
+
+### __integerMin0Max15
+* __integerMin0Max15 `integer`: Placeholder documentation for __integerMin0Max15
+
+### __integerMin0Max255
+* __integerMin0Max255 `integer`: Placeholder documentation for __integerMin0Max255
+
+### __integerMin0Max30
+* __integerMin0Max30 `integer`: Placeholder documentation for __integerMin0Max30
+
+### __integerMin0Max3600
+* __integerMin0Max3600 `integer`: Placeholder documentation for __integerMin0Max3600
+
+### __integerMin0Max500
+* __integerMin0Max500 `integer`: Placeholder documentation for __integerMin0Max500
+
+### __integerMin0Max600
+* __integerMin0Max600 `integer`: Placeholder documentation for __integerMin0Max600
+
+### __integerMin0Max65535
+* __integerMin0Max65535 `integer`: Placeholder documentation for __integerMin0Max65535
+
+### __integerMin0Max65536
+* __integerMin0Max65536 `integer`: Placeholder documentation for __integerMin0Max65536
+
+### __integerMin0Max7
+* __integerMin0Max7 `integer`: Placeholder documentation for __integerMin0Max7
+
+### __integerMin0Max8191
+* __integerMin0Max8191 `integer`: Placeholder documentation for __integerMin0Max8191
+
+### __integerMin1
+* __integerMin1 `integer`: Placeholder documentation for __integerMin1
+
+### __integerMin1000
+* __integerMin1000 `integer`: Placeholder documentation for __integerMin1000
+
+### __integerMin1000Max30000
+* __integerMin1000Max30000 `integer`: Placeholder documentation for __integerMin1000Max30000
+
+### __integerMin1Max1000000
+* __integerMin1Max1000000 `integer`: Placeholder documentation for __integerMin1Max1000000
+
+### __integerMin1Max16
+* __integerMin1Max16 `integer`: Placeholder documentation for __integerMin1Max16
+
+### __integerMin1Max20
+* __integerMin1Max20 `integer`: Placeholder documentation for __integerMin1Max20
+
+### __integerMin1Max31
+* __integerMin1Max31 `integer`: Placeholder documentation for __integerMin1Max31
+
+### __integerMin1Max32
+* __integerMin1Max32 `integer`: Placeholder documentation for __integerMin1Max32
+
+### __integerMin1Max4
+* __integerMin1Max4 `integer`: Placeholder documentation for __integerMin1Max4
+
+### __integerMin1Max5
+* __integerMin1Max5 `integer`: Placeholder documentation for __integerMin1Max5
+
+### __integerMin1Max6
+* __integerMin1Max6 `integer`: Placeholder documentation for __integerMin1Max6
+
+### __integerMin1Max8
+* __integerMin1Max8 `integer`: Placeholder documentation for __integerMin1Max8
+
+### __integerMin25Max10000
+* __integerMin25Max10000 `integer`: Placeholder documentation for __integerMin25Max10000
+
+### __integerMin25Max2000
+* __integerMin25Max2000 `integer`: Placeholder documentation for __integerMin25Max2000
+
+### __integerMin3
+* __integerMin3 `integer`: Placeholder documentation for __integerMin3
+
+### __integerMin30
+* __integerMin30 `integer`: Placeholder documentation for __integerMin30
+
+### __integerMin4Max20
+* __integerMin4Max20 `integer`: Placeholder documentation for __integerMin4Max20
+
+### __integerMin96Max600
+* __integerMin96Max600 `integer`: Placeholder documentation for __integerMin96Max600
+
+### __integerMinNegative1000Max1000
+* __integerMinNegative1000Max1000 `integer`: Placeholder documentation for __integerMinNegative1000Max1000
+
+### __integerMinNegative60Max6
+* __integerMinNegative60Max6 `integer`: Placeholder documentation for __integerMinNegative60Max6
+
+### __integerMinNegative60Max60
+* __integerMinNegative60Max60 `integer`: Placeholder documentation for __integerMinNegative60Max60
+
+### __listOfAudioChannelMapping
+* __listOfAudioChannelMapping `array`: Placeholder documentation for __listOfAudioChannelMapping
+  * items [AudioChannelMapping](#audiochannelmapping)
+
+### __listOfAudioDescription
+* __listOfAudioDescription `array`: Placeholder documentation for __listOfAudioDescription
+  * items [AudioDescription](#audiodescription)
+
+### __listOfAudioSelector
+* __listOfAudioSelector `array`: Placeholder documentation for __listOfAudioSelector
+  * items [AudioSelector](#audioselector)
+
+### __listOfCaptionDescription
+* __listOfCaptionDescription `array`: Placeholder documentation for __listOfCaptionDescription
+  * items [CaptionDescription](#captiondescription)
+
+### __listOfCaptionLanguageMapping
+* __listOfCaptionLanguageMapping `array`: Placeholder documentation for __listOfCaptionLanguageMapping
+  * items [CaptionLanguageMapping](#captionlanguagemapping)
+
+### __listOfCaptionSelector
+* __listOfCaptionSelector `array`: Placeholder documentation for __listOfCaptionSelector
+  * items [CaptionSelector](#captionselector)
+
+### __listOfChannelEgressEndpoint
+* __listOfChannelEgressEndpoint `array`: Placeholder documentation for __listOfChannelEgressEndpoint
+  * items [ChannelEgressEndpoint](#channelegressendpoint)
+
+### __listOfChannelSummary
+* __listOfChannelSummary `array`: Placeholder documentation for __listOfChannelSummary
+  * items [ChannelSummary](#channelsummary)
+
+### __listOfHlsAdMarkers
+* __listOfHlsAdMarkers `array`: Placeholder documentation for __listOfHlsAdMarkers
+  * items [HlsAdMarkers](#hlsadmarkers)
+
+### __listOfInput
+* __listOfInput `array`: Placeholder documentation for __listOfInput
+  * items [Input](#input)
+
+### __listOfInputAttachment
+* __listOfInputAttachment `array`: Placeholder documentation for __listOfInputAttachment
+  * items [InputAttachment](#inputattachment)
+
+### __listOfInputChannelLevel
+* __listOfInputChannelLevel `array`: Placeholder documentation for __listOfInputChannelLevel
+  * items [InputChannelLevel](#inputchannellevel)
+
+### __listOfInputDestination
+* __listOfInputDestination `array`: Placeholder documentation for __listOfInputDestination
+  * items [InputDestination](#inputdestination)
+
+### __listOfInputDestinationRequest
+* __listOfInputDestinationRequest `array`: Placeholder documentation for __listOfInputDestinationRequest
+  * items [InputDestinationRequest](#inputdestinationrequest)
+
+### __listOfInputSecurityGroup
+* __listOfInputSecurityGroup `array`: Placeholder documentation for __listOfInputSecurityGroup
+  * items [InputSecurityGroup](#inputsecuritygroup)
+
+### __listOfInputSource
+* __listOfInputSource `array`: Placeholder documentation for __listOfInputSource
+  * items [InputSource](#inputsource)
+
+### __listOfInputSourceRequest
+* __listOfInputSourceRequest `array`: Placeholder documentation for __listOfInputSourceRequest
+  * items [InputSourceRequest](#inputsourcerequest)
+
+### __listOfInputWhitelistRule
+* __listOfInputWhitelistRule `array`: Placeholder documentation for __listOfInputWhitelistRule
+  * items [InputWhitelistRule](#inputwhitelistrule)
+
+### __listOfInputWhitelistRuleCidr
+* __listOfInputWhitelistRuleCidr `array`: Placeholder documentation for __listOfInputWhitelistRuleCidr
+  * items [InputWhitelistRuleCidr](#inputwhitelistrulecidr)
+
+### __listOfOutput
+* __listOfOutput `array`: Placeholder documentation for __listOfOutput
+  * items [Output](#output)
+
+### __listOfOutputDestination
+* __listOfOutputDestination `array`: Placeholder documentation for __listOfOutputDestination
+  * items [OutputDestination](#outputdestination)
+
+### __listOfOutputDestinationSettings
+* __listOfOutputDestinationSettings `array`: Placeholder documentation for __listOfOutputDestinationSettings
+  * items [OutputDestinationSettings](#outputdestinationsettings)
+
+### __listOfOutputGroup
+* __listOfOutputGroup `array`: Placeholder documentation for __listOfOutputGroup
+  * items [OutputGroup](#outputgroup)
+
+### __listOfValidationError
+* __listOfValidationError `array`: Placeholder documentation for __listOfValidationError
+  * items [ValidationError](#validationerror)
+
+### __listOfVideoDescription
+* __listOfVideoDescription `array`: Placeholder documentation for __listOfVideoDescription
+  * items [VideoDescription](#videodescription)
+
+### __listOf__string
+* __listOf__string `array`: Placeholder documentation for __listOf__string
+  * items [__string](#__string)
+
+### __long
+* __long `integer`: Placeholder documentation for __long
 
 ### __string
 * __string `string`: Placeholder documentation for __string
 
-### __timestamp
-* __timestamp `string`: Placeholder documentation for __timestamp
+### __stringMax32
+* __stringMax32 `string`: Placeholder documentation for __stringMax32
+
+### __stringMin1
+* __stringMin1 `string`: Placeholder documentation for __stringMin1
+
+### __stringMin1Max255
+* __stringMin1Max255 `string`: Placeholder documentation for __stringMin1Max255
+
+### __stringMin1Max256
+* __stringMin1Max256 `string`: Placeholder documentation for __stringMin1Max256
+
+### __stringMin32Max32
+* __stringMin32Max32 `string`: Placeholder documentation for __stringMin32Max32
+
+### __stringMin34Max34
+* __stringMin34Max34 `string`: Placeholder documentation for __stringMin34Max34
+
+### __stringMin3Max3
+* __stringMin3Max3 `string`: Placeholder documentation for __stringMin3Max3
+
+### __stringMin6Max6
+* __stringMin6Max6 `string`: Placeholder documentation for __stringMin6Max6
 
 

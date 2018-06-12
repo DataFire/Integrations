@@ -135,18 +135,6 @@ azure_sql_servercommunicationlinks.ServerCommunicationLinks_CreateOrUpdate({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### ServerCommunicationLink
 * ServerCommunicationLink `object`: Server communication link.
   * kind `string`: Communication link kind.  This property is used for Azure Portal metadata.

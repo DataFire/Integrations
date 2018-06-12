@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/module.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/module.json",
         "version": "2.0"
       }
     ],
@@ -67,12 +67,15 @@
         "operationId": "Module_ListByAutomationAccount",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -111,39 +114,52 @@
                   "items": {
                     "allOf": [
                       {
-                        "description": "The Resource definition.",
+                        "allOf": [
+                          {
+                            "description": "The core properties of ARM resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource Id for the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for a ARM tracked top level resource",
                         "properties": {
-                          "id": {
-                            "description": "Resource Id",
-                            "readOnly": true,
-                            "type": "string"
-                          },
                           "location": {
-                            "description": "Resource location",
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Resource name",
-                            "readOnly": true,
-                            "type": "string"
+                            "description": "The Azure Region where the resource lives",
+                            "type": "string",
+                            "x-ms-mutability": [
+                              "read",
+                              "create"
+                            ]
                           },
                           "tags": {
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Resource tags",
-                            "type": "object"
-                          },
-                          "type": {
-                            "description": "Resource type",
-                            "readOnly": true,
-                            "type": "string"
+                            "description": "Resource tags.",
+                            "type": "object",
+                            "x-ms-mutability": [
+                              "read",
+                              "create",
+                              "update"
+                            ]
                           }
-                        },
-                        "required": [
-                          "location"
-                        ],
-                        "x-ms-azure-resource": true
+                        }
                       }
                     ],
                     "description": "Definition of the module type.",
@@ -193,7 +209,8 @@
                           "creationTime": {
                             "description": "Gets or sets the creation time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "description": {
                             "description": "Gets or sets the description.",
@@ -219,7 +236,8 @@
                           "lastModifiedTime": {
                             "description": "Gets or sets the last modified time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "provisioningState": {
                             "description": "Gets or sets the provisioning state of the module.",
@@ -307,7 +325,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T16:57:48.343+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -319,7 +338,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:04:27.833+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -331,7 +351,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:02:24.42+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -343,7 +364,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:01:53.81+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -355,7 +377,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:01:22.993+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -367,7 +390,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:02:55.25+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -379,7 +403,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:03:26.08+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -391,7 +416,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:03:56.99+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -403,7 +429,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T16:58:19.017+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -415,7 +442,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T16:58:49.737+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -427,7 +455,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T16:59:20.38+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -439,7 +468,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T16:59:51.007+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -451,7 +481,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:00:21.647+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -463,7 +494,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:00:52.197+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -475,7 +507,8 @@
                         "isGlobal": false,
                         "lastModifiedTime": "2017-03-29T15:42:10.567+00:00",
                         "provisioningState": "Creating",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     },
                     {
@@ -487,7 +520,8 @@
                         "isGlobal": true,
                         "lastModifiedTime": "2017-03-17T17:05:01.57+00:00",
                         "provisioningState": "Created",
-                        "sizeInBytes": 0
+                        "sizeInBytes": 0,
+                        "version": null
                       }
                     }
                   ]
@@ -511,12 +545,15 @@
         "operationId": "Module_Delete",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -595,12 +632,15 @@
         "operationId": "Module_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -637,39 +677,52 @@
             "schema": {
               "allOf": [
                 {
-                  "description": "The Resource definition.",
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
                   "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
                     "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
                     },
                     "tags": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
                     }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
+                  }
                 }
               ],
               "description": "Definition of the module type.",
@@ -719,7 +772,8 @@
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -745,7 +799,8 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "provisioningState": {
                       "description": "Gets or sets the provisioning state of the module.",
@@ -820,6 +875,7 @@
             "responses": {
               "200": {
                 "body": {
+                  "etag": null,
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/modules/OmsCompositeResources",
                   "location": "East US 2",
                   "name": "OmsCompositeResources",
@@ -827,12 +883,14 @@
                     "activityCount": 0,
                     "creationTime": "2017-03-29T15:41:47.003+00:00",
                     "error": {
+                      "code": null,
                       "message": ""
                     },
                     "isGlobal": false,
                     "lastModifiedTime": "2017-03-29T15:42:10.567+00:00",
                     "provisioningState": "Creating",
-                    "sizeInBytes": 0
+                    "sizeInBytes": 0,
+                    "version": null
                   },
                   "tags": {},
                   "type": "Microsoft.Automation/AutomationAccounts/Modules"
@@ -851,12 +909,15 @@
         "operationId": "Module_Update",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -954,39 +1015,52 @@
             "schema": {
               "allOf": [
                 {
-                  "description": "The Resource definition.",
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
                   "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
                     "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
                     },
                     "tags": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
                     }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
+                  }
                 }
               ],
               "description": "Definition of the module type.",
@@ -1036,7 +1110,8 @@
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -1062,7 +1137,8 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "provisioningState": {
                       "description": "Gets or sets the provisioning state of the module.",
@@ -1149,17 +1225,22 @@
             "responses": {
               "200": {
                 "body": {
+                  "etag": null,
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/MyAutomationAccount/modules/MyModule",
                   "location": "East US 2",
                   "name": "MyModule",
                   "properties": {
                     "activityCount": 0,
                     "creationTime": "2017-03-29T15:41:47.003+00:00",
-                    "error": {},
+                    "error": {
+                      "code": null,
+                      "message": null
+                    },
                     "isGlobal": false,
                     "lastModifiedTime": "2017-03-29T15:42:10.567+00:00",
                     "provisioningState": "Creating",
-                    "sizeInBytes": 0
+                    "sizeInBytes": 0,
+                    "version": null
                   },
                   "tags": {},
                   "type": "Microsoft.Automation/AutomationAccounts/Modules"
@@ -1178,12 +1259,15 @@
         "operationId": "Module_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -1287,39 +1371,52 @@
             "schema": {
               "allOf": [
                 {
-                  "description": "The Resource definition.",
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
                   "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
                     "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
                     },
                     "tags": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
                     }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
+                  }
                 }
               ],
               "description": "Definition of the module type.",
@@ -1369,7 +1466,8 @@
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -1395,7 +1493,8 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "provisioningState": {
                       "description": "Gets or sets the provisioning state of the module.",
@@ -1442,39 +1541,52 @@
             "schema": {
               "allOf": [
                 {
-                  "description": "The Resource definition.",
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
                   "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
                     "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
                     },
                     "tags": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
                     }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
+                  }
                 }
               ],
               "description": "Definition of the module type.",
@@ -1524,7 +1636,8 @@
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -1550,7 +1663,8 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "provisioningState": {
                       "description": "Gets or sets the provisioning state of the module.",
@@ -1637,17 +1751,22 @@
             "responses": {
               "200": {
                 "body": {
+                  "etag": null,
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/modules/OmsCompositeResources",
                   "location": "East US 2",
                   "name": "OmsCompositeResources",
                   "properties": {
                     "activityCount": 0,
                     "creationTime": "2017-03-29T15:41:47.003+00:00",
-                    "error": {},
+                    "error": {
+                      "code": null,
+                      "message": null
+                    },
                     "isGlobal": false,
                     "lastModifiedTime": "2017-03-29T15:42:10.567+00:00",
                     "provisioningState": "Creating",
-                    "sizeInBytes": 0
+                    "sizeInBytes": 0,
+                    "version": null
                   },
                   "tags": {},
                   "type": "Microsoft.Automation/AutomationAccounts/Modules"
@@ -1656,17 +1775,22 @@
               },
               "201": {
                 "body": {
+                  "etag": null,
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/modules/OmsCompositeResources",
                   "location": "East US 2",
                   "name": "OmsCompositeResources",
                   "properties": {
                     "activityCount": 0,
                     "creationTime": "2017-03-29T15:41:47.003+00:00",
-                    "error": {},
+                    "error": {
+                      "code": null,
+                      "message": null
+                    },
                     "isGlobal": false,
                     "lastModifiedTime": "2017-03-29T15:42:10.567+00:00",
                     "provisioningState": "Creating",
-                    "sizeInBytes": 0
+                    "sizeInBytes": 0,
+                    "version": null
                   },
                   "tags": {},
                   "type": "Microsoft.Automation/AutomationAccounts/Modules"
@@ -1687,12 +1811,15 @@
         "operationId": "Activity_ListByModule",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -1753,7 +1880,8 @@
                           "creationTime": {
                             "description": "Gets or sets the creation time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "definition": {
                             "description": "Gets or sets the user name of the activity.",
@@ -1766,7 +1894,8 @@
                           "lastModifiedTime": {
                             "description": "Gets or sets the last modified time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "outputTypes": {
                             "description": "Gets or sets the output types of the activity.",
@@ -1889,7 +2018,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Add-AzureRmAcccount cmdlet adds an authenticated Azure account to use for Azure Resource Manager cmdlet requests.\n\nYou can use this authenticated account only with Azure Resource Manager cmdlets. To add an authenticated account for use with Service Management cmdlets, use the Add-AzureAccount or the Import-AzurePublishSettingsFile cmdlet.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1899,7 +2030,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Add-AzureRmEnvironment cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager. The built-in environments AzureCloud and AzureChinaCloud target existing public instances of Azure Resource Manager.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1909,7 +2042,9 @@
                         "creationTime": "2017-03-17T17:05:21.713+00:00",
                         "definition": "",
                         "description": "",
-                        "lastModifiedTime": "2017-03-17T17:05:21.713+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.713+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1919,7 +2054,9 @@
                         "creationTime": "2017-03-17T17:05:21.713+00:00",
                         "definition": "",
                         "description": "",
-                        "lastModifiedTime": "2017-03-17T17:05:21.713+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.713+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1929,7 +2066,9 @@
                         "creationTime": "2017-03-17T17:05:21.713+00:00",
                         "definition": "",
                         "description": "The Get-AzureRmContext cmdlet gets the current metadata used to authenticate Azure Resource Manager requests.\n\nThis cmdlet gets the Active Directory account, Active Directory tenant, Azure subscription, and the targeted Azure environment. Azure Resource Manager cmdlets use these settings by default when making Azure Resource Manager requests.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.713+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.713+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1939,7 +2078,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Get-AzureRmEnvironment cmdlet gets endpoints and metadata for an instance of Azure services.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1949,7 +2090,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Get-AzureRmSubscription cmdlet gets the subscription ID, subscription name, and home tenant for subscriptions that the current account can access.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1959,7 +2102,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Get-AzureRmTenant cmdlet gets tenants authorized for the current user.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1969,7 +2114,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Remove-AzureRmEnvironment cmdlet removes endpoints and metadata information for connecting to a given Azure instance.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1979,7 +2126,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Save-AzureRmProfile cmdlet saves the current authentication information for use in other PowerShell sessions.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1989,7 +2138,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Select-AzureRmProfile cmdlet loads authentication information from a file to set the Azure environment and context. Cmdlets that you run in the current session use this information to authenticate requests to Azure Resource Manager.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -1999,7 +2150,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Set-AzureRmContext cmdlet sets authentication information for cmdlets that you run in the current session. The context includes tenant, subscription, and environment information.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     },
                     {
@@ -2009,7 +2162,9 @@
                         "creationTime": "2017-03-17T17:05:21.697+00:00",
                         "definition": "",
                         "description": "The Set-AzureRMEnvironment cmdlet sets endpoints and metadata for connecting to an instance of Azure.",
-                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00"
+                        "lastModifiedTime": "2017-03-17T17:05:21.697+00:00",
+                        "outputTypes": null,
+                        "parameterSets": null
                       }
                     }
                   ]
@@ -2033,12 +2188,15 @@
         "operationId": "Activity_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -2097,7 +2255,8 @@
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "definition": {
                       "description": "Gets or sets the user name of the activity.",
@@ -2110,7 +2269,8 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "outputTypes": {
                       "description": "Gets or sets the output types of the activity.",
@@ -2685,12 +2845,15 @@
         "operationId": "ObjectDataTypes_ListFieldsByModuleAndType",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -2820,12 +2983,15 @@
         "operationId": "Fields_ListByType",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -2955,12 +3121,15 @@
         "operationId": "ObjectDataTypes_ListFieldsByType",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",

@@ -126,6 +126,27 @@ amazonaws_rds.AuthorizeDBSecurityGroupIngress({
 #### Output
 * output [AuthorizeDBSecurityGroupIngressResult](#authorizedbsecuritygroupingressresult)
 
+### BacktrackDBCluster
+
+
+
+```js
+amazonaws_rds.BacktrackDBCluster({
+  "DBClusterIdentifier": "",
+  "BacktrackTo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BacktrackTo **required** [TStamp](#tstamp)
+  * DBClusterIdentifier **required** [String](#string)
+  * Force [BooleanOptional](#booleanoptional)
+  * UseEarliestTimeOnPointInTimeUnavailable [BooleanOptional](#booleanoptional)
+
+#### Output
+* output [DBClusterBacktrack](#dbclusterbacktrack)
+
 ### CopyDBClusterParameterGroup
 
 
@@ -255,12 +276,14 @@ amazonaws_rds.CreateDBCluster({
 #### Input
 * input `object`
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
+  * BacktrackWindow [LongOptional](#longoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
   * CharacterSetName [String](#string)
   * DBClusterIdentifier **required** [String](#string)
   * DBClusterParameterGroupName [String](#string)
   * DBSubnetGroupName [String](#string)
   * DatabaseName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine **required** [String](#string)
   * EngineVersion [String](#string)
@@ -370,6 +393,7 @@ amazonaws_rds.CreateDBInstance({
   * Port [IntegerOptional](#integeroptional)
   * PreferredBackupWindow [String](#string)
   * PreferredMaintenanceWindow [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PromotionTier [IntegerOptional](#integeroptional)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * StorageEncrypted [BooleanOptional](#booleanoptional)
@@ -414,11 +438,13 @@ amazonaws_rds.CreateDBInstanceReadReplica({
   * PerformanceInsightsKMSKeyId [String](#string)
   * Port [IntegerOptional](#integeroptional)
   * PreSignedUrl [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * SourceDBInstanceIdentifier **required** [String](#string)
   * SourceRegion [String](#string)
   * StorageType [String](#string)
   * Tags [TagList](#taglist)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
 
 #### Output
 * output [CreateDBInstanceReadReplicaResult](#createdbinstancereadreplicaresult)
@@ -760,6 +786,27 @@ amazonaws_rds.DescribeCertificates({}, context)
 
 #### Output
 * output [CertificateMessage](#certificatemessage)
+
+### DescribeDBClusterBacktracks
+
+
+
+```js
+amazonaws_rds.DescribeDBClusterBacktracks({
+  "DBClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BacktrackIdentifier [String](#string)
+  * DBClusterIdentifier **required** [String](#string)
+  * Filters [FilterList](#filterlist)
+  * Marker [String](#string)
+  * MaxRecords [IntegerOptional](#integeroptional)
+
+#### Output
+* output [DBClusterBacktrackMessage](#dbclusterbacktrackmessage)
 
 ### DescribeDBClusterParameterGroups
 
@@ -1399,10 +1446,13 @@ amazonaws_rds.ModifyDBCluster({
 #### Input
 * input `object`
   * ApplyImmediately [Boolean](#boolean)
+  * BacktrackWindow [LongOptional](#longoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
+  * CloudwatchLogsExportConfiguration [CloudwatchLogsExportConfiguration](#cloudwatchlogsexportconfiguration)
   * DBClusterIdentifier **required** [String](#string)
   * DBClusterParameterGroupName [String](#string)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
+  * EngineVersion [String](#string)
   * MasterUserPassword [String](#string)
   * NewDBClusterIdentifier [String](#string)
   * OptionGroupName [String](#string)
@@ -1496,11 +1546,13 @@ amazonaws_rds.ModifyDBInstance({
   * PerformanceInsightsKMSKeyId [String](#string)
   * PreferredBackupWindow [String](#string)
   * PreferredMaintenanceWindow [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PromotionTier [IntegerOptional](#integeroptional)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * StorageType [String](#string)
   * TdeCredentialArn [String](#string)
   * TdeCredentialPassword [String](#string)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
   * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
 
 #### Output
@@ -1815,12 +1867,14 @@ amazonaws_rds.RestoreDBClusterFromS3({
 #### Input
 * input `object`
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
+  * BacktrackWindow [LongOptional](#longoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
   * CharacterSetName [String](#string)
   * DBClusterIdentifier **required** [String](#string)
   * DBClusterParameterGroupName [String](#string)
   * DBSubnetGroupName [String](#string)
   * DatabaseName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine **required** [String](#string)
   * EngineVersion [String](#string)
@@ -1858,9 +1912,11 @@ amazonaws_rds.RestoreDBClusterFromSnapshot({
 #### Input
 * input `object`
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
+  * BacktrackWindow [LongOptional](#longoptional)
   * DBClusterIdentifier **required** [String](#string)
   * DBSubnetGroupName [String](#string)
   * DatabaseName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine **required** [String](#string)
   * EngineVersion [String](#string)
@@ -1887,8 +1943,10 @@ amazonaws_rds.RestoreDBClusterToPointInTime({
 
 #### Input
 * input `object`
+  * BacktrackWindow [LongOptional](#longoptional)
   * DBClusterIdentifier **required** [String](#string)
   * DBSubnetGroupName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * KmsKeyId [String](#string)
   * OptionGroupName [String](#string)
@@ -1934,11 +1992,13 @@ amazonaws_rds.RestoreDBInstanceFromDBSnapshot({
   * MultiAZ [BooleanOptional](#booleanoptional)
   * OptionGroupName [String](#string)
   * Port [IntegerOptional](#integeroptional)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * StorageType [String](#string)
   * Tags [TagList](#taglist)
   * TdeCredentialArn [String](#string)
   * TdeCredentialPassword [String](#string)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
 
 #### Output
 * output [RestoreDBInstanceFromDBSnapshotResult](#restoredbinstancefromdbsnapshotresult)
@@ -1990,6 +2050,7 @@ amazonaws_rds.RestoreDBInstanceFromS3({
   * Port [IntegerOptional](#integeroptional)
   * PreferredBackupWindow [String](#string)
   * PreferredMaintenanceWindow [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * S3BucketName **required** [String](#string)
   * S3IngestionRoleArn **required** [String](#string)
@@ -1999,6 +2060,7 @@ amazonaws_rds.RestoreDBInstanceFromS3({
   * StorageEncrypted [BooleanOptional](#booleanoptional)
   * StorageType [String](#string)
   * Tags [TagList](#taglist)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
   * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
 
 #### Output
@@ -2033,6 +2095,7 @@ amazonaws_rds.RestoreDBInstanceToPointInTime({
   * MultiAZ [BooleanOptional](#booleanoptional)
   * OptionGroupName [String](#string)
   * Port [IntegerOptional](#integeroptional)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * RestoreTime [TStamp](#tstamp)
   * SourceDBInstanceIdentifier **required** [String](#string)
@@ -2041,6 +2104,7 @@ amazonaws_rds.RestoreDBInstanceToPointInTime({
   * TargetDBInstanceIdentifier **required** [String](#string)
   * TdeCredentialArn [String](#string)
   * TdeCredentialPassword [String](#string)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
   * UseLatestRestorableTime [Boolean](#boolean)
 
 #### Output
@@ -2157,13 +2221,13 @@ amazonaws_rds.StopDBInstance({
   * items [String](#string)
 
 ### AuthorizationAlreadyExistsFault
-* AuthorizationAlreadyExistsFault `object`: The specified CIDRIP or EC2 security group is already authorized for the specified DB security group.
+* AuthorizationAlreadyExistsFault `object`: The specified CIDRIP or Amazon EC2 security group is already authorized for the specified DB security group.
 
 ### AuthorizationNotFoundFault
-* AuthorizationNotFoundFault `object`: <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p> <p>RDS may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+* AuthorizationNotFoundFault `object`: <p>The specified CIDRIP or Amazon EC2 security group isn't authorized for the specified DB security group.</p> <p>RDS also may not be authorized by using IAM to perform necessary actions on your behalf.</p>
 
 ### AuthorizationQuotaExceededFault
-* AuthorizationQuotaExceededFault `object`: DB security group authorization quota has been reached.
+* AuthorizationQuotaExceededFault `object`: The DB security group authorization quota has been reached.
 
 ### AuthorizeDBSecurityGroupIngressMessage
 * AuthorizeDBSecurityGroupIngressMessage `object`: <p/>
@@ -2188,6 +2252,23 @@ amazonaws_rds.StopDBInstance({
 ### AvailabilityZones
 * AvailabilityZones `array`
   * items [String](#string)
+
+### AvailableProcessorFeature
+* AvailableProcessorFeature `object`: <p>Contains the available processor feature information for the DB instance class of a DB instance.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor">Configuring the Processor of the DB Instance Class</a> in the <i>Amazon RDS User Guide. </i> </p>
+  * AllowedValues [String](#string)
+  * DefaultValue [String](#string)
+  * Name [String](#string)
+
+### AvailableProcessorFeatureList
+* AvailableProcessorFeatureList `array`
+  * items [AvailableProcessorFeature](#availableprocessorfeature)
+
+### BacktrackDBClusterMessage
+* BacktrackDBClusterMessage `object`: <p/>
+  * BacktrackTo **required** [TStamp](#tstamp)
+  * DBClusterIdentifier **required** [String](#string)
+  * Force [BooleanOptional](#booleanoptional)
+  * UseEarliestTimeOnPointInTimeUnavailable [BooleanOptional](#booleanoptional)
 
 ### Boolean
 * Boolean `boolean`
@@ -2214,7 +2295,7 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### CertificateNotFoundFault
-* CertificateNotFoundFault `object`:  <i>CertificateIdentifier</i> does not refer to an existing certificate. 
+* CertificateNotFoundFault `object`:  <i>CertificateIdentifier</i> doesn't refer to an existing certificate. 
 
 ### CharacterSet
 * CharacterSet `object`:  This data type is used as a response element in the action <a>DescribeDBEngineVersions</a>. 
@@ -2291,12 +2372,14 @@ amazonaws_rds.StopDBInstance({
 ### CreateDBClusterMessage
 * CreateDBClusterMessage `object`: <p/>
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
+  * BacktrackWindow [LongOptional](#longoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
   * CharacterSetName [String](#string)
   * DBClusterIdentifier **required** [String](#string)
   * DBClusterParameterGroupName [String](#string)
   * DBSubnetGroupName [String](#string)
   * DatabaseName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine **required** [String](#string)
   * EngineVersion [String](#string)
@@ -2374,6 +2457,7 @@ amazonaws_rds.StopDBInstance({
   * Port [IntegerOptional](#integeroptional)
   * PreferredBackupWindow [String](#string)
   * PreferredMaintenanceWindow [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PromotionTier [IntegerOptional](#integeroptional)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * StorageEncrypted [BooleanOptional](#booleanoptional)
@@ -2404,11 +2488,13 @@ amazonaws_rds.StopDBInstance({
   * PerformanceInsightsKMSKeyId [String](#string)
   * Port [IntegerOptional](#integeroptional)
   * PreSignedUrl [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * SourceDBInstanceIdentifier **required** [String](#string)
   * SourceRegion [String](#string)
   * StorageType [String](#string)
   * Tags [TagList](#taglist)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
 
 ### CreateDBInstanceReadReplicaResult
 * CreateDBInstanceReadReplicaResult `object`
@@ -2491,6 +2577,8 @@ amazonaws_rds.StopDBInstance({
   * AllocatedStorage [IntegerOptional](#integeroptional)
   * AssociatedRoles [DBClusterRoles](#dbclusterroles)
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
+  * BacktrackConsumedChangeRecords [LongOptional](#longoptional)
+  * BacktrackWindow [LongOptional](#longoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
   * CharacterSetName [String](#string)
   * CloneGroupId [String](#string)
@@ -2503,7 +2591,9 @@ amazonaws_rds.StopDBInstance({
   * DBSubnetGroup [String](#string)
   * DatabaseName [String](#string)
   * DbClusterResourceId [String](#string)
+  * EarliestBacktrackTime [TStamp](#tstamp)
   * EarliestRestorableTime [TStamp](#tstamp)
+  * EnabledCloudwatchLogsExports [LogTypeList](#logtypelist)
   * Endpoint [String](#string)
   * Engine [String](#string)
   * EngineVersion [String](#string)
@@ -2525,7 +2615,28 @@ amazonaws_rds.StopDBInstance({
   * VpcSecurityGroups [VpcSecurityGroupMembershipList](#vpcsecuritygroupmembershiplist)
 
 ### DBClusterAlreadyExistsFault
-* DBClusterAlreadyExistsFault `object`: User already has a DB cluster with the given identifier.
+* DBClusterAlreadyExistsFault `object`: The user already has a DB cluster with the given identifier.
+
+### DBClusterBacktrack
+* DBClusterBacktrack `object`: This data type is used as a response element in the <a>DescribeDBClusterBacktracks</a> action.
+  * BacktrackIdentifier [String](#string)
+  * BacktrackRequestCreationTime [TStamp](#tstamp)
+  * BacktrackTo [TStamp](#tstamp)
+  * BacktrackedFrom [TStamp](#tstamp)
+  * DBClusterIdentifier [String](#string)
+  * Status [String](#string)
+
+### DBClusterBacktrackList
+* DBClusterBacktrackList `array`
+  * items [DBClusterBacktrack](#dbclusterbacktrack)
+
+### DBClusterBacktrackMessage
+* DBClusterBacktrackMessage `object`: Contains the result of a successful invocation of the <a>DescribeDBClusterBacktracks</a> action.
+  * DBClusterBacktracks [DBClusterBacktrackList](#dbclusterbacktracklist)
+  * Marker [String](#string)
+
+### DBClusterBacktrackNotFoundFault
+* DBClusterBacktrackNotFoundFault `object`:  <i>BacktrackIdentifier</i> doesn't refer to an existing backtrack. 
 
 ### DBClusterList
 * DBClusterList `array`
@@ -2548,7 +2659,7 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### DBClusterNotFoundFault
-* DBClusterNotFoundFault `object`:  <i>DBClusterIdentifier</i> does not refer to an existing DB cluster. 
+* DBClusterNotFoundFault `object`:  <i>DBClusterIdentifier</i> doesn't refer to an existing DB cluster. 
 
 ### DBClusterOptionGroupMemberships
 * DBClusterOptionGroupMemberships `array`
@@ -2580,7 +2691,7 @@ amazonaws_rds.StopDBInstance({
   * DBClusterParameterGroupName [String](#string)
 
 ### DBClusterParameterGroupNotFoundFault
-* DBClusterParameterGroupNotFoundFault `object`:  <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter group. 
+* DBClusterParameterGroupNotFoundFault `object`:  <i>DBClusterParameterGroupName</i> doesn't refer to an existing DB cluster parameter group. 
 
 ### DBClusterParameterGroupsMessage
 * DBClusterParameterGroupsMessage `object`: <p/>
@@ -2588,7 +2699,7 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### DBClusterQuotaExceededFault
-* DBClusterQuotaExceededFault `object`: User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
+* DBClusterQuotaExceededFault `object`: The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
 
 ### DBClusterRole
 * DBClusterRole `object`: Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
@@ -2599,7 +2710,7 @@ amazonaws_rds.StopDBInstance({
 * DBClusterRoleAlreadyExistsFault `object`: The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.
 
 ### DBClusterRoleNotFoundFault
-* DBClusterRoleNotFoundFault `object`: The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.
+* DBClusterRoleNotFoundFault `object`: The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified DB cluster.
 
 ### DBClusterRoleQuotaExceededFault
 * DBClusterRoleQuotaExceededFault `object`: You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.
@@ -2632,7 +2743,7 @@ amazonaws_rds.StopDBInstance({
   * VpcId [String](#string)
 
 ### DBClusterSnapshotAlreadyExistsFault
-* DBClusterSnapshotAlreadyExistsFault `object`: User already has a DB cluster snapshot with the given identifier.
+* DBClusterSnapshotAlreadyExistsFault `object`: The user already has a DB cluster snapshot with the given identifier.
 
 ### DBClusterSnapshotAttribute
 * DBClusterSnapshotAttribute `object`: <p>Contains the name and values of a manual DB cluster snapshot attribute.</p> <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
@@ -2658,7 +2769,7 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### DBClusterSnapshotNotFoundFault
-* DBClusterSnapshotNotFoundFault `object`:  <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot. 
+* DBClusterSnapshotNotFoundFault `object`:  <i>DBClusterSnapshotIdentifier</i> doesn't refer to an existing DB cluster snapshot. 
 
 ### DBEngineVersion
 * DBEngineVersion `object`:  This data type is used as a response element in the action <a>DescribeDBEngineVersions</a>. 
@@ -2672,6 +2783,7 @@ amazonaws_rds.StopDBInstance({
   * SupportedCharacterSets [SupportedCharacterSetsList](#supportedcharactersetslist)
   * SupportedTimezones [SupportedTimezonesList](#supportedtimezoneslist)
   * SupportsLogExportsToCloudwatchLogs [Boolean](#boolean)
+  * SupportsReadReplica [Boolean](#boolean)
   * ValidUpgradeTarget [ValidUpgradeTargetList](#validupgradetargetlist)
 
 ### DBEngineVersionList
@@ -2725,6 +2837,7 @@ amazonaws_rds.StopDBInstance({
   * PerformanceInsightsKMSKeyId [String](#string)
   * PreferredBackupWindow [String](#string)
   * PreferredMaintenanceWindow [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PromotionTier [IntegerOptional](#integeroptional)
   * PubliclyAccessible [Boolean](#boolean)
   * ReadReplicaDBClusterIdentifiers [ReadReplicaDBClusterIdentifierList](#readreplicadbclusteridentifierlist)
@@ -2739,7 +2852,7 @@ amazonaws_rds.StopDBInstance({
   * VpcSecurityGroups [VpcSecurityGroupMembershipList](#vpcsecuritygroupmembershiplist)
 
 ### DBInstanceAlreadyExistsFault
-* DBInstanceAlreadyExistsFault `object`: User already has a DB instance with the given identifier.
+* DBInstanceAlreadyExistsFault `object`: The user already has a DB instance with the given identifier.
 
 ### DBInstanceList
 * DBInstanceList `array`
@@ -2751,7 +2864,7 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### DBInstanceNotFoundFault
-* DBInstanceNotFoundFault `object`:  <i>DBInstanceIdentifier</i> does not refer to an existing DB instance. 
+* DBInstanceNotFoundFault `object`:  <i>DBInstanceIdentifier</i> doesn't refer to an existing DB instance. 
 
 ### DBInstanceStatusInfo
 * DBInstanceStatusInfo `object`: Provides a list of status information for a DB instance.
@@ -2765,7 +2878,7 @@ amazonaws_rds.StopDBInstance({
   * items [DBInstanceStatusInfo](#dbinstancestatusinfo)
 
 ### DBLogFileNotFoundFault
-* DBLogFileNotFoundFault `object`:  <i>LogFileName</i> does not refer to an existing DB log file.
+* DBLogFileNotFoundFault `object`:  <i>LogFileName</i> doesn't refer to an existing DB log file.
 
 ### DBParameterGroup
 * DBParameterGroup `object`: <p>Contains the details of an Amazon RDS DB parameter group. </p> <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action. </p>
@@ -2791,10 +2904,10 @@ amazonaws_rds.StopDBInstance({
   * DBParameterGroupName [String](#string)
 
 ### DBParameterGroupNotFoundFault
-* DBParameterGroupNotFoundFault `object`:  <i>DBParameterGroupName</i> does not refer to an existing DB parameter group. 
+* DBParameterGroupNotFoundFault `object`:  <i>DBParameterGroupName</i> doesn't refer to an existing DB parameter group. 
 
 ### DBParameterGroupQuotaExceededFault
-* DBParameterGroupQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB parameter groups.
+* DBParameterGroupQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of DB parameter groups.
 
 ### DBParameterGroupStatus
 * DBParameterGroupStatus `object`: <p>The status of the DB parameter group.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>CreateDBInstanceReadReplica</a> </p> </li> <li> <p> <a>DeleteDBInstance</a> </p> </li> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p> <a>RebootDBInstance</a> </p> </li> <li> <p> <a>RestoreDBInstanceFromDBSnapshot</a> </p> </li> </ul>
@@ -2842,13 +2955,13 @@ amazonaws_rds.StopDBInstance({
   * items [String](#string)
 
 ### DBSecurityGroupNotFoundFault
-* DBSecurityGroupNotFoundFault `object`:  <i>DBSecurityGroupName</i> does not refer to an existing DB security group. 
+* DBSecurityGroupNotFoundFault `object`:  <i>DBSecurityGroupName</i> doesn't refer to an existing DB security group. 
 
 ### DBSecurityGroupNotSupportedFault
-* DBSecurityGroupNotSupportedFault `object`: A DB security group is not allowed for this action.
+* DBSecurityGroupNotSupportedFault `object`: A DB security group isn't allowed for this action.
 
 ### DBSecurityGroupQuotaExceededFault
-* DBSecurityGroupQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB security groups.
+* DBSecurityGroupQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of DB security groups.
 
 ### DBSecurityGroups
 * DBSecurityGroups `array`
@@ -2873,6 +2986,7 @@ amazonaws_rds.StopDBInstance({
   * OptionGroupName [String](#string)
   * PercentProgress [Integer](#integer)
   * Port [Integer](#integer)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * SnapshotCreateTime [TStamp](#tstamp)
   * SnapshotType [String](#string)
   * SourceDBSnapshotIdentifier [String](#string)
@@ -2910,7 +3024,7 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### DBSnapshotNotFoundFault
-* DBSnapshotNotFoundFault `object`:  <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot. 
+* DBSnapshotNotFoundFault `object`:  <i>DBSnapshotIdentifier</i> doesn't refer to an existing DB snapshot. 
 
 ### DBSubnetGroup
 * DBSubnetGroup `object`: <p>Contains the details of an Amazon RDS DB subnet group. </p> <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action. </p>
@@ -2933,23 +3047,23 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### DBSubnetGroupNotAllowedFault
-* DBSubnetGroupNotAllowedFault `object`: Indicates that the DBSubnetGroup should not be specified while creating read replicas that lie in the same region as the source instance.
+* DBSubnetGroupNotAllowedFault `object`: The DBSubnetGroup shouldn't be specified while creating read replicas that lie in the same region as the source instance.
 
 ### DBSubnetGroupNotFoundFault
-* DBSubnetGroupNotFoundFault `object`:  <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group. 
+* DBSubnetGroupNotFoundFault `object`:  <i>DBSubnetGroupName</i> doesn't refer to an existing DB subnet group. 
 
 ### DBSubnetGroupQuotaExceededFault
-* DBSubnetGroupQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB subnet groups.
+* DBSubnetGroupQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of DB subnet groups.
 
 ### DBSubnetGroups
 * DBSubnetGroups `array`
   * items [DBSubnetGroup](#dbsubnetgroup)
 
 ### DBSubnetQuotaExceededFault
-* DBSubnetQuotaExceededFault `object`: Request would result in user exceeding the allowed number of subnets in a DB subnet groups.
+* DBSubnetQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.
 
 ### DBUpgradeDependencyFailureFault
-* DBUpgradeDependencyFailureFault `object`: The DB upgrade failed because a resource the DB depends on could not be modified.
+* DBUpgradeDependencyFailureFault `object`: The DB upgrade failed because a resource the DB depends on can't be modified.
 
 ### DeleteDBClusterMessage
 * DeleteDBClusterMessage `object`: <p/>
@@ -3021,6 +3135,14 @@ amazonaws_rds.StopDBInstance({
 ### DescribeCertificatesMessage
 * DescribeCertificatesMessage `object`: <p/>
   * CertificateIdentifier [String](#string)
+  * Filters [FilterList](#filterlist)
+  * Marker [String](#string)
+  * MaxRecords [IntegerOptional](#integeroptional)
+
+### DescribeDBClusterBacktracksMessage
+* DescribeDBClusterBacktracksMessage `object`: <p/>
+  * BacktrackIdentifier [String](#string)
+  * DBClusterIdentifier **required** [String](#string)
   * Filters [FilterList](#filterlist)
   * Marker [String](#string)
   * MaxRecords [IntegerOptional](#integeroptional)
@@ -3291,7 +3413,7 @@ amazonaws_rds.StopDBInstance({
   * items [DomainMembership](#domainmembership)
 
 ### DomainNotFoundFault
-* DomainNotFoundFault `object`:  <i>Domain</i> does not refer to an existing Active Directory Domain. 
+* DomainNotFoundFault `object`:  <i>Domain</i> doesn't refer to an existing Active Directory domain. 
 
 ### Double
 * Double `number`
@@ -3414,7 +3536,7 @@ amazonaws_rds.StopDBInstance({
   * DBCluster [DBCluster](#dbcluster)
 
 ### Filter
-* Filter `object`: This type is not currently supported.
+* Filter `object`: <p>A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as IDs. The filters supported by a describe operation are documented with the describe operation.</p> <note> <p>Currently, wildcards are not supported in filters.</p> </note> <p>The following actions can be filtered:</p> <ul> <li> <p> <a>DescribeDBClusterBacktracks</a> </p> </li> <li> <p> <a>DescribeDBClusters</a> </p> </li> <li> <p> <a>DescribeDBInstances</a> </p> </li> <li> <p> <a>DescribePendingMaintenanceActions</a> </p> </li> </ul>
   * Name **required** [String](#string)
   * Values **required** [FilterValueList](#filtervaluelist)
 
@@ -3436,16 +3558,16 @@ amazonaws_rds.StopDBInstance({
   * items [IPRange](#iprange)
 
 ### InstanceQuotaExceededFault
-* InstanceQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB instances.
+* InstanceQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of DB instances.
 
 ### InsufficientDBClusterCapacityFault
-* InsufficientDBClusterCapacityFault `object`: The DB cluster does not have enough capacity for the current operation.
+* InsufficientDBClusterCapacityFault `object`: The DB cluster doesn't have enough capacity for the current operation.
 
 ### InsufficientDBInstanceCapacityFault
-* InsufficientDBInstanceCapacityFault `object`: Specified DB instance class is not available in the specified Availability Zone.
+* InsufficientDBInstanceCapacityFault `object`: The specified DB instance class isn't available in the specified Availability Zone.
 
 ### InsufficientStorageClusterCapacityFault
-* InsufficientStorageClusterCapacityFault `object`: There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
+* InsufficientStorageClusterCapacityFault `object`: There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
 
 ### Integer
 * Integer `integer`
@@ -3454,52 +3576,52 @@ amazonaws_rds.StopDBInstance({
 * IntegerOptional `integer`
 
 ### InvalidDBClusterSnapshotStateFault
-* InvalidDBClusterSnapshotStateFault `object`: The supplied value is not a valid DB cluster snapshot state.
+* InvalidDBClusterSnapshotStateFault `object`: The supplied value isn't a valid DB cluster snapshot state.
 
 ### InvalidDBClusterStateFault
-* InvalidDBClusterStateFault `object`: The DB cluster is not in a valid state.
+* InvalidDBClusterStateFault `object`: The DB cluster isn't in a valid state.
 
 ### InvalidDBInstanceStateFault
-* InvalidDBInstanceStateFault `object`:  The specified DB instance is not in the <i>available</i> state. 
+* InvalidDBInstanceStateFault `object`:  The specified DB instance isn't in the <i>available</i> state. 
 
 ### InvalidDBParameterGroupStateFault
-* InvalidDBParameterGroupStateFault `object`: The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.
+* InvalidDBParameterGroupStateFault `object`: The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.
 
 ### InvalidDBSecurityGroupStateFault
-* InvalidDBSecurityGroupStateFault `object`: The state of the DB security group does not allow deletion.
+* InvalidDBSecurityGroupStateFault `object`: The state of the DB security group doesn't allow deletion.
 
 ### InvalidDBSnapshotStateFault
-* InvalidDBSnapshotStateFault `object`: The state of the DB snapshot does not allow deletion.
+* InvalidDBSnapshotStateFault `object`: The state of the DB snapshot doesn't allow deletion.
 
 ### InvalidDBSubnetGroupFault
-* InvalidDBSubnetGroupFault `object`: Indicates the DBSubnetGroup does not belong to the same VPC as that of an existing cross region read replica of the same source instance.
+* InvalidDBSubnetGroupFault `object`: The DBSubnetGroup doesn't belong to the same VPC as that of an existing cross-region read replica of the same source instance.
 
 ### InvalidDBSubnetGroupStateFault
-* InvalidDBSubnetGroupStateFault `object`: The DB subnet group cannot be deleted because it is in use.
+* InvalidDBSubnetGroupStateFault `object`: The DB subnet group cannot be deleted because it's in use.
 
 ### InvalidDBSubnetStateFault
-* InvalidDBSubnetStateFault `object`:  The DB subnet is not in the <i>available</i> state. 
+* InvalidDBSubnetStateFault `object`:  The DB subnet isn't in the <i>available</i> state. 
 
 ### InvalidEventSubscriptionStateFault
 * InvalidEventSubscriptionStateFault `object`: This error can occur if someone else is modifying a subscription. You should retry the action.
 
 ### InvalidOptionGroupStateFault
-* InvalidOptionGroupStateFault `object`:  The option group is not in the <i>available</i> state. 
+* InvalidOptionGroupStateFault `object`:  The option group isn't in the <i>available</i> state. 
 
 ### InvalidRestoreFault
-* InvalidRestoreFault `object`: Cannot restore from vpc backup to non-vpc DB instance.
+* InvalidRestoreFault `object`: Cannot restore from VPC backup to non-VPC DB instance.
 
 ### InvalidS3BucketFault
-* InvalidS3BucketFault `object`: The specified Amazon S3 bucket name could not be found or Amazon RDS is not authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.
+* InvalidS3BucketFault `object`: The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.
 
 ### InvalidSubnet
 * InvalidSubnet `object`: The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
 
 ### InvalidVPCNetworkStateFault
-* InvalidVPCNetworkStateFault `object`: DB subnet group does not cover all Availability Zones after it is created because users' change.
+* InvalidVPCNetworkStateFault `object`: The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.
 
 ### KMSKeyNotAccessibleFault
-* KMSKeyNotAccessibleFault `object`: Error accessing KMS key.
+* KMSKeyNotAccessibleFault `object`: An error occurred accessing an AWS KMS key.
 
 ### KeyList
 * KeyList `array`
@@ -3517,13 +3639,19 @@ amazonaws_rds.StopDBInstance({
 ### Long
 * Long `integer`
 
+### LongOptional
+* LongOptional `integer`
+
 ### ModifyDBClusterMessage
 * ModifyDBClusterMessage `object`: <p/>
   * ApplyImmediately [Boolean](#boolean)
+  * BacktrackWindow [LongOptional](#longoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
+  * CloudwatchLogsExportConfiguration [CloudwatchLogsExportConfiguration](#cloudwatchlogsexportconfiguration)
   * DBClusterIdentifier **required** [String](#string)
   * DBClusterParameterGroupName [String](#string)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
+  * EngineVersion [String](#string)
   * MasterUserPassword [String](#string)
   * NewDBClusterIdentifier [String](#string)
   * OptionGroupName [String](#string)
@@ -3584,11 +3712,13 @@ amazonaws_rds.StopDBInstance({
   * PerformanceInsightsKMSKeyId [String](#string)
   * PreferredBackupWindow [String](#string)
   * PreferredMaintenanceWindow [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PromotionTier [IntegerOptional](#integeroptional)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * StorageType [String](#string)
   * TdeCredentialArn [String](#string)
   * TdeCredentialPassword [String](#string)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
   * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
 
 ### ModifyDBInstanceResult
@@ -3806,6 +3936,7 @@ amazonaws_rds.StopDBInstance({
 ### OrderableDBInstanceOption
 * OrderableDBInstanceOption `object`: <p>Contains a list of available options for a DB instance.</p> <p> This data type is used as a response element in the <a>DescribeOrderableDBInstanceOptions</a> action. </p>
   * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
+  * AvailableProcessorFeatures [AvailableProcessorFeatureList](#availableprocessorfeaturelist)
   * DBInstanceClass [String](#string)
   * Engine [String](#string)
   * EngineVersion [String](#string)
@@ -3894,10 +4025,20 @@ amazonaws_rds.StopDBInstance({
   * MultiAZ [BooleanOptional](#booleanoptional)
   * PendingCloudwatchLogsExports [PendingCloudwatchLogsExports](#pendingcloudwatchlogsexports)
   * Port [IntegerOptional](#integeroptional)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * StorageType [String](#string)
 
 ### PointInTimeRestoreNotEnabledFault
 * PointInTimeRestoreNotEnabledFault `object`:  <i>SourceDBInstanceIdentifier</i> refers to a DB instance with <i>BackupRetentionPeriod</i> equal to 0. 
+
+### ProcessorFeature
+* ProcessorFeature `object`: <p>Contains the processor features of a DB instance class.</p> <p>To specify the number of CPU cores, use the <code>coreCount</code> feature name for the <code>Name</code> parameter. To specify the number of threads per core, use the <code>threadsPerCore</code> feature name for the <code>Name</code> parameter.</p> <p>You can set the processor features of the DB instance class for a DB instance when you call one of the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p> <a>RestoreDBInstanceFromDBSnapshot</a> </p> </li> <li> <p> <a>RestoreDBInstanceFromS3</a> </p> </li> <li> <p> <a>RestoreDBInstanceToPointInTime</a> </p> </li> </ul> <p>You can view the valid processor values for a particular instance class by calling the <a>DescribeOrderableDBInstanceOptions</a> action and specifying the instance class for the <code>DBInstanceClass</code> parameter.</p> <p>In addition, you can use the following actions for DB instance class processor information:</p> <ul> <li> <p> <a>DescribeDBInstances</a> </p> </li> <li> <p> <a>DescribeDBSnapshots</a> </p> </li> <li> <p> <a>DescribeValidDBInstanceModifications</a> </p> </li> </ul> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor">Configuring the Processor of the DB Instance Class</a> in the <i>Amazon RDS User Guide. </i> </p>
+  * Name [String](#string)
+  * Value [String](#string)
+
+### ProcessorFeatureList
+* ProcessorFeatureList `array`
+  * items [ProcessorFeature](#processorfeature)
 
 ### PromoteReadReplicaDBClusterMessage
 * PromoteReadReplicaDBClusterMessage `object`: <p/>
@@ -4074,12 +4215,14 @@ amazonaws_rds.StopDBInstance({
 ### RestoreDBClusterFromS3Message
 * RestoreDBClusterFromS3Message `object`
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
+  * BacktrackWindow [LongOptional](#longoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
   * CharacterSetName [String](#string)
   * DBClusterIdentifier **required** [String](#string)
   * DBClusterParameterGroupName [String](#string)
   * DBSubnetGroupName [String](#string)
   * DatabaseName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine **required** [String](#string)
   * EngineVersion [String](#string)
@@ -4106,9 +4249,11 @@ amazonaws_rds.StopDBInstance({
 ### RestoreDBClusterFromSnapshotMessage
 * RestoreDBClusterFromSnapshotMessage `object`: <p/>
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
+  * BacktrackWindow [LongOptional](#longoptional)
   * DBClusterIdentifier **required** [String](#string)
   * DBSubnetGroupName [String](#string)
   * DatabaseName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine **required** [String](#string)
   * EngineVersion [String](#string)
@@ -4125,8 +4270,10 @@ amazonaws_rds.StopDBInstance({
 
 ### RestoreDBClusterToPointInTimeMessage
 * RestoreDBClusterToPointInTimeMessage `object`: <p/>
+  * BacktrackWindow [LongOptional](#longoptional)
   * DBClusterIdentifier **required** [String](#string)
   * DBSubnetGroupName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * KmsKeyId [String](#string)
   * OptionGroupName [String](#string)
@@ -4162,11 +4309,13 @@ amazonaws_rds.StopDBInstance({
   * MultiAZ [BooleanOptional](#booleanoptional)
   * OptionGroupName [String](#string)
   * Port [IntegerOptional](#integeroptional)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * StorageType [String](#string)
   * Tags [TagList](#taglist)
   * TdeCredentialArn [String](#string)
   * TdeCredentialPassword [String](#string)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
 
 ### RestoreDBInstanceFromDBSnapshotResult
 * RestoreDBInstanceFromDBSnapshotResult `object`
@@ -4203,6 +4352,7 @@ amazonaws_rds.StopDBInstance({
   * Port [IntegerOptional](#integeroptional)
   * PreferredBackupWindow [String](#string)
   * PreferredMaintenanceWindow [String](#string)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * S3BucketName **required** [String](#string)
   * S3IngestionRoleArn **required** [String](#string)
@@ -4212,6 +4362,7 @@ amazonaws_rds.StopDBInstance({
   * StorageEncrypted [BooleanOptional](#booleanoptional)
   * StorageType [String](#string)
   * Tags [TagList](#taglist)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
   * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
 
 ### RestoreDBInstanceFromS3Result
@@ -4236,6 +4387,7 @@ amazonaws_rds.StopDBInstance({
   * MultiAZ [BooleanOptional](#booleanoptional)
   * OptionGroupName [String](#string)
   * Port [IntegerOptional](#integeroptional)
+  * ProcessorFeatures [ProcessorFeatureList](#processorfeaturelist)
   * PubliclyAccessible [BooleanOptional](#booleanoptional)
   * RestoreTime [TStamp](#tstamp)
   * SourceDBInstanceIdentifier **required** [String](#string)
@@ -4244,6 +4396,7 @@ amazonaws_rds.StopDBInstance({
   * TargetDBInstanceIdentifier **required** [String](#string)
   * TdeCredentialArn [String](#string)
   * TdeCredentialPassword [String](#string)
+  * UseDefaultProcessorFeatures [BooleanOptional](#booleanoptional)
   * UseLatestRestorableTime [Boolean](#boolean)
 
 ### RestoreDBInstanceToPointInTimeResult
@@ -4275,7 +4428,7 @@ amazonaws_rds.StopDBInstance({
 * SharedSnapshotQuotaExceededFault `object`: You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.
 
 ### SnapshotQuotaExceededFault
-* SnapshotQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB snapshots.
+* SnapshotQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of DB snapshots.
 
 ### SourceIdsList
 * SourceIdsList `array`
@@ -4320,10 +4473,10 @@ amazonaws_rds.StopDBInstance({
   * DBInstance [DBInstance](#dbinstance)
 
 ### StorageQuotaExceededFault
-* StorageQuotaExceededFault `object`: Request would result in user exceeding the allowed amount of storage available across all DB instances.
+* StorageQuotaExceededFault `object`: The request would result in the user exceeding the allowed amount of storage available across all DB instances.
 
 ### StorageTypeNotSupportedFault
-* StorageTypeNotSupportedFault `object`:  <i>StorageType</i> specified cannot be associated with the DB Instance. 
+* StorageTypeNotSupportedFault `object`: Storage of the <i>StorageType</i> specified can't be associated with the DB instance. 
 
 ### String
 * String `string`
@@ -4393,6 +4546,7 @@ amazonaws_rds.StopDBInstance({
 ### ValidDBInstanceModificationsMessage
 * ValidDBInstanceModificationsMessage `object`: Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the <a>DescribeValidDBInstanceModifications</a> action. You can use this information when you call <a>ModifyDBInstance</a>. 
   * Storage [ValidStorageOptionsList](#validstorageoptionslist)
+  * ValidProcessorFeatures [AvailableProcessorFeatureList](#availableprocessorfeaturelist)
 
 ### ValidStorageOptions
 * ValidStorageOptions `object`: Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the <a>DescribeValidDBInstanceModifications</a> action. 

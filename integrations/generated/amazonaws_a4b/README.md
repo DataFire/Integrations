@@ -13,16 +13,38 @@ let amazonaws_a4b = require('@datafire/amazonaws_a4b').create({
   region: ""
 });
 
-amazonaws_a4b.AssociateDeviceWithRoom({}).then(data => {
+amazonaws_a4b.AssociateContactWithAddressBook({
+  "ContactArn": "",
+  "AddressBookArn": ""
+}).then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Alexa for Business makes it easy for you to use Alexa in your organization. Alexa for Business gives you the tools you need to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit, and the Alexa for Business APIs, and you can make these available as private skills for your organization. Alexa for Business also makes it easy to voice-enable your products and services, providing context-aware voice experiences for your customers.
+Alexa for Business makes it easy for you to use Alexa in your organization. Alexa for Business gives you the tools you need for managing Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can make also these available as private skills for your organization. Alexa for Business makes it easy to voice-enable your products and services, providing context-aware voice experiences for your customers.
 
 ## Actions
+
+### AssociateContactWithAddressBook
+
+
+
+```js
+amazonaws_a4b.AssociateContactWithAddressBook({
+  "ContactArn": "",
+  "AddressBookArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AddressBookArn **required** [Arn](#arn)
+  * ContactArn **required** [Arn](#arn)
+
+#### Output
+* output [AssociateContactWithAddressBookResponse](#associatecontactwithaddressbookresponse)
 
 ### AssociateDeviceWithRoom
 
@@ -55,6 +77,47 @@ amazonaws_a4b.AssociateSkillGroupWithRoom({}, context)
 
 #### Output
 * output [AssociateSkillGroupWithRoomResponse](#associateskillgroupwithroomresponse)
+
+### CreateAddressBook
+
+
+
+```js
+amazonaws_a4b.CreateAddressBook({
+  "Name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * Description [AddressBookDescription](#addressbookdescription)
+  * Name **required** [AddressBookName](#addressbookname)
+
+#### Output
+* output [CreateAddressBookResponse](#createaddressbookresponse)
+
+### CreateContact
+
+
+
+```js
+amazonaws_a4b.CreateContact({
+  "FirstName": "",
+  "PhoneNumber": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * DisplayName [ContactName](#contactname)
+  * FirstName **required** [ContactName](#contactname)
+  * LastName [ContactName](#contactname)
+  * PhoneNumber **required** [E164PhoneNumber](#e164phonenumber)
+
+#### Output
+* output [CreateContactResponse](#createcontactresponse)
 
 ### CreateProfile
 
@@ -150,6 +213,40 @@ amazonaws_a4b.CreateUser({
 #### Output
 * output [CreateUserResponse](#createuserresponse)
 
+### DeleteAddressBook
+
+
+
+```js
+amazonaws_a4b.DeleteAddressBook({
+  "AddressBookArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AddressBookArn **required** [Arn](#arn)
+
+#### Output
+* output [DeleteAddressBookResponse](#deleteaddressbookresponse)
+
+### DeleteContact
+
+
+
+```js
+amazonaws_a4b.DeleteContact({
+  "ContactArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ContactArn **required** [Arn](#arn)
+
+#### Output
+* output [DeleteContactResponse](#deletecontactresponse)
+
 ### DeleteProfile
 
 
@@ -233,6 +330,25 @@ amazonaws_a4b.DeleteUser({
 #### Output
 * output [DeleteUserResponse](#deleteuserresponse)
 
+### DisassociateContactFromAddressBook
+
+
+
+```js
+amazonaws_a4b.DisassociateContactFromAddressBook({
+  "ContactArn": "",
+  "AddressBookArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AddressBookArn **required** [Arn](#arn)
+  * ContactArn **required** [Arn](#arn)
+
+#### Output
+* output [DisassociateContactFromAddressBookResponse](#disassociatecontactfromaddressbookresponse)
+
 ### DisassociateDeviceFromRoom
 
 
@@ -263,6 +379,40 @@ amazonaws_a4b.DisassociateSkillGroupFromRoom({}, context)
 
 #### Output
 * output [DisassociateSkillGroupFromRoomResponse](#disassociateskillgroupfromroomresponse)
+
+### GetAddressBook
+
+
+
+```js
+amazonaws_a4b.GetAddressBook({
+  "AddressBookArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AddressBookArn **required** [Arn](#arn)
+
+#### Output
+* output [GetAddressBookResponse](#getaddressbookresponse)
+
+### GetContact
+
+
+
+```js
+amazonaws_a4b.GetContact({
+  "ContactArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ContactArn **required** [Arn](#arn)
+
+#### Output
+* output [GetContactResponse](#getcontactresponse)
 
 ### GetDevice
 
@@ -343,6 +493,28 @@ amazonaws_a4b.GetSkillGroup({}, context)
 
 #### Output
 * output [GetSkillGroupResponse](#getskillgroupresponse)
+
+### ListDeviceEvents
+
+
+
+```js
+amazonaws_a4b.ListDeviceEvents({
+  "DeviceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * DeviceArn **required** [Arn](#arn)
+  * EventType [DeviceEventType](#deviceeventtype)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+
+#### Output
+* output [ListDeviceEventsResponse](#listdeviceeventsresponse)
 
 ### ListSkills
 
@@ -441,6 +613,46 @@ amazonaws_a4b.RevokeInvitation({}, context)
 
 #### Output
 * output [RevokeInvitationResponse](#revokeinvitationresponse)
+
+### SearchAddressBooks
+
+
+
+```js
+amazonaws_a4b.SearchAddressBooks({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters [FilterList](#filterlist)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * SortCriteria [SortList](#sortlist)
+
+#### Output
+* output [SearchAddressBooksResponse](#searchaddressbooksresponse)
+
+### SearchContacts
+
+
+
+```js
+amazonaws_a4b.SearchContacts({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters [FilterList](#filterlist)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * SortCriteria [SortList](#sortlist)
+
+#### Output
+* output [SearchContactsResponse](#searchcontactsresponse)
 
 ### SearchDevices
 
@@ -614,6 +826,46 @@ amazonaws_a4b.UntagResource({
 #### Output
 * output [UntagResourceResponse](#untagresourceresponse)
 
+### UpdateAddressBook
+
+
+
+```js
+amazonaws_a4b.UpdateAddressBook({
+  "AddressBookArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AddressBookArn **required** [Arn](#arn)
+  * Description [AddressBookDescription](#addressbookdescription)
+  * Name [AddressBookName](#addressbookname)
+
+#### Output
+* output [UpdateAddressBookResponse](#updateaddressbookresponse)
+
+### UpdateContact
+
+
+
+```js
+amazonaws_a4b.UpdateContact({
+  "ContactArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ContactArn **required** [Arn](#arn)
+  * DisplayName [ContactName](#contactname)
+  * FirstName [ContactName](#contactname)
+  * LastName [ContactName](#contactname)
+  * PhoneNumber [E164PhoneNumber](#e164phonenumber)
+
+#### Output
+* output [UpdateContactResponse](#updatecontactresponse)
+
 ### UpdateDevice
 
 
@@ -697,12 +949,42 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### Address
 * Address `string`
 
+### AddressBook
+* AddressBook `object`: An address book with attributes.
+  * AddressBookArn [Arn](#arn)
+  * Description [AddressBookDescription](#addressbookdescription)
+  * Name [AddressBookName](#addressbookname)
+
+### AddressBookData
+* AddressBookData `object`: Information related to an address book.
+  * AddressBookArn [Arn](#arn)
+  * Description [AddressBookDescription](#addressbookdescription)
+  * Name [AddressBookName](#addressbookname)
+
+### AddressBookDataList
+* AddressBookDataList `array`
+  * items [AddressBookData](#addressbookdata)
+
+### AddressBookDescription
+* AddressBookDescription `string`
+
+### AddressBookName
+* AddressBookName `string`
+
 ### AlreadyExistsException
 * AlreadyExistsException `object`: The resource being created already exists. HTTP Status Code: 400
   * Message [ErrorMessage](#errormessage)
 
 ### Arn
 * Arn `string`
+
+### AssociateContactWithAddressBookRequest
+* AssociateContactWithAddressBookRequest `object`
+  * AddressBookArn **required** [Arn](#arn)
+  * ContactArn **required** [Arn](#arn)
+
+### AssociateContactWithAddressBookResponse
+* AssociateContactWithAddressBookResponse `object`
 
 ### AssociateDeviceWithRoomRequest
 * AssociateDeviceWithRoomRequest `object`
@@ -725,6 +1007,54 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### ClientRequestToken
 * ClientRequestToken `string`: User specified token that is used to support idempotency during Create Resource
+
+### ConnectionStatus
+* ConnectionStatus `string` (values: ONLINE, OFFLINE)
+
+### Contact
+* Contact `object`: A contact with attributes.
+  * ContactArn [Arn](#arn)
+  * DisplayName [ContactName](#contactname)
+  * FirstName [ContactName](#contactname)
+  * LastName [ContactName](#contactname)
+  * PhoneNumber [E164PhoneNumber](#e164phonenumber)
+
+### ContactData
+* ContactData `object`: Information related to a contact.
+  * ContactArn [Arn](#arn)
+  * DisplayName [ContactName](#contactname)
+  * FirstName [ContactName](#contactname)
+  * LastName [ContactName](#contactname)
+  * PhoneNumber [E164PhoneNumber](#e164phonenumber)
+
+### ContactDataList
+* ContactDataList `array`
+  * items [ContactData](#contactdata)
+
+### ContactName
+* ContactName `string`
+
+### CreateAddressBookRequest
+* CreateAddressBookRequest `object`
+  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * Description [AddressBookDescription](#addressbookdescription)
+  * Name **required** [AddressBookName](#addressbookname)
+
+### CreateAddressBookResponse
+* CreateAddressBookResponse `object`
+  * AddressBookArn [Arn](#arn)
+
+### CreateContactRequest
+* CreateContactRequest `object`
+  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * DisplayName [ContactName](#contactname)
+  * FirstName **required** [ContactName](#contactname)
+  * LastName [ContactName](#contactname)
+  * PhoneNumber **required** [E164PhoneNumber](#e164phonenumber)
+
+### CreateContactResponse
+* CreateContactResponse `object`
+  * ContactArn [Arn](#arn)
 
 ### CreateProfileRequest
 * CreateProfileRequest `object`
@@ -778,6 +1108,20 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### CreateUserResponse
 * CreateUserResponse `object`
   * UserArn [Arn](#arn)
+
+### DeleteAddressBookRequest
+* DeleteAddressBookRequest `object`
+  * AddressBookArn **required** [Arn](#arn)
+
+### DeleteAddressBookResponse
+* DeleteAddressBookResponse `object`
+
+### DeleteContactRequest
+* DeleteContactRequest `object`
+  * ContactArn **required** [Arn](#arn)
+
+### DeleteContactResponse
+* DeleteContactResponse `object`
 
 ### DeleteProfileRequest
 * DeleteProfileRequest `object`
@@ -846,6 +1190,22 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 * DeviceDataList `array`
   * items [DeviceData](#devicedata)
 
+### DeviceEvent
+* DeviceEvent `object`: The list of device events.
+  * Timestamp [Timestamp](#timestamp)
+  * Type [DeviceEventType](#deviceeventtype)
+  * Value [DeviceEventValue](#deviceeventvalue)
+
+### DeviceEventList
+* DeviceEventList `array`
+  * items [DeviceEvent](#deviceevent)
+
+### DeviceEventType
+* DeviceEventType `string` (values: CONNECTION_STATUS, DEVICE_STATUS)
+
+### DeviceEventValue
+* DeviceEventValue `string`
+
 ### DeviceName
 * DeviceName `string`
 
@@ -853,7 +1213,7 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 * DeviceSerialNumber `string`
 
 ### DeviceStatus
-* DeviceStatus `string` (values: READY, PENDING, WAS_OFFLINE)
+* DeviceStatus `string` (values: READY, PENDING, WAS_OFFLINE, DEREGISTERED)
 
 ### DeviceStatusDetail
 * DeviceStatusDetail `object`: Details of a device’s status.
@@ -868,10 +1228,19 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### DeviceStatusInfo
 * DeviceStatusInfo `object`: Detailed information about a device's status.
+  * ConnectionStatus [ConnectionStatus](#connectionstatus)
   * DeviceStatusDetails [DeviceStatusDetails](#devicestatusdetails)
 
 ### DeviceType
 * DeviceType `string`
+
+### DisassociateContactFromAddressBookRequest
+* DisassociateContactFromAddressBookRequest `object`
+  * AddressBookArn **required** [Arn](#arn)
+  * ContactArn **required** [Arn](#arn)
+
+### DisassociateContactFromAddressBookResponse
+* DisassociateContactFromAddressBookResponse `object`
 
 ### DisassociateDeviceFromRoomRequest
 * DisassociateDeviceFromRoomRequest `object`
@@ -891,6 +1260,9 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### DistanceUnit
 * DistanceUnit `string` (values: METRIC, IMPERIAL)
 
+### E164PhoneNumber
+* E164PhoneNumber `string`
+
 ### Email
 * Email `string`
 
@@ -898,7 +1270,7 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 * EnrollmentId `string`
 
 ### EnrollmentStatus
-* EnrollmentStatus `string` (values: INITIALIZED, PENDING, REGISTERED, DEREGISTERING)
+* EnrollmentStatus `string` (values: INITIALIZED, PENDING, REGISTERED, DISASSOCIATING, DEREGISTERING)
 
 ### ErrorMessage
 * ErrorMessage `string`
@@ -928,6 +1300,22 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### FilterValueList
 * FilterValueList `array`
   * items [FilterValue](#filtervalue)
+
+### GetAddressBookRequest
+* GetAddressBookRequest `object`
+  * AddressBookArn **required** [Arn](#arn)
+
+### GetAddressBookResponse
+* GetAddressBookResponse `object`
+  * AddressBook [AddressBook](#addressbook)
+
+### GetContactRequest
+* GetContactRequest `object`
+  * ContactArn **required** [Arn](#arn)
+
+### GetContactResponse
+* GetContactResponse `object`
+  * Contact [Contact](#contact)
 
 ### GetDeviceRequest
 * GetDeviceRequest `object`
@@ -978,6 +1366,18 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### LimitExceededException
 * LimitExceededException `object`: You are performing an action that would put you beyond your account's limits. HTTP Status Code: 400
   * Message [ErrorMessage](#errormessage)
+
+### ListDeviceEventsRequest
+* ListDeviceEventsRequest `object`
+  * DeviceArn **required** [Arn](#arn)
+  * EventType [DeviceEventType](#deviceeventtype)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+
+### ListDeviceEventsResponse
+* ListDeviceEventsResponse `object`
+  * DeviceEvents [DeviceEventList](#deviceeventlist)
+  * NextToken [NextToken](#nexttoken)
 
 ### ListSkillsRequest
 * ListSkillsRequest `object`
@@ -1128,6 +1528,32 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### RoomSkillParameters
 * RoomSkillParameters `array`
   * items [RoomSkillParameter](#roomskillparameter)
+
+### SearchAddressBooksRequest
+* SearchAddressBooksRequest `object`
+  * Filters [FilterList](#filterlist)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * SortCriteria [SortList](#sortlist)
+
+### SearchAddressBooksResponse
+* SearchAddressBooksResponse `object`
+  * AddressBooks [AddressBookDataList](#addressbookdatalist)
+  * NextToken [NextToken](#nexttoken)
+  * TotalCount [TotalCount](#totalcount)
+
+### SearchContactsRequest
+* SearchContactsRequest `object`
+  * Filters [FilterList](#filterlist)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * SortCriteria [SortList](#sortlist)
+
+### SearchContactsResponse
+* SearchContactsResponse `object`
+  * Contacts [ContactDataList](#contactdatalist)
+  * NextToken [NextToken](#nexttoken)
+  * TotalCount [TotalCount](#totalcount)
 
 ### SearchDevicesRequest
 * SearchDevicesRequest `object`
@@ -1299,6 +1725,9 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### TemperatureUnit
 * TemperatureUnit `string` (values: FAHRENHEIT, CELSIUS)
 
+### Timestamp
+* Timestamp `string`
+
 ### Timezone
 * Timezone `string`
 
@@ -1312,6 +1741,26 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### UntagResourceResponse
 * UntagResourceResponse `object`
+
+### UpdateAddressBookRequest
+* UpdateAddressBookRequest `object`
+  * AddressBookArn **required** [Arn](#arn)
+  * Description [AddressBookDescription](#addressbookdescription)
+  * Name [AddressBookName](#addressbookname)
+
+### UpdateAddressBookResponse
+* UpdateAddressBookResponse `object`
+
+### UpdateContactRequest
+* UpdateContactRequest `object`
+  * ContactArn **required** [Arn](#arn)
+  * DisplayName [ContactName](#contactname)
+  * FirstName [ContactName](#contactname)
+  * LastName [ContactName](#contactname)
+  * PhoneNumber [E164PhoneNumber](#e164phonenumber)
+
+### UpdateContactResponse
+* UpdateContactResponse `object`
 
 ### UpdateDeviceRequest
 * UpdateDeviceRequest `object`

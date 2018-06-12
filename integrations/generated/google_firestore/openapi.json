@@ -10,12 +10,7 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Cloud Firestore",
+    "title": "Cloud Firestore",
     "version": "v1beta1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -30,7 +25,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://firestore.googleapis.com/$discovery/rest?version=v1beta1",
@@ -51,23 +46,12 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/datastore": "View and manage your Google Cloud Datastore data"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/datastore": "View and manage your Google Cloud Datastore data"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -254,16 +238,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -347,16 +325,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -440,16 +412,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -533,16 +499,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -626,16 +586,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -719,16 +673,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -776,16 +724,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -841,16 +783,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -964,16 +900,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1026,16 +956,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1117,16 +1041,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1215,16 +1133,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1329,16 +1241,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1422,16 +1328,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1515,16 +1415,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/datastore"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1733,7 +1627,7 @@
           "type": "string"
         },
         "updateTime": {
-          "description": "Output only. The time at which the document was last changed.\n\nThis value is initally set to the `create_time` then increases\nmonotonically with each change to the document. It can also be\ncompared to values from other documents and the `read_time` of a query.",
+          "description": "Output only. The time at which the document was last changed.\n\nThis value is initially set to the `create_time` then increases\nmonotonically with each change to the document. It can also be\ncompared to values from other documents and the `read_time` of a query.",
           "format": "google-datetime",
           "type": "string"
         }
@@ -2496,7 +2390,7 @@
       "properties": {
         "arrayValue": {
           "$ref": "#/definitions/ArrayValue",
-          "description": "An array value.\n\nCannot contain another array value."
+          "description": "An array value.\n\nCannot directly contain another array value, though can contain an\nmap which contains another array."
         },
         "booleanValue": {
           "description": "A boolean value.",

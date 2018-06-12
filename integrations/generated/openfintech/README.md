@@ -245,6 +245,47 @@ openfintech.currencies.id.get({
 #### Output
 * output [CurrencyResponse](#currencyresponse)
 
+### deposit_methods.get
+Returns list of deposit methods. Each object contains information about deposit method such as name and category, also related link to deposit method issuer (which processing it).
+
+
+
+```js
+openfintech.deposit_methods.get({}, context)
+```
+
+#### Input
+* input `object`
+  * page[number] `integer`: Current page number.
+  * page[size] `integer`: Page size.<br>*Default value: 100*
+  * filter[search] `string`: Full text search with id, name, code, category.
+  * filter[name] `string`: Filtering by name.
+  * filter[code] `string`: Filtering by code.
+  * filter[processor_name] `string`: Filtering by processor_name.
+  * filter[category] `array`: Filtering by category.
+  * sort `array`: Sort params:<br>
+
+#### Output
+* output [DepositMethodsResponse](#depositmethodsresponse)
+
+### deposit_methods.id.get
+Returns deposit method with specific ID.
+
+
+
+```js
+openfintech.deposit_methods.id.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Unique ID.
+
+#### Output
+* output [DepositMethodResponse](#depositmethodresponse)
+
 ### exchangers.get
 Returns list of exchange markets. Each object contains general information about exchanger such as name and status, also information about rates export and related link to main organization.<br>
 Rates export standards is represented by:
@@ -451,6 +492,15 @@ openfintech.payment_providers.id.get({
 
 ## Definitions
 
+### ActiveInCountriesRelationship
+* ActiveInCountriesRelationship `object`: Active in countries
+  * data `array`
+    * items `object`
+      * id `string`
+      * type `string`
+  * links `object`
+    * related `string`
+
 ### Bank
 * Bank `object`
   * attributes [BankAttributes](#bankattributes)
@@ -648,6 +698,48 @@ openfintech.payment_providers.id.get({
 ### CurrencyResponse
 * CurrencyResponse `object`
   * data [Currency](#currency)
+
+### DepositMethod
+* DepositMethod `object`
+  * attributes [DepositMethodAttributes](#depositmethodattributes)
+  * id `string`: Deposit-methods`s ID
+  * links [SelfLinks](#selflinks)
+  * relationships [DepositMethodRelationships](#depositmethodrelationships)
+  * type `string`
+
+### DepositMethodAttributes
+* DepositMethodAttributes `object`: Array of Deposit-method attributes
+  * category `string`
+  * code `string`: Deposit-method`s code
+  * name `string`: Deposit-method`s name
+  * processor_name `string`: Deposit-method`s processor
+
+### DepositMethodProcessorData
+* DepositMethodProcessorData `object`: Processor`s Data.
+  * data `array`
+    * items `object`
+      * id `string`: Processor`s id.
+      * type `string`: Processor`s type.
+  * links `object`
+    * related `string`
+
+### DepositMethodRelationships
+* DepositMethodRelationships `object`
+  * actiove_in_countries [ActiveInCountriesRelationship](#activeincountriesrelationship)
+  * currencies [CurrencyParent](#currencyparent)
+  * payment_processor [DepositMethodProcessorData](#depositmethodprocessordata)
+  * supported_psps [SupportedPspsRelationship](#supportedpspsrelationship)
+
+### DepositMethodResponse
+* DepositMethodResponse `object`
+  * data [DepositMethod](#depositmethod)
+
+### DepositMethodsResponse
+* DepositMethodsResponse `object`
+  * data `array`
+    * items [DepositMethod](#depositmethod)
+  * links [ResponseLinks](#responselinks)
+  * meta [ResponseMeta](#responsemeta)
 
 ### Exchanger
 * Exchanger `object`
@@ -959,5 +1051,14 @@ openfintech.payment_providers.id.get({
 ### SelfLinks
 * SelfLinks `object`
   * self `string`
+
+### SupportedPspsRelationship
+* SupportedPspsRelationship `object`: Supported psps
+  * data `array`
+    * items `object`
+      * id `string`
+      * type `string`
+  * links `object`
+    * related `string`
 
 

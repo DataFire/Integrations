@@ -550,8 +550,10 @@ amazonaws_sns.Subscribe({
 
 #### Input
 * input `object`
+  * Attributes [SubscriptionAttributesMap](#subscriptionattributesmap)
   * Endpoint [endpoint](#endpoint)
   * Protocol **required** [protocol](#protocol)
+  * ReturnSubscriptionArn [boolean](#boolean)
   * TopicArn **required** [topicARN](#topicarn)
 
 #### Output
@@ -666,6 +668,10 @@ amazonaws_sns.Unsubscribe({
 
 ### EndpointDisabledException
 * EndpointDisabledException `object`: Exception error indicating endpoint disabled.
+  * message [string](#string)
+
+### FilterPolicyLimitExceededException
+* FilterPolicyLimitExceededException `object`: Indicates that the number of filter polices in your AWS account exceeds the limit. To add more filter polices, submit an SNS Limit Increase case in the AWS Support Center.
   * message [string](#string)
 
 ### GetEndpointAttributesInput
@@ -886,8 +892,10 @@ amazonaws_sns.Unsubscribe({
 
 ### SubscribeInput
 * SubscribeInput `object`: Input for Subscribe action.
+  * Attributes [SubscriptionAttributesMap](#subscriptionattributesmap)
   * Endpoint [endpoint](#endpoint)
   * Protocol **required** [protocol](#protocol)
+  * ReturnSubscriptionArn [boolean](#boolean)
   * TopicArn **required** [topicARN](#topicarn)
 
 ### SubscribeResponse

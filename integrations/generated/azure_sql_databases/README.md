@@ -272,19 +272,16 @@ azure_sql_databases.Databases_ListByElasticPool({
 
 ## Definitions
 
-### ArmSku
-* ArmSku `object`: An ARM Resource SKU.
-  * capacity `integer`: Capacity of the particular SKU.
-  * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-  * name `string`: The name of the SKU, typically, a letter + Number code, e.g. P3.
-  * size `string`: Size of the particular SKU
-  * tier `string`: The tier of the particular SKU, e.g. Basic, Premium.
-
 ### Database
 * Database `object`: A database resource.
   * kind `string`: Kind of database. This is metadata used for the Azure portal experience.
   * properties [DatabaseProperties](#databaseproperties)
-  * sku [ArmSku](#armsku)
+  * sku `object`: The resource model definition representing SKU
+    * capacity `integer`: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    * name **required** `string`: The name of the SKU. Ex - P3. It is typically a letter+number code
+    * size `string`: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    * tier `string`: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
   * location **required** `string`: Resource location.
   * tags `object`: Resource tags.
   * id `string`: Resource ID.
@@ -328,7 +325,7 @@ azure_sql_databases.Databases_ListByElasticPool({
 * DatabaseProperties `object`: The database's properties.
   * catalogCollation `string` (values: DATABASE_DEFAULT, SQL_Latin1_General_CP1_CI_AS): Collation of the metadata catalog.
   * collation `string`: The collation of the database.
-  * createMode `string` (values: Default, Copy, Secondary, PointInTimeRestore, Restore, Recovery, RestoreExternalBackup, RestoreExternalBackupSecondary, RestoreLongTermRetentionBackup): Specifies the mode of database creation.
+  * createMode `string` (values: Default, Copy, Secondary, OnlineSecondary, PointInTimeRestore, Restore, Recovery, RestoreExternalBackup, RestoreExternalBackupSecondary, RestoreLongTermRetentionBackup): Specifies the mode of database creation.
   * creationDate `string`: The creation date of the database (ISO8601 format).
   * currentServiceObjectiveName `string`: The current service level objective name of the database.
   * databaseId `string`: The ID of the database.
@@ -350,7 +347,12 @@ azure_sql_databases.Databases_ListByElasticPool({
 ### DatabaseUpdate
 * DatabaseUpdate `object`: A database resource.
   * properties [DatabaseProperties](#databaseproperties)
-  * sku [ArmSku](#armsku)
+  * sku `object`: The resource model definition representing SKU
+    * capacity `integer`: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    * name **required** `string`: The name of the SKU. Ex - P3. It is typically a letter+number code
+    * size `string`: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    * tier `string`: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
   * tags `object`: Resource tags.
 
 ### ImportExportDatabaseDefinition
@@ -384,25 +386,5 @@ azure_sql_databases.Databases_ListByElasticPool({
   * requestType `string`: Request type.
   * serverName `string`: Server name.
   * status `string`: Operation status.
-
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### TrackedResource
-* TrackedResource `object`: ARM tracked top level resource.
-  * location **required** `string`: Resource location.
-  * tags `object`: Resource tags.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
 
 

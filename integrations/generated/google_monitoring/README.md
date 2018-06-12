@@ -96,19 +96,20 @@ google_monitoring.uptimeCheckIps.list({}, context)
 #### Output
 * output [ListUptimeCheckIpsResponse](#listuptimecheckipsresponse)
 
-### projects.uptimeCheckConfigs.delete
-Deletes an uptime check configuration. Note that this method will fail if the uptime check configuration is referenced by an alert policy or other dependent configs that would be rendered invalid by the deletion.
+### projects.metricDescriptors.delete
+Deletes a metric descriptor. Only user-created custom metrics can be deleted.
 
 
 ```js
-google_monitoring.projects.uptimeCheckConfigs.delete({
+google_monitoring.projects.metricDescriptors.delete({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: The uptime check configuration to delete. The formatis projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+  * force `boolean`: If true, the notification channel will be deleted regardless of its use in alert policies (the policies will be updated to remove the channel). If false, channels that are still referenced by an existing alerting policy will fail to be deleted in a delete operation.
+  * name **required** `string`: The metric descriptor on which to execute the request. The format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An example of {metric_id} is: "custom.googleapis.com/my_test_metric".
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -126,19 +127,19 @@ google_monitoring.projects.uptimeCheckConfigs.delete({
 #### Output
 * output [Empty](#empty)
 
-### projects.uptimeCheckConfigs.get
-Gets a single uptime check configuration.
+### projects.metricDescriptors.get
+Gets a single metric descriptor. This method does not require a Stackdriver account.
 
 
 ```js
-google_monitoring.projects.uptimeCheckConfigs.get({
+google_monitoring.projects.metricDescriptors.get({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: The uptime check configuration to retrieve. The formatis projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+  * name **required** `string`: The metric descriptor on which to execute the request. The format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An example value of {metric_id} is "compute.googleapis.com/instance/disk/read_bytes_count".
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -154,23 +155,23 @@ google_monitoring.projects.uptimeCheckConfigs.get({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [UptimeCheckConfig](#uptimecheckconfig)
+* output [MetricDescriptor](#metricdescriptor)
 
-### projects.uptimeCheckConfigs.patch
-Updates an uptime check configuration. You can either replace the entire configuration with a new one or replace only certain fields in the current configuration by specifying the fields to be updated via "updateMask". Returns the updated configuration.
+### projects.alertPolicies.patch
+Updates an alerting policy. You can either replace the entire policy with a new one or replace only certain fields in the current alerting policy by specifying the fields to be updated via updateMask. Returns the updated alerting policy.
 
 
 ```js
-google_monitoring.projects.uptimeCheckConfigs.patch({
+google_monitoring.projects.alertPolicies.patch({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [UptimeCheckConfig](#uptimecheckconfig)
-  * name **required** `string`: A unique resource name for this UptimeCheckConfig. The format is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field should be omitted when creating the uptime check configuration; on create, the resource name is assigned by the server and included in the response.
-  * updateMask `string`: Optional. If present, only the listed fields in the current uptime check configuration are updated with values from the new configuration. If this field is empty, then the current configuration is completely replaced with the new configuration.
+  * body [AlertPolicy](#alertpolicy)
+  * name **required** `string`: Required if the policy exists. The resource name for this policy. The syntax is:
+  * updateMask `string`: Optional. A list of alerting policy field names. If this field is not empty, each listed field in the existing alerting policy is set to the value of the corresponding field in the supplied policy (alert_policy), or to the field's default value if the field is not in the supplied alerting policy. Fields not listed retain their previous value.Examples of valid field masks include display_name, documentation, documentation.content, documentation.mime_type, user_labels, user_label.nameofkey, enabled, conditions, combiner, etc.If this field is empty, then the supplied alerting policy replaces the existing policy. It is the same as deleting the existing policy and adding the supplied policy, except for the following:
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -186,7 +187,7 @@ google_monitoring.projects.uptimeCheckConfigs.patch({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [UptimeCheckConfig](#uptimecheckconfig)
+* output [AlertPolicy](#alertpolicy)
 
 ### projects.groups.update
 Updates an existing group. You can change any group attributes except name.
@@ -219,6 +220,71 @@ google_monitoring.projects.groups.update({
 
 #### Output
 * output [Group](#group)
+
+### projects.alertPolicies.list
+Lists the existing alerting policies for the project.
+
+
+```js
+google_monitoring.projects.alertPolicies.list({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: If provided, this field specifies the criteria that must be met by alert policies to be included in the response.For more details, see sorting and filtering.
+  * name **required** `string`: The project whose alert policies are to be listed. The format is
+  * orderBy `string`: A comma-separated list of fields by which to sort the result. Supports the same set of field references as the filter field. Entries can be prefixed with a minus sign to sort by the field in descending order.For more details, see sorting and filtering.
+  * pageSize `integer`: The maximum number of results to return in a single response.
+  * pageToken `string`: If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results from the previous method call.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListAlertPoliciesResponse](#listalertpoliciesresponse)
+
+### projects.alertPolicies.create
+Creates a new alerting policy.
+
+
+```js
+google_monitoring.projects.alertPolicies.create({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [AlertPolicy](#alertpolicy)
+  * name **required** `string`: The project in which to create the alerting policy. The format is projects/[PROJECT_ID].Note that this field names the parent container in which the alerting policy will be written, not the name of the created policy. The alerting policy that is returned will have a name that contains a normalized representation of this name as a prefix but adds a suffix of the form /alertPolicies/[POLICY_ID], identifying the policy in the container.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [AlertPolicy](#alertpolicy)
 
 ### projects.collectdTimeSeries.create
 Stackdriver Monitoring Agent only: Creates a new time series.<aside class="caution">This method is only for use by the Stackdriver Monitoring Agent. Use projects.timeSeries.create instead.</aside>
@@ -450,6 +516,103 @@ google_monitoring.projects.monitoredResourceDescriptors.list({
 #### Output
 * output [ListMonitoredResourceDescriptorsResponse](#listmonitoredresourcedescriptorsresponse)
 
+### projects.notificationChannelDescriptors.list
+Lists the descriptors for supported channel types. The use of descriptors makes it possible for new channel types to be dynamically added.
+
+
+```js
+google_monitoring.projects.notificationChannelDescriptors.list({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: The REST resource name of the parent from which to retrieve the notification channel descriptors. The expected syntax is:
+  * pageSize `integer`: The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service.
+  * pageToken `string`: If non-empty, page_token must contain a value returned as the next_page_token in a previous response to request the next set of results.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListNotificationChannelDescriptorsResponse](#listnotificationchanneldescriptorsresponse)
+
+### projects.notificationChannels.list
+Lists the notification channels that have been created for the project.
+
+
+```js
+google_monitoring.projects.notificationChannels.list({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: If provided, this field specifies the criteria that must be met by notification channels to be included in the response.For more details, see sorting and filtering.
+  * name **required** `string`: The project on which to execute the request. The format is projects/[PROJECT_ID]. That is, this names the container in which to look for the notification channels; it does not name a specific channel. To query a specific channel by REST resource name, use the GetNotificationChannel operation.
+  * orderBy `string`: A comma-separated list of fields by which to sort the result. Supports the same set of fields as in filter. Entries can be prefixed with a minus sign to sort in descending rather than ascending order.For more details, see sorting and filtering.
+  * pageSize `integer`: The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service.
+  * pageToken `string`: If non-empty, page_token must contain a value returned as the next_page_token in a previous response to request the next set of results.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListNotificationChannelsResponse](#listnotificationchannelsresponse)
+
+### projects.notificationChannels.create
+Creates a new notification channel, representing a single notification endpoint such as an email address, SMS number, or pagerduty service.
+
+
+```js
+google_monitoring.projects.notificationChannels.create({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [NotificationChannel](#notificationchannel)
+  * name **required** `string`: The project on which to execute the request. The format is:
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [NotificationChannel](#notificationchannel)
+
 ### projects.timeSeries.list
 Lists time series that match a filter. This method does not require a Stackdriver account.
 
@@ -522,6 +685,99 @@ google_monitoring.projects.timeSeries.create({
 #### Output
 * output [Empty](#empty)
 
+### projects.notificationChannels.getVerificationCode
+Requests a verification code for an already verified channel that can then be used in a call to VerifyNotificationChannel() on a different channel with an equivalent identity in the same or in a different project. This makes it possible to copy a channel between projects without requiring manual reverification of the channel. If the channel is not in the verified state, this method will fail (in other words, this may only be used if the SendNotificationChannelVerificationCode and VerifyNotificationChannel paths have already been used to put the given channel into the verified state).There is no guarantee that the verification codes returned by this method will be of a similar structure or form as the ones that are delivered to the channel via SendNotificationChannelVerificationCode; while VerifyNotificationChannel() will recognize both the codes delivered via SendNotificationChannelVerificationCode() and returned from GetNotificationChannelVerificationCode(), it is typically the case that the verification codes delivered via SendNotificationChannelVerificationCode() will be shorter and also have a shorter expiration (e.g. codes such as "G-123456") whereas GetVerificationCode() will typically return a much longer, websafe base 64 encoded string that has a longer expiration time.
+
+
+```js
+google_monitoring.projects.notificationChannels.getVerificationCode({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [GetNotificationChannelVerificationCodeRequest](#getnotificationchannelverificationcoderequest)
+  * name **required** `string`: The notification channel for which a verification code is to be generated and retrieved. This must name a channel that is already verified; if the specified channel is not verified, the request will fail.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [GetNotificationChannelVerificationCodeResponse](#getnotificationchannelverificationcoderesponse)
+
+### projects.notificationChannels.sendVerificationCode
+Causes a verification code to be delivered to the channel. The code can then be supplied in VerifyNotificationChannel to verify the channel.
+
+
+```js
+google_monitoring.projects.notificationChannels.sendVerificationCode({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SendNotificationChannelVerificationCodeRequest](#sendnotificationchannelverificationcoderequest)
+  * name **required** `string`: The notification channel to which to send a verification code.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Empty](#empty)
+
+### projects.notificationChannels.verify
+Verifies a NotificationChannel by proving receipt of the code delivered to the channel as a result of calling SendNotificationChannelVerificationCode.
+
+
+```js
+google_monitoring.projects.notificationChannels.verify({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [VerifyNotificationChannelRequest](#verifynotificationchannelrequest)
+  * name **required** `string`: The notification channel to verify.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [NotificationChannel](#notificationchannel)
+
 ### projects.uptimeCheckConfigs.list
 Lists the existing valid uptime check configurations for the project, leaving out any invalid configurations.
 
@@ -536,7 +792,7 @@ google_monitoring.projects.uptimeCheckConfigs.list({
 * input `object`
   * pageSize `integer`: The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0, the server will decide the number of results to be returned.
   * pageToken `string`: If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results from the previous method call.
-  * parent **required** `string`: The project whose uptime check configurations are listed. The formatis projects/[PROJECT_ID].
+  * parent **required** `string`: The project whose uptime check configurations are listed. The format  is projects/[PROJECT_ID].
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -567,7 +823,7 @@ google_monitoring.projects.uptimeCheckConfigs.create({
 #### Input
 * input `object`
   * body [UptimeCheckConfig](#uptimecheckconfig)
-  * parent **required** `string`: The project in which to create the uptime check. The formatis projects/[PROJECT_ID].
+  * parent **required** `string`: The project in which to create the uptime check. The format  is projects/[PROJECT_ID].
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -588,6 +844,29 @@ google_monitoring.projects.uptimeCheckConfigs.create({
 
 
 ## Definitions
+
+### Aggregation
+* Aggregation `object`: Describes how to combine multiple time series to provide different views of the data. Aggregation consists of an alignment step on individual time series (alignment_period and per_series_aligner) followed by an optional reduction step of the data across the aligned time series (cross_series_reducer and group_by_fields). For more details, see Aggregation.
+  * alignmentPeriod `string`: The alignment period for per-time series alignment. If present, alignmentPeriod must be at least 60 seconds. After per-time series alignment, each time series will contain data points only on the period boundaries. If perSeriesAligner is not specified or equals ALIGN_NONE, then this field is ignored. If perSeriesAligner is specified and does not equal ALIGN_NONE, then this field must be defined; otherwise an error is returned.
+  * crossSeriesReducer `string` (values: REDUCE_NONE, REDUCE_MEAN, REDUCE_MIN, REDUCE_MAX, REDUCE_SUM, REDUCE_STDDEV, REDUCE_COUNT, REDUCE_COUNT_TRUE, REDUCE_COUNT_FALSE, REDUCE_FRACTION_TRUE, REDUCE_PERCENTILE_99, REDUCE_PERCENTILE_95, REDUCE_PERCENTILE_50, REDUCE_PERCENTILE_05): The approach to be used to combine time series. Not all reducer functions may be applied to all time series, depending on the metric type and the value type of the original time series. Reduction may change the metric type of value type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If crossSeriesReducer is specified, then perSeriesAligner must be specified and not equal ALIGN_NONE and alignmentPeriod must be specified; otherwise, an error is returned.
+  * groupByFields `array`: The set of fields to preserve when crossSeriesReducer is specified. The groupByFields determine how the time series are partitioned into subsets prior to applying the aggregation function. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The crossSeriesReducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in groupByFields are aggregated away. If groupByFields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If crossSeriesReducer is not defined, this field is ignored.
+    * items `string`
+  * perSeriesAligner `string` (values: ALIGN_NONE, ALIGN_DELTA, ALIGN_RATE, ALIGN_INTERPOLATE, ALIGN_NEXT_OLDER, ALIGN_MIN, ALIGN_MAX, ALIGN_MEAN, ALIGN_COUNT, ALIGN_SUM, ALIGN_STDDEV, ALIGN_COUNT_TRUE, ALIGN_COUNT_FALSE, ALIGN_FRACTION_TRUE, ALIGN_PERCENTILE_99, ALIGN_PERCENTILE_95, ALIGN_PERCENTILE_50, ALIGN_PERCENTILE_05, ALIGN_PERCENT_CHANGE): The approach to be used to align individual time series. Not all alignment functions may be applied to all time series, depending on the metric type and value type of the original time series. Alignment may change the metric type or the value type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If crossSeriesReducer is specified, then perSeriesAligner must be specified and not equal ALIGN_NONE and alignmentPeriod must be specified; otherwise, an error is returned.
+
+### AlertPolicy
+* AlertPolicy `object`: A description of the conditions under which some aspect of your system is considered to be "unhealthy" and the ways to notify people or services about this state. For an overview of alert policies, see Introduction to Alerting.
+  * combiner `string` (values: COMBINE_UNSPECIFIED, AND, OR, AND_WITH_MATCHING_RESOURCE): How to combine the results of multiple conditions to determine if an incident should be opened.
+  * conditions `array`: A list of conditions for the policy. The conditions are combined by AND or OR according to the combiner field. If the combined conditions evaluate to true, then an incident is created. A policy can have from one to six conditions.
+    * items [Condition](#condition)
+  * creationRecord [MutationRecord](#mutationrecord)
+  * displayName `string`: A short name or phrase used to identify the policy in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for multiple policies in the same project. The name is limited to 512 Unicode characters.
+  * documentation [Documentation](#documentation)
+  * enabled `boolean`: Whether or not the policy is enabled. On write, the default interpretation if unset is that the policy is enabled. On read, clients should not make any assumption about the state if it has not been populated. The field should always be populated on List and Get operations, unless a field projection has been specified that strips it out.
+  * mutationRecord [MutationRecord](#mutationrecord)
+  * name `string`: Required if the policy exists. The resource name for this policy. The syntax is:
+  * notificationChannels `array`: Identifies the notification channels to which notifications should be sent when incidents are opened or closed or when new violations occur on an already opened incident. Each element of this array corresponds to the name field in each of the NotificationChannel objects that are returned from the ListNotificationChannels method. The syntax of the entries in this field is:
+    * items `string`
+  * userLabels `object`: User-supplied key/value data to be used for organizing and identifying the AlertPolicy objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
 
 ### BasicAuthentication
 * BasicAuthentication `object`: A type of authentication to perform against the specified resource or URL that uses username and password. Currently, only Basic authentication is supported in Uptime Monitoring.
@@ -630,9 +909,16 @@ google_monitoring.projects.uptimeCheckConfigs.create({
   * error [Status](#status)
   * index `integer`: The zero-based index in CollectdPayload.values within the parent CreateCollectdTimeSeriesRequest.collectd_payloads.
 
+### Condition
+* Condition `object`: A condition is a true/false test that determines when an alerting policy should open an incident. If a condition evaluates to true, it signifies that something is wrong.
+  * conditionAbsent [MetricAbsence](#metricabsence)
+  * conditionThreshold [MetricThreshold](#metricthreshold)
+  * displayName `string`: A short name or phrase used to identify the condition in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for multiple conditions in the same policy.
+  * name `string`: Required if the condition exists. The unique resource name for this condition. Its syntax is:
+
 ### ContentMatcher
 * ContentMatcher `object`: Used to perform string matching. Currently, this matches on the exact content. In the future, it can be expanded to allow for regular expressions and more complex matching.
-  * content `string`: String content to match
+  * content `string`: String content to match (max 1024 bytes)
 
 ### CreateCollectdTimeSeriesRequest
 * CreateCollectdTimeSeriesRequest `object`: The CreateCollectdTimeSeries request.
@@ -657,12 +943,26 @@ google_monitoring.projects.uptimeCheckConfigs.create({
     * items `string`
   * bucketOptions [BucketOptions](#bucketoptions)
   * count `string`: The number of values in the population. Must be non-negative. This value must equal the sum of the values in bucket_counts if a histogram is provided.
+  * exemplars `array`: Must be in increasing order of |value| field. The current requirement enforced by the backend is that at most one Exemplar will fall into any bucket.
+    * items [Exemplar](#exemplar)
   * mean `number`: The arithmetic mean of the values in the population. If count is zero then this field must be zero.
   * range [Range](#range)
   * sumOfSquaredDeviation `number`: The sum of squared deviations from the mean of the values in the population. For values x_i this is:
 
+### Documentation
+* Documentation `object`: A content string and a MIME type that describes the content string's format.
+  * content `string`: The text of the documentation, interpreted according to mime_type. The content may not exceed 8,192 Unicode characters and may not exceed more than 10,240 bytes when encoded in UTF-8 format, whichever is smaller.
+  * mimeType `string`: The format of the content field. Presently, only the value "text/markdown" is supported. See Markdown (https://en.wikipedia.org/wiki/Markdown) for more information.
+
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance:
+
+### Exemplar
+* Exemplar `object`: Exemplars are example points that may be used to annotate aggregated distribution values. They are metadata that gives information about a particular value added to a Distribution bucket, such as a trace ID that was active when a value was added. They may contain further information, such as a example values and timestamps, origin, etc.
+  * attachments `array`: Contextual information about the example value. Examples are:Trace ID: type.googleapis.com/google.devtools.cloudtrace.v1.TraceLiteral string: type.googleapis.com/google.protobuf.StringValueLabels dropped during aggregation:  type.googleapis.com/google.monitoring.v3.DroppedLabelsThere may be only a single attachment of any given message type in a single exemplar, and this is enforced by the system.
+    * items `object`
+  * timestamp `string`: The observation (sampling) time of the above value.
+  * value `number`: Value of the exemplar point. This value determines to which bucket the exemplar belongs.
 
 ### Explicit
 * Explicit `object`: Specifies a set of buckets with arbitrary widths.There are size(bounds) + 1 (= N) buckets. Bucket i has the following boundaries:Upper bound (0 <= i < N-1): boundsi  Lower bound (1 <= i < N); boundsi - 1The bounds field must contain at least one element. If bounds has only one element, then there are no finite buckets, and that single element is the common boundary of the overflow and underflow buckets.
@@ -688,6 +988,15 @@ google_monitoring.projects.uptimeCheckConfigs.create({
     * items [Option](#option)
   * packed `boolean`: Whether to use alternative packed wire representation.
   * typeUrl `string`: The field type URL, without the scheme, for message or enumeration types. Example: "type.googleapis.com/google.protobuf.Timestamp".
+
+### GetNotificationChannelVerificationCodeRequest
+* GetNotificationChannelVerificationCodeRequest `object`: The GetNotificationChannelVerificationCode request.
+  * expireTime `string`: The desired expiration time. If specified, the API will guarantee that the returned code will not be valid after the specified timestamp; however, the API cannot guarantee that the returned code will be valid for at least as long as the requested time (the API puts an upper bound on the amount of time for which a code may be valid). If omitted, a default expiration will be used, which may be less than the max permissible expiration (so specifying an expiration may extend the code's lifetime over omitting an expiration, even though the API does impose an upper limit on the maximum expiration that is permitted).
+
+### GetNotificationChannelVerificationCodeResponse
+* GetNotificationChannelVerificationCodeResponse `object`: The GetNotificationChannelVerificationCode request.
+  * code `string`: The verification code, which may be used to verify other channels that have an equivalent identity (i.e. other channels of the same type with the same fingerprint such as other email channels with the same email address or other sms channels with the same number).
+  * expireTime `string`: The expiration time associated with the code that was returned. If an expiration was provided in the request, this is the minimum of the requested expiration in the request and the max permitted expiration.
 
 ### Group
 * Group `object`: The description of a dynamic collection of monitored resources. Each group has a filter that is matched against monitored resources and their associated metadata. If a group's filter matches an available monitored resource, then that resource is a member of that group. Groups can contain any number of monitored resources, and each monitored resource can be a member of any number of groups.Groups can be nested in parent-child hierarchies. The parentName field identifies an optional parent for each group. If a group has a parent, then the only monitored resources available to be matched by the group's filter are the resources contained in the parent group. In other words, a group contains the monitored resources that match its filter and the filters of all the group's ancestors. A group without a parent can contain any monitored resource.For example, consider an infrastructure running a set of instances with two user-defined tags: "environment" and "role". A parent group has a filter, environment="production". A child of that parent group has a filter, role="transcoder". The parent group contains all instances in the production environment, regardless of their roles. The child group contains instances that have the transcoder role and are in the production environment.The monitored resources contained in a group can change at any moment, depending on what resources exist and what filters are associated with the group and its ancestors.
@@ -726,6 +1035,12 @@ google_monitoring.projects.uptimeCheckConfigs.create({
   * offset `number`: Lower bound of the first bucket.
   * width `number`: Must be greater than 0.
 
+### ListAlertPoliciesResponse
+* ListAlertPoliciesResponse `object`: The protocol for the ListAlertPolicies response.
+  * alertPolicies `array`: The returned alert policies.
+    * items [AlertPolicy](#alertpolicy)
+  * nextPageToken `string`: If there might be more results than were returned, then this field is set to a non-empty value. To see the additional results, use that value as pageToken in the next call to this method.
+
 ### ListGroupMembersResponse
 * ListGroupMembersResponse `object`: The ListGroupMembers response.
   * members `array`: A set of monitored resources in the group.
@@ -751,6 +1066,18 @@ google_monitoring.projects.uptimeCheckConfigs.create({
   * resourceDescriptors `array`: The monitored resource descriptors that are available to this project and that match filter, if present.
     * items [MonitoredResourceDescriptor](#monitoredresourcedescriptor)
 
+### ListNotificationChannelDescriptorsResponse
+* ListNotificationChannelDescriptorsResponse `object`: The ListNotificationChannelDescriptors response.
+  * channelDescriptors `array`: The monitored resource descriptors supported for the specified project, optionally filtered.
+    * items [NotificationChannelDescriptor](#notificationchanneldescriptor)
+  * nextPageToken `string`: If not empty, indicates that there may be more results that match the request. Use the value in the page_token field in a subsequent request to fetch the next set of results. If empty, all results have been returned.
+
+### ListNotificationChannelsResponse
+* ListNotificationChannelsResponse `object`: The ListNotificationChannels response.
+  * nextPageToken `string`: If not empty, indicates that there may be more results that match the request. Use the value in the page_token field in a subsequent request to fetch the next set of results. If empty, all results have been returned.
+  * notificationChannels `array`: The notification channels defined for the specified project.
+    * items [NotificationChannel](#notificationchannel)
+
 ### ListTimeSeriesResponse
 * ListTimeSeriesResponse `object`: The ListTimeSeries response.
   * nextPageToken `string`: If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as pageToken in the next call to this method.
@@ -775,6 +1102,14 @@ google_monitoring.projects.uptimeCheckConfigs.create({
   * labels `object`: The set of label values that uniquely identify this metric. All labels listed in the MetricDescriptor must be assigned values.
   * type `string`: An existing metric type, see google.api.MetricDescriptor. For example, custom.googleapis.com/invoice/paid/amount.
 
+### MetricAbsence
+* MetricAbsence `object`: A condition type that checks that monitored resources are reporting data. The configuration defines a metric and a set of monitored resources. The predicate is considered in violation when a time series for the specified metric of a monitored resource does not include any data in the specified duration.
+  * aggregations `array`: Specifies the alignment of data points in individual time series as well as how to combine the retrieved time series together (such as when aggregating multiple streams on each resource to a single stream for each resource or when aggregating streams across all members of a group of resrouces). Multiple aggregations are applied in the order specified.This field is similar to the one in the MetricService.ListTimeSeries request. It is advisable to use the ListTimeSeries method when debugging this field.
+    * items [Aggregation](#aggregation)
+  * duration `string`: The amount of time that a time series must fail to report new data to be considered failing. Currently, only values that are a multiple of a minute--e.g. 60, 120, or 300 seconds--are supported. If an invalid value is given, an error will be returned. The Duration.nanos field is ignored.
+  * filter `string`: A filter that identifies which time series should be compared with the threshold.The filter is similar to the one that is specified in the MetricService.ListTimeSeries request (that call is useful to verify the time series that will be retrieved / processed) and must specify the metric type and optionally may contain restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048 Unicode characters in length.
+  * trigger [Trigger](#trigger)
+
 ### MetricDescriptor
 * MetricDescriptor `object`: Defines a metric type and its schema. Once a metric descriptor is created, deleting or altering it stops data collection and makes the metric type's existing data unusable.
   * description `string`: A detailed description of the metric, which can be used in documentation.
@@ -786,6 +1121,19 @@ google_monitoring.projects.uptimeCheckConfigs.create({
   * type `string`: The metric type, including its DNS name prefix. The type is not URL-encoded. All user-defined custom metric types have the DNS name custom.googleapis.com. Metric types should use a natural hierarchical grouping. For example:
   * unit `string`: Optional. The unit in which the metric value is reported. For example, kBy/s means kilobytes/sec, and 1 is the dimensionless unit. The supported units are a subset of The Unified Code for Units of Measure standard (http://unitsofmeasure.org/ucum.html).<br><br> This field is part of the metric's documentation, but it is ignored by Stackdriver.
   * valueType `string` (values: VALUE_TYPE_UNSPECIFIED, BOOL, INT64, DOUBLE, STRING, DISTRIBUTION, MONEY): Whether the measurement is an integer, a floating-point number, etc. Some combinations of metric_kind and value_type might not be supported.
+
+### MetricThreshold
+* MetricThreshold `object`: A condition type that compares a collection of time series against a threshold.
+  * aggregations `array`: Specifies the alignment of data points in individual time series as well as how to combine the retrieved time series together (such as when aggregating multiple streams on each resource to a single stream for each resource or when aggregating streams across all members of a group of resrouces). Multiple aggregations are applied in the order specified.This field is similar to the one in the MetricService.ListTimeSeries request. It is advisable to use the ListTimeSeries method when debugging this field.
+    * items [Aggregation](#aggregation)
+  * comparison `string` (values: COMPARISON_UNSPECIFIED, COMPARISON_GT, COMPARISON_GE, COMPARISON_LT, COMPARISON_LE, COMPARISON_EQ, COMPARISON_NE): The comparison to apply between the time series (indicated by filter and aggregation) and the threshold (indicated by threshold_value). The comparison is applied on each time series, with the time series on the left-hand side and the threshold on the right-hand side.Only COMPARISON_LT and COMPARISON_GT are supported currently.
+  * denominatorAggregations `array`: Specifies the alignment of data points in individual time series selected by denominatorFilter as well as how to combine the retrieved time series together (such as when aggregating multiple streams on each resource to a single stream for each resource or when aggregating streams across all members of a group of resources).When computing ratios, the aggregations and denominator_aggregations fields must use the same alignment period and produce time series that have the same periodicity and labels.This field is similar to the one in the MetricService.ListTimeSeries request. It is advisable to use the ListTimeSeries method when debugging this field.
+    * items [Aggregation](#aggregation)
+  * denominatorFilter `string`: A filter that identifies a time series that should be used as the denominator of a ratio that will be compared with the threshold. If a denominator_filter is specified, the time series specified by the filter field will be used as the numerator.The filter is similar to the one that is specified in the MetricService.ListTimeSeries request (that call is useful to verify the time series that will be retrieved / processed) and must specify the metric type and optionally may contain restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048 Unicode characters in length.
+  * duration `string`: The amount of time that a time series must violate the threshold to be considered failing. Currently, only values that are a multiple of a minute--e.g., 0, 60, 120, or 300 seconds--are supported. If an invalid value is given, an error will be returned. When choosing a duration, it is useful to keep in mind the frequency of the underlying time series data (which may also be affected by any alignments specified in the aggregations field); a good duration is long enough so that a single outlier does not generate spurious alerts, but short enough that unhealthy states are detected and alerted on quickly.
+  * filter `string`: A filter that identifies which time series should be compared with the threshold.The filter is similar to the one that is specified in the MetricService.ListTimeSeries request (that call is useful to verify the time series that will be retrieved / processed) and must specify the metric type and optionally may contain restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048 Unicode characters in length.
+  * thresholdValue `number`: A value against which to compare the time series.
+  * trigger [Trigger](#trigger)
 
 ### MonitoredResource
 * MonitoredResource `object`: An object representing a resource that can be used for monitoring, logging, billing, or other purposes. Examples include virtual machine instances, databases, and storage devices such as disks. The type field identifies a MonitoredResourceDescriptor object that describes the resource's schema. Information in the labels field identifies the actual resource and its attributes according to the schema. For example, a particular Compute Engine VM instance could be represented by the following object, because the MonitoredResourceDescriptor for "gce_instance" has labels "instance_id" and "zone":
@@ -806,6 +1154,33 @@ google_monitoring.projects.uptimeCheckConfigs.create({
   * systemLabels `object`: Output only. Values for predefined system metadata labels. System labels are a kind of metadata extracted by Google Stackdriver. Stackdriver determines what system labels are useful and how to obtain their values. Some examples: "machine_image", "vpc", "subnet_id", "security_group", "name", etc. System label values can be only strings, Boolean values, or a list of strings. For example:
   * userLabels `object`: Output only. A map of user-defined metadata labels.
 
+### MutationRecord
+* MutationRecord `object`: Describes a change made to a configuration.
+  * mutateTime `string`: When the change occurred.
+  * mutatedBy `string`: The email address of the user making the change.
+
+### NotificationChannel
+* NotificationChannel `object`: A NotificationChannel is a medium through which an alert is delivered when a policy violation is detected. Examples of channels include email, SMS, and third-party messaging applications. Fields containing sensitive information like authentication tokens or contact info are only partially populated on retrieval.
+  * description `string`: An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the channel. This may not exceeed 1024 Unicode characters.
+  * displayName `string`: An optional human-readable name for this notification channel. It is recommended that you specify a non-empty and unique name in order to make it easier to identify the channels in your project, though this is not enforced. The display name is limited to 512 Unicode characters.
+  * enabled `boolean`: Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel without removing the channel from all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and you want to receive notifications from the same set of alerting policies on the channel at some point in the future.
+  * labels `object`: Configuration fields that define the channel and its behavior. The permissible and required labels are specified in the NotificationChannelDescriptor.labels of the NotificationChannelDescriptor corresponding to the type field.
+  * name `string`: The full REST resource name for this channel. The syntax is:
+  * type `string`: The type of the notification channel. This field matches the value of the NotificationChannelDescriptor.type field.
+  * userLabels `object`: User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor's schema, unlike the labels field. This field is intended to be used for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
+  * verificationStatus `string` (values: VERIFICATION_STATUS_UNSPECIFIED, UNVERIFIED, VERIFIED): Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to be populated.If the value is UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification); otherwise, it is assumed that the channel works.If the channel is neither VERIFIED nor UNVERIFIED, it implies that the channel is of a type that does not require verification or that this specific channel has been exempted from verification because it was created prior to verification being required for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel operation. To change the value of this field, you must call VerifyNotificationChannel.
+
+### NotificationChannelDescriptor
+* NotificationChannelDescriptor `object`: A description of a notification channel. The descriptor includes the properties of the channel and the set of labels or fields that must be specified to configure channels of a given type.
+  * description `string`: A human-readable description of the notification channel type. The description may include a description of the properties of the channel and pointers to external documentation.
+  * displayName `string`: A human-readable name for the notification channel type. This form of the name is suitable for a user interface.
+  * labels `array`: The set of labels that must be defined to identify a particular channel of the corresponding type. Each label includes a description for how that field should be populated.
+    * items [LabelDescriptor](#labeldescriptor)
+  * name `string`: The full REST resource name for this descriptor. The syntax is:
+  * supportedTiers `array`: The tiers that support this notification channel; the project service tier must be one of the supported_tiers.
+    * items `string` (values: SERVICE_TIER_UNSPECIFIED, SERVICE_TIER_BASIC, SERVICE_TIER_PREMIUM)
+  * type `string`: The type of notification channel, such as "email", "sms", etc. Notification channel types are globally unique.
+
 ### Option
 * Option `object`: A protocol buffer option, which can be attached to a message, field, enumeration, etc.
   * name `string`: The option's name. For protobuf built-in options (options defined in descriptor.proto), this is the short name. For example, "map_entry". For custom options, it should be the fully-qualified name. For example, "google.api.http".
@@ -825,6 +1200,9 @@ google_monitoring.projects.uptimeCheckConfigs.create({
 * ResourceGroup `object`: The resource submessage for group checks. It can be used instead of a monitored resource, when multiple resources are being monitored.
   * groupId `string`: The group of resources being monitored. Should be only the group_id, not projects/<project_id>/groups/<group_id>.
   * resourceType `string` (values: RESOURCE_TYPE_UNSPECIFIED, INSTANCE, AWS_ELB_LOAD_BALANCER): The resource type of the group members.
+
+### SendNotificationChannelVerificationCodeRequest
+* SendNotificationChannelVerificationCodeRequest `object`: The SendNotificationChannelVerificationCode request.
 
 ### SourceContext
 * SourceContext `object`: SourceContext represents information about the source of a protobuf element, like the file in which it is defined.
@@ -855,6 +1233,11 @@ google_monitoring.projects.uptimeCheckConfigs.create({
     * items [Point](#point)
   * resource [MonitoredResource](#monitoredresource)
   * valueType `string` (values: VALUE_TYPE_UNSPECIFIED, BOOL, INT64, DOUBLE, STRING, DISTRIBUTION, MONEY): The value type of the time series. When listing time series, this value type might be different from the value type of the associated metric if this time series is an alignment or reduction of other time series.When creating a time series, this field is optional. If present, it must be the same as the type of the data in the points field.
+
+### Trigger
+* Trigger `object`: Specifies how many time series must fail a predicate to trigger a condition. If not specified, then a {count: 1} trigger is used.
+  * count `integer`: The absolute number of time series that must fail the predicate for the condition to be triggered.
+  * percent `number`: The percentage of time series that must fail the predicate for the condition to be triggered.
 
 ### Type
 * Type `object`: A protocol buffer message type.
@@ -887,7 +1270,7 @@ google_monitoring.projects.uptimeCheckConfigs.create({
   * isInternal `boolean`: Denotes whether this is a check that egresses from InternalCheckers.
   * monitoredResource [MonitoredResource](#monitoredresource)
   * name `string`: A unique resource name for this UptimeCheckConfig. The format is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field should be omitted when creating the uptime check configuration; on create, the resource name is assigned by the server and included in the response.
-  * period `string`: How often the uptime check is performed. Currently, only 1, 5, 10, and 15 minutes are supported. Required.
+  * period `string`: How often, in seconds, the uptime check is performed. Currently, the only supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes), and 900s (15 minutes). Optional, defaults to 300s.
   * resourceGroup [ResourceGroup](#resourcegroup)
   * selectedRegions `array`: The list of regions from which the check will be run. If this field is specified, enough regions to include a minimum of 3 locations must be provided, or an error message is returned. Not specifying this field will result in uptime checks running from all regions.
     * items `string` (values: REGION_UNSPECIFIED, USA, EUROPE, SOUTH_AMERICA, ASIA_PACIFIC)
@@ -899,5 +1282,9 @@ google_monitoring.projects.uptimeCheckConfigs.create({
   * ipAddress `string`: The IP address from which the uptime check originates. This is a full IP address (not an IP address range). Most IP addresses, as of this publication, are in IPv4 format; however, one should not rely on the IP addresses being in IPv4 format indefinitely and should support interpreting this field in either IPv4 or IPv6 format.
   * location `string`: A more specific location within the region that typically encodes a particular city/town/metro (and its containing state/province or country) within the broader umbrella region category.
   * region `string` (values: REGION_UNSPECIFIED, USA, EUROPE, SOUTH_AMERICA, ASIA_PACIFIC): A broad region category in which the IP address is located.
+
+### VerifyNotificationChannelRequest
+* VerifyNotificationChannelRequest `object`: The VerifyNotificationChannel request.
+  * code `string`: The verification code that was delivered to the channel as a result of invoking the SendNotificationChannelVerificationCode API method or that was retrieved from a verified channel via GetNotificationChannelVerificationCode. For example, one might have "G-123456" or "TKNZGhhd2EyN3I1MnRnMjRv" (in general, one is only guaranteed that the code is valid UTF-8; one should not make any assumptions regarding the structure or format of the code).
 
 

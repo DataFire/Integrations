@@ -671,6 +671,156 @@ azure_servicebus.EventHubs_ListByNamespace({
 #### Output
 * output [EventHubListResult](#eventhublistresult)
 
+### MigrationConfigs_List
+Gets all migrationConfigurations
+
+
+```js
+azure_servicebus.MigrationConfigs_List({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [MigrationConfigListResult](#migrationconfiglistresult)
+
+### MigrationConfigs_Delete
+Deletes a MigrationConfiguration
+
+
+```js
+azure_servicebus.MigrationConfigs_Delete({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "configName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * configName **required** `string` (values: $default): The configuration name. Should always be "$default".
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
+### MigrationConfigs_Get
+Retrieves Migration Config
+
+
+```js
+azure_servicebus.MigrationConfigs_Get({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "configName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * configName **required** `string` (values: $default): The configuration name. Should always be "$default".
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [MigrationConfigProperties](#migrationconfigproperties)
+
+### MigrationConfigs_CreateAndStartMigration
+Creates Migration configuration and starts migration of enties from Standard to Premium namespace
+
+
+```js
+azure_servicebus.MigrationConfigs_CreateAndStartMigration({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "configName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * configName **required** `string` (values: $default): The configuration name. Should always be "$default".
+  * parameters **required** [MigrationConfigProperties](#migrationconfigproperties)
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [MigrationConfigProperties](#migrationconfigproperties)
+
+### MigrationConfigs_Revert
+This operation reverts Migration
+
+
+```js
+azure_servicebus.MigrationConfigs_Revert({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "configName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * configName **required** `string` (values: $default): The configuration name. Should always be "$default".
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
+### MigrationConfigs_CompleteMigration
+This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any enties created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress.
+
+
+```js
+azure_servicebus.MigrationConfigs_CompleteMigration({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "configName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * configName **required** `string` (values: $default): The configuration name. Should always be "$default".
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
 ### Queues_ListByNamespace
 Gets the queues within a namespace.
 
@@ -690,6 +840,8 @@ azure_servicebus.Queues_ListByNamespace({
   * namespaceName **required** `string`: The namespace name
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * $skip `integer`: Skip is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skip parameter that specifies a starting point to use for subsequent calls.
+  * $top `integer`: May be used to limit the number of results to the most recent N usageDetails.
 
 #### Output
 * output [SBQueueListResult](#sbqueuelistresult)
@@ -954,6 +1106,8 @@ azure_servicebus.Topics_ListByNamespace({
   * namespaceName **required** `string`: The namespace name
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * $skip `integer`: Skip is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skip parameter that specifies a starting point to use for subsequent calls.
+  * $top `integer`: May be used to limit the number of results to the most recent N usageDetails.
 
 #### Output
 * output [SBTopicListResult](#sbtopiclistresult)
@@ -1220,6 +1374,8 @@ azure_servicebus.Subscriptions_ListByTopic({
   * topicName **required** `string`: The topic name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * $skip `integer`: Skip is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skip parameter that specifies a starting point to use for subsequent calls.
+  * $top `integer`: May be used to limit the number of results to the most recent N usageDetails.
 
 #### Output
 * output [SBSubscriptionListResult](#sbsubscriptionlistresult)
@@ -1330,6 +1486,8 @@ azure_servicebus.Rules_ListBySubscriptions({
   * subscriptionName **required** `string`: The subscription name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * $skip `integer`: Skip is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skip parameter that specifies a starting point to use for subsequent calls.
+  * $top `integer`: May be used to limit the number of results to the most recent N usageDetails.
 
 #### Output
 * output [RuleListResult](#rulelistresult)
@@ -1489,6 +1647,7 @@ azure_servicebus.Rules_CreateOrUpdate({
   * correlationId `string`: Identifier of the correlation.
   * label `string`: Application specific label.
   * messageId `string`: Identifier of the message.
+  * properties `object`: dictionary object for custom filters
   * replyTo `string`: Address of the queue to reply to.
   * replyToSessionId `string`: Session identifier to reply to.
   * requiresPreprocessing `boolean`: Value that indicates whether the rule action requires preprocessing.
@@ -1542,6 +1701,22 @@ azure_servicebus.Rules_CreateOrUpdate({
   * scheduledMessageCount `integer`: Number of scheduled messages.
   * transferDeadLetterMessageCount `integer`: Number of messages transferred into dead letters.
   * transferMessageCount `integer`: Number of messages transferred to another queue, topic, or subscription.
+
+### MigrationConfigListResult
+* MigrationConfigListResult `object`: The result of the List migrationConfigurations operation.
+  * nextLink `string`: Link to the next set of results. Not empty if Value contains incomplete list of migrationConfigurations
+  * value `array`: List of Migration Configs
+    * items [MigrationConfigProperties](#migrationconfigproperties)
+
+### MigrationConfigProperties
+* MigrationConfigProperties `object`: Single item in List or Get Migration Config operation
+  * properties `object`: Properties required to the Create Migration Configuration
+    * postMigrationName **required** `string`: Name to access Standard Namespace after migration
+    * provisioningState `string`: Provisioning state of Migration Configuration 
+    * targetNamespace **required** `string`: Existing premium Namespace ARM Id name which has no entities, will be used for migration
+  * id `string`: Resource Id
+  * name `string`: Resource name
+  * type `string`: Resource type
 
 ### Operation
 * Operation `object`: A ServiceBus REST API operation
@@ -1684,6 +1859,7 @@ azure_servicebus.Rules_CreateOrUpdate({
   * deadLetteringOnMessageExpiration `boolean`: A value that indicates whether this queue has dead letter support when a message expires.
   * defaultMessageTimeToLive `string`: ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
   * duplicateDetectionHistoryTimeWindow `string`: ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+  * enableBatchedOperations `boolean`: Value that indicates whether server-side batched operations are enabled.
   * enableExpress `boolean`: A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
   * enablePartitioning `boolean`: A value that indicates whether the queue is to be partitioned across multiple message brokers.
   * forwardDeadLetteredMessagesTo `string`: Queue/Topic name to forward the Dead Letter message

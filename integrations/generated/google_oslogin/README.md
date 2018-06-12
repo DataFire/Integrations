@@ -1,6 +1,6 @@
 # @datafire/google_oslogin
 
-Client library for Google Cloud OS Login
+Client library for Cloud OS Login
 
 ## Installation and Usage
 ```bash
@@ -251,6 +251,7 @@ google_oslogin.users.importSshPublicKey({
   * gecos `string`: The GECOS (user information) entry for this account.
   * gid `string`: The default group ID.
   * homeDirectory `string`: The path to the home directory for this account.
+  * operatingSystemType `string` (values: OPERATING_SYSTEM_TYPE_UNSPECIFIED, LINUX, WINDOWS): The operating system type where this account applies.
   * primary `boolean`: Only one POSIX account can be marked as primary.
   * shell `string`: The path to the logic shell for this account.
   * systemId `string`: System identifier for which account the username or uid applies to.

@@ -1,8 +1,8 @@
 {
   "name": "@datafire/ebay_buy_browse",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for API to View & Search for Items",
+  "description": "DataFire integration for Browse",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/ebay.com/buy-browse/v1_beta.10.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/ebay.com/buy-browse/v1_beta.11.0/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

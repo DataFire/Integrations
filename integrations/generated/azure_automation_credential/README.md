@@ -46,7 +46,7 @@ azure_automation_credential.Credential_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -56,13 +56,14 @@ azure_automation_credential.Credential_ListByAutomationAccount({
   * nextLink `string`: Gets or sets the next link.
   * value `array`: Gets or sets a list of credentials.
     * items `object`: Definition of the credential.
-      * id `string`: Gets the id of the resource.
-      * name `string`: Gets the name of the credential.
       * properties `object`: Definition of the credential properties
         * creationTime `string`: Gets the creation time.
         * description `string`: Gets or sets the description.
         * lastModifiedTime `string`: Gets the last modified time.
         * userName `string`: Gets the user name of the credential.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### Credential_Delete
 Delete the credential.
@@ -80,7 +81,7 @@ azure_automation_credential.Credential_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * credentialName **required** `string`: The name of credential.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -105,7 +106,7 @@ azure_automation_credential.Credential_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * credentialName **required** `string`: The name of credential.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -113,13 +114,14 @@ azure_automation_credential.Credential_Get({
 
 #### Output
 * output `object`: Definition of the credential.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the credential.
   * properties `object`: Definition of the credential properties
     * creationTime `string`: Gets the creation time.
     * description `string`: Gets or sets the description.
     * lastModifiedTime `string`: Gets the last modified time.
     * userName `string`: Gets the user name of the credential.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Credential_Update
 Update a credential.
@@ -138,11 +140,11 @@ azure_automation_credential.Credential_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * credentialName **required** `string`: The parameters supplied to the Update credential operation.
   * parameters **required** `object`: The parameters supplied to the Update credential operation.
-    * name **required** `string`: Gets or sets the name of the credential.
+    * name `string`: Gets or sets the name of the credential.
     * properties `object`: The properties of the Update credential
       * description `string`: Gets or sets the description of the credential.
       * password `string`: Gets or sets the password of the credential.
@@ -152,13 +154,14 @@ azure_automation_credential.Credential_Update({
 
 #### Output
 * output `object`: Definition of the credential.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the credential.
   * properties `object`: Definition of the credential properties
     * creationTime `string`: Gets the creation time.
     * description `string`: Gets or sets the description.
     * lastModifiedTime `string`: Gets the last modified time.
     * userName `string`: Gets the user name of the credential.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Credential_CreateOrUpdate
 Create a credential.
@@ -177,7 +180,7 @@ azure_automation_credential.Credential_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * credentialName **required** `string`: The parameters supplied to the create or update credential operation.
   * parameters **required** `object`: The parameters supplied to the create or update credential operation.
@@ -191,13 +194,14 @@ azure_automation_credential.Credential_CreateOrUpdate({
 
 #### Output
 * output `object`: Definition of the credential.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the credential.
   * properties `object`: Definition of the credential properties
     * creationTime `string`: Gets the creation time.
     * description `string`: Gets or sets the description.
     * lastModifiedTime `string`: Gets the last modified time.
     * userName `string`: Gets the user name of the credential.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 
 

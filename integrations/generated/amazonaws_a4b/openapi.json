@@ -14,7 +14,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "Alexa for Business makes it easy for you to use Alexa in your organization. Alexa for Business gives you the tools you need to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit, and the Alexa for Business APIs, and you can make these available as private skills for your organization. Alexa for Business also makes it easy to voice-enable your products and services, providing context-aware voice experiences for your customers.",
+    "description": "Alexa for Business makes it easy for you to use Alexa in your organization. Alexa for Business gives you the tools you need for managing Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can make also these available as private skills for your organization. Alexa for Business makes it easy to voice-enable your products and services, providing context-aware voice experiences for your customers.",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -164,7 +164,66 @@
         }
       ],
       "post": {
-        "description": "Associates a device to a given room. This applies all the settings from the room profile to the device, and all the skills in any skill groups added to that room. This operation requires the device to be online, or a manual sync is required. ",
+        "description": "Associates a contact with a given address book.",
+        "operationId": "AssociateContactWithAddressBook",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateContactWithAddressBookRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateContactWithAddressBookResponse"
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#AssociateDeviceWithRoom": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Associates a device with a given room. This applies all the settings from the room profile to the device, and all the skills in any skill groups added to that room. This operation requires the device to be online, or else a manual sync is required. ",
         "operationId": "AssociateDeviceWithRoom",
         "parameters": [
           {
@@ -223,7 +282,7 @@
         }
       ],
       "post": {
-        "description": "Associates a skill group to a given room. This enables all skills in the associated skill group on all devices in the room.",
+        "description": "Associates a skill group with a given room. This enables all skills in the associated skill group on all devices in the room.",
         "operationId": "AssociateSkillGroupWithRoom",
         "parameters": [
           {
@@ -240,6 +299,136 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/AssociateSkillGroupWithRoomResponse"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateAddressBook": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates an address book with the specified details.",
+        "operationId": "CreateAddressBook",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAddressBookRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAddressBookResponse"
+            }
+          },
+          "480": {
+            "description": "AlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/AlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateContact": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a contact with the specified details.",
+        "operationId": "CreateContact",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateContactRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateContactResponse"
+            }
+          },
+          "480": {
+            "description": "AlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/AlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
             }
           }
         }
@@ -500,6 +689,124 @@
             "description": "LimitExceededException",
             "schema": {
               "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteAddressBook": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes an address book by the address book ARN.",
+        "operationId": "DeleteAddressBook",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteAddressBookRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteAddressBookResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteContact": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a contact by the contact ARN.",
+        "operationId": "DeleteContact",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteContactRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteContactResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
             }
           }
         }
@@ -794,6 +1101,59 @@
         }
       }
     },
+    "/#DisassociateContactFromAddressBook": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disassociates a contact from a given address book.",
+        "operationId": "DisassociateContactFromAddressBook",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateContactFromAddressBookRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateContactFromAddressBookResponse"
+            }
+          }
+        }
+      }
+    },
     "/#DisassociateDeviceFromRoom": {
       "parameters": [
         {
@@ -895,6 +1255,124 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/DisassociateSkillGroupFromRoomResponse"
+            }
+          }
+        }
+      }
+    },
+    "/#GetAddressBook": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Gets address the book details by the address book ARN.",
+        "operationId": "GetAddressBook",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAddressBookRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAddressBookResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetContact": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Gets the contact details by the contact ARN.",
+        "operationId": "GetContact",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetContactRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetContactResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
             }
           }
         }
@@ -1184,6 +1662,79 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetSkillGroupResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListDeviceEvents": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the Device Event history for up to 30 days. If EventType isn't specified in the request, this returns a list of all device events in reverse chronological order. If EventType is specified, this returns a list of device events for that EventType in reverse chronological order. ",
+        "operationId": "ListDeviceEvents",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListDeviceEventsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDeviceEventsResponse"
             }
           },
           "480": {
@@ -1501,6 +2052,140 @@
             "description": "NotFoundException",
             "schema": {
               "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#SearchAddressBooks": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Searches address books and lists the ones that meet a set of filter and sort criteria.",
+        "operationId": "SearchAddressBooks",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchAddressBooksRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchAddressBooksResponse"
+            }
+          }
+        }
+      }
+    },
+    "/#SearchContacts": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Searches contacts and lists the ones that meet a set of filter and sort criteria.",
+        "operationId": "SearchContacts",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchContactsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchContactsResponse"
             }
           }
         }
@@ -1937,7 +2622,7 @@
         }
       ],
       "post": {
-        "description": "Resets a device and its account to the known default settings by clearing all information and settings set by previous users.",
+        "description": "Resets a device and its account to the known default settings, by clearing all information and settings set by previous users.",
         "operationId": "StartDeviceSync",
         "parameters": [
           {
@@ -2066,6 +2751,130 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateAddressBook": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates address book details by the address book ARN.",
+        "operationId": "UpdateAddressBook",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAddressBookRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAddressBookResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "NameInUseException",
+            "schema": {
+              "$ref": "#/definitions/NameInUseException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateContact": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates the contact details by the contact ARN.",
+        "operationId": "UpdateContact",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateContactRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateContactResponse"
             }
           },
           "480": {
@@ -2338,6 +3147,60 @@
       "minLength": 1,
       "type": "string"
     },
+    "AddressBook": {
+      "description": "An address book with attributes.",
+      "properties": {
+        "AddressBookArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the address book."
+        },
+        "Description": {
+          "$ref": "#/definitions/AddressBookDescription",
+          "description": "The description of the address book."
+        },
+        "Name": {
+          "$ref": "#/definitions/AddressBookName",
+          "description": "The name of the address book."
+        }
+      },
+      "type": "object"
+    },
+    "AddressBookData": {
+      "description": "Information related to an address book.",
+      "properties": {
+        "AddressBookArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the address book."
+        },
+        "Description": {
+          "$ref": "#/definitions/AddressBookDescription",
+          "description": "The description of the address book."
+        },
+        "Name": {
+          "$ref": "#/definitions/AddressBookName",
+          "description": "The name of the address book."
+        }
+      },
+      "type": "object"
+    },
+    "AddressBookDataList": {
+      "items": {
+        "$ref": "#/definitions/AddressBookData"
+      },
+      "type": "array"
+    },
+    "AddressBookDescription": {
+      "maxLength": 200,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string"
+    },
+    "AddressBookName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string"
+    },
     "AlreadyExistsException": {
       "description": "The resource being created already exists. HTTP Status Code: 400",
       "properties": {
@@ -2350,6 +3213,27 @@
     "Arn": {
       "pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
       "type": "string"
+    },
+    "AssociateContactWithAddressBookRequest": {
+      "properties": {
+        "AddressBookArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the address book with which to associate the contact."
+        },
+        "ContactArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the contact to associate with an address book."
+        }
+      },
+      "required": [
+        "ContactArn",
+        "AddressBookArn"
+      ],
+      "type": "object"
+    },
+    "AssociateContactWithAddressBookResponse": {
+      "properties": {},
+      "type": "object"
     },
     "AssociateDeviceWithRoomRequest": {
       "properties": {
@@ -2394,6 +3278,144 @@
       "minLength": 10,
       "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
       "type": "string"
+    },
+    "ConnectionStatus": {
+      "enum": [
+        "ONLINE",
+        "OFFLINE"
+      ],
+      "type": "string"
+    },
+    "Contact": {
+      "description": "A contact with attributes.",
+      "properties": {
+        "ContactArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the contact."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The name of the contact to display on the console."
+        },
+        "FirstName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The first name of the contact, used to call the contact on the device."
+        },
+        "LastName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The last name of the contact, used to call the contact on the device."
+        },
+        "PhoneNumber": {
+          "$ref": "#/definitions/E164PhoneNumber",
+          "description": "The phone number of the contact."
+        }
+      },
+      "type": "object"
+    },
+    "ContactData": {
+      "description": "Information related to a contact.",
+      "properties": {
+        "ContactArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the contact."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The name of the contact to display on the console."
+        },
+        "FirstName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The first name of the contact, used to call the contact on the device."
+        },
+        "LastName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The last name of the contact, used to call the contact on the device."
+        },
+        "PhoneNumber": {
+          "$ref": "#/definitions/E164PhoneNumber",
+          "description": "The phone number of the contact."
+        }
+      },
+      "type": "object"
+    },
+    "ContactDataList": {
+      "items": {
+        "$ref": "#/definitions/ContactData"
+      },
+      "type": "array"
+    },
+    "ContactName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string"
+    },
+    "CreateAddressBookRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique, user-specified identifier for the request that ensures idempotency."
+        },
+        "Description": {
+          "$ref": "#/definitions/AddressBookDescription",
+          "description": "The description of the address book."
+        },
+        "Name": {
+          "$ref": "#/definitions/AddressBookName",
+          "description": "The name of the address book."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "CreateAddressBookResponse": {
+      "properties": {
+        "AddressBookArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the newly created address book."
+        }
+      },
+      "type": "object"
+    },
+    "CreateContactRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique, user-specified identifier for this request that ensures idempotency."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The name of the contact to display on the console."
+        },
+        "FirstName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The first name of the contact that is used to call the contact on the device."
+        },
+        "LastName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The last name of the contact that is used to call the contact on the device."
+        },
+        "PhoneNumber": {
+          "$ref": "#/definitions/E164PhoneNumber",
+          "description": "The phone number of the contact in E.164 format."
+        }
+      },
+      "required": [
+        "FirstName",
+        "PhoneNumber"
+      ],
+      "type": "object"
+    },
+    "CreateContactResponse": {
+      "properties": {
+        "ContactArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the newly created address book."
+        }
+      },
+      "type": "object"
     },
     "CreateProfileRequest": {
       "properties": {
@@ -2568,6 +3590,38 @@
       },
       "type": "object"
     },
+    "DeleteAddressBookRequest": {
+      "properties": {
+        "AddressBookArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the address book to delete."
+        }
+      },
+      "required": [
+        "AddressBookArn"
+      ],
+      "type": "object"
+    },
+    "DeleteAddressBookResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteContactRequest": {
+      "properties": {
+        "ContactArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the contact to delete."
+        }
+      },
+      "required": [
+        "ContactArn"
+      ],
+      "type": "object"
+    },
+    "DeleteContactResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "DeleteProfileRequest": {
       "properties": {
         "ProfileArn": {
@@ -2669,7 +3723,7 @@
         },
         "DeviceStatus": {
           "$ref": "#/definitions/DeviceStatus",
-          "description": "The status of a device. If the status is not READY, check the DeviceStatusInfo for details."
+          "description": "The status of a device. If the status is not READY, check the DeviceStatusInfo value for details."
         },
         "DeviceStatusInfo": {
           "$ref": "#/definitions/DeviceStatusInfo",
@@ -2746,6 +3800,40 @@
       },
       "type": "array"
     },
+    "DeviceEvent": {
+      "description": "The list of device events.",
+      "properties": {
+        "Timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time (in epoch) when the event occurred. "
+        },
+        "Type": {
+          "$ref": "#/definitions/DeviceEventType",
+          "description": "The type of device event."
+        },
+        "Value": {
+          "$ref": "#/definitions/DeviceEventValue",
+          "description": "The value of the event."
+        }
+      },
+      "type": "object"
+    },
+    "DeviceEventList": {
+      "items": {
+        "$ref": "#/definitions/DeviceEvent"
+      },
+      "type": "array"
+    },
+    "DeviceEventType": {
+      "enum": [
+        "CONNECTION_STATUS",
+        "DEVICE_STATUS"
+      ],
+      "type": "string"
+    },
+    "DeviceEventValue": {
+      "type": "string"
+    },
     "DeviceName": {
       "maxLength": 100,
       "minLength": 2,
@@ -2760,7 +3848,8 @@
       "enum": [
         "READY",
         "PENDING",
-        "WAS_OFFLINE"
+        "WAS_OFFLINE",
+        "DEREGISTERED"
       ],
       "type": "string"
     },
@@ -2790,6 +3879,10 @@
     "DeviceStatusInfo": {
       "description": "Detailed information about a device's status.",
       "properties": {
+        "ConnectionStatus": {
+          "$ref": "#/definitions/ConnectionStatus",
+          "description": "The latest available information about the connection status of a device. "
+        },
         "DeviceStatusDetails": {
           "$ref": "#/definitions/DeviceStatusDetails",
           "description": "One or more device status detail descriptions."
@@ -2800,6 +3893,27 @@
     "DeviceType": {
       "pattern": "[a-zA-Z0-9]{1,200}",
       "type": "string"
+    },
+    "DisassociateContactFromAddressBookRequest": {
+      "properties": {
+        "AddressBookArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the address from which to disassociate the contact."
+        },
+        "ContactArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the contact to disassociate from an address book."
+        }
+      },
+      "required": [
+        "ContactArn",
+        "AddressBookArn"
+      ],
+      "type": "object"
+    },
+    "DisassociateContactFromAddressBookResponse": {
+      "properties": {},
+      "type": "object"
     },
     "DisassociateDeviceFromRoomRequest": {
       "properties": {
@@ -2838,6 +3952,10 @@
       ],
       "type": "string"
     },
+    "E164PhoneNumber": {
+      "pattern": "^\\+\\d{8,}$",
+      "type": "string"
+    },
     "Email": {
       "maxLength": 128,
       "minLength": 1,
@@ -2854,6 +3972,7 @@
         "INITIALIZED",
         "PENDING",
         "REGISTERED",
+        "DISASSOCIATING",
         "DEREGISTERING"
       ],
       "type": "string"
@@ -2919,6 +4038,48 @@
       },
       "maxItems": 5,
       "type": "array"
+    },
+    "GetAddressBookRequest": {
+      "properties": {
+        "AddressBookArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the address book for which to request details."
+        }
+      },
+      "required": [
+        "AddressBookArn"
+      ],
+      "type": "object"
+    },
+    "GetAddressBookResponse": {
+      "properties": {
+        "AddressBook": {
+          "$ref": "#/definitions/AddressBook",
+          "description": "The details of the requested address book."
+        }
+      },
+      "type": "object"
+    },
+    "GetContactRequest": {
+      "properties": {
+        "ContactArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the contact for which to request details."
+        }
+      },
+      "required": [
+        "ContactArn"
+      ],
+      "type": "object"
+    },
+    "GetContactResponse": {
+      "properties": {
+        "Contact": {
+          "$ref": "#/definitions/Contact",
+          "description": "The details of the requested contact."
+        }
+      },
+      "type": "object"
     },
     "GetDeviceRequest": {
       "properties": {
@@ -3036,6 +4197,43 @@
       "properties": {
         "Message": {
           "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ListDeviceEventsRequest": {
+      "properties": {
+        "DeviceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a device."
+        },
+        "EventType": {
+          "$ref": "#/definitions/DeviceEventType",
+          "description": "The event type to filter device events."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. Required. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults."
+        }
+      },
+      "required": [
+        "DeviceArn"
+      ],
+      "type": "object"
+    },
+    "ListDeviceEventsResponse": {
+      "properties": {
+        "DeviceEvents": {
+          "$ref": "#/definitions/DeviceEventList",
+          "description": "<p/>"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "<p/>"
         }
       },
       "type": "object"
@@ -3430,11 +4628,87 @@
       },
       "type": "array"
     },
+    "SearchAddressBooksRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "The filters to use to list a specified set of address books. The supported filter key is AddressBookName."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortList",
+          "description": "The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName."
+        }
+      },
+      "type": "object"
+    },
+    "SearchAddressBooksResponse": {
+      "properties": {
+        "AddressBooks": {
+          "$ref": "#/definitions/AddressBookDataList",
+          "description": "The address books that meet the specified set of filter criteria, in sort order."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/TotalCount",
+          "description": "The total number of address books returned."
+        }
+      },
+      "type": "object"
+    },
+    "SearchContactsRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "The filters to use to list a specified set of address books. The supported filter keys are DisplayName, FirstName, LastName, and AddressBookArns."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortList",
+          "description": "The sort order to use in listing the specified set of contacts. The supported sort keys are DisplayName, FirstName, and LastName."
+        }
+      },
+      "type": "object"
+    },
+    "SearchContactsResponse": {
+      "properties": {
+        "Contacts": {
+          "$ref": "#/definitions/ContactDataList",
+          "description": "The contacts that meet the specified set of filter criteria, in sort order."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/TotalCount",
+          "description": "The total number of contacts returned."
+        }
+      },
+      "type": "object"
+    },
     "SearchDevicesRequest": {
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
-          "description": "The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, and UnassociatedOnly."
+          "description": "The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and OFFLINE)."
         },
         "MaxResults": {
           "$ref": "#/definitions/MaxResults",
@@ -3446,7 +4720,7 @@
         },
         "SortCriteria": {
           "$ref": "#/definitions/SortList",
-          "description": "The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, and DeviceSerialNumber."
+          "description": "The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and ConnectionStatus."
         }
       },
       "type": "object"
@@ -3856,6 +5130,10 @@
       ],
       "type": "string"
     },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
     "Timezone": {
       "maxLength": 100,
       "minLength": 1,
@@ -3882,6 +5160,62 @@
       "type": "object"
     },
     "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateAddressBookRequest": {
+      "properties": {
+        "AddressBookArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room to update."
+        },
+        "Description": {
+          "$ref": "#/definitions/AddressBookDescription",
+          "description": "The updated description of the room."
+        },
+        "Name": {
+          "$ref": "#/definitions/AddressBookName",
+          "description": "The updated name of the room."
+        }
+      },
+      "required": [
+        "AddressBookArn"
+      ],
+      "type": "object"
+    },
+    "UpdateAddressBookResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateContactRequest": {
+      "properties": {
+        "ContactArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the contact to update."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The updated display name of the contact."
+        },
+        "FirstName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The updated first name of the contact."
+        },
+        "LastName": {
+          "$ref": "#/definitions/ContactName",
+          "description": "The updated last name of the contact."
+        },
+        "PhoneNumber": {
+          "$ref": "#/definitions/E164PhoneNumber",
+          "description": "The updated phone number of the contact."
+        }
+      },
+      "required": [
+        "ContactArn"
+      ],
+      "type": "object"
+    },
+    "UpdateContactResponse": {
       "properties": {},
       "type": "object"
     },

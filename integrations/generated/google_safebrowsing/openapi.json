@@ -11,12 +11,7 @@
       "url": "https://google.com"
     },
     "description": "Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Safe Browsing",
+    "title": "Safe Browsing",
     "version": "v4",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://safebrowsing.googleapis.com/$discovery/rest?version=v4",
@@ -897,7 +892,8 @@
             "CLIENT_INCIDENT",
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
-            "SUBRESOURCE_FILTER"
+            "SUBRESOURCE_FILTER",
+            "SUSPICIOUS"
           ],
           "type": "string"
         }
@@ -983,7 +979,8 @@
             "CLIENT_INCIDENT",
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
-            "SUBRESOURCE_FILTER"
+            "SUBRESOURCE_FILTER",
+            "SUSPICIOUS"
           ],
           "type": "string"
         }
@@ -1045,7 +1042,7 @@
           "type": "string"
         },
         "firstValue": {
-          "description": "The offset of the first entry in the encoded data, or, if only a single\ninteger was encoded, that single integer's value.",
+          "description": "The offset of the first entry in the encoded data, or, if only a single\ninteger was encoded, that single integer's value. If the field is empty or\nmissing, assume zero.",
           "format": "int64",
           "type": "string"
         },
@@ -1174,7 +1171,8 @@
             "CLIENT_INCIDENT",
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
-            "SUBRESOURCE_FILTER"
+            "SUBRESOURCE_FILTER",
+            "SUSPICIOUS"
           ],
           "type": "string"
         },
@@ -1246,7 +1244,8 @@
               "CLIENT_INCIDENT",
               "CLIENT_INCIDENT_WHITELIST",
               "APK_MALWARE_OFFLINE",
-              "SUBRESOURCE_FILTER"
+              "SUBRESOURCE_FILTER",
+              "SUSPICIOUS"
             ],
             "type": "string"
           },
@@ -1302,7 +1301,8 @@
             "CLIENT_INCIDENT",
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
-            "SUBRESOURCE_FILTER"
+            "SUBRESOURCE_FILTER",
+            "SUSPICIOUS"
           ],
           "type": "string"
         }
@@ -1369,7 +1369,8 @@
             "CLIENT_INCIDENT",
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
-            "SUBRESOURCE_FILTER"
+            "SUBRESOURCE_FILTER",
+            "SUSPICIOUS"
           ],
           "type": "string"
         }

@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Accesses the inventory of Ad Exchange seller users and generates reports.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Ad Exchange Seller",
     "version": "v2.0",
     "x-apiClientRegistration": {
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/adexchangeseller/v2.0/rest",
@@ -49,23 +44,12 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/adexchange.seller": "View and manage your Ad Exchange data",
         "https://www.googleapis.com/auth/adexchange.seller.readonly": "View your Ad Exchange data"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/adexchange.seller": "View and manage your Ad Exchange data",
-        "https://www.googleapis.com/auth/adexchange.seller.readonly": "View your Ad Exchange data"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -118,13 +102,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -168,16 +152,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -235,16 +213,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -316,16 +288,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -404,16 +370,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -485,16 +445,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -573,16 +527,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -646,16 +594,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -713,16 +655,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -780,16 +716,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -847,16 +777,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -921,16 +845,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -1064,16 +982,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -1145,16 +1057,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -1241,16 +1147,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.seller.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }

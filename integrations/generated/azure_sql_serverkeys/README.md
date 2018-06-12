@@ -135,18 +135,6 @@ azure_sql_serverkeys.ServerKeys_CreateOrUpdate({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### ServerKey
 * ServerKey `object`: A server key.
   * kind `string`: Kind of encryption protector. This is metadata used for the Azure portal experience.

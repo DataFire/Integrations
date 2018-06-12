@@ -927,6 +927,47 @@
         }
       }
     },
+    "/{Bucket}/{Key}?select&select-type=2#SelectObjectContent": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ],
+      "post": {
+        "description": "This operation filters the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response.",
+        "operationId": "SelectObjectContent",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SelectObjectContentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "Key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SelectObjectContentOutput"
+            }
+          }
+        }
+      }
+    },
     "/{Bucket}/{Key}?tagging#DeleteObjectTagging": {
       "delete": {
         "description": "Removes the tag-set from an existing object.",
@@ -3322,6 +3363,15 @@
       },
       "type": "array"
     },
+    "BytesProcessed": {
+      "type": "integer"
+    },
+    "BytesReturned": {
+      "type": "integer"
+    },
+    "BytesScanned": {
+      "type": "integer"
+    },
     "CORSConfiguration": {
       "properties": {
         "CORSRules": {
@@ -3561,6 +3611,13 @@
         "wrapped": false
       }
     },
+    "CompressionType": {
+      "enum": [
+        "NONE",
+        "GZIP"
+      ],
+      "type": "string"
+    },
     "Condition": {
       "properties": {
         "HttpErrorCodeReturnedEquals": {
@@ -3597,6 +3654,10 @@
     },
     "ContentType": {
       "type": "string"
+    },
+    "ContinuationEvent": {
+      "properties": {},
+      "type": "object"
     },
     "CopyObjectOutput": {
       "example": {
@@ -4023,6 +4084,9 @@
     "EmailAddress": {
       "type": "string"
     },
+    "EnableRequestProgress": {
+      "type": "boolean"
+    },
     "EncodingType": {
       "description": "Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.",
       "enum": [
@@ -4059,6 +4123,10 @@
           "description": "The id of the KMS key used to encrypt the replica object."
         }
       },
+      "type": "object"
+    },
+    "EndEvent": {
+      "properties": {},
       "type": "object"
     },
     "Error": {
@@ -4867,6 +4935,14 @@
         "CSV": {
           "$ref": "#/definitions/CSVInput",
           "description": "Describes the serialization of a CSV-encoded object."
+        },
+        "CompressionType": {
+          "$ref": "#/definitions/CompressionType",
+          "description": "Specifies object's compression format. Valid values: NONE, GZIP. Default Value: NONE."
+        },
+        "JSON": {
+          "$ref": "#/definitions/JSONInput",
+          "description": "Specifies JSON as object's input serialization format."
         }
       },
       "type": "object"
@@ -5049,6 +5125,31 @@
     },
     "IsTruncated": {
       "type": "boolean"
+    },
+    "JSONInput": {
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/JSONType",
+          "description": "The type of JSON. Valid values: Document, Lines."
+        }
+      },
+      "type": "object"
+    },
+    "JSONOutput": {
+      "properties": {
+        "RecordDelimiter": {
+          "$ref": "#/definitions/RecordDelimiter",
+          "description": "The value used to separate individual records in the output."
+        }
+      },
+      "type": "object"
+    },
+    "JSONType": {
+      "enum": [
+        "DOCUMENT",
+        "LINES"
+      ],
+      "type": "string"
     },
     "KMSContext": {
       "type": "string"
@@ -5747,6 +5848,7 @@
       "type": "string"
     },
     "LoggingEnabled": {
+      "description": "Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.",
       "properties": {
         "TargetBucket": {
           "$ref": "#/definitions/TargetBucket",
@@ -5760,6 +5862,10 @@
           "description": "This element lets you specify a prefix for the keys that the log files will be stored under."
         }
       },
+      "required": [
+        "TargetBucket",
+        "TargetPrefix"
+      ],
       "type": "object"
     },
     "MFA": {
@@ -5984,7 +6090,7 @@
       "type": "object"
     },
     "NoncurrentVersionTransition": {
-      "description": "Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object's lifetime.",
+      "description": "Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.",
       "properties": {
         "NoncurrentDays": {
           "$ref": "#/definitions/Days",
@@ -6154,7 +6260,9 @@
       "enum": [
         "STANDARD",
         "REDUCED_REDUNDANCY",
-        "GLACIER"
+        "GLACIER",
+        "STANDARD_IA",
+        "ONEZONE_IA"
       ],
       "type": "string"
     },
@@ -6227,6 +6335,10 @@
         "CSV": {
           "$ref": "#/definitions/CSVOutput",
           "description": "Describes the serialization of CSV-encoded Select results."
+        },
+        "JSON": {
+          "$ref": "#/definitions/JSONOutput",
+          "description": "Specifies JSON as request's output serialization format."
         }
       },
       "type": "object"
@@ -6309,6 +6421,32 @@
     },
     "Prefix": {
       "type": "string"
+    },
+    "Progress": {
+      "properties": {
+        "BytesProcessed": {
+          "$ref": "#/definitions/BytesProcessed",
+          "description": "Current number of uncompressed object bytes processed."
+        },
+        "BytesReturned": {
+          "$ref": "#/definitions/BytesReturned",
+          "description": "Current number of bytes of records payload data returned."
+        },
+        "BytesScanned": {
+          "$ref": "#/definitions/BytesScanned",
+          "description": "Current number of object bytes scanned."
+        }
+      },
+      "type": "object"
+    },
+    "ProgressEvent": {
+      "properties": {
+        "Details": {
+          "$ref": "#/definitions/Progress",
+          "description": "The Progress event details."
+        }
+      },
+      "type": "object"
     },
     "Protocol": {
       "enum": [
@@ -6877,6 +7015,15 @@
     "RecordDelimiter": {
       "type": "string"
     },
+    "RecordsEvent": {
+      "properties": {
+        "Payload": {
+          "$ref": "#/definitions/Body",
+          "description": "The byte array of partial, one or more result records."
+        }
+      },
+      "type": "object"
+    },
     "Redirect": {
       "properties": {
         "HostName": {
@@ -7025,6 +7172,15 @@
       "required": [
         "Payer"
       ],
+      "type": "object"
+    },
+    "RequestProgress": {
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/EnableRequestProgress",
+          "description": "Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE."
+        }
+      },
       "type": "object"
     },
     "ResponseCacheControl": {
@@ -7270,6 +7426,71 @@
       "properties": {},
       "type": "object"
     },
+    "SelectObjectContentEventStream": {
+      "properties": {
+        "Cont": {
+          "$ref": "#/definitions/ContinuationEvent",
+          "description": "The Continuation Event."
+        },
+        "End": {
+          "$ref": "#/definitions/EndEvent",
+          "description": "The End Event."
+        },
+        "Progress": {
+          "$ref": "#/definitions/ProgressEvent",
+          "description": "The Progress Event."
+        },
+        "Records": {
+          "$ref": "#/definitions/RecordsEvent",
+          "description": "The Records Event."
+        },
+        "Stats": {
+          "$ref": "#/definitions/StatsEvent",
+          "description": "The Stats Event."
+        }
+      },
+      "type": "object"
+    },
+    "SelectObjectContentOutput": {
+      "properties": {
+        "Payload": {
+          "$ref": "#/definitions/SelectObjectContentEventStream"
+        }
+      },
+      "type": "object"
+    },
+    "SelectObjectContentRequest": {
+      "description": "Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, go to <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html\">S3Select API Documentation</a>.",
+      "properties": {
+        "Expression": {
+          "$ref": "#/definitions/Expression",
+          "description": "The expression that is used to query the object."
+        },
+        "ExpressionType": {
+          "$ref": "#/definitions/ExpressionType",
+          "description": "The type of the provided expression (e.g., SQL)."
+        },
+        "InputSerialization": {
+          "$ref": "#/definitions/InputSerialization",
+          "description": "Describes the format of the data in the object that is being queried."
+        },
+        "OutputSerialization": {
+          "$ref": "#/definitions/OutputSerialization",
+          "description": "Describes the format of the data that you want Amazon S3 to return in response."
+        },
+        "RequestProgress": {
+          "$ref": "#/definitions/RequestProgress",
+          "description": "Specifies if periodic request progress information should be enabled."
+        }
+      },
+      "required": [
+        "Expression",
+        "ExpressionType",
+        "InputSerialization",
+        "OutputSerialization"
+      ],
+      "type": "object"
+    },
     "SelectParameters": {
       "description": "Describes the parameters for Select job types.",
       "properties": {
@@ -7390,11 +7611,38 @@
     "StartAfter": {
       "type": "string"
     },
+    "Stats": {
+      "properties": {
+        "BytesProcessed": {
+          "$ref": "#/definitions/BytesProcessed",
+          "description": "Total number of uncompressed object bytes processed."
+        },
+        "BytesReturned": {
+          "$ref": "#/definitions/BytesReturned",
+          "description": "Total number of bytes of records payload data returned."
+        },
+        "BytesScanned": {
+          "$ref": "#/definitions/BytesScanned",
+          "description": "Total number of object bytes scanned."
+        }
+      },
+      "type": "object"
+    },
+    "StatsEvent": {
+      "properties": {
+        "Details": {
+          "$ref": "#/definitions/Stats",
+          "description": "The Stats event details."
+        }
+      },
+      "type": "object"
+    },
     "StorageClass": {
       "enum": [
         "STANDARD",
         "REDUCED_REDUNDANCY",
-        "STANDARD_IA"
+        "STANDARD_IA",
+        "ONEZONE_IA"
       ],
       "type": "string"
     },
@@ -7598,7 +7846,8 @@
     "TransitionStorageClass": {
       "enum": [
         "GLACIER",
-        "STANDARD_IA"
+        "STANDARD_IA",
+        "ONEZONE_IA"
       ],
       "type": "string"
     },

@@ -12,7 +12,7 @@ let haloapi_profile = require('@datafire/haloapi_profile').create({
   apiKeyQuery: ""
 });
 
-haloapi_profile.h5.profiles.player.appearance.get({
+haloapi_profile.5969689a2109180f287972a8({
   "player": ""
 }).then(data => {
   console.log(data);
@@ -25,7 +25,7 @@ API that provides Profile information about Players.
 
 ## Actions
 
-### h5.profiles.player.appearance.get
+### 5969689a2109180f287972a8
 <p>This Endpoint retrieves appearance information for a player.</p>
 <p>If the player is a member of a Company, the Company's ID and Name will be provided. Additional Company information is available via the Stats API.</p>
 <br />
@@ -40,7 +40,7 @@ API that provides Profile information about Players.
 
 
 ```js
-haloapi_profile.h5.profiles.player.appearance.get({
+haloapi_profile.5969689a2109180f287972a8({
   "player": ""
 }, context)
 ```
@@ -52,7 +52,7 @@ haloapi_profile.h5.profiles.player.appearance.get({
 #### Output
 *Output schema unknown*
 
-### h5.profiles.player.emblem.get
+### 58acdc2e2109180bdcacc404
 <p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Emblem. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname "image.halocdn.com") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Emblem, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>
 <br />
 <h4>Changelog</h4>
@@ -71,7 +71,7 @@ haloapi_profile.h5.profiles.player.appearance.get({
 
 
 ```js
-haloapi_profile.h5.profiles.player.emblem.get({
+haloapi_profile.58acdc2e2109180bdcacc404({
   "player": ""
 }, context)
 ```
@@ -84,7 +84,7 @@ haloapi_profile.h5.profiles.player.emblem.get({
 #### Output
 *Output schema unknown*
 
-### h5.profiles.player.spartan.get
+### 58acdc2e2109180bdcacc405
 <p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Spartan's appearance. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname "image.halocdn.com") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Spartan's appearance, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>
 <br />
 <h4>Changelog</h4>
@@ -103,7 +103,7 @@ haloapi_profile.h5.profiles.player.emblem.get({
 
 
 ```js
-haloapi_profile.h5.profiles.player.spartan.get({
+haloapi_profile.58acdc2e2109180bdcacc405({
   "player": ""
 }, context)
 ```

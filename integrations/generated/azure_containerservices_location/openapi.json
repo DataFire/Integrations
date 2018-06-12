@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/containerservices/resource-manager/Microsoft.ContainerService/stable/2017-09-30/location.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerservices/resource-manager/Microsoft.ContainerService/stable/2017-09-30/location.json",
         "version": "2.0"
       }
     ],

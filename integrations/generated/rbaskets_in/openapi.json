@@ -16,10 +16,9 @@
       "url": "https://github.com/darklynx/request-baskets/blob/master/LICENSE"
     },
     "title": "Request Baskets",
-    "version": "0.5",
+    "version": "0.8",
     "x-apisguru-categories": [
-      "developer_tools",
-      "monitoring"
+      "developer_tools"
     ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_darklynx_request-baskets_master_doc_logo.svg"
@@ -556,6 +555,10 @@
         },
         "insecure_tls": {
           "description": "If set to `true` the certificate verification will be disabled if forward URL indicates HTTPS scheme.\n**Warning:** enabling this feature has known security implications.\n",
+          "type": "boolean"
+        },
+        "proxy_response": {
+          "description": "If set to `true` this basket behaves as a full proxy: responses from underlying service configured in `forward_url`\nare passed back to clients of original requests. The configuration of basket responses is ignored in this case.\n",
           "type": "boolean"
         }
       },

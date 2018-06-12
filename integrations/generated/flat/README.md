@@ -462,6 +462,193 @@ flat.addClassUser({
 #### Output
 *Output schema unknown*
 
+### listCollections
+Use this method to list the user's collections contained in `parent` (by default in the `root` collection).
+If no sort option is provided, the collections are sorted by `creationDate` `desc`.
+
+Note that this method will not include the `parent` collection in the listing.
+For example, if you need the details of the `root` collection, you can use `GET /v2/collections/root`.
+
+
+
+```js
+flat.listCollections({}, context)
+```
+
+#### Input
+* input `object`
+  * parent `string` (values: root, sharedWithMe, trash): List the collection contained in this `parent` collection.
+  * sort `string` (values: creationDate, title): Sort
+  * direction `string` (values: asc, desc): Sort direction
+  * limit `integer`: This is the maximum number of objects that may be returned
+  * next `string`: An opaque string cursor to fetch the next page of data.
+  * previous `string`: An opaque string cursor to fetch the previous page of data.
+
+#### Output
+* output `array`
+  * items [Collection](#collection)
+
+### createCollection
+This method will create a new collection and add it to your `root` collection.
+
+
+
+```js
+flat.createCollection({
+  "body": {
+    "title": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [CollectionCreation](#collectioncreation)
+
+#### Output
+* output [Collection](#collection)
+
+### deleteCollection
+This method will schedule the deletion of the collection. Until deleted, the collection will be available in the `trash`.
+
+
+
+```js
+flat.deleteCollection({
+  "collection": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * collection **required** `string`: Unique identifier of the collection.
+
+#### Output
+*Output schema unknown*
+
+### getCollection
+Get collection details
+
+
+```js
+flat.getCollection({
+  "collection": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * collection **required** `string`: Unique identifier of the collection.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+
+#### Output
+* output [Collection](#collection)
+
+### editCollection
+Update a collection's metadata
+
+
+```js
+flat.editCollection({
+  "collection": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * collection **required** `string`: Unique identifier of the collection.
+  * body [CollectionModification](#collectionmodification)
+
+#### Output
+* output [Collection](#collection)
+
+### listCollectionScores
+Use this method to list the scores contained in a collection.
+If no sort option is provided, the scores are sorted by `modificationDate` `desc`.
+
+
+
+```js
+flat.listCollectionScores({
+  "collection": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * collection **required** `string`: Unique identifier of the collection.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sort `string` (values: creationDate, modificationDate, title): Sort
+  * direction `string` (values: asc, desc): Sort direction
+  * limit `integer`: This is the maximum number of objects that may be returned
+  * next `string`: An opaque string cursor to fetch the next page of data.
+  * previous `string`: An opaque string cursor to fetch the previous page of data.
+
+#### Output
+* output `array`
+  * items [ScoreDetails](#scoredetails)
+
+### deleteScoreFromCollection
+This method will delete a score from the collection. Unlike [`DELETE /scores/{score}`](#operation/deleteScore), this score will not remove the score from your account, but only from the collection.
+This can be used to *move* a score from one collection to another, or simply remove a score from one collection when this one is contained in multiple collections.
+
+
+
+```js
+flat.deleteScoreFromCollection({
+  "collection": "",
+  "score": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * collection **required** `string`: Unique identifier of the collection.
+  * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+
+#### Output
+*Output schema unknown*
+
+### addScoreToCollection
+This operation will add a score to a collection. The default behavior will make the score available across multiple collections.
+You must have the capability `canAddScores` on the provided `collection` to perform the action.
+
+
+
+```js
+flat.addScoreToCollection({
+  "collection": "",
+  "score": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * collection **required** `string`: Unique identifier of the collection.
+  * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+
+#### Output
+* output [ScoreDetails](#scoredetails)
+
+### untrashCollection
+This method will restore the collection by removing it from the `trash` and add it back to the `root` collection.
+
+
+
+```js
+flat.untrashCollection({
+  "collection": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * collection **required** `string`: Unique identifier of the collection.
+
+#### Output
+*Output schema unknown*
+
 ### getGroupDetails
 Get group information
 
@@ -722,6 +909,10 @@ This API call will automatically create the first revision of the document, the 
 
 The currently authenticated user will be granted owner of the file and will be able to add other collaborators (users and groups).
 
+If no `collection` is specified, the API will create the score in the most appropriate collection. This can be the `root` collection or a different collection based on the user's settings or API authentication method.
+If a `collection` is specified and this one has more public privacy settings than the score (e.g. `public` vs `private` for the score), the privacy settings of the created score will be adjusted to the collection ones.
+You can check the adjusted privacy settings in the returned score `privacy`, and optionally adjust these settings if needed using `PUT /scores/{score}`.
+
 
 
 ```js
@@ -740,9 +931,12 @@ flat.createScore({
 * output [ScoreDetails](#scoredetails)
 
 ### deleteScore
-This API call will schedule the deletion of the score, its revisions, and whole history.
-The user calling this API method must have the `aclAdmin` rights on this document to process this action.
+This method can be used by the owner/admin (`aclAdmin` rights) of a score as well as regular collaborators.
+
+When called by an owner/admin, it will schedule the deletion of the score, its revisions, and complete history.
 The score won't be accessible anymore after calling this method and the user's quota will directly be updated.
+
+When called by a regular collaborator (`aclRead` / `aclWrite`), the score will be unshared (i.e. removed from the account & own collections).
 
 
 
@@ -774,7 +968,7 @@ flat.getScore({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 * output [ScoreDetails](#scoredetails)
@@ -783,6 +977,9 @@ flat.getScore({
 This API method allows you to change the metadata of a score document (e.g. its `title` or `privacy`), all the properties are optional.
 
 To edit the file itself, create a new revision using the appropriate method (`POST /v2/scores/{score}/revisions/{revision}`).
+
+When editing the `title` of the score, the API metadata are updated directly when calling this method, unlike the data itself.
+The title in the score data will be "lazy" updated at the next score save with the editor or our internal save.
 
 
 
@@ -816,17 +1013,17 @@ flat.getScoreCollaborators({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 * output `array`
-  * items [ScoreCollaborator](#scorecollaborator)
+  * items [ResourceCollaborator](#resourcecollaborator)
 
 ### addScoreCollaborator
-Share a score with a single user or a group. This API call allows to add, invite and update the collaborators of a document.
-- To add an existing Flat user to the document, specify its unique identifier in the `user` property.
-- To invite an external user to the document, specify its email in the `userEmail` property.
-- To add a Flat group to the document, specify its unique identifier in the `group` property.
+Share a score with a single user or a group. This API call allows to add, invite and update the collaborators of a resource.
+- To add an existing Flat user to the resource, specify its unique identifier in the `user` property.
+- To invite an external user to the resource, specify its email in the `userEmail` property.
+- To add a Flat group to the resource, specify its unique identifier in the `group` property.
 - To update an existing collaborator, process the same request with different rights.
 
 
@@ -841,10 +1038,10 @@ flat.addScoreCollaborator({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * body **required** [ScoreCollaboratorCreation](#scorecollaboratorcreation)
+  * body **required** [ResourceCollaboratorCreation](#resourcecollaboratorcreation)
 
 #### Output
-* output [ScoreCollaborator](#scorecollaborator)
+* output [ResourceCollaborator](#resourcecollaborator)
 
 ### removeScoreCollaborator
 Remove the specified collaborator from the score
@@ -882,10 +1079,10 @@ flat.getScoreCollaborator({
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
   * collaborator **required** `string`: Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
-* output [ScoreCollaborator](#scorecollaborator)
+* output [ResourceCollaborator](#resourcecollaborator)
 
 ### getScoreComments
 This method lists the different comments added on a music score (documents and inline) sorted by their post dates.
@@ -900,7 +1097,10 @@ flat.getScoreComments({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * type `string` (values: document, inline): Filter the comments by type
+  * sort `string` (values: date): Sort
+  * direction `string` (values: asc, desc): Sort direction
 
 #### Output
 * output `array`
@@ -925,7 +1125,7 @@ flat.postScoreComment({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
   * body **required** [ScoreCommentCreation](#scorecommentcreation)
 
 #### Output
@@ -946,7 +1146,7 @@ flat.deleteScoreComment({
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
   * comment **required** `string`: Unique identifier of a sheet music comment
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 *Output schema unknown*
@@ -967,7 +1167,7 @@ flat.updateScoreComment({
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
   * comment **required** `string`: Unique identifier of a sheet music comment
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
   * body **required** [ScoreCommentUpdate](#scorecommentupdate)
 
 #### Output
@@ -988,7 +1188,7 @@ flat.markScoreCommentUnresolved({
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
   * comment **required** `string`: Unique identifier of a sheet music comment
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 *Output schema unknown*
@@ -1008,7 +1208,7 @@ flat.markScoreCommentResolved({
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
   * comment **required** `string`: Unique identifier of a sheet music comment
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 *Output schema unknown*
@@ -1030,7 +1230,7 @@ flat.forkScore({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
   * body **required** [ScoreFork](#scorefork)
 
 #### Output
@@ -1052,7 +1252,7 @@ flat.getScoreRevisions({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 * output `array`
@@ -1097,7 +1297,7 @@ flat.getScoreRevision({
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
   * revision **required** `string`: Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 * output [ScoreRevision](#scorerevision)
@@ -1120,10 +1320,10 @@ flat.getScoreRevisionData({
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
   * revision **required** `string`: Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * parts `string`: An optional a set of parts to be exported. This parameter must be
   * format **required** `string` (values: json, mxl, xml, mp3, wav, midi, thumbnail.png): The format of the file you will retrieve
   * onlyCached `boolean`: Only return files already generated and cached in Flat's production
-  * parts `string`: An optional a set of parts to be exported. This parameter must be
 
 #### Output
 * output `string`
@@ -1160,7 +1360,7 @@ flat.listScoreTracks({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 * output `array`
@@ -1220,8 +1420,8 @@ flat.getScoreTrack({
 #### Input
 * input `object`
   * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
-  * sharingKey `string`: This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
   * track **required** `string`: Unique identifier of a score audio track
+  * sharingKey `string`: This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
 
 #### Output
 * output [ScoreTrack](#scoretrack)
@@ -1246,6 +1446,24 @@ flat.updateScoreTrack({
 
 #### Output
 * output [ScoreTrack](#scoretrack)
+
+### untrashScore
+This method will remove the score from the `trash` collection and from the deletion queue, and add it back to the original collections.
+
+
+
+```js
+flat.untrashScore({
+  "score": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * score **required** `string`: Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+
+#### Output
+*Output schema unknown*
 
 ### getUser
 Get a public profile of a Flat User.
@@ -1285,7 +1503,11 @@ flat.gerUserLikes({
   * items [ScoreDetails](#scoredetails)
 
 ### getUserScores
-Get the list of scores owned by the User
+Get the list of public scores owned by a User.
+
+**DEPRECATED**: Please note that the current behavior will be deprecrated on **2019-01-01**.
+This method will no longer list private and shared scores, but only public scores of a Flat account.
+If you want to access to private scores, please use the [Collections API](#tag/Collection) instead.
 
 
 
@@ -1422,6 +1644,43 @@ flat.getUserScores({
   * name `string`: The name of the class
   * section `string`: The section of the class
 
+### Collection
+* Collection `object`: Collection of scores
+  * app `string`: If this directory is dedicated to an app, the unique idenfier of this app
+  * capabilities `object`: Capabilities the current user has on this collection. Each capability corresponds to a fine-grained action that a user may take.
+    * canAddScores `boolean`: Whether the current user can add scores to the collection
+    * canDelete `boolean`: Whether the current user can delete the collection
+    * canDeleteScores `boolean`: Whether the current user can delete scores from the collection
+    * canEdit `boolean`: Whether the current user can modify the metadata for the collection
+    * canShare `boolean`: Whether the current user can modify the sharing settings for the collection
+  * collaborators `array`: The list of the collaborators of the collection
+    * items [ResourceCollaborator](#resourcecollaborator)
+  * htmlUrl `string`: The url where the collection can be viewed in a web browser
+  * id `string`: Unique identifier of the collection
+  * privacy [CollectionPrivacy](#collectionprivacy)
+  * rights [ResourceRights](#resourcerights)
+  * sharingKey `string`: The private sharing key of the collection (available when the `privacy` mode is set to `privateLink`)
+  * title [CollectionTitle](#collectiontitle)
+  * type [CollectionType](#collectiontype)
+  * user [UserPublicSummary](#userpublicsummary)
+
+### CollectionCreation
+* CollectionCreation `object`
+  * title **required** [CollectionTitle](#collectiontitle)
+
+### CollectionModification
+* CollectionModification `object`: Edit the collection metadata
+  * title [CollectionTitle](#collectiontitle)
+
+### CollectionPrivacy
+* CollectionPrivacy `string` (values: private): The collection main privacy mode.
+
+### CollectionTitle
+* CollectionTitle `string`: The title of the collection
+
+### CollectionType
+* CollectionType `string` (values: root, regular, sharedWithMe, sharedWithGroup, trash): Type of the collection.
+
 ### FlatErrorResponse
 * FlatErrorResponse `object`
   * code `string`: A corresponding code for this error
@@ -1533,25 +1792,36 @@ flat.getUserScores({
 ### OrganizationRoles
 * OrganizationRoles `string` (values: admin, billing, teacher, user): User's Organization Role (for Edu users only)
 
-### ScoreCollaborator
-* ScoreCollaborator `object`: A collaborator of a score. The `userEmail` and `group` are only available if the requesting user is a collaborator of the related score (in this case these permissions will eventualy not be listed and exposed publicly).
-  * aclAdmin `boolean`: `True` if the related user can can manage the current document, i.e. changing the document permissions and deleting the document
-  * aclRead `boolean`: `True` if the related user can read the score. (probably true if the user has a permission on the document).
-  * aclWrite `boolean`: `True` if the related user can modify the score.
+### ResourceCollaborator
+* ResourceCollaborator: A collaborator of a score. The `userEmail` and `group` are only available if the requesting user is a collaborator of the related score (in this case these permissions will eventualy not be listed and exposed publicly).
+  * aclAdmin `boolean`: `True` if the current user can manage the current document (i.e. share, delete)
+  * aclRead `boolean`: `True` if the current user can read the current document
+  * aclWrite `boolean`: `True` if the current user can modify the current document.
+  * collection `string`: If this object is a permission of a collection, this property will contain the unique identifier of the collection
   * group [Group](#group)
-  * id `string`: The unique identifier of the score permission
-  * score `string`: The unique identifier of the score
+  * id `string`: The unique identifier of the permission
+  * score `string`: If this object is a permission of a score, this property will contain the unique identifier of the score
   * user [UserPublic](#userpublic)
   * userEmail `string`: If the collaborator is not a user of Flat yet, this field will contain his email.
 
-### ScoreCollaboratorCreation
-* ScoreCollaboratorCreation `object`: A collaborator of a score. The `userEmail` and `group` are only available if the requesting user is a collaborator of the related score (in this case these permissions will eventualy not be listed and exposed publicly).
+### ResourceCollaboratorCreation
+* ResourceCollaboratorCreation `object`: Add a collaborator to a resource.
   * aclAdmin `boolean`: `True` if the related user can can manage the current document, i.e. changing the document permissions and deleting the document
   * aclRead `boolean`: `True` if the related user can read the score. (probably true if the user has a permission on the document).
   * aclWrite `boolean`: `True` if the related user can modify the score.
   * group `string`: The unique identifier of a Flat group
   * user `string`: The unique identifier of a Flat user
   * userEmail `string`: Fill this field to invite an individual user by email.
+  * userToken `string`: Token received in an invitation to join the score.
+
+### ResourceRights
+* ResourceRights `object`: The rights of the current user on a score or collection
+  * aclAdmin `boolean`: `True` if the current user can manage the current document (i.e. share, delete)
+  * aclRead `boolean`: `True` if the current user can read the current document
+  * aclWrite `boolean`: `True` if the current user can modify the current document.
+
+### ResourceSharingKey
+* ResourceSharingKey `string`: When using the `privacy` mode `privateLink`, this property can be used to set a custom sharing key, otherwise a new key will be generated.
 
 ### ScoreComment
 * ScoreComment `object`: Comment added on a sheet music
@@ -1609,12 +1879,13 @@ flat.getUserScores({
 
 ### ScoreCreation
 * ScoreCreation `object`: A new created score
+  * collection `string`: Unique identifier of a collection where the score will be created.
   * data [ScoreData](#scoredata)
   * dataEncoding [ScoreDataEncoding](#scoredataencoding)
   * googleDriveFolder `string`: If the user uses Google Drive and this properties is specified, the file will be created in this directory. The currently user creating the file must be granted to write in this directory.
   * privacy **required** [ScorePrivacy](#scoreprivacy)
   * source [ScoreSource](#scoresource)
-  * title `string`: The title of the new score.
+  * title `string`: The title of the new score. If the title is too long, the API may trim this one.
 
 ### ScoreCreationType
 * ScoreCreationType `string` (values: original, arrangement, other): The type of creation (an orginal, an arrangement)
@@ -1634,7 +1905,7 @@ flat.getUserScores({
   * title `string`: The title of the score
   * user [UserPublicSummary](#userpublicsummary)
   * collaborators `array`: The list of the collaborators of the score
-    * items [ScoreCollaborator](#scorecollaborator)
+    * items [ResourceCollaborator](#resourcecollaborator)
   * comments [ScoreCommentsCounts](#scorecommentscounts)
   * composer `string`: Composer of the score
   * creationDate `string`: The date when the score was created
@@ -1654,7 +1925,7 @@ flat.getUserScores({
   * organization `string`: If the score has been created in an organization, the identifier of this organization. This property is especially used with the score privacy `organizationPublic`.
   * parentScore `string`: If the score has been forked, the unique identifier of the parent score.
   * publicationDate `string`: The date when the score was published on Flat
-  * rights [ScoreRights](#scorerights)
+  * rights [ResourceRights](#resourcerights)
   * subtitle `string`: Subtitle of the score
   * tags `array`: Tags describing the score
     * items `string`
@@ -1662,6 +1933,7 @@ flat.getUserScores({
 
 ### ScoreFork
 * ScoreFork `object`: Options to fork the score
+  * collection `string`: Unique identifier of a collection where the score will be copied.
 
 ### ScoreLicense
 * ScoreLicense `string` (values: copyright, cc0, cc-by, cc-by-sa, cc-by-nd, cc-by-nc, cc-by-nc-sa, cc-by-nc-nd): License of the creation. Read more about the Creative Commons licenses on https://creativecommons.org/licenses/
@@ -1678,9 +1950,10 @@ flat.getUserScores({
   * description `string`: Description of the creation
   * license [ScoreLicense](#scorelicense)
   * privacy [ScorePrivacy](#scoreprivacy)
-  * sharingKey `string`: When using the `privacy` mode `privateLink`, this property can be used to set a custom sharing key, otherwise a new key will be generated.
+  * sharingKey [ResourceSharingKey](#resourcesharingkey)
   * tags `array`: Tags describing the score
     * items `string`
+  * title `string`: The title of the score
 
 ### ScorePrivacy
 * ScorePrivacy `string` (values: public, private, organizationPublic, privateLink): The score main privacy mode.
@@ -1707,11 +1980,6 @@ flat.getUserScores({
 * ScoreRevisionStatistics `object`: The statistics related to the score revision (additions and deletions)
   * additions `number`: The number of additions operations in the last revision
   * deletions `number`: The number of deletions operations in the last revision
-
-### ScoreRights
-* ScoreRights `object`: The rights of the current user on a score
-  * aclAdmin `boolean`: `True` if the current user can manage the current document, i.e.
-  * aclWrite `boolean`: `True` if the current user can modify the current document
 
 ### ScoreSource
 * ScoreSource `object`

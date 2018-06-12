@@ -115,8 +115,56 @@ slack.apps_permissions_request({}, context)
   * trigger_id `string`: Token used to trigger the permissions API
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from apps.permissions.request method
   * ok **required** [defs_ok_true](#defs_ok_true)
+
+### apps_permissions_resources_list
+Returns list of resource grants this app has on a team.
+
+
+```js
+slack.apps_permissions_resources_list({}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
+  * token `string`: Authentication token. Requires scope: `none`
+  * limit `integer`: The maximum number of items to return.
+
+#### Output
+* output `object`: Schema for successful response apps.permissions.resources.list method
+  * ok **required** [defs_ok_true](#defs_ok_true)
+  * resources **required** `array`
+    * items `object`
+      * id `string`
+      * type `string`
+  * response_metadata `object`
+    * next_cursor **required** `string`
+
+### apps_permissions_scopes_list
+Returns list of scopes this app has on a team.
+
+
+```js
+slack.apps_permissions_scopes_list({}, context)
+```
+
+#### Input
+* input `object`
+  * token `string`: Authentication token. Requires scope: `none`
+
+#### Output
+* output `object`: Schema for successful response api.permissions.scopes.list method
+  * ok **required** [defs_ok_true](#defs_ok_true)
+  * scopes **required** `object`
+    * app_home [objs_scopes](#objs_scopes)
+    * channel [objs_scopes](#objs_scopes)
+    * group [objs_scopes](#objs_scopes)
+    * im [objs_scopes](#objs_scopes)
+    * mpim [objs_scopes](#objs_scopes)
+    * team [objs_scopes](#objs_scopes)
+    * user [objs_scopes](#objs_scopes)
 
 ### auth_revoke
 Revokes a token.
@@ -132,8 +180,9 @@ slack.auth_revoke({}, context)
   * token `string`: Authentication token. Requires scope: `none`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from auth.revoke method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * revoked **required** `boolean`
 
 ### auth_test
 Checks authentication & identity.
@@ -154,7 +203,7 @@ slack.auth_test({}, context)
   * team_id **required** [defs_team](#defs_team)
   * url **required** `string`
   * user **required** `string`
-  * user_id **required** [defs_user](#defs_user)
+  * user_id **required** [defs_user_id](#defs_user_id)
 
 ### bots_info
 Gets information about a bot user.
@@ -170,7 +219,18 @@ slack.bots_info({}, context)
   * bot `string`: Bot user to get info on
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from bots.info method
+  * bot **required** `object`
+    * app_id **required** [defs_app_id](#defs_app_id)
+    * deleted **required** `boolean`
+    * icons **required** `object`
+      * image_36 **required** `string`
+      * image_48 **required** `string`
+      * image_72 **required** `string`
+    * id **required** [defs_bot_id](#defs_bot_id)
+    * name **required** `string`
+    * updated **required** `integer`
+    * user_id [defs_user_id](#defs_user_id)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### channels_archive
@@ -287,7 +347,9 @@ slack.channels_join({}, context)
   * name `string`: Name of channel to join
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from channels.join method
+  * already_in_channel `boolean`
+  * channel **required** [objs_channel](#objs_channel)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### channels_kick
@@ -305,7 +367,7 @@ slack.channels_kick({}, context)
   * channel `string`: Channel to remove user from.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from channels.kick method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### channels_leave
@@ -381,7 +443,8 @@ slack.channels_rename({}, context)
   * channel `string`: Channel to rename
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from channels.rename method
+  * channel **required** [objs_channel](#objs_channel)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### channels_replies
@@ -417,8 +480,9 @@ slack.channels_setPurpose({}, context)
   * channel `string`: Channel to set the purpose of
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from channels.setPurpose method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * purpose **required** `string`
 
 ### channels_setTopic
 Sets the topic for a channel.
@@ -471,8 +535,10 @@ slack.chat_delete({}, context)
   * channel `string`: Channel containing the message to be deleted.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response of chat.delete method
+  * channel **required** [defs_channel](#defs_channel)
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * ts **required** [defs_ts](#defs_ts)
 
 ### chat_getPermalink
 Retrieve a permalink URL for a specific extant message
@@ -484,7 +550,7 @@ slack.chat_getPermalink({}, context)
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `tokens.basic`
+  * token `string`: Authentication token. Requires scope: `none`
   * message_ts `number`: A message's `ts` value, uniquely identifying it within a channel
   * channel `string`: The ID of the conversation or channel containing the message
 
@@ -532,7 +598,7 @@ slack.chat_postEphemeral({}, context)
   * channel `string`: Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
 
 #### Output
-* output `object`: Schema for successful response of chat.postEphemeral method
+* output `object`: Schema for successful response from chat.postEphemeral method
   * message_ts **required** [defs_ts](#defs_ts)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
@@ -550,11 +616,12 @@ slack.chat_postMessage({}, context)
   * thread_ts `number`: Provide another message's `ts` value to make this message a reply. Avoid using a reply's `ts` value; use its parent instead.
   * attachments `string`: A JSON-based array of structured attachments, presented as a URL-encoded string.
   * unfurl_links `boolean`: Pass true to enable unfurling of primarily text-based content.
-  * text `string`: Text of the message to send. See below for an explanation of [formatting](#formatting). This field is usually required, unless you're providing only `attachments` instead.
+  * text `string`: Text of the message to send. See below for an explanation of [formatting](#formatting). This field is usually required, unless you're providing only `attachments` instead. Provide no more than 40,000 characters or [risk truncation](/changelog/2018-04-truncating-really-long-messages).
   * unfurl_media `boolean`: Pass false to disable unfurling of media content.
   * parse `string`: Change how messages are treated. Defaults to `none`. See [below](#formatting).
   * as_user `boolean`: Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See [authorship](#authorship) below.
   * token `string`: Authentication token. Requires scope: `chat:write`
+  * mrkdwn `boolean`: Disable Slack markup parsing by setting to `false`. Enabled by default.
   * icon_emoji `string`: Emoji to use as the icon for this message. Overrides `icon_url`. Must be used in conjunction with `as_user` set to `false`, otherwise ignored. See [authorship](#authorship) below.
   * link_names `boolean`: Find and link channel names and usernames.
   * icon_url `string`: URL to an image to use as the icon for this message. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below.
@@ -587,7 +654,7 @@ slack.chat_unfurl({}, context)
   * channel `string`: Channel ID of the message
 
 #### Output
-* output `object`: Schema for successful response of chat.unfurl method
+* output `object`: Schema for successful response from chat.unfurl method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### chat_update
@@ -606,7 +673,7 @@ slack.chat_update({}, context)
   * parse `string`: Change how messages are treated. Defaults to `client`, unlike `chat.postMessage`. See [below](#formatting).
   * as_user `boolean`: Pass true to update the message as the authed user. [Bot users](/bot-users) in this context are considered authed users.
   * token `string`: Authentication token. Requires scope: `chat:write`
-  * link_names `boolean`: Find and link channel names and usernames. Defaults to `none`. This parameter should be used in conjunction with `parse`. To set `link_names` to `1`, specify a `parse` mode of `full`.
+  * link_names `boolean`: Find and link channel names and usernames. Defaults to `none`. See [below](#formatting).
   * channel `string`: Channel containing the message to be updated.
 
 #### Output
@@ -835,7 +902,7 @@ slack.conversations_members({}, context)
 #### Output
 * output `object`: Schema for successful response conversations.members method
   * members **required** `array`
-    * items [defs_user](#defs_user)
+    * items [defs_user_id](#defs_user_id)
   * ok **required** [defs_ok_true](#defs_ok_true)
   * response_metadata **required** `object`
     * next_cursor **required** `string`
@@ -1172,7 +1239,7 @@ slack.files_info({}, context)
   * page `string`
 
 #### Output
-* output `object`: Schema for successful response files.info method
+* output `object`: Schema for successful response from files.info method
   * comments **required** [objs_comments](#objs_comments)
   * file **required** [objs_file](#objs_file)
   * ok **required** [defs_ok_true](#defs_ok_true)
@@ -1198,8 +1265,11 @@ slack.files_list({}, context)
   * types `string`: Filter files by type:
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from files.list method
+  * files **required** `array`
+    * items [objs_file](#objs_file)
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * paging **required** [objs_paging](#objs_paging)
 
 ### files_revokePublicURL
 Revokes public/external sharing access for a file
@@ -1273,7 +1343,7 @@ slack.groups_archive({}, context)
   * channel `string`: Private channel to archive
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.archive method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### groups_create
@@ -1390,7 +1460,7 @@ slack.groups_kick({}, context)
   * channel `string`: Private channel to remove user from.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.kick method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### groups_leave
@@ -1517,8 +1587,9 @@ slack.groups_setPurpose({}, context)
   * channel `string`: Private channel to set the purpose of
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.setPurpose method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * purpose **required** `string`
 
 ### groups_setTopic
 Sets the topic for a private channel.
@@ -1535,8 +1606,9 @@ slack.groups_setTopic({}, context)
   * channel `string`: Private channel to set the topic of
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.setTopic method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * topic **required** `string`
 
 ### groups_unarchive
 Unarchives a private channel.
@@ -1662,7 +1734,7 @@ slack.im_open({}, context)
     * latest [objs_message](#objs_message)
     * unread_count `number`
     * unread_count_display `number`
-    * user [defs_user](#defs_user)
+    * user [defs_user_id](#defs_user_id)
   * no_op `boolean`
   * ok **required** [defs_ok_true](#defs_ok_true)
 
@@ -1699,12 +1771,12 @@ slack.migration_exchange({}, context)
   * users `string`: A comma-separated list of user ids, up to 400 per request
 
 #### Output
-* output `object`: Bulk exchange local workspace user IDs for global IDs
+* output `object`: Schema for successful response from migration.exchange method
   * enterprise_id **required** `string`
   * invalid_user_ids `array`
     * items `string`
   * ok **required** [defs_ok_true](#defs_ok_true)
-  * team_id **required** `string`
+  * team_id **required** [defs_team](#defs_team)
   * user_id_map `object`
 
 ### mpim_close
@@ -1777,7 +1849,7 @@ slack.mpim_mark({}, context)
   * channel `string`: multiparty direct message channel to set reading cursor in.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from mpim.mark method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### mpim_open
@@ -1817,7 +1889,7 @@ slack.mpim_replies({}, context)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### oauth_access
-Exchanges a temporary OAuth code for an API token.
+Exchanges a temporary OAuth verifier code for an access token.
 
 
 ```js
@@ -1828,6 +1900,7 @@ slack.oauth_access({}, context)
 * input `object`
   * client_secret `string`: Issued when you created your application.
   * code `string`: The `code` param returned via the OAuth callback.
+  * single_channel `boolean`: Request the user to add your app only to a single channel.
   * client_id `string`: Issued when you created your application.
   * redirect_uri `string`: This must match the originally submitted URI (if one was sent).
 
@@ -1889,8 +1962,8 @@ slack.pins_list({}, context)
   * channel `string`: Channel to get pinned items for.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
-  * ok **required** [defs_ok_true](#defs_ok_true)
+* output: Schema for successful response from pins.list method
+
 
 ### pins_remove
 Un-pins an item from a channel.
@@ -1930,7 +2003,7 @@ slack.reactions_add({}, context)
   * channel `string`: Channel where the message to add reaction to was posted.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from reactions.add method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### reactions_get
@@ -1951,8 +2024,8 @@ slack.reactions_get({}, context)
   * channel `string`: Channel where the message to get reactions for was posted.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
-  * ok **required** [defs_ok_true](#defs_ok_true)
+* output `object`: Schema for successful response from reactions.get method
+
 
 ### reactions_list
 Lists reactions made by a user.
@@ -1971,8 +2044,12 @@ slack.reactions_list({}, context)
   * page `string`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from reactions.list method
+  * items **required** `array`
+    * items
+
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * paging [objs_paging](#objs_paging)
 
 ### reactions_remove
 Removes a reaction from an item.
@@ -1992,7 +2069,7 @@ slack.reactions_remove({}, context)
   * channel `string`: Channel where the message to remove reaction from was posted.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from reactions.remove method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### reminders_add
@@ -2091,12 +2168,21 @@ slack.rtm_connect({}, context)
 
 #### Input
 * input `object`
+  * presence_sub `boolean`: Only deliver presence events when requested by subscription. See [presence subscriptions](/docs/presence-and-status#subscriptions).
   * token `string`: Authentication token. Requires scope: `rtm:stream`
-  * batch_presence_aware `boolean`: Only deliver presence events when requested by subscription. See [presence subscriptions](/docs/presence-and-status#subscriptions).
+  * batch_presence_aware `boolean`: Batch presence deliveries via subscription. Enabling changes the shape of `presence_change` events. See [batch presence](/docs/presence-and-status#batching).
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from rtm.connect method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * self **required** `object`
+    * id **required** [defs_user_id](#defs_user_id)
+    * name **required** `string`
+  * team **required** `object`
+    * domain **required** `string`
+    * id **required** [defs_team](#defs_team)
+    * name **required** `string`
+  * url **required** `string`
 
 ### rtm_start
 Starts a Real Time Messaging session.
@@ -2111,14 +2197,55 @@ slack.rtm_start({}, context)
   * no_latest `boolean`: Exclude latest timestamps for channels, groups, mpims, and ims. Automatically sets `no_unreads` to `1`
   * simple_latest `boolean`: Return timestamp only for latest message object of each channel (improves performance).
   * include_locale `boolean`: Set this to `true` to receive the locale for users and channels. Defaults to `false`
+  * presence_sub `boolean`: Only deliver presence events when requested by subscription. See [presence subscriptions](/docs/presence-and-status#subscriptions).
   * no_unreads `boolean`: Skip unread counts for each channel (improves performance).
-  * batch_presence_aware `boolean`: Only deliver presence events when requested by subscription. See [presence subscriptions](/docs/presence-and-status#subscriptions).
+  * batch_presence_aware `boolean`: Batch presence deliveries via subscription. Enabling changes the shape of `presence_change` events. See [batch presence](/docs/presence-and-status#batching).
   * mpim_aware `boolean`: Returns MPIMs to the client in the API response.
   * token `string`: Authentication token. Requires scope: `rtm:stream`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from rtm.start method
+  * bots **required** `array`
+
+  * cache_ts **required** `integer`
+  * cache_ts_version **required** `string`
+  * cache_version `string`
+  * can_manage_shared_channels **required** `boolean`
+  * channels **required** `array`
+    * items [objs_conversation](#objs_conversation)
+  * dead_pig `boolean`
+  * dnd **required** [objs_dnd](#objs_dnd)
+  * groups **required** `array`: Group objects present for rtm.start. Can be null when there are no groups
+    * items
+
+  * ims **required** `array`
+    * items [objs_conversation](#objs_conversation)
+  * latest_event_ts **required** `string`
+  * mpims `array`: Mpim objects present for rtm.start. Can be null when there are no mpims
+    * items
+
+  * non_threadable_channels **required** `array`
+
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * read_only_channels **required** `array`
+
+  * self **required** `object`
+    * created **required** `integer`
+    * id **required** `string`
+    * manual_presence **required** `string`
+    * name `string`
+    * prefs **required** [prefs_prefs](#prefs_prefs)
+  * subteams **required** `object`
+    * all **required** `array`
+
+    * self **required** `array`
+
+  * team **required** [objs_team](#objs_team)
+  * thread_only_channels **required** `array`
+
+  * url **required** `string`
+  * users **required** `array`
+    * items [objs_user](#objs_user)
 
 ### search_all
 Searches for messages and files matching a query.
@@ -2153,7 +2280,7 @@ slack.search_files({}, context)
 #### Input
 * input `object`
   * sort_dir `string`: Change sort direction to ascending (`asc`) or descending (`desc`).
-  * query `string`: Search query. May contain booleans, etc.
+  * query `string`: Search query.
   * sort `string`: Return matches sorted by either `score` or `timestamp`.
   * highlight `boolean`: Pass a value of `true` to enable query highlight markers (see below).
   * count `string`
@@ -2175,7 +2302,7 @@ slack.search_messages({}, context)
 #### Input
 * input `object`
   * sort_dir `string`: Change sort direction to ascending (`asc`) or descending (`desc`).
-  * query `string`: Search query. May contains booleans, etc.
+  * query `string`: Search query.
   * sort `string`: Return matches sorted by either `score` or `timestamp`.
   * count `string`: Pass the number of results you want per "page". Maximum of `100`.
   * token `string`: Authentication token. Requires scope: `search:read`
@@ -2293,8 +2420,9 @@ slack.team_info({}, context)
   * token `string`: Authentication token. Requires scope: `team:read`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from team.info method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * team **required** [objs_team](#objs_team)
 
 ### team_integrationLogs
 Gets the integration logs for the current team.
@@ -2473,6 +2601,31 @@ slack.usergroups_users_update({}, context)
 * output `object`: Verbose schema not yet ready for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
+### users_conversations
+List conversations the calling user may access.
+
+
+```js
+slack.users_conversations({}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
+  * token `string`: Authentication token. Requires scope: `conversations:read`
+  * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer no larger than 1000.
+  * user `string`: Browse conversations by a specific user ID's membership. Non-public channels are restricted to those where the calling user shares membership.
+  * exclude_archived `boolean`: Set to `true` to exclude archived channels from the list
+  * types `string`: Mix and match channel types by providing a comma-separated list of any combination of `public_channel`, `private_channel`, `mpim`, `im`
+
+#### Output
+* output `object`: Schema for successful response from users.conversations method. Returned conversation objects do not include `num_members` or `is_member`
+  * channels **required** `array`
+    * items [objs_conversation](#objs_conversation)
+  * ok **required** [defs_ok_true](#defs_ok_true)
+  * response_metadata `object`
+    * next_cursor **required** `string`
+
 ### users_deletePhoto
 Delete the user profile photo
 
@@ -2525,8 +2678,8 @@ slack.users_identity({}, context)
   * token `string`: Authentication token. Requires scope: `identity.basic`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
-  * ok **required** [defs_ok_true](#defs_ok_true)
+* output: Schema for successful response from users.identity method
+
 
 ### users_info
 Gets information about a user.
@@ -2545,27 +2698,7 @@ slack.users_info({}, context)
 #### Output
 * output `object`: Schema for successful response from users.info method
   * ok **required** [defs_ok_true](#defs_ok_true)
-  * user **required** `object`
-    * color **required** `string`
-    * deleted **required** `boolean`
-    * has_2fa **required** `boolean`
-    * id **required** [defs_user](#defs_user)
-    * is_admin **required** `boolean`
-    * is_app_user **required** `boolean`
-    * is_bot **required** `boolean`
-    * is_owner **required** `boolean`
-    * is_primary_owner **required** `boolean`
-    * is_restricted **required** `boolean`
-    * is_ultra_restricted **required** `boolean`
-    * locale `string`
-    * name **required** `string`
-    * profile **required** [objs_user_profile](#objs_user_profile)
-    * real_name **required** `string`
-    * team_id **required** [defs_team](#defs_team)
-    * tz **required** `string`
-    * tz_label **required** `string`
-    * tz_offset **required** `number`
-    * updated **required** `number`
+  * user **required** [objs_user](#objs_user)
 
 ### users_list
 Lists all users in a Slack team.
@@ -2577,14 +2710,17 @@ slack.users_list({}, context)
 
 #### Input
 * input `object`
-  * presence `boolean`: Whether to include presence data in the output. Setting this to `false` improves performance, especially with large teams.
+  * presence `boolean`: Deprecated. Whether to include presence data in the output. Defaults to `false`. Setting this to `true` reduces performance, especially with large teams.
   * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
   * token `string`: Authentication token. Requires scope: `users:read`
   * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
   * include_locale `boolean`: Set this to `true` to receive the locale for users. Defaults to `false`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from users.list method
+  * cache_ts **required** `integer`
+  * members **required** `array`
+    * items [objs_user](#objs_user)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### users_lookupByEmail
@@ -2603,7 +2739,7 @@ slack.users_lookupByEmail({}, context)
 #### Output
 * output `object`: Schema for successful response from users.lookupByEmail method
   * ok **required** [defs_ok_true](#defs_ok_true)
-  * user **required** [defs_user](#defs_user)
+  * user **required** [objs_user](#objs_user)
 
 ### users_profile_get
 Retrieves a user's profile information.
@@ -2620,8 +2756,9 @@ slack.users_profile_get({}, context)
   * user `string`: User to retrieve profile info for
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from users.profile.get method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * profile **required** [objs_user_profile](#objs_user_profile)
 
 ### users_profile_set
 Set the profile information for a user.
@@ -2640,11 +2777,13 @@ slack.users_profile_set({}, context)
   * name `string`: Name of a single key to set. Usable only if `profile` is not passed.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from users.profile.set method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * profile **required** [objs_user_profile](#objs_user_profile)
+  * username **required** `string`
 
 ### users_setActive
-Marks a user as active.
+Marked a user as active. Deprecated and non-functional.
 
 
 ```js
@@ -2700,6 +2839,9 @@ slack.users_setPresence({}, context)
 
 ## Definitions
 
+### defs_app_id
+* App ID `string`
+
 ### defs_bot_id
 * Bot User ID `string`
 
@@ -2711,6 +2853,9 @@ slack.users_setPresence({}, context)
 
 ### defs_channel_name
 * Name of a channel `string`
+
+### defs_comment_id
+* File Comment ID `string`
 
 ### defs_dm_id
 * Direct Message Channel ID `string`
@@ -2730,6 +2875,9 @@ slack.users_setPresence({}, context)
 ### defs_ok_true
 * default success response `boolean` (values: true)
 
+### defs_pinned_info
+* Info for a pinned item `object`
+
 ### defs_room_id
 * Room ID for a slack call `string`
 
@@ -2742,17 +2890,14 @@ slack.users_setPresence({}, context)
 ### defs_ts
 * Timestamp in format 0123456789.012345 `string`
 
-### defs_user
-* User ID `string`
-
 ### defs_user_id
 * User ID `string`
 
 ### objs_channel
 * Channel Object `object`
-  * accepted_user [defs_user](#defs_user)
+  * accepted_user [defs_user_id](#defs_user_id)
   * created **required** `integer`
-  * creator **required** [defs_user](#defs_user)
+  * creator **required** [defs_user_id](#defs_user_id)
   * id **required** [defs_channel_id](#defs_channel_id)
   * is_archived `boolean`
   * is_channel **required** `boolean`
@@ -2769,7 +2914,7 @@ slack.users_setPresence({}, context)
   * latest
 
   * members **required** `array`
-    * items [defs_user](#defs_user)
+    * items [defs_user_id](#defs_user_id)
   * name **required** `string`
   * name_normalized **required** `string`
   * num_members `integer`
@@ -2794,8 +2939,13 @@ slack.users_setPresence({}, context)
 * File Comment Object `object`
   * comment `string`
   * created `integer`
-  * id `string`
+  * id [defs_comment_id](#defs_comment_id)
   * is_intro `boolean`
+  * pinned_info [defs_pinned_info](#defs_pinned_info)
+  * pinned_to `array`
+    * items [defs_channel](#defs_channel)
+  * reactions `array`
+    * items [objs_reaction](#objs_reaction)
   * timestamp `integer`
   * user `string`
 
@@ -2806,6 +2956,13 @@ slack.users_setPresence({}, context)
 ### objs_conversation
 * objs_conversation
 
+
+### objs_dnd
+* objs_dnd `object`
+  * dnd_enabled **required** `boolean`
+  * next_dnd_end_ts **required** `integer`
+  * next_dnd_start_ts **required** `integer`
+  * snooze_enabled **required** `boolean`
 
 ### objs_file
 * file object `object`
@@ -2818,11 +2975,11 @@ slack.users_setPresence({}, context)
   * external_type `string`
   * filetype `string`
   * groups `array`
-
+    * items [defs_group_id](#defs_group_id)
   * id [defs_file_id](#defs_file_id)
   * image_exif_rotation `integer`
   * ims `array`
-
+    * items [defs_dm_id](#defs_dm_id)
   * is_external `boolean`
   * is_public `boolean`
   * mimetype `string`
@@ -2832,15 +2989,35 @@ slack.users_setPresence({}, context)
   * original_w `integer`
   * permalink `string`
   * permalink_public `string`
+  * pinned_info [defs_pinned_info](#defs_pinned_info)
+  * pinned_to `array`
+    * items [defs_channel](#defs_channel)
   * pretty_type `string`
   * public_url_shared `boolean`
+  * reactions `array`
+    * items [objs_reaction](#objs_reaction)
   * size `integer`
+  * thumb_1024 `string`
+  * thumb_1024_h `integer`
+  * thumb_1024_w `integer`
   * thumb_160 `string`
   * thumb_360 `string`
   * thumb_360_h `integer`
   * thumb_360_w `integer`
+  * thumb_480 `string`
+  * thumb_480_h `integer`
+  * thumb_480_w `integer`
   * thumb_64 `string`
+  * thumb_720 `string`
+  * thumb_720_h `integer`
+  * thumb_720_w `integer`
   * thumb_80 `string`
+  * thumb_800 `string`
+  * thumb_800_h `integer`
+  * thumb_800_w `integer`
+  * thumb_960 `string`
+  * thumb_960_h `integer`
+  * thumb_960_w `integer`
   * timestamp `integer`
   * title `string`
   * url_private `string`
@@ -2854,7 +3031,7 @@ slack.users_setPresence({}, context)
 ### objs_group
 * Group object `object`
   * created **required** `integer`
-  * creator **required** [defs_user](#defs_user)
+  * creator **required** [defs_user_id](#defs_user_id)
   * id **required** [defs_group_id](#defs_group_id)
   * is_archived `boolean`
   * is_group **required** `boolean`
@@ -2866,7 +3043,7 @@ slack.users_setPresence({}, context)
   * latest
 
   * members **required** `array`
-    * items [defs_user](#defs_user)
+    * items [defs_user_id](#defs_user_id)
   * name **required** `string`
   * name_normalized **required** `string`
   * priority `integer`
@@ -2889,7 +3066,19 @@ slack.users_setPresence({}, context)
   * is_org_shared **required** `boolean`
   * is_user_deleted **required** `boolean`
   * priority `integer`
-  * user **required** [defs_user](#defs_user)
+  * user **required** [defs_user_id](#defs_user_id)
+
+### objs_inviting_user
+* objs_inviting_user `object`
+  * id **required** [defs_user_id](#defs_user_id)
+  * is_app_user **required** `boolean`
+  * is_restricted **required** `boolean`
+  * is_ultra_restricted **required** `boolean`
+  * name **required** `string`
+  * profile **required** [objs_user_profile_shortest](#objs_user_profile_shortest)
+  * real_name `string`
+  * team_id **required** [defs_team](#defs_team)
+  * updated **required** `number`
 
 ### objs_message
 * Message object `object`
@@ -2901,18 +3090,28 @@ slack.users_setPresence({}, context)
       * image_height `integer`
       * image_url `string`
       * image_width `integer`
-  * bot_id [defs_bot_id](#defs_bot_id)
+  * bot_id
+
+  * comment [objs_comment](#objs_comment)
+  * display_as_bot `boolean`
+  * file [objs_file](#objs_file)
   * icons `object`
     * emoji `string`
-  * inviter [defs_user](#defs_user)
+  * inviter [defs_user_id](#defs_user_id)
+  * is_intro `boolean`
   * last_read [defs_ts](#defs_ts)
   * name `string`
   * old_name `string`
+  * permalink `string`
+  * pinned_to `array`
+    * items [defs_channel](#defs_channel)
   * purpose `string`
+  * reactions `array`
+    * items [objs_reaction](#objs_reaction)
   * replies `array`
     * items `object`
       * ts **required** [defs_ts](#defs_ts)
-      * user **required** [defs_user](#defs_user)
+      * user **required** [defs_user_id](#defs_user_id)
   * reply_count `integer`
   * source_team [defs_team](#defs_team)
   * subscribed `boolean`
@@ -2924,7 +3123,8 @@ slack.users_setPresence({}, context)
   * ts **required** [defs_ts](#defs_ts)
   * type **required** `string`
   * unread_count `integer`
-  * user [defs_user](#defs_user)
+  * upload `boolean`
+  * user [defs_user_id](#defs_user_id)
   * user_profile [objs_user_profile_short](#objs_user_profile_short)
   * user_team [defs_team](#defs_team)
   * username `string`
@@ -2936,11 +3136,25 @@ slack.users_setPresence({}, context)
   * pages `integer`
   * total **required** `integer`
 
+### objs_reaction
+* Reaction object `object`
+  * count **required** `integer`
+  * name **required** `string`
+  * users **required** `array`
+    * items [defs_user_id](#defs_user_id)
+
+### objs_scopes
+* objs_scopes `array`
+  * items `string`
+
 ### objs_team
 * Team Object `object`
+  * avatar_base_url `string`
   * domain **required** `string`
   * email_domain **required** `string`
-  * has_compliance_export **required** `boolean`
+  * enterprise_id `string`
+  * enterprise_name `string`
+  * has_compliance_export `boolean`
   * icon **required** `object`
     * image_102 `string`
     * image_132 `string`
@@ -2951,7 +3165,13 @@ slack.users_setPresence({}, context)
     * image_88 `string`
     * image_default `boolean`
   * id **required** [defs_team](#defs_team)
+  * messages_count `integer`
+  * msg_edit_window_mins `integer`
   * name **required** `string`
+  * over_integrations_limit `boolean`
+  * over_storage_limit `boolean`
+  * plan `string`
+  * prefs [team_prefs_prefs](#team_prefs_prefs)
 
 ### objs_team_profile_field
 * objs_team_profile_field `object`
@@ -2961,16 +3181,43 @@ slack.users_setPresence({}, context)
   * is_hidden `boolean`
   * label **required** `string`
   * options **required** `array`
+    * items `string`
   * ordering **required** `number`
   * possible_values `array`
+    * items `string`
   * type **required** `string` (values: text, date, link, mailto, options_list, user)
+
+### objs_user
+* objs_user `object`
+  * color **required** `string`
+  * deleted **required** `boolean`
+  * has_2fa `boolean`
+  * id **required** [defs_user_id](#defs_user_id)
+  * is_admin **required** `boolean`
+  * is_app_user **required** `boolean`
+  * is_bot **required** `boolean`
+  * is_owner **required** `boolean`
+  * is_primary_owner **required** `boolean`
+  * is_restricted **required** `boolean`
+  * is_ultra_restricted **required** `boolean`
+  * locale `string`
+  * name **required** `string`
+  * presence `string`
+  * profile **required** [objs_user_profile](#objs_user_profile)
+  * real_name **required** `string`
+  * team_id **required** [defs_team](#defs_team)
+  * tz **required** `string`
+  * tz_label **required** `string`
+  * tz_offset **required** `number`
+  * updated **required** `number`
 
 ### objs_user_profile
 * User profile object `object`
+  * always_active `boolean`
   * avatar_hash **required** `string`
   * display_name **required** `string`
   * display_name_normalized **required** `string`
-  * email **required** `string`
+  * email `string`
   * fields `object`
   * first_name `string`
   * guest_channels `string`
@@ -2987,7 +3234,9 @@ slack.users_setPresence({}, context)
   * real_name_normalized **required** `string`
   * skype `string`
   * status_emoji `string`
+  * status_expiration `integer`
   * status_text `string`
+  * status_text_canonical `string`
   * team [defs_team](#defs_team)
   * title `string`
 
@@ -3002,5 +3251,323 @@ slack.users_setPresence({}, context)
   * name **required** `string`
   * real_name **required** `string`
   * team **required** [defs_team](#defs_team)
+
+### objs_user_profile_shortest
+* objs_user_profile_shortest `object`
+  * avatar_hash **required** `string`
+  * display_name **required** `string`
+  * first_name **required** `string`
+  * image_72 **required** `string`
+  * real_name **required** `string`
+  * team **required** [defs_team](#defs_team)
+
+### prefs_prefs
+* User Prefs object `object`
+  * a11y_animations `boolean`
+  * a11y_font_size `string`
+  * all_channels_loud `boolean`
+  * all_notifications_prefs `string`
+  * all_unreads_sort_order `string`
+  * allow_calls_to_set_current_status `boolean`
+  * allow_cmd_tab_iss `boolean`
+  * analytics_upsell_coachmark_seen `boolean`
+  * arrow_history `boolean`
+  * at_channel_suppressed_channels `string`
+  * box_enabled `boolean`
+  * channel_sort `string`
+  * client_logs_pri `string`
+  * color_names_in_list `boolean`
+  * confirm_clear_all_unreads `boolean`
+  * confirm_sh_call_start `boolean`
+  * confirm_user_marked_away `boolean`
+  * convert_emoticons `boolean`
+  * display_display_names `boolean`
+  * display_real_names_override `integer`
+  * dnd_enabled `boolean`
+  * dnd_end_hour `string`
+  * dnd_start_hour `string`
+  * dropbox_enabled `boolean`
+  * email_alerts `string`
+  * email_alerts_sleep_until `integer`
+  * email_developer `boolean`
+  * email_misc `boolean`
+  * email_offers `boolean`
+  * email_research `boolean`
+  * email_tips `boolean`
+  * email_weekly `boolean`
+  * emoji_autocomplete_big `boolean`
+  * emoji_mode `string`
+  * emoji_use `string`
+  * enable_react_emoji_picker `boolean`
+  * enable_unread_view `boolean`
+  * enhanced_debugging `boolean`
+  * ent_org_wide_channels_sidebar `boolean`
+  * enter_is_special_in_tbt `boolean`
+  * enterprise_excluded_app_teams `null`
+  * enterprise_mdm_custom_msg `string`
+  * enterprise_migration_seen `boolean`
+  * expand_inline_imgs `boolean`
+  * expand_internal_inline_imgs `boolean`
+  * expand_non_media_attachments `boolean`
+  * expand_snippets `boolean`
+  * f_key_search `boolean`
+  * flannel_server_pool `string`
+  * folder_data `string`
+  * folders_enabled `boolean`
+  * frecency_ent_jumper `string`
+  * frecency_ent_jumper_backup `string`
+  * frecency_jumper `string`
+  * full_text_extracts `boolean`
+  * fuller_timestamps `boolean`
+  * gdrive_authed `boolean`
+  * gdrive_enabled `boolean`
+  * graphic_emoticons `boolean`
+  * growls_enabled `boolean`
+  * growth_all_banners_prefs `string`
+  * growth_msg_limit_approaching_cta_count `integer`
+  * growth_msg_limit_approaching_cta_ts `integer`
+  * growth_msg_limit_long_reached_cta_count `integer`
+  * growth_msg_limit_long_reached_cta_last_ts `integer`
+  * growth_msg_limit_reached_cta_count `integer`
+  * growth_msg_limit_reached_cta_last_ts `integer`
+  * growth_msg_limit_sixty_day_banner_cta_count `integer`
+  * growth_msg_limit_sixty_day_banner_cta_last_ts `integer`
+  * has_created_channel `boolean`
+  * has_invited `boolean`
+  * has_recently_shared_a_channel `boolean`
+  * has_searched `boolean`
+  * has_uploaded `boolean`
+  * hide_hex_swatch `boolean`
+  * hide_user_group_info_pane `boolean`
+  * highlight_words `string`
+  * in_interactive_mas_migration_flow `boolean`
+  * intro_to_apps_message_seen `boolean`
+  * jumbomoji `boolean`
+  * k_key_omnibox `boolean`
+  * k_key_omnibox_auto_hide_count `integer`
+  * keyboard `null`
+  * last_seen_at_channel_warning `integer`
+  * last_snippet_type `string`
+  * last_tos_acknowledged `string`
+  * lessons_enabled `boolean`
+  * load_lato_2 `boolean`
+  * locale `string`
+  * locales_enabled `object`
+    * de-DE `string`
+    * en-US `string`
+    * es-ES `string`
+    * fr-FR `string`
+    * ja-JP `string`
+    * pseudo `string`
+  * loud_channels `string`
+  * loud_channels_set `string`
+  * ls_disabled `boolean`
+  * mac_ssb_bounce `string`
+  * mac_ssb_bullet `boolean`
+  * mark_msgs_read_immediately `boolean`
+  * measure_css_usage `boolean`
+  * mentions_exclude_at_channels `boolean`
+  * mentions_exclude_at_user_groups `boolean`
+  * messages_theme `string`
+  * msg_input_send_btn `boolean`
+  * msg_input_send_btn_auto_set `boolean`
+  * msg_preview `boolean`
+  * msg_preview_persistent `boolean`
+  * mute_sounds `boolean`
+  * muted_channels `string`
+  * never_channels `string`
+  * new_msg_snd `string`
+  * newxp_seen_last_message `integer`
+  * no_created_overlays `boolean`
+  * no_invites_widget_in_sidebar `boolean`
+  * no_joined_overlays `boolean`
+  * no_macelectron_banner `boolean`
+  * no_macssb1_banner `boolean`
+  * no_macssb2_banner `boolean`
+  * no_omnibox_in_channels `boolean`
+  * no_text_in_notifications `boolean`
+  * no_winssb1_banner `boolean`
+  * obey_inline_img_limit `boolean`
+  * onboarding_cancelled `boolean`
+  * onboarding_slackbot_conversation_step `integer`
+  * overloaded_message_enabled `boolean`
+  * pagekeys_handled `boolean`
+  * posts_formatting_guide `boolean`
+  * preferred_skin_tone `string`
+  * privacy_policy_seen `boolean`
+  * prompted_for_email_disabling `boolean`
+  * purchaser `boolean`
+  * push_at_channel_suppressed_channels `string`
+  * push_dm_alert `boolean`
+  * push_everything `boolean`
+  * push_idle_wait `integer`
+  * push_loud_channels `string`
+  * push_loud_channels_set `string`
+  * push_mention_alert `boolean`
+  * push_mention_channels `string`
+  * push_show_preview `boolean`
+  * push_sound `string`
+  * require_at `boolean`
+  * search_exclude_bots `boolean`
+  * search_exclude_channels `string`
+  * search_only_current_team `boolean`
+  * search_only_my_channels `boolean`
+  * search_sort `string`
+  * seen_administration_menu `boolean`
+  * seen_app_space_coachmark `boolean`
+  * seen_app_space_tutorial `boolean`
+  * seen_calls_interactive_coachmark `boolean`
+  * seen_channel_browser_admin_coachmark `boolean`
+  * seen_custom_status_badge `boolean`
+  * seen_custom_status_callout `boolean`
+  * seen_domain_invite_reminder `boolean`
+  * seen_emoji_update_overlay_coachmark `boolean`
+  * seen_gdrive_coachmark `boolean`
+  * seen_guest_admin_slackbot_announcement `boolean`
+  * seen_highlights_arrows_coachmark `boolean`
+  * seen_highlights_coachmark `boolean`
+  * seen_highlights_warm_welcome `boolean`
+  * seen_intl_channel_names_coachmark `boolean`
+  * seen_japanese_locale_change_message `boolean`
+  * seen_keyboard_shortcuts_coachmark `boolean`
+  * seen_locale_change_message `integer`
+  * seen_member_invite_reminder `boolean`
+  * seen_name_tagging_coachmark `boolean`
+  * seen_onboarding_banner `boolean`
+  * seen_onboarding_channels `boolean`
+  * seen_onboarding_direct_messages `boolean`
+  * seen_onboarding_invites `boolean`
+  * seen_onboarding_private_groups `boolean`
+  * seen_onboarding_recent_mentions `boolean`
+  * seen_onboarding_search `boolean`
+  * seen_onboarding_slackbot_conversation `boolean`
+  * seen_onboarding_starred_items `boolean`
+  * seen_onboarding_start `boolean`
+  * seen_shared_channels_coachmark `boolean`
+  * seen_shared_channels_opt_in_change_message `boolean`
+  * seen_shdep_slackbot_message `boolean`
+  * seen_single_emoji_msg `boolean`
+  * seen_ssb_prompt `boolean`
+  * seen_threads_notification_banner `boolean`
+  * seen_unread_view_coachmark `boolean`
+  * seen_welcome_2 `boolean`
+  * separate_private_channels `boolean`
+  * separate_shared_channels `boolean`
+  * shdep_promo_code_submitted `boolean`
+  * show_all_skin_tones `boolean`
+  * show_ent_onboarding `boolean`
+  * show_jumper_scores `boolean`
+  * show_memory_instrument `boolean`
+  * show_sidebar_quickswitcher_button `boolean`
+  * show_typing `boolean`
+  * sidebar_behavior `string`
+  * sidebar_theme `string`
+  * sidebar_theme_custom_values `string`
+  * snippet_editor_wrap_long_lines `boolean`
+  * spaces_new_xp_banner_dismissed `boolean`
+  * ss_emojis `boolean`
+  * ssb_space_window `string`
+  * start_scroll_at_oldest `boolean`
+  * tab_ui_return_selects `boolean`
+  * threads_everything `boolean`
+  * time24 `boolean`
+  * two_factor_auth_enabled `boolean`
+  * two_factor_backup_type `null`
+  * two_factor_type `null`
+  * tz `string`
+  * user_colors `string`
+  * webapp_spellcheck `boolean`
+  * welcome_message_hidden `boolean`
+  * whats_new_read `integer`
+  * winssb_run_from_tray `boolean`
+  * winssb_window_flash_behavior `string`
+
+### team_prefs_prefs
+* Team Prefs Object `object`
+  * all_users_can_purchase `boolean`
+  * allow_calls `boolean`
+  * allow_calls_interactive_screen_sharing `boolean`
+  * allow_message_deletion `boolean`
+  * allow_retention_override `boolean`
+  * allow_shared_channel_perms_override `boolean`
+  * app_whitelist_enabled `boolean`
+  * auth_mode `string`
+  * calling_app_name `string`
+  * can_receive_shared_channels_invites `boolean`
+  * compliance_export_start `integer`
+  * custom_status_default_emoji `string`
+  * custom_status_presets `array`
+    * items `array`
+      * items `string`
+  * custom_tos `boolean`
+  * default_channels **required** `array`
+    * items [defs_channel](#defs_channel)
+  * default_rxns `array`
+    * items `string`
+  * disable_email_ingestion `boolean`
+  * disable_file_deleting `boolean`
+  * disable_file_editing `boolean`
+  * disable_file_uploads `string`
+  * disallow_public_file_urls `boolean`
+  * discoverable `string`
+  * display_email_addresses `boolean`
+  * display_real_names `boolean`
+  * dm_retention_duration `integer`
+  * dm_retention_type `integer`
+  * dnd_enabled `boolean`
+  * dnd_end_hour `string`
+  * dnd_start_hour `string`
+  * enable_shared_channels `integer`
+  * enterprise_default_channels `array`
+
+  * enterprise_mandatory_channels `array`
+
+  * enterprise_mdm_date_enabled `integer`
+  * enterprise_mdm_level `integer`
+  * enterprise_team_creation_request `object`
+    * is_enabled **required** `boolean`
+  * file_limit_whitelisted `boolean`
+  * file_retention_duration `integer`
+  * file_retention_type `integer`
+  * gdrive_enabled_team `boolean`
+  * group_retention_duration `integer`
+  * group_retention_type `integer`
+  * hide_referers `boolean`
+  * invites_limit `boolean`
+  * invites_only_admins `boolean`
+  * locale `string`
+  * loud_channel_mentions_limit `integer`
+  * msg_edit_window_mins `integer`
+  * require_at_for_mention `boolean`
+  * retention_duration `integer`
+  * retention_type `integer`
+  * show_join_leave `boolean`
+  * uses_customized_custom_status_presets `boolean`
+  * warn_before_at_channel `string`
+  * who_can_archive_channels `string`
+  * who_can_at_channel `string`
+  * who_can_at_everyone `string`
+  * who_can_change_team_profile `string`
+  * who_can_create_channels `string`
+  * who_can_create_delete_user_groups `string`
+  * who_can_create_groups `string`
+  * who_can_create_shared_channels `string`
+  * who_can_edit_user_groups `string`
+  * who_can_kick_channels `string`
+  * who_can_kick_groups `string`
+  * who_can_manage_guests `object`
+    * type **required** `array`
+      * items `string`
+  * who_can_manage_integrations `object`
+    * type **required** `array`
+      * items `string`
+  * who_can_manage_shared_channels `object`
+    * type **required** `array`
+      * items `string`
+  * who_can_post_general `string`
+  * who_can_post_in_shared_channels `object`
+    * type **required** `array`
+      * items `string`
+  * who_has_team_visibility `string`
 
 

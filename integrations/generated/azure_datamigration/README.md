@@ -1091,9 +1091,6 @@ azure_datamigration.Services_Stop({
 ## Definitions
 
 ### ODataError
-* ODataError `object`
 
-### ODataErrror
-* ODataErrror `object`
 
 

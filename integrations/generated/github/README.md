@@ -441,22 +441,16 @@ List all issues across all the authenticated user's visible repositories.
 
 
 ```js
-github.issues.get({
-  "filter": "",
-  "state": "",
-  "labels": "",
-  "sort": "",
-  "direction": ""
-}, context)
+github.issues.get({}, context)
 ```
 
 #### Input
 * input `object`
-  * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
-  * state **required** `string` (values: open, closed)
-  * labels **required** `string`: String list of comma separated Label names. Example - bug,ui,@high.
-  * sort **required** `string` (values: created, updated, comments)
-  * direction **required** `string` (values: asc, desc)
+  * filter `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
+  * state `string` (values: open, closed, all)
+  * labels `string`: String list of comma separated Label names. Example - bug,ui,@high.
+  * sort `string` (values: created, updated, comments)
+  * direction `string` (values: asc, desc)
   * since `string`: Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
   * page `integer`
 
@@ -479,7 +473,7 @@ github.legacy.issues.search.owner.repository.state.keyword.get({
 #### Input
 * input `object`
   * keyword **required** `string`: The search term.
-  * state **required** `string` (values: open, closed): Indicates the state of the issues to return. Can be either open or closed.
+  * state **required** `string` (values: open, closed, all): Indicates the state of the issues to return. Can be either open or closed.
   * owner **required** `string`
   * repository **required** `string`
 
@@ -801,23 +795,18 @@ List all issues for a given organization for the authenticated user.
 
 ```js
 github.orgs.org.issues.get({
-  "org": "",
-  "filter": "",
-  "state": "",
-  "labels": "",
-  "sort": "",
-  "direction": ""
+  "org": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * org **required** `string`: Name of organisation.
-  * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
-  * state **required** `string` (values: open, closed)
-  * labels **required** `string`: String list of comma separated Label names. Example - bug,ui,@high.
-  * sort **required** `string` (values: created, updated, comments)
-  * direction **required** `string` (values: asc, desc)
+  * filter `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
+  * state `string` (values: open, closed, all)
+  * labels `string`: String list of comma separated Label names. Example - bug,ui,@high.
+  * sort `string` (values: created, updated, comments)
+  * direction `string` (values: asc, desc)
   * since `string`: Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
   * page `integer`
 
@@ -1619,8 +1608,7 @@ Get list of contributors.
 ```js
 github.repos.owner.repo.contributors.get({
   "owner": "",
-  "repo": "",
-  "anon": ""
+  "repo": ""
 }, context)
 ```
 
@@ -1628,7 +1616,7 @@ github.repos.owner.repo.contributors.get({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * anon **required** `string`: Set to 1 or true to include anonymous contributors in results.
+  * anon `string`: Set to 1 or true to include anonymous contributors in results.
   * page `integer`
 
 #### Output
@@ -2287,12 +2275,7 @@ List issues for a repository.
 ```js
 github.repos.owner.repo.issues.get({
   "owner": "",
-  "repo": "",
-  "filter": "",
-  "state": "",
-  "labels": "",
-  "sort": "",
-  "direction": ""
+  "repo": ""
 }, context)
 ```
 
@@ -2300,11 +2283,11 @@ github.repos.owner.repo.issues.get({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
-  * state **required** `string` (values: open, closed)
-  * labels **required** `string`: String list of comma separated Label names. Example - bug,ui,@high.
-  * sort **required** `string` (values: created, updated, comments)
-  * direction **required** `string` (values: asc, desc)
+  * filter `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
+  * state `string` (values: open, closed, all)
+  * labels `string`: String list of comma separated Label names. Example - bug,ui,@high.
+  * sort `string` (values: created, updated, comments)
+  * direction `string` (values: asc, desc)
   * since `string`: Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
   * page `integer`
 
@@ -2942,7 +2925,7 @@ github.repos.owner.repo.milestones.get({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * state `string` (values: open, closed): String to filter by state.
+  * state `string` (values: open, closed, all): String to filter by state.
   * direction `string`: Ignored without 'sort' parameter.
   * sort `string` (values: due_date, completeness)
   * page `integer`
@@ -3122,7 +3105,7 @@ github.repos.owner.repo.pulls.get({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * state `string` (values: open, closed): String to filter by state.
+  * state `string` (values: open, closed, all): String to filter by state.
   * head `string`: Filter pulls by head user and branch name in the format of 'user:ref-name'.
   * base `string`: Filter pulls by base branch name. Example - gh-pages.
   * page `integer`
@@ -4021,15 +4004,13 @@ Search code.
 
 
 ```js
-github.search.code.get({
-  "q": ""
-}, context)
+github.search.code.get({}, context)
 ```
 
 #### Input
 * input `object`
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
-  * q **required** `string`: The search terms. This can be any combination of the supported code
+  * q `string`: The search terms. This can be any combination of the supported code
   * sort `string` (values: indexed): Can only be 'indexed', which indicates how recently a file has been indexed
 
 #### Output
@@ -4040,15 +4021,13 @@ Find issues by state and keyword. (This method returns up to 100 results per pag
 
 
 ```js
-github.search.issues.get({
-  "q": ""
-}, context)
+github.search.issues.get({}, context)
 ```
 
 #### Input
 * input `object`
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
-  * q **required** `string`: The q search term can also contain any combination of the supported issue search qualifiers:
+  * q `string`: The q search term can also contain any combination of the supported issue search qualifiers:
   * sort `string` (values: updated, created, comments): The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
   * page `integer`
 
@@ -4060,15 +4039,13 @@ Search repositories.
 
 
 ```js
-github.search.repositories.get({
-  "q": ""
-}, context)
+github.search.repositories.get({}, context)
 ```
 
 #### Input
 * input `object`
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
-  * q **required** `string`: The search terms. This can be any combination of the supported repository
+  * q `string`: The search terms. This can be any combination of the supported repository
   * sort `string` (values: stars, forks, updated): If not provided, results are sorted by best match.
   * page `integer`
 
@@ -4080,15 +4057,13 @@ Search users.
 
 
 ```js
-github.search.users.get({
-  "q": ""
-}, context)
+github.search.users.get({}, context)
 ```
 
 #### Input
 * input `object`
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
-  * q **required** `string`: The search terms. This can be any combination of the supported user
+  * q `string`: The search terms. This can be any combination of the supported user
   * sort `string` (values: followers, repositories, joined): If not provided, results are sorted by best match.
   * page `integer`
 
@@ -4584,22 +4559,16 @@ user.
 
 
 ```js
-github.user.issues.get({
-  "filter": "",
-  "state": "",
-  "labels": "",
-  "sort": "",
-  "direction": ""
-}, context)
+github.user.issues.get({}, context)
 ```
 
 #### Input
 * input `object`
-  * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
-  * state **required** `string` (values: open, closed)
-  * labels **required** `string`: String list of comma separated Label names. Example - bug,ui,@high.
-  * sort **required** `string` (values: created, updated, comments)
-  * direction **required** `string` (values: asc, desc)
+  * filter `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
+  * state `string` (values: open, closed, all)
+  * labels `string`: String list of comma separated Label names. Example - bug,ui,@high.
+  * sort `string` (values: created, updated, comments)
+  * direction `string` (values: asc, desc)
   * since `string`: Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
   * page `integer`
 

@@ -12,6 +12,9 @@
     "x-apisguru-categories": [
       "transport"
     ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_user-images.githubusercontent.com_21603_37955263-098e5b38-31a0-11e8-96fd-5755b16341e3.png"
+    },
     "x-origin": [
       {
         "format": "swagger",

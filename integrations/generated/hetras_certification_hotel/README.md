@@ -175,6 +175,41 @@ hetras_certification_hotel.RatePlans_GetRateplansCount({
 #### Output
 * output [TotalCountResponse](#totalcountresponse)
 
+### RatePlans_BatchUpdateRates
+Currently this call only allows to set the base price for non-derived rateplans if the rateplan
+            is active and already loaded for the specified time period.
+            <br /><br />
+            A request example:<br /><pre>
+            [
+              {
+                "rateplan": "STDN01", "from": "2018-01-01", "to": "2018-01-30", "base_price": 120.00
+              }
+            ]
+            </pre><br />
+            For more details on how the API responds to errors please check our documentation on 
+            <a href="https://developer.hetras.com/docs/errors/" onfocus="this.blur()">Error Handling</a>.<br />
+
+
+```js
+hetras_certification_hotel.RatePlans_BatchUpdateRates({
+  "App-Id": "",
+  "App-Key": "",
+  "hotelId": 0,
+  "request": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * App-Id **required** `string`: Application identifier
+  * App-Key **required** `string`: Application key.
+  * hotelId **required** `integer`: The hotel id the rateplan belongs to.
+  * request **required** `array`
+    * items [RatesBatchUpdateRequestItem](#ratesbatchupdaterequestitem)
+
+#### Output
+* output [Object](#object)
+
 ### RatePlans_GetRateplan
 Read the details about a specific rateplan for the defined hotel.
 
@@ -888,6 +923,13 @@ hetras_certification_hotel.YieldableRates_SavePrices({
   * _links `object`: Collection of links to related resources
   * rateplans `array`: List of rateplans
     * items [ListRateplanEntry](#listrateplanentry)
+
+### RatesBatchUpdateRequestItem
+* RatesBatchUpdateRequestItem `object`: A rateplan update entry, for a given range and a given price.
+  * base_price **required** `number`: The price of the rateplan for the default room type and single occupancy.
+  * from **required** `string`: Defines the first business day you would like to update rates. The maximum time span between <i>from</i>´and <i>to</i>
+  * rateplan **required** `string`: The rateplan code to be updated. NOTE: this must be a base rateplan and not a derived one.
+  * to **required** `string`: Defines the last business day you would like to update rates. This can be same as {Hetras.PublicApi.Models.Hotels.Rateplans.Rates.RatesBatchUpdateRequestItem.To} if the update is for a single date.
 
 ### RatesRequest
 * RatesRequest `object`

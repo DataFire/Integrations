@@ -59,7 +59,7 @@ thesmsworks.login({
 * output [TokenResponse](#tokenresponse)
 
 ### scheduleBatch
-Schedules a batch of SMS messages to be sent at the date-time you specify
+Schedules a batch of SMS messages to be sent at the date time you specify
 
 
 ```js
@@ -253,6 +253,8 @@ thesmsworks.test(null, context)
     * items `string`
   * schedule **required** `string`: Date-time at which to send the batch. This is only used by the batch/schedule service.
   * sender **required** `string`: The sender of the message. Should be no longer than 11 characters for alphanumeric or 15 characters for numeric sender ID's. No spaces or special characters.
+  * tag `string`: An identifying label for the message, which you can use to filter and report on messages you've sent later. Ideal for campaigns.
+  * ttl `number`: The number of minutes before the message is deleted. Optional. Omit to prevent delivery report deletion.
 
 ### BatchMessageResponse
 * BatchMessageResponse `object`
@@ -266,14 +268,13 @@ thesmsworks.test(null, context)
 
 ### ErrorModel
 * ErrorModel `object`
-  * code **required** `integer`
   * message **required** `string`
 
 ### ExtendedErrorModel
 * ExtendedErrorModel
-  * code **required** `integer`
   * message **required** `string`
   * errorCode **required** `number`
+  * status **required** `string`
 
 ### Login
 * Login `object`: authorisation object
@@ -288,6 +289,7 @@ thesmsworks.test(null, context)
   * schedule **required** `string`: Date at which to send the message. This is only used by the message/schedule service and can be left empty for other services.
   * sender **required** `string`: The sender of the message. Should be no longer than 11 characters for alphanumeric or 15 characters for numeric sender ID's. No spaces or special characters.
   * tag `string`: An identifying label for the message, which you can use to filter and report on messages you've sent later. Ideal for campaigns.
+  * ttl `number`: The number of minutes before the message is deleted. Optional. Omit to prevent delivery report deletion.
 
 ### MessageResponse
 * MessageResponse `object`
@@ -296,6 +298,10 @@ thesmsworks.test(null, context)
   * created **required** `string`
   * customerid **required** `string`
   * destination **required** `number`
+  * failureReason `object`
+    * code `number`
+    * details `string`
+    * permanent `boolean`
   * id `string`
   * keyword **required** `string`
   * messageid **required** `string`

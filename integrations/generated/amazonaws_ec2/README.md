@@ -765,6 +765,37 @@ amazonaws_ec2.CreateEgressOnlyInternetGateway({
 #### Output
 * output [CreateEgressOnlyInternetGatewayResult](#createegressonlyinternetgatewayresult)
 
+### CreateFleet
+
+
+
+```js
+amazonaws_ec2.CreateFleet({
+  "LaunchTemplateConfigs": [],
+  "TargetCapacitySpecification": {
+    "TotalTargetCapacity": 0
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * ExcessCapacityTerminationPolicy [FleetExcessCapacityTerminationPolicy](#fleetexcesscapacityterminationpolicy)
+  * LaunchTemplateConfigs **required** [FleetLaunchTemplateConfigListRequest](#fleetlaunchtemplateconfiglistrequest)
+  * ReplaceUnhealthyInstances [Boolean](#boolean)
+  * SpotOptions [SpotOptionsRequest](#spotoptionsrequest)
+  * TagSpecifications [TagSpecificationList](#tagspecificationlist)
+  * TargetCapacitySpecification **required** [TargetCapacitySpecificationRequest](#targetcapacityspecificationrequest)
+  * TerminateInstancesWithExpiration [Boolean](#boolean)
+  * Type [FleetType](#fleettype)
+  * ValidFrom [DateTime](#datetime)
+  * ValidUntil [DateTime](#datetime)
+
+#### Output
+* output [CreateFleetResult](#createfleetresult)
+
 ### CreateFlowLogs
 
 
@@ -1171,6 +1202,7 @@ amazonaws_ec2.CreateSnapshot({
 * input `object`
   * Description [String](#string)
   * DryRun [Boolean](#boolean)
+  * TagSpecifications [TagSpecificationList](#tagspecificationlist)
   * VolumeId **required** [String](#string)
 
 #### Output
@@ -1486,6 +1518,26 @@ amazonaws_ec2.DeleteEgressOnlyInternetGateway({
 
 #### Output
 * output [DeleteEgressOnlyInternetGatewayResult](#deleteegressonlyinternetgatewayresult)
+
+### DeleteFleets
+
+
+
+```js
+amazonaws_ec2.DeleteFleets({
+  "FleetIds": [],
+  "TerminateInstances": true
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * FleetIds **required** [FleetIdSet](#fleetidset)
+  * TerminateInstances **required** [Boolean](#boolean)
+
+#### Output
+* output [DeleteFleetsResult](#deletefleetsresult)
 
 ### DeleteFlowLogs
 
@@ -2216,6 +2268,69 @@ amazonaws_ec2.DescribeExportTasks({}, context)
 
 #### Output
 * output [DescribeExportTasksResult](#describeexporttasksresult)
+
+### DescribeFleetHistory
+
+
+
+```js
+amazonaws_ec2.DescribeFleetHistory({
+  "FleetId": "",
+  "StartTime": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * EventType [FleetEventType](#fleeteventtype)
+  * FleetId **required** [FleetIdentifier](#fleetidentifier)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+  * StartTime **required** [DateTime](#datetime)
+
+#### Output
+* output [DescribeFleetHistoryResult](#describefleethistoryresult)
+
+### DescribeFleetInstances
+
+
+
+```js
+amazonaws_ec2.DescribeFleetInstances({
+  "FleetId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * FleetId **required** [FleetIdentifier](#fleetidentifier)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+#### Output
+* output [DescribeFleetInstancesResult](#describefleetinstancesresult)
+
+### DescribeFleets
+
+
+
+```js
+amazonaws_ec2.DescribeFleets({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * FleetIds [FleetIdSet](#fleetidset)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+#### Output
+* output [DescribeFleetsResult](#describefleetsresult)
 
 ### DescribeFlowLogs
 
@@ -3846,6 +3961,7 @@ amazonaws_ec2.GetConsoleOutput({
 * input `object`
   * DryRun [Boolean](#boolean)
   * InstanceId **required** [String](#string)
+  * Latest [Boolean](#boolean)
 
 #### Output
 * output [GetConsoleOutputResult](#getconsoleoutputresult)
@@ -4057,6 +4173,29 @@ amazonaws_ec2.ImportVolume({
 #### Output
 * output [ImportVolumeResult](#importvolumeresult)
 
+### ModifyFleet
+
+
+
+```js
+amazonaws_ec2.ModifyFleet({
+  "FleetId": "",
+  "TargetCapacitySpecification": {
+    "TotalTargetCapacity": 0
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * ExcessCapacityTerminationPolicy [FleetExcessCapacityTerminationPolicy](#fleetexcesscapacityterminationpolicy)
+  * FleetId **required** [FleetIdentifier](#fleetidentifier)
+  * TargetCapacitySpecification **required** [TargetCapacitySpecificationRequest](#targetcapacityspecificationrequest)
+
+#### Output
+* output [ModifyFleetResult](#modifyfleetresult)
+
 ### ModifyFpgaImageAttribute
 
 
@@ -4232,6 +4371,7 @@ amazonaws_ec2.ModifyInstancePlacement({
 #### Input
 * input `object`
   * Affinity [Affinity](#affinity)
+  * GroupName [String](#string)
   * HostId [String](#string)
   * InstanceId **required** [String](#string)
   * Tenancy [HostTenancy](#hosttenancy)
@@ -5133,6 +5273,7 @@ amazonaws_ec2.RunInstances({
   * AdditionalInfo [String](#string)
   * BlockDeviceMappings [BlockDeviceMappingRequestList](#blockdevicemappingrequestlist)
   * ClientToken [String](#string)
+  * CpuOptions [CpuOptionsRequest](#cpuoptionsrequest)
   * CreditSpecification [CreditSpecificationRequest](#creditspecificationrequest)
   * DisableApiTermination [Boolean](#boolean)
   * DryRun [Boolean](#boolean)
@@ -5928,11 +6069,11 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 
 ### ConversionTask
 * ConversionTask `object`: Describes a conversion task.
-  * ConversionTaskId **required** [String](#string)
+  * ConversionTaskId [String](#string)
   * ExpirationTime [String](#string)
   * ImportInstance [ImportInstanceTaskDetails](#importinstancetaskdetails)
   * ImportVolume [ImportVolumeTaskDetails](#importvolumetaskdetails)
-  * State **required** [ConversionTaskState](#conversiontaskstate)
+  * State [ConversionTaskState](#conversiontaskstate)
   * StatusMessage [String](#string)
   * Tags [TagList](#taglist)
 
@@ -5982,6 +6123,16 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * CopySnapshotResult `object`: Contains the output of CopySnapshot.
   * SnapshotId [String](#string)
 
+### CpuOptions
+* CpuOptions `object`: The CPU options for the instance.
+  * CoreCount [Integer](#integer)
+  * ThreadsPerCore [Integer](#integer)
+
+### CpuOptionsRequest
+* CpuOptionsRequest `object`: The CPU options for the instance. Both the core count and threads per core must be specified in the request.
+  * CoreCount [Integer](#integer)
+  * ThreadsPerCore [Integer](#integer)
+
 ### CreateCustomerGatewayRequest
 * CreateCustomerGatewayRequest `object`: Contains the parameters for CreateCustomerGateway.
   * BgpAsn **required** [Integer](#integer)
@@ -6029,6 +6180,25 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * CreateEgressOnlyInternetGatewayResult `object`
   * ClientToken [String](#string)
   * EgressOnlyInternetGateway [EgressOnlyInternetGateway](#egressonlyinternetgateway)
+
+### CreateFleetRequest
+* CreateFleetRequest `object`
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * ExcessCapacityTerminationPolicy [FleetExcessCapacityTerminationPolicy](#fleetexcesscapacityterminationpolicy)
+  * LaunchTemplateConfigs **required** [FleetLaunchTemplateConfigListRequest](#fleetlaunchtemplateconfiglistrequest)
+  * ReplaceUnhealthyInstances [Boolean](#boolean)
+  * SpotOptions [SpotOptionsRequest](#spotoptionsrequest)
+  * TagSpecifications [TagSpecificationList](#tagspecificationlist)
+  * TargetCapacitySpecification **required** [TargetCapacitySpecificationRequest](#targetcapacityspecificationrequest)
+  * TerminateInstancesWithExpiration [Boolean](#boolean)
+  * Type [FleetType](#fleettype)
+  * ValidFrom [DateTime](#datetime)
+  * ValidUntil [DateTime](#datetime)
+
+### CreateFleetResult
+* CreateFleetResult `object`
+  * FleetId [FleetIdentifier](#fleetidentifier)
 
 ### CreateFlowLogsRequest
 * CreateFlowLogsRequest `object`: Contains the parameters for CreateFlowLogs.
@@ -6241,6 +6411,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * CreateSnapshotRequest `object`: Contains the parameters for CreateSnapshot.
   * Description [String](#string)
   * DryRun [Boolean](#boolean)
+  * TagSpecifications [TagSpecificationList](#tagspecificationlist)
   * VolumeId **required** [String](#string)
 
 ### CreateSpotDatafeedSubscriptionRequest
@@ -6426,6 +6597,9 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### DateTime
 * DateTime `string`
 
+### DefaultTargetCapacityType
+* DefaultTargetCapacityType `string` (values: spot, on-demand)
+
 ### DeleteCustomerGatewayRequest
 * DeleteCustomerGatewayRequest `object`: Contains the parameters for DeleteCustomerGateway.
   * CustomerGatewayId **required** [String](#string)
@@ -6444,6 +6618,44 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### DeleteEgressOnlyInternetGatewayResult
 * DeleteEgressOnlyInternetGatewayResult `object`
   * ReturnCode [Boolean](#boolean)
+
+### DeleteFleetError
+* DeleteFleetError `object`: Describes an EC2 Fleet error.
+  * Code [DeleteFleetErrorCode](#deletefleeterrorcode)
+  * Message [String](#string)
+
+### DeleteFleetErrorCode
+* DeleteFleetErrorCode `string` (values: fleetIdDoesNotExist, fleetIdMalformed, fleetNotInDeletableState, unexpectedError)
+
+### DeleteFleetErrorItem
+* DeleteFleetErrorItem `object`: Describes an EC2 Fleet that was not successfully deleted.
+  * Error [DeleteFleetError](#deletefleeterror)
+  * FleetId [FleetIdentifier](#fleetidentifier)
+
+### DeleteFleetErrorSet
+* DeleteFleetErrorSet `array`
+  * items [DeleteFleetErrorItem](#deletefleeterroritem)
+
+### DeleteFleetSuccessItem
+* DeleteFleetSuccessItem `object`: Describes an EC2 Fleet that was successfully deleted.
+  * CurrentFleetState [FleetStateCode](#fleetstatecode)
+  * FleetId [FleetIdentifier](#fleetidentifier)
+  * PreviousFleetState [FleetStateCode](#fleetstatecode)
+
+### DeleteFleetSuccessSet
+* DeleteFleetSuccessSet `array`
+  * items [DeleteFleetSuccessItem](#deletefleetsuccessitem)
+
+### DeleteFleetsRequest
+* DeleteFleetsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * FleetIds **required** [FleetIdSet](#fleetidset)
+  * TerminateInstances **required** [Boolean](#boolean)
+
+### DeleteFleetsResult
+* DeleteFleetsResult `object`
+  * SuccessfulFleetDeletions [DeleteFleetSuccessSet](#deletefleetsuccessset)
+  * UnsuccessfulFleetDeletions [DeleteFleetErrorSet](#deletefleeterrorset)
 
 ### DeleteFlowLogsRequest
 * DeleteFlowLogsRequest `object`: Contains the parameters for DeleteFlowLogs.
@@ -6787,6 +6999,50 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### DescribeExportTasksResult
 * DescribeExportTasksResult `object`: Contains the output for DescribeExportTasks.
   * ExportTasks [ExportTaskList](#exporttasklist)
+
+### DescribeFleetHistoryRequest
+* DescribeFleetHistoryRequest `object`
+  * DryRun [Boolean](#boolean)
+  * EventType [FleetEventType](#fleeteventtype)
+  * FleetId **required** [FleetIdentifier](#fleetidentifier)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+  * StartTime **required** [DateTime](#datetime)
+
+### DescribeFleetHistoryResult
+* DescribeFleetHistoryResult `object`
+  * FleetId [FleetIdentifier](#fleetidentifier)
+  * HistoryRecords [HistoryRecordSet](#historyrecordset)
+  * LastEvaluatedTime [DateTime](#datetime)
+  * NextToken [String](#string)
+  * StartTime [DateTime](#datetime)
+
+### DescribeFleetInstancesRequest
+* DescribeFleetInstancesRequest `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * FleetId **required** [FleetIdentifier](#fleetidentifier)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+### DescribeFleetInstancesResult
+* DescribeFleetInstancesResult `object`
+  * ActiveInstances [ActiveInstanceSet](#activeinstanceset)
+  * FleetId [FleetIdentifier](#fleetidentifier)
+  * NextToken [String](#string)
+
+### DescribeFleetsRequest
+* DescribeFleetsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * FleetIds [FleetIdSet](#fleetidset)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+### DescribeFleetsResult
+* DescribeFleetsResult `object`
+  * Fleets [FleetSet](#fleetset)
+  * NextToken [String](#string)
 
 ### DescribeFlowLogsRequest
 * DescribeFlowLogsRequest `object`: Contains the parameters for DescribeFlowLogs.
@@ -7742,9 +7998,9 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### DiskImageDescription
 * DiskImageDescription `object`: Describes a disk image.
   * Checksum [String](#string)
-  * Format **required** [DiskImageFormat](#diskimageformat)
-  * ImportManifestUrl **required** [String](#string)
-  * Size **required** [Long](#long)
+  * Format [DiskImageFormat](#diskimageformat)
+  * ImportManifestUrl [String](#string)
+  * Size [Long](#long)
 
 ### DiskImageDetail
 * DiskImageDetail `object`: Describes a disk image.
@@ -7761,7 +8017,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 
 ### DiskImageVolumeDescription
 * DiskImageVolumeDescription `object`: Describes a disk image volume.
-  * Id **required** [String](#string)
+  * Id [String](#string)
   * Size [Long](#long)
 
 ### DnsEntry
@@ -7959,7 +8215,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * S3Prefix [String](#string)
 
 ### Filter
-* Filter `object`: A filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria, such as tags, attributes, or IDs.
+* Filter `object`: <p>A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:</p> <ul> <li> <p> <a>DescribeAvailabilityZones</a> </p> </li> <li> <p> <a>DescribeImages</a> </p> </li> <li> <p> <a>DescribeInstances</a> </p> </li> <li> <p> <a>DescribeKeyPairs</a> </p> </li> <li> <p> <a>DescribeSecurityGroups</a> </p> </li> <li> <p> <a>DescribeSnapshots</a> </p> </li> <li> <p> <a>DescribeSubnets</a> </p> </li> <li> <p> <a>DescribeTags</a> </p> </li> <li> <p> <a>DescribeVolumes</a> </p> </li> <li> <p> <a>DescribeVpcs</a> </p> </li> </ul>
   * Name [String](#string)
   * Values [ValueStringList](#valuestringlist)
 
@@ -7967,11 +8223,102 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * FilterList `array`
   * items [Filter](#filter)
 
+### FleetActivityStatus
+* FleetActivityStatus `string` (values: error, pending-fulfillment, pending-termination, fulfilled)
+
+### FleetData
+* FleetData `object`: Describes an EC2 Fleet.
+  * ActivityStatus [FleetActivityStatus](#fleetactivitystatus)
+  * ClientToken [String](#string)
+  * CreateTime [DateTime](#datetime)
+  * ExcessCapacityTerminationPolicy [FleetExcessCapacityTerminationPolicy](#fleetexcesscapacityterminationpolicy)
+  * FleetId [FleetIdentifier](#fleetidentifier)
+  * FleetState [FleetStateCode](#fleetstatecode)
+  * FulfilledCapacity [Double](#double)
+  * FulfilledOnDemandCapacity [Double](#double)
+  * LaunchTemplateConfigs [FleetLaunchTemplateConfigList](#fleetlaunchtemplateconfiglist)
+  * ReplaceUnhealthyInstances [Boolean](#boolean)
+  * SpotOptions [SpotOptions](#spotoptions)
+  * Tags [TagList](#taglist)
+  * TargetCapacitySpecification [TargetCapacitySpecification](#targetcapacityspecification)
+  * TerminateInstancesWithExpiration [Boolean](#boolean)
+  * Type [FleetType](#fleettype)
+  * ValidFrom [DateTime](#datetime)
+  * ValidUntil [DateTime](#datetime)
+
+### FleetEventType
+* FleetEventType `string` (values: instance-change, fleet-change, service-error)
+
+### FleetExcessCapacityTerminationPolicy
+* FleetExcessCapacityTerminationPolicy `string` (values: no-termination, termination)
+
+### FleetIdSet
+* FleetIdSet `array`
+  * items [FleetIdentifier](#fleetidentifier)
+
+### FleetIdentifier
+* FleetIdentifier `string`
+
+### FleetLaunchTemplateConfig
+* FleetLaunchTemplateConfig `object`: Describes a launch template and overrides.
+  * LaunchTemplateSpecification [FleetLaunchTemplateSpecification](#fleetlaunchtemplatespecification)
+  * Overrides [FleetLaunchTemplateOverridesList](#fleetlaunchtemplateoverrideslist)
+
+### FleetLaunchTemplateConfigList
+* FleetLaunchTemplateConfigList `array`
+  * items [FleetLaunchTemplateConfig](#fleetlaunchtemplateconfig)
+
+### FleetLaunchTemplateConfigListRequest
+* FleetLaunchTemplateConfigListRequest `array`
+  * items [FleetLaunchTemplateConfigRequest](#fleetlaunchtemplateconfigrequest)
+
+### FleetLaunchTemplateConfigRequest
+* FleetLaunchTemplateConfigRequest `object`: Describes a launch template and overrides.
+  * LaunchTemplateSpecification [FleetLaunchTemplateSpecificationRequest](#fleetlaunchtemplatespecificationrequest)
+  * Overrides [FleetLaunchTemplateOverridesListRequest](#fleetlaunchtemplateoverrideslistrequest)
+
+### FleetLaunchTemplateOverrides
+* FleetLaunchTemplateOverrides `object`: Describes overrides for a launch template.
+  * AvailabilityZone [String](#string)
+  * InstanceType [InstanceType](#instancetype)
+  * MaxPrice [String](#string)
+  * SubnetId [String](#string)
+  * WeightedCapacity [Double](#double)
+
+### FleetLaunchTemplateOverridesList
+* FleetLaunchTemplateOverridesList `array`
+  * items [FleetLaunchTemplateOverrides](#fleetlaunchtemplateoverrides)
+
+### FleetLaunchTemplateOverridesListRequest
+* FleetLaunchTemplateOverridesListRequest `array`
+  * items [FleetLaunchTemplateOverridesRequest](#fleetlaunchtemplateoverridesrequest)
+
+### FleetLaunchTemplateOverridesRequest
+* FleetLaunchTemplateOverridesRequest `object`: Describes overrides for a launch template.
+  * AvailabilityZone [String](#string)
+  * InstanceType [InstanceType](#instancetype)
+  * MaxPrice [String](#string)
+  * SubnetId [String](#string)
+  * WeightedCapacity [Double](#double)
+
 ### FleetLaunchTemplateSpecification
 * FleetLaunchTemplateSpecification `object`: Describes a launch template.
   * LaunchTemplateId [String](#string)
   * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
   * Version [String](#string)
+
+### FleetLaunchTemplateSpecificationRequest
+* FleetLaunchTemplateSpecificationRequest `object`: The launch template to use. You must specify either the launch template ID or launch template name in the request. 
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * Version [String](#string)
+
+### FleetSet
+* FleetSet `array`
+  * items [FleetData](#fleetdata)
+
+### FleetStateCode
+* FleetStateCode `string` (values: submitted, active, deleted, failed, deleted-running, deleted-terminating, modifying)
 
 ### FleetType
 * FleetType `string` (values: request, maintain)
@@ -8049,6 +8396,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * GetConsoleOutputRequest `object`: Contains the parameters for GetConsoleOutput.
   * DryRun [Boolean](#boolean)
   * InstanceId **required** [String](#string)
+  * Latest [Boolean](#boolean)
 
 ### GetConsoleOutputResult
 * GetConsoleOutputResult `object`: Contains the output of GetConsoleOutput.
@@ -8148,12 +8496,23 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * EventType **required** [EventType](#eventtype)
   * Timestamp **required** [DateTime](#datetime)
 
+### HistoryRecordEntry
+* HistoryRecordEntry `object`: Describes an event in the history of the EC2 Fleet.
+  * EventInformation [EventInformation](#eventinformation)
+  * EventType [FleetEventType](#fleeteventtype)
+  * Timestamp [DateTime](#datetime)
+
+### HistoryRecordSet
+* HistoryRecordSet `array`
+  * items [HistoryRecordEntry](#historyrecordentry)
+
 ### HistoryRecords
 * HistoryRecords `array`
   * items [HistoryRecord](#historyrecord)
 
 ### Host
 * Host `object`: Describes the properties of the Dedicated Host.
+  * AllocationTime [DateTime](#datetime)
   * AutoPlacement [AutoPlacement](#autoplacement)
   * AvailabilityZone [String](#string)
   * AvailableCapacity [AvailableCapacity](#availablecapacity)
@@ -8162,6 +8521,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * HostProperties [HostProperties](#hostproperties)
   * HostReservationId [String](#string)
   * Instances [HostInstanceList](#hostinstancelist)
+  * ReleaseTime [DateTime](#datetime)
   * State [AllocationState](#allocationstate)
 
 ### HostInstance
@@ -8412,7 +8772,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * Description [String](#string)
   * InstanceId [String](#string)
   * Platform [PlatformValues](#platformvalues)
-  * Volumes **required** [ImportInstanceVolumeDetailSet](#importinstancevolumedetailset)
+  * Volumes [ImportInstanceVolumeDetailSet](#importinstancevolumedetailset)
 
 ### ImportInstanceVolumeDetailItem
 * ImportInstanceVolumeDetailItem `object`: Describes an import volume task.
@@ -8482,11 +8842,11 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 
 ### ImportVolumeTaskDetails
 * ImportVolumeTaskDetails `object`: Describes an import volume task.
-  * AvailabilityZone **required** [String](#string)
-  * BytesConverted **required** [Long](#long)
+  * AvailabilityZone [String](#string)
+  * BytesConverted [Long](#long)
   * Description [String](#string)
-  * Image **required** [DiskImageDescription](#diskimagedescription)
-  * Volume **required** [DiskImageVolumeDescription](#diskimagevolumedescription)
+  * Image [DiskImageDescription](#diskimagedescription)
+  * Volume [DiskImageVolumeDescription](#diskimagevolumedescription)
 
 ### Instance
 * Instance `object`: Describes an instance.
@@ -8494,6 +8854,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * Architecture [ArchitectureValues](#architecturevalues)
   * BlockDeviceMappings [InstanceBlockDeviceMappingList](#instanceblockdevicemappinglist)
   * ClientToken [String](#string)
+  * CpuOptions [CpuOptions](#cpuoptions)
   * EbsOptimized [Boolean](#boolean)
   * ElasticGpuAssociations [ElasticGpuAssociationList](#elasticgpuassociationlist)
   * EnaSupport [Boolean](#boolean)
@@ -8784,7 +9145,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * Status [SummaryStatus](#summarystatus)
 
 ### InstanceType
-* InstanceType `string` (values: t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, cr1.8xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, x1.16xlarge, x1.32xlarge, x1e.xlarge, x1e.2xlarge, x1e.4xlarge, x1e.8xlarge, x1e.16xlarge, x1e.32xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, hi1.4xlarge, hs1.8xlarge, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.18xlarge, cc1.4xlarge, cc2.8xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, cg1.4xlarge, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, f1.2xlarge, f1.16xlarge, m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.12xlarge, m5.24xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, h1.16xlarge)
+* InstanceType `string` (values: t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, cr1.8xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, x1.16xlarge, x1.32xlarge, x1e.xlarge, x1e.2xlarge, x1e.4xlarge, x1e.8xlarge, x1e.16xlarge, x1e.32xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, i3.metal, hi1.4xlarge, hs1.8xlarge, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.18xlarge, c5d.large, c5d.xlarge, c5d.2xlarge, c5d.4xlarge, c5d.9xlarge, c5d.18xlarge, cc1.4xlarge, cc2.8xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, cg1.4xlarge, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, f1.2xlarge, f1.16xlarge, m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.12xlarge, m5.24xlarge, m5d.large, m5d.xlarge, m5d.2xlarge, m5d.4xlarge, m5d.12xlarge, m5d.24xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, h1.16xlarge)
 
 ### InstanceTypeList
 * InstanceTypeList `array`
@@ -9085,7 +9446,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [LaunchTemplate](#launchtemplate)
 
 ### LaunchTemplateSpecification
-* LaunchTemplateSpecification `object`: The launch template to use. You must specify either the launch template ID or launch template name in the request.
+* LaunchTemplateSpecification `object`: The launch template to use. You must specify either the launch template ID or launch template name in the request, but not both.
   * LaunchTemplateId [String](#string)
   * LaunchTemplateName [String](#string)
   * Version [String](#string)
@@ -9190,6 +9551,17 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### MaxResults
 * MaxResults `integer`
 
+### ModifyFleetRequest
+* ModifyFleetRequest `object`
+  * DryRun [Boolean](#boolean)
+  * ExcessCapacityTerminationPolicy [FleetExcessCapacityTerminationPolicy](#fleetexcesscapacityterminationpolicy)
+  * FleetId **required** [FleetIdentifier](#fleetidentifier)
+  * TargetCapacitySpecification **required** [TargetCapacitySpecificationRequest](#targetcapacityspecificationrequest)
+
+### ModifyFleetResult
+* ModifyFleetResult `object`
+  * Return [Boolean](#boolean)
+
 ### ModifyFpgaImageAttributeRequest
 * ModifyFpgaImageAttributeRequest `object`
   * Attribute [FpgaImageAttributeName](#fpgaimageattributename)
@@ -9274,6 +9646,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### ModifyInstancePlacementRequest
 * ModifyInstancePlacementRequest `object`: Contains the parameters for ModifyInstancePlacement.
   * Affinity [Affinity](#affinity)
+  * GroupName [String](#string)
   * HostId [String](#string)
   * InstanceId **required** [String](#string)
   * Tenancy [HostTenancy](#hosttenancy)
@@ -10524,6 +10897,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * AdditionalInfo [String](#string)
   * BlockDeviceMappings [BlockDeviceMappingRequestList](#blockdevicemappingrequestlist)
   * ClientToken [String](#string)
+  * CpuOptions [CpuOptionsRequest](#cpuoptionsrequest)
   * CreditSpecification [CreditSpecificationRequest](#creditspecificationrequest)
   * DisableApiTermination [Boolean](#boolean)
   * DryRun [Boolean](#boolean)
@@ -10884,6 +11258,9 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * Url [String](#string)
   * UserBucket [UserBucketDetails](#userbucketdetails)
 
+### SpotAllocationStrategy
+* SpotAllocationStrategy `string` (values: lowest-price, diversified)
+
 ### SpotDatafeedSubscription
 * SpotDatafeedSubscription `object`: Describes the data feed for a Spot Instance.
   * Bucket [String](#string)
@@ -10936,6 +11313,8 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * LaunchSpecifications [LaunchSpecsList](#launchspecslist)
   * LaunchTemplateConfigs [LaunchTemplateConfigList](#launchtemplateconfiglist)
   * LoadBalancersConfig [LoadBalancersConfig](#loadbalancersconfig)
+  * OnDemandFulfilledCapacity [Double](#double)
+  * OnDemandTargetCapacity [Integer](#integer)
   * ReplaceUnhealthyInstances [Boolean](#boolean)
   * SpotPrice [String](#string)
   * TargetCapacity **required** [Integer](#integer)
@@ -10956,6 +11335,9 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### SpotFleetTagSpecificationList
 * SpotFleetTagSpecificationList `array`
   * items [SpotFleetTagSpecification](#spotfleettagspecification)
+
+### SpotInstanceInterruptionBehavior
+* SpotInstanceInterruptionBehavior `string` (values: hibernate, stop, terminate)
 
 ### SpotInstanceRequest
 * SpotInstanceRequest `object`: Describes a Spot Instance request.
@@ -11011,6 +11393,16 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * MaxPrice [String](#string)
   * SpotInstanceType [SpotInstanceType](#spotinstancetype)
   * ValidUntil [DateTime](#datetime)
+
+### SpotOptions
+* SpotOptions `object`: Describes the configuration of Spot Instances in an EC2 Fleet.
+  * AllocationStrategy [SpotAllocationStrategy](#spotallocationstrategy)
+  * InstanceInterruptionBehavior [SpotInstanceInterruptionBehavior](#spotinstanceinterruptionbehavior)
+
+### SpotOptionsRequest
+* SpotOptionsRequest `object`: Describes the configuration of Spot Instances in an EC2 Fleet request.
+  * AllocationStrategy [SpotAllocationStrategy](#spotallocationstrategy)
+  * InstanceInterruptionBehavior [SpotInstanceInterruptionBehavior](#spotinstanceinterruptionbehavior)
 
 ### SpotPlacement
 * SpotPlacement `object`: Describes Spot Instance placement.
@@ -11187,6 +11579,20 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### TagSpecificationList
 * TagSpecificationList `array`
   * items [TagSpecification](#tagspecification)
+
+### TargetCapacitySpecification
+* TargetCapacitySpecification `object`: The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.
+  * DefaultTargetCapacityType [DefaultTargetCapacityType](#defaulttargetcapacitytype)
+  * OnDemandTargetCapacity [Integer](#integer)
+  * SpotTargetCapacity [Integer](#integer)
+  * TotalTargetCapacity [Integer](#integer)
+
+### TargetCapacitySpecificationRequest
+* TargetCapacitySpecificationRequest `object`: The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.
+  * DefaultTargetCapacityType [DefaultTargetCapacityType](#defaulttargetcapacitytype)
+  * OnDemandTargetCapacity [Integer](#integer)
+  * SpotTargetCapacity [Integer](#integer)
+  * TotalTargetCapacity **required** [Integer](#integer)
 
 ### TargetConfiguration
 * TargetConfiguration `object`: Information about the Convertible Reserved Instance offering.

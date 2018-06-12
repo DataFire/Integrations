@@ -378,7 +378,7 @@ google_clouddebugger.debugger.debuggees.breakpoints.get({
   * location [SourceLocation](#sourcelocation)
   * logLevel `string` (values: INFO, WARNING, ERROR): Indicates the severity of the log. Only relevant when action is `LOG`.
   * logMessageFormat `string`: Only relevant when action is `LOG`. Defines the message to log when
-  * stackFrames `array`: The stack at breakpoint time.
+  * stackFrames `array`: The stack at breakpoint time, where stack_frames[0] represents the most
     * items [StackFrame](#stackframe)
   * status [StatusMessage](#statusmessage)
   * userEmail `string`: E-mail address of the user that created this breakpoint

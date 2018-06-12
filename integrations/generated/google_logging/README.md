@@ -96,7 +96,7 @@ google_logging.entries.list({}, context)
 * output [ListLogEntriesResponse](#listlogentriesresponse)
 
 ### entries.write
-Log entry resourcesWrites log entries to Stackdriver Logging. This API method is the only way to send log entries to Stackdriver Logging. This method is used, directly or indirectly, by the Stackdriver Logging agent (fluentd) and all logging libraries configured to use Stackdriver Logging.
+Writes log entries to Stackdriver Logging. This API method is the only way to send log entries to Stackdriver Logging. This method is used, directly or indirectly, by the Stackdriver Logging agent (fluentd) and all logging libraries configured to use Stackdriver Logging. A single request may contain log entries for a maximum of 1000 different resources (projects, organizations, billing accounts or folders)
 
 
 ```js
@@ -152,12 +152,12 @@ google_logging.monitoredResourceDescriptors.list({}, context)
 #### Output
 * output [ListMonitoredResourceDescriptorsResponse](#listmonitoredresourcedescriptorsresponse)
 
-### billingAccounts.logs.delete
+### folders.logs.delete
 Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted.
 
 
 ```js
-google_logging.billingAccounts.logs.delete({
+google_logging.folders.logs.delete({
   "logName": ""
 }, context)
 ```
@@ -273,12 +273,12 @@ google_logging.projects.metrics.update({
 #### Output
 * output [LogMetric](#logmetric)
 
-### billingAccounts.exclusions.delete
+### exclusions.delete
 Deletes an exclusion.
 
 
 ```js
-google_logging.billingAccounts.exclusions.delete({
+google_logging.exclusions.delete({
   "name": ""
 }, context)
 ```
@@ -303,12 +303,12 @@ google_logging.billingAccounts.exclusions.delete({
 #### Output
 * output [Empty](#empty)
 
-### billingAccounts.exclusions.get
+### exclusions.get
 Gets the description of an exclusion.
 
 
 ```js
-google_logging.billingAccounts.exclusions.get({
+google_logging.exclusions.get({
   "name": ""
 }, context)
 ```
@@ -333,12 +333,12 @@ google_logging.billingAccounts.exclusions.get({
 #### Output
 * output [LogExclusion](#logexclusion)
 
-### billingAccounts.exclusions.patch
+### exclusions.patch
 Changes one or more properties of an existing exclusion.
 
 
 ```js
-google_logging.billingAccounts.exclusions.patch({
+google_logging.exclusions.patch({
   "name": ""
 }, context)
 ```
@@ -365,12 +365,12 @@ google_logging.billingAccounts.exclusions.patch({
 #### Output
 * output [LogExclusion](#logexclusion)
 
-### billingAccounts.exclusions.list
+### exclusions.list
 Lists all the exclusions in a parent resource.
 
 
 ```js
-google_logging.billingAccounts.exclusions.list({
+google_logging.exclusions.list({
   "parent": ""
 }, context)
 ```
@@ -397,12 +397,12 @@ google_logging.billingAccounts.exclusions.list({
 #### Output
 * output [ListExclusionsResponse](#listexclusionsresponse)
 
-### billingAccounts.exclusions.create
+### exclusions.create
 Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource.
 
 
 ```js
-google_logging.billingAccounts.exclusions.create({
+google_logging.exclusions.create({
   "parent": ""
 }, context)
 ```
@@ -428,12 +428,12 @@ google_logging.billingAccounts.exclusions.create({
 #### Output
 * output [LogExclusion](#logexclusion)
 
-### billingAccounts.logs.list
+### folders.logs.list
 Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed.
 
 
 ```js
-google_logging.billingAccounts.logs.list({
+google_logging.folders.logs.list({
   "parent": ""
 }, context)
 ```
@@ -523,12 +523,12 @@ google_logging.projects.metrics.create({
 #### Output
 * output [LogMetric](#logmetric)
 
-### billingAccounts.sinks.list
+### folders.sinks.list
 Lists sinks.
 
 
 ```js
-google_logging.billingAccounts.sinks.list({
+google_logging.folders.sinks.list({
   "parent": ""
 }, context)
 ```
@@ -555,12 +555,12 @@ google_logging.billingAccounts.sinks.list({
 #### Output
 * output [ListSinksResponse](#listsinksresponse)
 
-### billingAccounts.sinks.create
+### folders.sinks.create
 Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
 
 
 ```js
-google_logging.billingAccounts.sinks.create({
+google_logging.folders.sinks.create({
   "parent": ""
 }, context)
 ```
@@ -587,12 +587,12 @@ google_logging.billingAccounts.sinks.create({
 #### Output
 * output [LogSink](#logsink)
 
-### billingAccounts.sinks.delete
+### folders.sinks.delete
 Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted.
 
 
 ```js
-google_logging.billingAccounts.sinks.delete({
+google_logging.folders.sinks.delete({
   "sinkName": ""
 }, context)
 ```
@@ -617,12 +617,12 @@ google_logging.billingAccounts.sinks.delete({
 #### Output
 * output [Empty](#empty)
 
-### billingAccounts.sinks.get
+### folders.sinks.get
 Gets a sink.
 
 
 ```js
-google_logging.billingAccounts.sinks.get({
+google_logging.folders.sinks.get({
   "sinkName": ""
 }, context)
 ```
@@ -647,12 +647,12 @@ google_logging.billingAccounts.sinks.get({
 #### Output
 * output [LogSink](#logsink)
 
-### billingAccounts.sinks.patch
+### folders.sinks.patch
 Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter. The updated sink might also have a new writer_identity; see the unique_writer_identity field.
 
 
 ```js
-google_logging.billingAccounts.sinks.patch({
+google_logging.folders.sinks.patch({
   "sinkName": ""
 }, context)
 ```
@@ -680,12 +680,12 @@ google_logging.billingAccounts.sinks.patch({
 #### Output
 * output [LogSink](#logsink)
 
-### billingAccounts.sinks.update
+### folders.sinks.update
 Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter. The updated sink might also have a new writer_identity; see the unique_writer_identity field.
 
 
 ```js
-google_logging.billingAccounts.sinks.update({
+google_logging.folders.sinks.update({
   "sinkName": ""
 }, context)
 ```
@@ -821,6 +821,7 @@ google_logging.billingAccounts.sinks.update({
   * jsonPayload `object`: The log entry payload, represented as a structure that is expressed as a JSON object.
   * labels `object`: Optional. A set of user-defined (key, value) data that provides additional information about the log entry.
   * logName `string`: Required. The resource name of the log to which this log entry belongs:
+  * metadata [MonitoredResourceMetadata](#monitoredresourcemetadata)
   * operation [LogEntryOperation](#logentryoperation)
   * protoPayload `object`: The log entry payload, represented as a protocol buffer. Some Google Cloud Platform services use this field for their log entry payloads.
   * receiveTimestamp `string`: Output only. The time the log entry was received by Stackdriver Logging.
@@ -829,7 +830,7 @@ google_logging.billingAccounts.sinks.update({
   * sourceLocation [LogEntrySourceLocation](#logentrysourcelocation)
   * spanId `string`: Optional. The span ID within the trace associated with the log entry. For Stackdriver Trace spans, this is the same format that the Stackdriver Trace API v2 uses: a 16-character hexadecimal encoding of an 8-byte array, such as <code>"000000000000004a"</code>.
   * textPayload `string`: The log entry payload, represented as a Unicode string (UTF-8).
-  * timestamp `string`: Optional. The time the event described by the log entry occurred. This time is used to compute the log entry's age and to enforce the logs retention period. If this field is omitted in a new log entry, then Stackdriver Logging assigns it the current time.Incoming log entries should have timestamps that are no more than the logs retention period in the past, and no more than 24 hours in the future. Log entries outside those time boundaries will not be available when calling entries.list, but those log entries can still be exported with LogSinks.
+  * timestamp `string`: Optional. The time the event described by the log entry occurred. This time is used to compute the log entry's age and to enforce the logs retention period. If this field is omitted in a new log entry, then Stackdriver Logging assigns it the current time. Timestamps have nanosecond accuracy, but trailing zeros in the fractional seconds might be omitted when the timestamp is displayed.Incoming log entries should have timestamps that are no more than the logs retention period in the past, and no more than 24 hours in the future. Log entries outside those time boundaries will not be available when calling entries.list, but those log entries can still be exported with LogSinks.
   * trace `string`: Optional. Resource name of the trace associated with the log entry, if any. If it contains a relative resource name, the name is assumed to be relative to //tracing.googleapis.com. Example: projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824
 
 ### LogEntryOperation
@@ -906,6 +907,11 @@ google_logging.billingAccounts.sinks.update({
     * items [LabelDescriptor](#labeldescriptor)
   * name `string`: Optional. The resource name of the monitored resource descriptor: "projects/{project_id}/monitoredResourceDescriptors/{type}" where {type} is the value of the type field in this object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not use project information can use the resource name format "monitoredResourceDescriptors/{type}".
   * type `string`: Required. The monitored resource type. For example, the type "cloudsql_database" represents databases in Google Cloud SQL. The maximum length of this value is 256 characters.
+
+### MonitoredResourceMetadata
+* MonitoredResourceMetadata `object`: Auxiliary metadata for a MonitoredResource object. MonitoredResource objects contain the minimum set of information to uniquely identify a monitored resource instance. There is some other useful auxiliary metadata. Google Stackdriver Monitoring & Logging uses an ingestion pipeline to extract metadata for cloud resources of all types , and stores the metadata in this message.
+  * systemLabels `object`: Output only. Values for predefined system metadata labels. System labels are a kind of metadata extracted by Google Stackdriver. Stackdriver determines what system labels are useful and how to obtain their values. Some examples: "machine_image", "vpc", "subnet_id", "security_group", "name", etc. System label values can be only strings, Boolean values, or a list of strings. For example:
+  * userLabels `object`: Output only. A map of user-defined metadata labels.
 
 ### RequestLog
 * RequestLog `object`: Complete log information about a single HTTP request to an App Engine application.

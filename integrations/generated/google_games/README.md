@@ -85,8 +85,8 @@ google_games.achievementDefinitions.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AchievementDefinitionsListResponse](#achievementdefinitionslistresponse)
@@ -107,8 +107,8 @@ google_games.achievements.updateMultiple({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AchievementUpdateMultipleResponse](#achievementupdatemultipleresponse)
@@ -134,8 +134,8 @@ google_games.achievements.increment({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AchievementIncrementResponse](#achievementincrementresponse)
@@ -158,8 +158,8 @@ google_games.achievements.reveal({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AchievementRevealResponse](#achievementrevealresponse)
@@ -184,8 +184,8 @@ google_games.achievements.setStepsAtLeast({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AchievementSetStepsAtLeastResponse](#achievementsetstepsatleastresponse)
@@ -208,8 +208,8 @@ google_games.achievements.unlock({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AchievementUnlockResponse](#achievementunlockresponse)
@@ -229,8 +229,8 @@ google_games.applications.played({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -255,8 +255,8 @@ google_games.applications.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Application](#application)
@@ -279,8 +279,8 @@ google_games.applications.verify({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ApplicationVerifyResponse](#applicationverifyresponse)
@@ -303,8 +303,8 @@ google_games.events.listDefinitions({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [EventDefinitionListResponse](#eventdefinitionlistresponse)
@@ -327,8 +327,8 @@ google_games.events.listByPlayer({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PlayerEventListResponse](#playereventlistresponse)
@@ -350,8 +350,8 @@ google_games.events.record({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [EventUpdateResponse](#eventupdateresponse)
@@ -374,8 +374,8 @@ google_games.leaderboards.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [LeaderboardListResponse](#leaderboardlistresponse)
@@ -397,8 +397,8 @@ google_games.scores.submitMultiple({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PlayerScoreListResponse](#playerscorelistresponse)
@@ -422,8 +422,8 @@ google_games.leaderboards.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Leaderboard](#leaderboard)
@@ -450,8 +450,8 @@ google_games.scores.submit({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PlayerScoreResponse](#playerscoreresponse)
@@ -481,8 +481,8 @@ google_games.scores.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [LeaderboardScores](#leaderboardscores)
@@ -514,8 +514,8 @@ google_games.scores.listWindow({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [LeaderboardScores](#leaderboardscores)
@@ -535,8 +535,8 @@ google_games.metagame.getMetagameConfig({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [MetagameConfig](#metagameconfig)
@@ -562,8 +562,8 @@ google_games.players.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PlayerListResponse](#playerlistresponse)
@@ -587,8 +587,8 @@ google_games.players.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Player](#player)
@@ -615,8 +615,8 @@ google_games.achievements.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PlayerAchievementListResponse](#playerachievementlistresponse)
@@ -644,8 +644,8 @@ google_games.metagame.listCategoriesByPlayer({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CategoryListResponse](#categorylistresponse)
@@ -677,8 +677,8 @@ google_games.scores.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PlayerLeaderboardScoreListResponse](#playerleaderboardscorelistresponse)
@@ -704,8 +704,8 @@ google_games.quests.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [QuestListResponse](#questlistresponse)
@@ -731,8 +731,8 @@ google_games.snapshots.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SnapshotListResponse](#snapshotlistresponse)
@@ -753,8 +753,8 @@ google_games.pushtokens.update({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -775,8 +775,8 @@ google_games.pushtokens.remove({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -800,8 +800,8 @@ google_games.quests.accept({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Quest](#quest)
@@ -828,8 +828,8 @@ google_games.questMilestones.claim({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -852,8 +852,8 @@ google_games.revisions.check({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RevisionCheckResponse](#revisioncheckresponse)
@@ -876,8 +876,8 @@ google_games.rooms.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RoomList](#roomlist)
@@ -899,8 +899,8 @@ google_games.rooms.create({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Room](#room)
@@ -924,8 +924,8 @@ google_games.rooms.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Room](#room)
@@ -949,8 +949,8 @@ google_games.rooms.decline({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Room](#room)
@@ -973,8 +973,8 @@ google_games.rooms.dismiss({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -999,8 +999,8 @@ google_games.rooms.join({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Room](#room)
@@ -1025,8 +1025,8 @@ google_games.rooms.leave({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Room](#room)
@@ -1051,8 +1051,8 @@ google_games.rooms.reportStatus({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RoomStatus](#roomstatus)
@@ -1076,8 +1076,8 @@ google_games.snapshots.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Snapshot](#snapshot)
@@ -1102,8 +1102,8 @@ google_games.turnBasedMatches.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatchList](#turnbasedmatchlist)
@@ -1125,8 +1125,8 @@ google_games.turnBasedMatches.create({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatch](#turnbasedmatch)
@@ -1151,8 +1151,8 @@ google_games.turnBasedMatches.sync({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatchSync](#turnbasedmatchsync)
@@ -1177,8 +1177,8 @@ google_games.turnBasedMatches.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatch](#turnbasedmatch)
@@ -1201,8 +1201,8 @@ google_games.turnBasedMatches.cancel({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -1226,8 +1226,8 @@ google_games.turnBasedMatches.decline({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatch](#turnbasedmatch)
@@ -1250,8 +1250,8 @@ google_games.turnBasedMatches.dismiss({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -1276,8 +1276,8 @@ google_games.turnBasedMatches.finish({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatch](#turnbasedmatch)
@@ -1301,8 +1301,8 @@ google_games.turnBasedMatches.join({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatch](#turnbasedmatch)
@@ -1326,8 +1326,8 @@ google_games.turnBasedMatches.leave({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatch](#turnbasedmatch)
@@ -1354,8 +1354,8 @@ google_games.turnBasedMatches.leaveTurn({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatch](#turnbasedmatch)
@@ -1380,8 +1380,8 @@ google_games.turnBasedMatches.rematch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatchRematch](#turnbasedmatchrematch)
@@ -1406,8 +1406,8 @@ google_games.turnBasedMatches.takeTurn({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TurnBasedMatch](#turnbasedmatch)

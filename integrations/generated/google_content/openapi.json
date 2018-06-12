@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Manages product items, inventory, and Merchant Center accounts for Google Shopping.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Content API for Shopping",
     "version": "v2",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/content/v2/rest",
@@ -52,21 +47,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/content": "Manage your product listings and accounts for Google Shopping"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/content": "Manage your product listings and accounts for Google Shopping"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -117,13 +102,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -149,7 +134,13 @@
       "name": "inventory"
     },
     {
+      "name": "liasettings"
+    },
+    {
       "name": "orders"
+    },
+    {
+      "name": "pos"
     },
     {
       "name": "products"
@@ -177,9 +168,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -266,9 +254,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -323,9 +308,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -389,9 +371,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -453,9 +432,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -510,9 +486,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -576,14 +549,73 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
         "tags": [
           "inventory"
+        ]
+      }
+    },
+    "/liasettings/batch": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Retrieves and/or updates the LIA settings of multiple accounts in a single request.",
+        "operationId": "liasettings.custombatch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LiasettingsCustomBatchRequest"
+            }
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiasettingsCustomBatchResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
         ]
       }
     },
@@ -635,14 +667,73 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
         "tags": [
           "orders"
+        ]
+      }
+    },
+    "/pos/batch": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Batches multiple POS-related calls in a single request.",
+        "operationId": "pos.custombatch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PosCustomBatchRequest"
+            }
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/PosCustomBatchResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "pos"
         ]
       }
     },
@@ -699,9 +790,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -765,9 +853,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -830,9 +915,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -877,9 +959,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -948,9 +1027,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1001,9 +1077,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1041,9 +1114,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -1119,9 +1189,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1172,9 +1239,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -1245,9 +1309,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1261,6 +1322,16 @@
         "description": "Lists the statuses of the sub-accounts in your Merchant Center account.",
         "operationId": "accountstatuses.list",
         "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "destinations",
+            "type": "array"
+          },
           {
             "description": "The maximum number of account statuses to return in the response, used for paging.",
             "in": "query",
@@ -1292,9 +1363,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -1340,6 +1408,16 @@
             "type": "string"
           },
           {
+            "collectionFormat": "multi",
+            "description": "If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "destinations",
+            "type": "array"
+          },
+          {
             "description": "The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.",
             "in": "path",
             "name": "merchantId",
@@ -1358,9 +1436,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -1430,9 +1505,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1495,9 +1567,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -1573,9 +1642,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1627,9 +1693,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1674,9 +1737,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -1745,9 +1805,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1791,9 +1848,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1831,9 +1885,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -1909,9 +1960,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -1963,8 +2011,74 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
+            ]
+          }
+        ],
+        "tags": [
+          "datafeeds"
+        ]
+      }
+    },
+    "/{merchantId}/datafeeds/{datafeedId}/fetchNow": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Invokes a fetch for the datafeed in your Merchant Center account.",
+        "operationId": "datafeeds.fetchnow",
+        "parameters": [
+          {
+            "description": "The ID of the datafeed to be fetched.",
+            "in": "path",
+            "name": "datafeedId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the account that manages the datafeed. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/DatafeedsFetchNowResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -2010,9 +2124,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -2088,9 +2199,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -2198,14 +2306,533 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
         "tags": [
           "inventory"
+        ]
+      }
+    },
+    "/{merchantId}/liasettings": {
+      "get": {
+        "description": "Lists the LIA settings of the sub-accounts in your Merchant Center account.",
+        "operationId": "liasettings.list",
+        "parameters": [
+          {
+            "description": "The maximum number of LIA settings to return in the response, used for paging.",
+            "in": "query",
+            "name": "maxResults",
+            "type": "integer"
+          },
+          {
+            "description": "The ID of the managing account. This must be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The token returned by the previous request.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiasettingsListResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ]
+    },
+    "/{merchantId}/liasettings/{accountId}": {
+      "get": {
+        "description": "Retrieves the LIA settings of the account.",
+        "operationId": "liasettings.get",
+        "parameters": [
+          {
+            "description": "The ID of the account for which to get or update LIA settings.",
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiaSettings"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "patch": {
+        "description": "Updates the LIA settings of the account. This method supports patch semantics.",
+        "operationId": "liasettings.patch",
+        "parameters": [
+          {
+            "description": "The ID of the account for which to get or update LIA settings.",
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LiaSettings"
+            }
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiaSettings"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
+        ]
+      },
+      "put": {
+        "description": "Updates the LIA settings of the account.",
+        "operationId": "liasettings.update",
+        "parameters": [
+          {
+            "description": "The ID of the account for which to get or update LIA settings.",
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LiaSettings"
+            }
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiaSettings"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
+        ]
+      }
+    },
+    "/{merchantId}/liasettings/{accountId}/accessiblegmbaccounts": {
+      "get": {
+        "description": "Retrieves the list of accessible Google My Business accounts.",
+        "operationId": "liasettings.getaccessiblegmbaccounts",
+        "parameters": [
+          {
+            "description": "The ID of the account for which to retrieve accessible Google My Business accounts.",
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiasettingsGetAccessibleGmbAccountsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ]
+    },
+    "/{merchantId}/liasettings/{accountId}/requestgmbaccess": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Requests access to a specified Google My Business account.",
+        "operationId": "liasettings.requestgmbaccess",
+        "parameters": [
+          {
+            "description": "The ID of the account for which GMB access is requested.",
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The email of the Google My Business account.",
+            "in": "query",
+            "name": "gmbEmail",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiasettingsRequestGmbAccessResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
+        ]
+      }
+    },
+    "/{merchantId}/liasettings/{accountId}/requestinventoryverification/{country}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Requests inventory validation for the specified country.",
+        "operationId": "liasettings.requestinventoryverification",
+        "parameters": [
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The country for which inventory validation is requested.",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiasettingsRequestInventoryVerificationResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
+        ]
+      }
+    },
+    "/{merchantId}/liasettings/{accountId}/setinventoryverificationcontact": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Sets the inventory verification contract for the specified country.",
+        "operationId": "liasettings.setinventoryverificationcontact",
+        "parameters": [
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The email of the inventory verification contact.",
+            "in": "query",
+            "name": "contactEmail",
+            "type": "string"
+          },
+          {
+            "description": "The name of the inventory verification contact.",
+            "in": "query",
+            "name": "contactName",
+            "type": "string"
+          },
+          {
+            "description": "The country for which inventory verification is requested.",
+            "in": "query",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "The language for which inventory verification is requested.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LiasettingsSetInventoryVerificationContactResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "liasettings"
         ]
       }
     },
@@ -2297,9 +2924,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -2362,9 +2986,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -2459,9 +3080,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -2531,9 +3149,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -2605,9 +3220,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -2677,9 +3289,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -2751,9 +3360,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -2823,9 +3429,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -2897,9 +3500,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -2969,9 +3569,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -3043,9 +3640,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3115,9 +3709,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -3189,9 +3780,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3261,9 +3849,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -3335,9 +3920,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3378,14 +3960,395 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
         "tags": [
           "orders"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ]
+    },
+    "/{merchantId}/pos/{targetMerchantId}/inventory": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Submit inventory for the given merchant.",
+        "operationId": "pos.inventory",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PosInventoryRequest"
+            }
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the POS or inventory data provider.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target merchant.",
+            "in": "path",
+            "name": "targetMerchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/PosInventoryResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "pos"
+        ]
+      }
+    },
+    "/{merchantId}/pos/{targetMerchantId}/sale": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Submit a sale event for the given merchant.",
+        "operationId": "pos.sale",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PosSaleRequest"
+            }
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the POS or inventory data provider.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target merchant.",
+            "in": "path",
+            "name": "targetMerchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/PosSaleResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "pos"
+        ]
+      }
+    },
+    "/{merchantId}/pos/{targetMerchantId}/store": {
+      "get": {
+        "description": "Lists the stores of the target merchant.",
+        "operationId": "pos.list",
+        "parameters": [
+          {
+            "description": "The ID of the POS or inventory data provider.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target merchant.",
+            "in": "path",
+            "name": "targetMerchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/PosListResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "pos"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Creates a store for the given merchant.",
+        "operationId": "pos.insert",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PosStore"
+            }
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the POS or inventory data provider.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target merchant.",
+            "in": "path",
+            "name": "targetMerchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/PosStore"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "pos"
+        ]
+      }
+    },
+    "/{merchantId}/pos/{targetMerchantId}/store/{storeCode}": {
+      "delete": {
+        "description": "Deletes a store for the given merchant.",
+        "operationId": "pos.delete",
+        "parameters": [
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the POS or inventory data provider.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A store code that is unique per merchant.",
+            "in": "path",
+            "name": "storeCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target merchant.",
+            "in": "path",
+            "name": "targetMerchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "pos"
+        ]
+      },
+      "get": {
+        "description": "Retrieves information about the given store.",
+        "operationId": "pos.get",
+        "parameters": [
+          {
+            "description": "The ID of the POS or inventory data provider.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A store code that is unique per merchant.",
+            "in": "path",
+            "name": "storeCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target merchant.",
+            "in": "path",
+            "name": "targetMerchantId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/PosStore"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "pos"
         ]
       },
       "parameters": [
@@ -3455,9 +4418,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3525,9 +4485,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3571,9 +4528,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3612,9 +4566,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3651,6 +4602,16 @@
         "description": "Lists the statuses of the products in your Merchant Center account.",
         "operationId": "productstatuses.list",
         "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "destinations",
+            "type": "array"
+          },
           {
             "description": "Flag to include full product data in the results of the list request. The default value is false.",
             "in": "query",
@@ -3695,9 +4656,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3735,6 +4693,16 @@
         "operationId": "productstatuses.get",
         "parameters": [
           {
+            "collectionFormat": "multi",
+            "description": "If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "destinations",
+            "type": "array"
+          },
+          {
             "description": "Flag to include full product data in the result of this get request. The default value is false.",
             "in": "query",
             "name": "includeAttributes",
@@ -3766,9 +4734,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -3838,9 +4803,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -3903,9 +4865,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -3981,9 +4940,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -4035,9 +4991,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -4070,9 +5023,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -4129,9 +5079,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -4219,9 +5166,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -4285,9 +5229,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/content"
             ]
           }
         ],
@@ -4333,9 +5274,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/content"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/content"
             ]
           }
@@ -4403,7 +5341,7 @@
           "type": "string"
         },
         "reviewsUrl": {
-          "description": "URL for individual seller reviews, i.e., reviews for each child account.",
+          "description": "[DEPRECATED] This field is never returned and will be ignored if provided.",
           "type": "string"
         },
         "sellerId": {
@@ -4448,7 +5386,7 @@
     "AccountGoogleMyBusinessLink": {
       "properties": {
         "gmbEmail": {
-          "description": "The GMB email address.",
+          "description": "The GMB email address of which a specific account within a GMB account. A sample account within a GMB account could be a business account with set of locations, managed under the GMB account.",
           "type": "string"
         },
         "status": {
@@ -4512,6 +5450,10 @@
           "description": "Country for which this issue is reported.",
           "type": "string"
         },
+        "destination": {
+          "description": "The destination the issue applies to.",
+          "type": "string"
+        },
         "detail": {
           "description": "Additional details about the issue.",
           "type": "string"
@@ -4535,6 +5477,10 @@
       "properties": {
         "country": {
           "description": "Country for which this issue is reported.",
+          "type": "string"
+        },
+        "destination": {
+          "description": "The destination the issue applies to.",
           "type": "string"
         },
         "detail": {
@@ -4842,6 +5788,13 @@
           "description": "An entry ID, unique within the batch request.",
           "format": "uint32",
           "type": "integer"
+        },
+        "destinations": {
+          "description": "If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "merchantId": {
           "description": "The ID of the managing account.",
@@ -5338,7 +6291,7 @@
           "description": "The data feed to insert."
         },
         "datafeedId": {
-          "description": "The ID of the data feed to get or delete.",
+          "description": "The ID of the data feed to get, delete or fetch.",
           "format": "uint64",
           "type": "string"
         },
@@ -5385,6 +6338,16 @@
         "errors": {
           "$ref": "#/definitions/Errors",
           "description": "A list of errors defined if and only if the request failed."
+        }
+      },
+      "type": "object"
+    },
+    "DatafeedsFetchNowResponse": {
+      "properties": {
+        "kind": {
+          "default": "content#datafeedsFetchNowResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#datafeedsFetchNowResponse\".",
+          "type": "string"
         }
       },
       "type": "object"
@@ -5566,6 +6529,45 @@
         },
         "message": {
           "description": "The message of the first error in errors.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GmbAccounts": {
+      "properties": {
+        "accountId": {
+          "description": "The ID of the account.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "gmbAccounts": {
+          "description": "A list of GMB accounts which are available to the merchant.",
+          "items": {
+            "$ref": "#/definitions/GmbAccountsGmbAccount"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "GmbAccountsGmbAccount": {
+      "properties": {
+        "email": {
+          "description": "The email which identifies the GMB account.",
+          "type": "string"
+        },
+        "listingCount": {
+          "description": "Number of listings under this account.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the GMB account.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the GMB account (User or Business).",
           "type": "string"
         }
       },
@@ -5873,6 +6875,291 @@
       },
       "type": "object"
     },
+    "LiaAboutPageSettings": {
+      "properties": {
+        "status": {
+          "description": "The status of the verification process for the About page.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The URL for the About page.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiaCountrySettings": {
+      "properties": {
+        "about": {
+          "$ref": "#/definitions/LiaAboutPageSettings",
+          "description": "The settings for the About page."
+        },
+        "country": {
+          "description": "CLDR country code (e.g. \"US\").",
+          "type": "string"
+        },
+        "hostedLocalStorefrontActive": {
+          "description": "The status of the \"Merchant hosted local storefront\" feature.",
+          "type": "boolean"
+        },
+        "inventory": {
+          "$ref": "#/definitions/LiaInventorySettings",
+          "description": "LIA inventory verification settings."
+        },
+        "onDisplayToOrder": {
+          "$ref": "#/definitions/LiaOnDisplayToOrderSettings",
+          "description": "LIA \"On Display To Order\" settings."
+        },
+        "storePickupActive": {
+          "description": "The status of the \"Store pickup\" feature.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "LiaInventorySettings": {
+      "properties": {
+        "inventoryVerificationContactEmail": {
+          "description": "The email of the contact for the inventory verification process.",
+          "type": "string"
+        },
+        "inventoryVerificationContactName": {
+          "description": "The name of the contact for the inventory verification process.",
+          "type": "string"
+        },
+        "inventoryVerificationContactStatus": {
+          "description": "The status of the verification contact.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the inventory verification process.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiaOnDisplayToOrderSettings": {
+      "properties": {
+        "shippingCostPolicyUrl": {
+          "description": "Shipping cost and policy URL.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the ?On display to order? feature.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiaSettings": {
+      "properties": {
+        "accountId": {
+          "description": "The ID of the account to which these LIA settings belong. Ignored upon update, always present in get request responses.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "countrySettings": {
+          "description": "The LIA settings for each country.",
+          "items": {
+            "$ref": "#/definitions/LiaCountrySettings"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "content#liaSettings",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liaSettings\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsCustomBatchRequest": {
+      "properties": {
+        "entries": {
+          "description": "The request entries to be processed in the batch.",
+          "items": {
+            "$ref": "#/definitions/LiasettingsCustomBatchRequestEntry"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsCustomBatchRequestEntry": {
+      "properties": {
+        "accountId": {
+          "description": "The ID of the account for which to get/update account shipping settings.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "batchId": {
+          "description": "An entry ID, unique within the batch request.",
+          "format": "uint32",
+          "type": "integer"
+        },
+        "contactEmail": {
+          "description": "Inventory validation contact email. Required only for SetInventoryValidationContact.",
+          "type": "string"
+        },
+        "contactName": {
+          "description": "Inventory validation contact name. Required only for SetInventoryValidationContact.",
+          "type": "string"
+        },
+        "country": {
+          "description": "The country code. Required only for RequestInventoryVerification.",
+          "type": "string"
+        },
+        "gmbEmail": {
+          "description": "The GMB account. Required only for RequestGmbAccess.",
+          "type": "string"
+        },
+        "liaSettings": {
+          "$ref": "#/definitions/LiaSettings",
+          "description": "The account Lia settings to update. Only defined if the method is update."
+        },
+        "merchantId": {
+          "description": "The ID of the managing account.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "posExternalAccountId": {
+          "description": "The account ID by which this merchant is known to the POS provider.",
+          "type": "string"
+        },
+        "posProviderId": {
+          "description": "The ID of POS provider. Required only for SetPosProvider.",
+          "format": "uint64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsCustomBatchResponse": {
+      "properties": {
+        "entries": {
+          "description": "The result of the execution of the batch requests.",
+          "items": {
+            "$ref": "#/definitions/LiasettingsCustomBatchResponseEntry"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "content#liasettingsCustomBatchResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liasettingsCustomBatchResponse\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsCustomBatchResponseEntry": {
+      "properties": {
+        "batchId": {
+          "description": "The ID of the request entry to which this entry responds.",
+          "format": "uint32",
+          "type": "integer"
+        },
+        "errors": {
+          "$ref": "#/definitions/Errors",
+          "description": "A list of errors defined if, and only if, the request failed."
+        },
+        "gmbAccounts": {
+          "$ref": "#/definitions/GmbAccounts",
+          "description": "The the list of accessible GMB accounts."
+        },
+        "kind": {
+          "default": "content#liasettingsCustomBatchResponseEntry",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liasettingsCustomBatchResponseEntry\".",
+          "type": "string"
+        },
+        "liaSettings": {
+          "$ref": "#/definitions/LiaSettings",
+          "description": "The retrieved or updated Lia settings."
+        },
+        "posProviders": {
+          "description": "The list of POS providers.",
+          "items": {
+            "$ref": "#/definitions/PosProviders"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsGetAccessibleGmbAccountsResponse": {
+      "properties": {
+        "accountId": {
+          "description": "The ID of the account.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "gmbAccounts": {
+          "description": "A list of GMB accounts which are available to the merchant.",
+          "items": {
+            "$ref": "#/definitions/GmbAccountsGmbAccount"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "content#liasettingsGetAccessibleGmbAccountsResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liasettingsGetAccessibleGmbAccountsResponse\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsListResponse": {
+      "properties": {
+        "kind": {
+          "default": "content#liasettingsListResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liasettingsListResponse\".",
+          "type": "string"
+        },
+        "nextPageToken": {
+          "description": "The token for the retrieval of the next page of LIA settings.",
+          "type": "string"
+        },
+        "resources": {
+          "items": {
+            "$ref": "#/definitions/LiaSettings"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsRequestGmbAccessResponse": {
+      "properties": {
+        "kind": {
+          "default": "content#liasettingsRequestGmbAccessResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liasettingsRequestGmbAccessResponse\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsRequestInventoryVerificationResponse": {
+      "properties": {
+        "kind": {
+          "default": "content#liasettingsRequestInventoryVerificationResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liasettingsRequestInventoryVerificationResponse\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LiasettingsSetInventoryVerificationContactResponse": {
+      "properties": {
+        "kind": {
+          "default": "content#liasettingsSetInventoryVerificationContactResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liasettingsSetInventoryVerificationContactResponse\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "LocationIdSet": {
       "properties": {
         "locationIds": {
@@ -6061,7 +7348,7 @@
           "type": "integer"
         },
         "reason": {
-          "description": "The reason for the cancellation. Orders that are cancelled with a noInventory reason will lead to the removal of the product from POG until you make an update to that product. This will not affect your Shopping ads.",
+          "description": "The reason for the cancellation. Orders that are cancelled with a noInventory reason will lead to the removal of the product from Shopping Actions until you make an update to that product. This will not affect your Shopping ads.",
           "type": "string"
         },
         "reasonText": {
@@ -6074,15 +7361,36 @@
     "OrderCustomer": {
       "properties": {
         "email": {
-          "description": "Email address of the customer.",
+          "description": "Email address that should be used for order related communications. In certain cases this might not be a real users email, but a proxy email.",
           "type": "string"
         },
         "explicitMarketingPreference": {
-          "description": "If set, this indicates the user explicitly chose to opt in or out of providing marketing rights to the merchant. If unset, this indicates the user has already made this choice in a previous purchase, and was thus not shown the marketing right opt in/out checkbox during the checkout flow.",
+          "description": "Deprecated. Please use marketingRightsInfo instead.",
           "type": "boolean"
         },
         "fullName": {
           "description": "Full name of the customer.",
+          "type": "string"
+        },
+        "marketingRightsInfo": {
+          "$ref": "#/definitions/OrderCustomerMarketingRightsInfo",
+          "description": "Customer's marketing preferences."
+        }
+      },
+      "type": "object"
+    },
+    "OrderCustomerMarketingRightsInfo": {
+      "properties": {
+        "explicitMarketingPreference": {
+          "description": "Last known user selection regarding marketing preferences. In certain cases this selection might not be known, so this field would be empty.",
+          "type": "string"
+        },
+        "lastUpdatedTimestamp": {
+          "description": "Timestamp when last time marketing preference was updated. Could be empty, if user wasn't offered a selection yet.",
+          "type": "string"
+        },
+        "marketingEmailAddress": {
+          "description": "Email address that can be used for marketing purposes. This field is only filled when explicitMarketingPreference is equal to 'granted'.",
           "type": "string"
         }
       },
@@ -7589,6 +8897,436 @@
       },
       "type": "object"
     },
+    "PosCustomBatchRequest": {
+      "properties": {
+        "entries": {
+          "description": "The request entries to be processed in the batch.",
+          "items": {
+            "$ref": "#/definitions/PosCustomBatchRequestEntry"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "PosCustomBatchRequestEntry": {
+      "properties": {
+        "batchId": {
+          "description": "An entry ID, unique within the batch request.",
+          "format": "uint32",
+          "type": "integer"
+        },
+        "inventory": {
+          "$ref": "#/definitions/PosInventory",
+          "description": "The inventory to submit. Set this only if the method is inventory."
+        },
+        "merchantId": {
+          "description": "The ID of the POS provider.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "sale": {
+          "$ref": "#/definitions/PosSale",
+          "description": "The sale information to submit. Set this only if the method is sale."
+        },
+        "store": {
+          "$ref": "#/definitions/PosStore",
+          "description": "The store information to submit. Set this only if the method is insert."
+        },
+        "storeCode": {
+          "description": "The store code. Set this only if the method is delete or get.",
+          "type": "string"
+        },
+        "targetMerchantId": {
+          "description": "The ID of the account for which to get/submit data.",
+          "format": "uint64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosCustomBatchResponse": {
+      "properties": {
+        "entries": {
+          "description": "The result of the execution of the batch requests.",
+          "items": {
+            "$ref": "#/definitions/PosCustomBatchResponseEntry"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "content#posCustomBatchResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posCustomBatchResponse\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosCustomBatchResponseEntry": {
+      "properties": {
+        "batchId": {
+          "description": "The ID of the request entry to which this entry responds.",
+          "format": "uint32",
+          "type": "integer"
+        },
+        "errors": {
+          "$ref": "#/definitions/Errors",
+          "description": "A list of errors defined if, and only if, the request failed."
+        },
+        "inventory": {
+          "$ref": "#/definitions/PosInventory",
+          "description": "The updated inventory information."
+        },
+        "kind": {
+          "default": "content#posCustomBatchResponseEntry",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posCustomBatchResponseEntry\".",
+          "type": "string"
+        },
+        "sale": {
+          "$ref": "#/definitions/PosSale",
+          "description": "The updated sale information."
+        },
+        "store": {
+          "$ref": "#/definitions/PosStore",
+          "description": "The retrieved or updated store information."
+        }
+      },
+      "type": "object"
+    },
+    "PosInventory": {
+      "description": "The absolute quantity of an item available at the given store.",
+      "properties": {
+        "contentLanguage": {
+          "description": "The two-letter ISO 639-1 language code for the item.",
+          "type": "string"
+        },
+        "gtin": {
+          "description": "Global Trade Item Number.",
+          "type": "string"
+        },
+        "itemId": {
+          "description": "A unique identifier for the item.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "content#posInventory",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posInventory\".",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price",
+          "description": "The current price of the item."
+        },
+        "quantity": {
+          "description": "The available quantity of the item.",
+          "format": "int64",
+          "type": "string"
+        },
+        "storeCode": {
+          "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+          "type": "string"
+        },
+        "targetCountry": {
+          "description": "The CLDR territory code for the item.",
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "The inventory timestamp, in ISO 8601 format.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosInventoryRequest": {
+      "properties": {
+        "contentLanguage": {
+          "description": "The two-letter ISO 639-1 language code for the item.",
+          "type": "string"
+        },
+        "gtin": {
+          "description": "Global Trade Item Number.",
+          "type": "string"
+        },
+        "itemId": {
+          "description": "A unique identifier for the item.",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price",
+          "description": "The current price of the item."
+        },
+        "quantity": {
+          "description": "The available quantity of the item.",
+          "format": "int64",
+          "type": "string"
+        },
+        "storeCode": {
+          "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+          "type": "string"
+        },
+        "targetCountry": {
+          "description": "The CLDR territory code for the item.",
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "The inventory timestamp, in ISO 8601 format.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosInventoryResponse": {
+      "properties": {
+        "contentLanguage": {
+          "description": "The two-letter ISO 639-1 language code for the item.",
+          "type": "string"
+        },
+        "gtin": {
+          "description": "Global Trade Item Number.",
+          "type": "string"
+        },
+        "itemId": {
+          "description": "A unique identifier for the item.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "content#posInventoryResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posInventoryResponse\".",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price",
+          "description": "The current price of the item."
+        },
+        "quantity": {
+          "description": "The available quantity of the item.",
+          "format": "int64",
+          "type": "string"
+        },
+        "storeCode": {
+          "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+          "type": "string"
+        },
+        "targetCountry": {
+          "description": "The CLDR territory code for the item.",
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "The inventory timestamp, in ISO 8601 format.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosListResponse": {
+      "properties": {
+        "kind": {
+          "default": "content#posListResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posListResponse\".",
+          "type": "string"
+        },
+        "resources": {
+          "items": {
+            "$ref": "#/definitions/PosStore"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "PosProviders": {
+      "properties": {
+        "country": {
+          "description": "Country code.",
+          "type": "string"
+        },
+        "posProviders": {
+          "description": "A list of POS providers.",
+          "items": {
+            "$ref": "#/definitions/PosProvidersPosProvider"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "PosProvidersPosProvider": {
+      "properties": {
+        "displayName": {
+          "description": "The display name of Pos Provider.",
+          "type": "string"
+        },
+        "fullName": {
+          "description": "The full name of this POS Provider.",
+          "type": "string"
+        },
+        "providerId": {
+          "description": "The ID of the account.",
+          "format": "uint64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosSale": {
+      "description": "The change of the available quantity of an item at the given store.",
+      "properties": {
+        "contentLanguage": {
+          "description": "The two-letter ISO 639-1 language code for the item.",
+          "type": "string"
+        },
+        "gtin": {
+          "description": "Global Trade Item Number.",
+          "type": "string"
+        },
+        "itemId": {
+          "description": "A unique identifier for the item.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "content#posSale",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posSale\".",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price",
+          "description": "The price of the item."
+        },
+        "quantity": {
+          "description": "The relative change of the available quantity. Negative for items sold.",
+          "format": "int64",
+          "type": "string"
+        },
+        "saleId": {
+          "description": "A unique ID to group items from the same sale event.",
+          "type": "string"
+        },
+        "storeCode": {
+          "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+          "type": "string"
+        },
+        "targetCountry": {
+          "description": "The CLDR territory code for the item.",
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "The inventory timestamp, in ISO 8601 format.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosSaleRequest": {
+      "properties": {
+        "contentLanguage": {
+          "description": "The two-letter ISO 639-1 language code for the item.",
+          "type": "string"
+        },
+        "gtin": {
+          "description": "Global Trade Item Number.",
+          "type": "string"
+        },
+        "itemId": {
+          "description": "A unique identifier for the item.",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price",
+          "description": "The price of the item."
+        },
+        "quantity": {
+          "description": "The relative change of the available quantity. Negative for items sold.",
+          "format": "int64",
+          "type": "string"
+        },
+        "saleId": {
+          "description": "A unique ID to group items from the same sale event.",
+          "type": "string"
+        },
+        "storeCode": {
+          "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+          "type": "string"
+        },
+        "targetCountry": {
+          "description": "The CLDR territory code for the item.",
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "The inventory timestamp, in ISO 8601 format.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosSaleResponse": {
+      "properties": {
+        "contentLanguage": {
+          "description": "The two-letter ISO 639-1 language code for the item.",
+          "type": "string"
+        },
+        "gtin": {
+          "description": "Global Trade Item Number.",
+          "type": "string"
+        },
+        "itemId": {
+          "description": "A unique identifier for the item.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "content#posSaleResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posSaleResponse\".",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price",
+          "description": "The price of the item."
+        },
+        "quantity": {
+          "description": "The relative change of the available quantity. Negative for items sold.",
+          "format": "int64",
+          "type": "string"
+        },
+        "saleId": {
+          "description": "A unique ID to group items from the same sale event.",
+          "type": "string"
+        },
+        "storeCode": {
+          "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+          "type": "string"
+        },
+        "targetCountry": {
+          "description": "The CLDR territory code for the item.",
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "The inventory timestamp, in ISO 8601 format.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PosStore": {
+      "description": "Store resource.",
+      "properties": {
+        "kind": {
+          "default": "content#posStore",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posStore\".",
+          "type": "string"
+        },
+        "storeAddress": {
+          "description": "The street address of the store.",
+          "type": "string"
+        },
+        "storeCode": {
+          "description": "A store identifier that is unique for the given merchant.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "PostalCodeGroup": {
       "properties": {
         "country": {
@@ -8176,6 +9914,10 @@
     },
     "ProductStatusDataQualityIssue": {
       "properties": {
+        "destination": {
+          "description": "The destination the issue applies to.",
+          "type": "string"
+        },
         "detail": {
           "description": "A more detailed error string.",
           "type": "string"
@@ -8242,8 +9984,20 @@
           "description": "The error code of the issue.",
           "type": "string"
         },
+        "description": {
+          "description": "A short issue description in English.",
+          "type": "string"
+        },
         "destination": {
           "description": "The destination the issue applies to.",
+          "type": "string"
+        },
+        "detail": {
+          "description": "A detailed issue description in English.",
+          "type": "string"
+        },
+        "documentation": {
+          "description": "The URL of a web page to help with resolving this issue.",
           "type": "string"
         },
         "resolution": {
@@ -8436,6 +10190,13 @@
           "format": "uint32",
           "type": "integer"
         },
+        "destinations": {
+          "description": "If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "includeAttributes": {
           "type": "boolean"
         },
@@ -8578,6 +10339,10 @@
         "deliveryTime": {
           "$ref": "#/definitions/DeliveryTime",
           "description": "Time spent in various aspects from order to the delivery of the product. Required."
+        },
+        "eligibility": {
+          "description": "Eligibility for this service.",
+          "type": "string"
         },
         "minimumOrderValue": {
           "$ref": "#/definitions/Price",
@@ -8840,11 +10605,28 @@
           "type": "string"
         },
         "explicitMarketingPreference": {
-          "description": "If set, this indicates the user explicitly chose to opt in or out of providing marketing rights to the merchant. If unset, this indicates the user has already made this choice in a previous purchase, and was thus not shown the marketing right opt in/out checkbox during the checkout flow. Optional.",
+          "description": "Deprecated. Please use marketingRightsInfo instead.",
           "type": "boolean"
         },
         "fullName": {
           "description": "Full name of the customer.",
+          "type": "string"
+        },
+        "marketingRightsInfo": {
+          "$ref": "#/definitions/TestOrderCustomerMarketingRightsInfo",
+          "description": "Customer's marketing preferences."
+        }
+      },
+      "type": "object"
+    },
+    "TestOrderCustomerMarketingRightsInfo": {
+      "properties": {
+        "explicitMarketingPreference": {
+          "description": "Last know user use selection regards marketing preferences. In certain cases selection might not be known, so this field would be empty.",
+          "type": "string"
+        },
+        "lastUpdatedTimestamp": {
+          "description": "Timestamp when last time marketing preference was updated. Could be empty, if user wasn't offered a selection yet.",
           "type": "string"
         }
       },

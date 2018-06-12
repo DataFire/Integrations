@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/web/resource-manager/Microsoft.Web/stable/2016-03-01/Provider.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2016-03-01/Provider.json",
         "version": "2.0"
       }
     ],
@@ -79,6 +79,15 @@
         "operationId": "Provider_GetAvailableStacks",
         "parameters": [
           {
+            "enum": [
+              "Windows",
+              "Linux"
+            ],
+            "in": "query",
+            "name": "osTypeSelected",
+            "type": "string"
+          },
+          {
             "$ref": "#/parameters/apiVersionParameter"
           }
         ],
@@ -86,14 +95,17 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object"
+              "$ref": "#/definitions/ApplicationStackCollection"
             }
           }
         },
         "summary": "Get available application frameworks and their versions",
         "tags": [
           "Provider"
-        ]
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
       }
     },
     "/providers/Microsoft.Web/operations": {
@@ -6052,6 +6064,15 @@
         "operationId": "Provider_GetAvailableStacksOnPrem",
         "parameters": [
           {
+            "enum": [
+              "Windows",
+              "Linux"
+            ],
+            "in": "query",
+            "name": "osTypeSelected",
+            "type": "string"
+          },
+          {
             "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
@@ -6062,16 +6083,116 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object"
+              "$ref": "#/definitions/ApplicationStackCollection"
             }
           }
         },
         "summary": "Get available application frameworks and their versions",
         "tags": [
           "Provider"
-        ]
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "ApplicationStack": {
+      "description": "Application stack.",
+      "properties": {
+        "dependency": {
+          "description": "Application stack dependency.",
+          "type": "string"
+        },
+        "display": {
+          "description": "Application stack display name.",
+          "type": "string"
+        },
+        "frameworks": {
+          "description": "List of frameworks associated with application stack.",
+          "items": {
+            "$ref": "#/definitions/ApplicationStack"
+          },
+          "type": "array"
+        },
+        "majorVersions": {
+          "description": "List of major versions available.",
+          "items": {
+            "$ref": "#/definitions/StackMajorVersion"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Application stack name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationStackCollection": {
+      "description": "Collection of Application Stacks",
+      "properties": {
+        "nextLink": {
+          "description": "Link to next page of resources.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "description": "Collection of resources.",
+          "items": {
+            "$ref": "#/definitions/ApplicationStack"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "StackMajorVersion": {
+      "description": "Application stack major version.",
+      "properties": {
+        "displayVersion": {
+          "description": "Application stack major version (display only).",
+          "type": "string"
+        },
+        "isDefault": {
+          "description": "<code>true</code> if this is the default major version; otherwise, <code>false</code>.",
+          "type": "boolean"
+        },
+        "minorVersions": {
+          "description": "Minor versions associated with the major version.",
+          "items": {
+            "$ref": "#/definitions/StackMinorVersion"
+          },
+          "type": "array"
+        },
+        "runtimeVersion": {
+          "description": "Application stack major version (runtime only).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StackMinorVersion": {
+      "description": "Application stack minor version.",
+      "properties": {
+        "displayVersion": {
+          "description": "Application stack minor version (display only).",
+          "type": "string"
+        },
+        "isDefault": {
+          "description": "<code>true</code> if this is the default minor version; otherwise, <code>false</code>.",
+          "type": "boolean"
+        },
+        "runtimeVersion": {
+          "description": "Application stack minor version (runtime only).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
 }

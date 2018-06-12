@@ -79,7 +79,7 @@ azure_apimanagement_apimtenant.TenantAccess_Update({
   * serviceName **required** `string`: The name of the API Management service.
   * parameters **required** [AccessInformationUpdateParameters](#accessinformationupdateparameters)
   * accessName **required** `string` (values: access): The identifier of the Access configuration.
-  * If-Match **required** `string`: The entity state (Etag) version of the property to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -341,14 +341,15 @@ azure_apimanagement_apimtenant.TenantConfiguration_Validate({
 * OperationResultContract `object`: Operation Result.
   * actionLog `array`: This property if only provided as part of the TenantConfiguration_Validate operation. It contains the log the entities which will be updated/created/deleted as part of the TenantConfiguration_Deploy operation.
     * items [OperationResultLogItemContract](#operationresultlogitemcontract)
-  * error `object`: Error Body contract.
-    * code `string`: Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.
-    * details `array`: The list of invalid fields send in request, in case of validation error.
-      * items `object`: Error Field contract.
-        * code `string`: Property level error code.
-        * message `string`: Human-readable representation of property-level error.
-        * target `string`: Property name.
-    * message `string`: Human-readable representation of the error.
+  * error `object`: Error Response.
+    * error `object`: Error Body contract.
+      * code `string`: Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.
+      * details `array`: The list of invalid fields send in request, in case of validation error.
+        * items `object`: Error Field contract.
+          * code `string`: Property level error code.
+          * message `string`: Human-readable representation of property-level error.
+          * target `string`: Property name.
+      * message `string`: Human-readable representation of the error.
   * id `string`: Operation result identifier.
   * resultInfo `string`: Optional result info.
   * started `string`: Start time of an async operation. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.

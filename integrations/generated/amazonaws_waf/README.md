@@ -328,6 +328,23 @@ amazonaws_waf.DeleteIPSet({
 #### Output
 * output [DeleteIPSetResponse](#deleteipsetresponse)
 
+### DeletePermissionPolicy
+
+
+
+```js
+amazonaws_waf.DeletePermissionPolicy({
+  "ResourceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+#### Output
+* output [DeletePermissionPolicyResponse](#deletepermissionpolicyresponse)
+
 ### DeleteRateBasedRule
 
 
@@ -580,6 +597,23 @@ amazonaws_waf.GetIPSet({
 
 #### Output
 * output [GetIPSetResponse](#getipsetresponse)
+
+### GetPermissionPolicy
+
+
+
+```js
+amazonaws_waf.GetPermissionPolicy({
+  "ResourceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+#### Output
+* output [GetPermissionPolicyResponse](#getpermissionpolicyresponse)
 
 ### GetRateBasedRule
 
@@ -1002,6 +1036,25 @@ amazonaws_waf.ListXssMatchSets({}, context)
 
 #### Output
 * output [ListXssMatchSetsResponse](#listxssmatchsetsresponse)
+
+### PutPermissionPolicy
+
+
+
+```js
+amazonaws_waf.PutPermissionPolicy({
+  "ResourceArn": "",
+  "Policy": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Policy **required** [PolicyString](#policystring)
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+#### Output
+* output [PutPermissionPolicyResponse](#putpermissionpolicyresponse)
 
 ### UpdateByteMatchSet
 
@@ -1483,6 +1536,13 @@ amazonaws_waf.UpdateXssMatchSet({
 * DeleteIPSetResponse `object`
   * ChangeToken [ChangeToken](#changetoken)
 
+### DeletePermissionPolicyRequest
+* DeletePermissionPolicyRequest `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+### DeletePermissionPolicyResponse
+* DeletePermissionPolicyResponse `object`
+
 ### DeleteRateBasedRuleRequest
 * DeleteRateBasedRuleRequest `object`
   * ChangeToken **required** [ChangeToken](#changetoken)
@@ -1646,6 +1706,14 @@ amazonaws_waf.UpdateXssMatchSet({
 ### GetIPSetResponse
 * GetIPSetResponse `object`
   * IPSet [IPSet](#ipset)
+
+### GetPermissionPolicyRequest
+* GetPermissionPolicyRequest `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+### GetPermissionPolicyResponse
+* GetPermissionPolicyResponse `object`
+  * Policy [PolicyString](#policystring)
 
 ### GetRateBasedRuleManagedKeysRequest
 * GetRateBasedRuleManagedKeysRequest `object`
@@ -1992,6 +2060,9 @@ amazonaws_waf.UpdateXssMatchSet({
 ### ParameterExceptionReason
 * ParameterExceptionReason `string` (values: INVALID_OPTION, ILLEGAL_COMBINATION)
 
+### PolicyString
+* PolicyString `string`
+
 ### PopulationSize
 * PopulationSize `integer`
 
@@ -2010,6 +2081,14 @@ amazonaws_waf.UpdateXssMatchSet({
 ### Predicates
 * Predicates `array`
   * items [Predicate](#predicate)
+
+### PutPermissionPolicyRequest
+* PutPermissionPolicyRequest `object`
+  * Policy **required** [PolicyString](#policystring)
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+### PutPermissionPolicyResponse
+* PutPermissionPolicyResponse `object`
 
 ### RateBasedRule
 * RateBasedRule `object`: <p>A <code>RateBasedRule</code> is identical to a regular <a>Rule</a>, with one addition: a <code>RateBasedRule</code> counts the number of requests that arrive from a specified IP address every five minutes. For example, based on recent requests that you've seen from an attacker, you might create a <code>RateBasedRule</code> that includes the following conditions: </p> <ul> <li> <p>The requests come from 192.0.2.44.</p> </li> <li> <p>They contain the value <code>BadBot</code> in the <code>User-Agent</code> header.</p> </li> </ul> <p>In the rule, you also define the rate limit as 15,000.</p> <p>Requests that meet both of these conditions and exceed 15,000 requests every five minutes trigger the rule's action (block or count), which is defined in the web ACL.</p>
@@ -2090,6 +2169,9 @@ amazonaws_waf.UpdateXssMatchSet({
 ### RegexPatternStrings
 * RegexPatternStrings `array`
   * items [RegexPatternString](#regexpatternstring)
+
+### ResourceArn
+* ResourceArn `string`
 
 ### ResourceId
 * ResourceId `string`
@@ -2401,6 +2483,10 @@ amazonaws_waf.UpdateXssMatchSet({
   * field [ParameterExceptionField](#parameterexceptionfield)
   * parameter [ParameterExceptionParameter](#parameterexceptionparameter)
   * reason [ParameterExceptionReason](#parameterexceptionreason)
+
+### WAFInvalidPermissionPolicyException
+* WAFInvalidPermissionPolicyException `object`: <p>The operation failed because the specified policy is not in the proper format. </p> <p>The policy is subject to the following restrictions:</p> <ul> <li> <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p> </li> <li> <p>The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>. </p> </li> <li> <p> <code>Effect</code> must specify <code>Allow</code>.</p> </li> <li> <p>The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code> or <code>waf-regional:UpdateWebACL</code>. Any extra or wildcard actions in the policy will be rejected.</p> </li> <li> <p>The policy cannot include a <code>Resource</code> parameter.</p> </li> <li> <p>The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.</p> </li> <li> <p>The user making the request must be the owner of the RuleGroup.</p> </li> <li> <p>Your policy must be composed using IAM Policy version 2012-10-17.</p> </li> </ul>
+  * message [errorMessage](#errormessage)
 
 ### WAFInvalidRegexPatternException
 * WAFInvalidRegexPatternException `object`: The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.

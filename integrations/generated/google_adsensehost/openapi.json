@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "AdSense Host",
     "version": "v4.1",
     "x-apiClientRegistration": {
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/adsensehost/v4.1/rest",
@@ -49,21 +44,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/adsensehost": "View and manage your AdSense host data and associated accounts"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/adsensehost": "View and manage your AdSense host data and associated accounts"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -115,13 +100,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -176,9 +161,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -235,9 +217,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -309,9 +288,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -374,9 +350,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -461,9 +434,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -539,9 +509,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -587,9 +554,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -634,9 +598,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -685,9 +646,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -732,9 +690,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -815,9 +770,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -951,9 +903,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1017,9 +966,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1075,9 +1021,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -1149,9 +1092,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1220,9 +1160,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1261,9 +1198,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1301,9 +1235,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -1345,9 +1276,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1385,9 +1313,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -1459,9 +1384,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1523,9 +1445,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1565,9 +1484,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -1655,9 +1571,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
@@ -1713,9 +1626,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }
@@ -1841,9 +1751,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adsensehost"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adsensehost"
             ]
           }

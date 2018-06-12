@@ -675,8 +675,7 @@ amazonaws_elasticloadbalancing.SetSecurityGroups({
 
 ```js
 amazonaws_elasticloadbalancing.SetSubnets({
-  "LoadBalancerArn": "",
-  "Subnets": []
+  "LoadBalancerArn": ""
 }, context)
 ```
 
@@ -684,7 +683,7 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * input `object`
   * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
   * SubnetMappings [SubnetMappings](#subnetmappings)
-  * Subnets **required** [Subnets](#subnets)
+  * Subnets [Subnets](#subnets)
 
 #### Output
 * output [SetSubnetsOutput](#setsubnetsoutput)
@@ -695,11 +694,17 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### Action
 * Action `object`: Information about an action.
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
+  * AuthenticateCognitoConfig [AuthenticateCognitoActionConfig](#authenticatecognitoactionconfig)
+  * AuthenticateOidcConfig [AuthenticateOidcActionConfig](#authenticateoidcactionconfig)
+  * Order [ActionOrder](#actionorder)
+  * TargetGroupArn [TargetGroupArn](#targetgrouparn)
   * Type **required** [ActionTypeEnum](#actiontypeenum)
 
+### ActionOrder
+* ActionOrder `integer`
+
 ### ActionTypeEnum
-* ActionTypeEnum `string` (values: forward)
+* ActionTypeEnum `string` (values: forward, authenticate-oidc, authenticate-cognito)
 
 ### Actions
 * Actions `array`
@@ -727,6 +732,106 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### AllocationIdNotFoundException
 * AllocationIdNotFoundException `object`: The specified allocation ID does not exist.
+
+### AuthenticateCognitoActionAuthenticationRequestExtraParams
+* AuthenticateCognitoActionAuthenticationRequestExtraParams `array`
+  * items `object`
+    * key [AuthenticateCognitoActionAuthenticationRequestParamName](#authenticatecognitoactionauthenticationrequestparamname)
+    * value [AuthenticateCognitoActionAuthenticationRequestParamValue](#authenticatecognitoactionauthenticationrequestparamvalue)
+
+### AuthenticateCognitoActionAuthenticationRequestParamName
+* AuthenticateCognitoActionAuthenticationRequestParamName `string`
+
+### AuthenticateCognitoActionAuthenticationRequestParamValue
+* AuthenticateCognitoActionAuthenticationRequestParamValue `string`
+
+### AuthenticateCognitoActionConditionalBehaviorEnum
+* AuthenticateCognitoActionConditionalBehaviorEnum `string` (values: deny, allow, authenticate)
+
+### AuthenticateCognitoActionConfig
+* AuthenticateCognitoActionConfig `object`: Request parameters to use when integrating with Amazon Cognito to authenticate users.
+  * AuthenticationRequestExtraParams [AuthenticateCognitoActionAuthenticationRequestExtraParams](#authenticatecognitoactionauthenticationrequestextraparams)
+  * OnUnauthenticatedRequest [AuthenticateCognitoActionConditionalBehaviorEnum](#authenticatecognitoactionconditionalbehaviorenum)
+  * Scope [AuthenticateCognitoActionScope](#authenticatecognitoactionscope)
+  * SessionCookieName [AuthenticateCognitoActionSessionCookieName](#authenticatecognitoactionsessioncookiename)
+  * SessionTimeout [AuthenticateCognitoActionSessionTimeout](#authenticatecognitoactionsessiontimeout)
+  * UserPoolArn **required** [AuthenticateCognitoActionUserPoolArn](#authenticatecognitoactionuserpoolarn)
+  * UserPoolClientId **required** [AuthenticateCognitoActionUserPoolClientId](#authenticatecognitoactionuserpoolclientid)
+  * UserPoolDomain **required** [AuthenticateCognitoActionUserPoolDomain](#authenticatecognitoactionuserpooldomain)
+
+### AuthenticateCognitoActionScope
+* AuthenticateCognitoActionScope `string`
+
+### AuthenticateCognitoActionSessionCookieName
+* AuthenticateCognitoActionSessionCookieName `string`
+
+### AuthenticateCognitoActionSessionTimeout
+* AuthenticateCognitoActionSessionTimeout `integer`
+
+### AuthenticateCognitoActionUserPoolArn
+* AuthenticateCognitoActionUserPoolArn `string`
+
+### AuthenticateCognitoActionUserPoolClientId
+* AuthenticateCognitoActionUserPoolClientId `string`
+
+### AuthenticateCognitoActionUserPoolDomain
+* AuthenticateCognitoActionUserPoolDomain `string`
+
+### AuthenticateOidcActionAuthenticationRequestExtraParams
+* AuthenticateOidcActionAuthenticationRequestExtraParams `array`
+  * items `object`
+    * key [AuthenticateOidcActionAuthenticationRequestParamName](#authenticateoidcactionauthenticationrequestparamname)
+    * value [AuthenticateOidcActionAuthenticationRequestParamValue](#authenticateoidcactionauthenticationrequestparamvalue)
+
+### AuthenticateOidcActionAuthenticationRequestParamName
+* AuthenticateOidcActionAuthenticationRequestParamName `string`
+
+### AuthenticateOidcActionAuthenticationRequestParamValue
+* AuthenticateOidcActionAuthenticationRequestParamValue `string`
+
+### AuthenticateOidcActionAuthorizationEndpoint
+* AuthenticateOidcActionAuthorizationEndpoint `string`
+
+### AuthenticateOidcActionClientId
+* AuthenticateOidcActionClientId `string`
+
+### AuthenticateOidcActionClientSecret
+* AuthenticateOidcActionClientSecret `string`
+
+### AuthenticateOidcActionConditionalBehaviorEnum
+* AuthenticateOidcActionConditionalBehaviorEnum `string` (values: deny, allow, authenticate)
+
+### AuthenticateOidcActionConfig
+* AuthenticateOidcActionConfig `object`: Request parameters when using an identity provider (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
+  * AuthenticationRequestExtraParams [AuthenticateOidcActionAuthenticationRequestExtraParams](#authenticateoidcactionauthenticationrequestextraparams)
+  * AuthorizationEndpoint **required** [AuthenticateOidcActionAuthorizationEndpoint](#authenticateoidcactionauthorizationendpoint)
+  * ClientId **required** [AuthenticateOidcActionClientId](#authenticateoidcactionclientid)
+  * ClientSecret **required** [AuthenticateOidcActionClientSecret](#authenticateoidcactionclientsecret)
+  * Issuer **required** [AuthenticateOidcActionIssuer](#authenticateoidcactionissuer)
+  * OnUnauthenticatedRequest [AuthenticateOidcActionConditionalBehaviorEnum](#authenticateoidcactionconditionalbehaviorenum)
+  * Scope [AuthenticateOidcActionScope](#authenticateoidcactionscope)
+  * SessionCookieName [AuthenticateOidcActionSessionCookieName](#authenticateoidcactionsessioncookiename)
+  * SessionTimeout [AuthenticateOidcActionSessionTimeout](#authenticateoidcactionsessiontimeout)
+  * TokenEndpoint **required** [AuthenticateOidcActionTokenEndpoint](#authenticateoidcactiontokenendpoint)
+  * UserInfoEndpoint **required** [AuthenticateOidcActionUserInfoEndpoint](#authenticateoidcactionuserinfoendpoint)
+
+### AuthenticateOidcActionIssuer
+* AuthenticateOidcActionIssuer `string`
+
+### AuthenticateOidcActionScope
+* AuthenticateOidcActionScope `string`
+
+### AuthenticateOidcActionSessionCookieName
+* AuthenticateOidcActionSessionCookieName `string`
+
+### AuthenticateOidcActionSessionTimeout
+* AuthenticateOidcActionSessionTimeout `integer`
+
+### AuthenticateOidcActionTokenEndpoint
+* AuthenticateOidcActionTokenEndpoint `string`
+
+### AuthenticateOidcActionUserInfoEndpoint
+* AuthenticateOidcActionUserInfoEndpoint `string`
 
 ### AvailabilityZone
 * AvailabilityZone `object`: Information about an Availability Zone.
@@ -1034,6 +1139,9 @@ amazonaws_elasticloadbalancing.SetSubnets({
 ### InvalidConfigurationRequestException
 * InvalidConfigurationRequestException `object`: The requested configuration is not valid.
 
+### InvalidLoadBalancerActionException
+* InvalidLoadBalancerActionException `object`: The requested action is not valid.
+
 ### InvalidSchemeException
 * InvalidSchemeException `object`: The requested scheme is not valid.
 
@@ -1044,7 +1152,7 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * InvalidSubnetException `object`: The specified subnet is out of available addresses.
 
 ### InvalidTargetException
-* InvalidTargetException `object`: The specified target does not exist or is not in the same VPC as the target group.
+* InvalidTargetException `object`: The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
 
 ### IpAddress
 * IpAddress `string`
@@ -1371,7 +1479,7 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * SetSubnetsInput `object`
   * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
   * SubnetMappings [SubnetMappings](#subnetmappings)
-  * Subnets **required** [Subnets](#subnets)
+  * Subnets [Subnets](#subnets)
 
 ### SetSubnetsOutput
 * SetSubnetsOutput `object`
@@ -1551,6 +1659,9 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### TargetTypeEnum
 * TargetTypeEnum `string` (values: instance, ip)
+
+### TooManyActionsException
+* TooManyActionsException `object`: You've reached the limit on the number of actions per rule.
 
 ### TooManyCertificatesException
 * TooManyCertificatesException `object`: You've reached the limit on the number of certificates per load balancer.

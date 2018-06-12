@@ -1,6 +1,6 @@
 {
   "name": "@datafire/aviationdata_systems",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for AviationData.Systems Airports API V1",
   "repository": {

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_storsimple8000series_storsimple",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for StorSimple8000SeriesManagementClient",
   "repository": {

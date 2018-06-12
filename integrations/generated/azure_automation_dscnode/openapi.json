@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/dscNode.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/dscNode.json",
         "version": "2.0"
       }
     ],
@@ -67,12 +67,15 @@
         "operationId": "AgentRegistrationInformation_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -150,7 +153,31 @@
         },
         "tags": [
           "AgentRegistrationInformation"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get Agent Registration Information": {
+            "parameters": {
+              "api-version": "2015-10-31",
+              "automationAccountName": "myAutomationAccount33",
+              "resourceGroupName": "rg",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "dscMetaConfiguration": "\r\n\tinstance of MSFT_WebDownloadManager as $MSFT_WebDownloadManager1ref\r\n\t{\r\n\tResourceID = \"[ConfigurationRepositoryWeb]AzureAutomationDSC\";\r\n\t SourceInfo = \"C:\\\\OaaS-RegistrationMetaConfig2.ps1::20::9::ConfigurationRepositoryWeb\";\r\n\t RegistrationKey = \"MDt********************************************************wEMg==\"; \r\n\t ServerURL = \"https://wcus-agentservice-prod-1.azure-automation.net/accounts/ea8cd428-7887-4020-883d-ec6c5f2c06c2\";\r\n\t};\r\n\r\n\tinstance of MSFT_WebResourceManager as $MSFT_WebResourceManager1ref\r\n\t{\r\n\t SourceInfo = \"C:\\\\OaaS-RegistrationMetaConfig2.ps1::27::9::ResourceRepositoryWeb\";\r\n\t ServerURL = \"https://wcus-agentservice-prod-1.azure-automation.net/accounts/ea8cd428-7887-4020-883d-ec6c5f2c06c2\";\r\n\t ResourceID = \"[ResourceRepositoryWeb]AzureAutomationDSC\";\r\n\t RegistrationKey = \"MDt********************************************************wEMg==\"; \r\n\t};\r\n\r\n\tinstance of MSFT_WebReportManager as $MSFT_WebReportManager1ref\r\n\t{\r\n\t SourceInfo = \"C:\\\\OaaS-RegistrationMetaConfig2.ps1::34::9::ReportServerWeb\";\r\n\t ServerURL = \"https://wcus-agentservice-prod-1.azure-automation.net/accounts/ea8cd428-7887-4020-883d-ec6c5f2c06c2\";\r\n\t ResourceID = \"[ReportServerWeb]AzureAutomationDSC\";\r\n\t RegistrationKey = \"MDt********************************************************wEMg==\"; \r\n\t};\r\n\r\n\tinstance of MSFT_DSCMetaConfiguration as $MSFT_DSCMetaConfiguration1ref\r\n\t{\r\n\t RefreshMode = \"Pull\";\r\n\t AllowModuleOverwrite = False;\r\n\t ActionAfterReboot = \"ContinueConfiguration\";\r\n\t RefreshFrequencyMins = 30;\r\n\t RebootNodeIfNeeded = False;\r\n\t ConfigurationModeFrequencyMins = 15;\r\n\t ConfigurationMode = \"ApplyAndMonitor\";\r\n\r\n\t  ResourceModuleManagers = {\r\n\t  $MSFT_WebResourceManager1ref  \r\n\t};\r\n\t  ReportManagers = {\r\n\t  $MSFT_WebReportManager1ref  \r\n\t };\r\n\t  ConfigurationDownloadManagers = {\r\n\t  $MSFT_WebDownloadManager1ref  \r\n\t };\r\n\t};\r\n\r\n\tinstance of OMI_ConfigurationDocument\r\n\t{\r\n\t Version=\"2.0.0\";\r\n\t MinimumCompatibleVersion = \"2.0.0\";\r\n\t CompatibleVersionAdditionalProperties= { \"MSFT_DSCMetaConfiguration:StatusRetentionTimeInDays\" };\r\n\t Author=\"azureautomation\";\r\n\t GenerationDate=\"04/17/2015 11:41:09\";\r\n\t GenerationHost=\"azureautomation-01\";\r\n\t Name=\"RegistrationMetaConfig\";\r\n\t};\r\n\t",
+                  "endpoint": "https://wcus-agentservice-prod-1.azure-automation.net/accounts/ea8cd428-7887-4020-883d-ec6c5f2c06c2",
+                  "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/agentRegistrationInformation/https://wcus-agentservice-prod-1.azure-automation.net/accounts/ea8cd428-7887-4020-883d-ec6c5f2c06c2",
+                  "keys": {
+                    "primary": "MDt********************************************************wEMg==",
+                    "secondary": "UM4A********************************************************66pg=="
+                  }
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/agentRegistrationInformation/regenerateKey": {
@@ -162,12 +189,15 @@
         "operationId": "AgentRegistrationInformation_RegenerateKey",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -185,10 +215,10 @@
               "description": "The parameters supplied to the regenerate keys operation.",
               "properties": {
                 "keyName": {
-                  "description": "Gets or sets the agent registration key name - Primary or Secondary.",
+                  "description": "Gets or sets the agent registration key name - primary or secondary.",
                   "enum": [
-                    "Primary",
-                    "Secondary"
+                    "primary",
+                    "secondary"
                   ],
                   "type": "string",
                   "x-ms-enum": {
@@ -286,7 +316,34 @@
         },
         "tags": [
           "AgentRegistrationInformation"
-        ]
+        ],
+        "x-ms-examples": {
+          "Regenerate the Primary Agent Registration Key": {
+            "parameters": {
+              "api-version": "2015-10-31",
+              "automationAccountName": "myAutomationAccount33",
+              "parameters": {
+                "keyName": "primary"
+              },
+              "resourceGroupName": "rg",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "dscMetaConfiguration": null,
+                  "endpoint": "https://wcus-agentservice-prod-1.azure-automation.net/accounts/ea8cd428-7887-4020-883d-ec6c5f2c06c2",
+                  "id": null,
+                  "keys": {
+                    "primary": "DXW********************************************************ZqnQ==",
+                    "secondary": "UM4A********************************************************66pg=="
+                  }
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/nodes": {
@@ -298,12 +355,15 @@
         "operationId": "DscNode_ListByAutomationAccount",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -338,115 +398,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list dsc nodes operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "Gets or sets the next link.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "Gets or sets a list of dsc nodes.",
-                  "items": {
-                    "allOf": [
-                      {
-                        "description": "The Resource definition.",
-                        "properties": {
-                          "id": {
-                            "description": "Resource Id",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "location": {
-                            "description": "Resource location",
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Resource name",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "tags": {
-                            "additionalProperties": {
-                              "type": "string"
-                            },
-                            "description": "Resource tags",
-                            "type": "object"
-                          },
-                          "type": {
-                            "description": "Resource type",
-                            "readOnly": true,
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "location"
-                        ],
-                        "x-ms-azure-resource": true
-                      }
-                    ],
-                    "description": "Definition of the dsc node type.",
-                    "properties": {
-                      "accountId": {
-                        "description": "Gets or sets the account id of the node.",
-                        "type": "string"
-                      },
-                      "etag": {
-                        "description": "Gets or sets the etag of the resource.",
-                        "type": "string"
-                      },
-                      "extensionHandler": {
-                        "description": "Gets or sets the list of extensionHandler properties for a Node.",
-                        "items": {
-                          "description": "The dsc extensionHandler property associated with the node",
-                          "properties": {
-                            "name": {
-                              "description": "Gets or sets the name of the extension handler.",
-                              "type": "string"
-                            },
-                            "version": {
-                              "description": "Gets or sets the version of the extension handler.",
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "type": "array"
-                      },
-                      "ip": {
-                        "description": "Gets or sets the ip of the node.",
-                        "type": "string"
-                      },
-                      "lastSeen": {
-                        "description": "Gets or sets the last seen time of the node.",
-                        "format": "date-time",
-                        "type": "string"
-                      },
-                      "nodeConfiguration": {
-                        "description": "The dsc nodeconfiguration property associated with the entity.",
-                        "properties": {
-                          "name": {
-                            "description": "Gets or sets the name of the dsc nodeconfiguration.",
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "nodeId": {
-                        "description": "Gets or sets the node id.",
-                        "type": "string"
-                      },
-                      "registrationTime": {
-                        "description": "Gets or sets the registration time of the node.",
-                        "format": "date-time",
-                        "type": "string"
-                      },
-                      "status": {
-                        "description": "Gets or sets the status of the node.",
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/DscNodeListResult"
             }
           },
           "default": {
@@ -515,12 +467,15 @@
         "operationId": "DscNode_Delete",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Automation account name.",
@@ -555,102 +510,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "description": "The Resource definition.",
-                  "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "tags": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
-                }
-              ],
-              "description": "Definition of the dsc node type.",
-              "properties": {
-                "accountId": {
-                  "description": "Gets or sets the account id of the node.",
-                  "type": "string"
-                },
-                "etag": {
-                  "description": "Gets or sets the etag of the resource.",
-                  "type": "string"
-                },
-                "extensionHandler": {
-                  "description": "Gets or sets the list of extensionHandler properties for a Node.",
-                  "items": {
-                    "description": "The dsc extensionHandler property associated with the node",
-                    "properties": {
-                      "name": {
-                        "description": "Gets or sets the name of the extension handler.",
-                        "type": "string"
-                      },
-                      "version": {
-                        "description": "Gets or sets the version of the extension handler.",
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "type": "array"
-                },
-                "ip": {
-                  "description": "Gets or sets the ip of the node.",
-                  "type": "string"
-                },
-                "lastSeen": {
-                  "description": "Gets or sets the last seen time of the node.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "nodeConfiguration": {
-                  "description": "The dsc nodeconfiguration property associated with the entity.",
-                  "properties": {
-                    "name": {
-                      "description": "Gets or sets the name of the dsc nodeconfiguration.",
-                      "type": "string"
-                    }
-                  }
-                },
-                "nodeId": {
-                  "description": "Gets or sets the node id.",
-                  "type": "string"
-                },
-                "registrationTime": {
-                  "description": "Gets or sets the registration time of the node.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "status": {
-                  "description": "Gets or sets the status of the node.",
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/DscNode"
             }
           },
           "default": {
@@ -673,7 +533,21 @@
         },
         "tags": [
           "DscNode"
-        ]
+        ],
+        "x-ms-examples": {
+          "Delete a DSC Node": {
+            "parameters": {
+              "api-version": "2015-10-31",
+              "automationAccountName": "myAutomationAccount9",
+              "nodeId": "e1243a76-a9bd-432f-bde3-ad8f317ee786",
+              "resourceGroupName": "rg",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {}
+            }
+          }
+        }
       },
       "get": {
         "description": "Retrieve the dsc node identified by node id.",
@@ -683,12 +557,15 @@
         "operationId": "DscNode_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -723,102 +600,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "description": "The Resource definition.",
-                  "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "tags": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
-                }
-              ],
-              "description": "Definition of the dsc node type.",
-              "properties": {
-                "accountId": {
-                  "description": "Gets or sets the account id of the node.",
-                  "type": "string"
-                },
-                "etag": {
-                  "description": "Gets or sets the etag of the resource.",
-                  "type": "string"
-                },
-                "extensionHandler": {
-                  "description": "Gets or sets the list of extensionHandler properties for a Node.",
-                  "items": {
-                    "description": "The dsc extensionHandler property associated with the node",
-                    "properties": {
-                      "name": {
-                        "description": "Gets or sets the name of the extension handler.",
-                        "type": "string"
-                      },
-                      "version": {
-                        "description": "Gets or sets the version of the extension handler.",
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "type": "array"
-                },
-                "ip": {
-                  "description": "Gets or sets the ip of the node.",
-                  "type": "string"
-                },
-                "lastSeen": {
-                  "description": "Gets or sets the last seen time of the node.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "nodeConfiguration": {
-                  "description": "The dsc nodeconfiguration property associated with the entity.",
-                  "properties": {
-                    "name": {
-                      "description": "Gets or sets the name of the dsc nodeconfiguration.",
-                      "type": "string"
-                    }
-                  }
-                },
-                "nodeId": {
-                  "description": "Gets or sets the node id.",
-                  "type": "string"
-                },
-                "registrationTime": {
-                  "description": "Gets or sets the registration time of the node.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "status": {
-                  "description": "Gets or sets the status of the node.",
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/DscNode"
             }
           },
           "default": {
@@ -879,12 +661,15 @@
         "operationId": "DscNode_Update",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -943,102 +728,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "description": "The Resource definition.",
-                  "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "tags": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
-                }
-              ],
-              "description": "Definition of the dsc node type.",
-              "properties": {
-                "accountId": {
-                  "description": "Gets or sets the account id of the node.",
-                  "type": "string"
-                },
-                "etag": {
-                  "description": "Gets or sets the etag of the resource.",
-                  "type": "string"
-                },
-                "extensionHandler": {
-                  "description": "Gets or sets the list of extensionHandler properties for a Node.",
-                  "items": {
-                    "description": "The dsc extensionHandler property associated with the node",
-                    "properties": {
-                      "name": {
-                        "description": "Gets or sets the name of the extension handler.",
-                        "type": "string"
-                      },
-                      "version": {
-                        "description": "Gets or sets the version of the extension handler.",
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "type": "array"
-                },
-                "ip": {
-                  "description": "Gets or sets the ip of the node.",
-                  "type": "string"
-                },
-                "lastSeen": {
-                  "description": "Gets or sets the last seen time of the node.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "nodeConfiguration": {
-                  "description": "The dsc nodeconfiguration property associated with the entity.",
-                  "properties": {
-                    "name": {
-                      "description": "Gets or sets the name of the dsc nodeconfiguration.",
-                      "type": "string"
-                    }
-                  }
-                },
-                "nodeId": {
-                  "description": "Gets or sets the node id.",
-                  "type": "string"
-                },
-                "registrationTime": {
-                  "description": "Gets or sets the registration time of the node.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "status": {
-                  "description": "Gets or sets the status of the node.",
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/DscNode"
             }
           },
           "default": {
@@ -1088,7 +778,8 @@
                     "name": "SetupServer.localhost"
                   },
                   "nodeId": "nodeId",
-                  "registrationTime": "2017-03-28T20:19:24.7915026+00:00"
+                  "registrationTime": "2017-03-28T20:19:24.7915026+00:00",
+                  "status": null
                 },
                 "headers": {}
               }
@@ -1106,12 +797,15 @@
         "operationId": "NodeReports_ListByNode",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -1171,7 +865,8 @@
                       "endTime": {
                         "description": "Gets or sets the end time of the node report.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "errors": {
                         "description": "Gets or sets the errors for the node report.",
@@ -1231,7 +926,8 @@
                       "lastModifiedTime": {
                         "description": "Gets or sets the lastModifiedTime of the node report.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": "string",
+                        "x-nullable": false
                       },
                       "metaConfiguration": {
                         "description": "Definition of the DSC Meta Configuration.",
@@ -1343,7 +1039,8 @@
                             "startDate": {
                               "description": "Gets or sets the start date of the resource.",
                               "format": "date-time",
-                              "type": "string"
+                              "type": "string",
+                              "x-nullable": false
                             },
                             "status": {
                               "description": "Gets or sets the status of the resource.",
@@ -1356,7 +1053,8 @@
                       "startTime": {
                         "description": "Gets or sets the start time of the node report.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "status": {
                         "description": "Gets or sets the status of the node report.",
@@ -1663,12 +1361,15 @@
         "operationId": "NodeReports_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -1719,7 +1420,8 @@
                 "endTime": {
                   "description": "Gets or sets the end time of the node report.",
                   "format": "date-time",
-                  "type": "string"
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "errors": {
                   "description": "Gets or sets the errors for the node report.",
@@ -1779,7 +1481,8 @@
                 "lastModifiedTime": {
                   "description": "Gets or sets the lastModifiedTime of the node report.",
                   "format": "date-time",
-                  "type": "string"
+                  "type": "string",
+                  "x-nullable": false
                 },
                 "metaConfiguration": {
                   "description": "Definition of the DSC Meta Configuration.",
@@ -1891,7 +1594,8 @@
                       "startDate": {
                         "description": "Gets or sets the start date of the resource.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": "string",
+                        "x-nullable": false
                       },
                       "status": {
                         "description": "Gets or sets the status of the resource.",
@@ -1904,7 +1608,8 @@
                 "startTime": {
                   "description": "Gets or sets the start time of the node report.",
                   "format": "date-time",
-                  "type": "string"
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "status": {
                   "description": "Gets or sets the status of the node report.",
@@ -1979,6 +1684,7 @@
                     "refreshFrequencyMins": 30
                   },
                   "numberOfResources": 1,
+                  "rawErrors": null,
                   "rebootRequested": "False",
                   "refreshMode": "Pull",
                   "reportFormatVersion": "2.0",
@@ -1987,6 +1693,7 @@
                     {
                       "dependsOn": [],
                       "durationInSeconds": 0.25,
+                      "error": null,
                       "moduleName": "PsDesiredStateConfiguration",
                       "moduleVersion": "1.1",
                       "resourceId": "[WindowsFeature]IIS",
@@ -2016,12 +1723,15 @@
         "operationId": "NodeReports_GetContent",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -2063,7 +1773,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "file"
+              "type": "object"
             }
           },
           "default": {
@@ -2345,5 +2055,113 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "DscNode": {
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "description": "The core properties of ARM resources",
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+        }
+      ],
+      "description": "Definition of the dsc node type.",
+      "properties": {
+        "accountId": {
+          "description": "Gets or sets the account id of the node.",
+          "type": "string"
+        },
+        "etag": {
+          "description": "Gets or sets the etag of the resource.",
+          "type": "string"
+        },
+        "extensionHandler": {
+          "description": "Gets or sets the list of extensionHandler properties for a Node.",
+          "items": {
+            "description": "The dsc extensionHandler property associated with the node",
+            "properties": {
+              "name": {
+                "description": "Gets or sets the name of the extension handler.",
+                "type": "string"
+              },
+              "version": {
+                "description": "Gets or sets the version of the extension handler.",
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        },
+        "ip": {
+          "description": "Gets or sets the ip of the node.",
+          "type": "string"
+        },
+        "lastSeen": {
+          "description": "Gets or sets the last seen time of the node.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "nodeConfiguration": {
+          "description": "The dsc nodeconfiguration property associated with the entity.",
+          "properties": {
+            "name": {
+              "description": "Gets or sets the name of the dsc nodeconfiguration.",
+              "type": "string"
+            }
+          }
+        },
+        "nodeId": {
+          "description": "Gets or sets the node id.",
+          "type": "string"
+        },
+        "registrationTime": {
+          "description": "Gets or sets the registration time of the node.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "status": {
+          "description": "Gets or sets the status of the node.",
+          "type": "string"
+        }
+      }
+    },
+    "DscNodeListResult": {
+      "description": "The response model for the list dsc nodes operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Gets or sets the next link.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Gets or sets a list of dsc nodes.",
+          "items": {
+            "$ref": "#/definitions/DscNode"
+          },
+          "type": "array"
+        }
+      }
+    }
+  }
 }

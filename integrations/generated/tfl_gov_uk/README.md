@@ -39,7 +39,7 @@ tfl_gov_uk.AccidentStats_Get({
 
 #### Output
 * output `array`
-  * items [AccidentDetail](#accidentdetail)
+  * items [Tfl.Api.Presentation.Entities.AccidentStats.AccidentDetail](#tfl.api.presentation.entities.accidentstats.accidentdetail)
 
 ### AirQuality_Get
 Gets air quality data feed
@@ -53,7 +53,7 @@ tfl_gov_uk.AirQuality_Get(null, context)
 *This action has no parameters*
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### BikePoint_GetAll
 Gets all bike point locations. The Place object has an addtionalProperties array which contains the nbBikes, nbDocks and nbSpaces
@@ -69,7 +69,7 @@ tfl_gov_uk.BikePoint_GetAll(null, context)
 
 #### Output
 * output `array`
-  * items [Place](#place)
+  * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### BikePoint_Search
 Search for bike stations by their name, a bike point's name often contains information about the name of the street
@@ -89,7 +89,7 @@ tfl_gov_uk.BikePoint_Search({
 
 #### Output
 * output `array`
-  * items [Place](#place)
+  * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### BikePoint_Get
 Gets the bike point with the given id.
@@ -106,7 +106,7 @@ tfl_gov_uk.BikePoint_Get({
   * id **required** `string`: A bike point id (a list of ids can be obtained from the above BikePoint call)
 
 #### Output
-* output [Place](#place)
+* output [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### Cabwise_Get
 Gets taxis and minicabs contact information
@@ -133,7 +133,7 @@ tfl_gov_uk.Cabwise_Get({
   * twentyFourSevenOnly `boolean`: Twenty Four Seven Only
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### Journey_JourneyResults
 Perform a Journey Planner search from the parameters specified in simple types
@@ -175,7 +175,7 @@ tfl_gov_uk.Journey_JourneyResults({
   * taxiOnlyTrip `boolean`: A boolean to indicate whether to return one or more taxi journeys. Note, setting this to true will override "useMultiModalCall".
 
 #### Output
-* output [ItineraryResult](#itineraryresult)
+* output [Tfl.Api.Presentation.Entities.JourneyPlanner.ItineraryResult](#tfl.api.presentation.entities.journeyplanner.itineraryresult)
 
 ### Journey_Meta
 Gets a list of all of the available journey planner modes
@@ -190,7 +190,7 @@ tfl_gov_uk.Journey_Meta(null, context)
 
 #### Output
 * output `array`
-  * items [Mode](#mode)
+  * items [Tfl.Api.Presentation.Entities.Mode](#tfl.api.presentation.entities.mode)
 
 ### Line_MetaDisruptionCategories
 Gets a list of valid disruption categories
@@ -220,7 +220,7 @@ tfl_gov_uk.Line_MetaModes(null, context)
 
 #### Output
 * output `array`
-  * items [Mode](#mode)
+  * items [Tfl.Api.Presentation.Entities.Mode](#tfl.api.presentation.entities.mode)
 
 ### Line_MetaServiceTypes
 Gets a list of valid ServiceTypes to filter on
@@ -250,7 +250,7 @@ tfl_gov_uk.Line_MetaSeverity(null, context)
 
 #### Output
 * output `array`
-  * items [StatusSeverity](#statusseverity)
+  * items [Tfl.Api.Presentation.Entities.StatusSeverity](#tfl.api.presentation.entities.statusseverity)
 
 ### Line_GetByMode
 Gets lines that serve the given modes.
@@ -268,7 +268,7 @@ tfl_gov_uk.Line_GetByMode({
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_DisruptionByMode
 Get disruptions for all lines of the given modes.
@@ -286,7 +286,7 @@ tfl_gov_uk.Line_DisruptionByMode({
 
 #### Output
 * output `array`
-  * items [Disruption](#disruption)
+  * items [Tfl.Api.Presentation.Entities.Disruption](#tfl.api.presentation.entities.disruption)
 
 ### Line_RouteByMode
 Gets all lines and their valid routes for given modes, including the name and id of the originating and terminating stops for each route
@@ -305,7 +305,7 @@ tfl_gov_uk.Line_RouteByMode({
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_StatusByMode
 Gets the line status of for all lines for the given modes
@@ -324,7 +324,7 @@ tfl_gov_uk.Line_StatusByMode({
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_Route
 Get all valid routes for all lines, including the name and id of the originating and terminating stops for each route.
@@ -340,7 +340,7 @@ tfl_gov_uk.Line_Route({}, context)
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_Search
 Search for lines or routes matching the query string
@@ -359,7 +359,7 @@ tfl_gov_uk.Line_Search({
   * serviceTypes `array`: A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
 
 #### Output
-* output [RouteSearchResponse](#routesearchresponse)
+* output [Tfl.Api.Presentation.Entities.RouteSearchResponse](#tfl.api.presentation.entities.routesearchresponse)
 
 ### Line_StatusBySeverity
 Gets the line status for all lines with a given severity
@@ -378,7 +378,7 @@ tfl_gov_uk.Line_StatusBySeverity({
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_Get
 Gets lines that match the specified line ids.
@@ -396,7 +396,7 @@ tfl_gov_uk.Line_Get({
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_Arrivals
 Get the list of arrival predictions for given line ids based at the given stop
@@ -418,7 +418,7 @@ tfl_gov_uk.Line_Arrivals({
 
 #### Output
 * output `array`
-  * items [Prediction](#prediction)
+  * items [Tfl.Api.Presentation.Entities.Prediction](#tfl.api.presentation.entities.prediction)
 
 ### Line_Disruption
 Get disruptions for the given line ids
@@ -436,7 +436,7 @@ tfl_gov_uk.Line_Disruption({
 
 #### Output
 * output `array`
-  * items [Disruption](#disruption)
+  * items [Tfl.Api.Presentation.Entities.Disruption](#tfl.api.presentation.entities.disruption)
 
 ### Line_LineRoutesByIds
 Get all valid routes for given line ids, including the name and id of the originating and terminating stops for each route.
@@ -455,7 +455,7 @@ tfl_gov_uk.Line_LineRoutesByIds({
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_StatusByIds
 Gets the line status of for given line ids e.g Minor Delays
@@ -474,7 +474,7 @@ tfl_gov_uk.Line_StatusByIds({
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_Status
 Gets the line status for given line ids during the provided dates e.g Minor Delays
@@ -503,7 +503,7 @@ tfl_gov_uk.Line_Status({
 
 #### Output
 * output `array`
-  * items [Line](#line)
+  * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
 
 ### Line_RouteSequence
 Gets all valid routes for given line id, including the sequence of stops on each route.
@@ -524,7 +524,7 @@ tfl_gov_uk.Line_RouteSequence({
   * excludeCrowding `boolean`: That excludes crowding from line disruptions. Can be true or false.
 
 #### Output
-* output [RouteSequence](#routesequence)
+* output [Tfl.Api.Presentation.Entities.RouteSequence](#tfl.api.presentation.entities.routesequence)
 
 ### Line_StopPoints
 Gets a list of the stations that serve the given line id
@@ -543,7 +543,7 @@ tfl_gov_uk.Line_StopPoints({
 
 #### Output
 * output `array`
-  * items [StopPoint](#stoppoint)
+  * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
 
 ### Line_Timetable
 Gets the timetable for a specified station on the give line
@@ -562,7 +562,7 @@ tfl_gov_uk.Line_Timetable({
   * id **required** `string`: A single line id e.g. victoria
 
 #### Output
-* output [TimetableResponse](#timetableresponse)
+* output [Tfl.Api.Presentation.Entities.TimetableResponse](#tfl.api.presentation.entities.timetableresponse)
 
 ### Line_TimetableTo
 Gets the timetable for a specified station on the give line with specified destination
@@ -583,7 +583,7 @@ tfl_gov_uk.Line_TimetableTo({
   * toStopPointId **required** `string`: The destination stations's Naptan code
 
 #### Output
-* output [TimetableResponse](#timetableresponse)
+* output [Tfl.Api.Presentation.Entities.TimetableResponse](#tfl.api.presentation.entities.timetableresponse)
 
 ### Mode_GetActiveServiceTypes
 Returns the service type active for a mode.
@@ -599,7 +599,7 @@ tfl_gov_uk.Mode_GetActiveServiceTypes(null, context)
 
 #### Output
 * output `array`
-  * items [ActiveServiceType](#activeservicetype)
+  * items [Tfl.Api.Presentation.Entities.ActiveServiceType](#tfl.api.presentation.entities.activeservicetype)
 
 ### Mode_Arrivals
 Gets the next arrival predictions for all stops of a given mode
@@ -618,7 +618,7 @@ tfl_gov_uk.Mode_Arrivals({
 
 #### Output
 * output `array`
-  * items [Prediction](#prediction)
+  * items [Tfl.Api.Presentation.Entities.Prediction](#tfl.api.presentation.entities.prediction)
 
 ### Occupancy_GetBikePointsOccupancies
 Get the occupancy for bike points.
@@ -636,7 +636,7 @@ tfl_gov_uk.Occupancy_GetBikePointsOccupancies({
 
 #### Output
 * output `array`
-  * items [BikePointOccupancy](#bikepointoccupancy)
+  * items [Tfl.Api.Presentation.Entities.BikePointOccupancy](#tfl.api.presentation.entities.bikepointoccupancy)
 
 ### Occupancy.CarPark.get
 Gets the occupancy for all car parks that have occupancy data
@@ -651,7 +651,7 @@ tfl_gov_uk.Occupancy.CarPark.get(null, context)
 
 #### Output
 * output `array`
-  * items [CarParkOccupancy](#carparkoccupancy)
+  * items [Tfl.Api.Presentation.Entities.CarParkOccupancy](#tfl.api.presentation.entities.carparkoccupancy)
 
 ### Occupancy.CarPark.id.get
 Gets the occupancy for a car park with a given id
@@ -668,7 +668,7 @@ tfl_gov_uk.Occupancy.CarPark.id.get({
   * id **required** `string`
 
 #### Output
-* output [CarParkOccupancy](#carparkoccupancy)
+* output [Tfl.Api.Presentation.Entities.CarParkOccupancy](#tfl.api.presentation.entities.carparkoccupancy)
 
 ### Occupancy_GetAllChargeConnectorStatus
 Gets the occupancy for all charge connectors
@@ -683,7 +683,7 @@ tfl_gov_uk.Occupancy_GetAllChargeConnectorStatus(null, context)
 
 #### Output
 * output `array`
-  * items [ChargeConnectorOccupancy](#chargeconnectoroccupancy)
+  * items [Tfl.Api.Presentation.Entities.ChargeConnectorOccupancy](#tfl.api.presentation.entities.chargeconnectoroccupancy)
 
 ### Occupancy_GetChargeConnectorStatus
 Gets the occupancy for a charge connectors with a given id (sourceSystemPlaceId)
@@ -701,7 +701,7 @@ tfl_gov_uk.Occupancy_GetChargeConnectorStatus({
 
 #### Output
 * output `array`
-  * items [ChargeConnectorOccupancy](#chargeconnectoroccupancy)
+  * items [Tfl.Api.Presentation.Entities.ChargeConnectorOccupancy](#tfl.api.presentation.entities.chargeconnectoroccupancy)
 
 ### Place_GetByGeoBox
 Gets the places that lie within the bounding box defined by the lat/lon of its north-west and south-east corners. Optionally filters
@@ -730,7 +730,7 @@ tfl_gov_uk.Place_GetByGeoBox({
 
 #### Output
 * output `array`
-  * items [StopPoint](#stoppoint)
+  * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
 
 ### Place_GetStreetsByPostCode
 Gets the set of streets associated with a post code.
@@ -750,7 +750,7 @@ tfl_gov_uk.Place_GetStreetsByPostCode({
   * Postcode **required** `string`
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### Place_MetaCategories
 Gets a list of all of the available place property categories and keys.
@@ -765,7 +765,7 @@ tfl_gov_uk.Place_MetaCategories(null, context)
 
 #### Output
 * output `array`
-  * items [PlaceCategory](#placecategory)
+  * items [Tfl.Api.Presentation.Entities.PlaceCategory](#tfl.api.presentation.entities.placecategory)
 
 ### Place_MetaPlaceTypes
 Gets a list of the available types of Place.
@@ -780,7 +780,7 @@ tfl_gov_uk.Place_MetaPlaceTypes(null, context)
 
 #### Output
 * output `array`
-  * items [PlaceCategory](#placecategory)
+  * items [Tfl.Api.Presentation.Entities.PlaceCategory](#tfl.api.presentation.entities.placecategory)
 
 ### Place_Search
 Gets all places that matches the given query
@@ -799,7 +799,7 @@ tfl_gov_uk.Place_Search({
 
 #### Output
 * output `array`
-  * items [Place](#place)
+  * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### Place_GetByType
 Gets all places of a given type
@@ -818,7 +818,7 @@ tfl_gov_uk.Place_GetByType({
 
 #### Output
 * output `array`
-  * items [Place](#place)
+  * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### Place_Get
 Gets the place with the given id.
@@ -837,7 +837,7 @@ tfl_gov_uk.Place_Get({
 
 #### Output
 * output `array`
-  * items [Place](#place)
+  * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### Place_GetAt
 Gets any places of the given type whose geography intersects the given latitude and longitude. In practice this means the Place
@@ -867,7 +867,7 @@ tfl_gov_uk.Place_GetAt({
   * Lon **required** `string`
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### Place_GetOverlay
 Gets the place overlay for a given set of co-ordinates and a given width/height.
@@ -902,7 +902,7 @@ tfl_gov_uk.Place_GetOverlay({
   * Lon **required** `string`
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### Road.get
 Gets all roads managed by TfL
@@ -917,7 +917,7 @@ tfl_gov_uk.Road.get(null, context)
 
 #### Output
 * output `array`
-  * items [RoadCorridor](#roadcorridor)
+  * items [Tfl.Api.Presentation.Entities.RoadCorridor](#tfl.api.presentation.entities.roadcorridor)
 
 ### Road_MetaCategories
 Gets a list of valid RoadDisruption categories
@@ -947,7 +947,7 @@ tfl_gov_uk.Road_MetaSeverities(null, context)
 
 #### Output
 * output `array`
-  * items [StatusSeverity](#statusseverity)
+  * items [Tfl.Api.Presentation.Entities.StatusSeverity](#tfl.api.presentation.entities.statusseverity)
 
 ### Road_DisruptionById
 Gets a list of active disruptions filtered by disruption Ids.
@@ -965,7 +965,7 @@ tfl_gov_uk.Road_DisruptionById({
   * stripContent `boolean`: Optional, defaults to false. When true, removes every property/node except for id, point, severity, severityDescription, startDate, endDate, corridor details, location and comments.
 
 #### Output
-* output [RoadDisruption](#roaddisruption)
+* output [Tfl.Api.Presentation.Entities.RoadDisruption](#tfl.api.presentation.entities.roaddisruption)
 
 ### Road_DisruptedStreets
 Gets a list of disrupted streets. If no date filters are provided, current disruptions are returned.
@@ -984,7 +984,7 @@ tfl_gov_uk.Road_DisruptedStreets({
   * endDate **required** `string`: Optional, The end time to filter on.
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### Road.ids.get
 Gets the road with the specified id (e.g. A1)
@@ -1002,7 +1002,7 @@ tfl_gov_uk.Road.ids.get({
 
 #### Output
 * output `array`
-  * items [RoadCorridor](#roadcorridor)
+  * items [Tfl.Api.Presentation.Entities.RoadCorridor](#tfl.api.presentation.entities.roadcorridor)
 
 ### Road_Disruption
 Get active disruptions, filtered by road ids
@@ -1024,7 +1024,7 @@ tfl_gov_uk.Road_Disruption({
 
 #### Output
 * output `array`
-  * items [RoadDisruption](#roaddisruption)
+  * items [Tfl.Api.Presentation.Entities.RoadDisruption](#tfl.api.presentation.entities.roaddisruption)
 
 ### Road_Status
 Gets the specified roads with the status aggregated over the date range specified, or now until the end of today if no dates are passed.
@@ -1044,7 +1044,7 @@ tfl_gov_uk.Road_Status({
 
 #### Output
 * output `array`
-  * items [RoadCorridor](#roadcorridor)
+  * items [Tfl.Api.Presentation.Entities.RoadCorridor](#tfl.api.presentation.entities.roadcorridor)
 
 ### Search_Get
 Search the site for occurrences of the query string. The maximum number of results returned is equal to the maximum page size
@@ -1062,7 +1062,7 @@ tfl_gov_uk.Search_Get({
   * query **required** `string`: The search query
 
 #### Output
-* output [SearchResponse](#searchresponse)
+* output [Tfl.Api.Presentation.Entities.SearchResponse](#tfl.api.presentation.entities.searchresponse)
 
 ### Search_BusSchedules
 Searches the bus schedules folder on S3 for a given bus number.
@@ -1079,7 +1079,7 @@ tfl_gov_uk.Search_BusSchedules({
   * query **required** `string`: The search query
 
 #### Output
-* output [SearchResponse](#searchresponse)
+* output [Tfl.Api.Presentation.Entities.SearchResponse](#tfl.api.presentation.entities.searchresponse)
 
 ### Search_MetaCategories
 Gets the available search categories.
@@ -1150,7 +1150,7 @@ tfl_gov_uk.StopPoint_GetByGeoPoint({
   * location.lon **required** `number`
 
 #### Output
-* output [StopPointsResponse](#stoppointsresponse)
+* output [Tfl.Api.Presentation.Entities.StopPointsResponse](#tfl.api.presentation.entities.stoppointsresponse)
 
 ### StopPoint_MetaCategories
 Gets the list of available StopPoint additional information categories
@@ -1165,7 +1165,7 @@ tfl_gov_uk.StopPoint_MetaCategories(null, context)
 
 #### Output
 * output `array`
-  * items [StopPointCategory](#stoppointcategory)
+  * items [Tfl.Api.Presentation.Entities.StopPointCategory](#tfl.api.presentation.entities.stoppointcategory)
 
 ### StopPoint_MetaModes
 Gets the list of available StopPoint modes
@@ -1180,7 +1180,7 @@ tfl_gov_uk.StopPoint_MetaModes(null, context)
 
 #### Output
 * output `array`
-  * items [Mode](#mode)
+  * items [Tfl.Api.Presentation.Entities.Mode](#tfl.api.presentation.entities.mode)
 
 ### StopPoint_MetaStopTypes
 Gets the list of available StopPoint types
@@ -1213,7 +1213,7 @@ tfl_gov_uk.StopPoint_GetByMode({
   * page `integer`: The data set page to return. Page 1 equates to the first 1000 stop points, page 2 equates to 1001-2000 etc. Must be entered for bus mode as data set is too large.
 
 #### Output
-* output [StopPointsResponse](#stoppointsresponse)
+* output [Tfl.Api.Presentation.Entities.StopPointsResponse](#tfl.api.presentation.entities.stoppointsresponse)
 
 ### StopPoint_DisruptionByMode
 Gets a distinct list of disrupted stop points for the given modes
@@ -1232,7 +1232,7 @@ tfl_gov_uk.StopPoint_DisruptionByMode({
 
 #### Output
 * output `array`
-  * items [DisruptedPoint](#disruptedpoint)
+  * items [Tfl.Api.Presentation.Entities.DisruptedPoint](#tfl.api.presentation.entities.disruptedpoint)
 
 ### StopPoint.Search.get
 Search StopPoints by their common name, or their 5-digit Countdown Bus Stop Code.
@@ -1255,7 +1255,7 @@ tfl_gov_uk.StopPoint.Search.get({
   * tflOperatedNationalRailStationsOnly `boolean`: If the national-rail mode is included, this flag will filter the national rail stations so that only those operated by TfL are returned
 
 #### Output
-* output [SearchResponse](#searchresponse)
+* output [Tfl.Api.Presentation.Entities.SearchResponse](#tfl.api.presentation.entities.searchresponse)
 
 ### StopPoint.Search.query.get
 Search StopPoints by their common name, or their 5-digit Countdown Bus Stop Code.
@@ -1278,7 +1278,7 @@ tfl_gov_uk.StopPoint.Search.query.get({
   * tflOperatedNationalRailStationsOnly `boolean`: If the national-rail mode is included, this flag will filter the national rail stations so that only those operated by TfL are returned
 
 #### Output
-* output [SearchResponse](#searchresponse)
+* output [Tfl.Api.Presentation.Entities.SearchResponse](#tfl.api.presentation.entities.searchresponse)
 
 ### StopPoint_GetServiceTypes
 Gets the service types for a given stoppoint
@@ -1298,7 +1298,7 @@ tfl_gov_uk.StopPoint_GetServiceTypes({
 
 #### Output
 * output `array`
-  * items [LineServiceType](#lineservicetype)
+  * items [Tfl.Api.Presentation.Entities.LineServiceType](#tfl.api.presentation.entities.lineservicetype)
 
 ### StopPoint_GetBySms
 Gets a StopPoint for a given sms code.
@@ -1316,7 +1316,7 @@ tfl_gov_uk.StopPoint_GetBySms({
   * output `string`: If set to "web", a 302 redirect to relevant website bus stop page is returned. Valid values are : web. All other values are ignored.
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### StopPoint_GetByType
 Gets all stop points of a given type
@@ -1334,7 +1334,27 @@ tfl_gov_uk.StopPoint_GetByType({
 
 #### Output
 * output `array`
-  * items [StopPoint](#stoppoint)
+  * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
+
+### StopPoint_GetByTypeWithPagination
+Gets all the stop points of given type(s) with a page number
+
+
+```js
+tfl_gov_uk.StopPoint_GetByTypeWithPagination({
+  "types": [],
+  "page": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * types **required** `array`
+  * page **required** `integer`
+
+#### Output
+* output `array`
+  * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
 
 ### StopPoint.ids.get
 Gets a list of StopPoints corresponding to the given list of stop ids.
@@ -1353,7 +1373,7 @@ tfl_gov_uk.StopPoint.ids.get({
 
 #### Output
 * output `array`
-  * items [StopPoint](#stoppoint)
+  * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
 
 ### StopPoint_Disruption
 Gets all disruptions for the specified StopPointId, plus disruptions for any child Naptan records it may have.
@@ -1374,7 +1394,7 @@ tfl_gov_uk.StopPoint_Disruption({
 
 #### Output
 * output `array`
-  * items [DisruptedPoint](#disruptedpoint)
+  * items [Tfl.Api.Presentation.Entities.DisruptedPoint](#tfl.api.presentation.entities.disruptedpoint)
 
 ### StopPoint_Arrivals
 Gets the list of arrival predictions for the given stop point id
@@ -1392,7 +1412,7 @@ tfl_gov_uk.StopPoint_Arrivals({
 
 #### Output
 * output `array`
-  * items [Prediction](#prediction)
+  * items [Tfl.Api.Presentation.Entities.Prediction](#tfl.api.presentation.entities.prediction)
 
 ### StopPoint_ReachableFrom
 Gets Stopoints that are reachable from a station/line combination.
@@ -1413,7 +1433,7 @@ tfl_gov_uk.StopPoint_ReachableFrom({
 
 #### Output
 * output `array`
-  * items [StopPoint](#stoppoint)
+  * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
 
 ### StopPoint_Crowding
 Gets all the Crowding data (static) for the StopPointId, plus crowding data for a given line and optionally a particular direction.
@@ -1435,7 +1455,7 @@ tfl_gov_uk.StopPoint_Crowding({
 
 #### Output
 * output `array`
-  * items [StopPoint](#stoppoint)
+  * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
 
 ### StopPoint_Direction
 Returns the canonical direction, "inbound" or "outbound", for a given pair of stop point Ids in the direction from -&gt; to.
@@ -1474,7 +1494,7 @@ tfl_gov_uk.StopPoint_Route({
 
 #### Output
 * output `array`
-  * items [StopPointRouteSection](#stoppointroutesection)
+  * items [Tfl.Api.Presentation.Entities.StopPointRouteSection](#tfl.api.presentation.entities.stoppointroutesection)
 
 ### StopPoint.id.placeTypes.get
 Get a list of places corresponding to a given id and place types.
@@ -1494,7 +1514,7 @@ tfl_gov_uk.StopPoint.id.placeTypes.get({
 
 #### Output
 * output `array`
-  * items [Place](#place)
+  * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### StopPoint_GetCarParksById
 Get car parks corresponding to the given stop point id.
@@ -1512,7 +1532,7 @@ tfl_gov_uk.StopPoint_GetCarParksById({
 
 #### Output
 * output `array`
-  * items [Place](#place)
+  * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### StopPoint_GetTaxiRanksByIds
 Gets a list of taxi ranks corresponding to the given stop point id.
@@ -1530,7 +1550,7 @@ tfl_gov_uk.StopPoint_GetTaxiRanksByIds({
 
 #### Output
 * output `array`
-  * items [Place](#place)
+  * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
 
 ### TravelTime_GetCompareOverlay
 Gets the TravelTime overlay.
@@ -1573,7 +1593,7 @@ tfl_gov_uk.TravelTime_GetCompareOverlay({
   * compareValue **required** `string`
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### TravelTime_GetOverlay
 Gets the TravelTime overlay.
@@ -1612,7 +1632,7 @@ tfl_gov_uk.TravelTime_GetOverlay({
   * travelTimeInterval **required** `integer`: The total minutes between the travel time bands
 
 #### Output
-* output [Object](#object)
+* output [System.Object](#system.object)
 
 ### Vehicle_GetEmissionsSurchargeCompliance
 Gets the Emissions Surcharge compliance for the Vehicle
@@ -1629,7 +1649,7 @@ tfl_gov_uk.Vehicle_GetEmissionsSurchargeCompliance({
   * vrm **required** `string`: The Vehicle Registration Mark
 
 #### Output
-* output [VehicleMatch](#vehiclematch)
+* output [Tfl.Api.Presentation.Entities.VehicleMatch](#tfl.api.presentation.entities.vehiclematch)
 
 ### Vehicle_GetUlezCompliance
 Gets the Ulez Surcharge compliance for the Vehicle
@@ -1646,7 +1666,7 @@ tfl_gov_uk.Vehicle_GetUlezCompliance({
   * vrm **required** `string`: The Vehicle Registration Mark
 
 #### Output
-* output [VehicleMatch](#vehiclematch)
+* output [Tfl.Api.Presentation.Entities.VehicleMatch](#tfl.api.presentation.entities.vehiclematch)
 
 ### Vehicle_Get
 Gets the predictions for a given list of vehicle Id's.
@@ -1664,17 +1684,74 @@ tfl_gov_uk.Vehicle_Get({
 
 #### Output
 * output `array`
-  * items [Prediction](#prediction)
+  * items [Tfl.Api.Presentation.Entities.Prediction](#tfl.api.presentation.entities.prediction)
 
 
 
 ## Definitions
 
-### AccidentDetail
-* AccidentDetail `object`
+### System.Data.Spatial.DbGeography
+* System.Data.Spatial.DbGeography `object`
+  * geography [System.Data.Spatial.DbGeographyWellKnownValue](#system.data.spatial.dbgeographywellknownvalue)
+
+### System.Data.Spatial.DbGeographyWellKnownValue
+* System.Data.Spatial.DbGeographyWellKnownValue `object`
+  * coordinateSystemId `integer`
+  * wellKnownBinary `string`
+  * wellKnownText `string`
+
+### System.Object
+* System.Object `object`
+
+### Tfl.Api.Common.ApiVersionInfo
+* Tfl.Api.Common.ApiVersionInfo `object`
+  * assemblies `array`
+    * items `string`
+  * label `string`
+  * timestamp `string`
+  * version `string`
+
+### Tfl.Api.Common.DateRange
+* Tfl.Api.Common.DateRange `object`
+  * endDate `string`
+  * startDate `string`
+
+### Tfl.Api.Common.DateRangeNullable
+* Tfl.Api.Common.DateRangeNullable `object`
+  * endDate `string`
+  * startDate `string`
+
+### Tfl.Api.Common.GeoPoint
+* Tfl.Api.Common.GeoPoint `object`
+  * lat **required** `number`
+  * lon **required** `number`
+
+### Tfl.Api.Common.GeoPointBBox
+* Tfl.Api.Common.GeoPointBBox `object`
+  * neLat **required** `number`
+  * neLon **required** `number`
+  * swLat **required** `number`
+  * swLon **required** `number`
+
+### Tfl.Api.Common.JourneyPlanner.JpElevation
+* Tfl.Api.Common.JourneyPlanner.JpElevation `object`
+  * distance `integer`
+  * endLat `number`
+  * endLon `number`
+  * gradient `number`
+  * heightFromPreviousPoint `integer`
+  * startLat `number`
+  * startLon `number`
+
+### Tfl.Api.Common.PostcodeInput
+* Tfl.Api.Common.PostcodeInput `object`
+  * postcode `string`
+
+### Tfl.Api.Presentation.Entities.AccidentStats.AccidentDetail
+* Tfl.Api.Presentation.Entities.AccidentStats.AccidentDetail `object`
   * borough `string`
   * casualties `array`
-    * items [Casualty](#casualty)
+    * items [Tfl.Api.Presentation.Entities.AccidentStats.Casualty](#tfl.api.presentation.entities.accidentstats.casualty)
   * date `string`
   * id `integer`
   * lat `number`
@@ -1682,74 +1759,70 @@ tfl_gov_uk.Vehicle_Get({
   * lon `number`
   * severity `string`
   * vehicles `array`
-    * items [Vehicle](#vehicle)
+    * items [Tfl.Api.Presentation.Entities.AccidentStats.Vehicle](#tfl.api.presentation.entities.accidentstats.vehicle)
 
-### AccidentStatsOrderedSummary
-* AccidentStatsOrderedSummary `object`
+### Tfl.Api.Presentation.Entities.AccidentStats.AccidentStatsOrderedSummary
+* Tfl.Api.Presentation.Entities.AccidentStats.AccidentStatsOrderedSummary `object`
   * accidents `integer`
   * borough `string`
   * year `integer`
 
-### ActiveServiceType
-* ActiveServiceType `object`
-  * mode `string`
-  * serviceType `string`
-
-### AdditionalProperties
-* AdditionalProperties `object`
-  * category `string`
-  * key `string`
-  * modified `string`
-  * sourceSystemKey `string`
-  * value `string`
-
-### ApiVersionInfo
-* ApiVersionInfo `object`
-  * assemblies `array`
-    * items `string`
-  * label `string`
-  * timestamp `string`
-  * version `string`
-
-### Bay
-* Bay `object`
-  * bayCount `integer`
-  * bayType `string`
-  * free `integer`
-  * occupied `integer`
-
-### BikePointOccupancy
-* BikePointOccupancy `object`: Bike point occupancy
-  * bikesCount `integer`: Total bike counts
-  * emptyDocks `integer`: Empty docks
-  * id `string`: Id of the bike point such as BikePoints_1
-  * name `string`: Name / Common name of the bike point
-  * totalDocks `integer`: Total docks available
-
-### CarParkOccupancy
-* CarParkOccupancy `object`
-  * bays `array`
-    * items [Bay](#bay)
-  * carParkDetailsUrl `string`
-  * id `string`
-  * name `string`
-
-### Casualty
-* Casualty `object`
+### Tfl.Api.Presentation.Entities.AccidentStats.Casualty
+* Tfl.Api.Presentation.Entities.AccidentStats.Casualty `object`
   * age `integer`
   * ageBand `string`
   * class `string`
   * mode `string`
   * severity `string`
 
-### ChargeConnectorOccupancy
-* ChargeConnectorOccupancy `object`
+### Tfl.Api.Presentation.Entities.AccidentStats.Vehicle
+* Tfl.Api.Presentation.Entities.AccidentStats.Vehicle `object`
+  * type `string`
+
+### Tfl.Api.Presentation.Entities.ActiveServiceType
+* Tfl.Api.Presentation.Entities.ActiveServiceType `object`
+  * mode `string`
+  * serviceType `string`
+
+### Tfl.Api.Presentation.Entities.AdditionalProperties
+* Tfl.Api.Presentation.Entities.AdditionalProperties `object`
+  * category `string`
+  * key `string`
+  * modified `string`
+  * sourceSystemKey `string`
+  * value `string`
+
+### Tfl.Api.Presentation.Entities.Bay
+* Tfl.Api.Presentation.Entities.Bay `object`
+  * bayCount `integer`
+  * bayType `string`
+  * free `integer`
+  * occupied `integer`
+
+### Tfl.Api.Presentation.Entities.BikePointOccupancy
+* Tfl.Api.Presentation.Entities.BikePointOccupancy `object`: Bike point occupancy
+  * bikesCount `integer`: Total bike counts
+  * emptyDocks `integer`: Empty docks
+  * id `string`: Id of the bike point such as BikePoints_1
+  * name `string`: Name / Common name of the bike point
+  * totalDocks `integer`: Total docks available
+
+### Tfl.Api.Presentation.Entities.CarParkOccupancy
+* Tfl.Api.Presentation.Entities.CarParkOccupancy `object`
+  * bays `array`
+    * items [Tfl.Api.Presentation.Entities.Bay](#tfl.api.presentation.entities.bay)
+  * carParkDetailsUrl `string`
+  * id `string`
+  * name `string`
+
+### Tfl.Api.Presentation.Entities.ChargeConnectorOccupancy
+* Tfl.Api.Presentation.Entities.ChargeConnectorOccupancy `object`
   * id `integer`
   * sourceSystemPlaceId `string`
   * status `string`
 
-### Coordinate
-* Coordinate `object`
+### Tfl.Api.Presentation.Entities.Coordinate
+* Tfl.Api.Presentation.Entities.Coordinate `object`
   * easting `number`
   * latitude `number`
   * longitude `number`
@@ -1757,54 +1830,24 @@ tfl_gov_uk.Vehicle_Get({
   * xCoord `integer`
   * yCoord `integer`
 
-### Crowding
-* Crowding `object`
+### Tfl.Api.Presentation.Entities.Crowding
+* Tfl.Api.Presentation.Entities.Crowding `object`
   * passengerFlows `array`: Busiest times at a station (static information)
-    * items [PassengerFlow](#passengerflow)
+    * items [Tfl.Api.Presentation.Entities.PassengerFlow](#tfl.api.presentation.entities.passengerflow)
   * trainLoadings `array`: Train Loading on a scale 1-6, 1 being "Very quiet" and 6 being "Exceptionally busy" (static information)
-    * items [TrainLoading](#trainloading)
+    * items [Tfl.Api.Presentation.Entities.TrainLoading](#tfl.api.presentation.entities.trainloading)
 
-### CycleSuperhighway
-* CycleSuperhighway `object`
-  * geography [DbGeography](#dbgeography)
+### Tfl.Api.Presentation.Entities.CycleSuperhighway
+* Tfl.Api.Presentation.Entities.CycleSuperhighway `object`
+  * geography [System.Data.Spatial.DbGeography](#system.data.spatial.dbgeography)
   * id `string`: The Id
   * label `string`: The long label to show on maps when zoomed in
   * labelShort `string`: The short label to show on maps
   * modified `string`: When the data was last updated
   * segmented `boolean`: True if the route is split into segments
 
-### DateRange
-* DateRange `object`
-  * endDate `string`
-  * startDate `string`
-
-### DateRangeNullable
-* DateRangeNullable `object`
-  * endDate `string`
-  * startDate `string`
-
-### DbGeography
-* DbGeography `object`
-  * geography [DbGeographyWellKnownValue](#dbgeographywellknownvalue)
-
-### DbGeographyWellKnownValue
-* DbGeographyWellKnownValue `object`
-  * coordinateSystemId `integer`
-  * wellKnownBinary `string`
-  * wellKnownText `string`
-
-### Disambiguation
-* Disambiguation `object`
-  * disambiguationOptions `array`
-    * items [DisambiguationOption](#disambiguationoption)
-
-### DisambiguationOption
-* DisambiguationOption `object`
-  * description `string`
-  * uri `string`
-
-### DisruptedPoint
-* DisruptedPoint `object`
+### Tfl.Api.Presentation.Entities.DisruptedPoint
+* Tfl.Api.Presentation.Entities.DisruptedPoint `object`
   * additionalInformation `string`
   * appearance `string`
   * atcoCode `string`
@@ -1816,13 +1859,13 @@ tfl_gov_uk.Vehicle_Get({
   * toDate `string`
   * type `string`
 
-### Disruption
-* Disruption `object`: Represents a disruption to a route within the transport network.
+### Tfl.Api.Presentation.Entities.Disruption
+* Tfl.Api.Presentation.Entities.Disruption `object`: Represents a disruption to a route within the transport network.
   * additionalInfo `string`: Gets or sets the additionaInfo of this disruption.
   * affectedRoutes `array`: Gets or sets the routes affected by this disruption
-    * items [RouteSection](#routesection)
+    * items [Tfl.Api.Presentation.Entities.RouteSection](#tfl.api.presentation.entities.routesection)
   * affectedStops `array`: Gets or sets the stops affected by this disruption
-    * items [StopPoint](#stoppoint)
+    * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
   * category `string` (values: Undefined, RealTime, PlannedWork, Information, Event, Crowding, StatusAlert): Gets or sets the category of this dispruption.
   * categoryDescription `string`: Gets or sets the description of the category.
   * closureText `string`: Text describing the closure type
@@ -1832,8 +1875,8 @@ tfl_gov_uk.Vehicle_Get({
   * summary `string`: Gets or sets the summary of this disruption.
   * type `string`: Gets or sets the disruption type of this dispruption.
 
-### Fare
-* Fare `object`
+### Tfl.Api.Presentation.Entities.Fares.Fare
+* Tfl.Api.Presentation.Entities.Fares.Fare `object`
   * cap `number`
   * cost `string`
   * description `string`
@@ -1846,8 +1889,8 @@ tfl_gov_uk.Vehicle_Get({
   * validUntil `string`
   * zone `string`
 
-### FareBounds
-* FareBounds `object`
+### Tfl.Api.Presentation.Entities.Fares.FareBounds
+* Tfl.Api.Presentation.Entities.Fares.FareBounds `object`
   * description `string`
   * displayName `string`
   * displayOrder `integer`
@@ -1857,14 +1900,14 @@ tfl_gov_uk.Vehicle_Get({
   * isPopularTravelCard `boolean`
   * isTour `boolean`
   * messages `array`
-    * items [Message](#message)
+    * items [Tfl.Api.Presentation.Entities.Message](#tfl.api.presentation.entities.message)
   * operator `string`
   * routeCode `string`
   * to `string`
   * via `string`
 
-### FareDetails
-* FareDetails `object`
+### Tfl.Api.Presentation.Entities.Fares.FareDetails
+* Tfl.Api.Presentation.Entities.Fares.FareDetails `object`
   * boundsId `integer`
   * displayName `string`
   * displayOrder `integer`
@@ -1873,7 +1916,7 @@ tfl_gov_uk.Vehicle_Get({
   * fromStation `string`
   * isTour `boolean`
   * messages `array`
-    * items [Message](#message)
+    * items [Tfl.Api.Presentation.Entities.Message](#tfl.api.presentation.entities.message)
   * mode `string`
   * operator `string`
   * passengerType `string`
@@ -1883,37 +1926,95 @@ tfl_gov_uk.Vehicle_Get({
   * startDate `string`
   * throughFare `boolean`
   * ticketsAvailable `array`
-    * items [Ticket](#ticket)
+    * items [Tfl.Api.Presentation.Entities.Fares.Ticket](#tfl.api.presentation.entities.fares.ticket)
   * to `string`
   * toStation `string`
   * validatorInformation `string`
   * via `string`
 
-### FaresMode
-* FaresMode `object`
+### Tfl.Api.Presentation.Entities.Fares.FaresMode
+* Tfl.Api.Presentation.Entities.Fares.FaresMode `object`
   * description `string`
   * id `integer`
   * name `string`
 
-### FaresPeriod
-* FaresPeriod `object`
+### Tfl.Api.Presentation.Entities.Fares.FaresPeriod
+* Tfl.Api.Presentation.Entities.Fares.FaresPeriod `object`
   * endDate `string`
   * id `integer`
   * isFuture `boolean`
   * startDate `string`
   * viewableDate `string`
 
-### FaresSection
-* FaresSection `object`
+### Tfl.Api.Presentation.Entities.Fares.FaresSection
+* Tfl.Api.Presentation.Entities.Fares.FaresSection `object`
   * header `string`
   * index `integer`
   * messages `array`
-    * items [Message](#message)
+    * items [Tfl.Api.Presentation.Entities.Message](#tfl.api.presentation.entities.message)
   * rows `array`
-    * items [FareDetails](#faredetails)
+    * items [Tfl.Api.Presentation.Entities.Fares.FareDetails](#tfl.api.presentation.entities.fares.faredetails)
 
-### GeoCodeSearchMatch
-* GeoCodeSearchMatch `object`
+### Tfl.Api.Presentation.Entities.Fares.PassengerType
+* Tfl.Api.Presentation.Entities.Fares.PassengerType `object`
+  * description `string`
+  * displayName `string`
+  * displayOrder `integer`
+  * type `string`
+
+### Tfl.Api.Presentation.Entities.Fares.Recommendation
+* Tfl.Api.Presentation.Entities.Fares.Recommendation `object`
+  * cost `string`
+  * discountCard `string`
+  * fareType `string`
+  * gettingYourTicket `array`
+    * items [Tfl.Api.Presentation.Entities.Message](#tfl.api.presentation.entities.message)
+  * id `integer`
+  * keyFeatures `array`
+    * items [Tfl.Api.Presentation.Entities.Message](#tfl.api.presentation.entities.message)
+  * notes `array`
+    * items [Tfl.Api.Presentation.Entities.Message](#tfl.api.presentation.entities.message)
+  * priceComparison `string`
+  * priceDescription `string`
+  * product `string`
+  * productType `string`
+  * rank `integer`
+  * recommendedTopUp `string`
+  * rule `integer`
+  * singleFare `number`
+  * ticketTime `string`
+  * ticketType `string`
+  * zones `string`
+
+### Tfl.Api.Presentation.Entities.Fares.RecommendationResponse
+* Tfl.Api.Presentation.Entities.Fares.RecommendationResponse `object`
+  * recommendations `array`
+    * items [Tfl.Api.Presentation.Entities.Fares.Recommendation](#tfl.api.presentation.entities.fares.recommendation)
+
+### Tfl.Api.Presentation.Entities.Fares.Ticket
+* Tfl.Api.Presentation.Entities.Fares.Ticket `object`
+  * cost `string`
+  * description `string`
+  * displayOrder `integer`
+  * messages `array`
+    * items [Tfl.Api.Presentation.Entities.Message](#tfl.api.presentation.entities.message)
+  * mode `string`
+  * passengerType `string`
+  * ticketTime [Tfl.Api.Presentation.Entities.Fares.TicketTime](#tfl.api.presentation.entities.fares.tickettime)
+  * ticketType [Tfl.Api.Presentation.Entities.Fares.TicketType](#tfl.api.presentation.entities.fares.tickettype)
+
+### Tfl.Api.Presentation.Entities.Fares.TicketTime
+* Tfl.Api.Presentation.Entities.Fares.TicketTime `object`
+  * description `string`
+  * type `string`
+
+### Tfl.Api.Presentation.Entities.Fares.TicketType
+* Tfl.Api.Presentation.Entities.Fares.TicketType `object`
+  * description `string`
+  * type `string`
+
+### Tfl.Api.Presentation.Entities.GeoCodeSearchMatch
+* Tfl.Api.Presentation.Entities.GeoCodeSearchMatch `object`
   * address `string`: A string describing the formatted address of the place. Adds additional context to the place's Name.
   * id `string`
   * lat `number`
@@ -1923,36 +2024,24 @@ tfl_gov_uk.Vehicle_Get({
     * items `string`
   * url `string`
 
-### GeoPoint
-* GeoPoint `object`
-  * lat **required** `number`
-  * lon **required** `number`
-
-### GeoPointBBox
-* GeoPointBBox `object`
-  * neLat **required** `number`
-  * neLon **required** `number`
-  * swLat **required** `number`
-  * swLon **required** `number`
-
-### Identifier
-* Identifier `object`
-  * crowding [Crowding](#crowding)
+### Tfl.Api.Presentation.Entities.Identifier
+* Tfl.Api.Presentation.Entities.Identifier `object`
+  * crowding [Tfl.Api.Presentation.Entities.Crowding](#tfl.api.presentation.entities.crowding)
   * fullName `string`
   * id `string`
   * name `string`
   * type `string`
   * uri `string`
 
-### Instruction
-* Instruction `object`
+### Tfl.Api.Presentation.Entities.Instruction
+* Tfl.Api.Presentation.Entities.Instruction `object`
   * detailed `string`
   * steps `array`
-    * items [InstructionStep](#instructionstep)
+    * items [Tfl.Api.Presentation.Entities.InstructionStep](#tfl.api.presentation.entities.instructionstep)
   * summary `string`
 
-### InstructionStep
-* InstructionStep `object`
+### Tfl.Api.Presentation.Entities.InstructionStep
+* Tfl.Api.Presentation.Entities.InstructionStep `object`
   * cumulativeDistance `integer`
   * cumulativeTravelTime `integer`
   * description `string`
@@ -1960,41 +2049,82 @@ tfl_gov_uk.Vehicle_Get({
   * distance `integer`
   * latitude `number`
   * longitude `number`
-  * pathAttribute [PathAttribute](#pathattribute)
+  * pathAttribute [Tfl.Api.Presentation.Entities.PathAttribute](#tfl.api.presentation.entities.pathattribute)
   * skyDirection `integer`
   * skyDirectionDescription `string` (values: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest)
   * streetName `string`
   * trackType `string` (values: CycleSuperHighway, CanalTowpath, QuietRoad, ProvisionForCyclists, BusyRoads, None, PushBike, Quietway)
   * turnDirection `string`
 
-### Interval
-* Interval `object`
+### Tfl.Api.Presentation.Entities.Interval
+* Tfl.Api.Presentation.Entities.Interval `object`
   * stopId `string`
   * timeToArrival `number`
 
-### ItineraryResult
-* ItineraryResult `object`: A DTO representing a list of possible journeys.
-  * cycleHireDockingStationData [JourneyPlannerCycleHireDockingStationData](#journeyplannercyclehiredockingstationdata)
-  * journeyVector [JourneyVector](#journeyvector)
+### Tfl.Api.Presentation.Entities.JourneyPlanner.Fare
+* Tfl.Api.Presentation.Entities.JourneyPlanner.Fare `object`
+  * chargeLevel `string`
+  * chargeProfileName `string`
+  * cost `integer`
+  * highZone `integer`
+  * isHopperFare `boolean`
+  * lowZone `integer`
+  * offPeak `integer`
+  * peak `integer`
+  * taps `array`
+    * items [Tfl.Api.Presentation.Entities.JourneyPlanner.FareTap](#tfl.api.presentation.entities.journeyplanner.faretap)
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.FareCaveat
+* Tfl.Api.Presentation.Entities.JourneyPlanner.FareCaveat `object`
+  * text `string`
+  * type `string`
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.FareTap
+* Tfl.Api.Presentation.Entities.JourneyPlanner.FareTap `object`
+  * atcoCode `string`
+  * tapDetails [Tfl.Api.Presentation.Entities.JourneyPlanner.FareTapDetails](#tfl.api.presentation.entities.journeyplanner.faretapdetails)
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.FareTapDetails
+* Tfl.Api.Presentation.Entities.JourneyPlanner.FareTapDetails `object`
+  * busRouteId `string`
+  * hostDeviceType `string`
+  * modeType `string`
+  * nationalLocationCode `integer`
+  * tapTimestamp `string`
+  * validationType `string`
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.ItineraryResult
+* Tfl.Api.Presentation.Entities.JourneyPlanner.ItineraryResult `object`: A DTO representing a list of possible journeys.
+  * cycleHireDockingStationData [Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyPlannerCycleHireDockingStationData](#tfl.api.presentation.entities.journeyplanner.journeyplannercyclehiredockingstationdata)
+  * journeyVector [Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyVector](#tfl.api.presentation.entities.journeyplanner.journeyvector)
   * journeys `array`
-    * items [Journey](#journey)
+    * items [Tfl.Api.Presentation.Entities.JourneyPlanner.Journey](#tfl.api.presentation.entities.journeyplanner.journey)
   * lines `array`
-    * items [Line](#line)
+    * items [Tfl.Api.Presentation.Entities.Line](#tfl.api.presentation.entities.line)
   * recommendedMaxAgeMinutes `integer`
-  * searchCriteria [SearchCriteria](#searchcriteria)
+  * searchCriteria [Tfl.Api.Presentation.Entities.JourneyPlanner.SearchCriteria](#tfl.api.presentation.entities.journeyplanner.searchcriteria)
   * stopMessages `array`
     * items `string`
 
-### Journey
-* Journey `object`: Object that represents an end to end journey (see schematic).
+### Tfl.Api.Presentation.Entities.JourneyPlanner.Journey
+* Tfl.Api.Presentation.Entities.JourneyPlanner.Journey `object`: Object that represents an end to end journey (see schematic).
   * arrivalDateTime `string`
   * duration `integer`
+  * fare [Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyFare](#tfl.api.presentation.entities.journeyplanner.journeyfare)
   * legs `array`
-    * items [Leg](#leg)
+    * items [Tfl.Api.Presentation.Entities.JourneyPlanner.Leg](#tfl.api.presentation.entities.journeyplanner.leg)
   * startDateTime `string`
 
-### JourneyPlannerCycleHireDockingStationData
-* JourneyPlannerCycleHireDockingStationData `object`
+### Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyFare
+* Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyFare `object`
+  * caveats `array`
+    * items [Tfl.Api.Presentation.Entities.JourneyPlanner.FareCaveat](#tfl.api.presentation.entities.journeyplanner.farecaveat)
+  * fares `array`
+    * items [Tfl.Api.Presentation.Entities.JourneyPlanner.Fare](#tfl.api.presentation.entities.journeyplanner.fare)
+  * totalCost `integer`
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyPlannerCycleHireDockingStationData
+* Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyPlannerCycleHireDockingStationData `object`
   * destinationId `string`
   * destinationNumberOfBikes `integer`
   * destinationNumberOfEmptySlots `integer`
@@ -2002,84 +2132,124 @@ tfl_gov_uk.Vehicle_Get({
   * originNumberOfBikes `integer`
   * originNumberOfEmptySlots `integer`
 
-### JourneyVector
-* JourneyVector `object`
+### Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyVector
+* Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyVector `object`
   * from `string`
   * to `string`
   * uri `string`
   * via `string`
 
-### JpElevation
-* JpElevation `object`
-  * distance `integer`
-  * endLat `number`
-  * endLon `number`
-  * gradient `number`
-  * heightFromPreviousPoint `integer`
-  * startLat `number`
-  * startLon `number`
+### Tfl.Api.Presentation.Entities.JourneyPlanner.Leg
+* Tfl.Api.Presentation.Entities.JourneyPlanner.Leg `object`
+  * arrivalPoint [Tfl.Api.Presentation.Entities.Point](#tfl.api.presentation.entities.point)
+  * arrivalTime `string`
+  * departurePoint [Tfl.Api.Presentation.Entities.Point](#tfl.api.presentation.entities.point)
+  * departureTime `string`
+  * disruptions `array`
+    * items [Tfl.Api.Presentation.Entities.Disruption](#tfl.api.presentation.entities.disruption)
+  * distance `number`
+  * duration `integer`
+  * hasFixedLocations `boolean`
+  * instruction [Tfl.Api.Presentation.Entities.Instruction](#tfl.api.presentation.entities.instruction)
+  * isDisrupted `boolean`
+  * mode [Tfl.Api.Presentation.Entities.Identifier](#tfl.api.presentation.entities.identifier)
+  * obstacles `array`
+    * items [Tfl.Api.Presentation.Entities.JourneyPlanner.Obstacle](#tfl.api.presentation.entities.journeyplanner.obstacle)
+  * path [Tfl.Api.Presentation.Entities.JourneyPlanner.Path](#tfl.api.presentation.entities.journeyplanner.path)
+  * plannedWorks `array`
+    * items [Tfl.Api.Presentation.Entities.JourneyPlanner.PlannedWork](#tfl.api.presentation.entities.journeyplanner.plannedwork)
+  * routeOptions `array`
+    * items [Tfl.Api.Presentation.Entities.JourneyPlanner.RouteOption](#tfl.api.presentation.entities.journeyplanner.routeoption)
+  * speed `string`
 
-### KnownJourney
-* KnownJourney `object`
+### Tfl.Api.Presentation.Entities.JourneyPlanner.Obstacle
+* Tfl.Api.Presentation.Entities.JourneyPlanner.Obstacle `object`
+  * incline `string`
+  * position `string`
+  * stopId `integer`
+  * type `string`
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.Path
+* Tfl.Api.Presentation.Entities.JourneyPlanner.Path `object`
+  * elevation `array`
+    * items [Tfl.Api.Common.JourneyPlanner.JpElevation](#tfl.api.common.journeyplanner.jpelevation)
+  * lineString `string`
+  * stopPoints `array`
+    * items [Tfl.Api.Presentation.Entities.Identifier](#tfl.api.presentation.entities.identifier)
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.PlannedWork
+* Tfl.Api.Presentation.Entities.JourneyPlanner.PlannedWork `object`
+  * createdDateTime `string`
+  * description `string`
+  * id `string`
+  * lastUpdateDateTime `string`
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.RouteOption
+* Tfl.Api.Presentation.Entities.JourneyPlanner.RouteOption `object`
+  * directions `array`
+    * items `string`
+  * id `string`: The Id of the route
+  * lineIdentifier [Tfl.Api.Presentation.Entities.Identifier](#tfl.api.presentation.entities.identifier)
+  * name `string`: Name such as "72"
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.SearchCriteria
+* Tfl.Api.Presentation.Entities.JourneyPlanner.SearchCriteria `object`
+  * dateTime `string`
+  * dateTimeType `string` (values: Arriving, Departing)
+  * timeAdjustments [Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustments](#tfl.api.presentation.entities.journeyplanner.timeadjustments)
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustment
+* Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustment `object`
+  * date `string`
+  * time `string`
+  * timeIs `string`
+  * uri `string`
+
+### Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustments
+* Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustments `object`
+  * earlier [Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustment](#tfl.api.presentation.entities.journeyplanner.timeadjustment)
+  * earliest [Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustment](#tfl.api.presentation.entities.journeyplanner.timeadjustment)
+  * later [Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustment](#tfl.api.presentation.entities.journeyplanner.timeadjustment)
+  * latest [Tfl.Api.Presentation.Entities.JourneyPlanner.TimeAdjustment](#tfl.api.presentation.entities.journeyplanner.timeadjustment)
+
+### Tfl.Api.Presentation.Entities.KnownJourney
+* Tfl.Api.Presentation.Entities.KnownJourney `object`
   * hour `string`
   * intervalId `integer`
   * minute `string`
 
-### Leg
-* Leg `object`
-  * arrivalPoint [Point](#point)
-  * arrivalTime `string`
-  * departurePoint [Point](#point)
-  * departureTime `string`
-  * disruptions `array`
-    * items [Disruption](#disruption)
-  * distance `number`
-  * duration `integer`
-  * hasFixedLocations `boolean`
-  * instruction [Instruction](#instruction)
-  * isDisrupted `boolean`
-  * mode [Identifier](#identifier)
-  * obstacles `array`
-    * items [Obstacle](#obstacle)
-  * path [Path](#path)
-  * plannedWorks `array`
-    * items [PlannedWork](#plannedwork)
-  * routeOptions `array`
-    * items [RouteOption](#routeoption)
-  * speed `string`
-
-### Line
-* Line `object`
+### Tfl.Api.Presentation.Entities.Line
+* Tfl.Api.Presentation.Entities.Line `object`
   * created `string`
-  * crowding [Crowding](#crowding)
+  * crowding [Tfl.Api.Presentation.Entities.Crowding](#tfl.api.presentation.entities.crowding)
   * disruptions `array`
-    * items [Disruption](#disruption)
+    * items [Tfl.Api.Presentation.Entities.Disruption](#tfl.api.presentation.entities.disruption)
   * id `string`
   * lineStatuses `array`
-    * items [LineStatus](#linestatus)
+    * items [Tfl.Api.Presentation.Entities.LineStatus](#tfl.api.presentation.entities.linestatus)
   * modeName `string`
   * modified `string`
   * name `string`
   * routeSections `array`
-    * items [MatchedRoute](#matchedroute)
+    * items [Tfl.Api.Presentation.Entities.MatchedRoute](#tfl.api.presentation.entities.matchedroute)
   * serviceTypes `array`
-    * items [LineServiceTypeInfo](#lineservicetypeinfo)
+    * items [Tfl.Api.Presentation.Entities.LineServiceTypeInfo](#tfl.api.presentation.entities.lineservicetypeinfo)
 
-### LineGroup
-* LineGroup `object`
+### Tfl.Api.Presentation.Entities.LineGroup
+* Tfl.Api.Presentation.Entities.LineGroup `object`
   * lineIdentifier `array`
     * items `string`
   * naptanIdReference `string`
   * stationAtcoCode `string`
 
-### LineModeGroup
-* LineModeGroup `object`
+### Tfl.Api.Presentation.Entities.LineModeGroup
+* Tfl.Api.Presentation.Entities.LineModeGroup `object`
   * lineIdentifier `array`
     * items `string`
   * modeName `string`
 
-### LineRouteSection
-* LineRouteSection `object`
+### Tfl.Api.Presentation.Entities.LineRouteSection
+* Tfl.Api.Presentation.Entities.LineRouteSection `object`
   * destination `string`
   * direction `string`
   * fromStation `string`
@@ -2088,26 +2258,26 @@ tfl_gov_uk.Vehicle_Get({
   * toStation `string`
   * vehicleDestinationText `string`
 
-### LineServiceType
-* LineServiceType `object`
+### Tfl.Api.Presentation.Entities.LineServiceType
+* Tfl.Api.Presentation.Entities.LineServiceType `object`
   * lineName `string`
   * lineSpecificServiceTypes `array`
-    * items [LineSpecificServiceType](#linespecificservicetype)
+    * items [Tfl.Api.Presentation.Entities.LineSpecificServiceType](#tfl.api.presentation.entities.linespecificservicetype)
 
-### LineServiceTypeInfo
-* LineServiceTypeInfo `object`
+### Tfl.Api.Presentation.Entities.LineServiceTypeInfo
+* Tfl.Api.Presentation.Entities.LineServiceTypeInfo `object`
   * name `string`
   * uri `string`
 
-### LineSpecificServiceType
-* LineSpecificServiceType `object`
-  * serviceType [LineServiceTypeInfo](#lineservicetypeinfo)
+### Tfl.Api.Presentation.Entities.LineSpecificServiceType
+* Tfl.Api.Presentation.Entities.LineSpecificServiceType `object`
+  * serviceType [Tfl.Api.Presentation.Entities.LineServiceTypeInfo](#tfl.api.presentation.entities.lineservicetypeinfo)
   * stopServesServiceType `boolean`
 
-### LineStatus
-* LineStatus `object`
+### Tfl.Api.Presentation.Entities.LineStatus
+* Tfl.Api.Presentation.Entities.LineStatus `object`
   * created `string`
-  * disruption [Disruption](#disruption)
+  * disruption [Tfl.Api.Presentation.Entities.Disruption](#tfl.api.presentation.entities.disruption)
   * id `integer`
   * lineId `string`
   * modified `string`
@@ -2115,10 +2285,10 @@ tfl_gov_uk.Vehicle_Get({
   * statusSeverity `integer`
   * statusSeverityDescription `string`
   * validityPeriods `array`
-    * items [ValidityPeriod](#validityperiod)
+    * items [Tfl.Api.Presentation.Entities.ValidityPeriod](#tfl.api.presentation.entities.validityperiod)
 
-### MatchedRoute
-* MatchedRoute `object`: Description of a Route used in Route search results.
+### Tfl.Api.Presentation.Entities.MatchedRoute
+* Tfl.Api.Presentation.Entities.MatchedRoute `object`: Description of a Route used in Route search results.
   * destination `string`: The Id (NaPTAN code) or the Destination StopPoint
   * destinationName `string`: The name of the Destination StopPoint
   * direction `string`: Inbound or Outbound
@@ -2130,12 +2300,12 @@ tfl_gov_uk.Vehicle_Get({
   * validFrom `string`: The DateTime that the Service containing this Route is valid from.
   * validTo `string`: The DateTime that the Service containing this Route is valid until.
 
-### MatchedRouteSections
-* MatchedRouteSections `object`
+### Tfl.Api.Presentation.Entities.MatchedRouteSections
+* Tfl.Api.Presentation.Entities.MatchedRouteSections `object`
   * id `integer`
 
-### MatchedStop
-* MatchedStop `object`
+### Tfl.Api.Presentation.Entities.MatchedStop
+* Tfl.Api.Presentation.Entities.MatchedStop `object`
   * accessibilitySummary `string`
   * direction `string`
   * hasDisruption `boolean`
@@ -2143,7 +2313,7 @@ tfl_gov_uk.Vehicle_Get({
   * id `string`
   * lat `number`
   * lines `array`
-    * items [Identifier](#identifier)
+    * items [Tfl.Api.Presentation.Entities.Identifier](#tfl.api.presentation.entities.identifier)
   * lon `number`
   * modes `array`
     * items `string`
@@ -2159,76 +2329,58 @@ tfl_gov_uk.Vehicle_Get({
   * url `string`
   * zone `string`
 
-### Message
-* Message `object`
+### Tfl.Api.Presentation.Entities.Message
+* Tfl.Api.Presentation.Entities.Message `object`
   * bulletOrder `integer`
   * header `boolean`
   * linkText `string`
   * messageText `string`
   * url `string`
 
-### Mode
-* Mode `object`
+### Tfl.Api.Presentation.Entities.Mode
+* Tfl.Api.Presentation.Entities.Mode `object`
   * isFarePaying `boolean`
   * isScheduledService `boolean`
   * isTflService `boolean`
   * modeName `string`
 
-### Object
-* Object `object`
+### Tfl.Api.Presentation.Entities.NetworkStatus
+* Tfl.Api.Presentation.Entities.NetworkStatus `object`: Represent travel network status
+  * message `string`
+  * operator `string`
+  * status `string`
+  * statusLevel `integer`
 
-### Obstacle
-* Obstacle `object`
-  * incline `string`
-  * position `string`
-  * stopId `integer`
-  * type `string`
-
-### OrderedRoute
-* OrderedRoute `object`
+### Tfl.Api.Presentation.Entities.OrderedRoute
+* Tfl.Api.Presentation.Entities.OrderedRoute `object`
   * name `string`
   * naptanIds `array`
     * items `string`
   * serviceType `string`
 
-### PassengerFlow
-* PassengerFlow `object`
+### Tfl.Api.Presentation.Entities.PassengerFlow
+* Tfl.Api.Presentation.Entities.PassengerFlow `object`
   * timeSlice `string`: Time in 24hr format with 15 minute intervals e.g. 0500-0515, 0515-0530 etc.
   * value `integer`: Count of passenger flow towards a platform
 
-### PassengerType
-* PassengerType `object`
-  * description `string`
-  * displayName `string`
-  * displayOrder `integer`
-  * type `string`
-
-### Path
-* Path `object`
-  * elevation `array`
-    * items [JpElevation](#jpelevation)
-  * lineString `string`
-  * stopPoints `array`
-    * items [Identifier](#identifier)
-
-### PathAttribute
-* PathAttribute `object`
+### Tfl.Api.Presentation.Entities.PathAttribute
+* Tfl.Api.Presentation.Entities.PathAttribute `object`
   * name `string`
   * value `string`
 
-### Period
-* Period `object`
-  * frequency [ServiceFrequency](#servicefrequency)
-  * fromTime [TwentyFourHourClockTime](#twentyfourhourclocktime)
-  * toTime [TwentyFourHourClockTime](#twentyfourhourclocktime)
+### Tfl.Api.Presentation.Entities.Period
+* Tfl.Api.Presentation.Entities.Period `object`
+  * frequency [Tfl.Api.Presentation.Entities.ServiceFrequency](#tfl.api.presentation.entities.servicefrequency)
+  * fromTime [Tfl.Api.Presentation.Entities.TwentyFourHourClockTime](#tfl.api.presentation.entities.twentyfourhourclocktime)
+  * toTime [Tfl.Api.Presentation.Entities.TwentyFourHourClockTime](#tfl.api.presentation.entities.twentyfourhourclocktime)
   * type `string` (values: Normal, FrequencyHours, FrequencyMinutes, Unknown)
 
-### Place
-* Place `object`
+### Tfl.Api.Presentation.Entities.Place
+* Tfl.Api.Presentation.Entities.Place `object`
   * additionalProperties `array`: A bag of additional key/value pairs with extra information about this place.
-    * items [AdditionalProperties](#additionalproperties)
+    * items [Tfl.Api.Presentation.Entities.AdditionalProperties](#tfl.api.presentation.entities.additionalproperties)
   * children `array`
-    * items [Place](#place)
+    * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
   * childrenUrls `array`
     * items `string`
   * commonName `string`: A human readable name.
@@ -2239,36 +2391,25 @@ tfl_gov_uk.Vehicle_Get({
   * placeType `string`: The type of Place. See /Place/Meta/placeTypes for possible values.
   * url `string`: The unique location of this resource.
 
-### PlaceCategory
-* PlaceCategory `object`
+### Tfl.Api.Presentation.Entities.PlaceCategory
+* Tfl.Api.Presentation.Entities.PlaceCategory `object`
   * availableKeys `array`
     * items `string`
   * category `string`
 
-### PlacePolygon
-* PlacePolygon `object`
+### Tfl.Api.Presentation.Entities.PlacePolygon
+* Tfl.Api.Presentation.Entities.PlacePolygon `object`
   * commonName `string`
   * geoPoints `array`
-    * items [GeoPoint](#geopoint)
+    * items [Tfl.Api.Common.GeoPoint](#tfl.api.common.geopoint)
 
-### PlannedWork
-* PlannedWork `object`
-  * createdDateTime `string`
-  * description `string`
-  * id `string`
-  * lastUpdateDateTime `string`
-
-### Point
-* Point `object`: Represents a point located at a latitude and longitude using the WGS84 co-ordinate system.
+### Tfl.Api.Presentation.Entities.Point
+* Tfl.Api.Presentation.Entities.Point `object`: Represents a point located at a latitude and longitude using the WGS84 co-ordinate system.
   * lat `number`: WGS84 latitude of the location.
   * lon `number`: WGS84 longitude of the location.
 
-### PostcodeInput
-* PostcodeInput `object`
-  * postcode `string`
-
-### Prediction
-* Prediction `object`: DTO to capture the prediction details
+### Tfl.Api.Presentation.Entities.Prediction
+* Tfl.Api.Presentation.Entities.Prediction `object`: DTO to capture the prediction details
   * bearing `string`: Bearing (between 0 to 359)
   * currentLocation `string`: The current location of the vehicle.
   * destinationName `string`: Name of the destination
@@ -2286,12 +2427,12 @@ tfl_gov_uk.Vehicle_Get({
   * timeToLive `string`: The expiry time for the prediction
   * timeToStation `integer`: Prediction of the Time to station in seconds
   * timestamp `string`: Timestamp for when the prediction was inserted/modified (source column drives what objects are broadcast on each iteration)
-  * timing [PredictionTiming](#predictiontiming)
+  * timing [Tfl.Api.Presentation.Entities.PredictionTiming](#tfl.api.presentation.entities.predictiontiming)
   * towards `string`: Routing information or other descriptive text about the path of the vehicle towards the destination
   * vehicleId `string`: The actual vehicle in transit (for train modes, the leading car of the rolling set)
 
-### PredictionTiming
-* PredictionTiming `object`
+### Tfl.Api.Presentation.Entities.PredictionTiming
+* Tfl.Api.Presentation.Entities.PredictionTiming `object`
   * countdownServerAdjustment `string`
   * insert `string`
   * read `string`
@@ -2299,43 +2440,14 @@ tfl_gov_uk.Vehicle_Get({
   * sent `string`
   * source `string`
 
-### Recommendation
-* Recommendation `object`
-  * cost `string`
-  * discountCard `string`
-  * fareType `string`
-  * gettingYourTicket `array`
-    * items [Message](#message)
-  * id `integer`
-  * keyFeatures `array`
-    * items [Message](#message)
-  * notes `array`
-    * items [Message](#message)
-  * priceComparison `string`
-  * priceDescription `string`
-  * product `string`
-  * productType `string`
-  * rank `integer`
-  * recommendedTopUp `string`
-  * rule `integer`
-  * singleFare `number`
-  * ticketTime `string`
-  * ticketType `string`
-  * zones `string`
-
-### RecommendationResponse
-* RecommendationResponse `object`
-  * recommendations `array`
-    * items [Recommendation](#recommendation)
-
-### Redirect
-* Redirect `object`
+### Tfl.Api.Presentation.Entities.Redirect
+* Tfl.Api.Presentation.Entities.Redirect `object`
   * active `boolean`
   * longUrl `string`
   * shortUrl `string`
 
-### RoadCorridor
-* RoadCorridor `object`
+### Tfl.Api.Presentation.Entities.RoadCorridor
+* Tfl.Api.Presentation.Entities.RoadCorridor `object`
   * bounds `string`: The Bounds of the Corridor, given by the south-east followed by the north-west co-ordinate
   * displayName `string`: The display name of the Corridor e.g. "North Circular (A406)". This
   * envelope `string`: The Envelope of the Corridor, given by the corner co-ordinates of a rectangular (four-point) polygon
@@ -2347,8 +2459,8 @@ tfl_gov_uk.Vehicle_Get({
   * statusSeverityDescription `string`: Description of the status severity as applied to RoadCorridors
   * url `string`: URL to retrieve this Corridor.
 
-### RoadDisruption
-* RoadDisruption `object`
+### Tfl.Api.Presentation.Entities.RoadDisruption
+* Tfl.Api.Presentation.Entities.RoadDisruption `object`
   * category `string`: Describes the nature of disruption e.g. Traffic Incidents, Works
   * comments `string`: Full text of comments describing the disruption, including details of any road closures and diversions, where appropriate.
   * corridorIds `array`: The Ids of affected corridors, if any.
@@ -2356,8 +2468,8 @@ tfl_gov_uk.Vehicle_Get({
   * currentUpdate `string`: Text of the most recent update from the LSTCC on the state of the
   * currentUpdateDateTime `string`: The time when the last CurrentUpdate description was recorded, 
   * endDateTime `string`: The date and time on which the disruption ended. For planned disruptions, this date will have a valid value. For unplanned 
-  * geography [DbGeography](#dbgeography)
-  * geometry [DbGeography](#dbgeography)
+  * geography [System.Data.Spatial.DbGeography](#system.data.spatial.dbgeography)
+  * geometry [System.Data.Spatial.DbGeography](#system.data.spatial.dbgeography)
   * hasClosures `boolean`: True if any of the affected Streets have a "Full Closure" status, false otherwise. A RoadDisruption that has HasClosures is considered a 
   * id `string`: Unique identifier for the road disruption
   * isProvisional `boolean`: True if the disruption is planned on a future date that is open to change
@@ -2371,49 +2483,49 @@ tfl_gov_uk.Vehicle_Get({
   * publishEndDate `string`
   * publishStartDate `string`: TDM Additional properties
   * recurringSchedules `array`
-    * items [RoadDisruptionSchedule](#roaddisruptionschedule)
+    * items [Tfl.Api.Presentation.Entities.RoadDisruptionSchedule](#tfl.api.presentation.entities.roaddisruptionschedule)
   * roadDisruptionImpactAreas `array`
-    * items [RoadDisruptionImpactArea](#roaddisruptionimpactarea)
+    * items [Tfl.Api.Presentation.Entities.RoadDisruptionImpactArea](#tfl.api.presentation.entities.roaddisruptionimpactarea)
   * roadDisruptionLines `array`
-    * items [RoadDisruptionLine](#roaddisruptionline)
-  * roadProject [RoadProject](#roadproject)
+    * items [Tfl.Api.Presentation.Entities.RoadDisruptionLine](#tfl.api.presentation.entities.roaddisruptionline)
+  * roadProject [Tfl.Api.Presentation.Entities.RoadProject](#tfl.api.presentation.entities.roadproject)
   * severity `string`: A description of the severity of the disruption.
   * startDateTime `string`: The date and time which the disruption started. For a planned disruption (i.e. planned road works) this date will be in the future.
   * status `string`: This describes the status of the disruption.  
   * streets `array`: A collection of zero or more streets affected by the disruption.
-    * items [Street](#street)
+    * items [Tfl.Api.Presentation.Entities.Street](#tfl.api.presentation.entities.street)
   * subCategory `string`: Describes the sub-category of disruption e.g. Collapsed Manhole, Abnormal Load
   * timeFrame `string`
   * url `string`: URL to retrieve this road disruption
 
-### RoadDisruptionImpactArea
-* RoadDisruptionImpactArea `object`
+### Tfl.Api.Presentation.Entities.RoadDisruptionImpactArea
+* Tfl.Api.Presentation.Entities.RoadDisruptionImpactArea `object`
   * endDate `string`
   * endTime `string`
   * id `integer`
-  * polygon [DbGeography](#dbgeography)
+  * polygon [System.Data.Spatial.DbGeography](#system.data.spatial.dbgeography)
   * roadDisruptionId `string`
   * startDate `string`
   * startTime `string`
 
-### RoadDisruptionLine
-* RoadDisruptionLine `object`
+### Tfl.Api.Presentation.Entities.RoadDisruptionLine
+* Tfl.Api.Presentation.Entities.RoadDisruptionLine `object`
   * endDate `string`
   * endTime `string`
   * id `integer`
   * isDiversion `boolean`
-  * multiLineString [DbGeography](#dbgeography)
+  * multiLineString [System.Data.Spatial.DbGeography](#system.data.spatial.dbgeography)
   * roadDisruptionId `string`
   * startDate `string`
   * startTime `string`
 
-### RoadDisruptionSchedule
-* RoadDisruptionSchedule `object`
+### Tfl.Api.Presentation.Entities.RoadDisruptionSchedule
+* Tfl.Api.Presentation.Entities.RoadDisruptionSchedule `object`
   * endTime `string`
   * startTime `string`
 
-### RoadProject
-* RoadProject `object`
+### Tfl.Api.Presentation.Entities.RoadProject
+* Tfl.Api.Presentation.Entities.RoadProject `object`
   * boroughsBenefited `array`
     * items `string`
   * constructionEndDate `string`
@@ -2433,39 +2545,31 @@ tfl_gov_uk.Vehicle_Get({
   * projectSummaryPageUrl `string`
   * schemeName `string`
 
-### RouteOption
-* RouteOption `object`
-  * directions `array`
-    * items `string`
-  * id `string`: The Id of the route
-  * lineIdentifier [Identifier](#identifier)
-  * name `string`: Name such as "72"
-
-### RouteSearchMatch
-* RouteSearchMatch `object`
+### Tfl.Api.Presentation.Entities.RouteSearchMatch
+* Tfl.Api.Presentation.Entities.RouteSearchMatch `object`
   * id `string`
   * lat `number`
   * lineId `string`
   * lineName `string`
   * lineRouteSection `array`
-    * items [LineRouteSection](#lineroutesection)
+    * items [Tfl.Api.Presentation.Entities.LineRouteSection](#tfl.api.presentation.entities.lineroutesection)
   * lon `number`
   * matchedRouteSections `array`
-    * items [MatchedRouteSections](#matchedroutesections)
+    * items [Tfl.Api.Presentation.Entities.MatchedRouteSections](#tfl.api.presentation.entities.matchedroutesections)
   * matchedStops `array`
-    * items [MatchedStop](#matchedstop)
+    * items [Tfl.Api.Presentation.Entities.MatchedStop](#tfl.api.presentation.entities.matchedstop)
   * mode `string`
   * name `string`
   * url `string`
 
-### RouteSearchResponse
-* RouteSearchResponse `object`
+### Tfl.Api.Presentation.Entities.RouteSearchResponse
+* Tfl.Api.Presentation.Entities.RouteSearchResponse `object`
   * input `string`
   * searchMatches `array`
-    * items [RouteSearchMatch](#routesearchmatch)
+    * items [Tfl.Api.Presentation.Entities.RouteSearchMatch](#tfl.api.presentation.entities.routesearchmatch)
 
-### RouteSection
-* RouteSection `object`
+### Tfl.Api.Presentation.Entities.RouteSection
+* Tfl.Api.Presentation.Entities.RouteSection `object`
   * destinationName `string`: The name of the Destination StopPoint
   * direction `string`: Inbound or Outbound
   * id `string`: The Id of the route
@@ -2475,17 +2579,17 @@ tfl_gov_uk.Vehicle_Get({
   * originationName `string`: The name of the Origin StopPoint
   * routeCode `string`: The route code
   * routeSectionNaptanEntrySequence `array`
-    * items [RouteSectionNaptanEntrySequence](#routesectionnaptanentrysequence)
+    * items [Tfl.Api.Presentation.Entities.RouteSectionNaptanEntrySequence](#tfl.api.presentation.entities.routesectionnaptanentrysequence)
   * validFrom `string`: The DateTime that the Service containing this Route is valid from.
   * validTo `string`: The DateTime that the Service containing this Route is valid until.
 
-### RouteSectionNaptanEntrySequence
-* RouteSectionNaptanEntrySequence `object`
+### Tfl.Api.Presentation.Entities.RouteSectionNaptanEntrySequence
+* Tfl.Api.Presentation.Entities.RouteSectionNaptanEntrySequence `object`
   * ordinal `integer`
-  * stopPoint [StopPoint](#stoppoint)
+  * stopPoint [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
 
-### RouteSequence
-* RouteSequence `object`
+### Tfl.Api.Presentation.Entities.RouteSequence
+* Tfl.Api.Presentation.Entities.RouteSequence `object`
   * direction `string`
   * isOutboundOnly `boolean`
   * lineId `string`
@@ -2494,41 +2598,35 @@ tfl_gov_uk.Vehicle_Get({
     * items `string`
   * mode `string`
   * orderedLineRoutes `array`
-    * items [OrderedRoute](#orderedroute)
+    * items [Tfl.Api.Presentation.Entities.OrderedRoute](#tfl.api.presentation.entities.orderedroute)
   * stations `array`
-    * items [MatchedStop](#matchedstop)
+    * items [Tfl.Api.Presentation.Entities.MatchedStop](#tfl.api.presentation.entities.matchedstop)
   * stopPointSequences `array`
-    * items [StopPointSequence](#stoppointsequence)
+    * items [Tfl.Api.Presentation.Entities.StopPointSequence](#tfl.api.presentation.entities.stoppointsequence)
 
-### Schedule
-* Schedule `object`
-  * firstJourney [KnownJourney](#knownjourney)
+### Tfl.Api.Presentation.Entities.Schedule
+* Tfl.Api.Presentation.Entities.Schedule `object`
+  * firstJourney [Tfl.Api.Presentation.Entities.KnownJourney](#tfl.api.presentation.entities.knownjourney)
   * knownJourneys `array`
-    * items [KnownJourney](#knownjourney)
-  * lastJourney [KnownJourney](#knownjourney)
+    * items [Tfl.Api.Presentation.Entities.KnownJourney](#tfl.api.presentation.entities.knownjourney)
+  * lastJourney [Tfl.Api.Presentation.Entities.KnownJourney](#tfl.api.presentation.entities.knownjourney)
   * name `string`
   * periods `array`
-    * items [Period](#period)
+    * items [Tfl.Api.Presentation.Entities.Period](#tfl.api.presentation.entities.period)
 
-### SearchCriteria
-* SearchCriteria `object`
-  * dateTime `string`
-  * dateTimeType `string` (values: Arriving, Departing)
-  * timeAdjustments [TimeAdjustments](#timeadjustments)
-
-### SearchMatch
-* SearchMatch `object`
+### Tfl.Api.Presentation.Entities.SearchMatch
+* Tfl.Api.Presentation.Entities.SearchMatch `object`
   * id `string`
   * lat `number`
   * lon `number`
   * name `string`
   * url `string`
 
-### SearchResponse
-* SearchResponse `object`
+### Tfl.Api.Presentation.Entities.SearchResponse
+* Tfl.Api.Presentation.Entities.SearchResponse `object`
   * from `integer`
   * matches `array`
-    * items [SearchMatch](#searchmatch)
+    * items [Tfl.Api.Presentation.Entities.SearchMatch](#tfl.api.presentation.entities.searchmatch)
   * maxScore `number`
   * page `integer`
   * pageSize `integer`
@@ -2536,30 +2634,30 @@ tfl_gov_uk.Vehicle_Get({
   * query `string`
   * total `integer`
 
-### ServiceFrequency
-* ServiceFrequency `object`
+### Tfl.Api.Presentation.Entities.ServiceFrequency
+* Tfl.Api.Presentation.Entities.ServiceFrequency `object`
   * highestFrequency `number`
   * lowestFrequency `number`
 
-### StationInterval
-* StationInterval `object`
+### Tfl.Api.Presentation.Entities.StationInterval
+* Tfl.Api.Presentation.Entities.StationInterval `object`
   * id `string`
   * intervals `array`
-    * items [Interval](#interval)
+    * items [Tfl.Api.Presentation.Entities.Interval](#tfl.api.presentation.entities.interval)
 
-### StatusSeverity
-* StatusSeverity `object`
+### Tfl.Api.Presentation.Entities.StatusSeverity
+* Tfl.Api.Presentation.Entities.StatusSeverity `object`
   * description `string`
   * modeName `string`
   * severityLevel `integer`
 
-### StopPoint
-* StopPoint `object`
+### Tfl.Api.Presentation.Entities.StopPoint
+* Tfl.Api.Presentation.Entities.StopPoint `object`
   * accessibilitySummary `string`
   * additionalProperties `array`: A bag of additional key/value pairs with extra information about this place.
-    * items [AdditionalProperties](#additionalproperties)
+    * items [Tfl.Api.Presentation.Entities.AdditionalProperties](#tfl.api.presentation.entities.additionalproperties)
   * children `array`
-    * items [Place](#place)
+    * items [Tfl.Api.Presentation.Entities.Place](#tfl.api.presentation.entities.place)
   * childrenUrls `array`
     * items `string`
   * commonName `string`: A human readable name.
@@ -2571,11 +2669,11 @@ tfl_gov_uk.Vehicle_Get({
   * indicator `string`: The indicator of the stop point e.g. "Stop K"
   * lat `number`: WGS84 latitude of the location.
   * lineGroup `array`
-    * items [LineGroup](#linegroup)
+    * items [Tfl.Api.Presentation.Entities.LineGroup](#tfl.api.presentation.entities.linegroup)
   * lineModeGroups `array`
-    * items [LineModeGroup](#linemodegroup)
+    * items [Tfl.Api.Presentation.Entities.LineModeGroup](#tfl.api.presentation.entities.linemodegroup)
   * lines `array`
-    * items [Identifier](#identifier)
+    * items [Tfl.Api.Presentation.Entities.Identifier](#tfl.api.presentation.entities.identifier)
   * lon `number`: WGS84 longitude of the location.
   * modes `array`
     * items `string`
@@ -2590,14 +2688,14 @@ tfl_gov_uk.Vehicle_Get({
   * stopType `string`
   * url `string`: The unique location of this resource.
 
-### StopPointCategory
-* StopPointCategory `object`
+### Tfl.Api.Presentation.Entities.StopPointCategory
+* Tfl.Api.Presentation.Entities.StopPointCategory `object`
   * availableKeys `array`
     * items `string`
   * category `string`
 
-### StopPointRouteSection
-* StopPointRouteSection `object`
+### Tfl.Api.Presentation.Entities.StopPointRouteSection
+* Tfl.Api.Presentation.Entities.StopPointRouteSection `object`
   * destinationName `string`
   * direction `string`
   * isActive `boolean`
@@ -2611,8 +2709,8 @@ tfl_gov_uk.Vehicle_Get({
   * validTo `string`
   * vehicleDestinationText `string`
 
-### StopPointSequence
-* StopPointSequence `object`
+### Tfl.Api.Presentation.Entities.StopPointSequence
+* Tfl.Api.Presentation.Entities.StopPointSequence `object`
   * branchId `integer`: The id of this branch.
   * direction `string`
   * lineId `string`
@@ -2623,100 +2721,74 @@ tfl_gov_uk.Vehicle_Get({
     * items `integer`
   * serviceType `string` (values: Regular, Night)
   * stopPoint `array`
-    * items [MatchedStop](#matchedstop)
+    * items [Tfl.Api.Presentation.Entities.MatchedStop](#tfl.api.presentation.entities.matchedstop)
 
-### StopPointsResponse
-* StopPointsResponse `object`: A paged response containing StopPoints
+### Tfl.Api.Presentation.Entities.StopPointsResponse
+* Tfl.Api.Presentation.Entities.StopPointsResponse `object`: A paged response containing StopPoints
   * centrePoint `array`: The centre latitude/longitude of this list of StopPoints
     * items `number`
   * page `integer`: The index of this page
   * pageSize `integer`: The maximum size of the page in this response i.e. the maximum number of StopPoints
   * stopPoints `array`: Collection of stop points
-    * items [StopPoint](#stoppoint)
+    * items [Tfl.Api.Presentation.Entities.StopPoint](#tfl.api.presentation.entities.stoppoint)
   * total `integer`: The total number of StopPoints available across all pages
 
-### Street
-* Street `object`
+### Tfl.Api.Presentation.Entities.Street
+* Tfl.Api.Presentation.Entities.Street `object`
   * closure `string`: Type of road closure. Some example values:
   * directions `string`: The direction of the disruption on the street. Some example values:
   * name `string`: Street name
   * segments `array`: Geographic description of the sections of this street that are affected.
-    * items [StreetSegment](#streetsegment)
+    * items [Tfl.Api.Presentation.Entities.StreetSegment](#tfl.api.presentation.entities.streetsegment)
   * sourceSystemId `integer`: The ID from the source system of the disruption that this street belongs to.
   * sourceSystemKey `string`: The key of the source system of the disruption that this street belongs to.
 
-### StreetSegment
-* StreetSegment `object`
+### Tfl.Api.Presentation.Entities.StreetSegment
+* Tfl.Api.Presentation.Entities.StreetSegment `object`
   * lineString `string`: geoJSON formatted LineString containing two latitude/longitude (WGS84) pairs that identify the start and end points of the street segment.
   * sourceSystemId `integer`: The ID from the source system of the disruption that this street belongs to.
   * sourceSystemKey `string`: The key of the source system of the disruption that this street belongs to.
   * toid `string`: A 16 digit unique integer identifying a OS ITN (Ordnance Survey Integrated Transport Network) road link.
 
-### Ticket
-* Ticket `object`
-  * cost `string`
-  * description `string`
-  * displayOrder `integer`
-  * messages `array`
-    * items [Message](#message)
-  * mode `string`
-  * passengerType `string`
-  * ticketTime [TicketTime](#tickettime)
-  * ticketType [TicketType](#tickettype)
-
-### TicketTime
-* TicketTime `object`
-  * description `string`
-  * type `string`
-
-### TicketType
-* TicketType `object`
-  * description `string`
-  * type `string`
-
-### TimeAdjustment
-* TimeAdjustment `object`
-  * date `string`
-  * time `string`
-  * timeIs `string`
-  * uri `string`
-
-### TimeAdjustments
-* TimeAdjustments `object`
-  * earlier [TimeAdjustment](#timeadjustment)
-  * earliest [TimeAdjustment](#timeadjustment)
-  * later [TimeAdjustment](#timeadjustment)
-  * latest [TimeAdjustment](#timeadjustment)
-
-### Timetable
-* Timetable `object`
+### Tfl.Api.Presentation.Entities.Timetable
+* Tfl.Api.Presentation.Entities.Timetable `object`
   * departureStopId `string`
   * routes `array`
-    * items [TimetableRoute](#timetableroute)
+    * items [Tfl.Api.Presentation.Entities.TimetableRoute](#tfl.api.presentation.entities.timetableroute)
 
-### TimetableResponse
-* TimetableResponse `object`
+### Tfl.Api.Presentation.Entities.TimetableResponse
+* Tfl.Api.Presentation.Entities.TimetableResponse `object`
   * direction `string`
-  * disambiguation [Disambiguation](#disambiguation)
+  * disambiguation [Tfl.Api.Presentation.Entities.Timetables.Disambiguation](#tfl.api.presentation.entities.timetables.disambiguation)
   * lineId `string`
   * lineName `string`
   * pdfUrl `string`
   * stations `array`
-    * items [MatchedStop](#matchedstop)
+    * items [Tfl.Api.Presentation.Entities.MatchedStop](#tfl.api.presentation.entities.matchedstop)
   * statusErrorMessage `string`
   * stops `array`
-    * items [MatchedStop](#matchedstop)
-  * timetable [Timetable](#timetable)
+    * items [Tfl.Api.Presentation.Entities.MatchedStop](#tfl.api.presentation.entities.matchedstop)
+  * timetable [Tfl.Api.Presentation.Entities.Timetable](#tfl.api.presentation.entities.timetable)
 
-### TimetableRoute
-* TimetableRoute `object`
+### Tfl.Api.Presentation.Entities.TimetableRoute
+* Tfl.Api.Presentation.Entities.TimetableRoute `object`
   * schedules `array`
-    * items [Schedule](#schedule)
+    * items [Tfl.Api.Presentation.Entities.Schedule](#tfl.api.presentation.entities.schedule)
   * stationIntervals `array`
-    * items [StationInterval](#stationinterval)
+    * items [Tfl.Api.Presentation.Entities.StationInterval](#tfl.api.presentation.entities.stationinterval)
 
-### TrainLoading
-* TrainLoading `object`
+### Tfl.Api.Presentation.Entities.Timetables.Disambiguation
+* Tfl.Api.Presentation.Entities.Timetables.Disambiguation `object`
+  * disambiguationOptions `array`
+    * items [Tfl.Api.Presentation.Entities.Timetables.DisambiguationOption](#tfl.api.presentation.entities.timetables.disambiguationoption)
+
+### Tfl.Api.Presentation.Entities.Timetables.DisambiguationOption
+* Tfl.Api.Presentation.Entities.Timetables.DisambiguationOption `object`
+  * description `string`
+  * uri `string`
+
+### Tfl.Api.Presentation.Entities.TrainLoading
+* Tfl.Api.Presentation.Entities.TrainLoading `object`
   * direction `string`: Direction in regards to Journey Planner i.e. inbound or outbound
   * line `string`: The Line Name e.g. "Victoria"
   * lineDirection `string`: Direction of the Line e.g. NB, SB, WB etc.
@@ -2725,23 +2797,19 @@ tfl_gov_uk.Vehicle_Get({
   * timeSlice `string`: Time in 24hr format with 15 minute intervals e.g. 0500-0515, 0515-0530 etc.
   * value `integer`: Scale between 1-6, 
 
-### TwentyFourHourClockTime
-* TwentyFourHourClockTime `object`
+### Tfl.Api.Presentation.Entities.TwentyFourHourClockTime
+* Tfl.Api.Presentation.Entities.TwentyFourHourClockTime `object`
   * hour `string`
   * minute `string`
 
-### ValidityPeriod
-* ValidityPeriod `object`: Represents a period for which a planned works is valid.
+### Tfl.Api.Presentation.Entities.ValidityPeriod
+* Tfl.Api.Presentation.Entities.ValidityPeriod `object`: Represents a period for which a planned works is valid.
   * fromDate `string`: Gets or sets the start date.
   * isNow `boolean`: If true is a realtime status rather than planned or info
   * toDate `string`: Gets or sets the end date.
 
-### Vehicle
-* Vehicle `object`
-  * type `string`
-
-### VehicleMatch
-* VehicleMatch `object`
+### Tfl.Api.Presentation.Entities.VehicleMatch
+* Tfl.Api.Presentation.Entities.VehicleMatch `object`
   * colour `string`
   * compliance `string` (values: NotAvailable, NotCompliant, Compliant, Exempt)
   * make `string`

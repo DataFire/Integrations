@@ -17,13 +17,13 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/Databases.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/databases.json",
         "version": "2.0"
       }
     ],
     "x-preferred": true,
     "x-providerName": "azure.com",
-    "x-serviceName": "sql-Databases",
+    "x-serviceName": "sql-databases",
     "x-tags": [
       "Azure",
       "Microsoft"
@@ -1404,37 +1404,55 @@
     }
   },
   "definitions": {
-    "ArmSku": {
-      "description": "An ARM Resource SKU.",
-      "properties": {
-        "capacity": {
-          "description": "Capacity of the particular SKU.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "family": {
-          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here.",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the SKU, typically, a letter + Number code, e.g. P3.",
-          "type": "string"
-        },
-        "size": {
-          "description": "Size of the particular SKU",
-          "type": "string"
-        },
-        "tier": {
-          "description": "The tier of the particular SKU, e.g. Basic, Premium.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Database": {
       "allOf": [
         {
-          "$ref": "#/definitions/TrackedResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM tracked top level resource.",
+          "properties": {
+            "location": {
+              "description": "Resource location.",
+              "type": "string",
+              "x-ms-mutability": [
+                "read",
+                "create"
+              ]
+            },
+            "tags": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Resource tags.",
+              "type": "object"
+            }
+          },
+          "required": [
+            "location"
+          ],
+          "type": "object"
         }
       ],
       "description": "A database resource.",
@@ -1450,8 +1468,33 @@
           "x-ms-client-flatten": true
         },
         "sku": {
-          "$ref": "#/definitions/ArmSku",
-          "description": "The name and tier of the SKU."
+          "description": "The resource model definition representing SKU",
+          "properties": {
+            "capacity": {
+              "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
+              "format": "int32",
+              "type": "integer"
+            },
+            "family": {
+              "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here.",
+              "type": "string"
+            },
+            "name": {
+              "description": "The name of the SKU. Ex - P3. It is typically a letter+number code",
+              "type": "string"
+            },
+            "size": {
+              "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. ",
+              "type": "string"
+            },
+            "tier": {
+              "description": "This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
         }
       },
       "required": [
@@ -1481,7 +1524,33 @@
     "DatabaseOperation": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "A database operation.",
@@ -1623,6 +1692,7 @@
             "Default",
             "Copy",
             "Secondary",
+            "OnlineSecondary",
             "PointInTimeRestore",
             "Restore",
             "Recovery",
@@ -1768,7 +1838,7 @@
           "type": "string",
           "x-ms-enum": {
             "modelAsString": true,
-            "name": "Status"
+            "name": "DatabaseStatus"
           }
         },
         "zoneRedundant": {
@@ -1787,8 +1857,33 @@
           "x-ms-client-flatten": true
         },
         "sku": {
-          "$ref": "#/definitions/ArmSku",
-          "description": "The name and tier of the SKU."
+          "description": "The resource model definition representing SKU",
+          "properties": {
+            "capacity": {
+              "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
+              "format": "int32",
+              "type": "integer"
+            },
+            "family": {
+              "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here.",
+              "type": "string"
+            },
+            "name": {
+              "description": "The name of the SKU. Ex - P3. It is typically a letter+number code",
+              "type": "string"
+            },
+            "size": {
+              "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. ",
+              "type": "string"
+            },
+            "tier": {
+              "description": "This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
         },
         "tags": {
           "additionalProperties": {
@@ -1886,7 +1981,33 @@
     "ImportExportOperationResult": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "An ImportExport operation result resource.",
@@ -1949,67 +2070,6 @@
           "type": "string"
         }
       },
-      "type": "object"
-    },
-    "ProxyResource": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "ARM proxy resource.",
-      "properties": {},
-      "type": "object"
-    },
-    "Resource": {
-      "description": "ARM resource.",
-      "properties": {
-        "id": {
-          "description": "Resource ID.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "name": {
-          "description": "Resource name.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "type": {
-          "description": "Resource type.",
-          "readOnly": true,
-          "type": "string"
-        }
-      },
-      "type": "object",
-      "x-ms-azure-resource": true
-    },
-    "TrackedResource": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "ARM tracked top level resource.",
-      "properties": {
-        "location": {
-          "description": "Resource location.",
-          "type": "string",
-          "x-ms-mutability": [
-            "read",
-            "create"
-          ]
-        },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource tags.",
-          "type": "object"
-        }
-      },
-      "required": [
-        "location"
-      ],
       "type": "object"
     }
   }

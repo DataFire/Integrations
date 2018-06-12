@@ -1,6 +1,6 @@
 {
   "name": "@datafire/patientview",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for PatientView",
   "repository": {

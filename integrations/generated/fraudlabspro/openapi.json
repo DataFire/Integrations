@@ -1,0 +1,315 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "x-twitter": "fraudlabspro"
+    },
+    "description": "Online payment fraud detection service. It helps merchants to minimize chargebacks and therefore maximize the revenue. It can be used to detect fraud for various kinds of payment method, such as credit card, paypal, cod and so on. Please visit https://www.fraudlabspro.com to learn more.",
+    "title": "FraudLabs Pro Fraud Detection",
+    "version": "1.1",
+    "x-apisguru-categories": [
+      "ecommerce"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_fraudlabspro_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.6.2"
+        },
+        "format": "openapi",
+        "url": "https://app.swaggerhub.com/apiproxy/schema/file/fraudlabspro/fraudlabspro-fraud-detection/1.1/swagger.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "fraudlabspro.com",
+    "x-datafire": {
+      "name": "fraudlabspro",
+      "type": "openapi"
+    }
+  },
+  "host": "api.fraudlabspro.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v1/order/feedback": {
+      "post": {
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          },
+          {
+            "enum": [
+              "APPROVE",
+              "REJECT",
+              "REJECT_BLACKLIST"
+            ],
+            "in": "query",
+            "name": "action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "notes",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Feedback order response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Feedback the status of an order transaction."
+      }
+    },
+    "/v1/order/screen": {
+      "post": {
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ip",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "last_name",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "first_name",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "bill_addr",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "bill_city",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "bill_state",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "bill_country",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "bill_zip_code",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "ship_addr",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "ship_city",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "ship_state",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "ship_country",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "ship_zip_code",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "email_domain",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "user_phone",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "email_hash",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "username_hash",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "password_hash",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "bin_no",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "card_hash",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "avs_result",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "cvv_result",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "user_order_id",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "user_order_memo",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "amount",
+            "type": "number"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "quantity",
+            "type": "integer"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "currency",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "department",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "payment_mode",
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "in": "query",
+            "name": "flp_checksum",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Screen order response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Screen order for payment fraud."
+      }
+    }
+  }
+}

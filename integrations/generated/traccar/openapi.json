@@ -8,7 +8,7 @@
   "info": {
     "description": "Open Source GPS Tracking Platform",
     "title": "traccar",
-    "version": "3.15",
+    "version": "3.17",
     "x-apisguru-categories": [
       "location"
     ],
@@ -101,6 +101,14 @@
       "required": true,
       "schema": {
         "$ref": "#/definitions/Group"
+      }
+    },
+    "Maintenance": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/Maintenance"
       }
     },
     "Notification": {
@@ -942,6 +950,94 @@
         "operationId": "groups.id.put"
       }
     },
+    "/maintenances": {
+      "get": {
+        "description": "Without params, it returns a list of Maintenances the user has access to",
+        "parameters": [
+          {
+            "$ref": "#/parameters/all"
+          },
+          {
+            "$ref": "#/parameters/userId"
+          },
+          {
+            "$ref": "#/parameters/deviceId"
+          },
+          {
+            "$ref": "#/parameters/groupId"
+          },
+          {
+            "$ref": "#/parameters/refresh"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Maintenance"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of Maintenances",
+        "operationId": "maintenances.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/Maintenance"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Maintenance"
+            }
+          }
+        },
+        "summary": "Create a Maintenance",
+        "operationId": "maintenances.post"
+      }
+    },
+    "/maintenances/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Delete a Maintenance",
+        "operationId": "maintenances.id.delete"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          },
+          {
+            "$ref": "#/parameters/Maintenance"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Maintenance"
+            }
+          }
+        },
+        "summary": "Update a Maintenance",
+        "operationId": "maintenances.id.put"
+      }
+    },
     "/notifications": {
       "get": {
         "description": "Without params, it returns a list of Notifications the user has access to",
@@ -1656,6 +1752,9 @@
         "contact": {
           "type": "string"
         },
+        "disabled": {
+          "type": "boolean"
+        },
         "geofenceIds": {
           "items": {
             "type": "integer"
@@ -1730,6 +1829,9 @@
         "id": {
           "type": "integer"
         },
+        "maintenanceId": {
+          "type": "integer"
+        },
         "positionId": {
           "type": "integer"
         },
@@ -1777,12 +1879,35 @@
         }
       }
     },
+    "Maintenance": {
+      "properties": {
+        "atributes": {},
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "period": {
+          "type": "number"
+        },
+        "start": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
     "Notification": {
       "properties": {
         "always": {
           "type": "boolean"
         },
         "attributes": {},
+        "calendarId": {
+          "type": "integer"
+        },
         "id": {
           "type": "integer"
         },
@@ -2068,6 +2193,9 @@
         "mapUrl": {
           "type": "string"
         },
+        "poiLayer": {
+          "type": "string"
+        },
         "readonly": {
           "type": "boolean"
         },
@@ -2111,7 +2239,7 @@
     },
     "User": {
       "properties": {
-        "admin": {
+        "administrator": {
           "type": "boolean"
         },
         "attributes": {},
@@ -2154,6 +2282,9 @@
           "type": "string"
         },
         "password": {
+          "type": "string"
+        },
+        "poiLayer": {
           "type": "string"
         },
         "readonly": {

@@ -175,24 +175,4 @@ azure_sql_importexport.Databases_Import({
   * storageKeyType **required** `string` (values: StorageAccessKey, SharedAccessKey): The type of the storage key to use.
   * storageUri **required** `string`: The storage uri to use.
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### TrackedResource
-* TrackedResource `object`: ARM tracked top level resource.
-  * location **required** `string`: Resource location.
-  * tags `object`: Resource tags.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

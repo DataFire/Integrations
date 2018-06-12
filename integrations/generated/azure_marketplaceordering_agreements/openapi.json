@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/marketplaceordering/resource-manager/Microsoft.MarketplaceOrdering/stable/2015-06-01/Agreements.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/marketplaceordering/resource-manager/Microsoft.MarketplaceOrdering/stable/2015-06-01/Agreements.json",
         "version": "2.0"
       }
     ],

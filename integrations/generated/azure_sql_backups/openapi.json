@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/backups.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/backups.json",
         "version": "2.0"
       }
     ],
@@ -91,131 +91,6 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/restorePoints": {
-      "get": {
-        "description": "Gets a list of database restore points.",
-        "operationId": "RestorePoints_ListByDatabase",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          },
-          {
-            "$ref": "#/parameters/ServerNameParameter"
-          },
-          {
-            "description": "The name of the database to get available restore points.",
-            "in": "path",
-            "name": "databaseName",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/RestorePointListResult"
-            }
-          }
-        },
-        "tags": [
-          "DatabaseBackup"
-        ],
-        "x-ms-examples": {
-          "Get a data warehouse's restore points": {
-            "parameters": {
-              "api-version": "2014-04-01",
-              "databaseName": "3481",
-              "resourceGroupName": "sqlcrudtest-6730",
-              "serverName": "sqlcrudtest-9007",
-              "subscriptionId": "00000000-1111-2222-3333-444444444444"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6730/providers/Microsoft.Sql/servers/9007/databases/3481/restorepoints/131448209670000000",
-                      "location": "West US",
-                      "name": "131448209670000000",
-                      "properties": {
-                        "restorePointCreationDate": "2017-07-18T03:09:27Z",
-                        "restorePointType": "DISCRETE"
-                      },
-                      "type": "Microsoft.Sql/servers/databases/restorePoints"
-                    },
-                    {
-                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6730/providers/Microsoft.Sql/servers/9007/databases/3481/restorepoints/131448353660000000",
-                      "location": "West US",
-                      "name": "131448353660000000",
-                      "properties": {
-                        "restorePointCreationDate": "2017-07-18T07:09:26Z",
-                        "restorePointType": "DISCRETE"
-                      },
-                      "type": "Microsoft.Sql/servers/databases/restorePoints"
-                    },
-                    {
-                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6730/providers/Microsoft.Sql/servers/9007/databases/3481/restorepoints/131448497660000000",
-                      "location": "West US",
-                      "name": "131448497660000000",
-                      "properties": {
-                        "restorePointCreationDate": "2017-07-18T11:09:26Z",
-                        "restorePointType": "DISCRETE"
-                      },
-                      "type": "Microsoft.Sql/servers/databases/restorePoints"
-                    },
-                    {
-                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6730/providers/Microsoft.Sql/servers/9007/databases/3481/restorepoints/131448641650000000",
-                      "location": "West US",
-                      "name": "131448641650000000",
-                      "properties": {
-                        "restorePointCreationDate": "2017-07-18T15:09:25Z",
-                        "restorePointType": "DISCRETE"
-                      },
-                      "type": "Microsoft.Sql/servers/databases/restorePoints"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "Get a database's restore points": {
-            "parameters": {
-              "api-version": "2014-04-01",
-              "databaseName": "3481",
-              "resourceGroupName": "sqlcrudtest-6730",
-              "serverName": "sqlcrudtest-9007",
-              "subscriptionId": "00000000-1111-2222-3333-444444444444"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6730/providers/Microsoft.Sql/servers/sqlcrudtest-9007/databases/3481/restorepoints/ContinuousRestorePoint",
-                      "location": "West US",
-                      "name": "ContinuousRestorePoint",
-                      "properties": {
-                        "earliestRestoreDate": "2017-06-12T00:00:00Z",
-                        "restorePointType": "CONTINUOUS"
-                      },
-                      "type": "Microsoft.Sql/servers/databases/restorePoints"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "x-ms-pageable": {}
-      }
-    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/recoverableDatabases": {
       "get": {
         "description": "Gets a list of recoverable databases",
@@ -262,6 +137,7 @@
                       "name": "recoverabledatabasetest-1235",
                       "properties": {
                         "edition": "Standard",
+                        "elasticPoolName": null,
                         "lastAvailableBackupDate": "2017-05-26T01:06:29.78Z",
                         "serviceLevelObjective": "S0"
                       },
@@ -272,6 +148,7 @@
                       "name": "recoverabledatabasetest-9231",
                       "properties": {
                         "edition": "Premium",
+                        "elasticPoolName": null,
                         "lastAvailableBackupDate": "2017-05-26T03:20:31.78Z",
                         "serviceLevelObjective": "P1"
                       },
@@ -282,6 +159,7 @@
                       "name": "recoverabledatabasetest-0342",
                       "properties": {
                         "edition": "Basic",
+                        "elasticPoolName": null,
                         "lastAvailableBackupDate": "2017-05-24T02:06:18.78Z",
                         "serviceLevelObjective": "Basic"
                       },
@@ -348,6 +226,7 @@
                   "name": "recoverabledatabasetest-9187",
                   "properties": {
                     "edition": "Basic",
+                    "elasticPoolName": null,
                     "lastAvailableBackupDate": "2017-05-26T01:06:29.78Z",
                     "serviceLevelObjective": "Basic"
                   },
@@ -410,6 +289,7 @@
                         "deletionDate": "2017-05-27T02:49:47.69Z",
                         "earliestRestoreDate": "2017-05-20T02:49:47.69Z",
                         "edition": "Basic",
+                        "elasticPoolName": null,
                         "maxSizeBytes": "2147483648",
                         "serviceLevelObjective": "Basic"
                       },
@@ -425,6 +305,7 @@
                         "deletionDate": "2017-05-27T02:16:08.403Z",
                         "earliestRestoreDate": "2017-04-21T02:49:47.69Z",
                         "edition": "Standard",
+                        "elasticPoolName": null,
                         "maxSizeBytes": "268435456000",
                         "serviceLevelObjective": "S0"
                       },
@@ -496,6 +377,7 @@
                     "deletionDate": "2017-05-27T02:49:47.69Z",
                     "earliestRestoreDate": "2017-05-20T02:49:47.69Z",
                     "edition": "Basic",
+                    "elasticPoolName": null,
                     "maxSizeBytes": "2147483648",
                     "serviceLevelObjective": "Basic"
                   },
@@ -509,18 +391,36 @@
     }
   },
   "definitions": {
-    "ProxyResource": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "ARM proxy resource."
-    },
     "RecoverableDatabase": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "A recoverable database",
@@ -573,31 +473,36 @@
         }
       }
     },
-    "Resource": {
-      "description": "ARM resource.",
-      "properties": {
-        "id": {
-          "description": "Resource ID.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "name": {
-          "description": "Resource name.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "type": {
-          "description": "Resource type.",
-          "readOnly": true,
-          "type": "string"
-        }
-      },
-      "x-ms-azure-resource": true
-    },
     "RestorableDroppedDatabase": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "A restorable dropped database",
@@ -676,98 +581,6 @@
           "type": "string"
         }
       }
-    },
-    "RestorePoint": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ProxyResource"
-        }
-      ],
-      "description": "A database restore point.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/RestorePointProperties",
-          "description": "The properties of the restore point.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "RestorePointListResult": {
-      "description": "The response to a list database restore points request.",
-      "properties": {
-        "value": {
-          "description": "The list of database restore points.",
-          "items": {
-            "$ref": "#/definitions/RestorePoint"
-          },
-          "type": "array"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "RestorePointProperties": {
-      "description": "Represents the properties of a database restore point.",
-      "properties": {
-        "earliestRestoreDate": {
-          "description": "Earliest restore time (ISO8601 format). Populated when restorePointType = DISCRETE. Null otherwise.",
-          "format": "date-time",
-          "readOnly": true,
-          "type": "string"
-        },
-        "restorePointCreationDate": {
-          "description": "Restore point creation time (ISO8601 format). Populated when restorePointType = CONTINUOUS. Null otherwise.",
-          "format": "date-time",
-          "readOnly": true,
-          "type": "string"
-        },
-        "restorePointType": {
-          "description": "The restore point type of the database restore point.",
-          "enum": [
-            "DISCRETE",
-            "CONTINUOUS"
-          ],
-          "readOnly": true,
-          "type": "string",
-          "x-ms-enum": {
-            "name": "RestorePointType"
-          }
-        }
-      }
-    },
-    "TrackedResource": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "ARM tracked top level resource.",
-      "properties": {
-        "location": {
-          "description": "Resource location.",
-          "type": "string",
-          "x-ms-mutability": [
-            "read",
-            "create"
-          ]
-        },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource tags.",
-          "type": "object",
-          "x-ms-mutability": [
-            "read",
-            "create",
-            "update"
-          ]
-        }
-      },
-      "required": [
-        "location"
-      ]
     }
   }
 }

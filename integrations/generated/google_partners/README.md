@@ -712,6 +712,7 @@ google_partners.users.createCompanyRelation({
     * items `string`
   * autoApprovalEmailDomains `array`: Email domains that allow users with a matching email address to get
     * items `string`
+  * badgeAuthorityInAwn `boolean`: Whether the company's badge authority is in AWN
   * badgeTier `string` (values: BADGE_TIER_NONE, BADGE_TIER_REGULAR, BADGE_TIER_PREMIER): Partner badge tier
   * certificationStatuses `array`: The list of Google Partners certification statuses for the company.
     * items [CertificationStatus](#certificationstatus)
@@ -786,7 +787,7 @@ google_partners.users.createCompanyRelation({
 ### Date
 * Date `object`: Represents a whole calendar date, e.g. date of birth. The time of day and
   * day `integer`: Day of month. Must be from 1 to 31 and valid for the year and month, or 0
-  * month `integer`: Month of year. Must be from 1 to 12.
+  * month `integer`: Month of year. Must be from 1 to 12, or 0 if specifying a date without a
   * year `integer`: Year of date. Must be from 1 to 9999, or 0 if specifying a date without
 
 ### DebugInfo
@@ -1024,6 +1025,7 @@ google_partners.users.createCompanyRelation({
 
 ### User
 * User `object`: A resource representing a user of the Partners platform.
+  * afaInfoShared `boolean`: Whether or not the user has opted to share their Academy for Ads info with
   * availableAdwordsManagerAccounts `array`: This is the list of AdWords Manager Accounts the user has edit access to.
     * items [AdWordsManagerAccountInfo](#adwordsmanageraccountinfo)
   * certificationStatus `array`: The list of achieved certifications. These are calculated based on exam

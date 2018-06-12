@@ -160,18 +160,6 @@ azure_sql_serverdnsaliases.ServerDnsAliases_Acquire({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### ServerDnsAlias
 * ServerDnsAlias `object`: A server DNS alias.
   * properties [ServerDnsAliasProperties](#serverdnsaliasproperties)

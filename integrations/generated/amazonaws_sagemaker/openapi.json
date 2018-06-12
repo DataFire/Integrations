@@ -276,7 +276,7 @@
         }
       ],
       "post": {
-        "description": "<p>Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the <code>CreateModel</code> API, to deploy and the resources that you want Amazon SageMaker to provision. Then you call the <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> API. </p> <note> <p> Use this API only if you want to use Amazon SageMaker hosting services to deploy models into production. </p> </note> <p>In the request, you define one or more <code>ProductionVariant</code>s, each of which identifies a model. Each <code>ProductionVariant</code> parameter also describes the resources that you want Amazon SageMaker to provision. This includes the number and type of ML compute instances to deploy. </p> <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to specify how much traffic you want to allocate to each model. For example, suppose that you want to host two models, A and B, and you assign traffic weight 2 for model A and 1 for model B. Amazon SageMaker distributes two-thirds of the traffic to Model A, and one-third to model B. </p>",
+        "description": "<p>Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the <code>CreateModel</code> API, to deploy and the resources that you want Amazon SageMaker to provision. Then you call the <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> API.</p> <note> <p> Use this API only if you want to use Amazon SageMaker hosting services to deploy models into production. </p> </note> <p>In the request, you define one or more <code>ProductionVariant</code>s, each of which identifies a model. Each <code>ProductionVariant</code> parameter also describes the resources that you want Amazon SageMaker to provision. This includes the number and type of ML compute instances to deploy. </p> <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to specify how much traffic you want to allocate to each model. For example, suppose that you want to host two models, A and B, and you assign traffic weight 2 for model A and 1 for model B. Amazon SageMaker distributes two-thirds of the traffic to Model A, and one-third to model B. </p>",
         "operationId": "CreateEndpointConfig",
         "parameters": [
           {
@@ -296,6 +296,71 @@
             }
           },
           "480": {
+            "description": "ResourceLimitExceeded",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceeded"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateHyperParameterTuningJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Starts a hyperparameter tuning job.",
+        "operationId": "CreateHyperParameterTuningJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateHyperParameterTuningJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateHyperParameterTuningJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceInUse",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUse"
+            }
+          },
+          "481": {
             "description": "ResourceLimitExceeded",
             "schema": {
               "$ref": "#/definitions/ResourceLimitExceeded"
@@ -394,7 +459,7 @@
         }
       ],
       "post": {
-        "description": "<p>Creates an Amazon SageMaker notebook instance. A notebook instance is an ML compute instance running on a Jupyter notebook. </p> <p>In a <code>CreateNotebookInstance</code> request, you specify the type of ML compute instance that you want to run. Amazon SageMaker launches the instance, installs common libraries that you can use to explore datasets for model training, and attaches an ML storage volume to the notebook instance. </p> <p>Amazon SageMaker also provides a set of example notebooks. Each notebook demonstrates how to use Amazon SageMaker with a specific an algorithm or with a machine learning framework. </p> <p>After receiving the request, Amazon SageMaker does the following:</p> <ol> <li> <p>Creates a network interface in the Amazon SageMaker VPC.</p> </li> <li> <p>(Option) If you specified <code>SubnetId</code>, creates a network interface in your own VPC, which is inferred from the subnet ID that you provide in the input. When creating this network interface, Amazon SageMaker attaches the security group that you specified in the request to the network interface that it creates in your VPC.</p> </li> <li> <p>Launches an EC2 instance of the type specified in the request in the Amazon SageMaker VPC. If you specified <code>SubnetId</code> of your VPC, Amazon SageMaker specifies both network interfaces when launching this instance. This enables inbound traffic from your own VPC to the notebook instance, assuming that the security groups allow it.</p> </li> </ol> <p>After creating the notebook instance, Amazon SageMaker returns its Amazon Resource Name (ARN).</p> <p>After Amazon SageMaker creates the notebook instance, you can connect to the Jupyter server and work in Jupyter notebooks. For example, you can write code to explore a dataset that you can use for model training, train a model, host models by creating Amazon SageMaker endpoints, and validate hosted models. </p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p>",
+        "description": "<p>Creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning (ML) compute instance running on a Jupyter notebook. </p> <p>In a <code>CreateNotebookInstance</code> request, specify the type of ML compute instance that you want to run. Amazon SageMaker launches the instance, installs common libraries that you can use to explore datasets for model training, and attaches an ML storage volume to the notebook instance. </p> <p>Amazon SageMaker also provides a set of example notebooks. Each notebook demonstrates how to use Amazon SageMaker with a specific algorithm or with a machine learning framework. </p> <p>After receiving the request, Amazon SageMaker does the following:</p> <ol> <li> <p>Creates a network interface in the Amazon SageMaker VPC.</p> </li> <li> <p>(Option) If you specified <code>SubnetId</code>, Amazon SageMaker creates a network interface in your own VPC, which is inferred from the subnet ID that you provide in the input. When creating this network interface, Amazon SageMaker attaches the security group that you specified in the request to the network interface that it creates in your VPC.</p> </li> <li> <p>Launches an EC2 instance of the type specified in the request in the Amazon SageMaker VPC. If you specified <code>SubnetId</code> of your VPC, Amazon SageMaker specifies both network interfaces when launching this instance. This enables inbound traffic from your own VPC to the notebook instance, assuming that the security groups allow it.</p> </li> </ol> <p>After creating the notebook instance, Amazon SageMaker returns its Amazon Resource Name (ARN).</p> <p>After Amazon SageMaker creates the notebook instance, you can connect to the Jupyter server and work in Jupyter notebooks. For example, you can write code to explore a dataset that you can use for model training, train a model, host models by creating Amazon SageMaker endpoints, and validate hosted models. </p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p>",
         "operationId": "CreateNotebookInstance",
         "parameters": [
           {
@@ -411,6 +476,65 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CreateNotebookInstanceOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceLimitExceeded",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceeded"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateNotebookInstanceLifecycleConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a lifecycle configuration that you can associate with a notebook instance. A <i>lifecycle configuration</i> is a collection of shell scripts that run when you create or start a notebook instance.</p> <p>Each lifecycle configuration script has a limit of 16384 characters.</p> <p>The value of the <code>$PATH</code> environment variable that is available to both scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p> <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group <code>/aws/sagemaker/NotebookInstances</code> in log stream <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p> <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.</p> <p>For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.</p>",
+        "operationId": "CreateNotebookInstanceLifecycleConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateNotebookInstanceLifecycleConfigInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateNotebookInstanceLifecycleConfigOutput"
             }
           },
           "480": {
@@ -453,7 +577,7 @@
         }
       ],
       "post": {
-        "description": "Returns a URL that you can use to connect to the Juypter server from a notebook instance. In the Amazon SageMaker console, when you choose <code>Open</code> next to a notebook instance, Amazon SageMaker opens a new tab showing the Jupyter server home page from the notebook instance. The console uses this API to get the URL and show the page. ",
+        "description": "Returns a URL that you can use to connect to the Jupyter server from a notebook instance. In the Amazon SageMaker console, when you choose <code>Open</code> next to a notebook instance, Amazon SageMaker opens a new tab showing the Jupyter server home page from the notebook instance. The console uses this API to get the URL and show the page. ",
         "operationId": "CreatePresignedNotebookInstanceUrl",
         "parameters": [
           {
@@ -506,7 +630,7 @@
         }
       ],
       "post": {
-        "description": "<p> Starts a model training job. After training completes, Amazon SageMaker saves the resulting model artifacts to an Amazon S3 location that you specify. </p> <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the resulting model artifacts as part of the model. You can also use the artifacts in a deep learning service other than Amazon SageMaker, provided that you know how to use them for inferences. </p> <p>In the request body, you provide the following: </p> <ul> <li> <p> <code>AlgorithmSpecification</code> - Identifies the training algorithm to use. </p> </li> <li> <p> <code>HyperParameters</code> - Specify these algorithm-specific parameters to influence the quality of the final model. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. </p> </li> <li> <p> <code>InputDataConfig</code> - Describes the training dataset and the Amazon S3 location where it is stored.</p> </li> <li> <p> <code>OutputDataConfig</code> - Identifies the Amazon S3 location where you want Amazon SageMaker to save the results of model training. </p> <p/> </li> <li> <p> <code>ResourceConfig</code> - Identifies the resources, ML compute instances, and ML storage volumes to deploy for model training. In distributed training, you specify more than one instance. </p> </li> <li> <p> <code>RoleARN</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes to perform tasks on your behalf during model training. You must grant this role the necessary permissions so that Amazon SageMaker can successfully complete model training. </p> </li> <li> <p> <code>StoppingCondition</code> - Sets a duration for training. Use this parameter to cap model training costs. </p> </li> </ul> <p> For more information about Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p>",
+        "description": "<p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting model artifacts to an Amazon S3 location that you specify. </p> <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the resulting model artifacts as part of the model. You can also use the artifacts in a deep learning service other than Amazon SageMaker, provided that you know how to use them for inferences. </p> <p>In the request body, you provide the following: </p> <ul> <li> <p> <code>AlgorithmSpecification</code> - Identifies the training algorithm to use. </p> </li> <li> <p> <code>HyperParameters</code> - Specify these algorithm-specific parameters to influence the quality of the final model. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. </p> </li> <li> <p> <code>InputDataConfig</code> - Describes the training dataset and the Amazon S3 location where it is stored.</p> </li> <li> <p> <code>OutputDataConfig</code> - Identifies the Amazon S3 location where you want Amazon SageMaker to save the results of model training. </p> <p/> </li> <li> <p> <code>ResourceConfig</code> - Identifies the resources, ML compute instances, and ML storage volumes to deploy for model training. In distributed training, you specify more than one instance. </p> </li> <li> <p> <code>RoleARN</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes to perform tasks on your behalf during model training. You must grant this role the necessary permissions so that Amazon SageMaker can successfully complete model training. </p> </li> <li> <p> <code>StoppingCondition</code> - Sets a duration for training. Use this parameter to cap model training costs. </p> </li> </ul> <p> For more information about Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p>",
         "operationId": "CreateTrainingJob",
         "parameters": [
           {
@@ -621,7 +745,7 @@
         }
       ],
       "post": {
-        "description": "Deletes an endpoint configuration. The <code>DeleteEndpoingConfig</code> API deletes only the specified configuration. It does not delete endpoints created using the configuration. ",
+        "description": "Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API deletes only the specified configuration. It does not delete endpoints created using the configuration. ",
         "operationId": "DeleteEndpointConfig",
         "parameters": [
           {
@@ -730,6 +854,56 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/DeleteNotebookInstanceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/#DeleteNotebookInstanceLifecycleConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a notebook instance lifecycle configuration.",
+        "operationId": "DeleteNotebookInstanceLifecycleConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteNotebookInstanceLifecycleConfigInput"
             }
           }
         ],
@@ -943,6 +1117,65 @@
         }
       }
     },
+    "/#DescribeHyperParameterTuningJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Gets a description of a hyperparameter tuning job.",
+        "operationId": "DescribeHyperParameterTuningJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeHyperParameterTuningJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeHyperParameterTuningJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFound",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFound"
+            }
+          }
+        }
+      }
+    },
     "/#DescribeModel": {
       "parameters": [
         {
@@ -1105,6 +1338,59 @@
             "operation": "DescribeNotebookInstance"
           }
         ]
+      }
+    },
+    "/#DescribeNotebookInstanceLifecycleConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns a description of a notebook instance lifecycle configuration.</p> <p>For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.</p>",
+        "operationId": "DescribeNotebookInstanceLifecycleConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeNotebookInstanceLifecycleConfigInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeNotebookInstanceLifecycleConfigOutput"
+            }
+          }
+        }
       }
     },
     "/#DescribeTrainingJob": {
@@ -1332,6 +1618,73 @@
         }
       }
     },
+    "/#ListHyperParameterTuningJobs": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Gets a list of objects that describe the hyperparameter tuning jobs launched in your account.",
+        "operationId": "ListHyperParameterTuningJobs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListHyperParameterTuningJobsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListHyperParameterTuningJobsResponse"
+            }
+          }
+        }
+      }
+    },
     "/#ListModels": {
       "parameters": [
         {
@@ -1394,6 +1747,73 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ListModelsOutput"
+            }
+          }
+        }
+      }
+    },
+    "/#ListNotebookInstanceLifecycleConfigs": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists notebook instance lifestyle configurations created with the API.",
+        "operationId": "ListNotebookInstanceLifecycleConfigs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListNotebookInstanceLifecycleConfigsInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListNotebookInstanceLifecycleConfigsOutput"
             }
           }
         }
@@ -1600,6 +2020,79 @@
         }
       }
     },
+    "/#ListTrainingJobsForHyperParameterTuningJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Gets a list of objects that describe the training jobs that a hyperparameter tuning job launched.",
+        "operationId": "ListTrainingJobsForHyperParameterTuningJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTrainingJobsForHyperParameterTuningJobRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTrainingJobsForHyperParameterTuningJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFound",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFound"
+            }
+          }
+        }
+      }
+    },
     "/#StartNotebookInstance": {
       "parameters": [
         {
@@ -1651,6 +2144,62 @@
             "description": "ResourceLimitExceeded",
             "schema": {
               "$ref": "#/definitions/ResourceLimitExceeded"
+            }
+          }
+        }
+      }
+    },
+    "/#StopHyperParameterTuningJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Stops a running hyperparameter tuning job and all running training jobs that the tuning job launched.</p> <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All data that the training jobs write toAmazon CloudWatch Logs are still available in CloudWatch. After the tuning job moves to the <code>Stopped</code> state, it releases all reserved resources for the tuning job.</p>",
+        "operationId": "StopHyperParameterTuningJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopHyperParameterTuningJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFound",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFound"
             }
           }
         }
@@ -1938,6 +2487,65 @@
           }
         }
       }
+    },
+    "/#UpdateNotebookInstanceLifecycleConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates a notebook instance lifecycle configuration created with the API.",
+        "operationId": "UpdateNotebookInstanceLifecycleConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateNotebookInstanceLifecycleConfigInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateNotebookInstanceLifecycleConfigOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceLimitExceeded",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceeded"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1945,7 +2553,7 @@
       "properties": {
         "ResourceArn": {
           "$ref": "#/definitions/ResourceArn",
-          "description": "The Amazon Resource Name (ARN) of the resource that you want to tag. "
+          "description": "The Amazon Resource Name (ARN) of the resource that you want to tag."
         },
         "Tags": {
           "$ref": "#/definitions/TagList",
@@ -1972,15 +2580,15 @@
       "type": "string"
     },
     "AlgorithmSpecification": {
-      "description": "<p>Specifies the training algorithm to use in a <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrainingJob.html\">CreateTrainingJob</a> request. </p> <p>For more information about algorithms provided by Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. For information about using your own algorithms, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/adv-topics-own-algo.html\">Bring Your Own Algorithms </a>. </p>",
+      "description": "<p>Specifies the training algorithm to use in a <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrainingJob.html\">CreateTrainingJob</a> request.</p> <p>For more information about algorithms provided by Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. For information about using your own algorithms, see <a>your-algorithms</a>. </p>",
       "properties": {
         "TrainingImage": {
           "$ref": "#/definitions/AlgorithmImage",
-          "description": "The registry path of the Docker image that contains the training algorithm. For information about using your own algorithms, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos-docker-registry-paths.html\">Docker Registry Paths for Algorithms Provided by Amazon SageMaker </a>. "
+          "description": "The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see <a>sagemaker-algo-docker-registry-paths</a>."
         },
         "TrainingInputMode": {
           "$ref": "#/definitions/TrainingInputMode",
-          "description": "<p>The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. If an algorithm supports the <code>File</code> input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the <code>Pipe</code> input mode, Amazon SageMaker streams data directly from S3 to the container. </p> <p> In File mode, make sure you provision ML storage volume with sufficient capacity to accomodate the data download from S3. In addition to the training data, the ML storage volume also stores the output model. The algorithm container use ML storage volume to also store intermediate information, if any. </p> <p> For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won't be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. </p>"
+          "description": "<p>The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. If an algorithm supports the <code>File</code> input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the <code>Pipe</code> input mode, Amazon SageMaker streams data directly from S3 to the container. </p> <p> In File mode, make sure you provision ML storage volume with sufficient capacity to accommodate the data download from S3. In addition to the training data, the ML storage volume also stores the output model. The algorithm container use ML storage volume to also store intermediate information, if any. </p> <p> For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won't be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. </p>"
         }
       },
       "required": [
@@ -1988,6 +2596,32 @@
         "TrainingInputMode"
       ],
       "type": "object"
+    },
+    "CategoricalParameterRange": {
+      "description": "A list of categorical hyperparameters to tune.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The name of the categorical hyperparameter to tune."
+        },
+        "Values": {
+          "$ref": "#/definitions/ParameterValues",
+          "description": "A list of the categories for the hyperparameter."
+        }
+      },
+      "required": [
+        "Name",
+        "Values"
+      ],
+      "type": "object"
+    },
+    "CategoricalParameterRanges": {
+      "items": {
+        "$ref": "#/definitions/CategoricalParameterRange"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
     },
     "Channel": {
       "description": "A channel is a named input source that training algorithms can consume. ",
@@ -1998,7 +2632,7 @@
         },
         "CompressionType": {
           "$ref": "#/definitions/CompressionType",
-          "description": "If training data is compressed, the compression type. The default value is <code>None</code>. <code>CompressionType</code> is used only in PIPE input mode. In FILE mode, leave this field unset or set it to None."
+          "description": "If training data is compressed, the compression type. The default value is <code>None</code>. <code>CompressionType</code> is used only in Pipe input mode. In File mode, leave this field unset or set it to None."
         },
         "ContentType": {
           "$ref": "#/definitions/ContentType",
@@ -2010,7 +2644,7 @@
         },
         "RecordWrapperType": {
           "$ref": "#/definitions/RecordWrapper",
-          "description": "<p/> <p>Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which caseAmazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don't need to set this attribute. For more information, see <a href=\"https://mxnet.incubator.apache.org/how_to/recordio.html?highlight=im2rec\">Create a Dataset Using RecordIO</a>. </p> <p>In FILE mode, leave this field unset or set it to None.</p> <p/>"
+          "description": "<p/> <p>Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don't need to set this attribute. For more information, see <a href=\"https://mxnet.incubator.apache.org/how_to/recordio.html?highlight=im2rec\">Create a Dataset Using RecordIO</a>. </p> <p>In FILE mode, leave this field unset or set it to None.</p> <p/>"
         }
       },
       "required": [
@@ -2065,6 +2699,37 @@
     "ContentType": {
       "maxLength": 256,
       "type": "string"
+    },
+    "ContinuousParameterRange": {
+      "description": "A list of continuous hyperparameters to tune.",
+      "properties": {
+        "MaxValue": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The maximum value for the hyperparameter. The tuning job uses floating-point values between <code>MinValue</code> value and this value for tuning."
+        },
+        "MinValue": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The minimum value for the hyperparameter. The tuning job uses floating-point values between this value and <code>MaxValue</code>for tuning."
+        },
+        "Name": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The name of the continuous hyperparameter to tune."
+        }
+      },
+      "required": [
+        "Name",
+        "MinValue",
+        "MaxValue"
+      ],
+      "type": "object"
+    },
+    "ContinuousParameterRanges": {
+      "items": {
+        "$ref": "#/definitions/ContinuousParameterRange"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
     },
     "CreateEndpointConfigInput": {
       "properties": {
@@ -2136,11 +2801,49 @@
       ],
       "type": "object"
     },
+    "CreateHyperParameterTuningJobRequest": {
+      "properties": {
+        "HyperParameterTuningJobConfig": {
+          "$ref": "#/definitions/HyperParameterTuningJobConfig",
+          "description": "The object that describes the tuning job, including the search strategy, metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job."
+        },
+        "HyperParameterTuningJobName": {
+          "$ref": "#/definitions/HyperParameterTuningJobName",
+          "description": "The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job launches. The name must be unique within the same AWS account and AWS Region. Names are not case sensitive, and must be between 1-32 characters."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>."
+        },
+        "TrainingJobDefinition": {
+          "$ref": "#/definitions/HyperParameterTrainingJobDefinition",
+          "description": "The object that describes the training jobs that this tuning job launches, including static hyperparameters, input data configuration, output data configuration, resource configuration, and stopping condition."
+        }
+      },
+      "required": [
+        "HyperParameterTuningJobName",
+        "HyperParameterTuningJobConfig",
+        "TrainingJobDefinition"
+      ],
+      "type": "object"
+    },
+    "CreateHyperParameterTuningJobResponse": {
+      "properties": {
+        "HyperParameterTuningJobArn": {
+          "$ref": "#/definitions/HyperParameterTuningJobArn",
+          "description": "The Amazon Resource Name (ARN) of the tuning job."
+        }
+      },
+      "required": [
+        "HyperParameterTuningJobArn"
+      ],
+      "type": "object"
+    },
     "CreateModelInput": {
       "properties": {
         "ExecutionRoleArn": {
           "$ref": "#/definitions/RoleArn",
-          "description": "The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances. Deploying on ML compute instances is part of model hosting. For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html\">Amazon SageMaker Roles</a>. "
+          "description": "<p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances. Deploying on ML compute instances is part of model hosting. For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html\">Amazon SageMaker Roles</a>. </p> <note> <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>"
         },
         "ModelName": {
           "$ref": "#/definitions/ModelName",
@@ -2153,6 +2856,10 @@
         "Tags": {
           "$ref": "#/definitions/TagList",
           "description": "An array of key-value pairs. For more information, see <a href=\"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. "
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "A object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. For more information, see <a>host-vpc</a>."
         }
       },
       "required": [
@@ -2176,6 +2883,10 @@
     },
     "CreateNotebookInstanceInput": {
       "properties": {
+        "DirectInternetAccess": {
+          "$ref": "#/definitions/DirectInternetAccess",
+          "description": "<p>Sets whether Amazon SageMaker provides internet access to the notebook instance. If you set this to <code>Disabled</code> this notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.</p> <p>For more information, see <a>appendix-notebook-and-internet-access</a>. You can set the value of this parameter to <code>Disabled</code> only if you set a value for the <code>SubnetId</code> parameter.</p>"
+        },
         "InstanceType": {
           "$ref": "#/definitions/InstanceType",
           "description": "The type of ML compute instance to launch for the notebook instance."
@@ -2184,13 +2895,17 @@
           "$ref": "#/definitions/KmsKeyId",
           "description": " If you provide a AWS KMS key ID, Amazon SageMaker uses it to encrypt data at rest on the ML storage volume that is attached to your notebook instance. "
         },
+        "LifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <a>notebook-lifecycle-config</a>."
+        },
         "NotebookInstanceName": {
           "$ref": "#/definitions/NotebookInstanceName",
           "description": "The name of the new notebook instance."
         },
         "RoleArn": {
           "$ref": "#/definitions/RoleArn",
-          "description": " When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html\">Amazon SageMaker Roles</a>. "
+          "description": "<p> When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html\">Amazon SageMaker Roles</a>. </p> <note> <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>"
         },
         "SecurityGroupIds": {
           "$ref": "#/definitions/SecurityGroupIds",
@@ -2210,6 +2925,35 @@
         "InstanceType",
         "RoleArn"
       ],
+      "type": "object"
+    },
+    "CreateNotebookInstanceLifecycleConfigInput": {
+      "properties": {
+        "NotebookInstanceLifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "The name of the lifecycle configuration."
+        },
+        "OnCreate": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigList",
+          "description": "A shell script that runs only once, when you create a notebook instance."
+        },
+        "OnStart": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigList",
+          "description": "A shell script that runs every time you start a notebook instance, including when you create the notebook instance."
+        }
+      },
+      "required": [
+        "NotebookInstanceLifecycleConfigName"
+      ],
+      "type": "object"
+    },
+    "CreateNotebookInstanceLifecycleConfigOutput": {
+      "properties": {
+        "NotebookInstanceLifecycleConfigArn": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigArn",
+          "description": "The Amazon Resource Name (ARN) of the lifecycle configuration."
+        }
+      },
       "type": "object"
     },
     "CreateNotebookInstanceOutput": {
@@ -2250,11 +2994,11 @@
       "properties": {
         "AlgorithmSpecification": {
           "$ref": "#/definitions/AlgorithmSpecification",
-          "description": "The registry path of the Docker image that contains the training algorithm and algorithm-specific metadata, including the input mode. For more information about algorithms provided by Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. For information about providing your own algorithms, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/adv-topics-own-algo.html\">Bring Your Own Algorithms </a>. "
+          "description": "The registry path of the Docker image that contains the training algorithm and algorithm-specific metadata, including the input mode. For more information about algorithms provided by Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. For information about providing your own algorithms, see <a>your-algorithms</a>. "
         },
         "HyperParameters": {
           "$ref": "#/definitions/HyperParameters",
-          "description": "<p>Algorithm-specific parameters. You set hyperparameters before you start the learning process. Hyperparameters influence the quality of the model. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. </p> <p>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value pair. Each key and value is limited to 256 characters, as specified by the <code>Length Constraint</code>. </p>"
+          "description": "<p>Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. </p> <p>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value pair. Each key and value is limited to 256 characters, as specified by the <code>Length Constraint</code>. </p>"
         },
         "InputDataConfig": {
           "$ref": "#/definitions/InputDataConfig",
@@ -2270,7 +3014,7 @@
         },
         "RoleArn": {
           "$ref": "#/definitions/RoleArn",
-          "description": "<p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf. </p> <p>During model training, Amazon SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html\">Amazon SageMaker Roles</a>. </p>"
+          "description": "<p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf. </p> <p>During model training, Amazon SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html\">Amazon SageMaker Roles</a>. </p> <note> <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>"
         },
         "StoppingCondition": {
           "$ref": "#/definitions/StoppingCondition",
@@ -2283,6 +3027,10 @@
         "TrainingJobName": {
           "$ref": "#/definitions/TrainingJobName",
           "description": "The name of the training job. The name must be unique within an AWS Region in an AWS account. It appears in the Amazon SageMaker console. "
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "A object that specifies the VPC that you want your training job to connect to. Control access to and from your training container by configuring the VPC. For more information, see <a>train-vpc</a> "
         }
       },
       "required": [
@@ -2370,6 +3118,18 @@
       },
       "required": [
         "NotebookInstanceName"
+      ],
+      "type": "object"
+    },
+    "DeleteNotebookInstanceLifecycleConfigInput": {
+      "properties": {
+        "NotebookInstanceLifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "The name of the lifecycle configuration to delete."
+        }
+      },
+      "required": [
+        "NotebookInstanceLifecycleConfigName"
       ],
       "type": "object"
     },
@@ -2494,6 +3254,81 @@
       ],
       "type": "object"
     },
+    "DescribeHyperParameterTuningJobRequest": {
+      "properties": {
+        "HyperParameterTuningJobName": {
+          "$ref": "#/definitions/HyperParameterTuningJobName",
+          "description": "The name of the tuning job to describe."
+        }
+      },
+      "required": [
+        "HyperParameterTuningJobName"
+      ],
+      "type": "object"
+    },
+    "DescribeHyperParameterTuningJobResponse": {
+      "properties": {
+        "BestTrainingJob": {
+          "$ref": "#/definitions/HyperParameterTrainingJobSummary",
+          "description": "A object that describes the training job that completed with the best current ."
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the tuning job started."
+        },
+        "FailureReason": {
+          "$ref": "#/definitions/FailureReason",
+          "description": "If the tuning job failed, the reason it failed."
+        },
+        "HyperParameterTuningEndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the tuning job ended."
+        },
+        "HyperParameterTuningJobArn": {
+          "$ref": "#/definitions/HyperParameterTuningJobArn",
+          "description": "The Amazon Resource Name (ARN) of the tuning job."
+        },
+        "HyperParameterTuningJobConfig": {
+          "$ref": "#/definitions/HyperParameterTuningJobConfig",
+          "description": "The object that specifies the configuration of the tuning job."
+        },
+        "HyperParameterTuningJobName": {
+          "$ref": "#/definitions/HyperParameterTuningJobName",
+          "description": "The name of the tuning job."
+        },
+        "HyperParameterTuningJobStatus": {
+          "$ref": "#/definitions/HyperParameterTuningJobStatus",
+          "description": "The status of the tuning job: InProgress, Completed, Failed, Stopping, or Stopped."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the status of the tuning job was modified. "
+        },
+        "ObjectiveStatusCounters": {
+          "$ref": "#/definitions/ObjectiveStatusCounters",
+          "description": "The object that specifies the number of training jobs, categorized by the status of their final objective metric, that this tuning job launched."
+        },
+        "TrainingJobDefinition": {
+          "$ref": "#/definitions/HyperParameterTrainingJobDefinition",
+          "description": "The object that specifies the definition of the training jobs that this tuning job launches."
+        },
+        "TrainingJobStatusCounters": {
+          "$ref": "#/definitions/TrainingJobStatusCounters",
+          "description": "The object that specifies the number of training jobs, categorized by status, that this tuning job launched."
+        }
+      },
+      "required": [
+        "HyperParameterTuningJobName",
+        "HyperParameterTuningJobArn",
+        "HyperParameterTuningJobConfig",
+        "TrainingJobDefinition",
+        "HyperParameterTuningJobStatus",
+        "CreationTime",
+        "TrainingJobStatusCounters",
+        "ObjectiveStatusCounters"
+      ],
+      "type": "object"
+    },
     "DescribeModelInput": {
       "properties": {
         "ModelName": {
@@ -2527,6 +3362,10 @@
         "PrimaryContainer": {
           "$ref": "#/definitions/ContainerDefinition",
           "description": "The location of the primary inference code, associated artifacts, and custom environment map that the inference code uses when it is deployed in production. "
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "A object that specifies the VPC that this model has access to. For more information, see <a>host-vpc</a> "
         }
       },
       "required": [
@@ -2550,15 +3389,60 @@
       ],
       "type": "object"
     },
+    "DescribeNotebookInstanceLifecycleConfigInput": {
+      "properties": {
+        "NotebookInstanceLifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "The name of the lifecycle configuration to describe."
+        }
+      },
+      "required": [
+        "NotebookInstanceLifecycleConfigName"
+      ],
+      "type": "object"
+    },
+    "DescribeNotebookInstanceLifecycleConfigOutput": {
+      "properties": {
+        "CreationTime": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "A timestamp that tells when the lifecycle configuration was created."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/LastModifiedTime",
+          "description": "A timestamp that tells when the lifecycle configuration was last modified."
+        },
+        "NotebookInstanceLifecycleConfigArn": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigArn",
+          "description": "The Amazon Resource Name (ARN) of the lifecycle configuration."
+        },
+        "NotebookInstanceLifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "The name of the lifecycle configuration."
+        },
+        "OnCreate": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigList",
+          "description": "The shell script that runs only once, when you create a notebook instance."
+        },
+        "OnStart": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigList",
+          "description": "The shell script that runs every time you start a notebook instance, including when you create the notebook instance."
+        }
+      },
+      "type": "object"
+    },
     "DescribeNotebookInstanceOutput": {
       "properties": {
         "CreationTime": {
           "$ref": "#/definitions/CreationTime",
           "description": "A timestamp. Use this parameter to return the time when the notebook instance was created"
         },
+        "DirectInternetAccess": {
+          "$ref": "#/definitions/DirectInternetAccess",
+          "description": "<p>Describes whether Amazon SageMaker provides internet access to the notebook instance. If this value is set to <i>Disabled, he notebook instance does not have internet access, and cannot connect to Amazon SageMaker training and endpoint services</i>.</p> <p>For more information, see <a>appendix-notebook-and-internet-access</a>.</p>"
+        },
         "FailureReason": {
           "$ref": "#/definitions/FailureReason",
-          "description": "If staus is failed, the reason it failed."
+          "description": "If status is failed, the reason it failed."
         },
         "InstanceType": {
           "$ref": "#/definitions/InstanceType",
@@ -2579,6 +3463,10 @@
         "NotebookInstanceArn": {
           "$ref": "#/definitions/NotebookInstanceArn",
           "description": "The Amazon Resource Name (ARN) of the notebook instance."
+        },
+        "NotebookInstanceLifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "<p>Returns the name of a notebook instance lifecycle configuration.</p> <p>For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.</p>"
         },
         "NotebookInstanceName": {
           "$ref": "#/definitions/NotebookInstanceName",
@@ -2671,7 +3559,7 @@
         },
         "TrainingEndTime": {
           "$ref": "#/definitions/Timestamp",
-          "description": "A timestamp that indicates when model training ended."
+          "description": "Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure."
         },
         "TrainingJobArn": {
           "$ref": "#/definitions/TrainingJobArn",
@@ -2687,7 +3575,15 @@
         },
         "TrainingStartTime": {
           "$ref": "#/definitions/Timestamp",
-          "description": "A timestamp that indicates when training started."
+          "description": "Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of <code>TrainingEndTime</code>. The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container."
+        },
+        "TuningJobArn": {
+          "$ref": "#/definitions/HyperParameterTuningJobArn",
+          "description": "The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "A object that specifies the VPC that this training job has access to. For more information, see <a>train-vpc</a>."
         }
       },
       "required": [
@@ -2731,6 +3627,13 @@
       },
       "minItems": 1,
       "type": "array"
+    },
+    "DirectInternetAccess": {
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string"
     },
     "EndpointArn": {
       "maxLength": 2048,
@@ -2883,6 +3786,305 @@
       "maxLength": 1024,
       "type": "string"
     },
+    "FinalHyperParameterTuningJobObjectiveMetric": {
+      "description": "Shows the final value for the objective metric for a training job that was launched by a hyperparameter tuning job. You define the objective metric in the <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.",
+      "properties": {
+        "MetricName": {
+          "$ref": "#/definitions/MetricName",
+          "description": "The name of the objective metric."
+        },
+        "Type": {
+          "$ref": "#/definitions/HyperParameterTuningJobObjectiveType",
+          "description": "Whether to minimize or maximize the objective metric. Valid values are Minimize and Maximize."
+        },
+        "Value": {
+          "$ref": "#/definitions/MetricValue",
+          "description": "The value of the objective metric."
+        }
+      },
+      "required": [
+        "MetricName",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "HyperParameterAlgorithmSpecification": {
+      "description": "Specifies which training algorithm to use for training jobs that a hyperparameter tuning job launches and the metrics to monitor.",
+      "properties": {
+        "MetricDefinitions": {
+          "$ref": "#/definitions/MetricDefinitionList",
+          "description": "An array of objects that specify the metrics that the algorithm emits."
+        },
+        "TrainingImage": {
+          "$ref": "#/definitions/AlgorithmImage",
+          "description": " The registry path of the Docker image that contains the training algorithm. For information about Docker registry paths for built-in algorithms, see <a>sagemaker-algo-docker-registry-paths</a>."
+        },
+        "TrainingInputMode": {
+          "$ref": "#/definitions/TrainingInputMode",
+          "description": "<p>The input mode that the algorithm supports: File or Pipe. In File input mode, Amazon SageMaker downloads the training data from Amazon S3 to the storage volume that is attached to the training instance and mounts the directory to the Docker volume for the training container. In Pipe input mode, Amazon SageMaker streams data directly from Amazon S3 to the container. </p> <p>If you specify File mode, make sure that you provision the storage volume that is attached to the training instance with enough capacity to accommodate the training data downloaded from Amazon S3, the model artifacts, and intermediate information.</p> <p/> <p>For more information about input modes, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html\">Algorithms</a>. </p>"
+        }
+      },
+      "required": [
+        "TrainingImage",
+        "TrainingInputMode"
+      ],
+      "type": "object"
+    },
+    "HyperParameterTrainingJobDefinition": {
+      "description": "Defines the training jobs launched by a hyperparameter tuning job.",
+      "properties": {
+        "AlgorithmSpecification": {
+          "$ref": "#/definitions/HyperParameterAlgorithmSpecification",
+          "description": "The object that specifies the algorithm to use for the training jobs that the tuning job launches."
+        },
+        "InputDataConfig": {
+          "$ref": "#/definitions/InputDataConfig",
+          "description": "An array of objects that specify the input for the training jobs that the tuning job launches."
+        },
+        "OutputDataConfig": {
+          "$ref": "#/definitions/OutputDataConfig",
+          "description": "Specifies the path to the Amazon S3 bucket where you store model artifacts from the training jobs that the tuning job launches."
+        },
+        "ResourceConfig": {
+          "$ref": "#/definitions/ResourceConfig",
+          "description": "<p>The resources, including the compute instances and storage volumes, to use for the training jobs that the tuning job launches.</p> <p>Storage volumes store model artifacts and incremental states. Training algorithms might also use storage volumes for scratch space. If you want Amazon SageMaker to use the storage volume to store the training data, choose <code>File</code> as the <code>TrainingInputMode</code> in the algorithm specification. For distributed training algorithms, specify an instance count greater than 1.</p>"
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role associated with the training jobs that the tuning job launches."
+        },
+        "StaticHyperParameters": {
+          "$ref": "#/definitions/HyperParameters",
+          "description": "Specifies the values of hyperparameters that do not change for the tuning job."
+        },
+        "StoppingCondition": {
+          "$ref": "#/definitions/StoppingCondition",
+          "description": "<p>Sets a maximum duration for the training jobs that the tuning job launches. Use this parameter to limit model training costs. </p> <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal. This delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts.</p> <p>When Amazon SageMaker terminates a job because the stopping condition has been met, training algorithms provided by Amazon SageMaker save the intermediate results of the job.</p>"
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The object that specifies the VPC that you want the training jobs that this hyperparameter tuning job launches to connect to. Control access to and from your training container by configuring the VPC. For more information, see <a>train-vpc</a>."
+        }
+      },
+      "required": [
+        "AlgorithmSpecification",
+        "RoleArn",
+        "InputDataConfig",
+        "OutputDataConfig",
+        "ResourceConfig",
+        "StoppingCondition"
+      ],
+      "type": "object"
+    },
+    "HyperParameterTrainingJobSummaries": {
+      "items": {
+        "$ref": "#/definitions/HyperParameterTrainingJobSummary"
+      },
+      "type": "array"
+    },
+    "HyperParameterTrainingJobSummary": {
+      "description": "Specifies summary information about a training job.",
+      "properties": {
+        "CreationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the training job was created."
+        },
+        "FailureReason": {
+          "$ref": "#/definitions/FailureReason",
+          "description": "The reason that the "
+        },
+        "FinalHyperParameterTuningJobObjectiveMetric": {
+          "$ref": "#/definitions/FinalHyperParameterTuningJobObjectiveMetric",
+          "description": "The object that specifies the value of the objective metric of the tuning job that launched this training job."
+        },
+        "ObjectiveStatus": {
+          "$ref": "#/definitions/ObjectiveStatus",
+          "description": "<p>The status of the objective metric for the training job:</p> <ul> <li> <p>Succeeded: The final objective metric for the training job was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process.</p> </li> </ul> <ul> <li> <p>Pending: The training job is in progress and evaluation of its final objective metric is pending.</p> </li> </ul> <ul> <li> <p>Failed: The final objective metric for the training job was not evaluated, and was not used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.</p> </li> </ul>"
+        },
+        "TrainingEndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the training job ended."
+        },
+        "TrainingJobArn": {
+          "$ref": "#/definitions/TrainingJobArn",
+          "description": "The Amazon Resource Name (ARN) of the training job."
+        },
+        "TrainingJobName": {
+          "$ref": "#/definitions/TrainingJobName",
+          "description": "The name of the training job."
+        },
+        "TrainingJobStatus": {
+          "$ref": "#/definitions/TrainingJobStatus",
+          "description": "The status of the training job."
+        },
+        "TrainingStartTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the training job started."
+        },
+        "TunedHyperParameters": {
+          "$ref": "#/definitions/HyperParameters",
+          "description": "A list of the hyperparameters for which you specified ranges to search."
+        }
+      },
+      "required": [
+        "TrainingJobName",
+        "TrainingJobArn",
+        "CreationTime",
+        "TrainingJobStatus",
+        "TunedHyperParameters"
+      ],
+      "type": "object"
+    },
+    "HyperParameterTuningJobArn": {
+      "maxLength": 256,
+      "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:hyper-parameter-tuning-job/.*",
+      "type": "string"
+    },
+    "HyperParameterTuningJobConfig": {
+      "description": "Configures a hyperparameter tuning job.",
+      "properties": {
+        "HyperParameterTuningJobObjective": {
+          "$ref": "#/definitions/HyperParameterTuningJobObjective",
+          "description": "The object that specifies the objective metric for this tuning job."
+        },
+        "ParameterRanges": {
+          "$ref": "#/definitions/ParameterRanges",
+          "description": "The object that specifies the ranges of hyperparameters that this tuning job searches."
+        },
+        "ResourceLimits": {
+          "$ref": "#/definitions/ResourceLimits",
+          "description": "The object that specifies the maximum number of training jobs and parallel training jobs for this tuning job."
+        },
+        "Strategy": {
+          "$ref": "#/definitions/HyperParameterTuningJobStrategyType",
+          "description": "Specifies the search strategy for hyperparameters. Currently, the only valid value is <code>Bayesian</code>."
+        }
+      },
+      "required": [
+        "Strategy",
+        "HyperParameterTuningJobObjective",
+        "ResourceLimits",
+        "ParameterRanges"
+      ],
+      "type": "object"
+    },
+    "HyperParameterTuningJobName": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "type": "string"
+    },
+    "HyperParameterTuningJobObjective": {
+      "description": "Defines the objective metric for a hyperparameter tuning job. Hyperparameter tuning uses the value of this metric to evaluate the training jobs it launches, and returns the training job that results in either the highest or lowest value for this metric, depending on the value you specify for the <code>Type</code> parameter.",
+      "properties": {
+        "MetricName": {
+          "$ref": "#/definitions/MetricName",
+          "description": "The name of the metric to use for the objective metric."
+        },
+        "Type": {
+          "$ref": "#/definitions/HyperParameterTuningJobObjectiveType",
+          "description": "Whether to minimize or maximize the objective metric."
+        }
+      },
+      "required": [
+        "Type",
+        "MetricName"
+      ],
+      "type": "object"
+    },
+    "HyperParameterTuningJobObjectiveType": {
+      "enum": [
+        "Maximize",
+        "Minimize"
+      ],
+      "type": "string"
+    },
+    "HyperParameterTuningJobSortByOptions": {
+      "enum": [
+        "Name",
+        "Status",
+        "CreationTime"
+      ],
+      "type": "string"
+    },
+    "HyperParameterTuningJobStatus": {
+      "enum": [
+        "Completed",
+        "InProgress",
+        "Failed",
+        "Stopped",
+        "Stopping"
+      ],
+      "type": "string"
+    },
+    "HyperParameterTuningJobStrategyType": {
+      "description": "The strategy hyperparameter tuning uses to find the best combination of hyperparameters for your model. Currently, the only supported value is <code>Bayesian</code>.",
+      "enum": [
+        "Bayesian"
+      ],
+      "type": "string"
+    },
+    "HyperParameterTuningJobSummaries": {
+      "items": {
+        "$ref": "#/definitions/HyperParameterTuningJobSummary"
+      },
+      "type": "array"
+    },
+    "HyperParameterTuningJobSummary": {
+      "description": "Provides summary information about a hyperparameter tuning job.",
+      "properties": {
+        "CreationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the tuning job was created."
+        },
+        "HyperParameterTuningEndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the tuning job ended."
+        },
+        "HyperParameterTuningJobArn": {
+          "$ref": "#/definitions/HyperParameterTuningJobArn",
+          "description": "The Amazon Resource Name (ARN) of the tuning job."
+        },
+        "HyperParameterTuningJobName": {
+          "$ref": "#/definitions/HyperParameterTuningJobName",
+          "description": "The name of the tuning job."
+        },
+        "HyperParameterTuningJobStatus": {
+          "$ref": "#/definitions/HyperParameterTuningJobStatus",
+          "description": "The status of the tuning job."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the tuning job was modified."
+        },
+        "ObjectiveStatusCounters": {
+          "$ref": "#/definitions/ObjectiveStatusCounters",
+          "description": "The object that specifies the numbers of training jobs, categorized by objective metric status, that this tuning job launched."
+        },
+        "ResourceLimits": {
+          "$ref": "#/definitions/ResourceLimits",
+          "description": "The object that specifies the maximum number of training jobs and parallel training jobs allowed for this tuning job."
+        },
+        "Strategy": {
+          "$ref": "#/definitions/HyperParameterTuningJobStrategyType",
+          "description": "Specifies the search strategy hyperparameter tuning uses to choose which hyperparameters to use for each iteration. Currently, the only valid value is Bayesian."
+        },
+        "TrainingJobStatusCounters": {
+          "$ref": "#/definitions/TrainingJobStatusCounters",
+          "description": "The object that specifies the numbers of training jobs, categorized by status, that this tuning job launched."
+        }
+      },
+      "required": [
+        "HyperParameterTuningJobName",
+        "HyperParameterTuningJobArn",
+        "HyperParameterTuningJobStatus",
+        "Strategy",
+        "CreationTime",
+        "TrainingJobStatusCounters",
+        "ObjectiveStatusCounters"
+      ],
+      "type": "object"
+    },
     "HyperParameters": {
       "items": {
         "properties": {
@@ -2915,10 +4117,53 @@
     "InstanceType": {
       "enum": [
         "ml.t2.medium",
+        "ml.t2.large",
+        "ml.t2.xlarge",
+        "ml.t2.2xlarge",
         "ml.m4.xlarge",
-        "ml.p2.xlarge"
+        "ml.m4.2xlarge",
+        "ml.m4.4xlarge",
+        "ml.m4.10xlarge",
+        "ml.m4.16xlarge",
+        "ml.p2.xlarge",
+        "ml.p2.8xlarge",
+        "ml.p2.16xlarge",
+        "ml.p3.2xlarge",
+        "ml.p3.8xlarge",
+        "ml.p3.16xlarge"
       ],
       "type": "string"
+    },
+    "IntegerParameterRange": {
+      "description": "For a hyperparameter of the integer type, specifies the range that a hyperparameter tuning job searches.",
+      "properties": {
+        "MaxValue": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The maximum value of the hyperparameter to search."
+        },
+        "MinValue": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The minimum value of the hyperparameter to search."
+        },
+        "Name": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The name of the hyperparameter to search."
+        }
+      },
+      "required": [
+        "Name",
+        "MinValue",
+        "MaxValue"
+      ],
+      "type": "object"
+    },
+    "IntegerParameterRanges": {
+      "items": {
+        "$ref": "#/definitions/IntegerParameterRange"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
     },
     "KmsKeyId": {
       "maxLength": 2048,
@@ -3038,6 +4283,67 @@
       ],
       "type": "object"
     },
+    "ListHyperParameterTuningJobsRequest": {
+      "properties": {
+        "CreationTimeAfter": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A filter that returns only tuning jobs that were created after the specified time."
+        },
+        "CreationTimeBefore": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A filter that returns only tuning jobs that were created before the specified time."
+        },
+        "LastModifiedTimeAfter": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A filter that returns only tuning jobs that were modified after the specified time."
+        },
+        "LastModifiedTimeBefore": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A filter that returns only tuning jobs that were modified before the specified time."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of tuning jobs to return."
+        },
+        "NameContains": {
+          "$ref": "#/definitions/NameContains",
+          "description": "A string in the tuning job name. This filter returns only tuning jobs whose name contains the specified string."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the result of the previous <code>ListHyperParameterTuningJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs, use the token in the next request."
+        },
+        "SortBy": {
+          "$ref": "#/definitions/HyperParameterTuningJobSortByOptions",
+          "description": "The field to sort results by. The default is <code>Name</code>."
+        },
+        "SortOrder": {
+          "$ref": "#/definitions/SortOrder",
+          "description": "The sort order for results. The default is <code>Ascending</code>."
+        },
+        "StatusEquals": {
+          "$ref": "#/definitions/HyperParameterTuningJobStatus",
+          "description": "A filter that returns only tuning jobs with the specified status."
+        }
+      },
+      "type": "object"
+    },
+    "ListHyperParameterTuningJobsResponse": {
+      "properties": {
+        "HyperParameterTuningJobSummaries": {
+          "$ref": "#/definitions/HyperParameterTuningJobSummaries",
+          "description": "A list of objects that describe the tuning jobs that the <code>ListHyperParameterTuningJobs</code> request returned."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the result of this <code>ListHyperParameterTuningJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs, use the token in the next request."
+        }
+      },
+      "required": [
+        "HyperParameterTuningJobSummaries"
+      ],
+      "type": "object"
+    },
     "ListModelsInput": {
       "properties": {
         "CreationTimeAfter": {
@@ -3087,6 +4393,60 @@
       ],
       "type": "object"
     },
+    "ListNotebookInstanceLifecycleConfigsInput": {
+      "properties": {
+        "CreationTimeAfter": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "A filter that returns only lifecycle configurations that were created after the specified time (timestamp)."
+        },
+        "CreationTimeBefore": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "A filter that returns only lifecycle configurations that were created before the specified time (timestamp)."
+        },
+        "LastModifiedTimeAfter": {
+          "$ref": "#/definitions/LastModifiedTime",
+          "description": "A filter that returns only lifecycle configurations that were modified after the specified time (timestamp)."
+        },
+        "LastModifiedTimeBefore": {
+          "$ref": "#/definitions/LastModifiedTime",
+          "description": "A filter that returns only lifecycle configurations that were modified before the specified time (timestamp)."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of lifecycle configurations to return in the response."
+        },
+        "NameContains": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigNameContains",
+          "description": "A string in the lifecycle configuration name. This filter returns only lifecycle configurations whose name contains the specified string."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of lifecycle configurations, use the token in the next request."
+        },
+        "SortBy": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigSortKey",
+          "description": "Sorts the list of results. The default is <code>CreationTime</code>."
+        },
+        "SortOrder": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigSortOrder",
+          "description": "The sort order for results."
+        }
+      },
+      "type": "object"
+    },
+    "ListNotebookInstanceLifecycleConfigsOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the response is truncated, Amazon SageMaker returns this token. To get the next set of lifecycle configurations, use it in the next request. "
+        },
+        "NotebookInstanceLifecycleConfigs": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigSummaryList",
+          "description": "An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing a lifecycle configuration."
+        }
+      },
+      "type": "object"
+    },
     "ListNotebookInstancesInput": {
       "properties": {
         "CreationTimeAfter": {
@@ -3111,11 +4471,15 @@
         },
         "NameContains": {
           "$ref": "#/definitions/NotebookInstanceNameContains",
-          "description": "A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string. "
+          "description": "A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
           "description": "<p> If the previous call to the <code>ListNotebookInstances</code> is truncated, the response includes a <code>NextToken</code>. You can use this token in your subsequent <code>ListNotebookInstances</code> request to fetch the next set of notebook instances. </p> <note> <p> You might specify a filter or a sort order in your request. When response is truncated, you must use the same values for the filer and sort order in the next request. </p> </note>"
+        },
+        "NotebookInstanceLifecycleConfigNameContains": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string."
         },
         "SortBy": {
           "$ref": "#/definitions/NotebookInstanceSortKey",
@@ -3182,6 +4546,54 @@
       },
       "type": "object"
     },
+    "ListTrainingJobsForHyperParameterTuningJobRequest": {
+      "properties": {
+        "HyperParameterTuningJobName": {
+          "$ref": "#/definitions/HyperParameterTuningJobName",
+          "description": "The name of the tuning job whose training jobs you want to list."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of training jobs to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the result of the previous <code>ListTrainingJobsForHyperParameterTuningJob</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of training jobs, use the token in the next request."
+        },
+        "SortBy": {
+          "$ref": "#/definitions/TrainingJobSortByOptions",
+          "description": "The field to sort results by. The default is <code>Name</code>."
+        },
+        "SortOrder": {
+          "$ref": "#/definitions/SortOrder",
+          "description": "The sort order for results. The default is <code>Ascending</code>."
+        },
+        "StatusEquals": {
+          "$ref": "#/definitions/TrainingJobStatus",
+          "description": "A filter that returns only training jobs with the specified status."
+        }
+      },
+      "required": [
+        "HyperParameterTuningJobName"
+      ],
+      "type": "object"
+    },
+    "ListTrainingJobsForHyperParameterTuningJobResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the result of this <code>ListTrainingJobsForHyperParameterTuningJob</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of training jobs, use the token in the next request."
+        },
+        "TrainingJobSummaries": {
+          "$ref": "#/definitions/HyperParameterTrainingJobSummaries",
+          "description": "A list of objects that describe the training jobs that the <code>ListTrainingJobsForHyperParameterTuningJob</code> request returned."
+        }
+      },
+      "required": [
+        "TrainingJobSummaries"
+      ],
+      "type": "object"
+    },
     "ListTrainingJobsRequest": {
       "properties": {
         "CreationTimeAfter": {
@@ -3206,7 +4618,7 @@
         },
         "NameContains": {
           "$ref": "#/definitions/NameContains",
-          "description": "A string in the training job name. This filter returns only models whose name contains the specified string."
+          "description": "A string in the training job name. This filter returns only training jobs whose name contains the specified string."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -3243,6 +4655,14 @@
       ],
       "type": "object"
     },
+    "MaxNumberOfTrainingJobs": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MaxParallelTrainingJobs": {
+      "minimum": 1,
+      "type": "integer"
+    },
     "MaxResults": {
       "maximum": 100,
       "minimum": 1,
@@ -3251,6 +4671,46 @@
     "MaxRuntimeInSeconds": {
       "minimum": 1,
       "type": "integer"
+    },
+    "MetricDefinition": {
+      "description": "Specifies a metric that the training algorithm writes to <code>stderr</code> or <code>stdout</code>. Amazon SageMakerHyperparamter tuning captures all defined metrics. You specify one metric that a hyperparameter tuning job uses as its objective metric to choose the best training job.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/MetricName",
+          "description": "The name of the metric."
+        },
+        "Regex": {
+          "$ref": "#/definitions/MetricRegex",
+          "description": "A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see <a>hpo-define-metrics</a>."
+        }
+      },
+      "required": [
+        "Name",
+        "Regex"
+      ],
+      "type": "object"
+    },
+    "MetricDefinitionList": {
+      "items": {
+        "$ref": "#/definitions/MetricDefinition"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
+    },
+    "MetricName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "MetricRegex": {
+      "maxLength": 500,
+      "minLength": 1,
+      "type": "string"
+    },
+    "MetricValue": {
+      "format": "float",
+      "type": "number"
     },
     "ModelArn": {
       "maxLength": 2048,
@@ -3331,6 +4791,88 @@
       "maxLength": 256,
       "type": "string"
     },
+    "NotebookInstanceLifecycleConfigArn": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "NotebookInstanceLifecycleConfigContent": {
+      "maxLength": 16384,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NotebookInstanceLifecycleConfigList": {
+      "items": {
+        "$ref": "#/definitions/NotebookInstanceLifecycleHook"
+      },
+      "maxItems": 1,
+      "type": "array"
+    },
+    "NotebookInstanceLifecycleConfigName": {
+      "maxLength": 63,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "type": "string"
+    },
+    "NotebookInstanceLifecycleConfigNameContains": {
+      "pattern": "[a-zA-Z0-9-]+",
+      "type": "string"
+    },
+    "NotebookInstanceLifecycleConfigSortKey": {
+      "enum": [
+        "Name",
+        "CreationTime",
+        "LastModifiedTime"
+      ],
+      "type": "string"
+    },
+    "NotebookInstanceLifecycleConfigSortOrder": {
+      "enum": [
+        "Ascending",
+        "Descending"
+      ],
+      "type": "string"
+    },
+    "NotebookInstanceLifecycleConfigSummary": {
+      "description": "Provides a summary of a notebook instance lifecycle configuration.",
+      "properties": {
+        "CreationTime": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "A timestamp that tells when the lifecycle configuration was created."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/LastModifiedTime",
+          "description": "A timestamp that tells when the lifecycle configuration was last modified."
+        },
+        "NotebookInstanceLifecycleConfigArn": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigArn",
+          "description": "The Amazon Resource Name (ARN) of the lifecycle configuration."
+        },
+        "NotebookInstanceLifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "The name of the lifecycle configuration."
+        }
+      },
+      "required": [
+        "NotebookInstanceLifecycleConfigName",
+        "NotebookInstanceLifecycleConfigArn"
+      ],
+      "type": "object"
+    },
+    "NotebookInstanceLifecycleConfigSummaryList": {
+      "items": {
+        "$ref": "#/definitions/NotebookInstanceLifecycleConfigSummary"
+      },
+      "type": "array"
+    },
+    "NotebookInstanceLifecycleHook": {
+      "description": "<p>Contains the notebook instance lifecycle configuration script.</p> <p>Each lifecycle configuration script has a limit of 16384 characters.</p> <p>The value of the <code>$PATH</code> environment variable that is available to both scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p> <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group <code>/aws/sagemaker/NotebookInstances</code> in log stream <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p> <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.</p> <p>For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.</p>",
+      "properties": {
+        "Content": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigContent",
+          "description": "A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration."
+        }
+      },
+      "type": "object"
+    },
     "NotebookInstanceName": {
       "maxLength": 63,
       "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
@@ -3385,6 +4927,10 @@
           "$ref": "#/definitions/NotebookInstanceArn",
           "description": "The Amazon Resource Name (ARN) of the notebook instance."
         },
+        "NotebookInstanceLifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "<p>The name of a notebook instance lifecycle configuration associated with this notebook instance.</p> <p>For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.</p>"
+        },
         "NotebookInstanceName": {
           "$ref": "#/definitions/NotebookInstanceName",
           "description": "The name of the notebook instance that you want a summary for."
@@ -3413,6 +4959,36 @@
     "NotebookInstanceUrl": {
       "type": "string"
     },
+    "ObjectiveStatus": {
+      "enum": [
+        "Succeeded",
+        "Pending",
+        "Failed"
+      ],
+      "type": "string"
+    },
+    "ObjectiveStatusCounter": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ObjectiveStatusCounters": {
+      "description": "Specifies the number of training jobs that this hyperparameter tuning job launched, categorized by the status of their objective metric. The objective metric status shows whether the final objective metric for the training job has been evaluated by the tuning job and used in the hyperparameter tuning process.",
+      "properties": {
+        "Failed": {
+          "$ref": "#/definitions/ObjectiveStatusCounter",
+          "description": "The number of training jobs whose final objective metric was not evaluated and used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric."
+        },
+        "Pending": {
+          "$ref": "#/definitions/ObjectiveStatusCounter",
+          "description": "The number of training jobs that are in progress and pending evaluation of their final objective metric."
+        },
+        "Succeeded": {
+          "$ref": "#/definitions/ObjectiveStatusCounter",
+          "description": "The number of training jobs whose final objective metric was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process."
+        }
+      },
+      "type": "object"
+    },
     "OrderKey": {
       "enum": [
         "Ascending",
@@ -3425,7 +5001,7 @@
       "properties": {
         "KmsKeyId": {
           "$ref": "#/definitions/KmsKeyId",
-          "description": "<p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. </p> <note> <p>If the configuration of the output S3 bucket requires server-side encryption for objects, and you don't provide the KMS key ID, Amazon SageMaker uses the default service key. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html\">KMS-Managed Encryption Keys</a> in Amazon Simple Storage Service developer guide.</p> </note> <note> <p> The KMS key policy must grant permission to the IAM role you specify in your <code>CreateTrainingJob</code> request. <a href=\"http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html\">Using Key Policies in AWS KMS</a> in the AWS Key Management Service Developer Guide. </p> </note>"
+          "description": "<p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. </p> <note> <p>If you don't provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html\">KMS-Managed Encryption Keys</a> in Amazon Simple Storage Service developer guide.</p> </note> <note> <p> The KMS key policy must grant permission to the IAM role you specify in your <code>CreateTrainingJob</code> request. <a href=\"http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html\">Using Key Policies in AWS KMS</a> in the AWS Key Management Service Developer Guide. </p> </note>"
         },
         "S3OutputPath": {
           "$ref": "#/definitions/S3Uri",
@@ -3445,9 +5021,35 @@
       "maxLength": 256,
       "type": "string"
     },
+    "ParameterRanges": {
+      "description": "Specifies ranges of integer, continuous, and categorical hyperparameters that a hyperparameter tuning job searches.",
+      "properties": {
+        "CategoricalParameterRanges": {
+          "$ref": "#/definitions/CategoricalParameterRanges",
+          "description": "The array of <a>CategoricalParameterRange</a> objects that specify ranges of categorical hyperparameters that a hyperparameter tuning job searches."
+        },
+        "ContinuousParameterRanges": {
+          "$ref": "#/definitions/ContinuousParameterRanges",
+          "description": "The array of <a>ContinuousParameterRange</a> objects that specify ranges of continuous hyperparameters that a hyperparameter tuning job searches."
+        },
+        "IntegerParameterRanges": {
+          "$ref": "#/definitions/IntegerParameterRanges",
+          "description": "The array of <a>IntegerParameterRange</a> objects that specify ranges of integer hyperparameters that a hyperparameter tuning job searches."
+        }
+      },
+      "type": "object"
+    },
     "ParameterValue": {
       "maxLength": 256,
       "type": "string"
+    },
+    "ParameterValues": {
+      "items": {
+        "$ref": "#/definitions/ParameterValue"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "type": "array"
     },
     "ProductionVariant": {
       "description": "Identifies a model that you want to host and the resources to deploy for hosting it. If you are deploying multiple models, tell Amazon SageMaker how to distribute traffic among the models by specifying variant weights. ",
@@ -3483,16 +5085,38 @@
     },
     "ProductionVariantInstanceType": {
       "enum": [
-        "ml.c4.2xlarge",
-        "ml.c4.8xlarge",
-        "ml.c4.xlarge",
-        "ml.c5.2xlarge",
-        "ml.c5.9xlarge",
-        "ml.c5.xlarge",
+        "ml.t2.medium",
+        "ml.t2.large",
+        "ml.t2.xlarge",
+        "ml.t2.2xlarge",
         "ml.m4.xlarge",
+        "ml.m4.2xlarge",
+        "ml.m4.4xlarge",
+        "ml.m4.10xlarge",
+        "ml.m4.16xlarge",
+        "ml.m5.large",
+        "ml.m5.xlarge",
+        "ml.m5.2xlarge",
+        "ml.m5.4xlarge",
+        "ml.m5.12xlarge",
+        "ml.m5.24xlarge",
+        "ml.c4.large",
+        "ml.c4.xlarge",
+        "ml.c4.2xlarge",
+        "ml.c4.4xlarge",
+        "ml.c4.8xlarge",
         "ml.p2.xlarge",
+        "ml.p2.8xlarge",
+        "ml.p2.16xlarge",
         "ml.p3.2xlarge",
-        "ml.t2.medium"
+        "ml.p3.8xlarge",
+        "ml.p3.16xlarge",
+        "ml.c5.large",
+        "ml.c5.xlarge",
+        "ml.c5.2xlarge",
+        "ml.c5.4xlarge",
+        "ml.c5.9xlarge",
+        "ml.c5.18xlarge"
       ],
       "type": "string"
     },
@@ -3504,7 +5128,7 @@
       "type": "array"
     },
     "ProductionVariantSummary": {
-      "description": "Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateWeightAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. ",
+      "description": "Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. ",
       "properties": {
         "CurrentInstanceCount": {
           "$ref": "#/definitions/TaskCount",
@@ -3516,11 +5140,11 @@
         },
         "DesiredInstanceCount": {
           "$ref": "#/definitions/TaskCount",
-          "description": "The number of instances requested in the <code>UpdateWeightAndCapacities</code> request. "
+          "description": "The number of instances requested in the <code>UpdateEndpointWeightsAndCapacities</code> request. "
         },
         "DesiredWeight": {
           "$ref": "#/definitions/VariantWeight",
-          "description": "The requested weight, as specified in the <code>UpdateWeightAndCapacities</code> request. "
+          "description": "The requested weight, as specified in the <code>UpdateEndpointWeightsAndCapacities</code> request. "
         },
         "VariantName": {
           "$ref": "#/definitions/VariantName",
@@ -3593,6 +5217,24 @@
           "$ref": "#/definitions/FailureReason"
         }
       },
+      "type": "object"
+    },
+    "ResourceLimits": {
+      "description": "Specifies the maximum number of training jobs and parallel training jobs that a hyperparameter tuning job can launch.",
+      "properties": {
+        "MaxNumberOfTrainingJobs": {
+          "$ref": "#/definitions/MaxNumberOfTrainingJobs",
+          "description": "The maximum number of training jobs that a hyperparameter tuning job can launch."
+        },
+        "MaxParallelTrainingJobs": {
+          "$ref": "#/definitions/MaxParallelTrainingJobs",
+          "description": "The maximum number of concurrent training jobs that a hyperparameter tuning job can launch."
+        }
+      },
+      "required": [
+        "MaxNumberOfTrainingJobs",
+        "MaxParallelTrainingJobs"
+      ],
       "type": "object"
     },
     "ResourceNotFound": {
@@ -3708,6 +5350,18 @@
       ],
       "type": "object"
     },
+    "StopHyperParameterTuningJobRequest": {
+      "properties": {
+        "HyperParameterTuningJobName": {
+          "$ref": "#/definitions/HyperParameterTuningJobName",
+          "description": "The name of the tuning job to stop."
+        }
+      },
+      "required": [
+        "HyperParameterTuningJobName"
+      ],
+      "type": "object"
+    },
     "StopNotebookInstanceInput": {
       "properties": {
         "NotebookInstanceName": {
@@ -3745,6 +5399,14 @@
     "SubnetId": {
       "maxLength": 32,
       "type": "string"
+    },
+    "Subnets": {
+      "items": {
+        "$ref": "#/definitions/SubnetId"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "type": "array"
     },
     "Tag": {
       "description": "Describes a tag. ",
@@ -3814,10 +5476,19 @@
     "TrainingInstanceType": {
       "enum": [
         "ml.m4.xlarge",
+        "ml.m4.2xlarge",
         "ml.m4.4xlarge",
         "ml.m4.10xlarge",
+        "ml.m4.16xlarge",
+        "ml.m5.large",
+        "ml.m5.xlarge",
+        "ml.m5.2xlarge",
+        "ml.m5.4xlarge",
+        "ml.m5.12xlarge",
+        "ml.m5.24xlarge",
         "ml.c4.xlarge",
         "ml.c4.2xlarge",
+        "ml.c4.4xlarge",
         "ml.c4.8xlarge",
         "ml.p2.xlarge",
         "ml.p2.8xlarge",
@@ -3835,13 +5506,22 @@
     },
     "TrainingJobArn": {
       "maxLength": 256,
-      "pattern": "arn:aws:sagemaker:[\\p{Alnum}\\-]*:[0-9]{12}:training-job/.*",
+      "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:training-job/.*",
       "type": "string"
     },
     "TrainingJobName": {
       "maxLength": 63,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "type": "string"
+    },
+    "TrainingJobSortByOptions": {
+      "enum": [
+        "Name",
+        "CreationTime",
+        "Status",
+        "FinalObjectiveMetricValue"
+      ],
       "type": "string"
     },
     "TrainingJobStatus": {
@@ -3853,6 +5533,36 @@
         "Stopped"
       ],
       "type": "string"
+    },
+    "TrainingJobStatusCounter": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "TrainingJobStatusCounters": {
+      "description": "The numbers of training jobs launched by a hyperparameter tuning job, categorized by status.",
+      "properties": {
+        "Completed": {
+          "$ref": "#/definitions/TrainingJobStatusCounter",
+          "description": "The number of completed training jobs launched by a hyperparameter tuning job."
+        },
+        "InProgress": {
+          "$ref": "#/definitions/TrainingJobStatusCounter",
+          "description": "The number of in-progress training jobs launched by a hyperparameter tuning job."
+        },
+        "NonRetryableError": {
+          "$ref": "#/definitions/TrainingJobStatusCounter",
+          "description": "The number of training jobs that failed and can't be retried. A failed training job can't be retried if it failed because a client error occurred."
+        },
+        "RetryableError": {
+          "$ref": "#/definitions/TrainingJobStatusCounter",
+          "description": "The number of training jobs that failed, but can be retried. A failed training job can be retried only if it failed because an internal service error occurred."
+        },
+        "Stopped": {
+          "$ref": "#/definitions/TrainingJobStatusCounter",
+          "description": "The number of training jobs launched by a hyperparameter tuning job that were manually stopped."
+        }
+      },
+      "type": "object"
     },
     "TrainingJobSummaries": {
       "items": {
@@ -3966,12 +5676,36 @@
         },
         "RoleArn": {
           "$ref": "#/definitions/RoleArn",
-          "description": "Amazon Resource Name (ARN) of the IAM role to associate with the instance."
+          "description": "<p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance. For more information, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html\">Amazon SageMaker Roles</a>. </p> <note> <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>"
         }
       },
       "required": [
         "NotebookInstanceName"
       ],
+      "type": "object"
+    },
+    "UpdateNotebookInstanceLifecycleConfigInput": {
+      "properties": {
+        "NotebookInstanceLifecycleConfigName": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigName",
+          "description": "The name of the lifecycle configuration."
+        },
+        "OnCreate": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigList",
+          "description": "The shell script that runs only once, when you create a notebook instance"
+        },
+        "OnStart": {
+          "$ref": "#/definitions/NotebookInstanceLifecycleConfigList",
+          "description": "The shell script that runs every time you start a notebook instance, including when you create the notebook instance."
+        }
+      },
+      "required": [
+        "NotebookInstanceLifecycleConfigName"
+      ],
+      "type": "object"
+    },
+    "UpdateNotebookInstanceLifecycleConfigOutput": {
+      "properties": {},
       "type": "object"
     },
     "UpdateNotebookInstanceOutput": {
@@ -3996,6 +5730,32 @@
     "VolumeSizeInGB": {
       "minimum": 1,
       "type": "integer"
+    },
+    "VpcConfig": {
+      "description": "Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see <a>host-vpc</a> and <a>train-vpc</a>.",
+      "properties": {
+        "SecurityGroupIds": {
+          "$ref": "#/definitions/VpcSecurityGroupIds",
+          "description": "The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the <code>Subnets</code> field."
+        },
+        "Subnets": {
+          "$ref": "#/definitions/Subnets",
+          "description": "The ID of the subnets in the VPC to which you want to connect your training job or model."
+        }
+      },
+      "required": [
+        "SecurityGroupIds",
+        "Subnets"
+      ],
+      "type": "object"
+    },
+    "VpcSecurityGroupIds": {
+      "items": {
+        "$ref": "#/definitions/SecurityGroupId"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
     }
   }
 }

@@ -349,7 +349,7 @@ firebrowse.Counts({}, context)
 *Output schema unknown*
 
 ### Dates
-Retrieve datestamps of all GDAC Firehose standard data and analyses runs that have been ingested into FireBrowse.
+Retrieve dates of all GDAC Firehose stddata & analyses runs that have been ingested into FireBrowse.
 
 
 ```js

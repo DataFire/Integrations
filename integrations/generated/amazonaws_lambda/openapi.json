@@ -14,7 +14,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>AWS Lambda</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">What is AWS Lambda</a>, and for information about how the service works, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p>",
+    "description": "<fullname>AWS Lambda</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">What is AWS Lambda</a>, and for information about how the service works, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -312,7 +312,7 @@
         }
       ],
       "post": {
-        "description": "<p>Identifies a stream as an event source for a Lambda function. It can be either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda invokes the specified function when records are posted to the stream.</p> <p>This association between a stream source and a Lambda function is called the event source mapping.</p> <important> <p>This event source mapping is relevant only in the AWS Lambda pull model, where AWS Lambda invokes the function. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p> </important> <p>You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.</p> <p>Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda function. A given Lambda function can be associated with multiple AWS event sources.</p> <p>If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>This operation requires permission for the <code>lambda:CreateEventSourceMapping</code> action.</p>",
+        "description": "<p>Identifies a stream as an event source for a Lambda function. It can be either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda invokes the specified function when records are posted to the stream.</p> <p>This association between a stream source and a Lambda function is called the event source mapping.</p> <p>You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.</p> <p>Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda functions. A given Lambda function can be associated with multiple AWS event sources.</p> <p>If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>This operation requires permission for the <code>lambda:CreateEventSourceMapping</code> action.</p>",
         "operationId": "CreateEventSourceMapping",
         "parameters": [
           {
@@ -1776,7 +1776,7 @@
         }
       ],
       "post": {
-        "description": "<p>Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource policies to grant permissions to event sources that use <i>push</i> model. In a <i>push</i> model, event sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource policy allows an event source, permission to invoke the Lambda function. </p> <p>For information about the push model, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a>. </p> <p>If you are using versioning, the permissions you add are specific to the Lambda function version or alias you specify in the <code>AddPermission</code> request via the <code>Qualifier</code> parameter. For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>This operation requires permission for the <code>lambda:AddPermission</code> action.</p>",
+        "description": "<p>Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource policies to grant permissions to event sources that use <i>push</i> model. In a <i>push</i> model, event sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource policy allows an event source, permission to invoke the Lambda function. </p> <p>For information about the push model, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">Lambda Functions</a>. </p> <p>If you are using versioning, the permissions you add are specific to the Lambda function version or alias you specify in the <code>AddPermission</code> request via the <code>Qualifier</code> parameter. For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>This operation requires permission for the <code>lambda:AddPermission</code> action.</p>",
         "operationId": "AddPermission",
         "parameters": [
           {
@@ -2172,7 +2172,7 @@
     },
     "/2017-03-31/tags/{ARN}": {
       "delete": {
-        "description": "Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name). ",
+        "description": "Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name). For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>. ",
         "operationId": "UntagResource",
         "parameters": [
           {
@@ -2221,7 +2221,7 @@
         }
       },
       "get": {
-        "description": "Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name).",
+        "description": "Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name). For more information on Tagging, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.",
         "operationId": "ListTags",
         "parameters": [
           {
@@ -2302,7 +2302,7 @@
         }
       ],
       "post": {
-        "description": "Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null. ",
+        "description": "Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>. ",
         "operationId": "TagResource",
         "parameters": [
           {
@@ -2764,11 +2764,11 @@
         },
         "StartingPosition": {
           "$ref": "#/definitions/EventSourcePosition",
-          "description": "The position in the stream where AWS Lambda should start reading. Valid only for Kinesis streams. For more information, see <a href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\">ShardIteratorType</a> in the <i>Amazon Kinesis API Reference</i>. "
+          "description": "The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see <a href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\">GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html\">GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code> value is supported only for <a href=\"http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html\">Kinesis streams</a>. "
         },
         "StartingPositionTimestamp": {
           "$ref": "#/definitions/Date",
-          "description": "The timestamp of the data record from which to start reading. Used with <a href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\">shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for Kinesis streams. "
+          "description": "The timestamp of the data record from which to start reading. Used with <a href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\">shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <a href=\"http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html\">Kinesis streams</a>. "
         }
       },
       "required": [
@@ -2799,7 +2799,7 @@
         },
         "DeadLetterConfig": {
           "$ref": "#/definitions/DeadLetterConfig",
-          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. "
+          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see <a>dlq</a>. "
         },
         "Description": {
           "$ref": "#/definitions/Description",
@@ -2834,11 +2834,11 @@
         },
         "Runtime": {
           "$ref": "#/definitions/Runtime",
-          "description": "<p>The runtime environment for the Lambda function you are uploading.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
+          "description": "<p>The runtime environment for the Lambda function you are uploading.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use the .NET Core runtime v1.0, set the value to \"dotnetcore1.0\". To use the .NET Core runtime v2.0, set the value to \"dotnetcore2.0\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
         },
         "Tags": {
           "$ref": "#/definitions/Tags",
-          "description": "The list of tags (key-value pairs) assigned to the new function."
+          "description": "The list of tags (key-value pairs) assigned to the new function. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>."
         },
         "Timeout": {
           "$ref": "#/definitions/Timeout",
@@ -2867,11 +2867,11 @@
       "type": "string"
     },
     "DeadLetterConfig": {
-      "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.",
+      "description": "The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ). For more information, see <a>dlq</a>. ",
       "properties": {
         "TargetArn": {
           "$ref": "#/definitions/ResourceArn",
-          "description": "The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ)."
+          "description": "The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>. "
         }
       },
       "type": "object"
@@ -3112,7 +3112,7 @@
         },
         "ZipFile": {
           "$ref": "#/definitions/Blob",
-          "description": "The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html\">Execution Permissions</a> in the <i>AWS Lambda Developer Guide</i>. "
+          "description": "The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html\">Execution Permissions</a> in the <b>AWS Lambda Developer Guide</b>. "
         }
       },
       "type": "object"
@@ -3159,7 +3159,7 @@
         },
         "DeadLetterConfig": {
           "$ref": "#/definitions/DeadLetterConfig",
-          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic."
+          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see <a>dlq</a>. "
         },
         "Description": {
           "$ref": "#/definitions/Description",
@@ -3344,7 +3344,7 @@
         },
         "Tags": {
           "$ref": "#/definitions/Tags",
-          "description": "Returns the list of tags associated with the function."
+          "description": "Returns the list of tags associated with the function. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>."
         }
       },
       "type": "object"
@@ -3662,7 +3662,7 @@
       "properties": {
         "Tags": {
           "$ref": "#/definitions/Tags",
-          "description": "The list of tags assigned to the function."
+          "description": "The list of tags assigned to the function. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>."
         }
       },
       "type": "object"
@@ -3871,6 +3871,7 @@
         "nodejs",
         "nodejs4.3",
         "nodejs6.10",
+        "nodejs8.10",
         "java8",
         "python2.7",
         "python3.6",
@@ -3884,7 +3885,7 @@
     "S3Bucket": {
       "maxLength": 63,
       "minLength": 3,
-      "pattern": "^[0-9A-Za-z\\.\\-_]*$",
+      "pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
       "type": "string"
     },
     "S3Key": {
@@ -3971,7 +3972,7 @@
       "properties": {
         "Tags": {
           "$ref": "#/definitions/Tags",
-          "description": "The list of tags (key-value pairs) you are assigning to the Lambda function."
+          "description": "The list of tags (key-value pairs) you are assigning to the Lambda function. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>."
         }
       },
       "required": [
@@ -4163,7 +4164,7 @@
         },
         "ZipFile": {
           "$ref": "#/definitions/Blob",
-          "description": "The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html\">Execution Permissions</a> in the <i>AWS Lambda Developer Guide</i>. "
+          "description": "The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html\">Execution Permissions</a>. "
         }
       },
       "type": "object"
@@ -4183,7 +4184,7 @@
       "properties": {
         "DeadLetterConfig": {
           "$ref": "#/definitions/DeadLetterConfig",
-          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic."
+          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see <a>dlq</a>. "
         },
         "Description": {
           "$ref": "#/definitions/Description",
@@ -4215,7 +4216,7 @@
         },
         "Runtime": {
           "$ref": "#/definitions/Runtime",
-          "description": "<p>The runtime environment for the Lambda function.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use the Python runtime v3.6, set the value to \"python3.6\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
+          "description": "<p>The runtime environment for the Lambda function.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use the .NET Core runtime v1.0, set the value to \"dotnetcore1.0\". To use the .NET Core runtime v2.0, set the value to \"dotnetcore2.0\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
         },
         "Timeout": {
           "$ref": "#/definitions/Timeout",

@@ -1,6 +1,6 @@
 # @datafire/google_cloudkms
 
-Client library for Google Cloud Key Management Service (KMS)
+Client library for Cloud Key Management Service (KMS)
 
 ## Installation and Usage
 ```bash
@@ -276,7 +276,7 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.encrypt({
 
 ### projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.restore
 Restore a CryptoKeyVersion in the
-DESTROY_SCHEDULED,
+DESTROY_SCHEDULED
 state.
 
 Upon restoration of the CryptoKeyVersion, state
@@ -736,6 +736,7 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.testIamPermissions({
 
 ### Location
 * Location `object`: A resource that represents Google Cloud Platform location.
+  * displayName `string`: The friendly name for this location, typically a nearby city name.
   * labels `object`: Cross-service attributes for the location. For example
   * locationId `string`: The canonical id for this location. For example: `"us-east1"`.
   * metadata `object`: Service-specific metadata. For example the available capacity at the given

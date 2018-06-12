@@ -7,7 +7,9 @@ Client library for Geocoder
 npm install --save @datafire/gov_bc_ca_geocoder
 ```
 ```js
-let gov_bc_ca_geocoder = require('@datafire/gov_bc_ca_geocoder').create();
+let gov_bc_ca_geocoder = require('@datafire/gov_bc_ca_geocoder').create({
+  apikey: ""
+});
 
 gov_bc_ca_geocoder.addresses.outputFormat.get({
   "outputFormat": ""
@@ -18,7 +20,11 @@ gov_bc_ca_geocoder.addresses.outputFormat.get({
 
 ## Description
 
-This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. CORS is enabled for gov.bc.ca only. Please read our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target="_blank">data collection notice</a>
+This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. Two endpoints are provided for this API: one is public (apps.gov.bc.ca/pub/geocoder), the other is restricted (geocoder.api.gov.bc.ca) and requires an API key. For the public endpoint CORS is only enabled for gov.bc.ca, whereas the restricted endpoint allows CORS for all domains. Please read our [data collection notice](https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice).  
+
+Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers. 
+
+[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and provide the ability to make up to 2 requests per second. Production government applications may use organization API keys which are further described in [the Developer guide](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys).
 
 ## Actions
 
@@ -35,7 +41,7 @@ gov_bc_ca_geocoder.addresses.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * addressString `string`: Examples: 525 Superior Street, Victoria, BC<br>301-780 Blanshard St, Victoria, BC<br>Johnson St and Government St, Victoria, BC.<br> Civic or intersection address as a single string. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#addressString target="_blank">addressString</a>
+  * addressString `string`: Civic or intersection address as a single string. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#addressString target="_blank">addressString</a>
   * locationDescriptor `string` (values: any, accessPoint, frontDoorPoint, parcelPoint, rooftopPoint, routingPoint): Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target="_blank">locationDescriptor</a>
   * maxResults `integer`: The maximum number of search results to return.
   * interpolation `string` (values: adaptive, linear, none): accessPoint interpolation method. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#interpolation target="_blank">interpolation</a>
@@ -85,7 +91,7 @@ gov_bc_ca_geocoder.intersections.near.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * point **required** `string`: Example: -122.377,50.121  The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.
+  * point **required** `string`: The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.
   * maxDistance `integer`: The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.
   * outputSRS **required** `integer` (values: 4326, 4269, 3005, 26907, 26908, 26909, 26910, 26911): The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#outputSRS target="_blank">outputSRS</a>
   * maxResults `integer`: The maximum number of search results to return.
@@ -132,7 +138,7 @@ gov_bc_ca_geocoder.intersections.within.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormattarget="_blank">outputFormat</a>
-  * bbox **required** `string`: Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#bbox target="_blank">bbox</a>
+  * bbox **required** `string`: A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#bbox target="_blank">bbox</a>
   * outputSRS `integer` (values: 4326, 4269, 3005, 26907, 26908, 26909, 26910, 26911): The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target="_blank">outputSRS</a>
   * maxResults `integer`: The maximum number of search results
   * minDegree `integer`: The minimum degree an intersection can have to be included in results. A dead-end has a degree of 1.
@@ -174,7 +180,7 @@ gov_bc_ca_geocoder.occupants.addresses.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * addressString `string`: Examples: Redfish Elementary --<br>Redfish Elementary -- Balfour<br>Redfish Elementary School -- 265 Bryan Rd, Balfour, BC<br>Occupant name followed by a frontGate delimiter ('--') followed by an optional address
+  * addressString `string`: Occupant name followed by a frontGate delimiter ('--') followed by an optional address
   * tags `string`: Example: schools;courts;employment<br>A list of tags separated by semicolons.
   * locationDescriptor `string` (values: any, accessPoint, frontDoorPoint, parcelPoint, rooftopPoint, routingPoint): Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target="_blank">locationDescriptor</a>
   * maxResults `integer`: The maximum number of search results to return.
@@ -224,7 +230,7 @@ gov_bc_ca_geocoder.occupants.near.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * point **required** `string`: Example: -122.377,50.121  The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.
+  * point **required** `string`: The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.
   * tags `string`: Example: schools;courts;employment<br>A list of tags separated by semicolons.
   * maxDistance `integer`: The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.
   * outputSRS `integer` (values: 4326, 4269, 3005, 26907, 26908, 26909, 26910, 26911): The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target="_blank">outputSRS</a>
@@ -250,7 +256,7 @@ gov_bc_ca_geocoder.occupants.nearest.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * point **required** `string`: Example: -122.377,50.121  The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.
+  * point **required** `string`: The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.
   * maxDistance `integer`: The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.
   * tags `string`: Example: schools;courts;employment<br>A list of tags separated by semicolons.
   * outputSRS `integer` (values: 4326, 4269, 3005, 26907, 26908, 26909, 26910, 26911): The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target="_blank">outputSRS</a>
@@ -275,7 +281,7 @@ gov_bc_ca_geocoder.occupants.within.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * bbox **required** `string`: Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target="_blank">bbox</a>
+  * bbox **required** `string`: A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target="_blank">bbox</a>
   * tags `string`: Example: schools;courts;employment<br>A list of tags separated by semicolons.
   * outputSRS `integer` (values: 4326, 4269, 3005, 26907, 26908, 26909, 26910, 26911): The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#outputSRS target="_blank">outputSRS</a>
   * maxResults `integer`: The maximum number of search results to return.
@@ -309,6 +315,25 @@ gov_bc_ca_geocoder.occupants.occupantID.outputFormat.get({
 #### Output
 *Output schema unknown*
 
+### parcels.pids.siteID.outputFormat.get
+Represents all parcel identifiers associated with an individual site
+
+
+```js
+gov_bc_ca_geocoder.parcels.pids.siteID.outputFormat.get({
+  "siteID": "",
+  "outputFormat": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * siteID **required** `string`: A unique, but not immutable, site identifier.
+  * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
+
+#### Output
+*Output schema unknown*
+
 ### sites.near.outputFormat.get
 Represents sites near a given point in the order of closest to farthest
 
@@ -323,7 +348,7 @@ gov_bc_ca_geocoder.sites.near.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * point **required** `string`: Example: -122.377,50.121  The point (x,y) from which the nearby sites will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.
+  * point **required** `string`: The point (x,y) from which the nearby sites will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.
   * maxDistance `integer`: The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.
   * outputSRS `integer` (values: 4326, 4269, 3005, 26907, 26908, 26909, 26910, 26911): The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target="_blank">outputSRS</a>
   * maxResults `integer`: The maximum number of search results to return.
@@ -350,7 +375,7 @@ gov_bc_ca_geocoder.sites.nearest.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * point **required** `string`: Example: -122.377,50.121  Centre point of search. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#point target="_blank">point</a>
+  * point **required** `string`: Centre point of search. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#point target="_blank">point</a>
   * maxDistance `integer`: The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.
   * outputSRS `integer` (values: 4326, 4269, 3005, 26907, 26908, 26909, 26910, 26911): The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target="_blank">outputSRS</a>
   * locationDescriptor `string` (values: any, accessPoint, frontDoorPoint, parcelPoint, rooftopPoint, routingPoint): Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target="_blank">locationDescriptor</a>
@@ -376,7 +401,7 @@ gov_bc_ca_geocoder.sites.within.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * bbox **required** `string`: Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target="_blank">bbox</a>
+  * bbox **required** `string`: A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target="_blank">bbox</a>
   * outputSRS `integer` (values: 4326, 4269, 3005, 26907, 26908, 26909, 26910, 26911): The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target="_blank">outputSRS</a>
   * maxResults `integer`: The maximum number of search results to return.
   * locationDescriptor `string` (values: any, accessPoint, frontDoorPoint, parcelPoint, rooftopPoint, routingPoint): Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target="_blank">locationDescriptor</a>

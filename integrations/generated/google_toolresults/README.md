@@ -96,8 +96,8 @@ google_toolresults.projects.histories.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ListHistoriesResponse](#listhistoriesresponse)
@@ -128,8 +128,8 @@ google_toolresults.projects.histories.create({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [History](#history)
@@ -158,8 +158,8 @@ google_toolresults.projects.histories.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [History](#history)
@@ -192,8 +192,8 @@ google_toolresults.projects.histories.executions.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ListExecutionsResponse](#listexecutionsresponse)
@@ -226,8 +226,8 @@ google_toolresults.projects.histories.executions.create({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Execution](#execution)
@@ -258,8 +258,8 @@ google_toolresults.projects.histories.executions.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Execution](#execution)
@@ -292,8 +292,8 @@ google_toolresults.projects.histories.executions.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Execution](#execution)
@@ -322,8 +322,8 @@ google_toolresults.projects.histories.executions.clusters.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ListScreenshotClustersResponse](#listscreenshotclustersresponse)
@@ -352,8 +352,8 @@ google_toolresults.projects.histories.executions.clusters.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ScreenshotCluster](#screenshotcluster)
@@ -388,8 +388,8 @@ google_toolresults.projects.histories.executions.steps.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ListStepsResponse](#liststepsresponse)
@@ -424,8 +424,8 @@ google_toolresults.projects.histories.executions.steps.create({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Step](#step)
@@ -458,8 +458,8 @@ google_toolresults.projects.histories.executions.steps.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Step](#step)
@@ -494,8 +494,8 @@ google_toolresults.projects.histories.executions.steps.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Step](#step)
@@ -526,8 +526,8 @@ google_toolresults.projects.histories.executions.steps.getPerfMetricsSummary({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PerfMetricsSummary](#perfmetricssummary)
@@ -559,8 +559,8 @@ google_toolresults.projects.histories.executions.steps.perfMetricsSummary.create
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PerfMetricsSummary](#perfmetricssummary)
@@ -594,8 +594,8 @@ google_toolresults.projects.histories.executions.steps.perfSampleSeries.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ListPerfSampleSeriesResponse](#listperfsampleseriesresponse)
@@ -627,8 +627,8 @@ google_toolresults.projects.histories.executions.steps.perfSampleSeries.create({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PerfSampleSeries](#perfsampleseries)
@@ -661,8 +661,8 @@ google_toolresults.projects.histories.executions.steps.perfSampleSeries.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [PerfSampleSeries](#perfsampleseries)
@@ -697,8 +697,8 @@ google_toolresults.projects.histories.executions.steps.perfSampleSeries.samples.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ListPerfSamplesResponse](#listperfsamplesresponse)
@@ -732,8 +732,8 @@ google_toolresults.projects.histories.executions.steps.perfSampleSeries.samples.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BatchCreatePerfSamplesResponse](#batchcreateperfsamplesresponse)
@@ -766,8 +766,8 @@ google_toolresults.projects.histories.executions.steps.thumbnails.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ListStepThumbnailsResponse](#liststepthumbnailsresponse)
@@ -801,8 +801,8 @@ google_toolresults.projects.histories.executions.steps.publishXunitXmlFiles({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Step](#step)
@@ -829,8 +829,8 @@ google_toolresults.projects.getSettings({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProjectSettings](#projectsettings)
@@ -863,8 +863,8 @@ google_toolresults.projects.initializeSettings({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProjectSettings](#projectsettings)
@@ -987,7 +987,7 @@ google_toolresults.projects.initializeSettings({
 * History `object`: A History represents a sorted list of Executions ordered by the start_timestamp_millis field (descending). It can be used to group all the Executions of a continuous build.
   * displayName `string`: A short human-readable (plain text) name to display in the UI. Maximum of 100 characters.
   * historyId `string`: A unique identifier within a project for this History.
-  * name `string`: A name to uniquely identify a history within a project. Maximum of 100 characters.
+  * name `string`: A name to uniquely identify a history within a project. Maximum of 200 characters.
 
 ### Image
 * Image `object`: An image, with a link to the main image and a thumbnail.
@@ -1026,7 +1026,7 @@ google_toolresults.projects.initializeSettings({
 
 ### ListScreenshotClustersResponse
 * ListScreenshotClustersResponse `object`
-  * clusters `array`: The set of clustres associated with an execution Always set
+  * clusters `array`: The set of clusters associated with an execution Always set
     * items [ScreenshotCluster](#screenshotcluster)
 
 ### ListStepThumbnailsResponse
@@ -1186,7 +1186,7 @@ google_toolresults.projects.initializeSettings({
   * errorMessage `string`: A brief human-readable message describing the issue. Required.
   * severity `string` (values: info, severe, unspecifiedSeverity, warning): Severity of issue. Required.
   * stackTrace [StackTrace](#stacktrace)
-  * type `string` (values: anr, compatibleWithOrchestrator, fatalException, launcherActivityNotFound, nativeCrash, startActivityNotFound, unspecifiedType, unusedRoboDirective): Type of issue. Required.
+  * type `string` (values: anr, compatibleWithOrchestrator, completeRoboScriptExecution, failedToInstall, fatalException, incompleteRoboScriptExecution, launcherActivityNotFound, nativeCrash, startActivityNotFound, unspecifiedType, unusedRoboDirective): Type of issue. Required.
   * warning [Any](#any)
 
 ### TestSuiteOverview

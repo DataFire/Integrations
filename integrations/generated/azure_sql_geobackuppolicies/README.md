@@ -136,16 +136,4 @@ azure_sql_geobackuppolicies.GeoBackupPolicies_CreateOrUpdate({
   * state **required** `string` (values: Disabled, Enabled): The state of the geo backup policy.
   * storageType `string`: The storage type of the geo backup policy.
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

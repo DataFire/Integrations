@@ -21,7 +21,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/preview/2017-05-15-preview/softwareUpdateConfiguration.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/preview/2017-05-15-preview/softwareUpdateConfiguration.json",
         "version": "2.0"
       }
     ],
@@ -78,19 +78,23 @@
             "type": "string"
           },
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Client Api Version.",
@@ -104,7 +108,8 @@
             "in": "header",
             "name": "clientRequestId",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The filter to apply on the operation.",
@@ -142,7 +147,8 @@
                             "description": "Creation time of the software update configuration, which only appears in the response.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "frequency": {
                             "description": "Gets or sets the frequency of the schedule.",
@@ -163,12 +169,14 @@
                             "description": "Last time software update configuration was modified, which only appears in the response.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "nextRun": {
                             "description": "ext run time of the update.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": true
                           },
                           "provisioningState": {
                             "description": "Provisioning state for the software update configuration, which only appears in the response.",
@@ -178,7 +186,8 @@
                           "startTime": {
                             "description": "the start time of the update.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "updateConfiguration": {
                             "description": "object returned when requesting a collection of software update configuration",
@@ -213,6 +222,23 @@
           },
           "404": {
             "description": "Resource group, or account doesn't exist."
+          },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "schema": {
+              "description": "Error response of an operation failure",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -247,8 +273,11 @@
                           "/subscriptions/1a7d4044-286c-4acb-969a-96639265bf2e/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
                         ],
                         "duration": "PT2H",
+                        "linux": null,
+                        "nonAzureComputerNames": null,
                         "operatingSystem": "Windows",
                         "windows": {
+                          "excludedKbNumbers": null,
                           "includedUpdateClassifications": "Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates"
                         }
                       }
@@ -271,8 +300,11 @@
                           "/subscriptions/1a7d4044-286c-4acb-969a-96639265bf2e/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-06"
                         ],
                         "duration": "PT2H30M",
+                        "linux": null,
+                        "nonAzureComputerNames": null,
                         "operatingSystem": "Windows",
                         "windows": {
+                          "excludedKbNumbers": null,
                           "includedUpdateClassifications": "Critical, FeaturePack"
                         }
                       }
@@ -315,8 +347,11 @@
                           "/subscriptions/1a7d4044-286c-4acb-969a-96639265bf2e/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
                         ],
                         "duration": "PT2H",
+                        "linux": null,
+                        "nonAzureComputerNames": null,
                         "operatingSystem": "Windows",
                         "windows": {
+                          "excludedKbNumbers": null,
                           "includedUpdateClassifications": "Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates"
                         }
                       }
@@ -339,8 +374,11 @@
                           "/subscriptions/1a7d4044-286c-4acb-969a-96639265bf2e/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-06"
                         ],
                         "duration": "PT2H30M",
+                        "linux": null,
+                        "nonAzureComputerNames": null,
                         "operatingSystem": "Windows",
                         "windows": {
+                          "excludedKbNumbers": null,
                           "includedUpdateClassifications": "Critical, FeaturePack"
                         }
                       }
@@ -373,19 +411,23 @@
             "type": "string"
           },
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the software update configuration to be created.",
@@ -406,7 +448,8 @@
             "in": "header",
             "name": "clientRequestId",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -416,8 +459,22 @@
           "204": {
             "description": "The software update configuration does not exist."
           },
-          "404": {
-            "description": "Resource group, account, or software update configuration doesn't exist."
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "schema": {
+              "description": "Error response of an operation failure",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -459,19 +516,23 @@
             "type": "string"
           },
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the software update configuration to be created.",
@@ -492,7 +553,8 @@
             "in": "header",
             "name": "clientRequestId",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -523,7 +585,8 @@
                       "description": "Creation time of theresource, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "error": {
                       "description": "Error response of an operation failure",
@@ -548,7 +611,8 @@
                       "description": "Last time resource was modified, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "provisioningState": {
                       "description": "Provisioning state for the software update configuration, which only appears in the response.",
@@ -565,7 +629,8 @@
                               "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                               "items": {
                                 "format": "int32",
-                                "type": "integer"
+                                "type": "integer",
+                                "x-nullable": false
                               },
                               "type": "array"
                             },
@@ -575,7 +640,7 @@
                                 "description": "The properties of the create advanced schedule monthly occurrence.",
                                 "properties": {
                                   "day": {
-                                    "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                    "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                     "enum": [
                                       "Monday",
                                       "Tuesday",
@@ -612,7 +677,8 @@
                         "creationTime": {
                           "description": "Gets or sets the creation time.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "description": {
                           "description": "Gets or sets the description.",
@@ -621,12 +687,14 @@
                         "expiryTime": {
                           "description": "Gets or sets the end time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": true
                         },
                         "expiryTimeOffsetMinutes": {
                           "description": "Gets or sets the expiry time's offset in minutes.",
                           "format": "double",
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "frequency": {
                           "description": "Gets or sets the frequency of the schedule.",
@@ -644,7 +712,8 @@
                           }
                         },
                         "interval": {
-                          "description": "Gets or sets the interval of the schedule."
+                          "description": "Gets or sets the interval of the schedule.",
+                          "type": "integer"
                         },
                         "isEnabled": {
                           "default": false,
@@ -654,28 +723,33 @@
                         "lastModifiedTime": {
                           "description": "Gets or sets the last modified time.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "nextRun": {
                           "description": "Gets or sets the next run time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": true
                         },
                         "nextRunOffsetMinutes": {
                           "description": "Gets or sets the next run time's offset in minutes.",
                           "format": "double",
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "startTime": {
                           "description": "Gets or sets the start time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "startTimeOffsetMinutes": {
                           "description": "Gets the start time's offset in minutes.",
                           "format": "double",
                           "readOnly": true,
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "timeZone": {
                           "description": "Gets or sets the time zone of the schedule.",
@@ -722,6 +796,17 @@
                                 "modelAsString": true,
                                 "name": "LinuxUpdateClasses"
                               }
+                            },
+                            "includedPackageNameMasks": {
+                              "description": "packages included from the software update configuration.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "rebootSetting": {
+                              "description": "Reboot setting for the software update configuration.",
+                              "type": "string"
                             }
                           },
                           "type": "object"
@@ -756,6 +841,13 @@
                               },
                               "type": "array"
                             },
+                            "includedKbNumbers": {
+                              "description": "KB numbers included from the software update configuration.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "includedUpdateClassifications": {
                               "description": "Update classification included in the software update configuration. A comma separated string with required values",
                               "enum": [
@@ -774,6 +866,10 @@
                                 "modelAsString": true,
                                 "name": "WindowsUpdateClasses"
                               }
+                            },
+                            "rebootSetting": {
+                              "description": "Reboot setting for the software update configuration.",
+                              "type": "string"
                             }
                           },
                           "type": "object"
@@ -805,6 +901,23 @@
           },
           "404": {
             "description": "Resource group, account, or software update configuration doesn't exist."
+          },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "schema": {
+              "description": "Error response of an operation failure",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -833,6 +946,7 @@
                     "lastModifiedTime": "2017-10-19T18:54:50.68+00:00",
                     "provisioningState": "Provisioning",
                     "scheduleInfo": {
+                      "advancedSchedule": null,
                       "creationTime": "2017-10-19T18:54:50.5233333+00:00",
                       "description": "",
                       "expiryTime": "2018-11-09T11:22:00-08:00",
@@ -865,7 +979,7 @@
                           "168934",
                           "168973"
                         ],
-                        "includedUpdateClassifications": "Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates"
+                        "includedUpdateClassifications": "Critical"
                       }
                     }
                   }
@@ -895,19 +1009,23 @@
             "type": "string"
           },
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the software update configuration to be created.",
@@ -928,7 +1046,8 @@
             "in": "header",
             "name": "clientRequestId",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Request body.",
@@ -960,7 +1079,8 @@
                       "description": "Creation time of theresource, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "error": {
                       "description": "Error response of an operation failure",
@@ -985,7 +1105,8 @@
                       "description": "Last time resource was modified, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "provisioningState": {
                       "description": "Provisioning state for the software update configuration, which only appears in the response.",
@@ -1002,7 +1123,8 @@
                               "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                               "items": {
                                 "format": "int32",
-                                "type": "integer"
+                                "type": "integer",
+                                "x-nullable": false
                               },
                               "type": "array"
                             },
@@ -1012,7 +1134,7 @@
                                 "description": "The properties of the create advanced schedule monthly occurrence.",
                                 "properties": {
                                   "day": {
-                                    "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                    "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                     "enum": [
                                       "Monday",
                                       "Tuesday",
@@ -1049,7 +1171,8 @@
                         "creationTime": {
                           "description": "Gets or sets the creation time.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "description": {
                           "description": "Gets or sets the description.",
@@ -1058,12 +1181,14 @@
                         "expiryTime": {
                           "description": "Gets or sets the end time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": true
                         },
                         "expiryTimeOffsetMinutes": {
                           "description": "Gets or sets the expiry time's offset in minutes.",
                           "format": "double",
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "frequency": {
                           "description": "Gets or sets the frequency of the schedule.",
@@ -1081,7 +1206,8 @@
                           }
                         },
                         "interval": {
-                          "description": "Gets or sets the interval of the schedule."
+                          "description": "Gets or sets the interval of the schedule.",
+                          "type": "integer"
                         },
                         "isEnabled": {
                           "default": false,
@@ -1091,28 +1217,33 @@
                         "lastModifiedTime": {
                           "description": "Gets or sets the last modified time.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "nextRun": {
                           "description": "Gets or sets the next run time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": true
                         },
                         "nextRunOffsetMinutes": {
                           "description": "Gets or sets the next run time's offset in minutes.",
                           "format": "double",
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "startTime": {
                           "description": "Gets or sets the start time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "startTimeOffsetMinutes": {
                           "description": "Gets the start time's offset in minutes.",
                           "format": "double",
                           "readOnly": true,
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "timeZone": {
                           "description": "Gets or sets the time zone of the schedule.",
@@ -1159,6 +1290,17 @@
                                 "modelAsString": true,
                                 "name": "LinuxUpdateClasses"
                               }
+                            },
+                            "includedPackageNameMasks": {
+                              "description": "packages included from the software update configuration.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "rebootSetting": {
+                              "description": "Reboot setting for the software update configuration.",
+                              "type": "string"
                             }
                           },
                           "type": "object"
@@ -1193,6 +1335,13 @@
                               },
                               "type": "array"
                             },
+                            "includedKbNumbers": {
+                              "description": "KB numbers included from the software update configuration.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "includedUpdateClassifications": {
                               "description": "Update classification included in the software update configuration. A comma separated string with required values",
                               "enum": [
@@ -1211,6 +1360,10 @@
                                 "modelAsString": true,
                                 "name": "WindowsUpdateClasses"
                               }
+                            },
+                            "rebootSetting": {
+                              "description": "Reboot setting for the software update configuration.",
+                              "type": "string"
                             }
                           },
                           "type": "object"
@@ -1269,7 +1422,8 @@
                       "description": "Creation time of theresource, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "error": {
                       "description": "Error response of an operation failure",
@@ -1294,7 +1448,8 @@
                       "description": "Last time resource was modified, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "provisioningState": {
                       "description": "Provisioning state for the software update configuration, which only appears in the response.",
@@ -1311,7 +1466,8 @@
                               "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                               "items": {
                                 "format": "int32",
-                                "type": "integer"
+                                "type": "integer",
+                                "x-nullable": false
                               },
                               "type": "array"
                             },
@@ -1321,7 +1477,7 @@
                                 "description": "The properties of the create advanced schedule monthly occurrence.",
                                 "properties": {
                                   "day": {
-                                    "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                    "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                     "enum": [
                                       "Monday",
                                       "Tuesday",
@@ -1358,7 +1514,8 @@
                         "creationTime": {
                           "description": "Gets or sets the creation time.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "description": {
                           "description": "Gets or sets the description.",
@@ -1367,12 +1524,14 @@
                         "expiryTime": {
                           "description": "Gets or sets the end time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": true
                         },
                         "expiryTimeOffsetMinutes": {
                           "description": "Gets or sets the expiry time's offset in minutes.",
                           "format": "double",
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "frequency": {
                           "description": "Gets or sets the frequency of the schedule.",
@@ -1390,7 +1549,8 @@
                           }
                         },
                         "interval": {
-                          "description": "Gets or sets the interval of the schedule."
+                          "description": "Gets or sets the interval of the schedule.",
+                          "type": "integer"
                         },
                         "isEnabled": {
                           "default": false,
@@ -1400,28 +1560,33 @@
                         "lastModifiedTime": {
                           "description": "Gets or sets the last modified time.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "nextRun": {
                           "description": "Gets or sets the next run time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": true
                         },
                         "nextRunOffsetMinutes": {
                           "description": "Gets or sets the next run time's offset in minutes.",
                           "format": "double",
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "startTime": {
                           "description": "Gets or sets the start time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "startTimeOffsetMinutes": {
                           "description": "Gets the start time's offset in minutes.",
                           "format": "double",
                           "readOnly": true,
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "timeZone": {
                           "description": "Gets or sets the time zone of the schedule.",
@@ -1468,6 +1633,17 @@
                                 "modelAsString": true,
                                 "name": "LinuxUpdateClasses"
                               }
+                            },
+                            "includedPackageNameMasks": {
+                              "description": "packages included from the software update configuration.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "rebootSetting": {
+                              "description": "Reboot setting for the software update configuration.",
+                              "type": "string"
                             }
                           },
                           "type": "object"
@@ -1502,6 +1678,13 @@
                               },
                               "type": "array"
                             },
+                            "includedKbNumbers": {
+                              "description": "KB numbers included from the software update configuration.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "includedUpdateClassifications": {
                               "description": "Update classification included in the software update configuration. A comma separated string with required values",
                               "enum": [
@@ -1520,6 +1703,10 @@
                                 "modelAsString": true,
                                 "name": "WindowsUpdateClasses"
                               }
+                            },
+                            "rebootSetting": {
+                              "description": "Reboot setting for the software update configuration.",
+                              "type": "string"
                             }
                           },
                           "type": "object"
@@ -1576,7 +1763,8 @@
                       "description": "Creation time of theresource, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "error": {
                       "description": "Error response of an operation failure",
@@ -1601,7 +1789,8 @@
                       "description": "Last time resource was modified, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "provisioningState": {
                       "description": "Provisioning state for the software update configuration, which only appears in the response.",
@@ -1618,7 +1807,8 @@
                               "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                               "items": {
                                 "format": "int32",
-                                "type": "integer"
+                                "type": "integer",
+                                "x-nullable": false
                               },
                               "type": "array"
                             },
@@ -1628,7 +1818,7 @@
                                 "description": "The properties of the create advanced schedule monthly occurrence.",
                                 "properties": {
                                   "day": {
-                                    "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                    "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                     "enum": [
                                       "Monday",
                                       "Tuesday",
@@ -1665,7 +1855,8 @@
                         "creationTime": {
                           "description": "Gets or sets the creation time.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "description": {
                           "description": "Gets or sets the description.",
@@ -1674,12 +1865,14 @@
                         "expiryTime": {
                           "description": "Gets or sets the end time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": true
                         },
                         "expiryTimeOffsetMinutes": {
                           "description": "Gets or sets the expiry time's offset in minutes.",
                           "format": "double",
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "frequency": {
                           "description": "Gets or sets the frequency of the schedule.",
@@ -1697,7 +1890,8 @@
                           }
                         },
                         "interval": {
-                          "description": "Gets or sets the interval of the schedule."
+                          "description": "Gets or sets the interval of the schedule.",
+                          "type": "integer"
                         },
                         "isEnabled": {
                           "default": false,
@@ -1707,28 +1901,33 @@
                         "lastModifiedTime": {
                           "description": "Gets or sets the last modified time.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "nextRun": {
                           "description": "Gets or sets the next run time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": true
                         },
                         "nextRunOffsetMinutes": {
                           "description": "Gets or sets the next run time's offset in minutes.",
                           "format": "double",
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "startTime": {
                           "description": "Gets or sets the start time of the schedule.",
                           "format": "date-time",
-                          "type": "string"
+                          "type": "string",
+                          "x-nullable": false
                         },
                         "startTimeOffsetMinutes": {
                           "description": "Gets the start time's offset in minutes.",
                           "format": "double",
                           "readOnly": true,
-                          "type": "number"
+                          "type": "number",
+                          "x-nullable": false
                         },
                         "timeZone": {
                           "description": "Gets or sets the time zone of the schedule.",
@@ -1775,6 +1974,17 @@
                                 "modelAsString": true,
                                 "name": "LinuxUpdateClasses"
                               }
+                            },
+                            "includedPackageNameMasks": {
+                              "description": "packages included from the software update configuration.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "rebootSetting": {
+                              "description": "Reboot setting for the software update configuration.",
+                              "type": "string"
                             }
                           },
                           "type": "object"
@@ -1809,6 +2019,13 @@
                               },
                               "type": "array"
                             },
+                            "includedKbNumbers": {
+                              "description": "KB numbers included from the software update configuration.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "includedUpdateClassifications": {
                               "description": "Update classification included in the software update configuration. A comma separated string with required values",
                               "enum": [
@@ -1827,6 +2044,10 @@
                                 "modelAsString": true,
                                 "name": "WindowsUpdateClasses"
                               }
+                            },
+                            "rebootSetting": {
+                              "description": "Reboot setting for the software update configuration.",
+                              "type": "string"
                             }
                           },
                           "type": "object"
@@ -1856,14 +2077,22 @@
               "x-ms-azure-resource": true
             }
           },
-          "400": {
-            "description": "Bad request."
-          },
-          "404": {
-            "description": "Resource group or automation account does not exist."
-          },
-          "409": {
-            "description": "A software update configuration with different properties and the same name already exist."
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "schema": {
+              "description": "Error response of an operation failure",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -1906,7 +2135,8 @@
                         "168934",
                         "168973"
                       ],
-                      "includedUpdateClassifications": "Critical,Definition,FeaturePack,Security,ServicePack,Tools,UpdateRollup,Updates"
+                      "includedUpdateClassifications": "Critical",
+                      "rebootSetting": "IfRequired"
                     }
                   }
                 }
@@ -1961,7 +2191,7 @@
                           "168934",
                           "168973"
                         ],
-                        "includedUpdateClassifications": "Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates"
+                        "includedUpdateClassifications": "Critical"
                       }
                     }
                   }
@@ -1979,6 +2209,7 @@
                     "lastModifiedTime": "2017-10-19T18:54:50.68+00:00",
                     "provisioningState": "Provisioning",
                     "scheduleInfo": {
+                      "advancedSchedule": null,
                       "creationTime": "2017-10-19T18:54:50.5233333+00:00",
                       "description": "",
                       "expiryTime": "2018-11-09T11:22:00-08:00",
@@ -2011,7 +2242,7 @@
                           "168934",
                           "168973"
                         ],
-                        "includedUpdateClassifications": "Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates"
+                        "includedUpdateClassifications": "Critical"
                       }
                     }
                   }

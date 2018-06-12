@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Reads and writes Google Sheets.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Sheets",
     "version": "v4",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://sheets.googleapis.com/$discovery/rest?version=v4",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
@@ -61,20 +56,6 @@
         "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
         "https://www.googleapis.com/auth/spreadsheets.readonly": "View your Google Spreadsheets"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.file": "View and manage Google Drive files and folders that you have opened or created with this app",
-        "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
-        "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
-        "https://www.googleapis.com/auth/spreadsheets.readonly": "View your Google Spreadsheets"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -256,24 +237,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -324,40 +296,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/spreadsheets"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets.readonly"
             ]
           }
@@ -440,24 +397,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -581,24 +529,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -688,24 +627,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -779,40 +709,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/spreadsheets"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets.readonly"
             ]
           }
@@ -938,24 +853,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -1093,24 +999,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -1200,24 +1097,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -1300,24 +1188,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -1400,24 +1279,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -1494,40 +1364,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/spreadsheets"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets.readonly"
             ]
           }
@@ -1651,24 +1506,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -1751,24 +1597,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -1851,24 +1688,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -1951,24 +1779,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -2051,24 +1870,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.file"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/spreadsheets"
             ]
           }
@@ -2131,6 +1941,29 @@
         "rule": {
           "$ref": "#/definitions/ConditionalFormatRule",
           "description": "The rule to add."
+        }
+      },
+      "type": "object"
+    },
+    "AddDimensionGroupRequest": {
+      "description": "Creates a group over the specified range.\n\nIf the requested range is a superset of the range of an existing group G,\nthen the depth of G is incremented and this new group G' has the\ndepth of that group. For example, a group [C:D, depth 1] + [B:E] results in\ngroups [B:E, depth 1] and [C:D, depth 2].\nIf the requested range is a subset of the range of an existing group G,\nthen the depth of the new group G' becomes one greater than the depth of G.\nFor example, a group [B:E, depth 1] + [C:D] results in groups [B:E, depth 1]\nand [C:D, depth 2].\nIf the requested range starts before and ends within, or starts within and\nends after, the range of an existing group G, then the range of the existing\ngroup G becomes the union of the ranges, and the new group G' has\ndepth one greater than the depth of G and range as the intersection of the\nranges. For example, a group [B:D, depth 1] + [C:E] results in groups [B:E,\ndepth 1] and [C:D, depth 2].",
+      "properties": {
+        "range": {
+          "$ref": "#/definitions/DimensionRange",
+          "description": "The range over which to create a group."
+        }
+      },
+      "type": "object"
+    },
+    "AddDimensionGroupResponse": {
+      "description": "The result of adding a group.",
+      "properties": {
+        "dimensionGroups": {
+          "description": "All groups of a dimension after adding a group to that dimension.",
+          "items": {
+            "$ref": "#/definitions/DimensionGroup"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -2319,7 +2152,7 @@
         },
         "columnProperties": {
           "$ref": "#/definitions/BandingProperties",
-          "description": "Properties for column bands. These properties will be applied on a column-\nby-column basis throughout all the columns in the range. At least one of\nrow_properties or column_properties must be specified."
+          "description": "Properties for column bands. These properties are applied on a column-\nby-column basis throughout all the columns in the range. At least one of\nrow_properties or column_properties must be specified."
         },
         "range": {
           "$ref": "#/definitions/GridRange",
@@ -2327,7 +2160,7 @@
         },
         "rowProperties": {
           "$ref": "#/definitions/BandingProperties",
-          "description": "Properties for row bands. These properties will be applied on a row-by-row\nbasis throughout all the rows in the range. At least one of\nrow_properties or column_properties must be specified."
+          "description": "Properties for row bands. These properties are applied on a row-by-row\nbasis throughout all the rows in the range. At least one of\nrow_properties or column_properties must be specified."
         }
       },
       "type": "object"
@@ -2399,6 +2232,10 @@
     "BasicChartSeries": {
       "description": "A single series of data in a chart.\nFor example, if charting stock prices over time, multiple series may exist,\none for the \"Open Price\", \"High Price\", \"Low Price\" and \"Close Price\".",
       "properties": {
+        "color": {
+          "$ref": "#/definitions/Color",
+          "description": "The color for elements (i.e. bars, lines, points) associated with this\nseries.  If empty, a default color is used."
+        },
         "lineStyle": {
           "$ref": "#/definitions/LineStyle",
           "description": "The line style of this series. Valid only if the\nchartType is AREA,\nLINE, or SCATTER.\nCOMBO charts are also supported if the\nseries chart type is\nAREA or LINE."
@@ -2507,7 +2344,7 @@
           "type": "array"
         },
         "stackedType": {
-          "description": "The stacked type for charts that support vertical stacking.\nApplies to Area, Bar, Column, and Stepped Area charts.",
+          "description": "The stacked type for charts that support vertical stacking.\nApplies to Area, Bar, Column, Combo, and Stepped Area charts.",
           "enum": [
             "BASIC_CHART_STACKED_TYPE_UNSPECIFIED",
             "NOT_STACKED",
@@ -2695,7 +2532,7 @@
           "type": "array"
         },
         "responseIncludeGridData": {
-          "description": "True if grid data should be returned. Meaningful only if\nif include_spreadsheet_response is 'true'.\nThis parameter is ignored if a field mask was set in the request.",
+          "description": "True if grid data should be returned. Meaningful only if\nif include_spreadsheet_in_response is 'true'.\nThis parameter is ignored if a field mask was set in the request.",
           "type": "boolean"
         },
         "responseRanges": {
@@ -2923,7 +2760,8 @@
             "ONE_OF_LIST",
             "BLANK",
             "NOT_BLANK",
-            "CUSTOM_FORMULA"
+            "CUSTOM_FORMULA",
+            "BOOLEAN"
           ],
           "type": "string"
         },
@@ -2942,7 +2780,7 @@
       "properties": {
         "condition": {
           "$ref": "#/definitions/BooleanCondition",
-          "description": "The condition of the rule. If the condition evaluates to true,\nthe format will be applied."
+          "description": "The condition of the rule. If the condition evaluates to true,\nthe format is applied."
         },
         "format": {
           "$ref": "#/definitions/CellFormat",
@@ -3042,7 +2880,7 @@
         },
         "groupIds": {
           "$ref": "#/definitions/ChartData",
-          "description": "The data containing the bubble group IDs. All bubbles with the same group\nID will be drawn in the same color. If bubble_sizes is specified then\nthis field must also be specified but may contain blank values.\nThis field is optional."
+          "description": "The data containing the bubble group IDs. All bubbles with the same group\nID are drawn in the same color. If bubble_sizes is specified then\nthis field must also be specified but may contain blank values.\nThis field is optional."
         },
         "legendPosition": {
           "description": "Where the legend of the chart should be drawn.",
@@ -3140,7 +2978,7 @@
         },
         "effectiveValue": {
           "$ref": "#/definitions/ExtendedValue",
-          "description": "The effective value of the cell. For cells with formulas, this will be\nthe calculated value.  For cells with literals, this will be\nthe same as the user_entered_value.\nThis field is read-only."
+          "description": "The effective value of the cell. For cells with formulas, this is\nthe calculated value.  For cells with literals, this is\nthe same as the user_entered_value.\nThis field is read-only."
         },
         "formattedValue": {
           "description": "The formatted value of the cell.\nThis is the value as it's shown to the user.\nThis field is read-only.",
@@ -3159,7 +2997,7 @@
           "description": "A pivot table anchored at this cell. The size of pivot table itself\nis computed dynamically based on its data, grouping, filters, values,\netc. Only the top-left cell of the pivot table contains the pivot table\ndefinition. The other cells will contain the calculated values of the\nresults of the pivot in their effective_value fields."
         },
         "textFormatRuns": {
-          "description": "Runs of rich text applied to subsections of the cell.  Runs are only valid\non user entered strings, not formulas, bools, or numbers.\nRuns start at specific indexes in the text and continue until the next\nrun. Properties of a run will continue unless explicitly changed\nin a subsequent run (and properties of the first run will continue\nthe properties of the cell unless explicitly changed).\n\nWhen writing, the new runs will overwrite any prior runs.  When writing a\nnew user_entered_value, previous runs will be erased.",
+          "description": "Runs of rich text applied to subsections of the cell.  Runs are only valid\non user entered strings, not formulas, bools, or numbers.\nRuns start at specific indexes in the text and continue until the next\nrun. Properties of a run will continue unless explicitly changed\nin a subsequent run (and properties of the first run will continue\nthe properties of the cell unless explicitly changed).\n\nWhen writing, the new runs will overwrite any prior runs.  When writing a\nnew user_entered_value, previous runs are erased.",
           "items": {
             "$ref": "#/definitions/TextFormatRun"
           },
@@ -3269,7 +3107,7 @@
       "description": "Source ranges for a chart.",
       "properties": {
         "sources": {
-          "description": "The ranges of data for a series or domain.\nExactly one dimension must have a length of 1,\nand all sources in the list must have the same dimension\nwith length 1.\nThe domain (if it exists) & all series must have the same number\nof source ranges. If using more than one source range, then the source\nrange at a given offset must be contiguous across the domain and series.\n\nFor example, these are valid configurations:\n\n    domain sources: A1:A5\n    series1 sources: B1:B5\n    series2 sources: D6:D10\n\n    domain sources: A1:A5, C10:C12\n    series1 sources: B1:B5, D10:D12\n    series2 sources: C1:C5, E10:E12",
+          "description": "The ranges of data for a series or domain.\nExactly one dimension must have a length of 1,\nand all sources in the list must have the same dimension\nwith length 1.\nThe domain (if it exists) & all series must have the same number\nof source ranges. If using more than one source range, then the source\nrange at a given offset must be in order and contiguous across the domain\nand series.\n\nFor example, these are valid configurations:\n\n    domain sources: A1:A5\n    series1 sources: B1:B5\n    series2 sources: D6:D10\n\n    domain sources: A1:A5, C10:C12\n    series1 sources: B1:B5, D10:D12\n    series2 sources: C1:C5, E10:E12",
           "items": {
             "$ref": "#/definitions/GridRange"
           },
@@ -3356,6 +3194,10 @@
           "$ref": "#/definitions/TextPosition",
           "description": "The title text position.\nThis field is optional."
         },
+        "treemapChart": {
+          "$ref": "#/definitions/TreemapChartSpec",
+          "description": "A treemap chart specification."
+        },
         "waterfallChart": {
           "$ref": "#/definitions/WaterfallChartSpec",
           "description": "A waterfall chart specification."
@@ -3436,7 +3278,7 @@
           "type": "string"
         },
         "userEnteredValue": {
-          "description": "A value the condition is based on.\nThe value will be parsed as if the user typed into a cell.\nFormulas are supported (and must begin with an `=`).",
+          "description": "A value the condition is based on.\nThe value is parsed as if the user typed into a cell.\nFormulas are supported (and must begin with an `=` or a '+').",
           "type": "string"
         }
       },
@@ -3454,7 +3296,7 @@
           "description": "The formatting will vary based on the gradients in the rule."
         },
         "ranges": {
-          "description": "The ranges that will be formatted if the condition is true.\nAll the ranges must be on the same grid.",
+          "description": "The ranges that are formatted if the condition is true.\nAll the ranges must be on the same grid.",
           "items": {
             "$ref": "#/definitions/GridRange"
           },
@@ -3622,6 +3464,34 @@
       },
       "type": "object"
     },
+    "DateTimeRule": {
+      "description": "Allows you to organize the date-time values in a source data column into\nbuckets based on selected parts of their date or time values. For example,\nconsider a pivot table showing sales transactions by date:\n\n    +----------+--------------+\n    | Date     | SUM of Sales |\n    +----------+--------------+\n    | 1/1/2017 |      $621.14 |\n    | 2/3/2017 |      $708.84 |\n    | 5/8/2017 |      $326.84 |\n    ...\n    +----------+--------------+\nApplying a date-time group rule with a DateTimeRuleType of YEAR_MONTH\nresults in the following pivot table.\n\n    +--------------+--------------+\n    | Grouped Date | SUM of Sales |\n    +--------------+--------------+\n    | 2017-Jan     |   $53,731.78 |\n    | 2017-Feb     |   $83,475.32 |\n    | 2017-Mar     |   $94,385.05 |\n    ...\n    +--------------+--------------+",
+      "properties": {
+        "type": {
+          "description": "The type of date-time grouping to apply.",
+          "enum": [
+            "DATE_TIME_RULE_TYPE_UNSPECIFIED",
+            "SECOND",
+            "MINUTE",
+            "HOUR",
+            "HOUR_MINUTE",
+            "HOUR_MINUTE_AMPM",
+            "DAY_OF_WEEK",
+            "DAY_OF_YEAR",
+            "DAY_OF_MONTH",
+            "DAY_MONTH",
+            "MONTH",
+            "QUARTER",
+            "YEAR",
+            "YEAR_MONTH",
+            "YEAR_QUARTER",
+            "YEAR_MONTH_DAY"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "DeleteBandingRequest": {
       "description": "Removes the banded range with the given ID from the spreadsheet.",
       "properties": {
@@ -3676,6 +3546,29 @@
           "description": "The metadata that was deleted.",
           "items": {
             "$ref": "#/definitions/DeveloperMetadata"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteDimensionGroupRequest": {
+      "description": "Deletes a group over the specified range by decrementing the depth of the\ndimensions in the range.\n\nFor example, assume the sheet has a depth-1 group over B:E and a depth-2\ngroup over C:D. Deleting a group over D:E leaves the sheet with a\ndepth-1 group over B:D and a depth-2 group over C:C.",
+      "properties": {
+        "range": {
+          "$ref": "#/definitions/DimensionRange",
+          "description": "The range of the group to be deleted."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteDimensionGroupResponse": {
+      "description": "The result of deleting a group.",
+      "properties": {
+        "dimensionGroups": {
+          "description": "All groups of a dimension after deleting a group from that dimension.",
+          "items": {
+            "$ref": "#/definitions/DimensionGroup"
           },
           "type": "array"
         }
@@ -3766,7 +3659,7 @@
       "type": "object"
     },
     "DeveloperMetadata": {
-      "description": "Developer metadata associated with a location or object in a spreadsheet.\nDeveloper metadata may be used to associate arbitrary data with various\nparts of a spreadsheet and will remain associated at those locations as they\nmove around and the spreadsheet is edited.  For example, if developer\nmetadata is associated with row 5 and another row is then subsequently\ninserted above row 5, that original metadata will still be associated with\nthe row it was first associated with (what is now row 6). If the associated\nobject is deleted its metadata will be deleted too.",
+      "description": "Developer metadata associated with a location or object in a spreadsheet.\nDeveloper metadata may be used to associate arbitrary data with various\nparts of a spreadsheet and will remain associated at those locations as they\nmove around and the spreadsheet is edited.  For example, if developer\nmetadata is associated with row 5 and another row is then subsequently\ninserted above row 5, that original metadata will still be associated with\nthe row it was first associated with (what is now row 6). If the associated\nobject is deleted its metadata is deleted too.",
       "properties": {
         "location": {
           "$ref": "#/definitions/DeveloperMetadataLocation",
@@ -3875,6 +3768,25 @@
             "PROJECT"
           ],
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DimensionGroup": {
+      "description": "A group over an interval of rows or columns on a sheet, which can contain or\nbe contained within other groups. A group can be collapsed or expanded as a\nunit on the sheet.",
+      "properties": {
+        "collapsed": {
+          "description": "This field is true if this group is collapsed. A collapsed group remains\ncollapsed if an overlapping group at a shallower depth is expanded.\n\nA true value does not imply that all dimensions within the group are\nhidden, since a dimension's visibility can change independently from this\ngroup property. However, when this property is updated, all dimensions\nwithin it are set to hidden if this field is true, or set to visible if\nthis field is false.",
+          "type": "boolean"
+        },
+        "depth": {
+          "description": "The depth of the group, representing how many groups have a range that\nwholly contains the range of this group.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "range": {
+          "$ref": "#/definitions/DimensionRange",
+          "description": "The range over which this group exists."
         }
       },
       "type": "object"
@@ -4038,7 +3950,7 @@
       "description": "The position of an embedded object such as a chart.",
       "properties": {
         "newSheet": {
-          "description": "If true, the embedded object will be put on a new sheet whose ID\nis chosen for you. Used only when writing.",
+          "description": "If true, the embedded object is put on a new sheet whose ID\nis chosen for you. Used only when writing.",
           "type": "boolean"
         },
         "overlayPosition": {
@@ -4335,6 +4247,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "columnGroupControlAfter": {
+          "description": "True if the column grouping control toggle is shown after the group.",
+          "type": "boolean"
+        },
         "frozenColumnCount": {
           "description": "The number of columns that are frozen in the grid.",
           "format": "int32",
@@ -4353,6 +4269,10 @@
           "description": "The number of rows in the grid.",
           "format": "int32",
           "type": "integer"
+        },
+        "rowGroupControlAfter": {
+          "description": "True if the row grouping control toggle is shown after the group.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -4429,20 +4349,20 @@
       "type": "object"
     },
     "HistogramRule": {
-      "description": "Allows you to organize the numeric values in a source data column into\nbuckets of a constant size. All values from HistogramRule.start to\nHistogramRule.end will be placed into groups of size\nHistogramRule.interval. In addition, all values below\nHistogramRule.start will be placed in one group, and all values above\nHistogramRule.end will be placed in another. Only\nHistogramRule.interval is required, though if HistogramRule.start\nand HistogramRule.end are both provided, HistogramRule.start must\nbe less than HistogramRule.end. For example, a pivot table showing\naverage purchase amount by age that has 50+ rows:\n\n    +-----+-------------------+\n    | Age | AVERAGE of Amount |\n    +-----+-------------------+\n    | 16  |            $27.13 |\n    | 17  |             $5.24 |\n    | 18  |            $20.15 |\n    ...\n    +-----+-------------------+\ncould be turned into a pivot table that looks like the one below by\napplying a histogram group rule with a HistogramRule.start of 25,\nan HistogramRule.interval of 20, and an HistogramRule.end\nof 65.\n\n    +-------------+-------------------+\n    | Grouped Age | AVERAGE of Amount |\n    +-------------+-------------------+\n    | < 25        |            $19.34 |\n    | 25-45       |            $31.43 |\n    | 45-65       |            $35.87 |\n    | > 65        |            $27.55 |\n    +-------------+-------------------+\n    | Grand Total |            $29.12 |\n    +-------------+-------------------+",
+      "description": "Allows you to organize the numeric values in a source data column into\nbuckets of a constant size. All values from HistogramRule.start to\nHistogramRule.end are placed into groups of size\nHistogramRule.interval. In addition, all values below\nHistogramRule.start are placed in one group, and all values above\nHistogramRule.end are placed in another. Only\nHistogramRule.interval is required, though if HistogramRule.start\nand HistogramRule.end are both provided, HistogramRule.start must\nbe less than HistogramRule.end. For example, a pivot table showing\naverage purchase amount by age that has 50+ rows:\n\n    +-----+-------------------+\n    | Age | AVERAGE of Amount |\n    +-----+-------------------+\n    | 16  |            $27.13 |\n    | 17  |             $5.24 |\n    | 18  |            $20.15 |\n    ...\n    +-----+-------------------+\ncould be turned into a pivot table that looks like the one below by\napplying a histogram group rule with a HistogramRule.start of 25,\nan HistogramRule.interval of 20, and an HistogramRule.end\nof 65.\n\n    +-------------+-------------------+\n    | Grouped Age | AVERAGE of Amount |\n    +-------------+-------------------+\n    | < 25        |            $19.34 |\n    | 25-45       |            $31.43 |\n    | 45-65       |            $35.87 |\n    | > 65        |            $27.55 |\n    +-------------+-------------------+\n    | Grand Total |            $29.12 |\n    +-------------+-------------------+",
       "properties": {
         "end": {
-          "description": "Optional. The maximum value at which items will be placed into buckets\nof constant size. Values above end will be lumped into a single bucket.",
+          "description": "The maximum value at which items are placed into buckets\nof constant size. Values above end are lumped into a single bucket.\nThis field is optional.",
           "format": "double",
           "type": "number"
         },
         "interval": {
-          "description": "Required. The size of the buckets that will be created. Must be positive.",
+          "description": "The size of the buckets that are created. Must be positive.",
           "format": "double",
           "type": "number"
         },
         "start": {
-          "description": "Optional. The minimum value at which items will be placed into buckets\nof constant size. Values below start will be lumped into a single bucket.",
+          "description": "The minimum value at which items are placed into buckets\nof constant size. Values below start are lumped into a single bucket.\nThis field is optional.",
           "format": "double",
           "type": "number"
         }
@@ -4565,7 +4485,7 @@
       "type": "object"
     },
     "ManualRule": {
-      "description": "Allows you to manually organize the values in a source data column into\nbuckets with names of your choosing. For example, a pivot table that\naggregates population by state:\n\n    +-------+-------------------+\n    | State | SUM of Population |\n    +-------+-------------------+\n    | AK    |               0.7 |\n    | AL    |               4.8 |\n    | AR    |               2.9 |\n    ...\n    +-------+-------------------+\ncould be turned into a pivot table that aggregates population by time zone\nby providing a list of groups (e.g. groupName = 'Central',\nitems = ['AL', 'AR', 'IA', ...]) to a manual group rule.\nNote that a similar effect could be achieved by adding a time zone column\nto the source data and adjusting the pivot table.\n\n    +-----------+-------------------+\n    | Time Zone | SUM of Population |\n    +-----------+-------------------+\n    | Central   |             106.3 |\n    | Eastern   |             151.9 |\n    | Mountain  |              17.4 |\n    ...\n    +-----------+-------------------+",
+      "description": "Allows you to manually organize the values in a source data column into\nbuckets with names of your choosing. For example, a pivot table that\naggregates population by state:\n\n    +-------+-------------------+\n    | State | SUM of Population |\n    +-------+-------------------+\n    | AK    |               0.7 |\n    | AL    |               4.8 |\n    | AR    |               2.9 |\n    ...\n    +-------+-------------------+\ncould be turned into a pivot table that aggregates population by time zone\nby providing a list of groups (for example, groupName = 'Central',\nitems = ['AL', 'AR', 'IA', ...]) to a manual group rule.\nNote that a similar effect could be achieved by adding a time zone column\nto the source data and adjusting the pivot table.\n\n    +-----------+-------------------+\n    | Time Zone | SUM of Population |\n    +-----------+-------------------+\n    | Central   |             106.3 |\n    | Eastern   |             151.9 |\n    | Mountain  |              17.4 |\n    ...\n    +-----------+-------------------+",
       "properties": {
         "groups": {
           "description": "The list of group names and the corresponding items from the source data\nthat map to each group name.",
@@ -4893,7 +4813,7 @@
           "type": "string"
         },
         "repeatHeadings": {
-          "description": "True if the headings in this pivot group should be repeated.\nThis is only valid for row groupings and will be ignored by columns.\n\nBy default, we minimize repitition of headings by not showing higher\nlevel headings where they are the same. For example, even though the\nthird row below corresponds to \"Q1 Mar\", \"Q1\" is not shown because\nit is redundant with previous rows. Setting repeat_headings to true\nwould cause \"Q1\" to be repeated for \"Feb\" and \"Mar\".\n\n    +--------------+\n    | Q1     | Jan |\n    |        | Feb |\n    |        | Mar |\n    +--------+-----+\n    | Q1 Total     |\n    +--------------+",
+          "description": "True if the headings in this pivot group should be repeated.\nThis is only valid for row groupings and is ignored by columns.\n\nBy default, we minimize repitition of headings by not showing higher\nlevel headings where they are the same. For example, even though the\nthird row below corresponds to \"Q1 Mar\", \"Q1\" is not shown because\nit is redundant with previous rows. Setting repeat_headings to true\nwould cause \"Q1\" to be repeated for \"Feb\" and \"Mar\".\n\n    +--------------+\n    | Q1     | Jan |\n    |        | Feb |\n    |        | Mar |\n    +--------+-----+\n    | Q1 Total     |\n    +--------------+",
           "type": "boolean"
         },
         "showTotals": {
@@ -4931,6 +4851,10 @@
     "PivotGroupRule": {
       "description": "An optional setting on a PivotGroup that defines buckets for the values\nin the source data column rather than breaking out each individual value.\nOnly one PivotGroup with a group rule may be added for each column in\nthe source data, though on any given column you may add both a\nPivotGroup that has a rule and a PivotGroup that does not.",
       "properties": {
+        "dateTimeRule": {
+          "$ref": "#/definitions/DateTimeRule",
+          "description": "A DateTimeRule."
+        },
         "histogramRule": {
           "$ref": "#/definitions/HistogramRule",
           "description": "A HistogramRule."
@@ -4988,7 +4912,7 @@
           "additionalProperties": {
             "$ref": "#/definitions/PivotFilterCriteria"
           },
-          "description": "An optional mapping of filters per source column offset.\n\nThe filters will be applied before aggregating data into the pivot table.\nThe map's key is the column offset of the source range that you want to\nfilter, and the value is the criteria for that column.\n\nFor example, if the source was `C10:E15`, a key of `0` will have the filter\nfor column `C`, whereas the key `1` is for column `D`.",
+          "description": "An optional mapping of filters per source column offset.\n\nThe filters are applied before aggregating data into the pivot table.\nThe map's key is the column offset of the source range that you want to\nfilter, and the value is the criteria for that column.\n\nFor example, if the source was `C10:E15`, a key of `0` will have the filter\nfor column `C`, whereas the key `1` is for column `D`.",
           "type": "object"
         },
         "rows": {
@@ -5024,7 +4948,7 @@
       "description": "The definition of how a value in a pivot table should be calculated.",
       "properties": {
         "calculatedDisplayType": {
-          "description": "If specified, indicates that pivot values should be displayed as\nthe result of a calculation with another pivot value. For example, if\ncalculated_display_type is specified as PERCENT_OF_GRAND_TOTAL, all the\npivot values will be displayed as the percentage of the grand total. In\nthe Sheets UI, this is referred to as \"Show As\" in the value section of a\npivot table.",
+          "description": "If specified, indicates that pivot values should be displayed as\nthe result of a calculation with another pivot value. For example, if\ncalculated_display_type is specified as PERCENT_OF_GRAND_TOTAL, all the\npivot values are displayed as the percentage of the grand total. In\nthe Sheets UI, this is referred to as \"Show As\" in the value section of a\npivot table.",
           "enum": [
             "PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED",
             "PERCENT_OF_ROW_TOTAL",
@@ -5156,6 +5080,10 @@
           "$ref": "#/definitions/AddConditionalFormatRuleRequest",
           "description": "Adds a new conditional format rule."
         },
+        "addDimensionGroup": {
+          "$ref": "#/definitions/AddDimensionGroupRequest",
+          "description": "Creates a group over the specified range."
+        },
         "addFilterView": {
           "$ref": "#/definitions/AddFilterViewRequest",
           "description": "Adds a filter view."
@@ -5219,6 +5147,10 @@
         "deleteDimension": {
           "$ref": "#/definitions/DeleteDimensionRequest",
           "description": "Deletes rows or columns in a sheet."
+        },
+        "deleteDimensionGroup": {
+          "$ref": "#/definitions/DeleteDimensionGroupRequest",
+          "description": "Deletes a group over the specified range."
         },
         "deleteEmbeddedObject": {
           "$ref": "#/definitions/DeleteEmbeddedObjectRequest",
@@ -5328,6 +5260,10 @@
           "$ref": "#/definitions/UpdateDeveloperMetadataRequest",
           "description": "Updates an existing developer metadata entry"
         },
+        "updateDimensionGroup": {
+          "$ref": "#/definitions/UpdateDimensionGroupRequest",
+          "description": "Updates the state of the specified group."
+        },
         "updateDimensionProperties": {
           "$ref": "#/definitions/UpdateDimensionPropertiesRequest",
           "description": "Updates dimensions' properties."
@@ -5370,6 +5306,10 @@
           "$ref": "#/definitions/AddChartResponse",
           "description": "A reply from adding a chart."
         },
+        "addDimensionGroup": {
+          "$ref": "#/definitions/AddDimensionGroupResponse",
+          "description": "A reply from adding a dimension group."
+        },
         "addFilterView": {
           "$ref": "#/definitions/AddFilterViewResponse",
           "description": "A reply from adding a filter view."
@@ -5397,6 +5337,10 @@
         "deleteDeveloperMetadata": {
           "$ref": "#/definitions/DeleteDeveloperMetadataResponse",
           "description": "A reply from deleting a developer metadata entry."
+        },
+        "deleteDimensionGroup": {
+          "$ref": "#/definitions/DeleteDimensionGroupResponse",
+          "description": "A reply from deleting a dimension group."
         },
         "duplicateFilterView": {
           "$ref": "#/definitions/DuplicateFilterViewResponse",
@@ -5492,7 +5436,7 @@
       "description": "A sheet in a spreadsheet.",
       "properties": {
         "bandedRanges": {
-          "description": "The banded (i.e. alternating colors) ranges on this sheet.",
+          "description": "The banded (alternating colors) ranges on this sheet.",
           "items": {
             "$ref": "#/definitions/BandedRange"
           },
@@ -5506,6 +5450,13 @@
           "description": "The specifications of every chart on this sheet.",
           "items": {
             "$ref": "#/definitions/EmbeddedChart"
+          },
+          "type": "array"
+        },
+        "columnGroups": {
+          "description": "All column groups on this sheet, ordered by increasing range start index,\nthen by group depth.",
+          "items": {
+            "$ref": "#/definitions/DimensionGroup"
           },
           "type": "array"
         },
@@ -5554,6 +5505,13 @@
             "$ref": "#/definitions/ProtectedRange"
           },
           "type": "array"
+        },
+        "rowGroups": {
+          "description": "All row groups on this sheet, ordered by increasing range start index, then\nby group depth.",
+          "items": {
+            "$ref": "#/definitions/DimensionGroup"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -5570,7 +5528,7 @@
           "type": "boolean"
         },
         "index": {
-          "description": "The index of the sheet within the spreadsheet.\nWhen adding or updating sheet properties, if this field\nis excluded then the sheet will be added or moved to the end\nof the sheet list. When updating sheet indices or inserting\nsheets, movement is considered in \"before the move\" indexes.\nFor example, if there were 3 sheets (S1, S2, S3) in order to\nmove S1 ahead of S2 the index would have to be set to 2. A sheet\nindex update request will be ignored if the requested index is\nidentical to the sheets current index or if the requested new\nindex is equal to the current sheet index + 1.",
+          "description": "The index of the sheet within the spreadsheet.\nWhen adding or updating sheet properties, if this field\nis excluded then the sheet is added or moved to the end\nof the sheet list. When updating sheet indices or inserting\nsheets, movement is considered in \"before the move\" indexes.\nFor example, if there were 3 sheets (S1, S2, S3) in order to\nmove S1 ahead of S2 the index would have to be set to 2. A sheet\nindex update request is ignored if the requested index is\nidentical to the sheets current index or if the requested new\nindex is equal to the current sheet index + 1.",
           "format": "int32",
           "type": "integer"
         },
@@ -5718,7 +5676,7 @@
         },
         "defaultFormat": {
           "$ref": "#/definitions/CellFormat",
-          "description": "The default format of all cells in the spreadsheet.\nCellData.effectiveFormat will not be set if the\ncell's format is equal to this default format.\nThis field is read-only."
+          "description": "The default format of all cells in the spreadsheet.\nCellData.effectiveFormat will not be set if\nthe cell's format is equal to this default format. This field is read-only."
         },
         "iterativeCalculationSettings": {
           "$ref": "#/definitions/IterativeCalculationSettings",
@@ -5843,6 +5801,86 @@
         "source": {
           "$ref": "#/definitions/GridRange",
           "description": "The source data range.  This must span exactly one column."
+        }
+      },
+      "type": "object"
+    },
+    "TreemapChartColorScale": {
+      "description": "A color scale for a treemap chart.",
+      "properties": {
+        "maxValueColor": {
+          "$ref": "#/definitions/Color",
+          "description": "The background color for cells with a color value greater than or equal\nto maxValue. Defaults to #109618 if not\nspecified."
+        },
+        "midValueColor": {
+          "$ref": "#/definitions/Color",
+          "description": "The background color for cells with a color value at the midpoint between\nminValue and\nmaxValue. Defaults to #efe6dc if not\nspecified."
+        },
+        "minValueColor": {
+          "$ref": "#/definitions/Color",
+          "description": "The background color for cells with a color value less than or equal to\nminValue. Defaults to #dc3912 if not\nspecified."
+        },
+        "noDataColor": {
+          "$ref": "#/definitions/Color",
+          "description": "The background color for cells that have no color data associated with\nthem. Defaults to #000000 if not specified."
+        }
+      },
+      "type": "object"
+    },
+    "TreemapChartSpec": {
+      "description": "A <a href=\"/chart/interactive/docs/gallery/treemap\">Treemap chart</a>.",
+      "properties": {
+        "colorData": {
+          "$ref": "#/definitions/ChartData",
+          "description": "The data that determines the background color of each treemap data cell.\nThis field is optional. If not specified, size_data is used to\ndetermine background colors. If specified, the data is expected to be\nnumeric. color_scale will determine how the values in this data map to\ndata cell background colors."
+        },
+        "colorScale": {
+          "$ref": "#/definitions/TreemapChartColorScale",
+          "description": "The color scale for data cells in the treemap chart. Data cells are\nassigned colors based on their color values. These color values come from\ncolor_data, or from size_data if color_data is not specified.\nCells with color values less than or equal to min_value will\nhave minValueColor as their\nbackground color. Cells with color values greater than or equal to\nmax_value will have\nmaxValueColor as their background\ncolor. Cells with color values between min_value and max_value will\nhave background colors on a gradient between\nminValueColor and\nmaxValueColor, the midpoint of\nthe gradient being midValueColor.\nCells with missing or non-numeric color values will have\nnoDataColor as their background\ncolor."
+        },
+        "headerColor": {
+          "$ref": "#/definitions/Color",
+          "description": "The background color for header cells."
+        },
+        "hideTooltips": {
+          "description": "True to hide tooltips.",
+          "type": "boolean"
+        },
+        "hintedLevels": {
+          "description": "The number of additional data levels beyond the labeled levels to be shown\non the treemap chart. These levels are not interactive and are shown\nwithout their labels. Defaults to 0 if not specified.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "labels": {
+          "$ref": "#/definitions/ChartData",
+          "description": "The data that contains the treemap cell labels."
+        },
+        "levels": {
+          "description": "The number of data levels to show on the treemap chart. These levels are\ninteractive and are shown with their labels. Defaults to 2 if not\nspecified.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxValue": {
+          "description": "The maximum possible data value. Cells with values greater than this will\nhave the same color as cells with this value. If not specified, defaults\nto the actual maximum value from color_data, or the maximum value from\nsize_data if color_data is not specified.",
+          "format": "double",
+          "type": "number"
+        },
+        "minValue": {
+          "description": "The minimum possible data value. Cells with values less than this will\nhave the same color as cells with this value. If not specified, defaults\nto the actual minimum value from color_data, or the minimum value from\nsize_data if color_data is not specified.",
+          "format": "double",
+          "type": "number"
+        },
+        "parentLabels": {
+          "$ref": "#/definitions/ChartData",
+          "description": "The data the contains the treemap cells' parent labels."
+        },
+        "sizeData": {
+          "$ref": "#/definitions/ChartData",
+          "description": "The data that determines the size of each treemap data cell. This data is\nexpected to be numeric. The cells corresponding to non-numeric or missing\ndata will not be rendered. If color_data is not specified, this data\nis used to determine data cell background colors as well."
+        },
+        "textFormat": {
+          "$ref": "#/definitions/TextFormat",
+          "description": "The text format for all labels on the chart."
         }
       },
       "type": "object"
@@ -6027,6 +6065,21 @@
             "$ref": "#/definitions/DeveloperMetadata"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDimensionGroupRequest": {
+      "description": "Updates the state of the specified group.",
+      "properties": {
+        "dimensionGroup": {
+          "$ref": "#/definitions/DimensionGroup",
+          "description": "The group whose state should be updated. The range and depth of the group\nshould specify a valid group on the sheet, and all other fields updated."
+        },
+        "fields": {
+          "description": "The fields that should be updated.  At least one field must be specified.\nThe root `dimensionGroup` is implied and should not be specified.\nA single `\"*\"` can be used as short-hand for listing every field.",
+          "format": "google-fieldmask",
+          "type": "string"
         }
       },
       "type": "object"
@@ -6274,7 +6327,7 @@
           "type": "string"
         },
         "subtotalIndex": {
-          "description": "The 0-based index of a data point within the series. If\ndata_is_subtotal is true, the data point at this index is the\nsubtotal. Otherwise, the subtotal appears after the data point with\nthis index. A series can have multiple subtotals at arbitrary indices,\nbut subtotals do not affect the indices of the data points. For\nexample, if a series has 3 data points, their indices will always be 0,\n1, and 2, regardless of how many subtotals exist on the series or what\ndata points they are associated with.",
+          "description": "The 0-based index of a data point within the series. If\ndata_is_subtotal is true, the data point at this index is the\nsubtotal. Otherwise, the subtotal appears after the data point with\nthis index. A series can have multiple subtotals at arbitrary indices,\nbut subtotals do not affect the indices of the data points. For\nexample, if a series has three data points, their indices will always\nbe 0, 1, and 2, regardless of how many subtotals exist on the series or\nwhat data points they are associated with.",
           "format": "int32",
           "type": "integer"
         }

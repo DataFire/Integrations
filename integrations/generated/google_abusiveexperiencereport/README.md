@@ -1,6 +1,6 @@
 # @datafire/google_abusiveexperiencereport
 
-Client library for Google Abusive Experience Report
+Client library for Abusive Experience Report
 
 ## Installation and Usage
 ```bash

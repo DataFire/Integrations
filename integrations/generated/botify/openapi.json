@@ -65,6 +65,7 @@
           },
           {
             "description": "Page Size",
+            "format": "int32",
             "in": "query",
             "name": "size",
             "required": false,
@@ -76,6 +77,13 @@
             "name": "only_success",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "Which fields to return (comma-separated)",
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -141,7 +149,15 @@
       "get": {
         "description": "Get an Analysis detail",
         "operationId": "getAnalysisSummary",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "Previous analysis identifier",
+            "in": "query",
+            "name": "previous_crawl",
+            "required": false,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful operation",
@@ -183,7 +199,39 @@
           "required": true,
           "type": "string"
         }
-      ]
+      ],
+      "put": {
+        "description": "Update an Analysis' attribute",
+        "operationId": "updateAnalysis",
+        "parameters": [
+          {
+            "description": "Analysis Update",
+            "in": "body",
+            "name": "AnalysisUpdate",
+            "schema": {
+              "$ref": "#/definitions/AnalysisUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/AnalysisUpdate"
+            }
+          },
+          "default": {
+            "description": "error payload",
+            "schema": {
+              "$ref": "#/definitions/DefaultPayload"
+            }
+          }
+        },
+        "summary": "Update an Analysis' attribute",
+        "tags": [
+          "Analysis"
+        ]
+      }
     },
     "/analyses/{username}/{project_slug}/{analysis_slug}/crawl_statistics": {
       "get": {
@@ -1150,6 +1198,187 @@
         }
       ]
     },
+    "/analyses/{username}/{project_slug}/{analysis_slug}/staticfiles/robots-txt-indexes": {
+      "get": {
+        "description": "Return a list of all robots.txt files found on the project's domains.",
+        "operationId": "getRobotsTxtIndexesView",
+        "parameters": [
+          {
+            "default": 1,
+            "description": "Page Number",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page Size",
+            "in": "query",
+            "name": "size",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string"
+                },
+                "page": {
+                  "type": "integer"
+                },
+                "previous": {
+                  "type": "string"
+                },
+                "results": {
+                  "items": {
+                    "$ref": "#/definitions/Default"
+                  },
+                  "type": "array"
+                },
+                "size": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "error payload",
+            "schema": {
+              "$ref": "#/definitions/DefaultPayload"
+            }
+          }
+        },
+        "summary": "Return a list of all robots",
+        "tags": [
+          "Analysis"
+        ]
+      },
+      "parameters": [
+        {
+          "description": "User's identifier",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Project's identifier",
+          "in": "path",
+          "name": "project_slug",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Analysis' identifier",
+          "in": "path",
+          "name": "analysis_slug",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/analyses/{username}/{project_slug}/{analysis_slug}/staticfiles/robots-txt-indexes/{robots_txt}": {
+      "get": {
+        "description": "Return content of a robots.txt file.",
+        "operationId": "getRobotsTxtFileView",
+        "parameters": [
+          {
+            "default": 1,
+            "description": "Page Number",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page Size",
+            "in": "query",
+            "name": "size",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string"
+                },
+                "page": {
+                  "type": "integer"
+                },
+                "previous": {
+                  "type": "string"
+                },
+                "results": {
+                  "items": {
+                    "$ref": "#/definitions/Default"
+                  },
+                  "type": "array"
+                },
+                "size": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "error payload",
+            "schema": {
+              "$ref": "#/definitions/DefaultPayload"
+            }
+          }
+        },
+        "summary": "Return content of a robots",
+        "tags": [
+          "Analysis"
+        ]
+      },
+      "parameters": [
+        {
+          "description": "User's identifier",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Project's identifier",
+          "in": "path",
+          "name": "project_slug",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Analysis' identifier",
+          "in": "path",
+          "name": "analysis_slug",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Filename",
+          "in": "path",
+          "name": "robots_txt",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
     "/analyses/{username}/{project_slug}/{analysis_slug}/urls": {
       "parameters": [
         {
@@ -1194,7 +1423,8 @@
               "disappeared",
               "new",
               "search_engines_orphans",
-              "gsc_keywords"
+              "gsc_keywords",
+              "gsc_keywords_by_country"
             ],
             "in": "query",
             "name": "area",
@@ -1216,6 +1446,13 @@
             "name": "size",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Previous analysis identifier",
+            "in": "query",
+            "name": "previous_crawl",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1305,10 +1542,18 @@
               "disappeared",
               "new",
               "search_engines_orphans",
-              "gsc_keywords"
+              "gsc_keywords",
+              "gsc_keywords_by_country"
             ],
             "in": "query",
             "name": "area",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Previous analysis identifier",
+            "in": "query",
+            "name": "previous_crawl",
             "required": false,
             "type": "string"
           }
@@ -1349,7 +1594,8 @@
               "disappeared",
               "new",
               "search_engines_orphans",
-              "gsc_keywords"
+              "gsc_keywords",
+              "gsc_keywords_by_country"
             ],
             "in": "query",
             "name": "area",
@@ -1413,7 +1659,8 @@
               "disappeared",
               "new",
               "search_engines_orphans",
-              "gsc_keywords"
+              "gsc_keywords",
+              "gsc_keywords_by_country"
             ],
             "in": "query",
             "name": "area",
@@ -1578,12 +1825,36 @@
               "disappeared",
               "new",
               "search_engines_orphans",
-              "gsc_keywords"
+              "gsc_keywords",
+              "gsc_keywords_by_country"
             ],
             "in": "query",
             "name": "area",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Previous analysis identifier",
+            "in": "query",
+            "name": "previous_crawl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Maximum size of the export (deprecated => size instead)",
+            "format": "int32",
+            "in": "query",
+            "name": "export_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Maximum size of the export",
+            "format": "int32",
+            "in": "query",
+            "name": "size",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -1935,51 +2206,12 @@
       "get": {
         "description": "List all the project's saved filters (each filter's name, ID and filter value)",
         "operationId": "getSavedFilters",
-        "parameters": [
-          {
-            "default": 1,
-            "description": "Page Number",
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "Page Size",
-            "in": "query",
-            "name": "size",
-            "required": false,
-            "type": "integer"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful operation",
             "schema": {
-              "properties": {
-                "count": {
-                  "type": "integer"
-                },
-                "next": {
-                  "type": "string"
-                },
-                "page": {
-                  "type": "integer"
-                },
-                "previous": {
-                  "type": "string"
-                },
-                "results": {
-                  "items": {
-                    "$ref": "#/definitions/ProjectSavedFilter"
-                  },
-                  "type": "array"
-                },
-                "size": {
-                  "type": "integer"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/ProjectSavedFilter"
             }
           },
           "default": {
@@ -2094,7 +2326,8 @@
               "current",
               "disappeared",
               "new",
-              "gsc_keywords"
+              "gsc_keywords",
+              "gsc_keywords_by_country"
             ],
             "in": "query",
             "name": "area",
@@ -2168,15 +2401,15 @@
           "readOnly": true,
           "type": "string"
         },
-        "nb_lines": {
-          "readOnly": true,
-          "type": "string"
-        },
         "query": {
           "readOnly": true,
           "type": "string"
         },
         "results": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "user": {
           "readOnly": true,
           "type": "string"
         }
@@ -2288,6 +2521,10 @@
     },
     "Analysis": {
       "properties": {
+        "comparable": {
+          "readOnly": true,
+          "type": "string"
+        },
         "computing_revision": {
           "readOnly": true,
           "type": "string"
@@ -2333,11 +2570,22 @@
           "readOnly": true,
           "type": "string"
         },
+        "import_keywords_data_by_country": {
+          "readOnly": true,
+          "type": "string"
+        },
         "name": {
           "readOnly": true,
           "type": "string"
         },
         "owner": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "pinned": {
+          "type": "boolean"
+        },
+        "pins_balance": {
           "readOnly": true,
           "type": "string"
         },
@@ -2350,6 +2598,10 @@
         },
         "status": {
           "readOnly": true,
+          "type": "string"
+        },
+        "to_be_deleted_at": {
+          "format": "date-time",
           "type": "string"
         },
         "url": {
@@ -2375,6 +2627,10 @@
     },
     "AnalysisDetail": {
       "properties": {
+        "comparable": {
+          "readOnly": true,
+          "type": "string"
+        },
         "computing_revision": {
           "readOnly": true,
           "type": "string"
@@ -2420,11 +2676,22 @@
           "readOnly": true,
           "type": "string"
         },
+        "import_keywords_data_by_country": {
+          "readOnly": true,
+          "type": "string"
+        },
         "name": {
           "readOnly": true,
           "type": "string"
         },
         "owner": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "pinned": {
+          "type": "boolean"
+        },
+        "pins_balance": {
           "readOnly": true,
           "type": "string"
         },
@@ -2437,6 +2704,10 @@
         },
         "status": {
           "readOnly": true,
+          "type": "string"
+        },
+        "to_be_deleted_at": {
+          "format": "date-time",
           "type": "string"
         },
         "url": {
@@ -2458,6 +2729,15 @@
       "required": [
         "user"
       ],
+      "type": "object"
+    },
+    "AnalysisUpdate": {
+      "description": "Analysis Update",
+      "properties": {
+        "pinned": {
+          "type": "boolean"
+        }
+      },
       "type": "object"
     },
     "AnalysisUpdateLaunch": {
@@ -2764,10 +3044,19 @@
         "results": {
           "readOnly": true,
           "type": "string"
+        },
+        "size": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "user": {
+          "readOnly": true,
+          "type": "string"
         }
       },
       "required": [
-        "query"
+        "query",
+        "size"
       ],
       "type": "object"
     },
@@ -2830,6 +3119,9 @@
         },
         "subtype": {
           "type": "string"
+        },
+        "suggestion": {
+          "type": "boolean"
         },
         "type": {
           "type": "string"
@@ -2934,6 +3226,9 @@
         },
         "subtype": {
           "type": "string"
+        },
+        "suggestion": {
+          "type": "boolean"
         },
         "type": {
           "type": "string"
@@ -3060,6 +3355,22 @@
         "value",
         "nb_urls"
       ],
+      "type": "object"
+    },
+    "HtmlExtract": {
+      "description": "Html Extract",
+      "properties": {
+        "config": {
+          "type": "object"
+        },
+        "extract_type": {
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "KeywordsStat": {
@@ -3302,6 +3613,9 @@
         "active": {
           "type": "boolean"
         },
+        "auto_pin_first_analysis": {
+          "type": "boolean"
+        },
         "current_settings": {
           "$ref": "#/definitions/ProjectSettings"
         },
@@ -3320,7 +3634,26 @@
         "name": {
           "type": "string"
         },
+        "pins_balance": {
+          "format": "int64",
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "retention_period": {
+          "format": "int64",
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "settings_url": {
+          "readOnly": true,
+          "type": "string"
+        },
         "slug": {
+          "type": "string"
+        },
+        "timezone": {
           "type": "string"
         },
         "url": {
@@ -3497,6 +3830,47 @@
       },
       "type": "object"
     },
+    "RegexConfig": {
+      "description": "Regex config",
+      "properties": {
+        "aggregation": {
+          "type": "string"
+        },
+        "cast": {
+          "type": "string"
+        },
+        "date_format": {
+          "type": "string"
+        },
+        "float_format": {
+          "type": "string"
+        },
+        "ignore_case": {
+          "type": "boolean"
+        },
+        "match": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "regex": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "aggregation",
+        "cast",
+        "match",
+        "regex",
+        "ignore_case"
+      ],
+      "type": "object"
+    },
     "RewritingRule": {
       "properties": {
         "ignore_case": {
@@ -3650,6 +4024,28 @@
       ],
       "type": "object"
     },
+    "TestRegexExtractRule": {
+      "description": "Test regex extract rule",
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "extract_type": {
+          "type": "string"
+        },
+        "rule": {
+          "$ref": "#/definitions/RegexConfig"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "extract_type",
+        "rule"
+      ],
+      "type": "object"
+    },
     "URLRewritingRules": {
       "properties": {
         "rules": {
@@ -3676,6 +4072,10 @@
       "type": "object"
     },
     "UrlHTML": {
+      "properties": {},
+      "type": "object"
+    },
+    "UrlKeywords": {
       "properties": {},
       "type": "object"
     },

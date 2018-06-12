@@ -5,7 +5,7 @@
     "https"
   ],
   "host": "api.nytimes.com",
-  "basePath": "/svc/news/v3/content",
+  "basePath": "/svc/news/v3",
   "info": {
     "description": "With the Times Newswire API, you can get links and metadata for Times articles and blog posts as soon as they are published on NYTimes.com. The Times Newswire API provides an up-to-the-minute stream of published items.",
     "termsOfService": "http://developer.nytimes.com/tou",
@@ -94,7 +94,7 @@
         "operationId": "content.json.get"
       }
     },
-    "/{source}/{section}.json": {
+    "/content/{source}/{section}.json": {
       "get": {
         "parameters": [
           {
@@ -160,10 +160,10 @@
             }
           }
         },
-        "operationId": "source.section.json.get"
+        "operationId": "content.source.section.json.get"
       }
     },
-    "/{source}/{section}/{time-period}.json": {
+    "/content/{source}/{section}/{time-period}.json": {
       "get": {
         "parameters": [
           {
@@ -234,7 +234,7 @@
             }
           }
         },
-        "operationId": "source.section.time_period.json.get"
+        "operationId": "content.source.section.time_period.json.get"
       }
     }
   },

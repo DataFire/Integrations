@@ -38,7 +38,7 @@ Authentication uses standard OAuth 2.0 process
 
 You can directly connect to our API using your **client ID** by sending it as a GET query parameter. This option is simple (no need for oAuth) but it should be used only in case the Client ID is not exposed publicly.
 
-GET  https://api.ritekit.com/v1/stats/basic/php?client_id=292c6912e7710c838347ae178b4a
+GET  https://api.ritekit.com/v1/stats/multiple-hashtags?tags=php&client_id=292c6912e7710c838347ae178b4a
 
 #### B) Using Access token (oAuth 2.0)
 
@@ -48,7 +48,7 @@ Authorization: Bearer xxxx
 
 Or
 
-GET  https://api.ritekit.com/v1/stats/basic/php?access_token=292c6912e7710c838347ae178b4a
+GET  https://api.ritekit.com/v1/stats/multiple-hashtags?tags=php&access_token=292c6912e7710c838347ae178b4a
 
 ## oAuth 2.0
 
@@ -204,7 +204,8 @@ ritekit.v1.images.quote.get({
   "gradientType": "",
   "gradientColor1": "",
   "gradientColor2": "",
-  "brandLogo": ""
+  "brandLogo": "",
+  "animation": ""
 }, context)
 ```
 
@@ -225,6 +226,8 @@ ritekit.v1.images.quote.get({
   * gradientColor1 **required** `string`: First color for gradient background type
   * gradientColor2 **required** `string`: Second color for gradient background type
   * brandLogo **required** `string`: URL of the brand logo
+  * animation **required** `string`: Animation type: none, rays, glint, circle
+  * showQuoteMark `integer`: showing/hiding quote mark
 
 #### Output
 *Output schema unknown*
@@ -295,12 +298,12 @@ ritekit.v1.search.trending.get({}, context)
 #### Output
 *Output schema unknown*
 
-### v1.stats.auto_hashtag_post_post.get
+### v1.stats.auto_hashtag.get
 Returns auto-hashtagged text of the post.
 
 
 ```js
-ritekit.v1.stats.auto_hashtag_post_post.get({
+ritekit.v1.stats.auto_hashtag.get({
   "post": ""
 }, context)
 ```
@@ -308,23 +311,25 @@ ritekit.v1.stats.auto_hashtag_post_post.get({
 #### Input
 * input `object`
   * post **required** `string`: Text of the post
+  * maxHashtags `integer`: Max number of hashtags.
+  * hashtagPosition `string`: Position of hashtags: end => at the end, auto => anywhere
 
 #### Output
 *Output schema unknown*
 
-### v1.stats.hashtag_suggestions.topic.get
-Returns list of hashtag suggestions and their real-time stats for a given topic
+### v1.stats.hashtag_suggestions.get
+Returns list of hashtag suggestions for a single-word topic or a shorter text up to 1000 characters. Takes into account both semantic relevancy and real-time hashtag popularity.
 
 
 ```js
-ritekit.v1.stats.hashtag_suggestions.topic.get({
-  "topic": ""
+ritekit.v1.stats.hashtag_suggestions.get({
+  "text": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * topic **required** `string`: Topic
+  * text **required** `string`: Topic
 
 #### Output
 *Output schema unknown*
@@ -363,6 +368,23 @@ ritekit.v1.stats.multiple_hashtags.get({
 #### Output
 *Output schema unknown*
 
+### v2.instagram.hashtags_cleaner.get
+Remove banned hashtags before posting to Instagram
+
+
+```js
+ritekit.v2.instagram.hashtags_cleaner.get({
+  "post": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * post **required** `string`: post
+
+#### Output
+*Output schema unknown*
+
 
 
 ## Definitions
@@ -377,6 +399,9 @@ ritekit.v1.stats.multiple_hashtags.get({
 
 
 ### Influencers
+
+
+### Instagram
 
 
 ### Link_shortening

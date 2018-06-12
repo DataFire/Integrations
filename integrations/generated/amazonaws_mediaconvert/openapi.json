@@ -1685,14 +1685,14 @@
       "type": "string"
     },
     "AacSettings": {
-      "description": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC.",
+      "description": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to \"VBR\" or \"CBR\".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.",
       "properties": {
         "AudioDescriptionBroadcasterMix": {
           "$ref": "#/definitions/AacAudioDescriptionBroadcasterMix"
         },
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
-          "description": "Average bitrate in bits/second. Valid values depend on rate control mode and profile."
+          "$ref": "#/definitions/__integerMin6000Max1024000",
+          "description": "Average bitrate in bits/second. Defaults and valid values depend on rate control mode and profile."
         },
         "CodecProfile": {
           "$ref": "#/definitions/AacCodecProfile"
@@ -1707,7 +1707,7 @@
           "$ref": "#/definitions/AacRawFormat"
         },
         "SampleRate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin8000Max96000",
           "description": "Sample rate in Hz. Valid values depend on rate control mode and profile."
         },
         "Specification": {
@@ -1717,6 +1717,10 @@
           "$ref": "#/definitions/AacVbrQuality"
         }
       },
+      "required": [
+        "CodingMode",
+        "SampleRate"
+      ],
       "type": "object"
     },
     "AacSpecification": {
@@ -1789,7 +1793,7 @@
       "description": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.",
       "properties": {
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin64000Max640000",
           "description": "Average bitrate in bits/second. Valid bitrates depend on the coding mode."
         },
         "BitstreamMode": {
@@ -1799,7 +1803,7 @@
           "$ref": "#/definitions/Ac3CodingMode"
         },
         "Dialnorm": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max31",
           "description": "Sets the dialnorm for the output. If blank and input audio is Dolby Digital, dialnorm will be passed through."
         },
         "DynamicRangeCompressionProfile": {
@@ -1812,14 +1816,14 @@
           "$ref": "#/definitions/Ac3MetadataControl"
         },
         "SampleRate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin48000Max48000",
           "description": "Sample rate in hz. Sample rate is always 48000."
         }
       },
       "type": "object"
     },
     "AfdSignaling": {
-      "description": "This setting only applies to H.264 and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to whether there are AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.",
+      "description": "This setting only applies to H.264 and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.",
       "enum": [
         "NONE",
         "AUTO",
@@ -1831,15 +1835,15 @@
       "description": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.",
       "properties": {
         "BitDepth": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin16Max24",
           "description": "Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track."
         },
         "Channels": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2",
           "description": "Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2."
         },
         "SampleRate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin8000Max192000",
           "description": "Sample rate in hz."
         }
       },
@@ -1849,7 +1853,7 @@
       "description": "Settings for ancillary captions source.",
       "properties": {
         "SourceAncillaryChannelNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max4",
           "description": "Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough."
         }
       },
@@ -1901,10 +1905,13 @@
           "$ref": "#/definitions/WavSettings"
         }
       },
+      "required": [
+        "Codec"
+      ],
       "type": "object"
     },
     "AudioDefaultSelection": {
-      "description": "When an \"Audio Description\":#audio_description specifies an AudioSelector or AudioSelectorGroup  for which no matching source is found in the input, then the audio selector marked as DEFAULT will be used.  If none are marked as default, silence will be inserted for the duration of the input.",
+      "description": "Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.",
       "enum": [
         "DEFAULT",
         "NOT_DEFAULT"
@@ -1922,7 +1929,7 @@
           "description": "Specifies which audio data to use from each input. In the simplest case, specify an \"Audio Selector\":#inputs-audio_selector by name based on its order within each input. For example if you specify \"Audio Selector 3\", then the third audio selector will be used from each input. If an input does not have an \"Audio Selector 3\", then the audio selector marked as \"default\" in that input will be used. If there is no audio selector marked as \"default\", silence will be inserted for the duration of that input. Alternatively, an \"Audio Selector Group\":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then \"Audio Selector 1\" will be chosen automatically."
         },
         "AudioType": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Applies only if Follow Input Audio Type is unchecked (false). A number between 0 and 255. The following are defined in ISO-IEC 13818-1: 0 = Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually Impaired Commentary, 4-255 = Reserved."
         },
         "AudioTypeControl": {
@@ -1943,10 +1950,13 @@
           "description": "Advanced audio remixing settings."
         },
         "StreamName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternWS",
           "description": "Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary). Alphanumeric characters, spaces, and underscore are legal."
         }
       },
+      "required": [
+        "CodecSettings"
+      ],
       "type": "object"
     },
     "AudioLanguageCodeControl": {
@@ -1999,7 +2009,7 @@
           "$ref": "#/definitions/AudioNormalizationAlgorithmControl"
         },
         "CorrectionGateLevel": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative70Max0",
           "description": "Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected. Gating only applies when not using real_time_correction."
         },
         "LoudnessLogging": {
@@ -2009,7 +2019,7 @@
           "$ref": "#/definitions/AudioNormalizationPeakCalculation"
         },
         "TargetLkfs": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMinNegative59Max0",
           "description": "Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm. The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS."
         }
       },
@@ -2022,7 +2032,7 @@
           "$ref": "#/definitions/AudioDefaultSelection"
         },
         "ExternalAudioFileInput": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEE",
           "description": "Specifies audio data from an external file source."
         },
         "LanguageCode": {
@@ -2030,27 +2040,27 @@
           "description": "Selects a specific language code from within an audio source."
         },
         "Offset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Specifies a time delta in milliseconds to offset the audio from the input video."
         },
         "Pids": {
-          "$ref": "#/definitions/ListOf__integer",
+          "$ref": "#/definitions/__listOf__integerMin1Max2147483647",
           "description": "Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101)."
         },
         "ProgramSelection": {
-          "$ref": "#/definitions/__integer",
-          "description": "Applies only when input streams contain Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. \"All channels\" means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect."
+          "$ref": "#/definitions/__integerMin0Max8",
+          "description": "Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track."
         },
         "RemixSettings": {
           "$ref": "#/definitions/RemixSettings",
-          "description": "Advanced audio remixing settings."
+          "description": "Use these settings to reorder the audio channels of one input to match those of another input. This allows you to combine the two files into a single output, one after the other."
         },
         "SelectorType": {
           "$ref": "#/definitions/AudioSelectorType"
         },
         "Tracks": {
-          "$ref": "#/definitions/ListOf__integer",
-          "description": "Identify the channel to include in this selector by entering the 1-based track index.  To combine several tracks, enter a comma-separated list, e.g. \"1,2,3\" for tracks 1-3."
+          "$ref": "#/definitions/__listOf__integerMin1Max2147483647",
+          "description": "Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type \"1,2,3\" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, \"tracks\": [1,2,3]."
         }
       },
       "type": "object"
@@ -2059,10 +2069,13 @@
       "description": "Group of Audio Selectors",
       "properties": {
         "AudioSelectorNames": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Name of an \"Audio Selector\":#inputs-audio_selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g. \"Audio Selector 1\").  The audio_selector_name parameter can be repeated to add any number of audio selectors to the group."
+          "$ref": "#/definitions/__listOf__stringMin1",
+          "description": "Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., \"Audio Selector 1\").  The audio selector name parameter can be repeated to add any number of audio selectors to the group."
         }
       },
+      "required": [
+        "AudioSelectorNames"
+      ],
       "type": "object"
     },
     "AudioSelectorType": {
@@ -2086,7 +2099,7 @@
       "description": "Settings for Avail Blanking",
       "properties": {
         "AvailBlankingImage": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin14PatternS3BmpBMPPngPNG",
           "description": "Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported."
         }
       },
@@ -2111,58 +2124,64 @@
           "$ref": "#/definitions/BurninSubtitleBackgroundColor"
         },
         "BackgroundOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match."
         },
         "FontColor": {
           "$ref": "#/definitions/BurninSubtitleFontColor"
         },
         "FontOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.\nAll burn-in and DVB-Sub font settings must match."
         },
         "FontResolution": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin96Max600",
           "description": "Font resolution in DPI (dots per inch); default is 96 dpi.\nAll burn-in and DVB-Sub font settings must match."
         },
         "FontSize": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max96",
           "description": "A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match."
         },
         "OutlineColor": {
           "$ref": "#/definitions/BurninSubtitleOutlineColor"
         },
         "OutlineSize": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max10",
           "description": "Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         },
         "ShadowColor": {
           "$ref": "#/definitions/BurninSubtitleShadowColor"
         },
         "ShadowOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match."
         },
         "ShadowXOffset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match."
         },
         "ShadowYOffset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match."
         },
         "TeletextSpacing": {
           "$ref": "#/definitions/BurninSubtitleTeletextSpacing"
         },
         "XPosition": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         },
         "YPosition": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         }
       },
+      "required": [
+        "OutlineColor",
+        "Alignment",
+        "OutlineSize",
+        "FontOpacity"
+      ],
       "type": "object"
     },
     "BurninSubtitleAlignment": {
@@ -2216,7 +2235,7 @@
       "type": "string"
     },
     "BurninSubtitleTeletextSpacing": {
-      "description": "Controls whether a fixed grid size or proportional font spacing will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.",
+      "description": "Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.",
       "enum": [
         "FIXED_GRID",
         "PROPORTIONAL"
@@ -2235,7 +2254,7 @@
       "description": "Description of Caption output",
       "properties": {
         "CaptionSelectorName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1",
           "description": "Specifies which \"Caption Selector\":#inputs-caption_selector to use from each input when generating captions. The name should be of the format \"Caption Selector <N>\", which denotes that the Nth Caption Selector will be used from each input."
         },
         "DestinationSettings": {
@@ -2250,6 +2269,10 @@
           "description": "Human readable information to indicate captions available for players (eg. English, or Spanish). Alphanumeric characters, spaces, and underscore are legal."
         }
       },
+      "required": [
+        "DestinationSettings",
+        "CaptionSelectorName"
+      ],
       "type": "object"
     },
     "CaptionDescriptionPreset": {
@@ -2267,6 +2290,9 @@
           "description": "Human readable information to indicate captions available for players (eg. English, or Spanish). Alphanumeric characters, spaces, and underscore are legal."
         }
       },
+      "required": [
+        "DestinationSettings"
+      ],
       "type": "object"
     },
     "CaptionDestinationSettings": {
@@ -2291,6 +2317,9 @@
           "$ref": "#/definitions/TtmlDestinationSettings"
         }
       },
+      "required": [
+        "DestinationType"
+      ],
       "type": "object"
     },
     "CaptionDestinationType": {
@@ -2308,7 +2337,7 @@
       "type": "string"
     },
     "CaptionSelector": {
-      "description": "Caption inputs to be mapped to caption outputs.",
+      "description": "Set up captions in your outputs by first selecting them from your input here.",
       "properties": {
         "LanguageCode": {
           "$ref": "#/definitions/LanguageCode",
@@ -2318,6 +2347,9 @@
           "$ref": "#/definitions/CaptionSourceSettings"
         }
       },
+      "required": [
+        "SourceSettings"
+      ],
       "type": "object"
     },
     "CaptionSourceSettings": {
@@ -2342,6 +2374,9 @@
           "$ref": "#/definitions/TeletextSourceSettings"
         }
       },
+      "required": [
+        "SourceType"
+      ],
       "type": "object"
     },
     "CaptionSourceType": {
@@ -2363,35 +2398,208 @@
       "description": "Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).",
       "properties": {
         "OutputChannels": {
-          "$ref": "#/definitions/ListOfOutputChannelMapping",
+          "$ref": "#/definitions/__listOfOutputChannelMapping",
           "description": "List of output channels"
         }
       },
+      "required": [
+        "OutputChannels"
+      ],
       "type": "object"
+    },
+    "CmafClientCache": {
+      "description": "When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.",
+      "enum": [
+        "DISABLED",
+        "ENABLED"
+      ],
+      "type": "string"
+    },
+    "CmafCodecSpecification": {
+      "description": "Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.",
+      "enum": [
+        "RFC_6381",
+        "RFC_4281"
+      ],
+      "type": "string"
+    },
+    "CmafEncryptionSettings": {
+      "description": "Settings for CMAF encryption",
+      "properties": {
+        "ConstantInitializationVector": {
+          "$ref": "#/definitions/__stringMin32Max32Pattern09aFAF32",
+          "description": "This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default."
+        },
+        "EncryptionMethod": {
+          "$ref": "#/definitions/CmafEncryptionType"
+        },
+        "InitializationVectorInManifest": {
+          "$ref": "#/definitions/CmafInitializationVectorInManifest"
+        },
+        "StaticKeyProvider": {
+          "$ref": "#/definitions/StaticKeyProvider"
+        },
+        "Type": {
+          "$ref": "#/definitions/CmafKeyProviderType"
+        }
+      },
+      "required": [
+        "Type",
+        "StaticKeyProvider"
+      ],
+      "type": "object"
+    },
+    "CmafEncryptionType": {
+      "description": "Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.",
+      "enum": [
+        "SAMPLE_AES"
+      ],
+      "type": "string"
+    },
+    "CmafGroupSettings": {
+      "description": "Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to CMAF_GROUP_SETTINGS.",
+      "properties": {
+        "BaseUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A partial URI prefix that will be put in the manifest file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file."
+        },
+        "ClientCache": {
+          "$ref": "#/definitions/CmafClientCache"
+        },
+        "CodecSpecification": {
+          "$ref": "#/definitions/CmafCodecSpecification"
+        },
+        "Destination": {
+          "$ref": "#/definitions/__stringPatternS3",
+          "description": "Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/CmafEncryptionSettings",
+          "description": "DRM settings."
+        },
+        "FragmentLength": {
+          "$ref": "#/definitions/__integerMin1Max2147483647",
+          "description": "Length of fragments to generate (in seconds). Fragment length must be compatible with GOP size and Framerate. Note that fragments will end on the next keyframe after this number of seconds, so actual fragment length may be longer. When Emit Single File is checked, the fragmentation is internal to a single output file and it does not cause the creation of many output files as in other output types."
+        },
+        "ManifestCompression": {
+          "$ref": "#/definitions/CmafManifestCompression"
+        },
+        "ManifestDurationFormat": {
+          "$ref": "#/definitions/CmafManifestDurationFormat"
+        },
+        "MinBufferTime": {
+          "$ref": "#/definitions/__integerMin0Max2147483647",
+          "description": "Minimum time of initially buffered media that is needed to ensure smooth playout."
+        },
+        "SegmentControl": {
+          "$ref": "#/definitions/CmafSegmentControl"
+        },
+        "SegmentLength": {
+          "$ref": "#/definitions/__integerMin1Max2147483647",
+          "description": "Use this setting to specify the length, in seconds, of each individual CMAF segment. This value applies to the whole package; that is, to every output in the output group. Note that segments end on the first keyframe after this number of seconds, so the actual segment length might be slightly longer. If you set Segment control (CmafSegmentControl) to single file, the service puts the content of each output in a single file that has metadata that marks these segments. If you set it to segmented files, the service creates multiple files for each output, each with the content of one segment."
+        },
+        "StreamInfResolution": {
+          "$ref": "#/definitions/CmafStreamInfResolution"
+        },
+        "WriteDashManifest": {
+          "$ref": "#/definitions/CmafWriteDASHManifest"
+        },
+        "WriteHlsManifest": {
+          "$ref": "#/definitions/CmafWriteHLSManifest"
+        }
+      },
+      "required": [
+        "FragmentLength",
+        "SegmentLength"
+      ],
+      "type": "object"
+    },
+    "CmafInitializationVectorInManifest": {
+      "description": "The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.",
+      "enum": [
+        "INCLUDE",
+        "EXCLUDE"
+      ],
+      "type": "string"
+    },
+    "CmafKeyProviderType": {
+      "description": "Indicates which type of key provider is used for encryption.",
+      "enum": [
+        "STATIC_KEY"
+      ],
+      "type": "string"
+    },
+    "CmafManifestCompression": {
+      "description": "When set to GZIP, compresses HLS playlist.",
+      "enum": [
+        "GZIP",
+        "NONE"
+      ],
+      "type": "string"
+    },
+    "CmafManifestDurationFormat": {
+      "description": "Indicates whether the output manifest should use floating point values for segment duration.",
+      "enum": [
+        "FLOATING_POINT",
+        "INTEGER"
+      ],
+      "type": "string"
+    },
+    "CmafSegmentControl": {
+      "description": "When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.",
+      "enum": [
+        "SINGLE_FILE",
+        "SEGMENTED_FILES"
+      ],
+      "type": "string"
+    },
+    "CmafStreamInfResolution": {
+      "description": "Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.",
+      "enum": [
+        "INCLUDE",
+        "EXCLUDE"
+      ],
+      "type": "string"
+    },
+    "CmafWriteDASHManifest": {
+      "description": "When set to ENABLED, a DASH MPD manifest will be generated for this output.",
+      "enum": [
+        "DISABLED",
+        "ENABLED"
+      ],
+      "type": "string"
+    },
+    "CmafWriteHLSManifest": {
+      "description": "When set to ENABLED, an Apple HLS manifest will be generated for this output.",
+      "enum": [
+        "DISABLED",
+        "ENABLED"
+      ],
+      "type": "string"
     },
     "ColorCorrector": {
       "description": "Settings for color correction.",
       "properties": {
         "Brightness": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max100",
           "description": "Brightness level."
         },
         "ColorSpaceConversion": {
           "$ref": "#/definitions/ColorSpaceConversion"
         },
         "Contrast": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max100",
           "description": "Contrast level."
         },
         "Hdr10Metadata": {
           "$ref": "#/definitions/Hdr10Metadata"
         },
         "Hue": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative180Max180",
           "description": "Hue in degrees."
         },
         "Saturation": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max100",
           "description": "Saturation level."
         }
       },
@@ -2406,7 +2614,7 @@
       "type": "string"
     },
     "ColorSpace": {
-      "description": "Specifies the colorspace of an input. This setting works in tandem with \"Color Corrector\":#color_corrector > color_space_conversion to determine if any conversion will be performed.",
+      "description": "If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value FOLLOW. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or if your input video is missing color space metadata that should be there, specify the accurate color space here. If you choose HDR10, you can also correct inaccurate color space coefficients, using the HDR master display information controls. You must also set Color space usage (ColorSpaceUsage) to FORCE for the service to use these values.",
       "enum": [
         "FOLLOW",
         "REC_601",
@@ -2428,7 +2636,7 @@
       "type": "string"
     },
     "ColorSpaceUsage": {
-      "description": "There are two sources for color metadata, the input file and the job configuration. This enum controls which takes precedence. FORCE: System will use color metadata supplied by user, if any. If the user does not supply color metadata the system will use data from the source. FALLBACK: System will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.",
+      "description": "There are two sources for color metadata, the input file and the job configuration (in the Color space and HDR master display informaiton settings). The Color space usage setting controls which takes precedence. FORCE: The system will use color metadata supplied by user, if any. If the user does not supply color metadata, the system will use data from the source. FALLBACK: The system will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.",
       "enum": [
         "FORCE",
         "FALLBACK"
@@ -2466,6 +2674,9 @@
           "$ref": "#/definitions/Mp4Settings"
         }
       },
+      "required": [
+        "Container"
+      ],
       "type": "object"
     },
     "ContainerType": {
@@ -2475,6 +2686,7 @@
         "ISMV",
         "M2TS",
         "M3U8",
+        "CMFC",
         "MOV",
         "MP4",
         "MPD",
@@ -2505,10 +2717,14 @@
           "$ref": "#/definitions/JobSettings"
         },
         "UserMetadata": {
-          "$ref": "#/definitions/MapOf__string",
+          "$ref": "#/definitions/__mapOf__string",
           "description": "User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs."
         }
       },
+      "required": [
+        "Role",
+        "Settings"
+      ],
       "type": "object"
     },
     "CreateJobResponse": {
@@ -2541,6 +2757,10 @@
           "$ref": "#/definitions/JobTemplateSettings"
         }
       },
+      "required": [
+        "Settings",
+        "Name"
+      ],
       "type": "object"
     },
     "CreateJobTemplateResponse": {
@@ -2569,6 +2789,10 @@
           "$ref": "#/definitions/PresetSettings"
         }
       },
+      "required": [
+        "Settings",
+        "Name"
+      ],
       "type": "object"
     },
     "CreatePresetResponse": {
@@ -2590,6 +2814,9 @@
           "description": "The name of the queue you are creating."
         }
       },
+      "required": [
+        "Name"
+      ],
       "type": "object"
     },
     "CreateQueueResponse": {
@@ -2607,6 +2834,9 @@
           "$ref": "#/definitions/SpekeKeyProvider"
         }
       },
+      "required": [
+        "SpekeKeyProvider"
+      ],
       "type": "object"
     },
     "DashIsoGroupSettings": {
@@ -2617,7 +2847,7 @@
           "description": "A partial URI prefix that will be put in the manifest (.mpd) file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file."
         },
         "Destination": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternS3",
           "description": "Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file."
         },
         "Encryption": {
@@ -2625,24 +2855,28 @@
           "description": "DRM settings."
         },
         "FragmentLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Length of fragments to generate (in seconds). Fragment length must be compatible with GOP size and Framerate. Note that fragments will end on the next keyframe after this number of seconds, so actual fragment length may be longer. When Emit Single File is checked, the fragmentation is internal to a single output file and it does not cause the creation of many output files as in other output types."
         },
         "HbbtvCompliance": {
           "$ref": "#/definitions/DashIsoHbbtvCompliance"
         },
         "MinBufferTime": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Minimum time of initially buffered media that is needed to ensure smooth playout."
         },
         "SegmentControl": {
           "$ref": "#/definitions/DashIsoSegmentControl"
         },
         "SegmentLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Length of mpd segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer. When Emit Single File is checked, the segmentation is internal to a single output file and it does not cause the creation of many output files as in other output types."
         }
       },
+      "required": [
+        "SegmentLength",
+        "FragmentLength"
+      ],
       "type": "object"
     },
     "DashIsoHbbtvCompliance": {
@@ -2744,7 +2978,7 @@
     "DescribeEndpointsResponse": {
       "properties": {
         "Endpoints": {
-          "$ref": "#/definitions/ListOfEndpoint",
+          "$ref": "#/definitions/__listOfEndpoint",
           "description": "List of endpoints"
         },
         "NextToken": {
@@ -2766,18 +3000,23 @@
       "description": "Inserts DVB Network Information Table (NIT) at the specified table repetition interval.",
       "properties": {
         "NetworkId": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The numeric value placed in the Network Information Table (NIT)."
         },
         "NetworkName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1Max256",
           "description": "The network name text placed in the network_name_descriptor inside the Network Information Table. Maximum length is 256 characters."
         },
         "NitInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin25Max10000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         }
       },
+      "required": [
+        "NetworkName",
+        "NitInterval",
+        "NetworkId"
+      ],
       "type": "object"
     },
     "DvbSdtSettings": {
@@ -2787,15 +3026,15 @@
           "$ref": "#/definitions/OutputSdt"
         },
         "SdtInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin25Max2000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         },
         "ServiceName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1Max256",
           "description": "The service name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters."
         },
         "ServiceProviderName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1Max256",
           "description": "The service provider name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters."
         }
       },
@@ -2811,65 +3050,71 @@
           "$ref": "#/definitions/DvbSubtitleBackgroundColor"
         },
         "BackgroundOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match."
         },
         "FontColor": {
           "$ref": "#/definitions/DvbSubtitleFontColor"
         },
         "FontOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.\nAll burn-in and DVB-Sub font settings must match."
         },
         "FontResolution": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin96Max600",
           "description": "Font resolution in DPI (dots per inch); default is 96 dpi.\nAll burn-in and DVB-Sub font settings must match."
         },
         "FontSize": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max96",
           "description": "A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match."
         },
         "OutlineColor": {
           "$ref": "#/definitions/DvbSubtitleOutlineColor"
         },
         "OutlineSize": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max10",
           "description": "Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         },
         "ShadowColor": {
           "$ref": "#/definitions/DvbSubtitleShadowColor"
         },
         "ShadowOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match."
         },
         "ShadowXOffset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match."
         },
         "ShadowYOffset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match."
         },
         "TeletextSpacing": {
           "$ref": "#/definitions/DvbSubtitleTeletextSpacing"
         },
         "XPosition": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         },
         "YPosition": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         }
       },
+      "required": [
+        "OutlineColor",
+        "Alignment",
+        "OutlineSize",
+        "FontOpacity"
+      ],
       "type": "object"
     },
     "DvbSubSourceSettings": {
       "description": "DVB Sub Source Settings",
       "properties": {
         "Pid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors."
         }
       },
@@ -2926,7 +3171,7 @@
       "type": "string"
     },
     "DvbSubtitleTeletextSpacing": {
-      "description": "Controls whether a fixed grid size or proportional font spacing will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.",
+      "description": "Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.",
       "enum": [
         "FIXED_GRID",
         "PROPORTIONAL"
@@ -2937,10 +3182,13 @@
       "description": "Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.",
       "properties": {
         "TdtInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1000Max30000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         }
       },
+      "required": [
+        "TdtInterval"
+      ],
       "type": "object"
     },
     "Eac3AttenuationControl": {
@@ -3050,7 +3298,7 @@
           "$ref": "#/definitions/Eac3AttenuationControl"
         },
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin64000Max640000",
           "description": "Average bitrate in bits/second. Valid bitrates depend on the coding mode."
         },
         "BitstreamMode": {
@@ -3063,7 +3311,7 @@
           "$ref": "#/definitions/Eac3DcFilter"
         },
         "Dialnorm": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max31",
           "description": "Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through."
         },
         "DynamicRangeCompressionLine": {
@@ -3079,19 +3327,19 @@
           "$ref": "#/definitions/Eac3LfeFilter"
         },
         "LoRoCenterMixLevel": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMinNegative60Max3",
           "description": "Left only/Right only center mix level. Only used for 3/2 coding mode.\nValid values: 3.0, 1.5, 0.0, -1.5 -3.0 -4.5 -6.0 -60"
         },
         "LoRoSurroundMixLevel": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMinNegative60MaxNegative1",
           "description": "Left only/Right only surround mix level. Only used for 3/2 coding mode.\nValid values: -1.5 -3.0 -4.5 -6.0 -60"
         },
         "LtRtCenterMixLevel": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMinNegative60Max3",
           "description": "Left total/Right total center mix level. Only used for 3/2 coding mode.\nValid values: 3.0, 1.5, 0.0, -1.5 -3.0 -4.5 -6.0 -60"
         },
         "LtRtSurroundMixLevel": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMinNegative60MaxNegative1",
           "description": "Left total/Right total surround mix level. Only used for 3/2 coding mode.\nValid values: -1.5 -3.0 -4.5 -6.0 -60"
         },
         "MetadataControl": {
@@ -3104,7 +3352,7 @@
           "$ref": "#/definitions/Eac3PhaseControl"
         },
         "SampleRate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin48000Max48000",
           "description": "Sample rate in hz. Sample rate is always 48000."
         },
         "StereoDownmix": {
@@ -3162,11 +3410,11 @@
           "$ref": "#/definitions/EmbeddedConvert608To708"
         },
         "Source608ChannelNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max4",
           "description": "Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough."
         },
         "Source608TrackNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max1",
           "description": "Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'."
         }
       },
@@ -3211,7 +3459,7 @@
       "description": "Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.",
       "properties": {
         "Destination": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternS3",
           "description": "Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file."
         }
       },
@@ -3232,14 +3480,17 @@
           "$ref": "#/definitions/FileSourceConvert608To708"
         },
         "SourceFile": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin14PatternS3SccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTSmiSMI",
           "description": "External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', and 'smi'."
         },
         "TimeDelta": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Specifies a time delta in seconds to offset the captions from the source file."
         }
       },
+      "required": [
+        "SourceFile"
+      ],
       "type": "object"
     },
     "ForbiddenException": {
@@ -3255,19 +3506,19 @@
       "description": "Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.",
       "properties": {
         "FramerateDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.n.jpg where n is the 0-based sequence number of each Capture."
         },
         "FramerateNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places."
         },
         "MaxCaptures": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max10000000",
           "description": "Maximum number of captures (encoded jpg output files)."
         },
         "Quality": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max100",
           "description": "JPEG Quality - a higher value equals higher quality."
         }
       },
@@ -3393,7 +3644,7 @@
       "type": "string"
     },
     "H264FramerateControl": {
-      "description": "Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.",
+      "description": "If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.",
       "enum": [
         "INITIALIZE_FROM_SOURCE",
         "SPECIFIED"
@@ -3425,7 +3676,7 @@
       "type": "string"
     },
     "H264InterlaceMode": {
-      "description": "Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.",
+      "description": "Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows.\n  - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\".\n  - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.",
       "enum": [
         "PROGRESSIVE",
         "TOP_FIELD",
@@ -3453,7 +3704,7 @@
       "type": "string"
     },
     "H264RateControlMode": {
-      "description": "Rate control mode. CQ uses constant quantizer (qp), ABR (average bitrate) does not write HRD parameters.",
+      "description": "Use this setting to specify whether this output has a variable bitrate (VBR) or constant bitrate (CBR).",
       "enum": [
         "VBR",
         "CBR"
@@ -3483,8 +3734,8 @@
           "$ref": "#/definitions/H264AdaptiveQuantization"
         },
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
-          "description": "Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000."
+          "$ref": "#/definitions/__integerMin1000Max1152000000",
+          "description": "Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000."
         },
         "CodecLevel": {
           "$ref": "#/definitions/H264CodecLevel"
@@ -3508,63 +3759,63 @@
           "$ref": "#/definitions/H264FramerateConversionAlgorithm"
         },
         "FramerateDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use framerate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976."
         },
         "FramerateNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps."
         },
         "GopBReference": {
           "$ref": "#/definitions/H264GopBReference"
         },
         "GopClosedCadence": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting."
         },
         "GopSize": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin0",
           "description": "GOP Length (keyframe interval) in frames or seconds. Must be greater than zero."
         },
         "GopSizeUnits": {
           "$ref": "#/definitions/H264GopSizeUnits"
         },
         "HrdBufferInitialFillPercentage": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max100",
           "description": "Percentage of the buffer that should initially be filled (HRD buffer model)."
         },
         "HrdBufferSize": {
-          "$ref": "#/definitions/__integer",
-          "description": "Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m."
+          "$ref": "#/definitions/__integerMin0Max1152000000",
+          "description": "Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000."
         },
         "InterlaceMode": {
           "$ref": "#/definitions/H264InterlaceMode"
         },
         "MaxBitrate": {
-          "$ref": "#/definitions/__integer",
-          "description": "Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m."
+          "$ref": "#/definitions/__integerMin1000Max1152000000",
+          "description": "Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000."
         },
         "MinIInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max30",
           "description": "Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. This setting is only used when Scene Change Detect is enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1"
         },
         "NumberBFramesBetweenReferenceFrames": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max7",
           "description": "Number of B-frames between reference frames."
         },
         "NumberReferenceFrames": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max6",
           "description": "Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding."
         },
         "ParControl": {
           "$ref": "#/definitions/H264ParControl"
         },
         "ParDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Pixel Aspect Ratio denominator."
         },
         "ParNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Pixel Aspect Ratio numerator."
         },
         "QualityTuningLevel": {
@@ -3580,14 +3831,14 @@
           "$ref": "#/definitions/H264SceneChangeDetect"
         },
         "Slices": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max32",
           "description": "Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures."
         },
         "SlowPal": {
           "$ref": "#/definitions/H264SlowPal"
         },
         "Softness": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max128",
           "description": "Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image."
         },
         "SpatialAdaptiveQuantization": {
@@ -3720,7 +3971,7 @@
       "type": "string"
     },
     "H265FramerateControl": {
-      "description": "Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.",
+      "description": "If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.",
       "enum": [
         "INITIALIZE_FROM_SOURCE",
         "SPECIFIED"
@@ -3752,7 +4003,7 @@
       "type": "string"
     },
     "H265InterlaceMode": {
-      "description": "Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.",
+      "description": "Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.\n  - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\".\n  - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.",
       "enum": [
         "PROGRESSIVE",
         "TOP_FIELD",
@@ -3780,7 +4031,7 @@
       "type": "string"
     },
     "H265RateControlMode": {
-      "description": "Rate control mode. CQ uses constant quantizer (qp), ABR (average bitrate) does not write HRD parameters.",
+      "description": "Use this setting to specify whether this output has a variable bitrate (VBR) or constant bitrate (CBR).",
       "enum": [
         "VBR",
         "CBR"
@@ -3814,8 +4065,8 @@
           "$ref": "#/definitions/H265AlternateTransferFunctionSei"
         },
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
-          "description": "Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000."
+          "$ref": "#/definitions/__integerMin1000Max1466400000",
+          "description": "Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000."
         },
         "CodecLevel": {
           "$ref": "#/definitions/H265CodecLevel"
@@ -3833,63 +4084,63 @@
           "$ref": "#/definitions/H265FramerateConversionAlgorithm"
         },
         "FramerateDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Framerate denominator."
         },
         "FramerateNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps."
         },
         "GopBReference": {
           "$ref": "#/definitions/H265GopBReference"
         },
         "GopClosedCadence": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting."
         },
         "GopSize": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin0",
           "description": "GOP Length (keyframe interval) in frames or seconds. Must be greater than zero."
         },
         "GopSizeUnits": {
           "$ref": "#/definitions/H265GopSizeUnits"
         },
         "HrdBufferInitialFillPercentage": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max100",
           "description": "Percentage of the buffer that should initially be filled (HRD buffer model)."
         },
         "HrdBufferSize": {
-          "$ref": "#/definitions/__integer",
-          "description": "Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m."
+          "$ref": "#/definitions/__integerMin0Max1466400000",
+          "description": "Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000."
         },
         "InterlaceMode": {
           "$ref": "#/definitions/H265InterlaceMode"
         },
         "MaxBitrate": {
-          "$ref": "#/definitions/__integer",
-          "description": "Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m."
+          "$ref": "#/definitions/__integerMin1000Max1466400000",
+          "description": "Maximum bitrate in bits/second."
         },
         "MinIInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max30",
           "description": "Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. This setting is only used when Scene Change Detect is enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1"
         },
         "NumberBFramesBetweenReferenceFrames": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max7",
           "description": "Number of B-frames between reference frames."
         },
         "NumberReferenceFrames": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max6",
           "description": "Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding."
         },
         "ParControl": {
           "$ref": "#/definitions/H265ParControl"
         },
         "ParDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Pixel Aspect Ratio denominator."
         },
         "ParNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Pixel Aspect Ratio numerator."
         },
         "QualityTuningLevel": {
@@ -3905,7 +4156,7 @@
           "$ref": "#/definitions/H265SceneChangeDetect"
         },
         "Slices": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max32",
           "description": "Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures."
         },
         "SlowPal": {
@@ -3928,6 +4179,9 @@
         },
         "UnregisteredSeiTimecode": {
           "$ref": "#/definitions/H265UnregisteredSeiTimecode"
+        },
+        "WriteMp4PackagingType": {
+          "$ref": "#/definitions/H265WriteMp4PackagingType"
         }
       },
       "type": "object"
@@ -3989,58 +4243,70 @@
       ],
       "type": "string"
     },
+    "H265WriteMp4PackagingType": {
+      "description": "If HVC1, output that is H.265 will be marked as HVC1 and adhere to the ISO-IECJTC1-SC29_N13798_Text_ISOIEC_FDIS_14496-15_3rd_E spec which states that parameter set NAL units will be stored in the sample headers but not in the samples directly. If HEV1, then H.265 will be marked as HEV1 and parameter set NAL units will be written into the samples.",
+      "enum": [
+        "HVC1",
+        "HEV1"
+      ],
+      "type": "string"
+    },
     "Hdr10Metadata": {
-      "description": "Use the HDR master display (Hdr10Metadata) settings to provide values for HDR color. These values vary depending on the input video and must be provided by a color grader. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate.",
+      "description": "Use the HDR master display (Hdr10Metadata) settings to correct HDR metadata or to provide missing metadata. These values vary depending on the input video and must be provided by a color grader. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that these settings are not color correction. Note that if you are creating HDR outputs inside of an HLS CMAF package, to comply with the Apple specification, you must use the HVC1 for H.265 setting.",
       "properties": {
         "BluePrimaryX": {
-          "$ref": "#/definitions/__integer",
-          "description": "HDR Master Display Information comes from the color grader and the color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate."
+          "$ref": "#/definitions/__integerMin0Max50000",
+          "description": "HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction."
         },
         "BluePrimaryY": {
-          "$ref": "#/definitions/__integer",
-          "description": "HDR Master Display Information comes from the color grader and the color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate."
+          "$ref": "#/definitions/__integerMin0Max50000",
+          "description": "HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction."
         },
         "GreenPrimaryX": {
-          "$ref": "#/definitions/__integer",
-          "description": "HDR Master Display Information comes from the color grader and the color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate."
+          "$ref": "#/definitions/__integerMin0Max50000",
+          "description": "HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction."
         },
         "GreenPrimaryY": {
-          "$ref": "#/definitions/__integer",
-          "description": "HDR Master Display Information comes from the color grader and the color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate."
+          "$ref": "#/definitions/__integerMin0Max50000",
+          "description": "HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction."
         },
         "MaxContentLightLevel": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "Maximum light level among all samples in the coded video sequence, in units of candelas per square meter."
         },
         "MaxFrameAverageLightLevel": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "Maximum average light level of any frame in the coded video sequence, in units of candelas per square meter."
         },
         "MaxLuminance": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Nominal maximum mastering display luminance in units of of 0.0001 candelas per square meter."
         },
         "MinLuminance": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Nominal minimum mastering display luminance in units of of 0.0001 candelas per square meter"
         },
         "RedPrimaryX": {
-          "$ref": "#/definitions/__integer",
-          "description": "HDR Master Display Information comes from the color grader and the color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate."
+          "$ref": "#/definitions/__integerMin0Max50000",
+          "description": "HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction."
         },
         "RedPrimaryY": {
-          "$ref": "#/definitions/__integer",
-          "description": "HDR Master Display Information comes from the color grader and the color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate."
+          "$ref": "#/definitions/__integerMin0Max50000",
+          "description": "HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction."
         },
         "WhitePointX": {
-          "$ref": "#/definitions/__integer",
-          "description": "HDR Master Display Information comes from the color grader and the color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate."
+          "$ref": "#/definitions/__integerMin0Max50000",
+          "description": "HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction."
         },
         "WhitePointY": {
-          "$ref": "#/definitions/__integer",
-          "description": "HDR Master Display Information comes from the color grader and the color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate."
+          "$ref": "#/definitions/__integerMin0Max50000",
+          "description": "HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction."
         }
       },
+      "required": [
+        "MaxContentLightLevel",
+        "MaxFrameAverageLightLevel"
+      ],
       "type": "object"
     },
     "HlsAdMarkers": {
@@ -4064,7 +4330,7 @@
       "description": "Caption Language Mapping",
       "properties": {
         "CaptionChannel": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Caption channel."
         },
         "LanguageCode": {
@@ -4114,7 +4380,7 @@
       "description": "Settings for HLS encryption",
       "properties": {
         "ConstantInitializationVector": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin32Max32Pattern09aFAF32",
           "description": "This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default."
         },
         "EncryptionMethod": {
@@ -4133,6 +4399,9 @@
           "$ref": "#/definitions/HlsKeyProviderType"
         }
       },
+      "required": [
+        "Type"
+      ],
       "type": "object"
     },
     "HlsEncryptionType": {
@@ -4147,7 +4416,7 @@
       "description": "Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.",
       "properties": {
         "AdMarkers": {
-          "$ref": "#/definitions/ListOfHlsAdMarkers",
+          "$ref": "#/definitions/__listOfHlsAdMarkers",
           "description": "Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs."
         },
         "BaseUrl": {
@@ -4155,7 +4424,7 @@
           "description": "A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file."
         },
         "CaptionLanguageMappings": {
-          "$ref": "#/definitions/ListOfHlsCaptionLanguageMapping",
+          "$ref": "#/definitions/__listOfHlsCaptionLanguageMapping",
           "description": "Language to be used on Caption outputs"
         },
         "CaptionLanguageSetting": {
@@ -4168,7 +4437,7 @@
           "$ref": "#/definitions/HlsCodecSpecification"
         },
         "Destination": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternS3",
           "description": "Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file."
         },
         "DirectoryStructure": {
@@ -4185,7 +4454,7 @@
           "$ref": "#/definitions/HlsManifestDurationFormat"
         },
         "MinSegmentLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed."
         },
         "OutputSelection": {
@@ -4195,18 +4464,18 @@
           "$ref": "#/definitions/HlsProgramDateTime"
         },
         "ProgramDateTimePeriod": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max3600",
           "description": "Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds."
         },
         "SegmentControl": {
           "$ref": "#/definitions/HlsSegmentControl"
         },
         "SegmentLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer."
         },
         "SegmentsPerSubdirectory": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect."
         },
         "StreamInfResolution": {
@@ -4216,14 +4485,18 @@
           "$ref": "#/definitions/HlsTimedMetadataId3Frame"
         },
         "TimedMetadataId3Period": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Timed Metadata interval in seconds."
         },
         "TimestampDeltaMilliseconds": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Provides an extra millisecond delta offset to fine tune the timestamps."
         }
       },
+      "required": [
+        "MinSegmentLength",
+        "SegmentLength"
+      ],
       "type": "object"
     },
     "HlsIFrameOnlyManifest": {
@@ -4332,42 +4605,49 @@
       "type": "string"
     },
     "Id3Insertion": {
-      "description": "To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create mulitple instances of ID3 insertion (Id3Insertion).",
+      "description": "To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).",
       "properties": {
         "Id3": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternAZaZ0902",
           "description": "Use ID3 tag (Id3) to provide a tag value in base64-encode format."
         },
         "Timecode": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPattern010920405090509092",
           "description": "Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format."
         }
       },
+      "required": [
+        "Timecode",
+        "Id3"
+      ],
       "type": "object"
     },
     "ImageInserter": {
       "description": "Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.",
       "properties": {
         "InsertableImages": {
-          "$ref": "#/definitions/ListOfInsertableImage",
+          "$ref": "#/definitions/__listOfInsertableImage",
           "description": "Image to insert. Must be 32 bit windows BMP, PNG, or TGA file. Must not be  larger than the output frames."
         }
       },
+      "required": [
+        "InsertableImages"
+      ],
       "type": "object"
     },
     "Input": {
       "description": "Specifies media input",
       "properties": {
         "AudioSelectorGroups": {
-          "$ref": "#/definitions/MapOfAudioSelectorGroup",
+          "$ref": "#/definitions/__mapOfAudioSelectorGroup",
           "description": "Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See \"Audio Selector Group\":#inputs-audio_selector_group for more information."
         },
         "AudioSelectors": {
-          "$ref": "#/definitions/MapOfAudioSelector",
+          "$ref": "#/definitions/__mapOfAudioSelector",
           "description": "Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use mutiple Audio selectors per input."
         },
         "CaptionSelectors": {
-          "$ref": "#/definitions/MapOfCaptionSelector",
+          "$ref": "#/definitions/__mapOfCaptionSelector",
           "description": "Use Captions selectors (CaptionSelectors) to specify the captions data from the input that you will use in your outputs. You can use mutiple captions selectors per input."
         },
         "DeblockFilter": {
@@ -4377,22 +4657,22 @@
           "$ref": "#/definitions/InputDenoiseFilter"
         },
         "FileInput": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MM",
           "description": "Use Input (fileInput) to define the source file used in the transcode job. There can be multiple inputs in a job. These inputs are concantenated, in the order they are specified in the job, to create the output."
         },
         "FilterEnable": {
           "$ref": "#/definitions/InputFilterEnable"
         },
         "FilterStrength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative5Max5",
           "description": "Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0."
         },
         "InputClippings": {
-          "$ref": "#/definitions/ListOfInputClipping",
+          "$ref": "#/definitions/__listOfInputClipping",
           "description": "(InputClippings) contains sets of start and end times that together specify a portion of the input to be used in the outputs. If you provide only a start time, the clip will be the entire input from that point to the end. If you provide only an end time, it will be the entire input up to that point. When you specify more than one input clip, the transcoding service creates the job outputs by stringing the clips together in the order you specify them."
         },
         "ProgramNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn't exist, the transcoding service will use this default."
         },
         "PsiControl": {
@@ -4405,18 +4685,21 @@
           "$ref": "#/definitions/VideoSelector"
         }
       },
+      "required": [
+        "FileInput"
+      ],
       "type": "object"
     },
     "InputClipping": {
-      "description": "Include one instance of (InputClipping) for each input clip.",
+      "description": "To transcode only portions of your input (clips), include one Input clipping (one instance of InputClipping in the JSON job file) for each input clip. All input clips you specify will be included in every output of the job.",
       "properties": {
         "EndTimecode": {
-          "$ref": "#/definitions/__string",
-          "description": "Set End timecode (EndTimecode) to the end of the portion of the input you are clipping. The frame corresponding to the End timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:00:05:00."
+          "$ref": "#/definitions/__stringPattern010920405090509092",
+          "description": "Set End timecode (EndTimecode) to the end of the portion of the input you are clipping. The frame corresponding to the End timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for timecode source under input settings (InputTimecodeSource). For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to end six minutes into the video, use 01:06:00:00."
         },
         "StartTimecode": {
-          "$ref": "#/definitions/__string",
-          "description": "Set Start timecode (StartTimecode) to the beginning of the portion of the input you are clipping. The frame corresponding to the Start timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:00:05:00."
+          "$ref": "#/definitions/__stringPattern010920405090509092",
+          "description": "Set Start timecode (StartTimecode) to the beginning of the portion of the input you are clipping. The frame corresponding to the Start timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:05:00:00."
         }
       },
       "type": "object"
@@ -4458,15 +4741,15 @@
       "description": "Specified video input in a template.",
       "properties": {
         "AudioSelectorGroups": {
-          "$ref": "#/definitions/MapOfAudioSelectorGroup",
+          "$ref": "#/definitions/__mapOfAudioSelectorGroup",
           "description": "Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See \"Audio Selector Group\":#inputs-audio_selector_group for more information."
         },
         "AudioSelectors": {
-          "$ref": "#/definitions/MapOfAudioSelector",
+          "$ref": "#/definitions/__mapOfAudioSelector",
           "description": "Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use mutiple Audio selectors per input."
         },
         "CaptionSelectors": {
-          "$ref": "#/definitions/MapOfCaptionSelector",
+          "$ref": "#/definitions/__mapOfCaptionSelector",
           "description": "Use Captions selectors (CaptionSelectors) to specify the captions data from the input that you will use in your outputs. You can use mutiple captions selectors per input."
         },
         "DeblockFilter": {
@@ -4479,15 +4762,15 @@
           "$ref": "#/definitions/InputFilterEnable"
         },
         "FilterStrength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative5Max5",
           "description": "Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0."
         },
         "InputClippings": {
-          "$ref": "#/definitions/ListOfInputClipping",
+          "$ref": "#/definitions/__listOfInputClipping",
           "description": "(InputClippings) contains sets of start and end times that together specify a portion of the input to be used in the outputs. If you provide only a start time, the clip will be the entire input from that point to the end. If you provide only an end time, it will be the entire input up to that point. When you specify more than one input clip, the transcoding service creates the job outputs by stringing the clips together in the order you specify them."
         },
         "ProgramNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn't exist, the transcoding service will use this default."
         },
         "PsiControl": {
@@ -4503,7 +4786,7 @@
       "type": "object"
     },
     "InputTimecodeSource": {
-      "description": "Use Timecode source (InputTimecodeSource) to specify how timecode information from your input is adjusted and encoded in all outputs for the job. Default is embedded. Set to Embedded (EMBEDDED) to use the timecode that is in the input video. If no embedded timecode is in the source, will set the timecode for the first frame to 00:00:00:00. Set to Start at 0 (ZEROBASED) to set the timecode of the initial frame to 00:00:00:00. Set to Specified start (SPECIFIEDSTART) to provide the initial timecode yourself the setting (Start).",
+      "description": "Timecode source under input settings (InputTimecodeSource) only affects the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Use this setting to specify whether the service counts frames by timecodes embedded in the video (EMBEDDED) or by starting the first frame at zero (ZEROBASED). In both cases, the timecode format is HH:MM:SS:FF or HH:MM:SS;FF, where FF is the frame number. Only set this to EMBEDDED if your source video has embedded timecodes.",
       "enum": [
         "EMBEDDED",
         "ZEROBASED",
@@ -4515,50 +4798,57 @@
       "description": "Settings for Insertable Image",
       "properties": {
         "Duration": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Use Duration (Duration) to set the time, in milliseconds, for the image to remain on the output video."
         },
         "FadeIn": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Use Fade in (FadeIut) to set the length, in milliseconds, of the inserted image fade in. If you don't specify a value for Fade in, the image will appear abruptly at the Start time."
         },
         "FadeOut": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Use Fade out (FadeOut) to set the length, in milliseconds, of the inserted image fade out. If you don't specify a value for Fade out, the image will disappear abruptly at the end of the inserted image duration."
         },
         "Height": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Specify the Height (Height) of the inserted image. Use a value that is less than or equal to the video resolution height. Leave this setting blank to use the native height of the image."
         },
         "ImageInserterInput": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin14PatternS3BmpBMPPngPNGTgaTGA",
           "description": "Use Image location (imageInserterInput) to specify the Amazon S3 location of the image to be inserted into the output. Use a 32 bit BMP, PNG, or TGA file that fits inside the video frame."
         },
         "ImageX": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Use Left (ImageX) to set the distance, in pixels, between the inserted image and the left edge of the frame. Required for BMP, PNG and TGA input."
         },
         "ImageY": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Use Top (ImageY) to set the distance, in pixels, between the inserted image and the top edge of the video frame. Required for BMP, PNG and TGA input."
         },
         "Layer": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max99",
           "description": "Use Layer (Layer) to specify how overlapping inserted images appear. Images with higher values of layer appear on top of images with lower values of layer."
         },
         "Opacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max100",
           "description": "Use Opacity (Opacity) to specify how much of the underlying video shows through the inserted image. 0 is transparent and 100 is fully opaque. Default is 50."
         },
         "StartTime": {
-          "$ref": "#/definitions/__string",
-          "description": "Use Start time (StartTime) to specify the video timecode when the image is inserted in the output. This must be in timecode format (HH:MM:SS:FF)"
+          "$ref": "#/definitions/__stringPattern01D20305D205D",
+          "description": "Use Start time (StartTime) to specify the video timecode when the image is inserted in the output. This must be in timecode (HH:MM:SS:FF or HH:MM:SS;FF) format."
         },
         "Width": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Specify the Width (Width) of the inserted image. Use a value that is less than or equal to the video resolution width. Leave this setting blank to use the native width of the image."
         }
       },
+      "required": [
+        "ImageY",
+        "ImageX",
+        "ImageInserterInput",
+        "Opacity",
+        "Layer"
+      ],
       "type": "object"
     },
     "InternalServerErrorException": {
@@ -4578,7 +4868,7 @@
           "description": "An identifier for this resource that is unique within all of AWS."
         },
         "CreatedAt": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The time, in Unix epoch format in seconds, when the job got created."
         },
         "ErrorCode": {
@@ -4598,7 +4888,7 @@
           "description": "The job template that the job is created from, if it is created from a job template."
         },
         "OutputGroupDetails": {
-          "$ref": "#/definitions/ListOfOutputGroupDetail",
+          "$ref": "#/definitions/__listOfOutputGroupDetail",
           "description": "List of output group details"
         },
         "Queue": {
@@ -4619,17 +4909,21 @@
           "$ref": "#/definitions/Timing"
         },
         "UserMetadata": {
-          "$ref": "#/definitions/MapOf__string",
+          "$ref": "#/definitions/__mapOf__string",
           "description": "User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs."
         }
       },
+      "required": [
+        "Role",
+        "Settings"
+      ],
       "type": "object"
     },
     "JobSettings": {
       "description": "JobSettings contains all the transcode settings for a job.",
       "properties": {
         "AdAvailOffset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative1000Max1000",
           "description": "When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time."
         },
         "AvailBlanking": {
@@ -4637,15 +4931,15 @@
           "description": "Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails."
         },
         "Inputs": {
-          "$ref": "#/definitions/ListOfInput",
+          "$ref": "#/definitions/__listOfInput",
           "description": "Use Inputs (inputs) to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output."
         },
         "NielsenConfiguration": {
           "$ref": "#/definitions/NielsenConfiguration"
         },
         "OutputGroups": {
-          "$ref": "#/definitions/ListOfOutputGroup",
-          "description": "**!!**(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings"
+          "$ref": "#/definitions/__listOfOutputGroup",
+          "description": "(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings"
         },
         "TimecodeConfig": {
           "$ref": "#/definitions/TimecodeConfig",
@@ -4655,6 +4949,10 @@
           "$ref": "#/definitions/TimedMetadataInsertion"
         }
       },
+      "required": [
+        "OutputGroups",
+        "Inputs"
+      ],
       "type": "object"
     },
     "JobStatus": {
@@ -4680,7 +4978,7 @@
           "description": "An optional category you create to organize your job templates."
         },
         "CreatedAt": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The timestamp in epoch seconds for Job template creation."
         },
         "Description": {
@@ -4688,7 +4986,7 @@
           "description": "An optional description you create for each job template."
         },
         "LastUpdated": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The timestamp in epoch seconds when the Job template was last updated."
         },
         "Name": {
@@ -4707,6 +5005,10 @@
           "description": "A job template can be of two types: system or custom. System or built-in job templates can't be modified or deleted by the user."
         }
       },
+      "required": [
+        "Settings",
+        "Name"
+      ],
       "type": "object"
     },
     "JobTemplateListBy": {
@@ -4722,7 +5024,7 @@
       "description": "JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.",
       "properties": {
         "AdAvailOffset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative1000Max1000",
           "description": "When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time."
         },
         "AvailBlanking": {
@@ -4730,15 +5032,15 @@
           "description": "Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails."
         },
         "Inputs": {
-          "$ref": "#/definitions/ListOfInputTemplate",
+          "$ref": "#/definitions/__listOfInputTemplate",
           "description": "Use Inputs (inputs) to define the source file used in the transcode job. There can only be one input in a job template.  Using the API, you can include multiple inputs when referencing a job template."
         },
         "NielsenConfiguration": {
           "$ref": "#/definitions/NielsenConfiguration"
         },
         "OutputGroups": {
-          "$ref": "#/definitions/ListOfOutputGroup",
-          "description": "**!!**(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings"
+          "$ref": "#/definitions/__listOfOutputGroup",
+          "description": "(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings"
         },
         "TimecodeConfig": {
           "$ref": "#/definitions/TimecodeConfig",
@@ -4748,6 +5050,9 @@
           "$ref": "#/definitions/TimedMetadataInsertion"
         }
       },
+      "required": [
+        "OutputGroups"
+      ],
       "type": "object"
     },
     "LanguageCode": {
@@ -4954,7 +5259,7 @@
     "ListJobTemplatesResponse": {
       "properties": {
         "JobTemplates": {
-          "$ref": "#/definitions/ListOfJobTemplate",
+          "$ref": "#/definitions/__listOfJobTemplate",
           "description": "List of Job templates."
         },
         "NextToken": {
@@ -4971,7 +5276,7 @@
     "ListJobsResponse": {
       "properties": {
         "Jobs": {
-          "$ref": "#/definitions/ListOfJob",
+          "$ref": "#/definitions/__listOfJob",
           "description": "List of jobs"
         },
         "NextToken": {
@@ -4980,138 +5285,6 @@
         }
       },
       "type": "object"
-    },
-    "ListOfAudioDescription": {
-      "items": {
-        "$ref": "#/definitions/AudioDescription"
-      },
-      "type": "array"
-    },
-    "ListOfCaptionDescription": {
-      "items": {
-        "$ref": "#/definitions/CaptionDescription"
-      },
-      "type": "array"
-    },
-    "ListOfCaptionDescriptionPreset": {
-      "items": {
-        "$ref": "#/definitions/CaptionDescriptionPreset"
-      },
-      "type": "array"
-    },
-    "ListOfEndpoint": {
-      "items": {
-        "$ref": "#/definitions/Endpoint"
-      },
-      "type": "array"
-    },
-    "ListOfHlsAdMarkers": {
-      "items": {
-        "$ref": "#/definitions/HlsAdMarkers"
-      },
-      "type": "array"
-    },
-    "ListOfHlsCaptionLanguageMapping": {
-      "items": {
-        "$ref": "#/definitions/HlsCaptionLanguageMapping"
-      },
-      "type": "array"
-    },
-    "ListOfId3Insertion": {
-      "items": {
-        "$ref": "#/definitions/Id3Insertion"
-      },
-      "type": "array"
-    },
-    "ListOfInput": {
-      "items": {
-        "$ref": "#/definitions/Input"
-      },
-      "type": "array"
-    },
-    "ListOfInputClipping": {
-      "items": {
-        "$ref": "#/definitions/InputClipping"
-      },
-      "type": "array"
-    },
-    "ListOfInputTemplate": {
-      "items": {
-        "$ref": "#/definitions/InputTemplate"
-      },
-      "type": "array"
-    },
-    "ListOfInsertableImage": {
-      "items": {
-        "$ref": "#/definitions/InsertableImage"
-      },
-      "type": "array"
-    },
-    "ListOfJob": {
-      "items": {
-        "$ref": "#/definitions/Job"
-      },
-      "type": "array"
-    },
-    "ListOfJobTemplate": {
-      "items": {
-        "$ref": "#/definitions/JobTemplate"
-      },
-      "type": "array"
-    },
-    "ListOfOutput": {
-      "items": {
-        "$ref": "#/definitions/Output"
-      },
-      "type": "array"
-    },
-    "ListOfOutputChannelMapping": {
-      "items": {
-        "$ref": "#/definitions/OutputChannelMapping"
-      },
-      "type": "array"
-    },
-    "ListOfOutputDetail": {
-      "items": {
-        "$ref": "#/definitions/OutputDetail"
-      },
-      "type": "array"
-    },
-    "ListOfOutputGroup": {
-      "items": {
-        "$ref": "#/definitions/OutputGroup"
-      },
-      "type": "array"
-    },
-    "ListOfOutputGroupDetail": {
-      "items": {
-        "$ref": "#/definitions/OutputGroupDetail"
-      },
-      "type": "array"
-    },
-    "ListOfPreset": {
-      "items": {
-        "$ref": "#/definitions/Preset"
-      },
-      "type": "array"
-    },
-    "ListOfQueue": {
-      "items": {
-        "$ref": "#/definitions/Queue"
-      },
-      "type": "array"
-    },
-    "ListOf__integer": {
-      "items": {
-        "$ref": "#/definitions/__integer"
-      },
-      "type": "array"
-    },
-    "ListOf__string": {
-      "items": {
-        "$ref": "#/definitions/__string"
-      },
-      "type": "array"
     },
     "ListPresetsRequest": {
       "properties": {},
@@ -5124,7 +5297,7 @@
           "description": "Use this string to request the next batch of presets."
         },
         "Presets": {
-          "$ref": "#/definitions/ListOfPreset",
+          "$ref": "#/definitions/__listOfPreset",
           "description": "List of presets"
         }
       },
@@ -5141,7 +5314,7 @@
           "description": "Use this string to request the next batch of queues."
         },
         "Queues": {
-          "$ref": "#/definitions/ListOfQueue",
+          "$ref": "#/definitions/__listOfQueue",
           "description": "List of queues"
         }
       },
@@ -5246,15 +5419,15 @@
           "$ref": "#/definitions/M2tsAudioBufferModel"
         },
         "AudioFramesPerPes": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "The number of audio frames to insert for each PES packet."
         },
         "AudioPids": {
-          "$ref": "#/definitions/ListOf__integer",
+          "$ref": "#/definitions/__listOf__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation."
         },
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "The output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000."
         },
         "BufferModel": {
@@ -5267,14 +5440,14 @@
           "$ref": "#/definitions/DvbSdtSettings"
         },
         "DvbSubPids": {
-          "$ref": "#/definitions/ListOf__integer",
+          "$ref": "#/definitions/__listOf__integerMin32Max8182",
           "description": "Packet Identifier (PID) for input source DVB Subtitle data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation."
         },
         "DvbTdtSettings": {
           "$ref": "#/definitions/DvbTdtSettings"
         },
         "DvbTeletextPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) for input source DVB Teletext data to this output."
         },
         "EbpAudioInterval": {
@@ -5287,56 +5460,56 @@
           "$ref": "#/definitions/M2tsEsRateInPes"
         },
         "FragmentTime": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin0",
           "description": "The length in seconds of each fragment. Only used with EBP markers."
         },
         "MaxPcrInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max500",
           "description": "Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream."
         },
         "MinEbpInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max10000",
           "description": "When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is \"stretched\" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate."
         },
         "NielsenId3": {
           "$ref": "#/definitions/M2tsNielsenId3"
         },
         "NullPacketBitrate": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin0",
           "description": "Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets."
         },
         "PatInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         },
         "PcrControl": {
           "$ref": "#/definitions/M2tsPcrControl"
         },
         "PcrPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID."
         },
         "PmtInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         },
         "PmtPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream."
         },
         "PrivateMetadataPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the private metadata stream in the transport stream."
         },
         "ProgramNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The value of the program number field in the Program Map Table."
         },
         "RateMode": {
           "$ref": "#/definitions/M2tsRateMode"
         },
         "Scte35Pid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the SCTE-35 stream in the transport stream."
         },
         "Scte35Source": {
@@ -5349,19 +5522,19 @@
           "$ref": "#/definitions/M2tsSegmentationStyle"
         },
         "SegmentationTime": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin0",
           "description": "The length in seconds of each segment. Required unless markers is set to _none_."
         },
         "TimedMetadataPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the timed metadata stream in the transport stream."
         },
         "TransportStreamId": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The value of the transport stream ID field in the Program Map Table."
         },
         "VideoPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the elementary video stream in the transport stream."
         }
       },
@@ -5395,45 +5568,45 @@
       "description": "Settings for TS segments in HLS",
       "properties": {
         "AudioFramesPerPes": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "The number of audio frames to insert for each PES packet."
         },
         "AudioPids": {
-          "$ref": "#/definitions/ListOf__integer",
+          "$ref": "#/definitions/__listOf__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation."
         },
         "NielsenId3": {
           "$ref": "#/definitions/M3u8NielsenId3"
         },
         "PatInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         },
         "PcrControl": {
           "$ref": "#/definitions/M3u8PcrControl"
         },
         "PcrPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID."
         },
         "PmtInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         },
         "PmtPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream."
         },
         "PrivateMetadataPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the private metadata stream in the transport stream."
         },
         "ProgramNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The value of the program number field in the Program Map Table."
         },
         "Scte35Pid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the SCTE-35 stream in the transport stream."
         },
         "Scte35Source": {
@@ -5443,75 +5616,19 @@
           "$ref": "#/definitions/TimedMetadata"
         },
         "TimedMetadataPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the timed metadata stream in the transport stream."
         },
         "TransportStreamId": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The value of the transport stream ID field in the Program Map Table."
         },
         "VideoPid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max8182",
           "description": "Packet Identifier (PID) of the elementary video stream in the transport stream."
         }
       },
       "type": "object"
-    },
-    "MapOfAudioSelector": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/__string"
-          },
-          "value": {
-            "$ref": "#/definitions/AudioSelector"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "MapOfAudioSelectorGroup": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/__string"
-          },
-          "value": {
-            "$ref": "#/definitions/AudioSelectorGroup"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "MapOfCaptionSelector": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/__string"
-          },
-          "value": {
-            "$ref": "#/definitions/CaptionSelector"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "MapOf__string": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/__string"
-          },
-          "value": {
-            "$ref": "#/definitions/__string"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
     },
     "MovClapAtom": {
       "description": "When enabled, include 'clap' atom if appropriate for the video output settings.",
@@ -5578,15 +5695,15 @@
       "description": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.",
       "properties": {
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32000Max384000",
           "description": "Average bitrate in bits/second."
         },
         "Channels": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2",
           "description": "Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2."
         },
         "SampleRate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32000Max48000",
           "description": "Sample rate in hz."
         }
       },
@@ -5665,7 +5782,7 @@
       "type": "string"
     },
     "Mpeg2FramerateControl": {
-      "description": "Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.",
+      "description": "If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.",
       "enum": [
         "INITIALIZE_FROM_SOURCE",
         "SPECIFIED"
@@ -5689,7 +5806,7 @@
       "type": "string"
     },
     "Mpeg2InterlaceMode": {
-      "description": "Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.",
+      "description": "Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.\n  - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\".\n  - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.",
       "enum": [
         "PROGRESSIVE",
         "TOP_FIELD",
@@ -5749,8 +5866,8 @@
           "$ref": "#/definitions/Mpeg2AdaptiveQuantization"
         },
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
-          "description": "Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000."
+          "$ref": "#/definitions/__integerMin1000Max288000000",
+          "description": "Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000."
         },
         "CodecLevel": {
           "$ref": "#/definitions/Mpeg2CodecLevel"
@@ -5765,31 +5882,31 @@
           "$ref": "#/definitions/Mpeg2FramerateConversionAlgorithm"
         },
         "FramerateDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max1001",
           "description": "Framerate denominator."
         },
         "FramerateNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin24Max60000",
           "description": "Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps."
         },
         "GopClosedCadence": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max2147483647",
           "description": "Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting."
         },
         "GopSize": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin0",
           "description": "GOP Length (keyframe interval) in frames or seconds. Must be greater than zero."
         },
         "GopSizeUnits": {
           "$ref": "#/definitions/Mpeg2GopSizeUnits"
         },
         "HrdBufferInitialFillPercentage": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max100",
           "description": "Percentage of the buffer that should initially be filled (HRD buffer model)."
         },
         "HrdBufferSize": {
-          "$ref": "#/definitions/__integer",
-          "description": "Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m."
+          "$ref": "#/definitions/__integerMin0Max47185920",
+          "description": "Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000."
         },
         "InterlaceMode": {
           "$ref": "#/definitions/Mpeg2InterlaceMode"
@@ -5798,26 +5915,26 @@
           "$ref": "#/definitions/Mpeg2IntraDcPrecision"
         },
         "MaxBitrate": {
-          "$ref": "#/definitions/__integer",
-          "description": "Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be entered as 500000 or 0.5m."
+          "$ref": "#/definitions/__integerMin1000Max300000000",
+          "description": "Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000."
         },
         "MinIInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max30",
           "description": "Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. This setting is only used when Scene Change Detect is enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1"
         },
         "NumberBFramesBetweenReferenceFrames": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max7",
           "description": "Number of B-frames between reference frames."
         },
         "ParControl": {
           "$ref": "#/definitions/Mpeg2ParControl"
         },
         "ParDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Pixel Aspect Ratio denominator."
         },
         "ParNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Pixel Aspect Ratio numerator."
         },
         "QualityTuningLevel": {
@@ -5833,7 +5950,7 @@
           "$ref": "#/definitions/Mpeg2SlowPal"
         },
         "Softness": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max128",
           "description": "Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image."
         },
         "SpatialAdaptiveQuantization": {
@@ -5907,6 +6024,9 @@
           "$ref": "#/definitions/SpekeKeyProvider"
         }
       },
+      "required": [
+        "SpekeKeyProvider"
+      ],
       "type": "object"
     },
     "MsSmoothGroupSettings": {
@@ -5916,20 +6036,23 @@
           "$ref": "#/definitions/MsSmoothAudioDeduplication"
         },
         "Destination": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternS3",
           "description": "Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file."
         },
         "Encryption": {
           "$ref": "#/definitions/MsSmoothEncryptionSettings"
         },
         "FragmentLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and framerate."
         },
         "ManifestEncoding": {
           "$ref": "#/definitions/MsSmoothManifestEncoding"
         }
       },
+      "required": [
+        "FragmentLength"
+      ],
       "type": "object"
     },
     "MsSmoothManifestEncoding": {
@@ -5944,7 +6067,7 @@
       "description": "Settings for Nielsen Configuration",
       "properties": {
         "BreakoutCode": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max9",
           "description": "Use Nielsen Configuration (NielsenConfiguration) to set the Nielsen measurement system breakout code. Supported values are 0, 3, 7, and 9."
         },
         "DistributorId": {
@@ -5967,10 +6090,13 @@
           "$ref": "#/definitions/NoiseReducerSpatialFilterSettings"
         }
       },
+      "required": [
+        "Filter"
+      ],
       "type": "object"
     },
     "NoiseReducerFilter": {
-      "description": "Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral is an edge preserving noise reduction filter * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) are convolution filters * Conserve is a min/max noise reduction filter * Spatial is frequency-domain filter based on JND principles.",
+      "description": "Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral is an edge preserving noise reduction filter. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) are convolution filters. * Conserve is a min/max noise reduction filter. * Spatial is a frequency-domain filter based on JND principles.",
       "enum": [
         "BILATERAL",
         "MEAN",
@@ -5986,7 +6112,7 @@
       "description": "Settings for a noise reducer filter",
       "properties": {
         "Strength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max3",
           "description": "Relative strength of noise reducing filter. Higher values produce stronger filtering."
         }
       },
@@ -5996,15 +6122,15 @@
       "description": "Noise reducer filter settings for spatial filter.",
       "properties": {
         "PostFilterSharpenStrength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max3",
           "description": "Specify strength of post noise reduction sharpening filter, with 0 disabling the filter and 3 enabling it at maximum strength."
         },
         "Speed": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2Max3",
           "description": "The speed of the filter, from -2 (lower speed) to 3 (higher speed), with 0 being the nominal value."
         },
         "Strength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max16",
           "description": "Relative strength of noise reducing filter. Higher values produce stronger filtering."
         }
       },
@@ -6031,11 +6157,11 @@
       "description": "An output object describes the settings for a single output file or stream in an output group.",
       "properties": {
         "AudioDescriptions": {
-          "$ref": "#/definitions/ListOfAudioDescription",
+          "$ref": "#/definitions/__listOfAudioDescription",
           "description": "(AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings."
         },
         "CaptionDescriptions": {
-          "$ref": "#/definitions/ListOfCaptionDescription",
+          "$ref": "#/definitions/__listOfCaptionDescription",
           "description": "(CaptionDescriptions) contains groups of captions settings. For each output that has captions, include one instance of (CaptionDescriptions). (CaptionDescriptions) can contain multiple groups of captions settings."
         },
         "ContainerSettings": {
@@ -6046,14 +6172,14 @@
           "description": "Use Extension (Extension) to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)"
         },
         "NameModifier": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1",
           "description": "Use Name modifier (NameModifier) to have the service add a string to the end of each output filename. You specify the base filename as part of your destination URI. When you create multiple outputs in the same output group, Name modifier (NameModifier) is required. Name modifier also accepts format identifiers. For DASH ISO outputs, if you use the format identifiers $Number$ or $Time$ in one output, you must use them in the same way in all outputs of the output group."
         },
         "OutputSettings": {
           "$ref": "#/definitions/OutputSettings"
         },
         "Preset": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin0",
           "description": "Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both."
         },
         "VideoDescription": {
@@ -6067,10 +6193,13 @@
       "description": "OutputChannel mapping settings.",
       "properties": {
         "InputChannels": {
-          "$ref": "#/definitions/ListOf__integer",
+          "$ref": "#/definitions/__listOf__integerMinNegative60Max6",
           "description": "List of input channels"
         }
       },
+      "required": [
+        "InputChannels"
+      ],
       "type": "object"
     },
     "OutputDetail": {
@@ -6101,17 +6230,21 @@
           "$ref": "#/definitions/OutputGroupSettings"
         },
         "Outputs": {
-          "$ref": "#/definitions/ListOfOutput",
+          "$ref": "#/definitions/__listOfOutput",
           "description": "This object holds groups of encoding settings, one group of settings per output."
         }
       },
+      "required": [
+        "Outputs",
+        "OutputGroupSettings"
+      ],
       "type": "object"
     },
     "OutputGroupDetail": {
       "description": "Contains details about the output groups specified in the job settings.",
       "properties": {
         "OutputDetails": {
-          "$ref": "#/definitions/ListOfOutputDetail",
+          "$ref": "#/definitions/__listOfOutputDetail",
           "description": "Details about the output"
         }
       },
@@ -6120,6 +6253,9 @@
     "OutputGroupSettings": {
       "description": "Output Group settings, including type",
       "properties": {
+        "CmafGroupSettings": {
+          "$ref": "#/definitions/CmafGroupSettings"
+        },
         "DashIsoGroupSettings": {
           "$ref": "#/definitions/DashIsoGroupSettings"
         },
@@ -6136,15 +6272,19 @@
           "$ref": "#/definitions/OutputGroupType"
         }
       },
+      "required": [
+        "Type"
+      ],
       "type": "object"
     },
     "OutputGroupType": {
-      "description": "Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming)",
+      "description": "Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)",
       "enum": [
         "HLS_GROUP_SETTINGS",
         "DASH_ISO_GROUP_SETTINGS",
         "FILE_GROUP_SETTINGS",
-        "MS_SMOOTH_GROUP_SETTINGS"
+        "MS_SMOOTH_GROUP_SETTINGS",
+        "CMAF_GROUP_SETTINGS"
       ],
       "type": "string"
     },
@@ -6179,7 +6319,7 @@
           "description": "An optional category you create to organize your presets."
         },
         "CreatedAt": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The timestamp in epoch seconds for preset creation."
         },
         "Description": {
@@ -6187,7 +6327,7 @@
           "description": "An optional description you create for each preset."
         },
         "LastUpdated": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The timestamp in epoch seconds when the preset was last updated."
         },
         "Name": {
@@ -6202,6 +6342,10 @@
           "description": "A preset can be of two types: system or custom. System or built-in preset can't be modified or deleted by the user."
         }
       },
+      "required": [
+        "Settings",
+        "Name"
+      ],
       "type": "object"
     },
     "PresetListBy": {
@@ -6217,11 +6361,11 @@
       "description": "Settings for preset",
       "properties": {
         "AudioDescriptions": {
-          "$ref": "#/definitions/ListOfAudioDescription",
+          "$ref": "#/definitions/__listOfAudioDescription",
           "description": "(AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings."
         },
         "CaptionDescriptions": {
-          "$ref": "#/definitions/ListOfCaptionDescriptionPreset",
+          "$ref": "#/definitions/__listOfCaptionDescriptionPreset",
           "description": "Caption settings for this preset. There can be multiple caption settings in a single output."
         },
         "ContainerSettings": {
@@ -6245,7 +6389,7 @@
       "type": "string"
     },
     "ProresFramerateControl": {
-      "description": "Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.",
+      "description": "If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.",
       "enum": [
         "INITIALIZE_FROM_SOURCE",
         "SPECIFIED"
@@ -6261,7 +6405,7 @@
       "type": "string"
     },
     "ProresInterlaceMode": {
-      "description": "Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.",
+      "description": "Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.\n  - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\".\n  - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.",
       "enum": [
         "PROGRESSIVE",
         "TOP_FIELD",
@@ -6292,11 +6436,11 @@
           "$ref": "#/definitions/ProresFramerateConversionAlgorithm"
         },
         "FramerateDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Framerate denominator."
         },
         "FramerateNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator."
         },
         "InterlaceMode": {
@@ -6306,11 +6450,11 @@
           "$ref": "#/definitions/ProresParControl"
         },
         "ParDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Pixel Aspect Ratio denominator."
         },
         "ParNumerator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Pixel Aspect Ratio numerator."
         },
         "SlowPal": {
@@ -6346,7 +6490,7 @@
           "description": "An identifier for this resource that is unique within all of AWS."
         },
         "CreatedAt": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The timestamp in epoch seconds for queue creation."
         },
         "Description": {
@@ -6354,7 +6498,7 @@
           "description": "An optional description you create for each queue."
         },
         "LastUpdated": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The timestamp in epoch seconds when the queue was last updated."
         },
         "Name": {
@@ -6369,6 +6513,9 @@
           "description": "A queue can be of two types: system or custom. System or built-in queues can't be modified or deleted by the user."
         }
       },
+      "required": [
+        "Name"
+      ],
       "type": "object"
     },
     "QueueListBy": {
@@ -6391,39 +6538,50 @@
       "description": "Use Rectangle to identify a specific area of the video frame.",
       "properties": {
         "Height": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Height of rectangle in pixels."
         },
         "Width": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Width of rectangle in pixels."
         },
         "X": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "The distance, in pixels, between the rectangle and the left edge of the video frame."
         },
         "Y": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "The distance, in pixels, between the rectangle and the top edge of the video frame."
         }
       },
+      "required": [
+        "X",
+        "Y",
+        "Height",
+        "Width"
+      ],
       "type": "object"
     },
     "RemixSettings": {
-      "description": "Use Manual audio remixing (RemixSettings) to adjust audio levels for each output channel. With audio remixing, you can output more or fewer audio channels than your input audio source provides.",
+      "description": "Use Manual audio remixing (RemixSettings) to adjust audio levels for each audio channel in each output of your job. With audio remixing, you can output more or fewer audio channels than your input audio source provides.",
       "properties": {
         "ChannelMapping": {
           "$ref": "#/definitions/ChannelMapping"
         },
         "ChannelsIn": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max16",
           "description": "Specify the number of audio channels from your input that you want to use in your output. With remixing, you might combine or split the data in these channels, so the number of channels in your final output might be different."
         },
         "ChannelsOut": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max8",
           "description": "Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8"
         }
       },
+      "required": [
+        "ChannelsOut",
+        "ChannelMapping",
+        "ChannelsIn"
+      ],
       "type": "object"
     },
     "RespondToAfd": {
@@ -6470,29 +6628,34 @@
           "description": "The SPEKE-compliant server uses Resource ID (ResourceId) to identify content."
         },
         "SystemIds": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12",
           "description": "Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id."
         },
         "Url": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternHttps",
           "description": "Use URL (Url) to specify the SPEKE-compliant server that will provide keys for content."
         }
       },
+      "required": [
+        "ResourceId",
+        "SystemIds",
+        "Url"
+      ],
       "type": "object"
     },
     "StaticKeyProvider": {
       "description": "Settings for use with a SPEKE key provider.",
       "properties": {
         "KeyFormat": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternIdentityAZaZ26AZaZ09163",
           "description": "Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'."
         },
         "KeyFormatVersions": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternDD",
           "description": "Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3)."
         },
         "StaticKeyValue": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPatternAZaZ0932",
           "description": "Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue)."
         },
         "Url": {
@@ -6500,13 +6663,17 @@
           "description": "Relates to DRM implementation. The location of the license server used for protecting content."
         }
       },
+      "required": [
+        "Url",
+        "StaticKeyValue"
+      ],
       "type": "object"
     },
     "TeletextDestinationSettings": {
       "description": "Settings for Teletext caption output",
       "properties": {
         "PageNumber": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin3Max3Pattern1809aFAF09aEAE",
           "description": "Set pageNumber to the Teletext page number for the destination captions for this output. This value must be a three-digit hexadecimal string; strings ending in -FF are invalid. If you are passing through the entire set of Teletext data, do not use this field."
         }
       },
@@ -6516,7 +6683,7 @@
       "description": "Settings specific to Teletext caption sources, including Page number.",
       "properties": {
         "PageNumber": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin3Max3Pattern1809aFAF09aEAE",
           "description": "Use Page Number (PageNumber) to specify the three-digit hexadecimal page number that will be used for Teletext captions. Do not use this setting if you are passing through teletext from the input source to output."
         }
       },
@@ -6526,14 +6693,14 @@
       "description": "Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.",
       "properties": {
         "FontSize": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin10Max48",
           "description": "Use Font Size (FontSize) to set the font size of any burned-in timecode. Valid values are 10, 16, 32, 48."
         },
         "Position": {
           "$ref": "#/definitions/TimecodeBurninPosition"
         },
         "Prefix": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringPattern",
           "description": "Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of \"EZ-\" will result in the timecode \"EZ-00:00:00:00\". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard."
         }
       },
@@ -6555,28 +6722,28 @@
       "type": "string"
     },
     "TimecodeConfig": {
-      "description": "Contains settings used to acquire and adjust timecode information from inputs.",
+      "description": "These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.",
       "properties": {
         "Anchor": {
-          "$ref": "#/definitions/__string",
-          "description": "If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores framerate conversion. System behavior for Anchor Timecode varies depending on your setting for Timecode source (TimecodeSource). * If Timecode source (TimecodeSource) is set to Specified Start (specifiedstart), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Timecode source (TimecodeSource) is set to Start at 0 (zerobased)  the  first frame is 00:00:00:00. * If Timecode source (TimecodeSource) is set to Embedded (embedded), the  first frame is the timecode value on the first input frame of the input."
+          "$ref": "#/definitions/__stringPattern010920405090509092",
+          "description": "If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores framerate conversion. System behavior for Anchor Timecode varies depending on your setting for Source (TimecodeSource). * If Source (TimecodeSource) is set to Specified Start (SPECIFIEDSTART), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED)  the  first frame is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED), the  first frame is the timecode value on the first input frame of the input."
         },
         "Source": {
           "$ref": "#/definitions/TimecodeSource"
         },
         "Start": {
-          "$ref": "#/definitions/__string",
-          "description": "Only use when you set Timecode Source (TimecodeSource) to Specified Start (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF)."
+          "$ref": "#/definitions/__stringPattern010920405090509092",
+          "description": "Only use when you set Source (TimecodeSource) to Specified start (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF)."
         },
         "TimestampOffset": {
-          "$ref": "#/definitions/__string",
-          "description": "Only applies to outputs that support program-date-time stamp. Use Time stamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format \"yyyy-mm-dd\".  To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings."
+          "$ref": "#/definitions/__stringPattern0940191020191209301",
+          "description": "Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format \"yyyy-mm-dd\".  To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25."
         }
       },
       "type": "object"
     },
     "TimecodeSource": {
-      "description": "Use Timecode source (TimecodeSource) to set how timecodes are handled within this input. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.",
+      "description": "Use Source (TimecodeSource) to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.",
       "enum": [
         "EMBEDDED",
         "ZEROBASED",
@@ -6585,7 +6752,7 @@
       "type": "string"
     },
     "TimedMetadata": {
-      "description": "If PASSTHROUGH, inserts ID3 timed metadata from the timed_metadata REST command into this output.",
+      "description": "Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.",
       "enum": [
         "PASSTHROUGH",
         "NONE"
@@ -6596,25 +6763,27 @@
       "description": "Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in your job. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.",
       "properties": {
         "Id3Insertions": {
-          "$ref": "#/definitions/ListOfId3Insertion",
-          "description": "Id3Insertions contains the array of Id3Insertion instances."
+          "$ref": "#/definitions/__listOfId3Insertion"
         }
       },
+      "required": [
+        "Id3Insertions"
+      ],
       "type": "object"
     },
     "Timing": {
       "description": "Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.",
       "properties": {
         "FinishTime": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The time, in Unix epoch format, that the transcoding job finished"
         },
         "StartTime": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The time, in Unix epoch format, that transcoding for the job began."
         },
         "SubmitTime": {
-          "$ref": "#/definitions/__timestamp",
+          "$ref": "#/definitions/__timestampIso8601",
           "description": "The time, in Unix epoch format, that you submitted the job."
         }
       },
@@ -6758,6 +6927,9 @@
           "$ref": "#/definitions/ProresSettings"
         }
       },
+      "required": [
+        "Codec"
+      ],
       "type": "object"
     },
     "VideoDescription": {
@@ -6783,11 +6955,11 @@
           "$ref": "#/definitions/DropFrameTimecode"
         },
         "FixedAfd": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max15",
           "description": "Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all  frames of this video output."
         },
         "Height": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max2160",
           "description": "Use the Height (Height) setting to define the video resolution height for this output. Specify in pixels. If you don't provide a value here, the service will use the input height."
         },
         "Position": {
@@ -6801,7 +6973,7 @@
           "$ref": "#/definitions/ScalingBehavior"
         },
         "Sharpness": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max100",
           "description": "Use Sharpness (Sharpness)setting to specify the strength of anti-aliasing. This setting changes the width of the anti-alias filter kernel used for scaling. Sharpness only applies if your output resolution is different from your input resolution, and if you set Anti-alias (AntiAlias) to ENABLED. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content."
         },
         "TimecodeInsertion": {
@@ -6812,10 +6984,13 @@
           "description": "Find additional transcoding features under Preprocessors (VideoPreprocessors). Enable the features at each output individually. These features are disabled by default."
         },
         "Width": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin32Max4096",
           "description": "Use Width (Width) to define the video resolution width, in pixels, for this output. If you don't provide a value here, the service will use the input width."
         }
       },
+      "required": [
+        "CodecSettings"
+      ],
       "type": "object"
     },
     "VideoDetail": {
@@ -6871,21 +7046,29 @@
           "$ref": "#/definitions/Hdr10Metadata"
         },
         "Pid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max2147483647",
           "description": "Use PID (Pid) to select specific video data from an input file. Specify this value as an integer; the system automatically converts it to the hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet identifier, is an identifier for a set of data in an MPEG-2 transport stream container."
         },
         "ProgramNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative2147483648Max2147483647",
           "description": "Selects a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported."
         }
       },
       "type": "object"
     },
     "VideoTimecodeInsertion": {
-      "description": "Enable Timecode insertion to include timecode information in this output. Do this in the API by setting (VideoTimecodeInsertion) to (PIC_TIMING_SEI). To get timecodes to appear correctly in your output, also set up the timecode configuration for your job in the input settings. Only enable Timecode insertion when the input framerate is identical to output framerate. Disable this setting to remove the timecode from the output. Default is disabled.",
+      "description": "Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable Timecode insertion when the input framerate is identical to the output framerate. To include timecodes in this output, set Timecode insertion (VideoTimecodeInsertion) to PIC_TIMING_SEI. To leave them out, set it to DISABLED. Default is DISABLED. When the service inserts timecodes in an output, by default, it uses any embedded timecodes from the input. If none are present, the service will set the timecode for the first output frame to zero. To change this default behavior, adjust the settings under Timecode configuration (TimecodeConfig). In the console, these settings are located under Job > Job settings > Timecode configuration. Note - Timecode source under input settings (InputTimecodeSource) does not affect the timecodes that are inserted in the output. Source under Job settings > Timecode configuration (TimecodeSource) does.",
       "enum": [
         "DISABLED",
         "PIC_TIMING_SEI"
+      ],
+      "type": "string"
+    },
+    "WavFormat": {
+      "description": "The service defaults to using RIFF for WAV outputs. If your output audio is likely to exceed 4 GB in file size, or if you otherwise need the extended support of the RF64 format, set your output WAV file format to RF64.",
+      "enum": [
+        "RIFF",
+        "RF64"
       ],
       "type": "string"
     },
@@ -6893,15 +7076,18 @@
       "description": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.",
       "properties": {
         "BitDepth": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin16Max24",
           "description": "Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track."
         },
         "Channels": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max8",
           "description": "Set Channels to specify the number of channels in this output audio track. With WAV, valid values 1, 2, 4, and 8. In the console, these values are Mono, Stereo, 4-Channel, and 8-Channel, respectively."
         },
+        "Format": {
+          "$ref": "#/definitions/WavFormat"
+        },
         "SampleRate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin8000Max192000",
           "description": "Sample rate in Hz."
         }
       },
@@ -6914,13 +7100,653 @@
       "format": "double",
       "type": "number"
     },
+    "__doubleMin0": {
+      "format": "double",
+      "type": "number"
+    },
+    "__doubleMinNegative59Max0": {
+      "format": "double",
+      "type": "number"
+    },
+    "__doubleMinNegative60Max3": {
+      "format": "double",
+      "type": "number"
+    },
+    "__doubleMinNegative60MaxNegative1": {
+      "format": "double",
+      "type": "number"
+    },
     "__integer": {
       "type": "integer"
+    },
+    "__integerMin0Max10": {
+      "maximum": 10,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max100": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max1000": {
+      "maximum": 1000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max10000": {
+      "maximum": 10000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max1152000000": {
+      "maximum": 1152000000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max128": {
+      "maximum": 128,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max1466400000": {
+      "maximum": 1466400000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max15": {
+      "maximum": 15,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max16": {
+      "maximum": 16,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max2147483647": {
+      "maximum": 2147483647,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max255": {
+      "maximum": 255,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max3": {
+      "maximum": 3,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max30": {
+      "maximum": 30,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max3600": {
+      "maximum": 3600,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max47185920": {
+      "maximum": 47185920,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max500": {
+      "maximum": 500,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max50000": {
+      "maximum": 50000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max65535": {
+      "maximum": 65535,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max7": {
+      "maximum": 7,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max8": {
+      "maximum": 8,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max9": {
+      "maximum": 9,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max96": {
+      "maximum": 96,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max99": {
+      "maximum": 99,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin1000Max1152000000": {
+      "maximum": 1152000000,
+      "minimum": 1000,
+      "type": "integer"
+    },
+    "__integerMin1000Max1466400000": {
+      "maximum": 1466400000,
+      "minimum": 1000,
+      "type": "integer"
+    },
+    "__integerMin1000Max288000000": {
+      "maximum": 288000000,
+      "minimum": 1000,
+      "type": "integer"
+    },
+    "__integerMin1000Max30000": {
+      "maximum": 30000,
+      "minimum": 1000,
+      "type": "integer"
+    },
+    "__integerMin1000Max300000000": {
+      "maximum": 300000000,
+      "minimum": 1000,
+      "type": "integer"
+    },
+    "__integerMin10Max48": {
+      "maximum": 48,
+      "minimum": 10,
+      "type": "integer"
+    },
+    "__integerMin16Max24": {
+      "maximum": 24,
+      "minimum": 16,
+      "type": "integer"
+    },
+    "__integerMin1Max1": {
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max100": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max10000000": {
+      "maximum": 10000000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max1001": {
+      "maximum": 1001,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max16": {
+      "maximum": 16,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max2": {
+      "maximum": 2,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max2147483647": {
+      "maximum": 2147483647,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max31": {
+      "maximum": 31,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max32": {
+      "maximum": 32,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max4": {
+      "maximum": 4,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max6": {
+      "maximum": 6,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max8": {
+      "maximum": 8,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin24Max60000": {
+      "maximum": 60000,
+      "minimum": 24,
+      "type": "integer"
+    },
+    "__integerMin25Max10000": {
+      "maximum": 10000,
+      "minimum": 25,
+      "type": "integer"
+    },
+    "__integerMin25Max2000": {
+      "maximum": 2000,
+      "minimum": 25,
+      "type": "integer"
+    },
+    "__integerMin32000Max384000": {
+      "maximum": 384000,
+      "minimum": 32000,
+      "type": "integer"
+    },
+    "__integerMin32000Max48000": {
+      "maximum": 48000,
+      "minimum": 32000,
+      "type": "integer"
+    },
+    "__integerMin32Max2160": {
+      "maximum": 2160,
+      "minimum": 32,
+      "type": "integer"
+    },
+    "__integerMin32Max4096": {
+      "maximum": 4096,
+      "minimum": 32,
+      "type": "integer"
+    },
+    "__integerMin32Max8182": {
+      "maximum": 8182,
+      "minimum": 32,
+      "type": "integer"
+    },
+    "__integerMin48000Max48000": {
+      "maximum": 48000,
+      "minimum": 48000,
+      "type": "integer"
+    },
+    "__integerMin6000Max1024000": {
+      "maximum": 1024000,
+      "minimum": 6000,
+      "type": "integer"
+    },
+    "__integerMin64000Max640000": {
+      "maximum": 640000,
+      "minimum": 64000,
+      "type": "integer"
+    },
+    "__integerMin8000Max192000": {
+      "maximum": 192000,
+      "minimum": 8000,
+      "type": "integer"
+    },
+    "__integerMin8000Max96000": {
+      "maximum": 96000,
+      "minimum": 8000,
+      "type": "integer"
+    },
+    "__integerMin96Max600": {
+      "maximum": 600,
+      "minimum": 96,
+      "type": "integer"
+    },
+    "__integerMinNegative1000Max1000": {
+      "maximum": 1000,
+      "minimum": -1000,
+      "type": "integer"
+    },
+    "__integerMinNegative180Max180": {
+      "maximum": 180,
+      "minimum": -180,
+      "type": "integer"
+    },
+    "__integerMinNegative2147483648Max2147483647": {
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "type": "integer"
+    },
+    "__integerMinNegative2Max3": {
+      "maximum": 3,
+      "minimum": -2,
+      "type": "integer"
+    },
+    "__integerMinNegative5Max5": {
+      "maximum": 5,
+      "minimum": -5,
+      "type": "integer"
+    },
+    "__integerMinNegative60Max6": {
+      "maximum": 6,
+      "minimum": -60,
+      "type": "integer"
+    },
+    "__integerMinNegative70Max0": {
+      "maximum": 0,
+      "minimum": -70,
+      "type": "integer"
+    },
+    "__listOfAudioDescription": {
+      "items": {
+        "$ref": "#/definitions/AudioDescription"
+      },
+      "type": "array"
+    },
+    "__listOfCaptionDescription": {
+      "items": {
+        "$ref": "#/definitions/CaptionDescription"
+      },
+      "type": "array"
+    },
+    "__listOfCaptionDescriptionPreset": {
+      "items": {
+        "$ref": "#/definitions/CaptionDescriptionPreset"
+      },
+      "type": "array"
+    },
+    "__listOfEndpoint": {
+      "items": {
+        "$ref": "#/definitions/Endpoint"
+      },
+      "type": "array"
+    },
+    "__listOfHlsAdMarkers": {
+      "items": {
+        "$ref": "#/definitions/HlsAdMarkers"
+      },
+      "type": "array"
+    },
+    "__listOfHlsCaptionLanguageMapping": {
+      "items": {
+        "$ref": "#/definitions/HlsCaptionLanguageMapping"
+      },
+      "type": "array"
+    },
+    "__listOfId3Insertion": {
+      "items": {
+        "$ref": "#/definitions/Id3Insertion"
+      },
+      "type": "array"
+    },
+    "__listOfInput": {
+      "items": {
+        "$ref": "#/definitions/Input"
+      },
+      "type": "array"
+    },
+    "__listOfInputClipping": {
+      "items": {
+        "$ref": "#/definitions/InputClipping"
+      },
+      "type": "array"
+    },
+    "__listOfInputTemplate": {
+      "items": {
+        "$ref": "#/definitions/InputTemplate"
+      },
+      "type": "array"
+    },
+    "__listOfInsertableImage": {
+      "items": {
+        "$ref": "#/definitions/InsertableImage"
+      },
+      "type": "array"
+    },
+    "__listOfJob": {
+      "items": {
+        "$ref": "#/definitions/Job"
+      },
+      "type": "array"
+    },
+    "__listOfJobTemplate": {
+      "items": {
+        "$ref": "#/definitions/JobTemplate"
+      },
+      "type": "array"
+    },
+    "__listOfOutput": {
+      "items": {
+        "$ref": "#/definitions/Output"
+      },
+      "type": "array"
+    },
+    "__listOfOutputChannelMapping": {
+      "items": {
+        "$ref": "#/definitions/OutputChannelMapping"
+      },
+      "type": "array"
+    },
+    "__listOfOutputDetail": {
+      "items": {
+        "$ref": "#/definitions/OutputDetail"
+      },
+      "type": "array"
+    },
+    "__listOfOutputGroup": {
+      "items": {
+        "$ref": "#/definitions/OutputGroup"
+      },
+      "type": "array"
+    },
+    "__listOfOutputGroupDetail": {
+      "items": {
+        "$ref": "#/definitions/OutputGroupDetail"
+      },
+      "type": "array"
+    },
+    "__listOfPreset": {
+      "items": {
+        "$ref": "#/definitions/Preset"
+      },
+      "type": "array"
+    },
+    "__listOfQueue": {
+      "items": {
+        "$ref": "#/definitions/Queue"
+      },
+      "type": "array"
+    },
+    "__listOf__integerMin1Max2147483647": {
+      "items": {
+        "$ref": "#/definitions/__integerMin1Max2147483647"
+      },
+      "type": "array"
+    },
+    "__listOf__integerMin32Max8182": {
+      "items": {
+        "$ref": "#/definitions/__integerMin32Max8182"
+      },
+      "type": "array"
+    },
+    "__listOf__integerMinNegative60Max6": {
+      "items": {
+        "$ref": "#/definitions/__integerMinNegative60Max6"
+      },
+      "type": "array"
+    },
+    "__listOf__stringMin1": {
+      "items": {
+        "$ref": "#/definitions/__stringMin1"
+      },
+      "type": "array"
+    },
+    "__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12": {
+      "items": {
+        "$ref": "#/definitions/__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12"
+      },
+      "type": "array"
+    },
+    "__long": {
+      "type": "integer"
+    },
+    "__mapOfAudioSelector": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/AudioSelector"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "__mapOfAudioSelectorGroup": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/AudioSelectorGroup"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "__mapOfCaptionSelector": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/CaptionSelector"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "__mapOf__string": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/__string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "__string": {
       "type": "string"
     },
-    "__timestamp": {
+    "__stringMin0": {
+      "minLength": 0,
+      "type": "string"
+    },
+    "__stringMin1": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "__stringMin14PatternS3BmpBMPPngPNG": {
+      "minLength": 14,
+      "pattern": "^(s3:\\/\\/)(.*?)\\.(bmp|BMP|png|PNG)$",
+      "type": "string"
+    },
+    "__stringMin14PatternS3BmpBMPPngPNGTgaTGA": {
+      "minLength": 14,
+      "pattern": "^(s3:\\/\\/)(.*?)\\.(bmp|BMP|png|PNG|tga|TGA)$",
+      "type": "string"
+    },
+    "__stringMin14PatternS3SccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTSmiSMI": {
+      "minLength": 14,
+      "pattern": "^(s3:\\/\\/)(.*?)\\.(scc|SCC|ttml|TTML|dfxp|DFXP|stl|STL|srt|SRT|smi|SMI)$",
+      "type": "string"
+    },
+    "__stringMin1Max256": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "__stringMin32Max32Pattern09aFAF32": {
+      "maxLength": 32,
+      "minLength": 32,
+      "pattern": "^[0-9a-fA-F]{32}$",
+      "type": "string"
+    },
+    "__stringMin3Max3Pattern1809aFAF09aEAE": {
+      "maxLength": 3,
+      "minLength": 3,
+      "pattern": "^[1-8][0-9a-fA-F][0-9a-eA-E]$",
+      "type": "string"
+    },
+    "__stringPattern": {
+      "pattern": "^[ -~]+$",
+      "type": "string"
+    },
+    "__stringPattern010920405090509092": {
+      "pattern": "^([01][0-9]|2[0-4]):[0-5][0-9]:[0-5][0-9][:;][0-9]{2}$",
+      "type": "string"
+    },
+    "__stringPattern01D20305D205D": {
+      "pattern": "^((([0-1]\\d)|(2[0-3]))(:[0-5]\\d){2}([:;][0-5]\\d))$",
+      "type": "string"
+    },
+    "__stringPattern0940191020191209301": {
+      "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "type": "string"
+    },
+    "__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12": {
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      "type": "string"
+    },
+    "__stringPatternAZaZ0902": {
+      "pattern": "^[A-Za-z0-9+\\/]+={0,2}$",
+      "type": "string"
+    },
+    "__stringPatternAZaZ0932": {
+      "pattern": "^[A-Za-z0-9]{32}$",
+      "type": "string"
+    },
+    "__stringPatternDD": {
+      "pattern": "^(\\d+(\\/\\d+)*)$",
+      "type": "string"
+    },
+    "__stringPatternHttps": {
+      "pattern": "^https:\\/\\/",
+      "type": "string"
+    },
+    "__stringPatternIdentityAZaZ26AZaZ09163": {
+      "pattern": "^(identity|[A-Za-z]{2,6}(\\.[A-Za-z0-9-]{1,63})+)$",
+      "type": "string"
+    },
+    "__stringPatternS3": {
+      "pattern": "^s3:\\/\\/",
+      "type": "string"
+    },
+    "__stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MM": {
+      "pattern": "^(s3:\\/\\/)([^\\/]+\\/)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[vV]|[mM][pP][eE][gG]|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vV]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM])))$",
+      "type": "string"
+    },
+    "__stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEE": {
+      "pattern": "^(s3:\\/\\/)([^\\/]+\\/)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[vV]|[mM][pP][eE][gG]|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vV]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[aA][aA][cC]|[aA][iI][fF][fF]|[mM][pP]2|[aA][cC]3|[eE][cC]3|[dD][tT][sS][eE])))$",
+      "type": "string"
+    },
+    "__stringPatternWS": {
+      "pattern": "^[\\w\\s]*$",
+      "type": "string"
+    },
+    "__timestampIso8601": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "__timestampUnix": {
       "format": "date-time",
       "type": "string"
     }

@@ -1,6 +1,6 @@
 # @datafire/google_appengine
 
-Client library for Google App Engine Admin
+Client library for App Engine Admin
 
 ## Installation and Usage
 ```bash
@@ -70,7 +70,7 @@ google_appengine.oauthRefresh(null, context)
 ### apps.create
 Creates an App Engine application for a Google Cloud Platform project. Required fields:
 id - The ID of the target Cloud Platform project.
-location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/python/console/).
+location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/).
 
 
 ```js
@@ -745,7 +745,7 @@ google_appengine.apps.locations.list({
 * output [ListLocationsResponse](#listlocationsresponse)
 
 ### apps.locations.get
-Get information about a location.
+Gets information about a location.
 
 
 ```js
@@ -1110,15 +1110,20 @@ google_appengine.apps.services.versions.get({
 * output [Version](#version)
 
 ### apps.services.versions.patch
-Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:
-serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status):  For Version resources that use basic scaling, manual scaling, or run in  the App Engine flexible environment.
-instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class):  For Version resources that run in the App Engine standard environment.
-automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):  For Version resources that use automatic scaling and run in the App  Engine standard environment.
-automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):  For Version resources that use automatic scaling and run in the App  Engine standard environment.
-automatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):  For Version resources that use automatic scaling and run in the App  Engine Flexible environment.
-automatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):  For Version resources that use automatic scaling and run in the App  Engine Flexible environment.
-automatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):  For Version resources that use automatic scaling and run in the App  Engine Flexible environment.
-automatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):  For Version resources that use automatic scaling and run in the App  Engine Flexible environment.
+Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment
+instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment:
+automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+automaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+automaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+automaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+automaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment:
+serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible environment
+serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment:
+automatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+automatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+automatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+automatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
 
 
 ```js
@@ -1358,7 +1363,7 @@ google_appengine.apps.repair({
   * gcrDomain `string`: The Google Container Registry domain used for storing managed build docker images for this application.
   * iap [IdentityAwareProxy](#identityawareproxy)
   * id `string`: Identifier of the Application resource. This identifier is equivalent to the project ID of the Google Cloud Platform project where you want to deploy your application. Example: myapp.
-  * locationId `string`: Location from which this application will be run. Application instances will run out of data centers in the chosen location, which is also where all of the application's end user content is stored.Defaults to us-central.Options are:us-central - Central USeurope-west - Western Europeus-east1 - Eastern US
+  * locationId `string`: Location from which this application runs. Application instances run out of the data centers in the specified location, which is also where all of the application's end user content is stored.Defaults to us-central.View the list of supported locations (https://cloud.google.com/appengine/docs/locations).
   * name `string`: Full path to the Application resource in the API. Example: apps/myapp.@OutputOnly
   * servingStatus `string` (values: UNSPECIFIED, SERVING, USER_DISABLED, SYSTEM_DISABLED): Serving status of this application.
 
@@ -1388,10 +1393,10 @@ google_appengine.apps.repair({
   * maxConcurrentRequests `integer`: Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.Defaults to a runtime-specific value.
   * maxIdleInstances `integer`: Maximum number of idle instances that should be maintained for this version.
   * maxPendingLatency `string`: Maximum amount of time that a request should wait in the pending queue before starting a new instance to handle it.
-  * maxTotalInstances `integer`: Maximum number of instances that should be started to handle requests.
+  * maxTotalInstances `integer`: Maximum number of instances that should be started to handle requests for this version.
   * minIdleInstances `integer`: Minimum number of idle instances that should be maintained for this version. Only applicable for the default version of a service.
   * minPendingLatency `string`: Minimum amount of time a request should wait in the pending queue before starting a new instance to handle it.
-  * minTotalInstances `integer`: Minimum number of instances that should be maintained for this version.
+  * minTotalInstances `integer`: Minimum number of running instances that should be maintained for this version.
   * networkUtilization [NetworkUtilization](#networkutilization)
   * requestUtilization [RequestUtilization](#requestutilization)
   * standardSchedulerSettings [StandardSchedulerSettings](#standardschedulersettings)
@@ -1416,6 +1421,11 @@ google_appengine.apps.repair({
   * privateKey `string`: Unencrypted PEM encoded RSA private key. This field is set once on certificate creation and then encrypted. The key size must be 2048 bits or fewer. Must include the header and footer. Example: <pre> -----BEGIN RSA PRIVATE KEY----- <unencrypted_key_value> -----END RSA PRIVATE KEY----- </pre> @InputOnly
   * publicCertificate `string`: PEM encoded x.509 public key certificate. This field is set once on certificate creation. Must include the header and footer. Example: <pre> -----BEGIN CERTIFICATE----- <certificate_value> -----END CERTIFICATE----- </pre>
 
+### CloudBuildOptions
+* CloudBuildOptions `object`: Options for the build operations performed as a part of the version deployment. Only applicable for App Engine flexible environment when creating a version using source code directly.
+  * appYamlPath `string`: Path to the yaml file used in deployment, used to determine runtime configuration details.Required for flexible environment builds.See https://cloud.google.com/appengine/docs/standard/python/config/appref for more details.
+  * cloudBuildTimeout `string`: The Cloud Build timeout used as part of any dependent builds performed by version creation. Defaults to 10 minutes.
+
 ### ContainerInfo
 * ContainerInfo `object`: Docker image that is used to create a container and start a VM instance for the version that you deploy. Only applicable for instances running in the App Engine flexible environment.
   * image `string`: URI to the hosted container image in Google Container Registry. The URI must be fully qualified and include a tag or digest. Examples: "gcr.io/my-project/image:tag" or "gcr.io/my-project/image@digest"
@@ -1424,6 +1434,10 @@ google_appengine.apps.repair({
 * CpuUtilization `object`: Target scaling by CPU usage.
   * aggregationWindowLength `string`: Period of time over which CPU utilization is calculated.
   * targetUtilization `number`: Target CPU utilization ratio to maintain when scaling. Must be between 0 and 1.
+
+### CreateVersionMetadataV1
+* CreateVersionMetadataV1 `object`: Metadata for the given google.longrunning.Operation during a google.appengine.v1.CreateVersionRequest.
+  * cloudBuildId `string`: The Cloud Build ID if one was created as part of the version create. @OutputOnly
 
 ### CreateVersionMetadataV1Alpha
 * CreateVersionMetadataV1Alpha `object`: Metadata for the given google.longrunning.Operation during a google.appengine.v1alpha.CreateVersionRequest.
@@ -1439,6 +1453,7 @@ google_appengine.apps.repair({
 
 ### Deployment
 * Deployment `object`: Code and application artifacts used to deploy a version to App Engine.
+  * cloudBuildOptions [CloudBuildOptions](#cloudbuildoptions)
   * container [ContainerInfo](#containerinfo)
   * files `object`: Manifest of the files stored in Google Cloud Storage that are included as part of this version. All files must be readable using the credentials supplied with this call.
   * zip [ZipInfo](#zipinfo)
@@ -1462,8 +1477,8 @@ google_appengine.apps.repair({
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance:
 
 ### EndpointsApiService
-* EndpointsApiService `object`: Cloud Endpoints (https://cloud.google.com/endpoints) configuration. The Endpoints API Service provides tooling for serving Open API and gRPC endpoints via an NGINX proxy.The fields here refer to the name and configuration id of a "service" resource in the Service Management API (https://cloud.google.com/service-management/overview).
-  * configId `string`: Endpoints service configuration id as specified by the Service Management API. For example "2016-09-19r1"
+* EndpointsApiService `object`: Cloud Endpoints (https://cloud.google.com/endpoints) configuration. The Endpoints API Service provides tooling for serving Open API and gRPC endpoints via an NGINX proxy. Only valid for App Engine Flexible environment deployments.The fields here refer to the name and configuration ID of a "service" resource in the Service Management API (https://cloud.google.com/service-management/overview).
+  * configId `string`: Endpoints service configuration ID as specified by the Service Management API. For example "2016-09-19r1".By default, the rollout strategy for Endpoints is RolloutStrategy.FIXED. This means that Endpoints starts up with a particular configuration ID. When a new configuration is rolled out, Endpoints must be given the new configuration ID. The config_id field is used to give the configuration ID and is required in this case.Endpoints also has a rollout strategy called RolloutStrategy.MANAGED. When using this, Endpoints fetches the latest configuration and does not need the configuration ID. In this case, config_id must be omitted.
   * name `string`: Endpoints service name which is the name of the "service" resource in the Service Management API. For example "myapi.endpoints.myproject.cloud.goog"
 
 ### ErrorHandler
@@ -1596,6 +1611,7 @@ google_appengine.apps.repair({
 
 ### Location
 * Location `object`: A resource that represents Google Cloud Platform location.
+  * displayName `string`: The friendly name for this location, typically a nearby city name. For example, "Tokyo".
   * labels `object`: Cross-service attributes for the location. For example
   * locationId `string`: The canonical id for this location. For example: "us-east1".
   * metadata `object`: Service-specific metadata. For example the available capacity at the given location.
@@ -1603,8 +1619,8 @@ google_appengine.apps.repair({
 
 ### LocationMetadata
 * LocationMetadata `object`: Metadata for the given google.cloud.location.Location.
-  * flexibleEnvironmentAvailable `boolean`: App Engine Flexible Environment is available in the given location.@OutputOnly
-  * standardEnvironmentAvailable `boolean`: App Engine Standard Environment is available in the given location.@OutputOnly
+  * flexibleEnvironmentAvailable `boolean`: App Engine flexible environment is available in the given location.@OutputOnly
+  * standardEnvironmentAvailable `boolean`: App Engine standard environment is available in the given location.@OutputOnly
 
 ### ManualScaling
 * ManualScaling `object`: A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of its memory over time.
@@ -1614,7 +1630,7 @@ google_appengine.apps.repair({
 * Network `object`: Extra network settings. Only applicable in the App Engine flexible environment.
   * forwardedPorts `array`: List of ports, or port pairs, to forward from the virtual machine to the application container. Only applicable in the App Engine flexible environment.
     * items `string`
-  * instanceTag `string`: Tag to apply to the VM instance during creation. for Only applicable in the App Engine flexible environment.
+  * instanceTag `string`: Tag to apply to the instance during creation. Only applicable in the App Engine flexible environment.
   * name `string`: Google Compute Engine network where the virtual machines are created. Specify the short name, not the resource path.Defaults to default.
   * subnetworkName `string`: Google Cloud Platform sub-network where the virtual machines are created. Specify the short name, not the resource path.If a subnetwork name is specified, a network name will also be required unless it is for the default network.
 
@@ -1644,6 +1660,7 @@ google_appengine.apps.repair({
 
 ### OperationMetadataV1
 * OperationMetadataV1 `object`: Metadata for the given google.longrunning.Operation.
+  * createVersionMetadata [CreateVersionMetadataV1](#createversionmetadatav1)
   * endTime `string`: Time that this operation completed.@OutputOnly
   * ephemeralMessage `string`: Ephemeral message that may change every time the operation is polled. @OutputOnly
   * insertTime `string`: Time that this operation was created.@OutputOnly
@@ -1733,8 +1750,8 @@ google_appengine.apps.repair({
 
 ### StandardSchedulerSettings
 * StandardSchedulerSettings `object`: Scheduler settings for standard environment.
-  * maxInstances `integer`: Maximum number of instances for an app version. Set to zero to disable max_instances configuration.
-  * minInstances `integer`: Minimum number of instances for an app version. Set to zero to disable min_instances configuration.
+  * maxInstances `integer`: Maximum number of instances to run for this version. Set to zero to disable max_instances configuration.
+  * minInstances `integer`: Minimum number of instances to run for this version. Set to zero to disable min_instances configuration.
   * targetCpuUtilization `number`: Target CPU utilization ratio to maintain when scaling.
   * targetThroughputUtilization `number`: Target throughput utilization ratio to maintain when scaling
 
@@ -1816,7 +1833,7 @@ google_appengine.apps.repair({
   * threadsafe `boolean`: Whether multiple requests can be dispatched to this version at once.
   * versionUrl `string`: Serving URL for this version. Example: "https://myversion-dot-myservice-dot-myapp.appspot.com"@OutputOnly
   * vm `boolean`: Whether to deploy this version in a container on a virtual machine.
-  * zones `array`: The choice of gce zones to use for this App Engine Flexible version.
+  * zones `array`: The Google Compute Engine zones that are supported by this version in the App Engine flexible environment.
     * items `string`
 
 ### Volume

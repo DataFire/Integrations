@@ -232,6 +232,7 @@ rbaskets_in.baskets.name.responses.method.put({
   * expand_path `boolean`: If set to `true` the forward URL path will be expanded when original HTTP request contains compound path.
   * forward_url `string`: URL to forward all incoming requests of the basket, `empty` value disables forwarding
   * insecure_tls `boolean`: If set to `true` the certificate verification will be disabled if forward URL indicates HTTPS scheme.
+  * proxy_response `boolean`: If set to `true` this basket behaves as a full proxy: responses from underlying service configured in `forward_url`
 
 ### Headers
 * Headers `object`: Map of HTTP headers, key represents name, value is array of values

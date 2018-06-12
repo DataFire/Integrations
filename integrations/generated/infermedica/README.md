@@ -415,16 +415,19 @@ infermedica.triage.post({
 
 ### ParseRequest
 * ParseRequest `object`
-  * concept_types `array`
+  * concept_types `array`: list of concept types that should be captured
     * items `string` (values: symptom, risk_factor)
-  * correct_spelling `boolean`
-  * include_tokens `boolean`
-  * text **required** `string`
+  * context `array`: ordered list of ids of present symptoms that were already captured and can be used as context
+    * items `string`
+  * correct_spelling `boolean`: correct spelling of input text before proper analysis
+  * include_tokens `boolean`: include tokenization details in output
+  * text **required** `string`: user text to process
 
 ### ParseResponse
 * ParseResponse `object`
-  * mentions `array`
+  * mentions **required** `array`: list of recognized symptom or risk factor mentions
     * items [ObservationMention](#observationmention)
+  * obvious **required** `boolean`: indicates that entire input text has been parsed successfully and unambiguously
   * tokens `array`
     * items `string`
 

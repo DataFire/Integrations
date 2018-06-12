@@ -76,7 +76,7 @@ azure_apimanagement_apimemailtemplate.EmailTemplate_Delete({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * templateName **required** `string` (values: applicationApprovedNotificationMessage, accountClosedDeveloper, quotaLimitApproachingDeveloperNotificationMessage, newDeveloperNotificationMessage, emailChangeIdentityDefault, inviteUserNotificationMessage, newCommentNotificationMessage, confirmSignUpIdentityDefault, newIssueNotificationMessage, purchaseDeveloperNotificationMessage, passwordResetIdentityDefault, passwordResetByAdminNotificationMessage, rejectDeveloperNotificationMessage, requestDeveloperNotificationMessage): Email Template Name Identifier.
-  * If-Match **required** `string`: The entity state (Etag) version of the Email Template to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -181,6 +181,7 @@ azure_apimanagement_apimemailtemplate.EmailTemplate_CreateOrUpdate({
   * serviceName **required** `string`: The name of the API Management service.
   * templateName **required** `string` (values: applicationApprovedNotificationMessage, accountClosedDeveloper, quotaLimitApproachingDeveloperNotificationMessage, newDeveloperNotificationMessage, emailChangeIdentityDefault, inviteUserNotificationMessage, newCommentNotificationMessage, confirmSignUpIdentityDefault, newIssueNotificationMessage, purchaseDeveloperNotificationMessage, passwordResetIdentityDefault, passwordResetByAdminNotificationMessage, rejectDeveloperNotificationMessage, requestDeveloperNotificationMessage): Email Template Name Identifier.
   * parameters **required** [EmailTemplateUpdateParameters](#emailtemplateupdateparameters)
+  * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 

@@ -307,6 +307,21 @@ amazonaws_events.TestEventPattern({
 ### Arn
 * Arn `string`
 
+### BatchArrayProperties
+* BatchArrayProperties `object`: The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+  * Size [Integer](#integer)
+
+### BatchParameters
+* BatchParameters `object`: The custom parameters to be used when the target is an AWS Batch job.
+  * ArrayProperties [BatchArrayProperties](#batcharrayproperties)
+  * JobDefinition **required** [String](#string)
+  * JobName **required** [String](#string)
+  * RetryStrategy [BatchRetryStrategy](#batchretrystrategy)
+
+### BatchRetryStrategy
+* BatchRetryStrategy `object`: The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+  * Attempts [Integer](#integer)
+
 ### Boolean
 * Boolean `boolean`
 
@@ -437,6 +452,9 @@ amazonaws_events.TestEventPattern({
 * ListTargetsByRuleResponse `object`
   * NextToken [NextToken](#nexttoken)
   * Targets [TargetList](#targetlist)
+
+### MessageGroupId
+* MessageGroupId `string`
 
 ### NextToken
 * NextToken `string`
@@ -603,6 +621,10 @@ amazonaws_events.TestEventPattern({
 ### ScheduleExpression
 * ScheduleExpression `string`
 
+### SqsParameters
+* SqsParameters `object`: This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+  * MessageGroupId [MessageGroupId](#messagegroupid)
+
 ### StatementId
 * StatementId `string`
 
@@ -612,6 +634,7 @@ amazonaws_events.TestEventPattern({
 ### Target
 * Target `object`: Targets are the resources to be invoked when a rule is triggered. Target types include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks, AWS Step Functions state machines, Run Command, and built-in targets.
   * Arn **required** [TargetArn](#targetarn)
+  * BatchParameters [BatchParameters](#batchparameters)
   * EcsParameters [EcsParameters](#ecsparameters)
   * Id **required** [TargetId](#targetid)
   * Input [TargetInput](#targetinput)
@@ -620,6 +643,7 @@ amazonaws_events.TestEventPattern({
   * KinesisParameters [KinesisParameters](#kinesisparameters)
   * RoleArn [RoleArn](#rolearn)
   * RunCommandParameters [RunCommandParameters](#runcommandparameters)
+  * SqsParameters [SqsParameters](#sqsparameters)
 
 ### TargetArn
 * TargetArn `string`

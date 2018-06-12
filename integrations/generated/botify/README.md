@@ -41,6 +41,7 @@ botify.getProjectAnalyses({
   * page `integer`: Page Number
   * size `integer`: Page Size
   * only_success `boolean`: Return only successfully finished analyses
+  * fields `string`: Which fields to return (comma-separated)
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
 
@@ -68,12 +69,35 @@ botify.getAnalysisSummary({
 
 #### Input
 * input `object`
+  * previous_crawl `string`: Previous analysis identifier
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
   * analysis_slug **required** `string`: Analysis' identifier
 
 #### Output
 * output [AnalysisDetail](#analysisdetail)
+
+### updateAnalysis
+Update an Analysis' attribute
+
+
+```js
+botify.updateAnalysis({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AnalysisUpdate [AnalysisUpdate](#analysisupdate)
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+  * analysis_slug **required** `string`: Analysis' identifier
+
+#### Output
+* output [AnalysisUpdate](#analysisupdate)
 
 ### getCrawlStatistics
 Return global statistics for an analysis
@@ -416,6 +440,68 @@ botify.getVisitsOrphanURLs({
     * items [CrawlOrphanURLs](#crawlorphanurls)
   * size `integer`
 
+### getRobotsTxtIndexesView
+Return a list of all robots.txt files found on the project's domains.
+
+
+```js
+botify.getRobotsTxtIndexesView({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: Page Number
+  * size `integer`: Page Size
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+  * analysis_slug **required** `string`: Analysis' identifier
+
+#### Output
+* output `object`
+  * count `integer`
+  * next `string`
+  * page `integer`
+  * previous `string`
+  * results `array`
+    * items [Default](#default)
+  * size `integer`
+
+### getRobotsTxtFileView
+Return content of a robots.txt file.
+
+
+```js
+botify.getRobotsTxtFileView({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": "",
+  "robots_txt": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: Page Number
+  * size `integer`: Page Size
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+  * analysis_slug **required** `string`: Analysis' identifier
+  * robots_txt **required** `string`: Filename
+
+#### Output
+* output `object`
+  * count `integer`
+  * next `string`
+  * page `integer`
+  * previous `string`
+  * results `array`
+    * items [Default](#default)
+  * size `integer`
+
 ### getUrls
 Executes a query and returns a paginated response
 
@@ -431,9 +517,10 @@ botify.getUrls({
 #### Input
 * input `object`
   * Query [Query](#query)
-  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
+  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords, gsc_keywords_by_country): Analysis context
   * page `integer`: Page Number
   * size `integer`: Page Size
+  * previous_crawl `string`: Previous analysis identifier
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
   * analysis_slug **required** `string`: Analysis' identifier
@@ -463,7 +550,8 @@ botify.getUrlsAggs({
 #### Input
 * input `object`
   * AggsQueries [AggsQueries](#aggsqueries)
-  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
+  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords, gsc_keywords_by_country): Analysis context
+  * previous_crawl `string`: Previous analysis identifier
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
   * analysis_slug **required** `string`: Analysis' identifier
@@ -486,7 +574,7 @@ botify.getUrlsDatamodel({
 
 #### Input
 * input `object`
-  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
+  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords, gsc_keywords_by_country): Analysis context
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
   * analysis_slug **required** `string`: Analysis' identifier
@@ -508,7 +596,7 @@ botify.getUrlsDatasets({
 
 #### Input
 * input `object`
-  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
+  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords, gsc_keywords_by_country): Analysis context
   * deprecated_fields `boolean`: Include deprecated fields
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
@@ -562,7 +650,10 @@ botify.createUrlsExport({
 #### Input
 * input `object`
   * Query [Query](#query)
-  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
+  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords, gsc_keywords_by_country): Analysis context
+  * previous_crawl `string`: Previous analysis identifier
+  * export_size `integer`: Maximum size of the export (deprecated => size instead)
+  * size `integer`: Maximum size of the export
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
   * analysis_slug **required** `string`: Analysis' identifier
@@ -703,20 +794,11 @@ botify.getSavedFilters({
 
 #### Input
 * input `object`
-  * page `integer`: Page Number
-  * size `integer`: Page Size
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
 
 #### Output
-* output `object`
-  * count `integer`
-  * next `string`
-  * page `integer`
-  * previous `string`
-  * results `array`
-    * items [ProjectSavedFilter](#projectsavedfilter)
-  * size `integer`
+* output [ProjectSavedFilter](#projectsavedfilter)
 
 ### getSavedFilter
 Retrieves a specific saved filter's name, ID and filter value
@@ -753,7 +835,7 @@ botify.getProjectUrlsAggs({
 #### Input
 * input `object`
   * AggsQueries [AggsQueries](#aggsqueries)
-  * area `string` (values: current, disappeared, new, gsc_keywords): Analyses context
+  * area `string` (values: current, disappeared, new, gsc_keywords, gsc_keywords_by_country): Analyses context
   * last_analysis_slug `string`: Last analysis on the trend
   * nb_analyses `integer`: Max number of analysis to return
   * username **required** `string`: User's identifier
@@ -774,9 +856,9 @@ botify.getProjectUrlsAggs({
   * job_id `string`
   * job_status `string`
   * job_url `string`
-  * nb_lines `string`
   * query `string`
   * results `string`
+  * user `string`
 
 ### AdvancedExporter
 * AdvancedExporter `object`
@@ -815,6 +897,7 @@ botify.getProjectUrlsAggs({
 
 ### Analysis
 * Analysis `object`
+  * comparable `string`
   * computing_revision `string`
   * config `string`
   * crawl_launch_type `string`
@@ -826,11 +909,15 @@ botify.getProjectUrlsAggs({
   * features `string`
   * friendly_name `string`
   * import_keywords_data `string`
+  * import_keywords_data_by_country `string`
   * name `string`
   * owner `string`
+  * pinned `boolean`
+  * pins_balance `string`
   * red_button_domain `string`
   * slug `string`
   * status `string`
+  * to_be_deleted_at `string`
   * url `string`
   * urls_done `string`
   * urls_in_queue `string`
@@ -838,6 +925,7 @@ botify.getProjectUrlsAggs({
 
 ### AnalysisDetail
 * AnalysisDetail `object`
+  * comparable `string`
   * computing_revision `string`
   * config `string`
   * crawl_launch_type `string`
@@ -849,15 +937,23 @@ botify.getProjectUrlsAggs({
   * features `string`
   * friendly_name `string`
   * import_keywords_data `string`
+  * import_keywords_data_by_country `string`
   * name `string`
   * owner `string`
+  * pinned `boolean`
+  * pins_balance `string`
   * red_button_domain `string`
   * slug `string`
   * status `string`
+  * to_be_deleted_at `string`
   * url `string`
   * urls_done `string`
   * urls_in_queue `string`
   * user **required** [User](#user)
+
+### AnalysisUpdate
+* AnalysisUpdate `object`: Analysis Update
+  * pinned `boolean`
 
 ### AnalysisUpdateLaunch
 * AnalysisUpdateLaunch `object`: Launch Analysis Update
@@ -947,6 +1043,8 @@ botify.getProjectUrlsAggs({
   * nb_results `integer`
   * query **required** [Query](#query)
   * results `string`
+  * size **required** `integer`
+  * user `string`
 
 ### Datamodel
 * Datamodel `object`
@@ -969,6 +1067,7 @@ botify.getProjectUrlsAggs({
   * permissions **required** `array`
     * items `string`
   * subtype **required** `string`
+  * suggestion `boolean`
   * type **required** `string`
 
 ### DatamodelGroup
@@ -1001,6 +1100,7 @@ botify.getProjectUrlsAggs({
     * items `string`
   * settings `object`
   * subtype **required** `string`
+  * suggestion `boolean`
   * type **required** `string`
 
 ### DatasetGroup
@@ -1040,6 +1140,12 @@ botify.getProjectUrlsAggs({
 * FieldValuesResult `object`
   * nb_urls **required** `integer`
   * value **required** `string`
+
+### HtmlExtract
+* HtmlExtract `object`: Html Extract
+  * config `object`
+  * extract_type `string`
+  * id `string`
 
 ### KeywordsStat
 * KeywordsStat `object`
@@ -1111,12 +1217,17 @@ botify.getProjectUrlsAggs({
 ### Project
 * Project `object`
   * active `boolean`
+  * auto_pin_first_analysis `boolean`
   * current_settings **required** [ProjectSettings](#projectsettings)
   * date_created `string`
   * has_log_analysis `boolean`
   * last_analysis `object`
   * name **required** `string`
+  * pins_balance `integer`
+  * retention_period `integer`
+  * settings_url `string`
   * slug **required** `string`
+  * timezone `string`
   * url `string`
   * user **required** [User](#user)
 
@@ -1164,6 +1275,18 @@ botify.getProjectUrlsAggs({
   * filters `object`
   * sort `array`
     * items `string`
+
+### RegexConfig
+* RegexConfig `object`: Regex config
+  * aggregation **required** `string`
+  * cast **required** `string`
+  * date_format `string`
+  * float_format `string`
+  * ignore_case **required** `boolean`
+  * match **required** `string`
+  * name **required** `string`
+  * regex **required** `string`
+  * slug `string`
 
 ### RewritingRule
 * RewritingRule `object`
@@ -1213,6 +1336,13 @@ botify.getProjectUrlsAggs({
   * new_options **required** `object`
   * previous_options **required** `object`
 
+### TestRegexExtractRule
+* TestRegexExtractRule `object`: Test regex extract rule
+  * content `string`
+  * extract_type **required** `string`
+  * rule **required** [RegexConfig](#regexconfig)
+  * url `string`
+
 ### URLRewritingRules
 * URLRewritingRules `object`
   * rules **required** `array`
@@ -1225,6 +1355,9 @@ botify.getProjectUrlsAggs({
 
 ### UrlHTML
 * UrlHTML `object`
+
+### UrlKeywords
+* UrlKeywords `object`
 
 ### User
 * User `object`

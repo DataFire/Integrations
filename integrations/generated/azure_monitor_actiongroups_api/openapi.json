@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "Azure Action Groups",
-    "version": "2017-04-01",
+    "version": "2018-03-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -19,7 +19,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/monitor/resource-manager/microsoft.insights/stable/2017-04-01/actionGroups_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/microsoft.insights/stable/2018-03-01/actionGroups_API.json",
         "version": "2.0"
       }
     ],
@@ -121,7 +121,7 @@
         "x-ms-examples": {
           "List action groups": {
             "parameters": {
-              "api-version": "2017-04-01",
+              "api-version": "2018-03-01",
               "resourceGroupName": "Default-NotificationRules",
               "subscriptionId": "187f412d-1758-44d9-b052-169e2564721d"
             },
@@ -241,7 +241,7 @@
         "x-ms-examples": {
           "List action groups": {
             "parameters": {
-              "api-version": "2017-04-01",
+              "api-version": "2018-03-01",
               "resourceGroupName": "Default-NotificationRules",
               "subscriptionId": "187f412d-1758-44d9-b052-169e2564721d"
             },
@@ -365,15 +365,17 @@
           "Delete an action group": {
             "parameters": {
               "actionGroupName": "SampleActionGroup",
-              "api-version": "2017-04-01",
+              "api-version": "2018-03-01",
               "resourceGroupName": "Default-NotificationRules",
               "subscriptionId": "187f412d-1758-44d9-b052-169e2564721d"
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {}
               },
               "204": {
+                "body": null,
                 "headers": {}
               }
             }
@@ -415,7 +417,7 @@
           "Get an action group": {
             "parameters": {
               "actionGroupName": "SampleActionGroup",
-              "api-version": "2017-04-01",
+              "api-version": "2018-03-01",
               "resourceGroupName": "Default-NotificationRules",
               "subscriptionId": "187f412d-1758-44d9-b052-169e2564721d"
             },
@@ -523,7 +525,7 @@
                   "key2": "value2"
                 }
               },
-              "api-version": "2017-04-01",
+              "api-version": "2018-03-01",
               "resourceGroupName": "Default-NotificationRules",
               "subscriptionId": "187f412d-1758-44d9-b052-169e2564721d"
             },
@@ -649,6 +651,14 @@
                       "name": "Sample azureAppPush"
                     }
                   ],
+                  "azureFunctionReceivers": [
+                    {
+                      "functionAppResourceId": "/subscriptions/5def922a-3ed4-49c1-b9fd-05ec533819a3/resourceGroups/aznsTest/providers/Microsoft.Web/sites/testFunctionApp",
+                      "functionName": "HttpTriggerCSharp1",
+                      "httpTriggerUrl": "https://testfunctionapp.azurewebsites.net/api/HttpTriggerCSharp1?code=4CopFfiXqUQC8dvIM7F53J7tIU3Gy9QQIG/vKAXMe2avhHqK3/jVYw==",
+                      "name": "Sample azureFunction"
+                    }
+                  ],
                   "emailReceivers": [
                     {
                       "emailAddress": "johndoe@email.com",
@@ -670,6 +680,13 @@
                       "workspaceId": "5def922a-3ed4-49c1-b9fd-05ec533819a3|55dfd1f8-7e59-4f89-bf56-4c82f5ace23c"
                     }
                   ],
+                  "logicAppReceivers": [
+                    {
+                      "callbackUrl": "https://prod-27.northcentralus.logic.azure.com/workflows/68e572e818e5457ba898763b7db90877/triggers/manual/paths/invoke/azns/test?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Abpsb72UYJxPPvmDo937uzofupO5r_vIeWEx7KVHo7w",
+                      "name": "Sample logicApp",
+                      "resourceId": "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/LogicApp/providers/Microsoft.Logic/workflows/testLogicApp"
+                    }
+                  ],
                   "smsReceivers": [
                     {
                       "countryCode": "1",
@@ -682,6 +699,13 @@
                       "phoneNumber": "0987654321"
                     }
                   ],
+                  "voiceReceivers": [
+                    {
+                      "countryCode": "1",
+                      "name": "Sample voice",
+                      "phoneNumber": "1234567890"
+                    }
+                  ],
                   "webhookReceivers": [
                     {
                       "name": "Sample webhook",
@@ -692,7 +716,7 @@
                 "tags": {}
               },
               "actionGroupName": "SampleActionGroup",
-              "api-version": "2017-04-01",
+              "api-version": "2018-03-01",
               "resourceGroupName": "Default-NotificationRules",
               "subscriptionId": "187f412d-1758-44d9-b052-169e2564721d"
             },
@@ -719,6 +743,14 @@
                         "name": "Sample azureAppPush"
                       }
                     ],
+                    "azureFunctionReceivers": [
+                      {
+                        "functionAppResourceId": "/subscriptions/5def922a-3ed4-49c1-b9fd-05ec533819a3/resourceGroups/aznsTest/providers/Microsoft.Web/sites/testFunctionApp",
+                        "functionName": "HttpTriggerCSharp1",
+                        "httpTriggerUrl": "https://testfunctionapp.azurewebsites.net/api/HttpTriggerCSharp1?code=4CopFfiXqUQC8dvIM7F53J7tIU3Gy9QQIG/vKAXMe2avhHqK3/jVYw==",
+                        "name": "Sample azureFunction"
+                      }
+                    ],
                     "emailReceivers": [
                       {
                         "emailAddress": "johndoe@email.com",
@@ -742,6 +774,13 @@
                         "workspaceId": "5def922a-3ed4-49c1-b9fd-05ec533819a3|55dfd1f8-7e59-4f89-bf56-4c82f5ace23c"
                       }
                     ],
+                    "logicAppReceivers": [
+                      {
+                        "callbackUrl": "https://prod-27.northcentralus.logic.azure.com/workflows/68e572e818e5457ba898763b7db90877/triggers/manual/paths/invoke/azns/test?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Abpsb72UYJxPPvmDo937uzofupO5r_vIeWEx7KVHo7w",
+                        "name": "Sample logicApp",
+                        "resourceId": "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/LogicApp/providers/Microsoft.Logic/workflows/testLogicApp"
+                      }
+                    ],
                     "smsReceivers": [
                       {
                         "countryCode": "1",
@@ -754,6 +793,13 @@
                         "name": "Jane Smith's mobile",
                         "phoneNumber": "0987654321",
                         "status": "Enabled"
+                      }
+                    ],
+                    "voiceReceivers": [
+                      {
+                        "countryCode": "1",
+                        "name": "Sample voice",
+                        "phoneNumber": "1234567890"
                       }
                     ],
                     "webhookReceivers": [
@@ -790,6 +836,14 @@
                         "name": "Sample azureAppPush"
                       }
                     ],
+                    "azureFunctionReceivers": [
+                      {
+                        "functionAppResourceId": "/subscriptions/5def922a-3ed4-49c1-b9fd-05ec533819a3/resourceGroups/aznsTest/providers/Microsoft.Web/sites/testFunctionApp",
+                        "functionName": "HttpTriggerCSharp1",
+                        "httpTriggerUrl": "https://testfunctionapp.azurewebsites.net/api/HttpTriggerCSharp1?code=4CopFfiXqUQC8dvIM7F53J7tIU3Gy9QQIG/vKAXMe2avhHqK3/jVYw==",
+                        "name": "Sample azureFunction"
+                      }
+                    ],
                     "emailReceivers": [
                       {
                         "emailAddress": "johndoe@email.com",
@@ -813,6 +867,13 @@
                         "workspaceId": "5def922a-3ed4-49c1-b9fd-05ec533819a3|55dfd1f8-7e59-4f89-bf56-4c82f5ace23c"
                       }
                     ],
+                    "logicAppReceivers": [
+                      {
+                        "callbackUrl": "https://prod-27.northcentralus.logic.azure.com/workflows/68e572e818e5457ba898763b7db90877/triggers/manual/paths/invoke/azns/test?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Abpsb72UYJxPPvmDo937uzofupO5r_vIeWEx7KVHo7w",
+                        "name": "Sample logicApp",
+                        "resourceId": "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/LogicApp/providers/Microsoft.Logic/workflows/testLogicApp"
+                      }
+                    ],
                     "smsReceivers": [
                       {
                         "countryCode": "1",
@@ -825,6 +886,13 @@
                         "name": "Jane Smith's mobile",
                         "phoneNumber": "0987654321",
                         "status": "Enabled"
+                      }
+                    ],
+                    "voiceReceivers": [
+                      {
+                        "countryCode": "1",
+                        "name": "Sample voice",
+                        "phoneNumber": "1234567890"
                       }
                     ],
                     "webhookReceivers": [
@@ -846,7 +914,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/actionGroups/{actionGroupName}/subscribe": {
       "post": {
-        "description": "Enable a receiver in an action group. This changes the receiver's status from Disabled to Enabled.",
+        "description": "Enable a receiver in an action group. This changes the receiver's status from Disabled to Enabled. This operation is only supported for Email or SMS receivers.",
         "operationId": "ActionGroups_EnableReceiver",
         "parameters": [
           {
@@ -889,7 +957,7 @@
           "Enable the receiver": {
             "parameters": {
               "actionGroupName": "SampleActionGroup",
-              "api-version": "2017-04-01",
+              "api-version": "2018-03-01",
               "enableRequest": {
                 "receiverName": "John Doe's mobile"
               },
@@ -898,9 +966,11 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {}
               },
               "409": {
+                "body": null,
                 "headers": {}
               }
             }
@@ -927,6 +997,13 @@
           },
           "type": "array"
         },
+        "azureFunctionReceivers": {
+          "description": "The list of azure function receivers that are part of this action group.",
+          "items": {
+            "$ref": "#/definitions/AzureFunctionReceiver"
+          },
+          "type": "array"
+        },
         "emailReceivers": {
           "description": "The list of email receivers that are part of this action group.",
           "items": {
@@ -941,7 +1018,7 @@
         },
         "groupShortName": {
           "description": "The short name of the action group. This will be used in SMS messages.",
-          "maxLength": 15,
+          "maxLength": 12,
           "type": "string"
         },
         "itsmReceivers": {
@@ -951,10 +1028,24 @@
           },
           "type": "array"
         },
+        "logicAppReceivers": {
+          "description": "The list of logic app receivers that are part of this action group.",
+          "items": {
+            "$ref": "#/definitions/LogicAppReceiver"
+          },
+          "type": "array"
+        },
         "smsReceivers": {
           "description": "The list of SMS receivers that are part of this action group.",
           "items": {
             "$ref": "#/definitions/SmsReceiver"
+          },
+          "type": "array"
+        },
+        "voiceReceivers": {
+          "description": "The list of voice receivers that are part of this action group.",
+          "items": {
+            "$ref": "#/definitions/VoiceReceiver"
           },
           "type": "array"
         },
@@ -1080,6 +1171,33 @@
         "emailAddress"
       ]
     },
+    "AzureFunctionReceiver": {
+      "description": "An azure function receiver.",
+      "properties": {
+        "functionAppResourceId": {
+          "description": "The azure resource id of the function app.",
+          "type": "string"
+        },
+        "functionName": {
+          "description": "The function name in the function app.",
+          "type": "string"
+        },
+        "httpTriggerUrl": {
+          "description": "The http trigger url where http request sent to.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the azure function receiver. Names must be unique across all receivers within an action group.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "functionAppResourceId",
+        "functionName",
+        "httpTriggerUrl"
+      ]
+    },
     "EmailReceiver": {
       "description": "An email receiver.",
       "properties": {
@@ -1160,6 +1278,28 @@
         "region"
       ]
     },
+    "LogicAppReceiver": {
+      "description": "A logic app receiver.",
+      "properties": {
+        "callbackUrl": {
+          "description": "The callback url where http request sent to.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the logic app receiver. Names must be unique across all receivers within an action group.",
+          "type": "string"
+        },
+        "resourceId": {
+          "description": "The azure resource id of the logic app receiver.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "resourceId",
+        "callbackUrl"
+      ]
+    },
     "ReceiverStatus": {
       "description": "Indicates the status of the receiver. Receivers that are not Enabled will not receive any communications.",
       "enum": [
@@ -1230,6 +1370,28 @@
           "$ref": "#/definitions/ReceiverStatus",
           "description": "The status of the receiver.",
           "readOnly": true
+        }
+      },
+      "required": [
+        "name",
+        "countryCode",
+        "phoneNumber"
+      ]
+    },
+    "VoiceReceiver": {
+      "description": "A voice receiver.",
+      "properties": {
+        "countryCode": {
+          "description": "The country code of the voice receiver.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the voice receiver. Names must be unique across all receivers within an action group.",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "description": "The phone number of the voice receiver.",
+          "type": "string"
         }
       },
       "required": [

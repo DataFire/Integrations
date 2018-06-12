@@ -319,6 +319,20 @@ amazonaws_elasticbeanstalk.DeletePlatformVersion({}, context)
 #### Output
 * output [DeletePlatformVersionResult](#deleteplatformversionresult)
 
+### DescribeAccountAttributes
+
+
+
+```js
+amazonaws_elasticbeanstalk.DescribeAccountAttributes({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeAccountAttributesResult](#describeaccountattributesresult)
+
 ### DescribeApplicationVersions
 
 
@@ -865,8 +879,12 @@ amazonaws_elasticbeanstalk.ValidateConfigurationSettings({
 ### ActionType
 * ActionType `string` (values: InstanceRefresh, PlatformUpdate, Unknown)
 
+### ApplicationArn
+* ApplicationArn `string`
+
 ### ApplicationDescription
 * ApplicationDescription `object`: Describes the properties of an application.
+  * ApplicationArn [ApplicationArn](#applicationarn)
   * ApplicationName [ApplicationName](#applicationname)
   * ConfigurationTemplates [ConfigurationTemplateNamesList](#configurationtemplatenameslist)
   * DateCreated [CreationDate](#creationdate)
@@ -911,9 +929,13 @@ amazonaws_elasticbeanstalk.ValidateConfigurationSettings({
   * ApplicationName [ApplicationName](#applicationname)
   * ResourceLifecycleConfig [ApplicationResourceLifecycleConfig](#applicationresourcelifecycleconfig)
 
+### ApplicationVersionArn
+* ApplicationVersionArn `string`
+
 ### ApplicationVersionDescription
 * ApplicationVersionDescription `object`: Describes the properties of an application version.
   * ApplicationName [ApplicationName](#applicationname)
+  * ApplicationVersionArn [ApplicationVersionArn](#applicationversionarn)
   * BuildArn [String](#string)
   * DateCreated [CreationDate](#creationdate)
   * DateUpdated [UpdateDate](#updatedate)
@@ -1251,6 +1273,10 @@ amazonaws_elasticbeanstalk.ValidateConfigurationSettings({
 ### DeploymentTimestamp
 * DeploymentTimestamp `string`
 
+### DescribeAccountAttributesResult
+* DescribeAccountAttributesResult `object`
+  * ResourceQuotas [ResourceQuotas](#resourcequotas)
+
 ### DescribeApplicationVersionsMessage
 * DescribeApplicationVersionsMessage `object`: Request to describe application versions.
   * ApplicationName [ApplicationName](#applicationname)
@@ -1581,7 +1607,7 @@ amazonaws_elasticbeanstalk.ValidateConfigurationSettings({
   * items [InstancesHealthAttribute](#instanceshealthattribute)
 
 ### InsufficientPrivilegesException
-* InsufficientPrivilegesException `object`: The specified account does not have sufficient privileges for one of more AWS services.
+* InsufficientPrivilegesException `object`: The specified account does not have sufficient privileges for one or more AWS services.
 
 ### Integer
 * Integer `integer`
@@ -1910,6 +1936,18 @@ amazonaws_elasticbeanstalk.ValidateConfigurationSettings({
 
 ### ResourceNotFoundException
 * ResourceNotFoundException `object`: A resource doesn't exist for the specified Amazon Resource Name (ARN).
+
+### ResourceQuota
+* ResourceQuota `object`: The AWS Elastic Beanstalk quota information for a single resource type in an AWS account. It reflects the resource's limits for this account.
+  * Maximum [BoxedInt](#boxedint)
+
+### ResourceQuotas
+* ResourceQuotas `object`: A set of per-resource AWS Elastic Beanstalk quotas associated with an AWS account. They reflect Elastic Beanstalk resource limits for this account.
+  * ApplicationQuota [ResourceQuota](#resourcequota)
+  * ApplicationVersionQuota [ResourceQuota](#resourcequota)
+  * ConfigurationTemplateQuota [ResourceQuota](#resourcequota)
+  * CustomPlatformQuota [ResourceQuota](#resourcequota)
+  * EnvironmentQuota [ResourceQuota](#resourcequota)
 
 ### ResourceTagsDescriptionMessage
 * ResourceTagsDescriptionMessage `object`

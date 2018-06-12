@@ -156,6 +156,6 @@ whapi_sessions.getServiceTicket({
 
 ### ticketvalidityresponse
 * ticketvalidityresponse `object`
-  * success `boolean`
+  * valid `boolean`
 
 

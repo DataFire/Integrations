@@ -18,7 +18,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/jobposting/jobposting_swagger2.json",
+        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/jobposting/jobposting.json",
         "version": "2.0"
       }
     ],
@@ -36,7 +36,7 @@
   "paths": {
     "/Industries": {
       "get": {
-        "description": "The Industries endpoint returns all the Industries and related sub industries \ndefined in WorkBC's Job Board. The response includes the id and caption for \neach industry and each sub industry.\n",
+        "description": "The Industries endpoint returns all the Industries and related sub industries\ndefined in WorkBC's Job Board. The response includes the id and caption for\neach industry and each sub industry.\n",
         "responses": {
           "200": {
             "description": "An array of industries and sub industries",

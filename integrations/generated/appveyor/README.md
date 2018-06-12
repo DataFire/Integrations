@@ -665,7 +665,8 @@ Get project deployments
 ```js
 appveyor.getProjectDeployments({
   "accountName": "",
-  "projectSlug": ""
+  "projectSlug": "",
+  "recordsNumber": 0
 }, context)
 ```
 
@@ -673,6 +674,7 @@ appveyor.getProjectDeployments({
 * input `object`
   * accountName **required** `string`: AppVeyor account name (`accountName` property of `UserAccount`)
   * projectSlug **required** `string`: Project Slug
+  * recordsNumber **required** `integer`: Number of results to include in the response.
 
 #### Output
 * output [ProjectDeploymentsResults](#projectdeploymentsresults)
@@ -1028,7 +1030,7 @@ appveyor.getUser({
   * url `string`: This property has not been observed in JSON responses, but is
 
 ### ArtifactType
-* ArtifactType `string` (values: Auto, AzureCloudService, AzureCloudServiceConfig, File, NuGetPackage, SsdtPackage, WebDeployPackage, Zip): Possible values from `Push-AppveyorArtifact` cmdlet `-Type` parameter.
+* ArtifactType `string` (values: Auto, AzureCloudService, AzureCloudServiceConfig, ElasticBeanstalkPackage, File, NuGetPackage, OctopusPackage, SsdtPackage, WebDeployPackage, Zip): Possible values from `Push-AppveyorArtifact` cmdlet `-Type` parameter.
 
 ### Build
 * Build
@@ -1119,7 +1121,7 @@ appveyor.getUser({
   * osType [OSType](#ostype)
 
 ### BuildWorkerImageName
-* BuildWorkerImageName `string` (values: Previous Visual Studio 2013, Previous Visual Studio 2015, Previous Visual Studio 2017, Ubuntu, Visual Studio 2013, Visual Studio 2015, Visual Studio 2017, Visual Studio 2017 Preview, WMF 5)
+* BuildWorkerImageName `string` (values: Previous Ubuntu, Previous Visual Studio 2013, Previous Visual Studio 2015, Previous Visual Studio 2017, Ubuntu, Visual Studio 2013, Visual Studio 2015, Visual Studio 2017, Visual Studio 2017 Preview, WMF 5)
 
 ### CollaboratorAddition
 * CollaboratorAddition `object`: Technically `roleId` has default value 0 and is not required, but
@@ -1282,7 +1284,7 @@ appveyor.getUser({
   * modelState `object`: When present, this property is a map of property names in the format
 
 ### GroupName
-* GroupName `string` (values: Account, BuildEnvironment, Environments, Projects, Roles, User, Users)
+* GroupName `string` (values: Account, BuildEnvironment, Deny, Environments, Projects, Roles, User, Users)
 
 ### GroupPermissions
 * GroupPermissions `object`
@@ -1371,7 +1373,7 @@ appveyor.getUser({
 * OSType `string` (values: Ubuntu, Windows)
 
 ### PermissionName
-* PermissionName `string` (values: ManageApplicationAuthorizations, UpdateAccountDetails, UpdateBillingDetails, ConfigureBuildEnvironment, DeployToEnvironment, ManageEnvironments, UpdateEnvironmentSettings, ManageProjects, RunProjectBuild, UpdateProjectSettings, AddRole, DeleteRole, UpdateRoleDetails, ConfigureApiKeys, AddUser, DeleteUser, UpdateUserDetails): Available permission names.  The names correspond to the following groups:
+* PermissionName `string` (values: ManageApplicationAuthorizations, UpdateAccountDetails, UpdateBillingDetails, ConfigureBuildEnvironment, DenyAllProjectsEnvironments, DeployToEnvironment, ManageEnvironments, UpdateEnvironmentSettings, ManageProjects, RunProjectBuild, UpdateProjectSettings, AddRole, DeleteRole, UpdateRoleDetails, ConfigureApiKeys, AddUser, DeleteUser, UpdateUserDetails): Available permission names.  The names correspond to the following groups:
 
 ### PermissionState
 * PermissionState `object`
@@ -1405,6 +1407,7 @@ appveyor.getUser({
   * repositoryType [RepositoryProvider](#repositoryprovider)
   * rollingBuilds `boolean`
   * rollingBuildsDoNotCancelRunningBuilds `boolean`
+  * rollingBuildsOnlyForPullRequests `boolean`
   * saveBuildCacheInPullRequests `boolean`
   * securityDescriptor [SecurityDescriptor](#securitydescriptor)
   * skipBranchesWithoutAppveyorYml `boolean`
@@ -1501,9 +1504,13 @@ appveyor.getUser({
     * items [Script](#script)
   * matrixAllowFailures `array`: Although the names and values are not enforced, the combinations which are meaningful are documented at https://www.appveyor.com/docs/build-configuration/#allow-failing-jobs
     * items [StoredNameValueMatrix](#storednamevaluematrix)
+  * matrixExcept `array`
+    * items [StoredNameValueMatrix](#storednamevaluematrix)
   * matrixExclude `array`
     * items [StoredNameValueMatrix](#storednamevaluematrix)
   * matrixFastFinish `boolean`
+  * matrixOnly `array`
+    * items [StoredNameValueMatrix](#storednamevaluematrix)
   * maxJobs `integer`
   * msBuildInParallel `boolean`
   * msBuildProjectFileName `string`
@@ -1521,10 +1528,14 @@ appveyor.getUser({
   * operatingSystem `array`
     * items `object`
       * value **required** [BuildWorkerImageName](#buildworkerimagename)
+  * packageAspNetCoreProjects `boolean`
   * packageAzureCloudServiceProjects `boolean`
+  * packageDotnetConsoleProjects `boolean`
   * packageNuGetProjects `boolean`
   * packageNuGetSymbols `boolean`
   * packageWebApplicationProjects `boolean`
+  * packageWebApplicationProjectsBeanstalk `boolean`
+  * packageWebApplicationProjectsOctopus `boolean`
   * packageWebApplicationProjectsXCopy `boolean`
   * patchAssemblyInfo `boolean`
   * patchDotnetCsproj `boolean`
@@ -1540,6 +1551,8 @@ appveyor.getUser({
     * items [StringValueObject](#stringvalueobject)
   * skipNonTags `boolean`
   * skipTags `boolean`
+  * stacks `array`
+    * items [UnknownType](#unknowntype)
   * testAssemblies `array`
     * items [StringValueObject](#stringvalueobject)
   * testCategories `array`
@@ -1621,6 +1634,7 @@ appveyor.getUser({
   * repositoryType [RepositoryProvider](#repositoryprovider)
   * rollingBuilds `boolean`
   * rollingBuildsDoNotCancelRunningBuilds `boolean`
+  * rollingBuildsOnlyForPullRequests `boolean`
   * saveBuildCacheInPullRequests `boolean`
   * securityDescriptor [SecurityDescriptor](#securitydescriptor)
   * skipBranchesWithoutAppveyorYml `boolean`
@@ -1684,7 +1698,7 @@ appveyor.getUser({
   * script **required** `string`
 
 ### ScriptLanguage
-* ScriptLanguage `string` (values: cmd, ps)
+* ScriptLanguage `string` (values: cmd, ps, pwsh)
 
 ### SecurityDescriptor
 * SecurityDescriptor `object`
@@ -1721,6 +1735,9 @@ appveyor.getUser({
 * Timestamped `object`
   * created `string`
   * updated `string`
+
+### UnknownType
+* UnknownType `string` (values: unknown): A schema for values which have an undocumented/unknown type.
 
 ### UserAccount
 * UserAccount

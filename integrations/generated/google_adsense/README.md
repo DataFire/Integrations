@@ -84,8 +84,8 @@ google_adsense.accounts.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Accounts](#accounts)
@@ -109,8 +109,8 @@ google_adsense.accounts.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Account](#account)
@@ -135,8 +135,8 @@ google_adsense.accounts.adclients.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdClients](#adclients)
@@ -164,8 +164,8 @@ google_adsense.accounts.adunits.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdUnits](#adunits)
@@ -192,8 +192,8 @@ google_adsense.accounts.adunits.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdUnit](#adunit)
@@ -220,8 +220,8 @@ google_adsense.accounts.adunits.getAdCode({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdCode](#adcode)
@@ -250,8 +250,8 @@ google_adsense.accounts.adunits.customchannels.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CustomChannels](#customchannels)
@@ -278,8 +278,8 @@ google_adsense.accounts.customchannels.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CustomChannels](#customchannels)
@@ -306,8 +306,8 @@ google_adsense.accounts.customchannels.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CustomChannel](#customchannel)
@@ -337,8 +337,8 @@ google_adsense.accounts.customchannels.adunits.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdUnits](#adunits)
@@ -365,8 +365,8 @@ google_adsense.accounts.urlchannels.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [UrlChannels](#urlchannels)
@@ -390,8 +390,8 @@ google_adsense.accounts.alerts.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Alerts](#alerts)
@@ -416,8 +416,8 @@ google_adsense.accounts.alerts.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -440,8 +440,8 @@ google_adsense.accounts.payments.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Payments](#payments)
@@ -477,8 +477,8 @@ google_adsense.accounts.reports.generate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdsenseReportsGenerateResponse](#adsensereportsgenerateresponse)
@@ -503,8 +503,8 @@ google_adsense.accounts.reports.saved.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SavedReports](#savedreports)
@@ -532,8 +532,8 @@ google_adsense.accounts.reports.saved.generate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdsenseReportsGenerateResponse](#adsensereportsgenerateresponse)
@@ -558,8 +558,8 @@ google_adsense.accounts.savedadstyles.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SavedAdStyles](#savedadstyles)
@@ -584,8 +584,8 @@ google_adsense.accounts.savedadstyles.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SavedAdStyle](#savedadstyle)
@@ -607,8 +607,8 @@ google_adsense.adclients.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdClients](#adclients)
@@ -634,8 +634,8 @@ google_adsense.adunits.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdUnits](#adunits)
@@ -660,8 +660,8 @@ google_adsense.adunits.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdUnit](#adunit)
@@ -686,8 +686,8 @@ google_adsense.adunits.getAdCode({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdCode](#adcode)
@@ -714,8 +714,8 @@ google_adsense.adunits.customchannels.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CustomChannels](#customchannels)
@@ -740,8 +740,8 @@ google_adsense.customchannels.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CustomChannels](#customchannels)
@@ -766,8 +766,8 @@ google_adsense.customchannels.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CustomChannel](#customchannel)
@@ -795,8 +795,8 @@ google_adsense.customchannels.adunits.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdUnits](#adunits)
@@ -821,8 +821,8 @@ google_adsense.urlchannels.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [UrlChannels](#urlchannels)
@@ -843,8 +843,8 @@ google_adsense.alerts.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Alerts](#alerts)
@@ -867,8 +867,8 @@ google_adsense.alerts.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -888,8 +888,8 @@ google_adsense.metadata.dimensions.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Metadata](#metadata)
@@ -909,8 +909,8 @@ google_adsense.metadata.metrics.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Metadata](#metadata)
@@ -930,8 +930,8 @@ google_adsense.payments.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Payments](#payments)
@@ -966,8 +966,8 @@ google_adsense.reports.generate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdsenseReportsGenerateResponse](#adsensereportsgenerateresponse)
@@ -989,8 +989,8 @@ google_adsense.reports.saved.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SavedReports](#savedreports)
@@ -1016,8 +1016,8 @@ google_adsense.reports.saved.generate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AdsenseReportsGenerateResponse](#adsensereportsgenerateresponse)
@@ -1039,8 +1039,8 @@ google_adsense.savedadstyles.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SavedAdStyles](#savedadstyles)
@@ -1063,8 +1063,8 @@ google_adsense.savedadstyles.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SavedAdStyle](#savedadstyle)

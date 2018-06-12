@@ -8,7 +8,7 @@
   "info": {
     "description": "Circuit REST API to interact with the Circuit system.\n\n[Learn more about the Circuit Development Community](https://www.circuit.com/web/developers/home)",
     "title": "REST API Version 2",
-    "version": "2.9.66",
+    "version": "2.9.72",
     "x-apisguru-categories": [
       "messaging"
     ],

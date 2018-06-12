@@ -555,7 +555,7 @@ Name               |Data Type          |Description
 ``internalNotes`` | string, optional | Private notes that are only visible to the seller.
 ``gift`` | boolean, optional | Specifies whether or not this Order is a gift
 ``giftMessage`` | string, optional | Gift message left by the customer when placing the order.
-``paymentMethod`` | string, optional | Identifies the shipping service selected by the customer when placing this order.
+``paymentMethod`` | string, optional | Method of payment used by the customer.
 ``requestedShippingService`` | string, optional |Identifies the shipping service selected by the customer when placing this order. This value is given to ShipStation by the marketplace/cart and helps identify what shipping service the customer selected upon checkout.
 ``carrierCode`` | string, optional | The code for the carrier that is to be used(or was used) when this order is shipped(was shipped).
 ``serviceCode`` | string, optional | The code for the shipping service that is to be used(or was used) when this order is shipped(was shipped).
@@ -567,6 +567,7 @@ Name               |Data Type          |Description
 ``insuranceOptions`` | InsuranceOptions, optional | The shipping insurance information associated with this order.  Use the [**InsuranceOptions**](http://www.shipstation.com/developer-api/#/reference/model-insuranceoptions) model.
 ``internationalOptions`` | InternationalOptions, optional | Customs information that can be used to generate customs documents for international orders.  Use the [**InternationalOptions**](http://www.shipstation.com/developer-api/#/reference/model-internationaloptions) model.
 ``advancedOptions`` | AdvancedOptions, optional | Various advanced options that may be available depending on the shipping carrier that is used to ship the order. Use the [**AdvancedOptions**](http://www.shipstation.com/developer-api/#/reference/model-advancedoptions) model.
+``tagIds``|number[]|Array of tagIds.  Each tagId identifies a tag that has been associated with this order.
 
 
 ```js
@@ -674,6 +675,8 @@ shipstation.orders.createorder.post({}, context)
       * street2 `string`
       * street3 `null`
     * shippingAmount `number`
+    * tagIds `array`
+      * items `number`
     * taxAmount `number`
     * weight `object`
       * units `string`
@@ -796,6 +799,8 @@ shipstation.orders.createorders.post({}, context)
         * street2 `string`
         * street3 `null`
       * shippingAmount `number`
+      * tagIds `array`
+        * items `number`
       * taxAmount `number`
       * weight `object`
         * units `string`
@@ -1217,12 +1222,13 @@ Name               |Data Type          |Description
  ``carrierCode`` | string, required | Identifies the carrier to be used for this label.
  ``serviceCode`` | string, required | Identifies the shipping service to be used for this label.
  ``packageCode`` | string, required | Identifies the packing type that should be used for this label.
- ``confirmation`` | string, optional | Identifies the delivery confirmation type to be used for this label.
+ ``confirmation`` | string, optional | The type of delivery confirmation that is to be used once the shipment is created.  Possible values: ``none``, ``delivery``, ``signature``, ``adult_signature``, and ``direct_signature``.  ``direct_signature`` is available for FedEx only.
  ``shipDate`` | string, required | The date the shipment will be shipped.
  ``weight`` | Weight, required | Shipment's weight.  Use the [**Weight**](https://www.shipstation.com/developer-api/#/reference/model-weight) model.
  ``dimensions`` | Dimensions, optional | Shipment's dimensions.  Use the [**Dimensions**](https://www.shipstation.com/developer-api/#/reference/model-dimensions) model.
  ``shipFrom`` | Address, required | Address indicating shipment's origin.  Use the [**Address**](https://www.shipstation.com/developer-api/#/reference/model-address) model.
  ``shipTo`` | Address, required | Address indicating shipment's destination.  Use the [**Address**](https://www.shipstation.com/developer-api/#/reference/model-address) model.
+ ``returnTo`` | Address, optional | Address indicating return address displayed on the label.  Use the [**Address**](https://www.shipstation.com/developer-api/#/reference/model-address) model.
  ``insuranceOptions`` | InsuranceOptions, optional | The shipping insurance information associated with this order.  
  ``internationalOptions`` | InternationalOptions, optional | Customs information that can be used to generate customs documents for international orders.  Use the [**InternationalOptions**](https://www.shipstation.com/developer-api/#/reference/model-internationaloptions) model.
  ``advancedOptions`` | AdvancedOptions, optional | Various advanced options that may be available depending on the shipping carrier that is used to ship the order.  Use the [**AdvancedOptions**](https://www.shipstation.com/developer-api/#/reference/model-advancedoptions) model. 
@@ -1296,7 +1302,7 @@ Name               |Data Type          |Description
  ``toCity`` | string, optional | Destination City.
  ``weight`` | Weight, required | Shipment's weight.  Use ``Weight`` object.
  ``dimensions`` | Dimensions, optional | Shipment's dimensions.  Use ``Dimensions`` object. 
- ``confirmation`` | string, optional | Returns rates that account for the specified delivery confirmation type.
+ ``confirmation`` | string, optional | The type of delivery confirmation that is to be used once the shipment is created.  Possible values: ``none``, ``delivery``, ``signature``, ``adult_signature``, and ``direct_signature``.  ``direct_signature`` is available for FedEx only.
  ``residential`` | boolean, optional | Returns rates that account for the specified delivery confirmation type. Default value: false
 
 
@@ -1700,6 +1706,8 @@ shipstation.webhooks.get(null, context)
 ### webhooks.subscribe.post
 Subscribes to a specific type of webhook. If a ``store_id`` is passed in, the webhooks will only be triggered for that specific ``store_id``.
 The ``event`` type that is passed in will determine what type of webhooks will be sent.
+
+Webhooks can be viewed & edited via the ShipStation Application under Integrations in the [**Account Settings**](https://ss.shipstation.com/#/settings/integrations).
 
 NOTE: Webhooks will be sent to the URL specified in the ``target_url``. The HTTP request will be sent via POST and will contain a [**webhook JSON object**](https://www.shipstation.com/developer-api/#/reference/model-webhook) in the body.
 

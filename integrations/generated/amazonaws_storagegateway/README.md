@@ -187,6 +187,8 @@ amazonaws_storagegateway.CreateCachediSCSIVolume({
 * input `object`
   * ClientToken **required** [ClientToken](#clienttoken)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * KMSEncrypted [Boolean](#boolean)
+  * KMSKey [KMSKey](#kmskey)
   * NetworkInterfaceId **required** [NetworkInterfaceId](#networkinterfaceid)
   * SnapshotId [SnapshotId](#snapshotid)
   * SourceVolumeARN [VolumeARN](#volumearn)
@@ -220,7 +222,9 @@ amazonaws_storagegateway.CreateNFSFileShare({
   * KMSKey [KMSKey](#kmskey)
   * LocationARN **required** [LocationARN](#locationarn)
   * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
+  * ObjectACL [ObjectACL](#objectacl)
   * ReadOnly [Boolean](#boolean)
+  * RequesterPays [Boolean](#boolean)
   * Role **required** [Role](#role)
   * Squash [Squash](#squash)
 
@@ -306,6 +310,8 @@ amazonaws_storagegateway.CreateTapeWithBarcode({
 #### Input
 * input `object`
   * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * KMSEncrypted [Boolean](#boolean)
+  * KMSKey [KMSKey](#kmskey)
   * TapeBarcode **required** [TapeBarcode](#tapebarcode)
   * TapeSizeInBytes **required** [TapeSize](#tapesize)
 
@@ -330,6 +336,8 @@ amazonaws_storagegateway.CreateTapes({
 * input `object`
   * ClientToken **required** [ClientToken](#clienttoken)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * KMSEncrypted [Boolean](#boolean)
+  * KMSKey [KMSKey](#kmskey)
   * NumTapesToCreate **required** [NumTapesToCreate](#numtapestocreate)
   * TapeBarcodePrefix **required** [TapeBarcodePrefix](#tapebarcodeprefix)
   * TapeSizeInBytes **required** [TapeSize](#tapesize)
@@ -1189,7 +1197,9 @@ amazonaws_storagegateway.UpdateNFSFileShare({
   * KMSEncrypted [Boolean](#boolean)
   * KMSKey [KMSKey](#kmskey)
   * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
+  * ObjectACL [ObjectACL](#objectacl)
   * ReadOnly [Boolean](#boolean)
+  * RequesterPays [Boolean](#boolean)
   * Squash [Squash](#squash)
 
 #### Output
@@ -1303,11 +1313,12 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * BandwidthUploadRateLimit `integer`
 
 ### Boolean
-* Boolean `boolean`: A value that indicates whether the write status of a file share is read-only: "true" if write status is read-only, and otherwise "false".
+* Boolean `boolean`
 
 ### CachediSCSIVolume
 * CachediSCSIVolume `object`: Describes an iSCSI cached volume.
   * CreatedDate [CreatedDate](#createddate)
+  * KMSKey [KMSKey](#kmskey)
   * SourceSnapshotId [SnapshotId](#snapshotid)
   * VolumeARN [VolumeARN](#volumearn)
   * VolumeId [VolumeId](#volumeid)
@@ -1361,6 +1372,8 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * CreateCachediSCSIVolumeInput `object`
   * ClientToken **required** [ClientToken](#clienttoken)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * KMSEncrypted [Boolean](#boolean)
+  * KMSKey [KMSKey](#kmskey)
   * NetworkInterfaceId **required** [NetworkInterfaceId](#networkinterfaceid)
   * SnapshotId [SnapshotId](#snapshotid)
   * SourceVolumeARN [VolumeARN](#volumearn)
@@ -1383,7 +1396,9 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * KMSKey [KMSKey](#kmskey)
   * LocationARN **required** [LocationARN](#locationarn)
   * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
+  * ObjectACL [ObjectACL](#objectacl)
   * ReadOnly [Boolean](#boolean)
+  * RequesterPays [Boolean](#boolean)
   * Role **required** [Role](#role)
   * Squash [Squash](#squash)
 
@@ -1430,6 +1445,8 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### CreateTapeWithBarcodeInput
 * CreateTapeWithBarcodeInput `object`: CreateTapeWithBarcodeInput
   * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * KMSEncrypted [Boolean](#boolean)
+  * KMSKey [KMSKey](#kmskey)
   * TapeBarcode **required** [TapeBarcode](#tapebarcode)
   * TapeSizeInBytes **required** [TapeSize](#tapesize)
 
@@ -1441,6 +1458,8 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * CreateTapesInput `object`: CreateTapesInput
   * ClientToken **required** [ClientToken](#clienttoken)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * KMSEncrypted [Boolean](#boolean)
+  * KMSKey [KMSKey](#kmskey)
   * NumTapesToCreate **required** [NumTapesToCreate](#numtapestocreate)
   * TapeBarcodePrefix **required** [TapeBarcodePrefix](#tapebarcodeprefix)
   * TapeSizeInBytes **required** [TapeSize](#tapesize)
@@ -1833,7 +1852,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * IqnName `string`
 
 ### KMSKey
-* KMSKey `string`: The ARN of the KMS key used for Amazon S3 server side encryption. 
+* KMSKey `string`: The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
 
 ### LastSoftwareUpdate
 * LastSoftwareUpdate `string`
@@ -1956,8 +1975,10 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * KMSKey [KMSKey](#kmskey)
   * LocationARN [LocationARN](#locationarn)
   * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
+  * ObjectACL [ObjectACL](#objectacl)
   * Path [Path](#path)
   * ReadOnly [Boolean](#boolean)
+  * RequesterPays [Boolean](#boolean)
   * Role [Role](#role)
   * Squash [Squash](#squash)
 
@@ -1991,6 +2012,9 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### NumTapesToCreate
 * NumTapesToCreate `integer`
+
+### ObjectACL
+* ObjectACL `string` (values: private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, aws-exec-read): Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
 
 ### Path
 * Path `string`: The file share path used by the NFS client to identify the mount point. 
@@ -2146,6 +2170,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### Tape
 * Tape `object`: Describes a virtual tape object.
+  * KMSKey [KMSKey](#kmskey)
   * Progress [DoubleObject](#doubleobject)
   * TapeARN [TapeARN](#tapearn)
   * TapeBarcode [TapeBarcode](#tapebarcode)
@@ -2165,6 +2190,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### TapeArchive
 * TapeArchive `object`: Represents a virtual tape that is archived in the virtual tape shelf (VTS).
   * CompletionTime [Time](#time)
+  * KMSKey [KMSKey](#kmskey)
   * RetrievedTo [GatewayARN](#gatewayarn)
   * TapeARN [TapeARN](#tapearn)
   * TapeBarcode [TapeBarcode](#tapebarcode)
@@ -2298,7 +2324,9 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * KMSEncrypted [Boolean](#boolean)
   * KMSKey [KMSKey](#kmskey)
   * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
+  * ObjectACL [ObjectACL](#objectacl)
   * ReadOnly [Boolean](#boolean)
+  * RequesterPays [Boolean](#boolean)
   * Squash [Squash](#squash)
 
 ### UpdateNFSFileShareOutput

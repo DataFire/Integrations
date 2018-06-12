@@ -1,6 +1,6 @@
 # @datafire/google_speech
 
-Client library for Google Cloud Speech
+Client library for Cloud Speech
 
 ## Installation and Usage
 ```bash
@@ -183,13 +183,12 @@ google_speech.speech.recognize({}, context)
 
 ### RecognitionConfig
 * RecognitionConfig `object`: Provides information to the recognizer that specifies how to process the
-  * enableWordConfidence `boolean`: *Optional* If `true`, the top result includes a list of words and the
   * enableWordTimeOffsets `boolean`: *Optional* If `true`, the top result includes a list of words and
-  * encoding `string` (values: ENCODING_UNSPECIFIED, LINEAR16, FLAC, MULAW, AMR, AMR_WB, OGG_OPUS, SPEEX_WITH_HEADER_BYTE): *Required* Encoding of audio data sent in all `RecognitionAudio` messages.
+  * encoding `string` (values: ENCODING_UNSPECIFIED, LINEAR16, FLAC, MULAW, AMR, AMR_WB, OGG_OPUS, SPEEX_WITH_HEADER_BYTE): Encoding of audio data sent in all `RecognitionAudio` messages.
   * languageCode `string`: *Required* The language of the supplied audio as a
   * maxAlternatives `integer`: *Optional* Maximum number of recognition hypotheses to be returned.
   * profanityFilter `boolean`: *Optional* If set to `true`, the server will attempt to filter out
-  * sampleRateHertz `integer`: *Required* Sample rate in Hertz of the audio data sent in all
+  * sampleRateHertz `integer`: Sample rate in Hertz of the audio data sent in all
   * speechContexts `array`: *Optional* A means to provide context to assist the speech recognition.
     * items [SpeechContext](#speechcontext)
 
@@ -200,7 +199,7 @@ google_speech.speech.recognize({}, context)
 
 ### RecognizeResponse
 * RecognizeResponse `object`: The only message returned to the client by the `Recognize` method. It
-  * results `array`: *Output-only* Sequential list of transcription results corresponding to
+  * results `array`: Output only. Sequential list of transcription results corresponding to
     * items [SpeechRecognitionResult](#speechrecognitionresult)
 
 ### SpeechContext
@@ -210,14 +209,14 @@ google_speech.speech.recognize({}, context)
 
 ### SpeechRecognitionAlternative
 * SpeechRecognitionAlternative `object`: Alternative hypotheses (a.k.a. n-best list).
-  * confidence `number`: *Output-only* The confidence estimate between 0.0 and 1.0. A higher number
-  * transcript `string`: *Output-only* Transcript text representing the words that the user spoke.
-  * words `array`: *Output-only* A list of word-specific information for each recognized word.
+  * confidence `number`: Output only. The confidence estimate between 0.0 and 1.0. A higher number
+  * transcript `string`: Output only. Transcript text representing the words that the user spoke.
+  * words `array`: Output only. A list of word-specific information for each recognized word.
     * items [WordInfo](#wordinfo)
 
 ### SpeechRecognitionResult
 * SpeechRecognitionResult `object`: A speech recognition result corresponding to a portion of the audio.
-  * alternatives `array`: *Output-only* May contain one or more recognition hypotheses (up to the
+  * alternatives `array`: Output only. May contain one or more recognition hypotheses (up to the
     * items [SpeechRecognitionAlternative](#speechrecognitionalternative)
 
 ### Status
@@ -229,8 +228,9 @@ google_speech.speech.recognize({}, context)
 
 ### WordInfo
 * WordInfo `object`: Word-specific information for recognized words.
-  * endTime `string`: *Output-only* Time offset relative to the beginning of the audio,
-  * startTime `string`: *Output-only* Time offset relative to the beginning of the audio,
-  * word `string`: *Output-only* The word corresponding to this set of information.
+  * endTime `string`: Output only. Time offset relative to the beginning of the audio,
+  * speakerTag `integer`: Output only. A distinct integer value is assigned for every speaker within
+  * startTime `string`: Output only. Time offset relative to the beginning of the audio,
+  * word `string`: Output only. The word corresponding to this set of information.
 
 

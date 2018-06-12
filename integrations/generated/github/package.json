@@ -1,6 +1,6 @@
 {
   "name": "@datafire/github",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for GitHub",
   "repository": {

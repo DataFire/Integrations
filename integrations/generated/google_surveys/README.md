@@ -67,79 +67,6 @@ google_surveys.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### mobileapppanels.list
-Lists the MobileAppPanels available to the authenticated user.
-
-
-```js
-google_surveys.mobileapppanels.list({}, context)
-```
-
-#### Input
-* input `object`
-  * maxResults `integer`
-  * startIndex `integer`
-  * token `string`
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [MobileAppPanelsListResponse](#mobileapppanelslistresponse)
-
-### mobileapppanels.get
-Retrieves a MobileAppPanel that is available to the authenticated user.
-
-
-```js
-google_surveys.mobileapppanels.get({
-  "panelId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * panelId **required** `string`: External URL ID for the panel.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [MobileAppPanel](#mobileapppanel)
-
-### mobileapppanels.update
-Updates a MobileAppPanel. Currently the only property that can be updated is the owners property.
-
-
-```js
-google_surveys.mobileapppanels.update({
-  "panelId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [MobileAppPanel](#mobileapppanel)
-  * panelId **required** `string`: External URL ID for the panel.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [MobileAppPanel](#mobileapppanel)
-
 ### surveys.list
 Lists the surveys owned by the authenticated user.
 
@@ -158,8 +85,8 @@ google_surveys.surveys.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SurveysListResponse](#surveyslistresponse)
@@ -180,8 +107,8 @@ google_surveys.surveys.insert({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Survey](#survey)
@@ -205,8 +132,8 @@ google_surveys.surveys.start({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SurveysStartResponse](#surveysstartresponse)
@@ -229,8 +156,8 @@ google_surveys.surveys.stop({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SurveysStopResponse](#surveysstopresponse)
@@ -253,8 +180,8 @@ google_surveys.surveys.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SurveysDeleteResponse](#surveysdeleteresponse)
@@ -277,8 +204,8 @@ google_surveys.surveys.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Survey](#survey)
@@ -302,8 +229,8 @@ google_surveys.surveys.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Survey](#survey)
@@ -327,8 +254,8 @@ google_surveys.results.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SurveyResults](#surveyresults)
@@ -342,24 +269,6 @@ google_surveys.results.get({
   * fields `array`
     * items [FieldMask](#fieldmask)
   * id `integer`
-
-### MobileAppPanel
-* MobileAppPanel `object`: Representation of an individual pre-defined panel object defining a targeted audience of opinion rewards mobile app users.
-  * country `string`: Country code for the country of the users that the panel contains. Uses standard ISO 3166-1 2-character language codes. For instance, 'US' for the United States, and 'GB' for the United Kingdom. Any survey created targeting this panel must also target the corresponding country.
-  * isPublicPanel `boolean`: Whether or not the panel is accessible to all API users.
-  * language `string`: Language code that the panel can target. For instance, 'en-US'. Uses standard BCP47 language codes. See specification. Any survey created targeting this panel must also target the corresponding language.
-  * mobileAppPanelId `string`: Unique panel ID string. This corresponds to the mobile_app_panel_id used in Survey Insert requests.
-  * name `string`: Human readable name of the audience panel.
-  * owners `array`: List of email addresses for users who can target members of this panel. Must contain at least the address of the user making the API call for panels that are not public. This field will be empty for public panels.
-    * items `string`
-
-### MobileAppPanelsListResponse
-* MobileAppPanelsListResponse `object`
-  * pageInfo [PageInfo](#pageinfo)
-  * requestId `string`: Unique request ID used for logging and debugging. Please include in any error reporting or troubleshooting requests.
-  * resources `array`: An individual predefined panel of Opinion Rewards mobile users.
-    * items [MobileAppPanel](#mobileapppanel)
-  * tokenPagination [TokenPagination](#tokenpagination)
 
 ### PageInfo
 * PageInfo `object`
@@ -402,14 +311,13 @@ google_surveys.results.get({
   * gender `string`: Optional gender to target.
   * languages `array`: Language code that surveys should be targeted to. For instance, 'en-US'. Surveys may target bilingual users by specifying a list of language codes (for example, 'de' and 'en-US'). In that case, all languages will be used for targeting users but the survey content (which is displayed) must match the first language listed. Accepts standard BCP47 language codes. See specification.
     * items `string`
-  * mobileAppPanelId `string`: Key for predefined panel that causes survey to be sent to a predefined set of Opinion Rewards App users. You must set PopulationSource to ANDROID_APP_PANEL to use this field.
   * populationSource `string`: Online population source where the respondents are sampled from.
 
 ### SurveyCost
 * SurveyCost `object`: Message defining the cost to run a given survey through API.
   * costPerResponseNanos `string`: Cost per survey response in nano units of the given currency. To get the total cost for a survey, multiply this value by wanted_response_count.
   * currencyCode `string`: Currency code that the cost is given in.
-  * maxCostPerResponseNanos `string`: Threshold to start a survey automatically if the quoted price is at most this value. When a survey has a Screener (threshold) question, it must go through an incidence pricing test to determine the final cost per response. Typically you will have to make a followup call to start the survey giving the final computed cost per response. If the survey has no threshold_answers, setting this property will return an error. By specifying this property, you indicate the max price per response you are willing to pay in advance of the incidence test. If the price turns out to be lower than the specified value, the survey will begin immediately and you will be charged at the rate determined by the incidence pricing test. If the price turns out to be greater than the specified value the survey will not be started and you will instead be notified what price was determined by the incidence test. At that point, you must raise the value of this property to be greater than or equal to that cost before attempting to start the survey again. This will immediately start the survey as long the incidence test was run within the last 21 days.
+  * maxCostPerResponseNanos `string`: *Deprecated* Threshold to start a survey automatically if the quoted price is at most this value. When a survey has a Screener (threshold) question, it must go through an incidence pricing test to determine the final cost per response. Typically you will have to make a followup call to start the survey giving the final computed cost per response. If the survey has no threshold_answers, setting this property will return an error. By specifying this property, you indicate the max price per response you are willing to pay in advance of the incidence test. If the price turns out to be lower than the specified value, the survey will begin immediately and you will be charged at the rate determined by the incidence pricing test. If the price turns out to be greater than the specified value the survey will not be started and you will instead be notified what price was determined by the incidence test. At that point, you must raise the value of this property to be greater than or equal to that cost before attempting to start the survey again. This will immediately start the survey as long the incidence test was run within the last 21 days. This will no longer be available after June 2018.
   * nanos `string`: Cost of survey in nano units of the given currency. DEPRECATED in favor of cost_per_response_nanos
 
 ### SurveyQuestion
@@ -467,7 +375,7 @@ google_surveys.results.get({
 
 ### SurveysStartRequest
 * SurveysStartRequest `object`
-  * maxCostPerResponseNanos `string`: Threshold to start a survey automically if the quoted prices is less than or equal to this value. See Survey.Cost for more details.
+  * maxCostPerResponseNanos `string`: *Deprecated* Threshold to start a survey automatically if the quoted prices is less than or equal to this value. See Survey.Cost for more details. This will no longer be available after June 2018.
 
 ### SurveysStartResponse
 * SurveysStartResponse `object`

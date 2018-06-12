@@ -11,12 +11,7 @@
       "url": "https://google.com"
     },
     "description": "Archiving and eDiscovery for G Suite.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Vault",
+    "title": "G Suite Vault",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://vault.googleapis.com/$discovery/rest?version=v1",
@@ -52,23 +47,12 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/ediscovery": "Manage your eDiscovery data",
         "https://www.googleapis.com/auth/ediscovery.readonly": "View your eDiscovery data"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/ediscovery": "Manage your eDiscovery data",
-        "https://www.googleapis.com/auth/ediscovery.readonly": "View your eDiscovery data"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -234,16 +218,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery.readonly"
             ]
           }
@@ -317,9 +295,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -352,9 +327,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery"
             ]
           }
@@ -398,16 +370,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery.readonly"
             ]
           }
@@ -488,9 +454,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -522,6 +485,17 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Specifies which parts of the Hold to return.",
+            "enum": [
+              "HOLD_VIEW_UNSPECIFIED",
+              "BASIC_HOLD",
+              "FULL_HOLD"
+            ],
+            "in": "query",
+            "name": "view",
+            "type": "string"
           }
         ],
         "responses": {
@@ -536,16 +510,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery.readonly"
             ]
           }
@@ -626,9 +594,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -669,9 +634,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -696,6 +658,17 @@
             "name": "matterId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Specifies which parts of the Hold to return.",
+            "enum": [
+              "HOLD_VIEW_UNSPECIFIED",
+              "BASIC_HOLD",
+              "FULL_HOLD"
+            ],
+            "in": "query",
+            "name": "view",
+            "type": "string"
           }
         ],
         "responses": {
@@ -710,16 +683,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery.readonly"
             ]
           }
@@ -807,9 +774,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -850,16 +814,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery.readonly"
             ]
           }
@@ -947,9 +905,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -996,9 +951,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery"
             ]
           }
@@ -1122,9 +1074,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -1205,9 +1154,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery"
             ]
           }
@@ -1290,9 +1236,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -1373,9 +1316,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/ediscovery"
             ]
           }
@@ -1458,9 +1398,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ediscovery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ediscovery"
             ]
           }
         ],
@@ -1515,6 +1452,10 @@
           "$ref": "#/definitions/HeldGroupsQuery",
           "description": "Details pertaining to Groups holds. If set, corpus must be Groups."
         },
+        "hangoutsChatQuery": {
+          "$ref": "#/definitions/HeldHangoutsChatQuery",
+          "description": "Details pertaining to Hangouts Chat holds. If set, corpus must be\nHangouts Chat."
+        },
         "mailQuery": {
           "$ref": "#/definitions/HeldMailQuery",
           "description": "Details pertaining to mail holds. If set, corpus must be mail."
@@ -1543,7 +1484,7 @@
       "type": "object"
     },
     "HeldDriveQuery": {
-      "description": "Query options for drive holds.",
+      "description": "Query options for Drive holds.",
       "properties": {
         "includeTeamDriveFiles": {
           "description": "If true, include files in Team Drives in the hold.",
@@ -1568,6 +1509,16 @@
         "terms": {
           "description": "The search terms for the hold.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HeldHangoutsChatQuery": {
+      "description": "Query options for hangouts chat holds.",
+      "properties": {
+        "includeRooms": {
+          "description": "If true, include rooms the user has participated in.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -1601,7 +1552,7 @@
           "type": "string"
         },
         "orgUnitId": {
-          "description": "The org unit's immutable ID as provided by the admin SDK.",
+          "description": "The org unit's immutable ID as provided by the Admin SDK.",
           "type": "string"
         }
       },
@@ -1623,7 +1574,8 @@
             "CORPUS_TYPE_UNSPECIFIED",
             "DRIVE",
             "MAIL",
-            "GROUPS"
+            "GROUPS",
+            "HANGOUTS_CHAT"
           ],
           "type": "string"
         },

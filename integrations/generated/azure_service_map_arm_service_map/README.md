@@ -142,7 +142,7 @@ azure_service_map_arm_service_map.Maps_Generate({
 * output [MapResponse](#mapresponse)
 
 ### MachineGroups_ListByWorkspace
-Returns all machine groups.
+Returns all machine groups during the specified time interval.
 
 
 ```js
@@ -160,6 +160,8 @@ azure_service_map_arm_service_map.MachineGroups_ListByWorkspace({
   * resourceGroupName **required** `string`: Resource group name within the specified subscriptionId.
   * workspaceName **required** `string`: OMS workspace containing the resources of interest.
   * api-version **required** `string`: API version.
+  * startTime `string`: UTC date and time specifying the start time of an interval. When not specified the service uses DateTime.UtcNow - 10m
+  * endTime `string`: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
 
 #### Output
 * output [MachineGroupCollection](#machinegroupcollection)
@@ -215,7 +217,7 @@ azure_service_map_arm_service_map.MachineGroups_Delete({
 *Output schema unknown*
 
 ### MachineGroups_Get
-Returns the specified machine group.
+Returns the specified machine group as it existed during the specified time interval.
 
 
 ```js
@@ -235,6 +237,8 @@ azure_service_map_arm_service_map.MachineGroups_Get({
   * workspaceName **required** `string`: OMS workspace containing the resources of interest.
   * api-version **required** `string`: API version.
   * machineGroupName **required** `string`: Machine Group resource name.
+  * startTime `string`: UTC date and time specifying the start time of an interval. When not specified the service uses DateTime.UtcNow - 10m
+  * endTime `string`: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
 
 #### Output
 * output [MachineGroup](#machinegroup)
@@ -375,7 +379,7 @@ azure_service_map_arm_service_map.Machines_GetLiveness({
 * output [Liveness](#liveness)
 
 ### Machines_ListMachineGroupMembership
-Returns a collection of machine groups this machine belongs to.
+Returns a collection of machine groups this machine belongs to during the specified time interval.
 
 
 ```js
@@ -395,6 +399,8 @@ azure_service_map_arm_service_map.Machines_ListMachineGroupMembership({
   * workspaceName **required** `string`: OMS workspace containing the resources of interest.
   * api-version **required** `string`: API version.
   * machineName **required** `string`: Machine resource name.
+  * startTime `string`: UTC date and time specifying the start time of an interval. When not specified the service uses DateTime.UtcNow - 10m
+  * endTime `string`: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
 
 #### Output
 * output [MachineGroupCollection](#machinegroupcollection)
@@ -742,6 +748,50 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
   * dependencyAgentVersion `string`: Dependency Agent version number.
   * rebootStatus [MachineRebootStatus](#machinerebootstatus)
 
+### AzureCloudServiceConfiguration
+* AzureCloudServiceConfiguration `object`: Describes an Azure Cloud Service
+  * deployment `string`: Cloud Service deployment identifier
+  * instanceId `string`: Cloud Service instance identifier
+  * name `string`: Cloud Service name
+  * roleName `string`: Cloud Service role name
+  * roleType `string` (values: unknown, worker, web): Used to specify type of an Azure Cloud Service role
+
+### AzureHostingConfiguration
+* AzureHostingConfiguration `object`: Provides information about how a machine is hosted in Azure
+  * cloudService [AzureCloudServiceConfiguration](#azurecloudserviceconfiguration)
+  * faultDomain `string`: Fault domain of the VM.
+  * image [ImageConfiguration](#imageconfiguration)
+  * location `string`: Geographical location of the VM.
+  * name `string`: Machine name according to the hosting provider.
+  * resourceGroup `string`: Resource group name within the specified subscription.
+  * resourceId `string`: Unique identifier of the resource.
+  * serviceFabricCluster [AzureServiceFabricClusterConfiguration](#azureservicefabricclusterconfiguration)
+  * size `string`: Size of the VM.
+  * subscriptionId `string`: Subscription ID.
+  * updateDomain `string`: Update domain of the VM.
+  * vmId `string`: Virtual Machine ID (unique identifier).
+  * vmScaleSet [AzureVmScaleSetConfiguration](#azurevmscalesetconfiguration)
+  * kind **required** `string` (values: provider:azure): Additional hostring configuration type qualifier.
+  * provider `string` (values: azure): The hosting provider of the VM.
+
+### AzureProcessHostingConfiguration
+* AzureProcessHostingConfiguration `object`: Describes the hosting configuration of a process when hosted on azure
+  * cloudService [AzureCloudServiceConfiguration](#azurecloudserviceconfiguration)
+  * kind **required** `string` (values: provider:azure): Additional hostring configuration type qualifier.
+  * provider `string` (values: azure): The hosting provider of the VM.
+
+### AzureServiceFabricClusterConfiguration
+* AzureServiceFabricClusterConfiguration `object`: Describes an Azure Service Fabric Cluster
+  * clusterId `string`: Service Fabric cluster indentifier.
+  * name `string`: Service Fabric cluster name.
+
+### AzureVmScaleSetConfiguration
+* AzureVmScaleSetConfiguration `object`: Describes an Azure Virtual Machine Scale Set
+  * deployment `string`: Virtual Machine Scale Set deployment identifier
+  * instanceId `string`: Virtual Machine Scale Set instance identifier
+  * name `string`: Virtual Machine Scale Set name
+  * resourceId `string`: Unique identifier of the resource.
+
 ### Bitness
 * Bitness `string` (values: 32bit, 64bit): Specifies the bitness of a machine or process.
 
@@ -779,6 +829,13 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
   * endTime **required** `string`: Membership interval start time.
   * groupId **required** `string`: Client Group URI.
   * startTime **required** `string`: Membership interval start time.
+
+### ClientGroupReference
+* ClientGroupReference: Reference to a client group.
+  * id **required** `string`: Resource URI.
+  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine, ref:clientgroup): Specifies the sub-class of the reference.
+  * name `string`: Resource name.
+  * type `string`: Resource type qualifier.
 
 ### Connection
 * Connection `object`: A network connection.
@@ -823,6 +880,11 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 * ErrorResponse `object`: An error response from the API.
   * error **required** [Error](#error)
 
+### HostingConfiguration
+* HostingConfiguration `object`: Describes the hosting configuration of a machine.
+  * kind **required** `string` (values: provider:azure): Additional hostring configuration type qualifier.
+  * provider `string` (values: azure): The hosting provider of the VM.
+
 ### HypervisorConfiguration
 * HypervisorConfiguration `object`: Describes the hypervisor configuration of a machine.
   * hypervisorType [HypervisorType](#hypervisortype)
@@ -830,6 +892,13 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 
 ### HypervisorType
 * HypervisorType `string` (values: unknown, hyperv): Specifies the hypervisor type of a machine.
+
+### ImageConfiguration
+* ImageConfiguration `object`: Describes the VM image of a machine.
+  * offering `string`: Offering of the VM image.
+  * publisher `string`: Publisher of the VM image.
+  * sku `string`: SKU of the VM image.
+  * version `string`: Version of the VM image.
 
 ### Ipv4NetworkInterface
 * Ipv4NetworkInterface `object`: Describes an IPv4 network interface.
@@ -854,6 +923,7 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
     * computerName `string`: Name of the machine, e.g., server
     * displayName `string`: Name to use for display purposes
     * fullyQualifiedDomainName `string`: Fully-qualified name of the machine, e.g., server.company.com
+    * hosting [HostingConfiguration](#hostingconfiguration)
     * hypervisor [HypervisorConfiguration](#hypervisorconfiguration)
     * monitoringState [MonitoringState](#monitoringstate)
     * networking [NetworkConfiguration](#networkconfiguration)
@@ -884,8 +954,10 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 * MachineGroup `object`: A user-defined logical grouping of machines.
   * etag `string`: Resource ETAG.
   * properties `object`: Resource properties.
+    * count `integer`: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
     * displayName **required** `string`: User defined name for the group
-    * machines `array`: References of the machines in this group. The hints within each reference do not represent the current value of  the corresponding fields. They are a snapshot created during the last time the machine group was updated.
+    * groupType `string` (values: unknown, azure-cs, azure-sf, azure-vmss, user-static): Type of the machine group
+    * machines `array`: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
       * items [MachineReferenceWithHints](#machinereferencewithhints)
   * etag `string`: Resource ETAG.
   * kind **required** `string` (values: machine, process, port, clientGroup, machineGroup): Additional resource type qualifier.
@@ -900,11 +972,20 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
     * items [MachineGroup](#machinegroup)
 
 ### MachineGroupMapRequest
-* MachineGroupMapRequest `object`: Specifies the computation of a machine group dependency map. A machine group dependency map includes all direct dependencies of a group of machines.
-  * filterProcesses `boolean`: If true, only processes between grouped machines will be included. Any connections in or out of those processes will be included.
+* MachineGroupMapRequest `object`: Specifies the computation of a machine group dependency map. A machine group dependency map includes all direct dependencies the machines in the group.
   * machineGroupId **required** `string`: URI of machine group resource for which to generate the map.
+  * filterProcesses `boolean`: If true, only processes between specified machines will be included. Any connections in or out of those processes will be included.
   * endTime `string`: Map interval end time.
-  * kind **required** `string` (values: map:single-machine-dependency, map:machine-group-dependency): The type of map to create.
+  * kind **required** `string` (values: map:single-machine-dependency, map:machine-group-dependency, map:machine-list-dependency): The type of map to create.
+  * startTime `string`: Map interval start time.
+
+### MachineListMapRequest
+* MachineListMapRequest `object`: Specifies the computation of a one hope dependency map for a list of machines. The resulting map includes all direct dependencies for the specified machines.
+  * machineIds **required** `array`: a list of URIs of machine resources for which to generate the map.
+    * items `string`
+  * filterProcesses `boolean`: If true, only processes between specified machines will be included. Any connections in or out of those processes will be included.
+  * endTime `string`: Map interval end time.
+  * kind **required** `string` (values: map:single-machine-dependency, map:machine-group-dependency, map:machine-list-dependency): The type of map to create.
   * startTime `string`: Map interval start time.
 
 ### MachineRebootStatus
@@ -913,7 +994,7 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 ### MachineReference
 * MachineReference: Reference to a machine.
   * id **required** `string`: Resource URI.
-  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine): Specifies the sub-class of the reference.
+  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine, ref:clientgroup): Specifies the sub-class of the reference.
   * name `string`: Resource name.
   * type `string`: Resource type qualifier.
 
@@ -923,7 +1004,7 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
     * displayNameHint `string`: Last known display name.
     * osFamilyHint [OperatingSystemFamily](#operatingsystemfamily)
   * id **required** `string`: Resource URI.
-  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine): Specifies the sub-class of the reference.
+  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine, ref:clientgroup): Specifies the sub-class of the reference.
   * name `string`: Resource name.
   * type `string`: Resource type qualifier.
 
@@ -963,19 +1044,19 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 
 ### MapNodes
 * MapNodes `object`: The nodes (entities) of a map.
-  * ClientGroups `array`: Client Group resources.
+  * clientGroups `array`: Client Group resources.
     * items [ClientGroup](#clientgroup)
-  * Ports `array`: Port resources.
-    * items [Port](#port)
   * machines `array`: Machine resources.
     * items [Machine](#machine)
+  * ports `array`: Port resources.
+    * items [Port](#port)
   * processes `array`: Process resources.
     * items [Process](#process)
 
 ### MapRequest
 * MapRequest `object`: Specifies the contents of request to generate a map.
   * endTime `string`: Map interval end time.
-  * kind **required** `string` (values: map:single-machine-dependency, map:machine-group-dependency): The type of map to create.
+  * kind **required** `string` (values: map:single-machine-dependency, map:machine-group-dependency, map:machine-list-dependency): The type of map to create.
   * startTime `string`: Map interval start time.
 
 ### MapResponse
@@ -986,6 +1067,13 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 
 ### MonitoringState
 * MonitoringState `string` (values: monitored, discovered): Used to specify if a resources is monitored or discovered.
+
+### MultipleMachinesMapRequest
+* MultipleMachinesMapRequest `object`: Provides a base class for describing map requests for a collection of machines
+  * filterProcesses `boolean`: If true, only processes between specified machines will be included. Any connections in or out of those processes will be included.
+  * endTime `string`: Map interval end time.
+  * kind **required** `string` (values: map:single-machine-dependency, map:machine-group-dependency, map:machine-list-dependency): The type of map to create.
+  * startTime `string`: Map interval start time.
 
 ### NetworkConfiguration
 * NetworkConfiguration `object`: Describes the network configuration of a machine.
@@ -1036,7 +1124,7 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
     * machine [MachineReference](#machinereference)
     * portNumber `integer`: Port number.
   * id **required** `string`: Resource URI.
-  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine): Specifies the sub-class of the reference.
+  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine, ref:clientgroup): Specifies the sub-class of the reference.
   * name `string`: Resource name.
   * type `string`: Resource type qualifier.
 
@@ -1048,6 +1136,8 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
     * details [ProcessDetails](#processdetails)
     * displayName `string`: Name to use for display purposes
     * executableName `string`: The name of the process executable
+    * group `string`: The name of the product or suite of the process. The group is determined by its executable name, command line, etc.
+    * hosting [ProcessHostingConfiguration](#processhostingconfiguration)
     * machine [ResourceReference](#resourcereference)
     * monitoringState [MonitoringState](#monitoringstate)
     * role `string` (values: webServer, appServer, databaseServer, ldapServer, smbServer): The inferred role of this process based on its name, command line, etc.
@@ -1076,17 +1166,30 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
   * firstPid `integer`: The Operating System Process Idendifier (PID) of the first process in this process pool.
   * internalName `string`: Internal process name.
   * persistentKey `string`: A unique indentifier for a process, generally resilient to process restart, computed by Service Map.
-  * poolId `integer`: Represents the identity of the process pool assigned to the process by Dependency Agent. 
+  * poolId `integer`: Represents the identity of the process pool assigned to the process by Dependency Agent.
   * productName `string`: Product name.
   * productVersion `string`: Product version.
+  * services `array`: Collection of services hosted by this Process (Windows only).
+    * items [ProcessHostedService](#processhostedservice)
   * workingDirectory `string`: Process workingDirectory.
+  * zoneName `string`: Process zone name (Linux only).
+
+### ProcessHostedService
+* ProcessHostedService `object`: A service hosted by a process.
+  * displayName `string`: The service's display name.
+  * name `string`: The name of the service.
+
+### ProcessHostingConfiguration
+* ProcessHostingConfiguration `object`: Describes the hosting configuration of a process.
+  * kind **required** `string` (values: provider:azure): Additional hostring configuration type qualifier.
+  * provider `string` (values: azure): The hosting provider of the VM.
 
 ### ProcessReference
 * ProcessReference `object`: Reference to a process.
   * properties `object`: Resource properties.
     * machine [MachineReference](#machinereference)
   * id **required** `string`: Resource URI.
-  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine): Specifies the sub-class of the reference.
+  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine, ref:clientgroup): Specifies the sub-class of the reference.
   * name `string`: Resource name.
   * type `string`: Resource type qualifier.
 
@@ -1118,7 +1221,7 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 ### ResourceReference
 * ResourceReference `object`: Represents a reference to another resource.
   * id **required** `string`: Resource URI.
-  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine): Specifies the sub-class of the reference.
+  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine, ref:clientgroup): Specifies the sub-class of the reference.
   * name `string`: Resource name.
   * type `string`: Resource type qualifier.
 
@@ -1126,7 +1229,7 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 * SingleMachineDependencyMapRequest `object`: Specifies the computation of a single server dependency map. A single server dependency map includes all direct dependencies of a given machine.
   * machineId **required** `string`: URI of machine resource for which to generate the map.
   * endTime `string`: Map interval end time.
-  * kind **required** `string` (values: map:single-machine-dependency, map:machine-group-dependency): The type of map to create.
+  * kind **required** `string` (values: map:single-machine-dependency, map:machine-group-dependency, map:machine-list-dependency): The type of map to create.
   * startTime `string`: Map interval start time.
 
 ### Summary

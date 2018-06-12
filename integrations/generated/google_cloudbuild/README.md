@@ -1,6 +1,6 @@
 # @datafire/google_cloudbuild
 
-Client library for Google Cloud Container Builder
+Client library for Cloud Container Builder
 
 ## Installation and Usage
 ```bash
@@ -108,9 +108,9 @@ google_cloudbuild.projects.builds.list({
 ### projects.builds.create
 Starts a build with the specified configuration.
 
-The long-running Operation returned by this method will include the ID of
-the build, which can be passed to GetBuild to determine its status (e.g.,
-success or failure).
+This method returns a long-running `Operation`, which includes the build
+ID. Pass the build ID to `GetBuild` to determine the build status (such as
+`SUCCESS` or `FAILURE`).
 
 
 ```js
@@ -143,8 +143,8 @@ google_cloudbuild.projects.builds.create({
 ### projects.builds.get
 Returns information about a previously requested build.
 
-The Build that is returned includes its status (e.g., success or failure,
-or in-progress), and timing information.
+The `Build` that is returned includes its status (such as `SUCCESS`,
+`FAILURE`, or `WORKING`), and timing information.
 
 
 ```js
@@ -176,7 +176,7 @@ google_cloudbuild.projects.builds.get({
 * output [Build](#build)
 
 ### projects.builds.cancel
-Cancels a requested build in progress.
+Cancels a build in progress.
 
 
 ```js
@@ -209,17 +209,17 @@ google_cloudbuild.projects.builds.cancel({
 * output [Build](#build)
 
 ### projects.builds.retry
-Creates a new build based on the given build.
+Creates a new build based on the specified build.
 
-This API creates a new build using the original build request,  which may
+This method creates a new build using the original build request, which may
 or may not result in an identical build.
 
 For triggered builds:
 
-* Triggered builds resolve to a precise revision, so a retry of a triggered
-build will result in a build that uses the same revision.
+* Triggered builds resolve to a precise revision; therefore a retry of a
+triggered build will result in a build that uses the same revision.
 
-For non-triggered builds that specify RepoSource:
+For non-triggered builds that specify `RepoSource`:
 
 * If the original build built from the tip of a branch, the retried build
 will build from the tip of that branch, which may not be the same revision
@@ -227,11 +227,11 @@ as the original build.
 * If the original build specified a commit sha or revision ID, the retried
 build will use the identical source.
 
-For builds that specify StorageSource:
+For builds that specify `StorageSource`:
 
-* If the original build pulled source from Cloud Storage without specifying
-the generation of the object, the new build will use the current object,
-which may be different from the original build source.
+* If the original build pulled source from Google Cloud Storage without
+specifying the generation of the object, the new build will use the current
+object, which may be different from the original build source.
 * If the original build pulled source from Cloud Storage and specified the
 generation of the object, the new build will attempt to use the same
 object, which may or may not be available depending on the bucket's
@@ -268,7 +268,7 @@ google_cloudbuild.projects.builds.retry({
 * output [Operation](#operation)
 
 ### projects.triggers.list
-Lists existing BuildTrigger.
+Lists existing `BuildTrigger`s.
 
 This API is experimental.
 
@@ -300,7 +300,7 @@ google_cloudbuild.projects.triggers.list({
 * output [ListBuildTriggersResponse](#listbuildtriggersresponse)
 
 ### projects.triggers.create
-Creates a new BuildTrigger.
+Creates a new `BuildTrigger`.
 
 This API is experimental.
 
@@ -333,7 +333,7 @@ google_cloudbuild.projects.triggers.create({
 * output [BuildTrigger](#buildtrigger)
 
 ### projects.triggers.delete
-Deletes an BuildTrigger by its project ID and trigger ID.
+Deletes a `BuildTrigger` by its project ID and trigger ID.
 
 This API is experimental.
 
@@ -348,7 +348,7 @@ google_cloudbuild.projects.triggers.delete({
 #### Input
 * input `object`
   * projectId **required** `string`: ID of the project that owns the trigger.
-  * triggerId **required** `string`: ID of the BuildTrigger to delete.
+  * triggerId **required** `string`: ID of the `BuildTrigger` to delete.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -367,7 +367,7 @@ google_cloudbuild.projects.triggers.delete({
 * output [Empty](#empty)
 
 ### projects.triggers.get
-Gets information about a BuildTrigger.
+Returns information about a `BuildTrigger`.
 
 This API is experimental.
 
@@ -382,7 +382,7 @@ google_cloudbuild.projects.triggers.get({
 #### Input
 * input `object`
   * projectId **required** `string`: ID of the project that owns the trigger.
-  * triggerId **required** `string`: ID of the BuildTrigger to get.
+  * triggerId **required** `string`: ID of the `BuildTrigger` to get.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -401,7 +401,7 @@ google_cloudbuild.projects.triggers.get({
 * output [BuildTrigger](#buildtrigger)
 
 ### projects.triggers.patch
-Updates an BuildTrigger by its project ID and trigger ID.
+Updates a `BuildTrigger` by its project ID and trigger ID.
 
 This API is experimental.
 
@@ -417,7 +417,7 @@ google_cloudbuild.projects.triggers.patch({
 * input `object`
   * body [BuildTrigger](#buildtrigger)
   * projectId **required** `string`: ID of the project that owns the trigger.
-  * triggerId **required** `string`: ID of the BuildTrigger to update.
+  * triggerId **required** `string`: ID of the `BuildTrigger` to update.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -436,7 +436,7 @@ google_cloudbuild.projects.triggers.patch({
 * output [BuildTrigger](#buildtrigger)
 
 ### projects.triggers.run
-Runs a BuildTrigger at a particular source revision.
+Runs a `BuildTrigger` at a particular source revision.
 
 
 ```js
@@ -544,30 +544,50 @@ google_cloudbuild.operations.cancel({
 
 ## Definitions
 
+### ArtifactObjects
+* ArtifactObjects `object`: Files in the workspace to upload to Cloud Storage upon successful
+  * location `string`: Cloud Storage bucket and optional object path, in the form
+  * paths `array`: Path globs used to match files in the build's workspace.
+    * items `string`
+  * timing [TimeSpan](#timespan)
+
+### ArtifactResult
+* ArtifactResult `object`: An artifact that was uploaded during a build. This
+  * fileHash `array`: The file hash of the artifact.
+    * items [FileHashes](#filehashes)
+  * location `string`: The path of an artifact in a Google Cloud Storage bucket, with the
+
+### Artifacts
+* Artifacts `object`: Artifacts produced by a build that should be uploaded upon
+  * images `array`: A list of images to be pushed upon the successful completion of all build
+    * items `string`
+  * objects [ArtifactObjects](#artifactobjects)
+
 ### Build
 * Build `object`: A build resource in the Container Builder API.
-  * buildTriggerId `string`: The ID of the BuildTrigger that triggered this build, if it was
+  * artifacts [Artifacts](#artifacts)
+  * buildTriggerId `string`: The ID of the `BuildTrigger` that triggered this build, if it was
   * createTime `string`: Time at which the request to create the build was received.
   * finishTime `string`: Time at which execution of the build was finished.
   * id `string`: Unique identifier of the build.
   * images `array`: A list of images to be pushed upon the successful completion of all build
     * items `string`
-  * logUrl `string`: URL to logs for this build in Google Cloud Logging.
+  * logUrl `string`: URL to logs for this build in Google Cloud Console.
   * logsBucket `string`: Google Cloud Storage bucket where logs should be written (see
   * options [BuildOptions](#buildoptions)
   * projectId `string`: ID of the project.
   * results [Results](#results)
-  * secrets `array`: Secrets to decrypt using Cloud KMS.
+  * secrets `array`: Secrets to decrypt using Cloud Key Management Service.
     * items [Secret](#secret)
   * source [Source](#source)
   * sourceProvenance [SourceProvenance](#sourceprovenance)
   * startTime `string`: Time at which execution of the build was started.
   * status `string` (values: STATUS_UNKNOWN, QUEUED, WORKING, SUCCESS, FAILURE, INTERNAL_ERROR, TIMEOUT, CANCELLED): Status of the build.
   * statusDetail `string`: Customer-readable message about the current status.
-  * steps `array`: Describes the operations to be performed on the workspace.
+  * steps `array`: Required. The operations to be performed on the workspace.
     * items [BuildStep](#buildstep)
-  * substitutions `object`: Substitutions data for Build resource.
-  * tags `array`: Tags for annotation of a Build. These are not docker tags.
+  * substitutions `object`: Substitutions data for `Build` resource.
+  * tags `array`: Tags for annotation of a `Build`. These are not docker tags.
     * items `string`
   * timeout `string`: Amount of time that this build should be allowed to run, to second
   * timing `object`: Stores timing information for phases of the build. Valid keys are:
@@ -579,25 +599,27 @@ google_cloudbuild.operations.cancel({
 ### BuildOptions
 * BuildOptions `object`: Optional arguments to enable specific features of builds.
   * diskSizeGb `string`: Requested disk size for the VM that runs the build. Note that this is *NOT*
-  * logStreamingOption `string` (values: STREAM_DEFAULT, STREAM_ON, STREAM_OFF): LogStreamingOption to define build log streaming behavior to Google Cloud
+  * logStreamingOption `string` (values: STREAM_DEFAULT, STREAM_ON, STREAM_OFF): Option to define build log streaming behavior to Google Cloud
   * machineType `string` (values: UNSPECIFIED, N1_HIGHCPU_8, N1_HIGHCPU_32): Compute Engine machine type on which to run the build.
   * requestedVerifyOption `string` (values: NOT_VERIFIED, VERIFIED): Requested verifiability options.
   * sourceProvenanceHash `array`: Requested hash for SourceProvenance.
-    * items `string` (values: NONE, SHA256)
-  * substitutionOption `string` (values: MUST_MATCH, ALLOW_LOOSE): SubstitutionOption to allow unmatch substitutions.
+    * items `string` (values: NONE, SHA256, MD5)
+  * substitutionOption `string` (values: MUST_MATCH, ALLOW_LOOSE): Option to specify behavior when there is an error in the substitution
 
 ### BuildStep
-* BuildStep `object`: BuildStep describes a step to perform in the build pipeline.
+* BuildStep `object`: A step in the build pipeline.
   * args `array`: A list of arguments that will be presented to the step when it is started.
     * items `string`
   * dir `string`: Working directory to use when running this step's container.
-  * entrypoint `string`: Optional entrypoint to be used instead of the build step image's default
+  * entrypoint `string`: Entrypoint to be used instead of the build step image's default entrypoint.
   * env `array`: A list of environment variable definitions to be used when running a step.
     * items `string`
-  * id `string`: Optional unique identifier for this build step, used in wait_for to
-  * name `string`: The name of the container image that will run this particular build step.
-  * secretEnv `array`: A list of environment variables which are encrypted using a Cloud KMS
+  * id `string`: Unique identifier for this build step, used in `wait_for` to
+  * name `string`: Required. The name of the container image that will run this particular
+  * secretEnv `array`: A list of environment variables which are encrypted using a Cloud Key
     * items `string`
+  * status `string` (values: STATUS_UNKNOWN, QUEUED, WORKING, SUCCESS, FAILURE, INTERNAL_ERROR, TIMEOUT, CANCELLED): Status of the build step. At this time, build step status is only updated
+  * timeout `string`: Time limit for executing this build step. If not defined, the step has no
   * timing [TimeSpan](#timespan)
   * volumes `array`: List of volumes to mount into the build step.
     * items [Volume](#volume)
@@ -616,7 +638,7 @@ google_cloudbuild.operations.cancel({
   * triggerTemplate [RepoSource](#reposource)
 
 ### BuiltImage
-* BuiltImage `object`: BuiltImage describes an image built by the pipeline.
+* BuiltImage `object`: An image built by the pipeline.
   * digest `string`: Docker Registry 2.0 digest.
   * name `string`: Name used to push the container image to Google Container Registry, as
   * pushTiming [TimeSpan](#timespan)
@@ -637,17 +659,17 @@ google_cloudbuild.operations.cancel({
 
 ### Hash
 * Hash `object`: Container message for hash values.
-  * type `string` (values: NONE, SHA256): The type of hash that was performed.
+  * type `string` (values: NONE, SHA256, MD5): The type of hash that was performed.
   * value `string`: The hash value.
 
 ### ListBuildTriggersResponse
-* ListBuildTriggersResponse `object`: Response containing existing BuildTriggers.
-  * triggers `array`: BuildTriggers for the project, sorted by create_time descending.
+* ListBuildTriggersResponse `object`: Response containing existing `BuildTriggers`.
+  * triggers `array`: `BuildTriggers` for the project, sorted by `create_time` descending.
     * items [BuildTrigger](#buildtrigger)
 
 ### ListBuildsResponse
 * ListBuildsResponse `object`: Response including listed builds.
-  * builds `array`: Builds will be sorted by create_time, descending.
+  * builds `array`: Builds will be sorted by `create_time`, descending.
     * items [Build](#build)
   * nextPageToken `string`: Token to receive the next page of results.
 
@@ -666,31 +688,33 @@ google_cloudbuild.operations.cancel({
   * response `object`: The normal response of the operation in case of success.  If the original
 
 ### RepoSource
-* RepoSource `object`: RepoSource describes the location of the source in a Google Cloud Source
+* RepoSource `object`: Location of the source in a Google Cloud Source Repository.
   * branchName `string`: Name of the branch to build.
   * commitSha `string`: Explicit commit SHA to build.
   * dir `string`: Directory, relative to the source root, in which to run the build.
-  * projectId `string`: ID of the project that owns the repo. If omitted, the project ID requesting
-  * repoName `string`: Name of the repo. If omitted, the name "default" is assumed.
+  * projectId `string`: ID of the project that owns the Cloud Source Repository. If omitted, the
+  * repoName `string`: Name of the Cloud Source Repository. If omitted, the name "default" is
   * tagName `string`: Name of the tag to build.
 
 ### Results
-* Results `object`: Results describes the artifacts created by the build pipeline.
-  * buildStepImages `array`: List of build step digests, in order corresponding to build step indices.
+* Results `object`: Artifacts created by the build pipeline.
+  * artifactManifest `string`: Path to the artifact manifest. Only populated when artifacts are uploaded.
+  * buildStepImages `array`: List of build step digests, in the order corresponding to build step
     * items `string`
-  * images `array`: Images that were built as a part of the build.
+  * images `array`: Container images that were built as a part of the build.
     * items [BuiltImage](#builtimage)
+  * numArtifacts `string`: Number of artifacts uploaded. Only populated when artifacts are uploaded.
 
 ### RetryBuildRequest
-* RetryBuildRequest `object`: RetryBuildRequest specifies a build to retry.
+* RetryBuildRequest `object`: Specifies a build to retry.
 
 ### Secret
-* Secret `object`: Secret pairs a set of secret environment variables containing encrypted
+* Secret `object`: Pairs a set of secret environment variables containing encrypted
   * kmsKeyName `string`: Cloud KMS key name to use to decrypt these envs.
   * secretEnv `object`: Map of environment variable name to its encrypted value.
 
 ### Source
-* Source `object`: Source describes the location of the source in a supported storage
+* Source `object`: Location of the source in a supported storage service.
   * repoSource [RepoSource](#reposource)
   * storageSource [StorageSource](#storagesource)
 
@@ -708,13 +732,13 @@ google_cloudbuild.operations.cancel({
   * message `string`: A developer-facing error message, which should be in English. Any
 
 ### StorageSource
-* StorageSource `object`: StorageSource describes the location of the source in an archive file in
-  * bucket `string`: Google Cloud Storage bucket containing source (see
+* StorageSource `object`: Location of the source in an archive file in Google Cloud Storage.
+  * bucket `string`: Google Cloud Storage bucket containing the source (see
   * generation `string`: Google Cloud Storage generation for the object. If the generation is
-  * object `string`: Google Cloud Storage object containing source.
+  * object `string`: Google Cloud Storage object containing the source.
 
 ### TimeSpan
-* TimeSpan `object`: Stores start and end times for a build execution phase.
+* TimeSpan `object`: Start and end times for a build execution phase.
   * endTime `string`: End of time span.
   * startTime `string`: Start of time span.
 

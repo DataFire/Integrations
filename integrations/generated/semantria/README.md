@@ -77,7 +77,7 @@ semantria.addBlacklist({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration blacklist linked to.
-  * Blacklisted items **required** [Request_class](#request_class)
+  * Blacklisted items **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -98,7 +98,7 @@ semantria.updateBlacklist({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration blacklist linked to.
-  * Blacklisted items **required** [Request_class](#request_class)
+  * Blacklisted items **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -159,7 +159,7 @@ semantria.addCategories({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration user categories linked to.
-  * Categories **required** [Request_class](#request_class)
+  * Categories **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -180,7 +180,7 @@ semantria.updateCategories({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration user categories linked to.
-  * Categories **required** [Request_class](#request_class)
+  * Categories **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -201,7 +201,7 @@ semantria.queueCollection({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration used for analysis.
-  * Collection **required** [Request_class](#request_class)
+  * Collection **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -316,7 +316,7 @@ semantria.addConfigurations({
 
 #### Input
 * input `object`
-  * Configurations **required** [Request_class](#request_class)
+  * Configurations **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -336,7 +336,7 @@ semantria.updateConfigurations({
 
 #### Input
 * input `object`
-  * Configurations **required** [Request_class](#request_class)
+  * Configurations **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -357,7 +357,7 @@ semantria.queueDocument({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration used for analysis.
-  * Document **required** [Request_class](#request_class)
+  * Document **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -377,7 +377,7 @@ semantria.queueBatchOfDocuments({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration used for analysis.
-  * Batch of Documents **required** [Request_class](#request_class)
+  * Batch of Documents **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -491,7 +491,7 @@ semantria.addEntities({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration user entities linked to.
-  * User entities **required** [Request_class](#request_class)
+  * User entities **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -512,7 +512,7 @@ semantria.updateEntities({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration user entities linked to.
-  * User entities **required** [Request_class](#request_class)
+  * User entities **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -592,7 +592,7 @@ semantria.addPhrases({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration phrases linked to.
-  * Sentiment phrases **required** [Request_class](#request_class)
+  * Sentiment phrases **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -613,7 +613,7 @@ semantria.updatePhrases({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration phrases linked to.
-  * Sentiment phrases **required** [Request_class](#request_class)
+  * Sentiment phrases **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -674,7 +674,7 @@ semantria.addQueries({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration queries linked to.
-  * Queries **required** [Request_class](#request_class)
+  * Queries **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -695,7 +695,7 @@ semantria.updateQueries({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration queries linked to.
-  * Queries **required** [Request_class](#request_class)
+  * Queries **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -809,7 +809,7 @@ semantria.addTaxonomy({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration queries linked to.
-  * Taxonomy **required** [Request_class](#request_class)
+  * Taxonomy **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -830,7 +830,7 @@ semantria.updateTaxonomy({
 #### Input
 * input `object`
   * config_id `string`: Identifier of configuration queries linked to.
-  * Taxonomy **required** [Request_class](#request_class)
+  * Taxonomy **required** [Request%20class](#request%20class)
   * content_type **required** `string`
 
 #### Output
@@ -903,20 +903,17 @@ semantria.updateTaxonomy({
     * items `string`
   * id **required** `string`: Up to 32 symbols unique identifier of document assigned and tracked by client
   * job_id **required** `string`: Specific marker of incoming job that can be used then for collections retrieving
-  * metadata **required** [JSON](#json)
   * tag **required** `string`: Any text of up to 50 characters used like marker
 
 ### CollectionAnalyticData
 * CollectionAnalyticData `object`
   * config_id **required** `string`: Unique configuration identifier. Usually 36 alphanumeric characters
-  * docs_count **required** `integer`: Count of the documents the collection consist of
   * entities **required** `array`: Returns the named entities and user defined entities from the text
     * items [Entity](#entity)
   * facets **required** `array`: Returns the facets extracted across all documents in the collection
     * items [Facet](#facet)
   * id **required** `string`: Unique collection identifier. Can be up to 36 alphanumeric characters
   * job_id **required** `string`: Specific marker of a job collection belongs to, can be used for collections ordering on client side.
-  * metadata **required** [JSON](#json)
   * status **required** `string` (values: queued, processed, failed): Status of the collection
   * tag **required** `string`: Any text of up to 50 characters used like marker
   * taxonomy **required** `array`: Returns the taxonomy determined for the text
@@ -928,82 +925,92 @@ semantria.updateTaxonomy({
 
 ### ConfigurationCollectionSection
 * ConfigurationCollectionSection `object`
-  * attributes **required** `boolean`: Defines whether attributes for facets will be reported for the collection. Default: true
-  * concept_topics **required** `boolean`: Defines whether user_categories will be reported for the collection. Default: false
-  * facets **required** `boolean`: Defines whether facets will be reported for the collection. Default: true
-  * mentions **required** `boolean`: Defines whether mentions for themes, user/named entities, facets and attributes will be reported for the collection. Default: false
-  * named_entities **required** `boolean`: Defines whether named entities will be reported for the collection. Default: true
-  * query_topics **required** `boolean`: Defines whether queries will be reported for the collection. Default: true
-  * themes **required** `boolean`: Defines whether themes will be reported for the collection. Default: true
-  * user_entities **required** `boolean`: Defines whether user entities will be reported for the collection. Default: true
+  * attribute_mentions_limit **required** `integer`: Limits the number of mentions of attribute responded from the server. Default: 0
+  * concept_topics_limit **required** `integer`: Limits the number of concept topics responded from the service. Default: 5
+  * facet_atts_limit **required** `integer`: Limits the number of facets which will be responded from the server. Default: 5
+  * facet_mentions_limit **required** `integer`: Limits the number of mentions of facet responded from the server. Default: 0
+  * facets_limit **required** `integer`: Limits the number of facets which will be responded from the server.  Default: 15
+  * named_entities_limit **required** `integer`: Limits the number of named entities responded from the service. Default: 5
+  * named_mentions_limit **required** `integer`: Limits the number of mentions of theme responded from the server. Default: 0
+  * query_topics_limit **required** `integer`: Limits the number of query topics responded from the service. Default: 5
+  * theme_mentions_limit **required** `integer`: Limits the number of entity mentions responded from the server. Default: 0
+  * themes_limit **required** `integer`: Limits the number of themes responded from the service. Default: 5
+  * user_entities_limit **required** `integer`: Limits the number of user entities the service responds. Default: 15
+  * user_mentions_limit **required** `integer`: Limits the number of user entity mentions the service responds. Default: 0
 
 ### ConfigurationDocumentSection
 * ConfigurationDocumentSection `object`
-  * auto_categories **required** `boolean`: Defines whether auto-categories will be reported for the document. Default: true
-  * concept_topics **required** `boolean`: Defines whether user categories will be reported for the document. Default: false
+  * auto_categories_limit **required** `integer`: Limits the number of auto categories the service responds. Default: 5
+  * concept_topics_limit **required** `integer`: Limits the number of concept topics the service responds. Default: 5
   * detect_language **required** `boolean`: Switches on language detection feature. Default: true
+  * entity_themes_limit **required** `integer`: Limits the number of entity themes the service responds. Default: 0
   * intentions **required** `boolean`: Switches on intentions detection feature. Default: false
-  * mentions **required** `boolean`: Defines whether mentions for themes and user/named entities will be reported for the document. Default: false
   * model_sentiment **required** `boolean`: Switches on/off model-based sentiment feature. Default: false
-  * named_entities **required** `boolean`: Defines whether named entities will be reported for the document. Default: true
-  * opinions **required** `boolean`: Defines whether user/named entity opinions will be reported for the document. Default: false
+  * named_entities_limit **required** `integer`: Limits the number of named entities the service responds. Default: 5
+  * named_mentions_limit **required** `integer`: Limits the number of named entity related mentions. Default: 0
+  * named_opinions_limit **required** `integer`: Limits the number of named entity opinions the service responds. Default: 0
+  * named_relations_limit **required** `integer`: Limits the number of named entity relations the service responds. Default: 0
+  * phrases_limit **required** `integer`: Limits the number of responded sentiment-bearing phrases for document. Default: 0
   * pos_types **required** `string` (values: All, Noun, Verb, Adjective, Determiner, Misc, Twitter, Chinese): Defines parts-of-speech which will be responded by the server
-  * query_topics **required** `boolean`: Defines whether queries will be reported for the document. Default: true
-  * relations **required** `boolean`: Defines whether user/named entity relations will be reported for the document. Default: false
-  * sentiment_phrases **required** `boolean`: Defines whether sentiment-bearing phrases will be reported for the document. Default: true
-  * summary_size **required** `integer`: Limits the number of sentences for the document summary feature.  Default: 3
-  * themes **required** `boolean`: Defines whether document and user/named entity themes will be reported for the document. Default: false
-  * user_entities **required** `boolean`: Defines whether user entities will be reported for the document. Default: true
+  * possible_phrases_limit **required** `integer`: Limits the number of responded possible phrases which may affect on sentiment score extraction. Default: 0
+  * query_topics_limit **required** `integer`: Limits the number of query topics the service responds. Default: 5
+  * summary_limit **required** `integer`: Limits the number of sentences for the document summary feature. Default: 3
+  * theme_mentions_limit **required** `integer`: Limits the number of document and entity related theme mentions. Default: 0
+  * themes_limit **required** `integer`: Limits the number of document themes the service responds. Default: 0
+  * user_entities_limit **required** `integer`: Limits the number of user entities the service responds. Default: 5
+  * user_mentions_limit **required** `integer`: Limits the number of user entity related mentions. Default: 0
+  * user_opinions_limit **required** `integer`: Limits the number of concept topics the service responds. Default: 0
+  * user_relations_limit **required** `integer`: Limits the number of user entity relations the service responds. Default: 0
 
 ### Configuration_InsertVersion
 * Configuration_InsertVersion `object`
-  * alphanumeric_threshold **required** `integer`: Defines the threshold of alphanumeric characters needed in the text in percent. Default: 80
   * auto_response **required** `boolean`: Defines whether or not the service should respond with processed results automatically. Default: false
   * callback **required** `string`: Defines a callback URL for automatic data responding
+  * categories_threshold **required** `number`: Defines low threshold for strength score of user categories to be reported in the output. Default: 0.45
+  * chars_threshold **required** `integer`: Defines the threshold for alphanumeric characters in the text in percent. Default: 80
   * collection **required** [ConfigurationCollectionSection](#configurationcollectionsection)
-  * concept_topics_threshold **required** `number`: Defines concept topics detection threshold. Default: 0.45
   * document **required** [ConfigurationDocumentSection](#configurationdocumentsection)
-  * entities_threshold **required** `integer`: Defines low threshold for evidence score of named and user entities to be reported in the output. Default: 55
+  * entities_threshold **required** `integer`: Defines low threshold for evidence score of named and user entities to be reported in the output.
   * is_primary **required** `boolean`: Identifies whether the current configuration is primary or not. Default: false
   * language **required** `string`: Defines target language that will be used for task processing. Default: English
   * name **required** `string`: Configuration name
-  * one_sentence_mode **required** `boolean`: Defines whether or not service should use one sentence mode with less accurate grammar. Default: false
-  * process_html **required** `boolean`: Defines whether or not the service should clean up HTML tags before processing. Default: false
+  * one_sentence **required** `boolean`: Leads the service to consider the entire document as single sentence. Default: false
+  * process_html **required** `boolean`: Leads the service to clean HTML tags before processing. Default: false
 
 ### Configuration_ResponseVersion
 * Configuration_ResponseVersion `object`
-  * alphanumeric_threshold **required** `integer`: Defines the threshold for alphanumeric characters in the text in percent. Default: 80
   * auto_response **required** `boolean`: Defines whether or not the service should respond with processed results automatically. Default: false
   * callback **required** `string`: Defines a callback URL for automatic data responding
+  * categories_threshold **required** `number`: Defines low threshold for strength score of user categories to be reported in the output. Default: 0.45
+  * chars_threshold **required** `integer`: Defines the threshold for alphanumeric characters in the text in percent. Default: 80
   * collection **required** [ConfigurationCollectionSection](#configurationcollectionsection)
-  * concept_topics_threshold **required** `number`: Defines concept topics detection threshold. Default: 0.45
+  * config_id **required** `string`: Unique configuration identifier
   * document **required** [ConfigurationDocumentSection](#configurationdocumentsection)
   * entities_threshold **required** `integer`: Defines low threshold for evidence score of named and user entities to be reported in the output. Default: 55
-  * id **required** `string`: Unique configuration identifier
+  * from_template_config_id **required** `string`: Unique identifier of configuration (template) the current configuration has been clonned from
   * is_primary **required** `boolean`: Identifies whether the current configuration is primary or not. Default: false
   * language **required** `string`: Defines target language that will be used for task processing. Default: English
   * modified **required** `string`: The timestamp of the latest update of the record. Creation date of update didn't occur
   * name **required** `string`: Configuration name
-  * one_sentence_mode **required** `boolean`: Defines whether or not service should use one sentence mode with less accurate grammar. Default: false
-  * process_html **required** `boolean`: Defines whether or not the service should clean up HTML tags before processing. Default: false
-  * template **required** `string`: Unique identifier of template configuration if copy operation is performing
+  * one_sentence **required** `boolean`: Leads the service to consider the entire document as single sentence. Default: false
+  * process_html **required** `boolean`: Leads the service to clean HTML tags before processing. Default: false
   * version **required** `string`: Version of the vertical pack, for versioning purposes
 
 ### Configuration_UpdateVersion
 * Configuration_UpdateVersion `object`
-  * alphanumeric_threshold **required** `integer`: Defines the threshold of alphanumeric characters needed in the text in percent. Default: 80
   * auto_response **required** `boolean`: Defines whether or not the service should respond with processed results automatically. Default: false
   * callback **required** `string`: Defines a callback URL for automatic data responding
+  * categories_threshold **required** `number`: Defines low threshold for strength score of user categories to be reported in the output. Default: 0.45
+  * chars_threshold **required** `integer`: Defines the threshold for alphanumeric characters in the text in percent. Default: 80
   * collection **required** [ConfigurationCollectionSection](#configurationcollectionsection)
-  * concept_topics_threshold **required** `number`: Defines concept topics detection threshold. Default: 0.45
+  * config_id **required** `string`: Unique configuration identifier
   * document **required** [ConfigurationDocumentSection](#configurationdocumentsection)
   * entities_threshold **required** `integer`: Defines low threshold for evidence score of named and user entities to be reported in the output. Default: 55
-  * id **required** `string`: Unique configuration identifier
   * is_primary **required** `boolean`: Identifies whether the current configuration is primary or not. Default: false
   * language **required** `string`: Defines target language that will be used for task processing. Default: English
   * name **required** `string`: Configuration name
-  * one_sentence_mode **required** `boolean`: Defines whether or not service should use one sentence mode with less accurate grammar. Default: false
-  * process_html **required** `boolean`: Defines whether or not the service should clean up HTML tags before processing. Default: false
+  * one_sentence **required** `boolean`: Leads the service to consider the entire document as single sentence. Default: false
+  * process_html **required** `boolean`: Leads the service to clean HTML tags before processing. Default: false
 
 ### Details
 * Details `object`
@@ -1016,7 +1023,6 @@ semantria.updateTaxonomy({
 * Document `object`
   * id **required** `string`: Up to 32 symbols unique identifier of document assigned and tracked by client.
   * job_id **required** `string`: Specific marker of incoming job that can be used then for documents retrieving
-  * metadata **required** [JSON](#json)
   * tag **required** `string`: Any text of up to 50 characters used like marker.
   * text **required** `string`: Document text that needs to be analyzed by the service.
 
@@ -1035,7 +1041,6 @@ semantria.updateTaxonomy({
   * job_id **required** `string`: Specific marker of a job document belongs to, can be used for documents ordering on client side
   * language **required** `string`: Determined language of source text
   * language_score **required** `number`: The percentage score of the best match of language among detected languages
-  * metadata **required** [JSON](#json)
   * model_sentiment **required** [ModelSentiment](#modelsentiment)
   * opinions **required** `array`: Returns the list of opinions extracted from the source text
     * items [Opinion](#opinion)
@@ -1118,11 +1123,12 @@ semantria.updateTaxonomy({
 ### FeatureDetailedModeSection
 * FeatureDetailedModeSection `object`
   * auto_categories **required** `boolean`: Represents whether auto-categories of entities supported for certain language or not
+  * entity_mentions **required** `boolean`: Represents whether mentions of entities supported for certain language or not
   * entity_opinions **required** `boolean`: Represents whether opinions of entities supported for certain language or not
   * entity_relations **required** `boolean`: Represents whether relations of entities supported for certain language or not
+  * entity_themes **required** `boolean`: Represents whether themes of entities supported for certain language or not
   * intentions **required** `boolean`: Represents whether intentions detection supported for certain language or not
   * language_detection **required** `boolean`: Represents whether language detection feature supported or not
-  * mentions **required** `boolean`: Represents whether mentions for themes and entities supported for certain language or not
   * model_sentiment **required** `boolean`: Represents whether model-based sentiment supported for certain language or not
   * named_entities **required** `boolean`: Represents whether named entities extraction supported for certain language or not
   * pos_tagging **required** `boolean`: Represents whether POS tagging supported for certain language or not
@@ -1131,29 +1137,32 @@ semantria.updateTaxonomy({
   * sentiment_phrases **required** `boolean`: Represents whether sentiment phrases detection supported for certain language or not
   * summarization **required** `boolean`: Represents whether summarization supported for certain language or not
   * taxonomy **required** `boolean`: Represents whether taxonomy feature supported for certain language or not
-  * themes **required** `boolean`: Represents whether document and entity themes supported for certain language or not
+  * theme_mentions **required** `boolean`: Represents whether mentions of themes supported for certain language or not
+  * themes **required** `boolean`: Represents whether themes extraction supported for certain language or not
   * user_categories **required** `boolean`: Represents whether user categories of entities supported for certain language or not
   * user_entities **required** `boolean`: Represents whether user entities extraction supported for certain language or not
 
 ### FeatureDiscoveryModeSection
 * FeatureDiscoveryModeSection `object`
-  * attributes **required** `boolean`: Represents whether attributes of facets supported for certain language or not
-  * concept_topics **required** `boolean`: Represents whether user categories extraction supported for certain language or not
+  * entity_mentions **required** `boolean`: Represents whether mentions of entities supported for certain language or not
+  * facet_attributes **required** `boolean`: Represents whether attributes of facets supported for certain language or not
+  * facet_mentioins **required** `boolean`: Represents whether mentions of facets supported for certain language or not
   * facets **required** `boolean`: Represents whether facets detection supported for certain language or not
-  * mentions **required** `boolean`: Represents whether mentions for facets, themes and entities supported for certain language or not
   * named_entities **required** `boolean`: Represents whether named entities extraction supported for certain language or not
-  * query_topics **required** `boolean`: Represents whether queries extraction supported for certain language or not
+  * queries **required** `boolean`: Represents whether queries extraction supported for certain language or not
   * taxonomy **required** `boolean`: Represents whether taxonomy feature supported for certain language or not
+  * theme_mentions **required** `boolean`: Represents whether mentions of themes supported for certain language or not
   * themes **required** `boolean`: Represents whether themes extraction supported for certain language or not
+  * user_categories **required** `boolean`: Represents whether user categories extraction supported for certain language or not
   * user_entities **required** `boolean`: Represents whether user entities extraction supported for certain language or not
 
 ### FeatureSettingsSection
 * FeatureSettingsSection `object`
   * blacklist **required** `boolean`: Represents whether blacklist feature supported for certain language or not
-  * concept_topics **required** `boolean`: Represents whether user categories definition supported for certain language or not
-  * query_topics **required** `boolean`: Represents whether queries definition supported for certain language or not
+  * queries **required** `boolean`: Represents whether queries definition supported for certain language or not
   * sentiment_phrases **required** `boolean`: Represents whether sentiment-bearing phrases adjustmment supported for certain language or not
   * taxonomy **required** `boolean`: Represents whether taxonomy feature supported for certain language or not
+  * user_categories **required** `boolean`: Represents whether user categories definition supported for certain language or not
   * user_entities **required** `boolean`: Represents whether user entities definition supported for certain language or not
 
 ### FeatureTemplateSection
@@ -1214,9 +1223,7 @@ semantria.updateTaxonomy({
   * intensifying_phrase **required** `string`: If the phrase has been intensified, this gives the intensifying phrase
   * is_intensified **required** `boolean`: Specifies whether the phrase has been intensified or not
   * is_negated **required** `boolean`: Specifies whether the phrase has been negated or not
-  * length **required** `integer`: The length of the phrase in bytes
   * negating_phrase **required** `string`: If the phrase has been negated, this gives the negating phrase
-  * offset **required** `integer`: The amount of bytes offset in the original text before the start of the phrase
   * sentiment_polarity **required** `string` (values: negative, positive, neutral): Verbal representation of sentiment score. Can be "negative", "positive" or "neutral"
   * sentiment_score **required** `number`: The sentiment score associated with this phrase
   * title **required** `string`: The text of the sentiment-bearing phrase
@@ -1272,39 +1279,58 @@ semantria.updateTaxonomy({
   * entity_type **required** `string`: Type of the entity (Company, Person, Place, Product, etc.)
   * title **required** `string`: Normalized entity title based on existing entity normalization rules
 
+### Request class
+
+
 ### Request_class
 
 
 ### Statistic
 * Statistic `object`
-  * batches_queued **required** `integer`: Total number of queued batches of texts processed
   * calls_data **required** `integer`: Total number of data API calls made. These affect you API balance
-  * calls_polling **required** `integer`: Total number of polling API calls made
+  * calls_polling **required** `integer`: Total number of polling API calls made. These do not affect API balance
   * calls_settings **required** `integer`: Total number of settings API calls made. These do not affect API balance
+  * colls_documents **required** `integer`: Total number of documents that have been queued into collections
+  * colls_failed **required** `integer`: Total number of collections that have failed to be processed
+  * colls_processed **required** `integer`: Total numbers of collections that have been successfully processed
+  * colls_responded **required** `integer`: Total number of successfully processed collections that have been returned
   * configurations **required** `array`: Includes statistics per specific configuration
     * items [StatisticConfiguration](#statisticconfiguration)
   * docs_failed **required** `integer`: Total number of documents that have failed to be processed
-  * docs_queued **required** `integer`: Total number of documents that have been queued
-  * docs_retrieved **required** `integer`: Total number of successfully processed documents that have been returned
-  * docs_successful **required** `integer`: Total number of documents that have been successfully processed
+  * docs_processed **required** `integer`: Total number of documents that have been successfully processed
+  * docs_responded **required** `integer`: Total number of successfully processed documents that have been returned
   * latest_used_app **required** `string`: The latest application that used the API on this account
   * name **required** `string`: Semantria subscriber name. Usually email
-  * total_api_calls **required** `integer`: Total number of API calls made
+  * overall_batches **required** `integer`: Total number of queued batches of texts processed
+  * overall_calls **required** `integer`: Total number of API calls made
+  * overall_docs **required** `integer`: Total number of documents that have been queued
+  * overall_exceeded **required** `integer`: Total number of documents that have exceeded the favorable (suggested) limit
+  * overall_texts **required** `integer`: Total number of texts processed
+  * overcall_colls **required** `integer`: Total numbers of collections that have been queued
+  * status **required** `string`: Semantria subscriber status. Can be active, expired, disabled, etc
+  * used_apps **required** `string`: A list of all the applications that have used the API on this account
 
 ### StatisticConfiguration
 * StatisticConfiguration `object`
-  * batches_queued **required** `integer`: Number of queued batches of texts using certain configuration
-  * calls_data **required** `integer`: Number of data API calls made  using certain configuration. These affect you API balance
-  * calls_polling **required** `integer`: Number of polling API calls made using certain configuration. These do not affect API balance
-  * calls_settings **required** `integer`: Number of settings API calls made  using certain configuration. These do not affect API balance
+  * calls_data **required** `integer`: Total number of data API calls made. These affect you API balance
+  * calls_polling **required** `integer`: Total number of polling API calls made. These do not affect API balance
+  * calls_settings **required** `integer`: Total number of settings API calls made. These do not affect API balance
+  * colls_failed **required** `integer`: Total number of collections that have failed to be processed
+  * colls_processed **required** `integer`: Total numbers of collections that have been successfully processed
+  * colls_responded **required** `integer`: Total number of successfully processed collections that have been returned
   * config_id **required** `string`: Unique identifier of configuration
-  * docs_failed **required** `integer`: Number of documents that have failed to be processed using certain configuration
-  * docs_queued **required** `integer`: Number of documents that have been queued using certain configuration
-  * docs_retrieved **required** `integer`: Number of successfully processed documents which have been returned using certain configuration
-  * docs_successful **required** `integer`: Number of documents that have been successfully processed using certain configuration
-  * latest_used_app **required** `string`: The latest application used by certain configuration
+  * docs_failed **required** `integer`: Total number of documents that have failed to be processed
+  * docs_processed **required** `integer`: Total number of documents that have been successfully processed
+  * docs_responded **required** `integer`: Total number of successfully processed documents that have been returned
+  * latest_used_app **required** `string`: The latest application that used the API on this account
   * name **required** `string`: The name of configuration
-  * total_api_calls **required** `integer`: Number of API calls made  using certain configuration
+  * overall_batches **required** `integer`: Total number of queued batches of texts processed
+  * overall_calls **required** `integer`: Total number of API calls made
+  * overall_docs **required** `integer`: Total number of documents that have been queued
+  * overall_exceeded **required** `integer`: Total number of documents that have exceeded the favorable (suggested) limit
+  * overall_texts **required** `integer`: Total number of texts processed
+  * overcall_colls **required** `integer`: Total numbers of collections that have been queued
+  * used_apps **required** `string`: A list of all the applications that have used the API on this account
 
 ### Status
 * Status `object`
@@ -1332,27 +1358,21 @@ semantria.updateTaxonomy({
 
 ### SubscriptionBasicSection
 * SubscriptionBasicSection `object`
-  * auto_response_batch_limit **required** `integer`: Represents the maximum size of outgoing batch for auto-response feature
+  * auto_response_limit **required** `integer`: Represents the maximum size of outgoing batch for auto-response feature
+  * batch_limit **required** `integer`: Represents the maximum size of the incoming batch in documents
   * blacklist_limit **required** `integer`: Represents the maximum number of allowed blacklist items
   * callback_batch_limit **required** `integer`: Represents the maximum size of outgoing batch for callback data retrieving mode
+  * categories_limit **required** `integer`: Represents the maximum number of allowed categories
+  * category_samples_limit **required** `integer`: Represents the maximum number of allowed category samples
+  * characters_limit **required** `integer`: Represents the maximum length of the document allowed for processing
   * collection_limit **required** `integer`: Represents the maximum size of collection in documents
-  * concept_topic_samples_limit **required** `integer`: Represents the maximum number of allowed user category samples
-  * concept_topics_limit **required** `integer`: Represents the maximum number of allowed user categories
   * configurations_limit **required** `integer`: Represents the maximum number of allowed configurations
-  * document_length **required** `integer`: Represents the maximum length of the document allowed for processing
-  * incoming_batch_limit **required** `integer`: Represents the maximum size of the incoming batch of documents
-  * near_operator_distance **required** `integer`: Represents the maximum allowed distance that can be used with NEAR operator
-  * near_operator_limit **required** `integer`: Represents the maximum number of NEAR operators that can appear in query/entity/phrase
-  * polling_batch_limit **required** `integer`: Represents the maximum size of outgoing batch for polling data retrieving mode
-  * queries_depth_level **required** `integer`: Represents the maximum depth level allowed for nested and referenced queries
-  * query_topics_limit **required** `integer`: Represents the maximum number of allowed queries
+  * entities_limit **required** `integer`: Represents the maximum number of allowed entities
+  * output_data_limit **required** `integer`: Represent the maximum number allowed as output limit of configuration
+  * processed_batch_limit **required** `integer`: Represents the maximum size of outgoing batch for pulling data retrieving mode
+  * queries_limit **required** `integer`: Represents the maximum number of allowed queries
   * return_source_text **required** `boolean`: Indicates whether responding of source text along with the analysis data is allowed or not
-  * sentiment_phrases_limit **required** `integer`: Represents the maximum number of allowed sentiment-bearing phrases
-  * summary_size_limit **required** `integer`: Represent the maximum number allowed as output limit of configuration
-  * taxonomy_depth_limit **required** `integer`: Represents the maximum depth level allowed for nested taxonomy nodes
-  * taxonomy_limit **required** `integer`: Represents the number of nodes allowed for entire taxonomy tree
-  * taxonomy_topics_limit **required** `integer`: Represents the maximum allowed number of topics associated with the certain taxonomy node
-  * user_entities_limit **required** `integer`: Represents the maximum number of allowed user entities
+  * sentiment_limit **required** `integer`: Represents the maximum number of allowed sentiment-bearing phrases
 
 ### SubscriptionBillingSection
 * SubscriptionBillingSection `object`
@@ -1362,12 +1382,16 @@ semantria.updateTaxonomy({
   * data_calls_limit **required** `integer`: Represents the limit of data API calls per "data_calls_limit_interval" value
   * data_calls_limit_interval **required** `integer`: Represents an interval for the "data_calls_limit" value of current subscription
   * docs_balance **required** `integer`: Current transaction balance. Applicable for pay-as-you-go subscriptions only
+  * docs_limit **required** `integer`: Represents the transactions limit per "docs_limit_interval" value
+  * docs_limit_interval **required** `integer`: Represents the timeframe for the "docs_limit" value of current subscription
+  * docs_suggested **required** `integer`: Represents the amount of favorable documents suggested for throughput subscriptions
+  * docs_suggested_interval **required** `integer`: Represents the timeframe for the “docs_suggested” value of the current subscription
   * expiration_date **required** `string`: Expiration date of current subscription. Defined as a Unix time stamp
-  * job_ids_allocated **required** `integer`: Number of job Ids currently allocated on the server by the certain subscription
-  * job_ids_permitted **required** `integer`: Number of job Ids allowed for the certain subscription
+  * limit_type **required** `string`: Subscription type can have either pay-as-you-go or throughput value
   * polling_calls_balance **required** `integer`: Represents actual value of remained polling API calls
   * polling_calls_limit **required** `integer`: Represents the limit of polling API calls per "polling_calls_limit_interval" value
   * polling_calls_limit_interval **required** `integer`: Represents an interval for the "polling_calls_limit" value of current subscription
+  * priority **required** `string`: Processing priority of current subscriber. Can have low, normal or high value
   * settings_calls_balance **required** `integer`: Represents actual value of remained settings API calls
   * settings_calls_limit **required** `integer`: Represents the limit of settings API calls per "settings_calls_limit_interval" value
   * settings_calls_limit_interval **required** `integer`: Represents an interval for the "settings_calls_limit" value of current subscription
@@ -1394,19 +1418,22 @@ semantria.updateTaxonomy({
 * SubscriptionFeatureSectionDocument `object`
   * auto_categories **required** `boolean`: Indicates whether auto categories feature is allowed or not
   * concept_topics **required** `boolean`: Indicates whether concept topics are allowed or not
+  * entity_themes **required** `boolean`: Indicates whether entity themes feature is allowed or not
   * intentions **required** `boolean`: Indicates whether intentions feature is allowed or not.
   * language_detection **required** `boolean`: Indicates whether language detection feature is allowed or not
   * mentions **required** `boolean`: Indicates whether mentions for entities and themes are allowed or not
   * model_sentiment **required** `boolean`: Indicates whether model-based sentiment feature is allowed or not
   * named_entities **required** `boolean`: Indicates whether named entities feature is allowed or not
+  * named_relations **required** `boolean`: Indicates whether relations for named entities are allowed or not
   * opinions **required** `boolean`: Indicates whether opinions feature is allowed or not
+  * phrases_detection **required** `boolean`: Indicates whether possible phrases detection feature is allowed or not
   * pos_tagging **required** `boolean`: Indicates whether part of speech tagging feature is allowed or not
   * query_topics **required** `boolean`: Indicates whether query defined topics are allowed or not
-  * relations **required** `boolean`: Indicates whether relations feature for user and named entities is allowed or not
   * sentiment_phrases **required** `boolean`: Indicates whether sentiment-bearing phrases output is allowed or not
   * summary **required** `boolean`: Indicates whether summarization feature is allowed or not
-  * themes **required** `boolean`: Indicates whether document and entity themes feature is allowed or not
+  * themes **required** `boolean`: Indicates whether document themes feature is allowed or not
   * user_entities **required** `boolean`: Indicates whether user entities feature is allowed or not
+  * user_relations **required** `boolean`: Indicates whether relations for user entities are allowed or not
 
 ### SubscriptionFeatureSectionTemplate
 * SubscriptionFeatureSectionTemplate `object`

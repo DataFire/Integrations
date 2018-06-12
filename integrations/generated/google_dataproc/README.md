@@ -1,6 +1,6 @@
 # @datafire/google_dataproc
 
-Client library for Google Cloud Dataproc
+Client library for Cloud Dataproc
 
 ## Installation and Usage
 ```bash
@@ -121,6 +121,7 @@ google_dataproc.projects.regions.clusters.create({
   * body [Cluster](#cluster)
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
+  * requestId `string`: Optional. A unique id used to identify the request. If the server receives two CreateClusterRequest requests with the same id, then the second request will be ignored and the first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -153,8 +154,10 @@ google_dataproc.projects.regions.clusters.delete({
 #### Input
 * input `object`
   * clusterName **required** `string`: Required. The cluster name.
+  * clusterUuid `string`: Optional. Specifying the cluster_uuid means the RPC should fail (with error NOT_FOUND) if cluster with specified UUID does not exist.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
+  * requestId `string`: Optional. A unique id used to identify the request. If the server receives two DeleteClusterRequest requests with the same id, then the second request will be ignored and the first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -225,6 +228,7 @@ google_dataproc.projects.regions.clusters.patch({
   * gracefulDecommissionTimeout `string`: Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning allows removing nodes from the cluster without interrupting jobs in progress. Timeout specifies how long to wait for jobs in progress to finish before forcefully removing nodes (and potentially interrupting jobs). Default timeout is 0 (for forceful decommission), and the maximum allowed timeout is 1 day.Only supported on Dataproc image versions 1.2 and higher.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
+  * requestId `string`: Optional. A unique id used to identify the request. If the server receives two UpdateClusterRequest requests with the same id, then the second request will be ignored and the first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
   * updateMask `string`: Required. Specifies the path, relative to Cluster, of the field to update. For example, to change the number of workers in a cluster to 5, the update_mask parameter would be specified as config.worker_config.num_instances, and the PATCH request body would specify the new value, as follows:
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
@@ -582,15 +586,15 @@ google_dataproc.projects.regions.operations.cancel({
 ## Definitions
 
 ### AcceleratorConfig
-* AcceleratorConfig `object`: Specifies the type and number of accelerator cards attached to the instances of an instance group (see GPUs on Compute Engine).
+* AcceleratorConfig `object`: Specifies the type and number of accelerator cards attached to the instances of an instance. See GPUs on Compute Engine.
   * acceleratorCount `integer`: The number of the accelerator cards of this type exposed to this instance.
-  * acceleratorTypeUri `string`: Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See Google Compute Engine AcceleratorTypes( /compute/docs/reference/beta/acceleratorTypes)Examples * https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80 * projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80 * nvidia-tesla-k80
+  * acceleratorTypeUri `string`: Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See Compute Engine AcceleratorTypes.Examples:
 
 ### CancelJobRequest
 * CancelJobRequest `object`: A request to cancel a job.
 
 ### Cluster
-* Cluster `object`: Describes the identifying information, config, and status of a cluster of Google Compute Engine instances.
+* Cluster `object`: Describes the identifying information, config, and status of a cluster of Compute Engine instances.
   * clusterName `string`: Required. The cluster name. Cluster names within a project must be unique. Names of deleted clusters can be reused.
   * clusterUuid `string`: Output only. A cluster UUID (Unique Universal Identifier). Cloud Dataproc generates this value when it creates the cluster.
   * config [ClusterConfig](#clusterconfig)
@@ -603,7 +607,7 @@ google_dataproc.projects.regions.operations.cancel({
 
 ### ClusterConfig
 * ClusterConfig `object`: The cluster config.
-  * configBucket `string`: Optional. A Google Cloud Storage staging bucket used for sharing generated SSH keys and config. If you do not specify a staging bucket, Cloud Dataproc will determine an appropriate Cloud Storage location (US, ASIA, or EU) for your cluster's staging bucket according to the Google Compute Engine zone where your cluster is deployed, and then it will create and manage this project-level, per-location bucket for you.
+  * configBucket `string`: Optional. A Cloud Storage staging bucket used for sharing generated SSH keys and config. If you do not specify a staging bucket, Cloud Dataproc will determine an appropriate Cloud Storage location (US, ASIA, or EU) for your cluster's staging bucket according to the Google Compute Engine zone where your cluster is deployed, and then it will create and manage this project-level, per-location bucket for you.
   * gceClusterConfig [GceClusterConfig](#gceclusterconfig)
   * initializationActions `array`: Optional. Commands to execute on each node after config is completed. By default, executables are run on master and all worker nodes. You can test a node's role metadata to run an executable on a master or worker node, as shown below using curl (you can also use wget):
     * items [NodeInitializationAction](#nodeinitializationaction)
@@ -649,7 +653,7 @@ google_dataproc.projects.regions.operations.cancel({
 
 ### DiagnoseClusterResults
 * DiagnoseClusterResults `object`: The location of diagnostic output.
-  * outputUri `string`: Output only. The Google Cloud Storage URI of the diagnostic output. The output report is a plain text file with a summary of collected diagnostics.
+  * outputUri `string`: Output only. The Cloud Storage URI of the diagnostic output. The output report is a plain text file with a summary of collected diagnostics.
 
 ### DiskConfig
 * DiskConfig `object`: Specifies the config of disk options for a group of VM instances.
@@ -660,17 +664,17 @@ google_dataproc.projects.regions.operations.cancel({
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance:
 
 ### GceClusterConfig
-* GceClusterConfig `object`: Common config settings for resources of Google Compute Engine cluster instances, applicable to all instances in the cluster.
+* GceClusterConfig `object`: Common config settings for resources of Compute Engine cluster instances, applicable to all instances in the cluster.
   * internalIpOnly `boolean`: Optional. If true, all instances in the cluster will only have internal IP addresses. By default, clusters are not restricted to internal IP addresses, and will have ephemeral external IP addresses assigned to each instance. This internal_ip_only restriction can only be enabled for subnetwork enabled networks, and all off-cluster dependencies must be configured to be accessible without external IP addresses.
-  * metadata `object`: The Google Compute Engine metadata entries to add to all instances (see Project and instance metadata (https://cloud.google.com/compute/docs/storing-retrieving-metadata#project_and_instance_metadata)).
-  * networkUri `string`: Optional. The Google Compute Engine network to be used for machine communications. Cannot be specified with subnetwork_uri. If neither network_uri nor subnetwork_uri is specified, the "default" network of the project is used, if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks for more information).A full URL, partial URI, or short name are valid. Examples:
-  * serviceAccount `string`: Optional. The service account of the instances. Defaults to the default Google Compute Engine service account. Custom service accounts need permissions equivalent to the folloing IAM roles:
-  * serviceAccountScopes `array`: Optional. The URIs of service account scopes to be included in Google Compute Engine instances. The following base set of scopes is always included:
+  * metadata `object`: The Compute Engine metadata entries to add to all instances (see Project and instance metadata (https://cloud.google.com/compute/docs/storing-retrieving-metadata#project_and_instance_metadata)).
+  * networkUri `string`: Optional. The Compute Engine network to be used for machine communications. Cannot be specified with subnetwork_uri. If neither network_uri nor subnetwork_uri is specified, the "default" network of the project is used, if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks for more information).A full URL, partial URI, or short name are valid. Examples:
+  * serviceAccount `string`: Optional. The service account of the instances. Defaults to the default Compute Engine service account. Custom service accounts need permissions equivalent to the following IAM roles:
+  * serviceAccountScopes `array`: Optional. The URIs of service account scopes to be included in Compute Engine instances. The following base set of scopes is always included:
     * items `string`
-  * subnetworkUri `string`: Optional. The Google Compute Engine subnetwork to be used for machine communications. Cannot be specified with network_uri.A full URL, partial URI, or short name are valid. Examples:
-  * tags `array`: The Google Compute Engine tags to add to all instances (see Tagging instances).
+  * subnetworkUri `string`: Optional. The Compute Engine subnetwork to be used for machine communications. Cannot be specified with network_uri.A full URL, partial URI, or short name are valid. Examples:
+  * tags `array`: The Compute Engine tags to add to all instances (see Tagging instances).
     * items `string`
-  * zoneUri `string`: Optional. The zone where the Google Compute Engine cluster will be located. On a create request, it is required in the "global" region. If omitted in a non-global Cloud Dataproc region, the service will pick a zone in the corresponding Compute Engine region. On a get request, zone will always be present.A full URL, partial URI, or short name are valid. Examples:
+  * zoneUri `string`: Optional. The zone where the Compute Engine cluster will be located. On a create request, it is required in the "global" region. If omitted in a non-global Cloud Dataproc region, the service will pick a zone in the corresponding Compute Engine region. On a get request, zone will always be present.A full URL, partial URI, or short name are valid. Examples:
 
 ### HadoopJob
 * HadoopJob `object`: A Cloud Dataproc job for running Apache Hadoop MapReduce (https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) jobs on Apache Hadoop YARN (https://hadoop.apache.org/docs/r2.7.1/hadoop-yarn/hadoop-yarn-site/YARN.html).
@@ -698,15 +702,15 @@ google_dataproc.projects.regions.operations.cancel({
   * scriptVariables `object`: Optional. Mapping of query variable names to values (equivalent to the Hive command: SET name="value";).
 
 ### InstanceGroupConfig
-* InstanceGroupConfig `object`: Optional. The config settings for Google Compute Engine resources in an instance group, such as a master or worker group.
-  * accelerators `array`: Optional. The Google Compute Engine accelerator configuration for these instances.Beta Feature: This feature is still under development. It may be changed before final release.
+* InstanceGroupConfig `object`: Optional. The config settings for Compute Engine resources in an instance group, such as a master or worker group.
+  * accelerators `array`: Optional. The Compute Engine accelerator configuration for these instances.Beta Feature: This feature is still under development. It may be changed before final release.
     * items [AcceleratorConfig](#acceleratorconfig)
   * diskConfig [DiskConfig](#diskconfig)
-  * imageUri `string`: Output only. The Google Compute Engine image resource used for cluster instances. Inferred from SoftwareConfig.image_version.
-  * instanceNames `array`: Optional. The list of instance names. Cloud Dataproc derives the names from cluster_name, num_instances, and the instance group if not set by user (recommended practice is to let Cloud Dataproc derive the name).
+  * imageUri `string`: Output only. The Compute Engine image resource used for cluster instances. Inferred from SoftwareConfig.image_version.
+  * instanceNames `array`: Output only. The list of instance names. Cloud Dataproc derives the names from cluster_name, num_instances, and the instance group.
     * items `string`
   * isPreemptible `boolean`: Optional. Specifies that this instance group contains preemptible instances.
-  * machineTypeUri `string`: Optional. The Google Compute Engine machine type used for cluster instances.A full URL, partial URI, or short name are valid. Examples:
+  * machineTypeUri `string`: Optional. The Compute Engine machine type used for cluster instances.A full URL, partial URI, or short name are valid. Examples:
   * managedGroupConfig [ManagedGroupConfig](#managedgroupconfig)
   * numInstances `integer`: Optional. The number of VM instances in the instance group. For master instance groups, must be set to 1.
 
@@ -780,7 +784,7 @@ google_dataproc.projects.regions.operations.cancel({
 
 ### NodeInitializationAction
 * NodeInitializationAction `object`: Specifies an executable to run on a fully configured node and a timeout period for executable completion.
-  * executableFile `string`: Required. Google Cloud Storage URI of executable file.
+  * executableFile `string`: Required. Cloud Storage URI of executable file.
   * executionTimeout `string`: Optional. Amount of time executable has to complete. Default is 10 minutes. Cluster creation fails with an explanatory error message (the name of the executable that caused the error and the exceeded timeout period) if the executable is not completed at end of the timeout period.
 
 ### Operation
@@ -825,7 +829,7 @@ google_dataproc.projects.regions.operations.cancel({
 
 ### SoftwareConfig
 * SoftwareConfig `object`: Specifies the selection and config of software inside the cluster.
-  * imageVersion `string`: Optional. The version of software inside the cluster. It must match the regular expression [0-9]+\.[0-9]+. If unspecified, it defaults to the latest version (see Cloud Dataproc Versioning).
+  * imageVersion `string`: Optional. The version of software inside the cluster. It must be one of the supported Cloud Dataproc Versions, such as "1.2" (including a subminor version, such as "1.2.29"), or the "preview" version. If unspecified, it defaults to the latest version.
   * properties `object`: Optional. The properties to set on daemon config files.Property keys are specified in prefix:property format, such as core:fs.defaultFS. The following are supported prefixes and their mappings:
 
 ### SparkJob
@@ -863,6 +867,7 @@ google_dataproc.projects.regions.operations.cancel({
 ### SubmitJobRequest
 * SubmitJobRequest `object`: A request to submit a job.
   * job [Job](#job)
+  * requestId `string`: Optional. A unique id used to identify the request. If the server receives two SubmitJobRequest requests with the same id, then the second request will be ignored and the first Job created and stored in the backend is returned.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
 
 ### YarnApplication
 * YarnApplication `object`: A YARN application created by a job. Application information is a subset of <code>org.apache.hadoop.yarn.proto.YarnProtos.ApplicationReportProto</code>.Beta Feature: This report is available for testing purposes only. It may be changed before final release.

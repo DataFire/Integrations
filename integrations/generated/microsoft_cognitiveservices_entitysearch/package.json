@@ -1,6 +1,6 @@
 {
   "name": "@datafire/microsoft_cognitiveservices_entitysearch",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for Entity Search",
   "repository": {

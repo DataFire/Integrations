@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/account.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/account.json",
         "version": "2.0"
       }
     ],
@@ -170,39 +170,52 @@
                   "items": {
                     "allOf": [
                       {
-                        "description": "The Resource definition.",
+                        "allOf": [
+                          {
+                            "description": "The core properties of ARM resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource Id for the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for a ARM tracked top level resource",
                         "properties": {
-                          "id": {
-                            "description": "Resource Id",
-                            "readOnly": true,
-                            "type": "string"
-                          },
                           "location": {
-                            "description": "Resource location",
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Resource name",
-                            "readOnly": true,
-                            "type": "string"
+                            "description": "The Azure Region where the resource lives",
+                            "type": "string",
+                            "x-ms-mutability": [
+                              "read",
+                              "create"
+                            ]
                           },
                           "tags": {
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Resource tags",
-                            "type": "object"
-                          },
-                          "type": {
-                            "description": "Resource type",
-                            "readOnly": true,
-                            "type": "string"
+                            "description": "Resource tags.",
+                            "type": "object",
+                            "x-ms-mutability": [
+                              "read",
+                              "create",
+                              "update"
+                            ]
                           }
-                        },
-                        "required": [
-                          "location"
-                        ],
-                        "x-ms-azure-resource": true
+                        }
                       }
                     ],
                     "description": "Definition of the automation account type.",
@@ -218,7 +231,8 @@
                             "description": "Gets the creation time.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "description": {
                             "description": "Gets or sets the description.",
@@ -232,7 +246,8 @@
                             "description": "Gets the last modified time.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "sku": {
                             "description": "The account SKU.",
@@ -1046,39 +1061,52 @@
                   "items": {
                     "allOf": [
                       {
-                        "description": "The Resource definition.",
+                        "allOf": [
+                          {
+                            "description": "The core properties of ARM resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource Id for the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for a ARM tracked top level resource",
                         "properties": {
-                          "id": {
-                            "description": "Resource Id",
-                            "readOnly": true,
-                            "type": "string"
-                          },
                           "location": {
-                            "description": "Resource location",
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Resource name",
-                            "readOnly": true,
-                            "type": "string"
+                            "description": "The Azure Region where the resource lives",
+                            "type": "string",
+                            "x-ms-mutability": [
+                              "read",
+                              "create"
+                            ]
                           },
                           "tags": {
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Resource tags",
-                            "type": "object"
-                          },
-                          "type": {
-                            "description": "Resource type",
-                            "readOnly": true,
-                            "type": "string"
+                            "description": "Resource tags.",
+                            "type": "object",
+                            "x-ms-mutability": [
+                              "read",
+                              "create",
+                              "update"
+                            ]
                           }
-                        },
-                        "required": [
-                          "location"
-                        ],
-                        "x-ms-azure-resource": true
+                        }
                       }
                     ],
                     "description": "Definition of the automation account type.",
@@ -1094,7 +1122,8 @@
                             "description": "Gets the creation time.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "description": {
                             "description": "Gets or sets the description.",
@@ -1108,7 +1137,8 @@
                             "description": "Gets the last modified time.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "sku": {
                             "description": "The account SKU.",
@@ -1450,39 +1480,52 @@
             "schema": {
               "allOf": [
                 {
-                  "description": "The Resource definition.",
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
                   "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
                     "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
                     },
                     "tags": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
                     }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
+                  }
                 }
               ],
               "description": "Definition of the automation account type.",
@@ -1498,7 +1541,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -1512,7 +1556,8 @@
                       "description": "Gets the last modified time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "sku": {
                       "description": "The account SKU.",
@@ -1594,6 +1639,7 @@
             "responses": {
               "200": {
                 "body": {
+                  "etag": null,
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount9",
                   "location": "East US 2",
                   "name": "myAutomationAccount9",
@@ -1602,6 +1648,8 @@
                     "lastModifiedBy": "myEmailId@microsoft.com",
                     "lastModifiedTime": "2017-03-26T01:13:43.267+00:00",
                     "sku": {
+                      "capacity": null,
+                      "family": null,
                       "name": "Free"
                     },
                     "state": "Ok"
@@ -1694,10 +1742,7 @@
                   "description": "Gets or sets the tags attached to the resource.",
                   "type": "object"
                 }
-              },
-              "required": [
-                "properties"
-              ]
+              }
             }
           },
           {
@@ -1721,39 +1766,52 @@
             "schema": {
               "allOf": [
                 {
-                  "description": "The Resource definition.",
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
                   "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
                     "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
                     },
                     "tags": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
                     }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
+                  }
                 }
               ],
               "description": "Definition of the automation account type.",
@@ -1769,7 +1827,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -1783,7 +1842,8 @@
                       "description": "Gets the last modified time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "sku": {
                       "description": "The account SKU.",
@@ -1874,6 +1934,7 @@
             "responses": {
               "200": {
                 "body": {
+                  "etag": null,
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount9",
                   "location": "East US 2",
                   "name": "myAutomationAccount9",
@@ -1882,6 +1943,8 @@
                     "lastModifiedBy": "myEmailId@microsoft.com",
                     "lastModifiedTime": "2017-03-26T01:13:43.267+00:00",
                     "sku": {
+                      "capacity": null,
+                      "family": null,
                       "name": "Free"
                     },
                     "state": "Ok"
@@ -1998,39 +2061,52 @@
             "schema": {
               "allOf": [
                 {
-                  "description": "The Resource definition.",
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
                   "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
                     "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
                     },
                     "tags": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
                     }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
+                  }
                 }
               ],
               "description": "Definition of the automation account type.",
@@ -2046,7 +2122,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -2060,7 +2137,8 @@
                       "description": "Gets the last modified time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "sku": {
                       "description": "The account SKU.",
@@ -2115,39 +2193,52 @@
             "schema": {
               "allOf": [
                 {
-                  "description": "The Resource definition.",
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
                   "properties": {
-                    "id": {
-                      "description": "Resource Id",
-                      "readOnly": true,
-                      "type": "string"
-                    },
                     "location": {
-                      "description": "Resource location",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
                     },
                     "tags": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Resource tags",
-                      "type": "object"
-                    },
-                    "type": {
-                      "description": "Resource type",
-                      "readOnly": true,
-                      "type": "string"
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
                     }
-                  },
-                  "required": [
-                    "location"
-                  ],
-                  "x-ms-azure-resource": true
+                  }
                 }
               ],
               "description": "Definition of the automation account type.",
@@ -2163,7 +2254,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -2177,7 +2269,8 @@
                       "description": "Gets the last modified time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "sku": {
                       "description": "The account SKU.",
@@ -2268,6 +2361,7 @@
             "responses": {
               "200": {
                 "body": {
+                  "etag": null,
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount9",
                   "location": "East US 2",
                   "name": "ContoseAutomationAccount",
@@ -2276,6 +2370,8 @@
                     "lastModifiedBy": "myEmaild@microsoft.com",
                     "lastModifiedTime": "2017-03-28T18:21:15.187+00:00",
                     "sku": {
+                      "capacity": null,
+                      "family": null,
                       "name": "Free"
                     },
                     "state": "Ok"
@@ -2287,6 +2383,7 @@
               },
               "201": {
                 "body": {
+                  "etag": null,
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount9",
                   "location": "East US 2",
                   "name": "myAutomationAccount9",
@@ -2295,6 +2392,8 @@
                     "lastModifiedBy": "myEmailId@microsoft.com",
                     "lastModifiedTime": "2017-03-26T01:13:43.267+00:00",
                     "sku": {
+                      "capacity": null,
+                      "family": null,
                       "name": "Free"
                     },
                     "state": "Ok"
@@ -2307,6 +2406,141 @@
             }
           }
         }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/listKeys": {
+      "post": {
+        "description": "Retrieve the automation keys for an account.",
+        "operationId": "Keys_ListByAutomationAccount",
+        "parameters": [
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The automation account name.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "value": {
+                  "description": "Lists the automation keys.",
+                  "items": {
+                    "description": "Automation key which is used to register a DSC Node",
+                    "properties": {
+                      "keyName": {
+                        "description": "Automation key name.",
+                        "enum": [
+                          "primary",
+                          "secondary"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "AutomationKeyName"
+                        }
+                      },
+                      "permissions": {
+                        "description": "Automation key permissions.",
+                        "enum": [
+                          "Full"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "AutomationKeyPermissions"
+                        }
+                      },
+                      "value": {
+                        "description": "Value of the Automation Key used for registration.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Error response of an operation failure",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "ListKeys"
+        ],
+        "x-ms-examples": {
+          "Get usages of an automation account": {
+            "parameters": {
+              "api-version": "2015-10-31",
+              "automationAccountName": "MyAutomationAccount",
+              "resourceGroupName": "rg",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "keys": [
+                    {
+                      "KeyName": "Primary",
+                      "Permissions": "Full",
+                      "Value": "**************************************************************"
+                    },
+                    {
+                      "KeyName": "Secondary",
+                      "Permissions": "Full",
+                      "Value": "**************************************************************"
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {}
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/statistics": {
@@ -2380,7 +2614,8 @@
                         "description": "Gets the endTime of the statistic.",
                         "format": "date-time",
                         "readOnly": true,
-                        "type": "string"
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "id": {
                         "description": "Gets the id.",
@@ -2391,7 +2626,8 @@
                         "description": "Gets the startTime of the statistic.",
                         "format": "date-time",
                         "readOnly": true,
-                        "type": "string"
+                        "type": "string",
+                        "x-nullable": false
                       }
                     }
                   },

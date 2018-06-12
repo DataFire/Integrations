@@ -1,6 +1,6 @@
 {
   "name": "@datafire/netlicensing",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Labs64 NetLicensing RESTful API Test Center",
   "repository": {

@@ -66,6 +66,7 @@ amazonaws_dms.CreateEndpoint({
   * EndpointIdentifier **required** [String](#string)
   * EndpointType **required** [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
   * EngineName **required** [String](#string)
+  * ExternalTableDefinition [String](#string)
   * ExtraConnectionAttributes [String](#string)
   * KmsKeyId [String](#string)
   * MongoDbSettings [MongoDbSettings](#mongodbsettings)
@@ -73,6 +74,7 @@ amazonaws_dms.CreateEndpoint({
   * Port [IntegerOptional](#integeroptional)
   * S3Settings [S3Settings](#s3settings)
   * ServerName [String](#string)
+  * ServiceAccessRoleArn [String](#string)
   * SslMode [DmsSslModeValue](#dmssslmodevalue)
   * Tags [TagList](#taglist)
   * Username [String](#string)
@@ -173,7 +175,9 @@ amazonaws_dms.CreateReplicationTask({
 
 #### Input
 * input `object`
+  * CdcStartPosition [String](#string)
   * CdcStartTime [TStamp](#tstamp)
+  * CdcStopPosition [String](#string)
   * MigrationType **required** [MigrationTypeValue](#migrationtypevalue)
   * ReplicationInstanceArn **required** [String](#string)
   * ReplicationTaskIdentifier **required** [String](#string)
@@ -670,12 +674,14 @@ amazonaws_dms.ModifyEndpoint({
   * EndpointIdentifier [String](#string)
   * EndpointType [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
   * EngineName [String](#string)
+  * ExternalTableDefinition [String](#string)
   * ExtraConnectionAttributes [String](#string)
   * MongoDbSettings [MongoDbSettings](#mongodbsettings)
   * Password [SecretString](#secretstring)
   * Port [IntegerOptional](#integeroptional)
   * S3Settings [S3Settings](#s3settings)
   * ServerName [String](#string)
+  * ServiceAccessRoleArn [String](#string)
   * SslMode [DmsSslModeValue](#dmssslmodevalue)
   * Username [String](#string)
 
@@ -762,7 +768,9 @@ amazonaws_dms.ModifyReplicationTask({
 
 #### Input
 * input `object`
+  * CdcStartPosition [String](#string)
   * CdcStartTime [TStamp](#tstamp)
+  * CdcStopPosition [String](#string)
   * MigrationType [MigrationTypeValue](#migrationtypevalue)
   * ReplicationTaskArn **required** [String](#string)
   * ReplicationTaskIdentifier [String](#string)
@@ -860,7 +868,9 @@ amazonaws_dms.StartReplicationTask({
 
 #### Input
 * input `object`
+  * CdcStartPosition [String](#string)
   * CdcStartTime [TStamp](#tstamp)
+  * CdcStopPosition [String](#string)
   * ReplicationTaskArn **required** [String](#string)
   * StartReplicationTaskType **required** [StartReplicationTaskTypeValue](#startreplicationtasktypevalue)
 
@@ -1006,6 +1016,7 @@ amazonaws_dms.TestConnection({
   * EndpointIdentifier **required** [String](#string)
   * EndpointType **required** [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
   * EngineName **required** [String](#string)
+  * ExternalTableDefinition [String](#string)
   * ExtraConnectionAttributes [String](#string)
   * KmsKeyId [String](#string)
   * MongoDbSettings [MongoDbSettings](#mongodbsettings)
@@ -1013,6 +1024,7 @@ amazonaws_dms.TestConnection({
   * Port [IntegerOptional](#integeroptional)
   * S3Settings [S3Settings](#s3settings)
   * ServerName [String](#string)
+  * ServiceAccessRoleArn [String](#string)
   * SslMode [DmsSslModeValue](#dmssslmodevalue)
   * Tags [TagList](#taglist)
   * Username [String](#string)
@@ -1068,7 +1080,9 @@ amazonaws_dms.TestConnection({
 
 ### CreateReplicationTaskMessage
 * CreateReplicationTaskMessage `object`: <p/>
+  * CdcStartPosition [String](#string)
   * CdcStartTime [TStamp](#tstamp)
+  * CdcStopPosition [String](#string)
   * MigrationType **required** [MigrationTypeValue](#migrationtypevalue)
   * ReplicationInstanceArn **required** [String](#string)
   * ReplicationTaskIdentifier **required** [String](#string)
@@ -1332,14 +1346,17 @@ amazonaws_dms.TestConnection({
   * EndpointArn [String](#string)
   * EndpointIdentifier [String](#string)
   * EndpointType [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
+  * EngineDisplayName [String](#string)
   * EngineName [String](#string)
   * ExternalId [String](#string)
+  * ExternalTableDefinition [String](#string)
   * ExtraConnectionAttributes [String](#string)
   * KmsKeyId [String](#string)
   * MongoDbSettings [MongoDbSettings](#mongodbsettings)
   * Port [IntegerOptional](#integeroptional)
   * S3Settings [S3Settings](#s3settings)
   * ServerName [String](#string)
+  * ServiceAccessRoleArn [String](#string)
   * SslMode [DmsSslModeValue](#dmssslmodevalue)
   * Status [String](#string)
   * Username [String](#string)
@@ -1469,12 +1486,14 @@ amazonaws_dms.TestConnection({
   * EndpointIdentifier [String](#string)
   * EndpointType [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
   * EngineName [String](#string)
+  * ExternalTableDefinition [String](#string)
   * ExtraConnectionAttributes [String](#string)
   * MongoDbSettings [MongoDbSettings](#mongodbsettings)
   * Password [SecretString](#secretstring)
   * Port [IntegerOptional](#integeroptional)
   * S3Settings [S3Settings](#s3settings)
   * ServerName [String](#string)
+  * ServiceAccessRoleArn [String](#string)
   * SslMode [DmsSslModeValue](#dmssslmodevalue)
   * Username [String](#string)
 
@@ -1524,7 +1543,9 @@ amazonaws_dms.TestConnection({
 
 ### ModifyReplicationTaskMessage
 * ModifyReplicationTaskMessage `object`: <p/>
+  * CdcStartPosition [String](#string)
   * CdcStartTime [TStamp](#tstamp)
+  * CdcStopPosition [String](#string)
   * MigrationType [MigrationTypeValue](#migrationtypevalue)
   * ReplicationTaskArn **required** [String](#string)
   * ReplicationTaskIdentifier [String](#string)
@@ -1543,6 +1564,7 @@ amazonaws_dms.TestConnection({
   * DatabaseName [String](#string)
   * DocsToInvestigate [String](#string)
   * ExtractDocId [String](#string)
+  * KmsKeyId [String](#string)
   * NestingLevel [NestingLevelValue](#nestinglevelvalue)
   * Password [SecretString](#secretstring)
   * Port [IntegerOptional](#integeroptional)
@@ -1621,6 +1643,7 @@ amazonaws_dms.TestConnection({
   * AutoMinorVersionUpgrade [Boolean](#boolean)
   * AvailabilityZone [String](#string)
   * EngineVersion [String](#string)
+  * FreeUntil [TStamp](#tstamp)
   * InstanceCreateTime [TStamp](#tstamp)
   * KmsKeyId [String](#string)
   * MultiAZ [Boolean](#boolean)
@@ -1686,8 +1709,11 @@ amazonaws_dms.TestConnection({
 
 ### ReplicationTask
 * ReplicationTask `object`: <p/>
+  * CdcStartPosition [String](#string)
+  * CdcStopPosition [String](#string)
   * LastFailureMessage [String](#string)
   * MigrationType [MigrationTypeValue](#migrationtypevalue)
+  * RecoveryCheckpoint [String](#string)
   * ReplicationInstanceArn [String](#string)
   * ReplicationTaskArn [String](#string)
   * ReplicationTaskCreationDate [TStamp](#tstamp)
@@ -1782,7 +1808,9 @@ amazonaws_dms.TestConnection({
 
 ### StartReplicationTaskMessage
 * StartReplicationTaskMessage `object`: <p/>
+  * CdcStartPosition [String](#string)
   * CdcStartTime [TStamp](#tstamp)
+  * CdcStopPosition [String](#string)
   * ReplicationTaskArn **required** [String](#string)
   * StartReplicationTaskType **required** [StartReplicationTaskTypeValue](#startreplicationtasktypevalue)
 
@@ -1829,6 +1857,7 @@ amazonaws_dms.TestConnection({
 ### SupportedEndpointType
 * SupportedEndpointType `object`: <p/>
   * EndpointType [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
+  * EngineDisplayName [String](#string)
   * EngineName [String](#string)
   * SupportsCDC [Boolean](#boolean)
 

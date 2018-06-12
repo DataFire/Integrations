@@ -59,16 +59,21 @@ amazonaws_mediaconvert.ListJobTemplates({}, context)
 
 
 ```js
-amazonaws_mediaconvert.CreateJobTemplate({}, context)
+amazonaws_mediaconvert.CreateJobTemplate({
+  "Settings": {
+    "OutputGroups": []
+  },
+  "Name": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * Category [__string](#__string)
   * Description [__string](#__string)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * Queue [__string](#__string)
-  * Settings [JobTemplateSettings](#jobtemplatesettings)
+  * Settings **required** [JobTemplateSettings](#jobtemplatesettings)
 
 #### Output
 *Output schema unknown*
@@ -147,7 +152,13 @@ amazonaws_mediaconvert.ListJobs({}, context)
 
 
 ```js
-amazonaws_mediaconvert.CreateJob({}, context)
+amazonaws_mediaconvert.CreateJob({
+  "Role": "",
+  "Settings": {
+    "OutputGroups": [],
+    "Inputs": []
+  }
+}, context)
 ```
 
 #### Input
@@ -155,9 +166,9 @@ amazonaws_mediaconvert.CreateJob({}, context)
   * ClientRequestToken [__string](#__string)
   * JobTemplate [__string](#__string)
   * Queue [__string](#__string)
-  * Role [__string](#__string)
-  * Settings [JobSettings](#jobsettings)
-  * UserMetadata [MapOf__string](#mapof__string)
+  * Role **required** [__string](#__string)
+  * Settings **required** [JobSettings](#jobsettings)
+  * UserMetadata [__mapOf__string](#__mapof__string)
 
 #### Output
 *Output schema unknown*
@@ -215,15 +226,18 @@ amazonaws_mediaconvert.ListPresets({}, context)
 
 
 ```js
-amazonaws_mediaconvert.CreatePreset({}, context)
+amazonaws_mediaconvert.CreatePreset({
+  "Settings": {},
+  "Name": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * Category [__string](#__string)
   * Description [__string](#__string)
-  * Name [__string](#__string)
-  * Settings [PresetSettings](#presetsettings)
+  * Name **required** [__string](#__string)
+  * Settings **required** [PresetSettings](#presetsettings)
 
 #### Output
 *Output schema unknown*
@@ -301,13 +315,15 @@ amazonaws_mediaconvert.ListQueues({}, context)
 
 
 ```js
-amazonaws_mediaconvert.CreateQueue({}, context)
+amazonaws_mediaconvert.CreateQueue({
+  "Name": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * Description [__string](#__string)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
 
 #### Output
 *Output schema unknown*
@@ -385,14 +401,14 @@ amazonaws_mediaconvert.UpdateQueue({
 * AacRawFormat `string` (values: LATM_LOAS, NONE): Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose "No container" for the output container.
 
 ### AacSettings
-* AacSettings `object`: Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC.
+* AacSettings `object`: Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
   * AudioDescriptionBroadcasterMix [AacAudioDescriptionBroadcasterMix](#aacaudiodescriptionbroadcastermix)
-  * Bitrate [__integer](#__integer)
+  * Bitrate [__integerMin6000Max1024000](#__integermin6000max1024000)
   * CodecProfile [AacCodecProfile](#aaccodecprofile)
-  * CodingMode [AacCodingMode](#aaccodingmode)
+  * CodingMode **required** [AacCodingMode](#aaccodingmode)
   * RateControlMode [AacRateControlMode](#aacratecontrolmode)
   * RawFormat [AacRawFormat](#aacrawformat)
-  * SampleRate [__integer](#__integer)
+  * SampleRate **required** [__integerMin8000Max96000](#__integermin8000max96000)
   * Specification [AacSpecification](#aacspecification)
   * VbrQuality [AacVbrQuality](#aacvbrquality)
 
@@ -419,27 +435,27 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### Ac3Settings
 * Ac3Settings `object`: Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
-  * Bitrate [__integer](#__integer)
+  * Bitrate [__integerMin64000Max640000](#__integermin64000max640000)
   * BitstreamMode [Ac3BitstreamMode](#ac3bitstreammode)
   * CodingMode [Ac3CodingMode](#ac3codingmode)
-  * Dialnorm [__integer](#__integer)
+  * Dialnorm [__integerMin1Max31](#__integermin1max31)
   * DynamicRangeCompressionProfile [Ac3DynamicRangeCompressionProfile](#ac3dynamicrangecompressionprofile)
   * LfeFilter [Ac3LfeFilter](#ac3lfefilter)
   * MetadataControl [Ac3MetadataControl](#ac3metadatacontrol)
-  * SampleRate [__integer](#__integer)
+  * SampleRate [__integerMin48000Max48000](#__integermin48000max48000)
 
 ### AfdSignaling
-* AfdSignaling `string` (values: NONE, AUTO, FIXED): This setting only applies to H.264 and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to whether there are AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
+* AfdSignaling `string` (values: NONE, AUTO, FIXED): This setting only applies to H.264 and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
 
 ### AiffSettings
 * AiffSettings `object`: Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
-  * BitDepth [__integer](#__integer)
-  * Channels [__integer](#__integer)
-  * SampleRate [__integer](#__integer)
+  * BitDepth [__integerMin16Max24](#__integermin16max24)
+  * Channels [__integerMin1Max2](#__integermin1max2)
+  * SampleRate [__integerMin8000Max192000](#__integermin8000max192000)
 
 ### AncillarySourceSettings
 * AncillarySourceSettings `object`: Settings for ancillary captions source.
-  * SourceAncillaryChannelNumber [__integer](#__integer)
+  * SourceAncillaryChannelNumber [__integerMin1Max4](#__integermin1max4)
 
 ### AntiAlias
 * AntiAlias `string` (values: DISABLED, ENABLED): Enable Anti-alias (AntiAlias) to enhance sharp edges in video output when your input resolution is much larger than your output resolution. Default is enabled.
@@ -452,25 +468,25 @@ amazonaws_mediaconvert.UpdateQueue({
   * AacSettings [AacSettings](#aacsettings)
   * Ac3Settings [Ac3Settings](#ac3settings)
   * AiffSettings [AiffSettings](#aiffsettings)
-  * Codec [AudioCodec](#audiocodec)
+  * Codec **required** [AudioCodec](#audiocodec)
   * Eac3Settings [Eac3Settings](#eac3settings)
   * Mp2Settings [Mp2Settings](#mp2settings)
   * WavSettings [WavSettings](#wavsettings)
 
 ### AudioDefaultSelection
-* AudioDefaultSelection `string` (values: DEFAULT, NOT_DEFAULT): When an "Audio Description":#audio_description specifies an AudioSelector or AudioSelectorGroup  for which no matching source is found in the input, then the audio selector marked as DEFAULT will be used.  If none are marked as default, silence will be inserted for the duration of the input.
+* AudioDefaultSelection `string` (values: DEFAULT, NOT_DEFAULT): Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
 
 ### AudioDescription
 * AudioDescription `object`: Description of audio output
   * AudioNormalizationSettings [AudioNormalizationSettings](#audionormalizationsettings)
   * AudioSourceName [__string](#__string)
-  * AudioType [__integer](#__integer)
+  * AudioType [__integerMin0Max255](#__integermin0max255)
   * AudioTypeControl [AudioTypeControl](#audiotypecontrol)
-  * CodecSettings [AudioCodecSettings](#audiocodecsettings)
+  * CodecSettings **required** [AudioCodecSettings](#audiocodecsettings)
   * LanguageCode [LanguageCode](#languagecode)
   * LanguageCodeControl [AudioLanguageCodeControl](#audiolanguagecodecontrol)
   * RemixSettings [RemixSettings](#remixsettings)
-  * StreamName [__string](#__string)
+  * StreamName [__stringPatternWS](#__stringpatternws)
 
 ### AudioLanguageCodeControl
 * AudioLanguageCodeControl `string` (values: FOLLOW_INPUT, USE_CONFIGURED): Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The language specified for languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT is selected but there is no ISO 639 language code specified by the input.
@@ -491,26 +507,26 @@ amazonaws_mediaconvert.UpdateQueue({
 * AudioNormalizationSettings `object`: Advanced audio normalization settings.
   * Algorithm [AudioNormalizationAlgorithm](#audionormalizationalgorithm)
   * AlgorithmControl [AudioNormalizationAlgorithmControl](#audionormalizationalgorithmcontrol)
-  * CorrectionGateLevel [__integer](#__integer)
+  * CorrectionGateLevel [__integerMinNegative70Max0](#__integerminnegative70max0)
   * LoudnessLogging [AudioNormalizationLoudnessLogging](#audionormalizationloudnesslogging)
   * PeakCalculation [AudioNormalizationPeakCalculation](#audionormalizationpeakcalculation)
-  * TargetLkfs [__double](#__double)
+  * TargetLkfs [__doubleMinNegative59Max0](#__doubleminnegative59max0)
 
 ### AudioSelector
 * AudioSelector `object`: Selector for Audio
   * DefaultSelection [AudioDefaultSelection](#audiodefaultselection)
-  * ExternalAudioFileInput [__string](#__string)
+  * ExternalAudioFileInput [__stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEE](#__stringpatterns3mm2vvmmppeeggaavviimmpp4ffllvvmmppttmmppggmm4vvttrrppff4vvmm2ttssttss264hh264mmkkvvmmoovvmmttssmm2ttwwmmvvaassffvvoobb3ggpp3ggppppmmxxffddiivvxxxxvviiddrraawwddvvggxxffmm1vv3gg2vvmmffmm3uu8llcchhggxxffmmppeegg2mmxxffmmppeegg2mmxxffhhddwwaavvyy4mmaaaaccaaiiffffmmpp2aacc3eecc3ddttssee)
   * LanguageCode [LanguageCode](#languagecode)
-  * Offset [__integer](#__integer)
-  * Pids [ListOf__integer](#listof__integer)
-  * ProgramSelection [__integer](#__integer)
+  * Offset [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * Pids [__listOf__integerMin1Max2147483647](#__listof__integermin1max2147483647)
+  * ProgramSelection [__integerMin0Max8](#__integermin0max8)
   * RemixSettings [RemixSettings](#remixsettings)
   * SelectorType [AudioSelectorType](#audioselectortype)
-  * Tracks [ListOf__integer](#listof__integer)
+  * Tracks [__listOf__integerMin1Max2147483647](#__listof__integermin1max2147483647)
 
 ### AudioSelectorGroup
 * AudioSelectorGroup `object`: Group of Audio Selectors
-  * AudioSelectorNames [ListOf__string](#listof__string)
+  * AudioSelectorNames **required** [__listOf__stringMin1](#__listof__stringmin1)
 
 ### AudioSelectorType
 * AudioSelectorType `string` (values: PID, TRACK, LANGUAGE_CODE): Specifies the type of the audio selector.
@@ -520,7 +536,7 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### AvailBlanking
 * AvailBlanking `object`: Settings for Avail Blanking
-  * AvailBlankingImage [__string](#__string)
+  * AvailBlankingImage [__stringMin14PatternS3BmpBMPPngPNG](#__stringmin14patterns3bmpbmppngpng)
 
 ### BadRequestException
 * BadRequestException `object`: The service can't process your request because of a problem in the request. Please check your request form and syntax.
@@ -528,22 +544,22 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### BurninDestinationSettings
 * BurninDestinationSettings `object`: Burn-In Destination Settings.
-  * Alignment [BurninSubtitleAlignment](#burninsubtitlealignment)
+  * Alignment **required** [BurninSubtitleAlignment](#burninsubtitlealignment)
   * BackgroundColor [BurninSubtitleBackgroundColor](#burninsubtitlebackgroundcolor)
-  * BackgroundOpacity [__integer](#__integer)
+  * BackgroundOpacity [__integerMin0Max255](#__integermin0max255)
   * FontColor [BurninSubtitleFontColor](#burninsubtitlefontcolor)
-  * FontOpacity [__integer](#__integer)
-  * FontResolution [__integer](#__integer)
-  * FontSize [__integer](#__integer)
-  * OutlineColor [BurninSubtitleOutlineColor](#burninsubtitleoutlinecolor)
-  * OutlineSize [__integer](#__integer)
+  * FontOpacity **required** [__integerMin0Max255](#__integermin0max255)
+  * FontResolution [__integerMin96Max600](#__integermin96max600)
+  * FontSize [__integerMin0Max96](#__integermin0max96)
+  * OutlineColor **required** [BurninSubtitleOutlineColor](#burninsubtitleoutlinecolor)
+  * OutlineSize **required** [__integerMin0Max10](#__integermin0max10)
   * ShadowColor [BurninSubtitleShadowColor](#burninsubtitleshadowcolor)
-  * ShadowOpacity [__integer](#__integer)
-  * ShadowXOffset [__integer](#__integer)
-  * ShadowYOffset [__integer](#__integer)
+  * ShadowOpacity [__integerMin0Max255](#__integermin0max255)
+  * ShadowXOffset [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * ShadowYOffset [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
   * TeletextSpacing [BurninSubtitleTeletextSpacing](#burninsubtitleteletextspacing)
-  * XPosition [__integer](#__integer)
-  * YPosition [__integer](#__integer)
+  * XPosition [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * YPosition [__integerMin0Max2147483647](#__integermin0max2147483647)
 
 ### BurninSubtitleAlignment
 * BurninSubtitleAlignment `string` (values: CENTERED, LEFT): If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -561,7 +577,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * BurninSubtitleShadowColor `string` (values: NONE, BLACK, WHITE): Specifies the color of the shadow cast by the captions.
 
 ### BurninSubtitleTeletextSpacing
-* BurninSubtitleTeletextSpacing `string` (values: FIXED_GRID, PROPORTIONAL): Controls whether a fixed grid size or proportional font spacing will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+* BurninSubtitleTeletextSpacing `string` (values: FIXED_GRID, PROPORTIONAL): Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
 
 ### CancelJobRequest
 * CancelJobRequest `object`
@@ -571,21 +587,21 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### CaptionDescription
 * CaptionDescription `object`: Description of Caption output
-  * CaptionSelectorName [__string](#__string)
-  * DestinationSettings [CaptionDestinationSettings](#captiondestinationsettings)
+  * CaptionSelectorName **required** [__stringMin1](#__stringmin1)
+  * DestinationSettings **required** [CaptionDestinationSettings](#captiondestinationsettings)
   * LanguageCode [LanguageCode](#languagecode)
   * LanguageDescription [__string](#__string)
 
 ### CaptionDescriptionPreset
 * CaptionDescriptionPreset `object`: Caption Description for preset
-  * DestinationSettings [CaptionDestinationSettings](#captiondestinationsettings)
+  * DestinationSettings **required** [CaptionDestinationSettings](#captiondestinationsettings)
   * LanguageCode [LanguageCode](#languagecode)
   * LanguageDescription [__string](#__string)
 
 ### CaptionDestinationSettings
 * CaptionDestinationSettings `object`: Specific settings required by destination type. Note that burnin_destination_settings are not available if the source of the caption data is Embedded or Teletext.
   * BurninDestinationSettings [BurninDestinationSettings](#burnindestinationsettings)
-  * DestinationType [CaptionDestinationType](#captiondestinationtype)
+  * DestinationType **required** [CaptionDestinationType](#captiondestinationtype)
   * DvbSubDestinationSettings [DvbSubDestinationSettings](#dvbsubdestinationsettings)
   * SccDestinationSettings [SccDestinationSettings](#sccdestinationsettings)
   * TeletextDestinationSettings [TeletextDestinationSettings](#teletextdestinationsettings)
@@ -595,9 +611,9 @@ amazonaws_mediaconvert.UpdateQueue({
 * CaptionDestinationType `string` (values: BURN_IN, DVB_SUB, EMBEDDED, SCC, SRT, TELETEXT, TTML, WEBVTT): Type of Caption output, including Burn-In, Embedded, SCC, SRT, TTML, WebVTT, DVB-Sub, Teletext.
 
 ### CaptionSelector
-* CaptionSelector `object`: Caption inputs to be mapped to caption outputs.
+* CaptionSelector `object`: Set up captions in your outputs by first selecting them from your input here.
   * LanguageCode [LanguageCode](#languagecode)
-  * SourceSettings [CaptionSourceSettings](#captionsourcesettings)
+  * SourceSettings **required** [CaptionSourceSettings](#captionsourcesettings)
 
 ### CaptionSourceSettings
 * CaptionSourceSettings `object`: Source settings (SourceSettings) contains the group of settings for captions in the input.
@@ -605,7 +621,7 @@ amazonaws_mediaconvert.UpdateQueue({
   * DvbSubSourceSettings [DvbSubSourceSettings](#dvbsubsourcesettings)
   * EmbeddedSourceSettings [EmbeddedSourceSettings](#embeddedsourcesettings)
   * FileSourceSettings [FileSourceSettings](#filesourcesettings)
-  * SourceType [CaptionSourceType](#captionsourcetype)
+  * SourceType **required** [CaptionSourceType](#captionsourcetype)
   * TeletextSourceSettings [TeletextSourceSettings](#teletextsourcesettings)
 
 ### CaptionSourceType
@@ -613,28 +629,86 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### ChannelMapping
 * ChannelMapping `object`: Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
-  * OutputChannels [ListOfOutputChannelMapping](#listofoutputchannelmapping)
+  * OutputChannels **required** [__listOfOutputChannelMapping](#__listofoutputchannelmapping)
+
+### CmafClientCache
+* CmafClientCache `string` (values: DISABLED, ENABLED): When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
+
+### CmafCodecSpecification
+* CmafCodecSpecification `string` (values: RFC_6381, RFC_4281): Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+
+### CmafEncryptionSettings
+* CmafEncryptionSettings `object`: Settings for CMAF encryption
+  * ConstantInitializationVector [__stringMin32Max32Pattern09aFAF32](#__stringmin32max32pattern09afaf32)
+  * EncryptionMethod [CmafEncryptionType](#cmafencryptiontype)
+  * InitializationVectorInManifest [CmafInitializationVectorInManifest](#cmafinitializationvectorinmanifest)
+  * StaticKeyProvider **required** [StaticKeyProvider](#statickeyprovider)
+  * Type **required** [CmafKeyProviderType](#cmafkeyprovidertype)
+
+### CmafEncryptionType
+* CmafEncryptionType `string` (values: SAMPLE_AES): Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+
+### CmafGroupSettings
+* CmafGroupSettings `object`: Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to CMAF_GROUP_SETTINGS.
+  * BaseUrl [__string](#__string)
+  * ClientCache [CmafClientCache](#cmafclientcache)
+  * CodecSpecification [CmafCodecSpecification](#cmafcodecspecification)
+  * Destination [__stringPatternS3](#__stringpatterns3)
+  * Encryption [CmafEncryptionSettings](#cmafencryptionsettings)
+  * FragmentLength **required** [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * ManifestCompression [CmafManifestCompression](#cmafmanifestcompression)
+  * ManifestDurationFormat [CmafManifestDurationFormat](#cmafmanifestdurationformat)
+  * MinBufferTime [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * SegmentControl [CmafSegmentControl](#cmafsegmentcontrol)
+  * SegmentLength **required** [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * StreamInfResolution [CmafStreamInfResolution](#cmafstreaminfresolution)
+  * WriteDashManifest [CmafWriteDASHManifest](#cmafwritedashmanifest)
+  * WriteHlsManifest [CmafWriteHLSManifest](#cmafwritehlsmanifest)
+
+### CmafInitializationVectorInManifest
+* CmafInitializationVectorInManifest `string` (values: INCLUDE, EXCLUDE): The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
+
+### CmafKeyProviderType
+* CmafKeyProviderType `string` (values: STATIC_KEY): Indicates which type of key provider is used for encryption.
+
+### CmafManifestCompression
+* CmafManifestCompression `string` (values: GZIP, NONE): When set to GZIP, compresses HLS playlist.
+
+### CmafManifestDurationFormat
+* CmafManifestDurationFormat `string` (values: FLOATING_POINT, INTEGER): Indicates whether the output manifest should use floating point values for segment duration.
+
+### CmafSegmentControl
+* CmafSegmentControl `string` (values: SINGLE_FILE, SEGMENTED_FILES): When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
+
+### CmafStreamInfResolution
+* CmafStreamInfResolution `string` (values: INCLUDE, EXCLUDE): Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
+
+### CmafWriteDASHManifest
+* CmafWriteDASHManifest `string` (values: DISABLED, ENABLED): When set to ENABLED, a DASH MPD manifest will be generated for this output.
+
+### CmafWriteHLSManifest
+* CmafWriteHLSManifest `string` (values: DISABLED, ENABLED): When set to ENABLED, an Apple HLS manifest will be generated for this output.
 
 ### ColorCorrector
 * ColorCorrector `object`: Settings for color correction.
-  * Brightness [__integer](#__integer)
+  * Brightness [__integerMin1Max100](#__integermin1max100)
   * ColorSpaceConversion [ColorSpaceConversion](#colorspaceconversion)
-  * Contrast [__integer](#__integer)
+  * Contrast [__integerMin1Max100](#__integermin1max100)
   * Hdr10Metadata [Hdr10Metadata](#hdr10metadata)
-  * Hue [__integer](#__integer)
-  * Saturation [__integer](#__integer)
+  * Hue [__integerMinNegative180Max180](#__integerminnegative180max180)
+  * Saturation [__integerMin1Max100](#__integermin1max100)
 
 ### ColorMetadata
 * ColorMetadata `string` (values: IGNORE, INSERT): Enable Insert color metadata (ColorMetadata) to include color metadata in this output. This setting is enabled by default.
 
 ### ColorSpace
-* ColorSpace `string` (values: FOLLOW, REC_601, REC_709, HDR10, HLG_2020): Specifies the colorspace of an input. This setting works in tandem with "Color Corrector":#color_corrector > color_space_conversion to determine if any conversion will be performed.
+* ColorSpace `string` (values: FOLLOW, REC_601, REC_709, HDR10, HLG_2020): If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value FOLLOW. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or if your input video is missing color space metadata that should be there, specify the accurate color space here. If you choose HDR10, you can also correct inaccurate color space coefficients, using the HDR master display information controls. You must also set Color space usage (ColorSpaceUsage) to FORCE for the service to use these values.
 
 ### ColorSpaceConversion
 * ColorSpaceConversion `string` (values: NONE, FORCE_601, FORCE_709, FORCE_HDR10, FORCE_HLG_2020): Determines if colorspace conversion will be performed. If set to _None_, no conversion will be performed. If _Force 601_ or _Force 709_ are selected, conversion will be performed for inputs with differing colorspaces. An input's colorspace can be specified explicitly in the "Video Selector":#inputs-video_selector if necessary.
 
 ### ColorSpaceUsage
-* ColorSpaceUsage `string` (values: FORCE, FALLBACK): There are two sources for color metadata, the input file and the job configuration. This enum controls which takes precedence. FORCE: System will use color metadata supplied by user, if any. If the user does not supply color metadata the system will use data from the source. FALLBACK: System will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.
+* ColorSpaceUsage `string` (values: FORCE, FALLBACK): There are two sources for color metadata, the input file and the job configuration (in the Color space and HDR master display informaiton settings). The Color space usage setting controls which takes precedence. FORCE: The system will use color metadata supplied by user, if any. If the user does not supply color metadata, the system will use data from the source. FALLBACK: The system will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.
 
 ### ConflictException
 * ConflictException `object`: The service could not complete your request because there is a conflict with the current state of the resource.
@@ -642,7 +716,7 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### ContainerSettings
 * ContainerSettings `object`: Container specific settings.
-  * Container [ContainerType](#containertype)
+  * Container **required** [ContainerType](#containertype)
   * F4vSettings [F4vSettings](#f4vsettings)
   * M2tsSettings [M2tsSettings](#m2tssettings)
   * M3u8Settings [M3u8Settings](#m3u8settings)
@@ -650,16 +724,16 @@ amazonaws_mediaconvert.UpdateQueue({
   * Mp4Settings [Mp4Settings](#mp4settings)
 
 ### ContainerType
-* ContainerType `string` (values: F4V, ISMV, M2TS, M3U8, MOV, MP4, MPD, MXF, RAW): Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
+* ContainerType `string` (values: F4V, ISMV, M2TS, M3U8, CMFC, MOV, MP4, MPD, MXF, RAW): Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
 
 ### CreateJobRequest
 * CreateJobRequest `object`
   * ClientRequestToken [__string](#__string)
   * JobTemplate [__string](#__string)
   * Queue [__string](#__string)
-  * Role [__string](#__string)
-  * Settings [JobSettings](#jobsettings)
-  * UserMetadata [MapOf__string](#mapof__string)
+  * Role **required** [__string](#__string)
+  * Settings **required** [JobSettings](#jobsettings)
+  * UserMetadata [__mapOf__string](#__mapof__string)
 
 ### CreateJobResponse
 * CreateJobResponse `object`
@@ -669,9 +743,9 @@ amazonaws_mediaconvert.UpdateQueue({
 * CreateJobTemplateRequest `object`
   * Category [__string](#__string)
   * Description [__string](#__string)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * Queue [__string](#__string)
-  * Settings [JobTemplateSettings](#jobtemplatesettings)
+  * Settings **required** [JobTemplateSettings](#jobtemplatesettings)
 
 ### CreateJobTemplateResponse
 * CreateJobTemplateResponse `object`
@@ -681,8 +755,8 @@ amazonaws_mediaconvert.UpdateQueue({
 * CreatePresetRequest `object`
   * Category [__string](#__string)
   * Description [__string](#__string)
-  * Name [__string](#__string)
-  * Settings [PresetSettings](#presetsettings)
+  * Name **required** [__string](#__string)
+  * Settings **required** [PresetSettings](#presetsettings)
 
 ### CreatePresetResponse
 * CreatePresetResponse `object`
@@ -691,7 +765,7 @@ amazonaws_mediaconvert.UpdateQueue({
 ### CreateQueueRequest
 * CreateQueueRequest `object`
   * Description [__string](#__string)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
 
 ### CreateQueueResponse
 * CreateQueueResponse `object`
@@ -699,18 +773,18 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### DashIsoEncryptionSettings
 * DashIsoEncryptionSettings `object`: Specifies DRM settings for DASH outputs.
-  * SpekeKeyProvider [SpekeKeyProvider](#spekekeyprovider)
+  * SpekeKeyProvider **required** [SpekeKeyProvider](#spekekeyprovider)
 
 ### DashIsoGroupSettings
 * DashIsoGroupSettings `object`: Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
   * BaseUrl [__string](#__string)
-  * Destination [__string](#__string)
+  * Destination [__stringPatternS3](#__stringpatterns3)
   * Encryption [DashIsoEncryptionSettings](#dashisoencryptionsettings)
-  * FragmentLength [__integer](#__integer)
+  * FragmentLength **required** [__integerMin1Max2147483647](#__integermin1max2147483647)
   * HbbtvCompliance [DashIsoHbbtvCompliance](#dashisohbbtvcompliance)
-  * MinBufferTime [__integer](#__integer)
+  * MinBufferTime [__integerMin0Max2147483647](#__integermin0max2147483647)
   * SegmentControl [DashIsoSegmentControl](#dashisosegmentcontrol)
-  * SegmentLength [__integer](#__integer)
+  * SegmentLength **required** [__integerMin1Max2147483647](#__integermin1max2147483647)
 
 ### DashIsoHbbtvCompliance
 * DashIsoHbbtvCompliance `string` (values: HBBTV_1_5, NONE): Supports HbbTV specification as indicated
@@ -758,7 +832,7 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### DescribeEndpointsResponse
 * DescribeEndpointsResponse `object`
-  * Endpoints [ListOfEndpoint](#listofendpoint)
+  * Endpoints [__listOfEndpoint](#__listofendpoint)
   * NextToken [__string](#__string)
 
 ### DropFrameTimecode
@@ -766,39 +840,39 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### DvbNitSettings
 * DvbNitSettings `object`: Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
-  * NetworkId [__integer](#__integer)
-  * NetworkName [__string](#__string)
-  * NitInterval [__integer](#__integer)
+  * NetworkId **required** [__integerMin0Max65535](#__integermin0max65535)
+  * NetworkName **required** [__stringMin1Max256](#__stringmin1max256)
+  * NitInterval **required** [__integerMin25Max10000](#__integermin25max10000)
 
 ### DvbSdtSettings
 * DvbSdtSettings `object`: Inserts DVB Service Description Table (NIT) at the specified table repetition interval.
   * OutputSdt [OutputSdt](#outputsdt)
-  * SdtInterval [__integer](#__integer)
-  * ServiceName [__string](#__string)
-  * ServiceProviderName [__string](#__string)
+  * SdtInterval [__integerMin25Max2000](#__integermin25max2000)
+  * ServiceName [__stringMin1Max256](#__stringmin1max256)
+  * ServiceProviderName [__stringMin1Max256](#__stringmin1max256)
 
 ### DvbSubDestinationSettings
 * DvbSubDestinationSettings `object`: DVB-Sub Destination Settings
-  * Alignment [DvbSubtitleAlignment](#dvbsubtitlealignment)
+  * Alignment **required** [DvbSubtitleAlignment](#dvbsubtitlealignment)
   * BackgroundColor [DvbSubtitleBackgroundColor](#dvbsubtitlebackgroundcolor)
-  * BackgroundOpacity [__integer](#__integer)
+  * BackgroundOpacity [__integerMin0Max255](#__integermin0max255)
   * FontColor [DvbSubtitleFontColor](#dvbsubtitlefontcolor)
-  * FontOpacity [__integer](#__integer)
-  * FontResolution [__integer](#__integer)
-  * FontSize [__integer](#__integer)
-  * OutlineColor [DvbSubtitleOutlineColor](#dvbsubtitleoutlinecolor)
-  * OutlineSize [__integer](#__integer)
+  * FontOpacity **required** [__integerMin0Max255](#__integermin0max255)
+  * FontResolution [__integerMin96Max600](#__integermin96max600)
+  * FontSize [__integerMin0Max96](#__integermin0max96)
+  * OutlineColor **required** [DvbSubtitleOutlineColor](#dvbsubtitleoutlinecolor)
+  * OutlineSize **required** [__integerMin0Max10](#__integermin0max10)
   * ShadowColor [DvbSubtitleShadowColor](#dvbsubtitleshadowcolor)
-  * ShadowOpacity [__integer](#__integer)
-  * ShadowXOffset [__integer](#__integer)
-  * ShadowYOffset [__integer](#__integer)
+  * ShadowOpacity [__integerMin0Max255](#__integermin0max255)
+  * ShadowXOffset [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * ShadowYOffset [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
   * TeletextSpacing [DvbSubtitleTeletextSpacing](#dvbsubtitleteletextspacing)
-  * XPosition [__integer](#__integer)
-  * YPosition [__integer](#__integer)
+  * XPosition [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * YPosition [__integerMin0Max2147483647](#__integermin0max2147483647)
 
 ### DvbSubSourceSettings
 * DvbSubSourceSettings `object`: DVB Sub Source Settings
-  * Pid [__integer](#__integer)
+  * Pid [__integerMin1Max2147483647](#__integermin1max2147483647)
 
 ### DvbSubtitleAlignment
 * DvbSubtitleAlignment `string` (values: CENTERED, LEFT): If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -816,11 +890,11 @@ amazonaws_mediaconvert.UpdateQueue({
 * DvbSubtitleShadowColor `string` (values: NONE, BLACK, WHITE): Specifies the color of the shadow cast by the captions.
 
 ### DvbSubtitleTeletextSpacing
-* DvbSubtitleTeletextSpacing `string` (values: FIXED_GRID, PROPORTIONAL): Controls whether a fixed grid size or proportional font spacing will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+* DvbSubtitleTeletextSpacing `string` (values: FIXED_GRID, PROPORTIONAL): Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
 
 ### DvbTdtSettings
 * DvbTdtSettings `object`: Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
-  * TdtInterval [__integer](#__integer)
+  * TdtInterval **required** [__integerMin1000Max30000](#__integermin1000max30000)
 
 ### Eac3AttenuationControl
 * Eac3AttenuationControl `string` (values: ATTENUATE_3_DB, NONE): If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
@@ -858,23 +932,23 @@ amazonaws_mediaconvert.UpdateQueue({
 ### Eac3Settings
 * Eac3Settings `object`: Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
   * AttenuationControl [Eac3AttenuationControl](#eac3attenuationcontrol)
-  * Bitrate [__integer](#__integer)
+  * Bitrate [__integerMin64000Max640000](#__integermin64000max640000)
   * BitstreamMode [Eac3BitstreamMode](#eac3bitstreammode)
   * CodingMode [Eac3CodingMode](#eac3codingmode)
   * DcFilter [Eac3DcFilter](#eac3dcfilter)
-  * Dialnorm [__integer](#__integer)
+  * Dialnorm [__integerMin1Max31](#__integermin1max31)
   * DynamicRangeCompressionLine [Eac3DynamicRangeCompressionLine](#eac3dynamicrangecompressionline)
   * DynamicRangeCompressionRf [Eac3DynamicRangeCompressionRf](#eac3dynamicrangecompressionrf)
   * LfeControl [Eac3LfeControl](#eac3lfecontrol)
   * LfeFilter [Eac3LfeFilter](#eac3lfefilter)
-  * LoRoCenterMixLevel [__double](#__double)
-  * LoRoSurroundMixLevel [__double](#__double)
-  * LtRtCenterMixLevel [__double](#__double)
-  * LtRtSurroundMixLevel [__double](#__double)
+  * LoRoCenterMixLevel [__doubleMinNegative60Max3](#__doubleminnegative60max3)
+  * LoRoSurroundMixLevel [__doubleMinNegative60MaxNegative1](#__doubleminnegative60maxnegative1)
+  * LtRtCenterMixLevel [__doubleMinNegative60Max3](#__doubleminnegative60max3)
+  * LtRtSurroundMixLevel [__doubleMinNegative60MaxNegative1](#__doubleminnegative60maxnegative1)
   * MetadataControl [Eac3MetadataControl](#eac3metadatacontrol)
   * PassthroughControl [Eac3PassthroughControl](#eac3passthroughcontrol)
   * PhaseControl [Eac3PhaseControl](#eac3phasecontrol)
-  * SampleRate [__integer](#__integer)
+  * SampleRate [__integerMin48000Max48000](#__integermin48000max48000)
   * StereoDownmix [Eac3StereoDownmix](#eac3stereodownmix)
   * SurroundExMode [Eac3SurroundExMode](#eac3surroundexmode)
   * SurroundMode [Eac3SurroundMode](#eac3surroundmode)
@@ -894,8 +968,8 @@ amazonaws_mediaconvert.UpdateQueue({
 ### EmbeddedSourceSettings
 * EmbeddedSourceSettings `object`: Settings for embedded captions Source
   * Convert608To708 [EmbeddedConvert608To708](#embeddedconvert608to708)
-  * Source608ChannelNumber [__integer](#__integer)
-  * Source608TrackNumber [__integer](#__integer)
+  * Source608ChannelNumber [__integerMin1Max4](#__integermin1max4)
+  * Source608TrackNumber [__integerMin1Max1](#__integermin1max1)
 
 ### Endpoint
 * Endpoint `object`: Describes account specific API endpoint
@@ -914,7 +988,7 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### FileGroupSettings
 * FileGroupSettings `object`: Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
-  * Destination [__string](#__string)
+  * Destination [__stringPatternS3](#__stringpatterns3)
 
 ### FileSourceConvert608To708
 * FileSourceConvert608To708 `string` (values: UPCONVERT, DISABLED): If set to UPCONVERT, 608 caption data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
@@ -922,8 +996,8 @@ amazonaws_mediaconvert.UpdateQueue({
 ### FileSourceSettings
 * FileSourceSettings `object`: Settings for File-based Captions in Source
   * Convert608To708 [FileSourceConvert608To708](#filesourceconvert608to708)
-  * SourceFile [__string](#__string)
-  * TimeDelta [__integer](#__integer)
+  * SourceFile **required** [__stringMin14PatternS3SccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTSmiSMI](#__stringmin14patterns3sccsccttmlttmldfxpdfxpstlstlsrtsrtsmismi)
+  * TimeDelta [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
 
 ### ForbiddenException
 * ForbiddenException `object`: You don't have permissions for this action with the credentials you sent.
@@ -931,10 +1005,10 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### FrameCaptureSettings
 * FrameCaptureSettings `object`: Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
-  * FramerateDenominator [__integer](#__integer)
-  * FramerateNumerator [__integer](#__integer)
-  * MaxCaptures [__integer](#__integer)
-  * Quality [__integer](#__integer)
+  * FramerateDenominator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * FramerateNumerator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * MaxCaptures [__integerMin1Max10000000](#__integermin1max10000000)
+  * Quality [__integerMin1Max100](#__integermin1max100)
 
 ### GetJobRequest
 * GetJobRequest `object`
@@ -983,7 +1057,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * H264FlickerAdaptiveQuantization `string` (values: DISABLED, ENABLED): Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
 
 ### H264FramerateControl
-* H264FramerateControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.
+* H264FramerateControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
 
 ### H264FramerateConversionAlgorithm
 * H264FramerateConversionAlgorithm `string` (values: DUPLICATE_DROP, INTERPOLATE): When set to INTERPOLATE, produces smoother motion during framerate conversion.
@@ -995,7 +1069,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * H264GopSizeUnits `string` (values: FRAMES, SECONDS): Indicates if the GOP Size in H264 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.
 
 ### H264InterlaceMode
-* H264InterlaceMode `string` (values: PROGRESSIVE, TOP_FIELD, BOTTOM_FIELD, FOLLOW_TOP_FIELD, FOLLOW_BOTTOM_FIELD): Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+* H264InterlaceMode `string` (values: PROGRESSIVE, TOP_FIELD, BOTTOM_FIELD, FOLLOW_TOP_FIELD, FOLLOW_BOTTOM_FIELD): Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows.
 
 ### H264ParControl
 * H264ParControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using the console, do this by choosing Follow source for Pixel aspect ratio.
@@ -1004,7 +1078,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * H264QualityTuningLevel `string` (values: SINGLE_PASS, SINGLE_PASS_HQ, MULTI_PASS_HQ): Use Quality tuning level (H264QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.
 
 ### H264RateControlMode
-* H264RateControlMode `string` (values: VBR, CBR): Rate control mode. CQ uses constant quantizer (qp), ABR (average bitrate) does not write HRD parameters.
+* H264RateControlMode `string` (values: VBR, CBR): Use this setting to specify whether this output has a variable bitrate (VBR) or constant bitrate (CBR).
 
 ### H264RepeatPps
 * H264RepeatPps `string` (values: DISABLED, ENABLED): Places a PPS header on each encoded picture, even if repeated.
@@ -1015,7 +1089,7 @@ amazonaws_mediaconvert.UpdateQueue({
 ### H264Settings
 * H264Settings `object`: Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
   * AdaptiveQuantization [H264AdaptiveQuantization](#h264adaptivequantization)
-  * Bitrate [__integer](#__integer)
+  * Bitrate [__integerMin1000Max1152000000](#__integermin1000max1152000000)
   * CodecLevel [H264CodecLevel](#h264codeclevel)
   * CodecProfile [H264CodecProfile](#h264codecprofile)
   * EntropyEncoding [H264EntropyEncoding](#h264entropyencoding)
@@ -1023,29 +1097,29 @@ amazonaws_mediaconvert.UpdateQueue({
   * FlickerAdaptiveQuantization [H264FlickerAdaptiveQuantization](#h264flickeradaptivequantization)
   * FramerateControl [H264FramerateControl](#h264frameratecontrol)
   * FramerateConversionAlgorithm [H264FramerateConversionAlgorithm](#h264framerateconversionalgorithm)
-  * FramerateDenominator [__integer](#__integer)
-  * FramerateNumerator [__integer](#__integer)
+  * FramerateDenominator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * FramerateNumerator [__integerMin1Max2147483647](#__integermin1max2147483647)
   * GopBReference [H264GopBReference](#h264gopbreference)
-  * GopClosedCadence [__integer](#__integer)
-  * GopSize [__double](#__double)
+  * GopClosedCadence [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * GopSize [__doubleMin0](#__doublemin0)
   * GopSizeUnits [H264GopSizeUnits](#h264gopsizeunits)
-  * HrdBufferInitialFillPercentage [__integer](#__integer)
-  * HrdBufferSize [__integer](#__integer)
+  * HrdBufferInitialFillPercentage [__integerMin0Max100](#__integermin0max100)
+  * HrdBufferSize [__integerMin0Max1152000000](#__integermin0max1152000000)
   * InterlaceMode [H264InterlaceMode](#h264interlacemode)
-  * MaxBitrate [__integer](#__integer)
-  * MinIInterval [__integer](#__integer)
-  * NumberBFramesBetweenReferenceFrames [__integer](#__integer)
-  * NumberReferenceFrames [__integer](#__integer)
+  * MaxBitrate [__integerMin1000Max1152000000](#__integermin1000max1152000000)
+  * MinIInterval [__integerMin0Max30](#__integermin0max30)
+  * NumberBFramesBetweenReferenceFrames [__integerMin0Max7](#__integermin0max7)
+  * NumberReferenceFrames [__integerMin1Max6](#__integermin1max6)
   * ParControl [H264ParControl](#h264parcontrol)
-  * ParDenominator [__integer](#__integer)
-  * ParNumerator [__integer](#__integer)
+  * ParDenominator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * ParNumerator [__integerMin1Max2147483647](#__integermin1max2147483647)
   * QualityTuningLevel [H264QualityTuningLevel](#h264qualitytuninglevel)
   * RateControlMode [H264RateControlMode](#h264ratecontrolmode)
   * RepeatPps [H264RepeatPps](#h264repeatpps)
   * SceneChangeDetect [H264SceneChangeDetect](#h264scenechangedetect)
-  * Slices [__integer](#__integer)
+  * Slices [__integerMin1Max32](#__integermin1max32)
   * SlowPal [H264SlowPal](#h264slowpal)
-  * Softness [__integer](#__integer)
+  * Softness [__integerMin0Max128](#__integermin0max128)
   * SpatialAdaptiveQuantization [H264SpatialAdaptiveQuantization](#h264spatialadaptivequantization)
   * Syntax [H264Syntax](#h264syntax)
   * Telecine [H264Telecine](#h264telecine)
@@ -1086,7 +1160,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * H265FlickerAdaptiveQuantization `string` (values: DISABLED, ENABLED): Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
 
 ### H265FramerateControl
-* H265FramerateControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.
+* H265FramerateControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
 
 ### H265FramerateConversionAlgorithm
 * H265FramerateConversionAlgorithm `string` (values: DUPLICATE_DROP, INTERPOLATE): When set to INTERPOLATE, produces smoother motion during framerate conversion.
@@ -1098,7 +1172,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * H265GopSizeUnits `string` (values: FRAMES, SECONDS): Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.
 
 ### H265InterlaceMode
-* H265InterlaceMode `string` (values: PROGRESSIVE, TOP_FIELD, BOTTOM_FIELD, FOLLOW_TOP_FIELD, FOLLOW_BOTTOM_FIELD): Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+* H265InterlaceMode `string` (values: PROGRESSIVE, TOP_FIELD, BOTTOM_FIELD, FOLLOW_TOP_FIELD, FOLLOW_BOTTOM_FIELD): Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.
 
 ### H265ParControl
 * H265ParControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using the console, do this by choosing Follow source for Pixel aspect ratio.
@@ -1107,7 +1181,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * H265QualityTuningLevel `string` (values: SINGLE_PASS, SINGLE_PASS_HQ, MULTI_PASS_HQ): Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.
 
 ### H265RateControlMode
-* H265RateControlMode `string` (values: VBR, CBR): Rate control mode. CQ uses constant quantizer (qp), ABR (average bitrate) does not write HRD parameters.
+* H265RateControlMode `string` (values: VBR, CBR): Use this setting to specify whether this output has a variable bitrate (VBR) or constant bitrate (CBR).
 
 ### H265SampleAdaptiveOffsetFilterMode
 * H265SampleAdaptiveOffsetFilterMode `string` (values: DEFAULT, ADAPTIVE, OFF): Specify Sample Adaptive Offset (SAO) filter strength.  Adaptive mode dynamically selects best strength based on content
@@ -1119,33 +1193,33 @@ amazonaws_mediaconvert.UpdateQueue({
 * H265Settings `object`: Settings for H265 codec
   * AdaptiveQuantization [H265AdaptiveQuantization](#h265adaptivequantization)
   * AlternateTransferFunctionSei [H265AlternateTransferFunctionSei](#h265alternatetransferfunctionsei)
-  * Bitrate [__integer](#__integer)
+  * Bitrate [__integerMin1000Max1466400000](#__integermin1000max1466400000)
   * CodecLevel [H265CodecLevel](#h265codeclevel)
   * CodecProfile [H265CodecProfile](#h265codecprofile)
   * FlickerAdaptiveQuantization [H265FlickerAdaptiveQuantization](#h265flickeradaptivequantization)
   * FramerateControl [H265FramerateControl](#h265frameratecontrol)
   * FramerateConversionAlgorithm [H265FramerateConversionAlgorithm](#h265framerateconversionalgorithm)
-  * FramerateDenominator [__integer](#__integer)
-  * FramerateNumerator [__integer](#__integer)
+  * FramerateDenominator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * FramerateNumerator [__integerMin1Max2147483647](#__integermin1max2147483647)
   * GopBReference [H265GopBReference](#h265gopbreference)
-  * GopClosedCadence [__integer](#__integer)
-  * GopSize [__double](#__double)
+  * GopClosedCadence [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * GopSize [__doubleMin0](#__doublemin0)
   * GopSizeUnits [H265GopSizeUnits](#h265gopsizeunits)
-  * HrdBufferInitialFillPercentage [__integer](#__integer)
-  * HrdBufferSize [__integer](#__integer)
+  * HrdBufferInitialFillPercentage [__integerMin0Max100](#__integermin0max100)
+  * HrdBufferSize [__integerMin0Max1466400000](#__integermin0max1466400000)
   * InterlaceMode [H265InterlaceMode](#h265interlacemode)
-  * MaxBitrate [__integer](#__integer)
-  * MinIInterval [__integer](#__integer)
-  * NumberBFramesBetweenReferenceFrames [__integer](#__integer)
-  * NumberReferenceFrames [__integer](#__integer)
+  * MaxBitrate [__integerMin1000Max1466400000](#__integermin1000max1466400000)
+  * MinIInterval [__integerMin0Max30](#__integermin0max30)
+  * NumberBFramesBetweenReferenceFrames [__integerMin0Max7](#__integermin0max7)
+  * NumberReferenceFrames [__integerMin1Max6](#__integermin1max6)
   * ParControl [H265ParControl](#h265parcontrol)
-  * ParDenominator [__integer](#__integer)
-  * ParNumerator [__integer](#__integer)
+  * ParDenominator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * ParNumerator [__integerMin1Max2147483647](#__integermin1max2147483647)
   * QualityTuningLevel [H265QualityTuningLevel](#h265qualitytuninglevel)
   * RateControlMode [H265RateControlMode](#h265ratecontrolmode)
   * SampleAdaptiveOffsetFilterMode [H265SampleAdaptiveOffsetFilterMode](#h265sampleadaptiveoffsetfiltermode)
   * SceneChangeDetect [H265SceneChangeDetect](#h265scenechangedetect)
-  * Slices [__integer](#__integer)
+  * Slices [__integerMin1Max32](#__integermin1max32)
   * SlowPal [H265SlowPal](#h265slowpal)
   * SpatialAdaptiveQuantization [H265SpatialAdaptiveQuantization](#h265spatialadaptivequantization)
   * Telecine [H265Telecine](#h265telecine)
@@ -1153,6 +1227,7 @@ amazonaws_mediaconvert.UpdateQueue({
   * TemporalIds [H265TemporalIds](#h265temporalids)
   * Tiles [H265Tiles](#h265tiles)
   * UnregisteredSeiTimecode [H265UnregisteredSeiTimecode](#h265unregisteredseitimecode)
+  * WriteMp4PackagingType [H265WriteMp4PackagingType](#h265writemp4packagingtype)
 
 ### H265SlowPal
 * H265SlowPal `string` (values: DISABLED, ENABLED): Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up correspondingly.
@@ -1175,20 +1250,23 @@ amazonaws_mediaconvert.UpdateQueue({
 ### H265UnregisteredSeiTimecode
 * H265UnregisteredSeiTimecode `string` (values: DISABLED, ENABLED): Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
 
+### H265WriteMp4PackagingType
+* H265WriteMp4PackagingType `string` (values: HVC1, HEV1): If HVC1, output that is H.265 will be marked as HVC1 and adhere to the ISO-IECJTC1-SC29_N13798_Text_ISOIEC_FDIS_14496-15_3rd_E spec which states that parameter set NAL units will be stored in the sample headers but not in the samples directly. If HEV1, then H.265 will be marked as HEV1 and parameter set NAL units will be written into the samples.
+
 ### Hdr10Metadata
-* Hdr10Metadata `object`: Use the HDR master display (Hdr10Metadata) settings to provide values for HDR color. These values vary depending on the input video and must be provided by a color grader. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate.
-  * BluePrimaryX [__integer](#__integer)
-  * BluePrimaryY [__integer](#__integer)
-  * GreenPrimaryX [__integer](#__integer)
-  * GreenPrimaryY [__integer](#__integer)
-  * MaxContentLightLevel [__integer](#__integer)
-  * MaxFrameAverageLightLevel [__integer](#__integer)
-  * MaxLuminance [__integer](#__integer)
-  * MinLuminance [__integer](#__integer)
-  * RedPrimaryX [__integer](#__integer)
-  * RedPrimaryY [__integer](#__integer)
-  * WhitePointX [__integer](#__integer)
-  * WhitePointY [__integer](#__integer)
+* Hdr10Metadata `object`: Use the HDR master display (Hdr10Metadata) settings to correct HDR metadata or to provide missing metadata. These values vary depending on the input video and must be provided by a color grader. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that these settings are not color correction. Note that if you are creating HDR outputs inside of an HLS CMAF package, to comply with the Apple specification, you must use the HVC1 for H.265 setting.
+  * BluePrimaryX [__integerMin0Max50000](#__integermin0max50000)
+  * BluePrimaryY [__integerMin0Max50000](#__integermin0max50000)
+  * GreenPrimaryX [__integerMin0Max50000](#__integermin0max50000)
+  * GreenPrimaryY [__integerMin0Max50000](#__integermin0max50000)
+  * MaxContentLightLevel **required** [__integerMin0Max65535](#__integermin0max65535)
+  * MaxFrameAverageLightLevel **required** [__integerMin0Max65535](#__integermin0max65535)
+  * MaxLuminance [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * MinLuminance [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * RedPrimaryX [__integerMin0Max50000](#__integermin0max50000)
+  * RedPrimaryY [__integerMin0Max50000](#__integermin0max50000)
+  * WhitePointX [__integerMin0Max50000](#__integermin0max50000)
+  * WhitePointY [__integerMin0Max50000](#__integermin0max50000)
 
 ### HlsAdMarkers
 * HlsAdMarkers `string` (values: ELEMENTAL, ELEMENTAL_SCTE35)
@@ -1198,7 +1276,7 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### HlsCaptionLanguageMapping
 * HlsCaptionLanguageMapping `object`: Caption Language Mapping
-  * CaptionChannel [__integer](#__integer)
+  * CaptionChannel [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
   * LanguageCode [LanguageCode](#languagecode)
   * LanguageDescription [__string](#__string)
 
@@ -1216,40 +1294,40 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### HlsEncryptionSettings
 * HlsEncryptionSettings `object`: Settings for HLS encryption
-  * ConstantInitializationVector [__string](#__string)
+  * ConstantInitializationVector [__stringMin32Max32Pattern09aFAF32](#__stringmin32max32pattern09afaf32)
   * EncryptionMethod [HlsEncryptionType](#hlsencryptiontype)
   * InitializationVectorInManifest [HlsInitializationVectorInManifest](#hlsinitializationvectorinmanifest)
   * SpekeKeyProvider [SpekeKeyProvider](#spekekeyprovider)
   * StaticKeyProvider [StaticKeyProvider](#statickeyprovider)
-  * Type [HlsKeyProviderType](#hlskeyprovidertype)
+  * Type **required** [HlsKeyProviderType](#hlskeyprovidertype)
 
 ### HlsEncryptionType
 * HlsEncryptionType `string` (values: AES128, SAMPLE_AES): Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
 
 ### HlsGroupSettings
 * HlsGroupSettings `object`: Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
-  * AdMarkers [ListOfHlsAdMarkers](#listofhlsadmarkers)
+  * AdMarkers [__listOfHlsAdMarkers](#__listofhlsadmarkers)
   * BaseUrl [__string](#__string)
-  * CaptionLanguageMappings [ListOfHlsCaptionLanguageMapping](#listofhlscaptionlanguagemapping)
+  * CaptionLanguageMappings [__listOfHlsCaptionLanguageMapping](#__listofhlscaptionlanguagemapping)
   * CaptionLanguageSetting [HlsCaptionLanguageSetting](#hlscaptionlanguagesetting)
   * ClientCache [HlsClientCache](#hlsclientcache)
   * CodecSpecification [HlsCodecSpecification](#hlscodecspecification)
-  * Destination [__string](#__string)
+  * Destination [__stringPatternS3](#__stringpatterns3)
   * DirectoryStructure [HlsDirectoryStructure](#hlsdirectorystructure)
   * Encryption [HlsEncryptionSettings](#hlsencryptionsettings)
   * ManifestCompression [HlsManifestCompression](#hlsmanifestcompression)
   * ManifestDurationFormat [HlsManifestDurationFormat](#hlsmanifestdurationformat)
-  * MinSegmentLength [__integer](#__integer)
+  * MinSegmentLength **required** [__integerMin0Max2147483647](#__integermin0max2147483647)
   * OutputSelection [HlsOutputSelection](#hlsoutputselection)
   * ProgramDateTime [HlsProgramDateTime](#hlsprogramdatetime)
-  * ProgramDateTimePeriod [__integer](#__integer)
+  * ProgramDateTimePeriod [__integerMin0Max3600](#__integermin0max3600)
   * SegmentControl [HlsSegmentControl](#hlssegmentcontrol)
-  * SegmentLength [__integer](#__integer)
-  * SegmentsPerSubdirectory [__integer](#__integer)
+  * SegmentLength **required** [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * SegmentsPerSubdirectory [__integerMin1Max2147483647](#__integermin1max2147483647)
   * StreamInfResolution [HlsStreamInfResolution](#hlsstreaminfresolution)
   * TimedMetadataId3Frame [HlsTimedMetadataId3Frame](#hlstimedmetadataid3frame)
-  * TimedMetadataId3Period [__integer](#__integer)
-  * TimestampDeltaMilliseconds [__integer](#__integer)
+  * TimedMetadataId3Period [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * TimestampDeltaMilliseconds [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
 
 ### HlsIFrameOnlyManifest
 * HlsIFrameOnlyManifest `string` (values: INCLUDE, EXCLUDE): When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
@@ -1290,34 +1368,34 @@ amazonaws_mediaconvert.UpdateQueue({
 * HlsTimedMetadataId3Frame `string` (values: NONE, PRIV, TDRL): Indicates ID3 frame that has the timecode.
 
 ### Id3Insertion
-* Id3Insertion `object`: To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create mulitple instances of ID3 insertion (Id3Insertion).
-  * Id3 [__string](#__string)
-  * Timecode [__string](#__string)
+* Id3Insertion `object`: To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).
+  * Id3 **required** [__stringPatternAZaZ0902](#__stringpatternazaz0902)
+  * Timecode **required** [__stringPattern010920405090509092](#__stringpattern010920405090509092)
 
 ### ImageInserter
 * ImageInserter `object`: Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
-  * InsertableImages [ListOfInsertableImage](#listofinsertableimage)
+  * InsertableImages **required** [__listOfInsertableImage](#__listofinsertableimage)
 
 ### Input
 * Input `object`: Specifies media input
-  * AudioSelectorGroups [MapOfAudioSelectorGroup](#mapofaudioselectorgroup)
-  * AudioSelectors [MapOfAudioSelector](#mapofaudioselector)
-  * CaptionSelectors [MapOfCaptionSelector](#mapofcaptionselector)
+  * AudioSelectorGroups [__mapOfAudioSelectorGroup](#__mapofaudioselectorgroup)
+  * AudioSelectors [__mapOfAudioSelector](#__mapofaudioselector)
+  * CaptionSelectors [__mapOfCaptionSelector](#__mapofcaptionselector)
   * DeblockFilter [InputDeblockFilter](#inputdeblockfilter)
   * DenoiseFilter [InputDenoiseFilter](#inputdenoisefilter)
-  * FileInput [__string](#__string)
+  * FileInput **required** [__stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MM](#__stringpatterns3mm2vvmmppeeggaavviimmpp4ffllvvmmppttmmppggmm4vvttrrppff4vvmm2ttssttss264hh264mmkkvvmmoovvmmttssmm2ttwwmmvvaassffvvoobb3ggpp3ggppppmmxxffddiivvxxxxvviiddrraawwddvvggxxffmm1vv3gg2vvmmffmm3uu8llcchhggxxffmmppeegg2mmxxffmmppeegg2mmxxffhhddwwaavvyy4mm)
   * FilterEnable [InputFilterEnable](#inputfilterenable)
-  * FilterStrength [__integer](#__integer)
-  * InputClippings [ListOfInputClipping](#listofinputclipping)
-  * ProgramNumber [__integer](#__integer)
+  * FilterStrength [__integerMinNegative5Max5](#__integerminnegative5max5)
+  * InputClippings [__listOfInputClipping](#__listofinputclipping)
+  * ProgramNumber [__integerMin1Max2147483647](#__integermin1max2147483647)
   * PsiControl [InputPsiControl](#inputpsicontrol)
   * TimecodeSource [InputTimecodeSource](#inputtimecodesource)
   * VideoSelector [VideoSelector](#videoselector)
 
 ### InputClipping
-* InputClipping `object`: Include one instance of (InputClipping) for each input clip.
-  * EndTimecode [__string](#__string)
-  * StartTimecode [__string](#__string)
+* InputClipping `object`: To transcode only portions of your input (clips), include one Input clipping (one instance of InputClipping in the JSON job file) for each input clip. All input clips you specify will be included in every output of the job.
+  * EndTimecode [__stringPattern010920405090509092](#__stringpattern010920405090509092)
+  * StartTimecode [__stringPattern010920405090509092](#__stringpattern010920405090509092)
 
 ### InputDeblockFilter
 * InputDeblockFilter `string` (values: ENABLED, DISABLED): Enable Deblock (InputDeblockFilter) to produce smoother motion in the output. Default is disabled. Only manaully controllable for MPEG2 and uncompressed video inputs.
@@ -1333,35 +1411,35 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### InputTemplate
 * InputTemplate `object`: Specified video input in a template.
-  * AudioSelectorGroups [MapOfAudioSelectorGroup](#mapofaudioselectorgroup)
-  * AudioSelectors [MapOfAudioSelector](#mapofaudioselector)
-  * CaptionSelectors [MapOfCaptionSelector](#mapofcaptionselector)
+  * AudioSelectorGroups [__mapOfAudioSelectorGroup](#__mapofaudioselectorgroup)
+  * AudioSelectors [__mapOfAudioSelector](#__mapofaudioselector)
+  * CaptionSelectors [__mapOfCaptionSelector](#__mapofcaptionselector)
   * DeblockFilter [InputDeblockFilter](#inputdeblockfilter)
   * DenoiseFilter [InputDenoiseFilter](#inputdenoisefilter)
   * FilterEnable [InputFilterEnable](#inputfilterenable)
-  * FilterStrength [__integer](#__integer)
-  * InputClippings [ListOfInputClipping](#listofinputclipping)
-  * ProgramNumber [__integer](#__integer)
+  * FilterStrength [__integerMinNegative5Max5](#__integerminnegative5max5)
+  * InputClippings [__listOfInputClipping](#__listofinputclipping)
+  * ProgramNumber [__integerMin1Max2147483647](#__integermin1max2147483647)
   * PsiControl [InputPsiControl](#inputpsicontrol)
   * TimecodeSource [InputTimecodeSource](#inputtimecodesource)
   * VideoSelector [VideoSelector](#videoselector)
 
 ### InputTimecodeSource
-* InputTimecodeSource `string` (values: EMBEDDED, ZEROBASED, SPECIFIEDSTART): Use Timecode source (InputTimecodeSource) to specify how timecode information from your input is adjusted and encoded in all outputs for the job. Default is embedded. Set to Embedded (EMBEDDED) to use the timecode that is in the input video. If no embedded timecode is in the source, will set the timecode for the first frame to 00:00:00:00. Set to Start at 0 (ZEROBASED) to set the timecode of the initial frame to 00:00:00:00. Set to Specified start (SPECIFIEDSTART) to provide the initial timecode yourself the setting (Start).
+* InputTimecodeSource `string` (values: EMBEDDED, ZEROBASED, SPECIFIEDSTART): Timecode source under input settings (InputTimecodeSource) only affects the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Use this setting to specify whether the service counts frames by timecodes embedded in the video (EMBEDDED) or by starting the first frame at zero (ZEROBASED). In both cases, the timecode format is HH:MM:SS:FF or HH:MM:SS;FF, where FF is the frame number. Only set this to EMBEDDED if your source video has embedded timecodes.
 
 ### InsertableImage
 * InsertableImage `object`: Settings for Insertable Image
-  * Duration [__integer](#__integer)
-  * FadeIn [__integer](#__integer)
-  * FadeOut [__integer](#__integer)
-  * Height [__integer](#__integer)
-  * ImageInserterInput [__string](#__string)
-  * ImageX [__integer](#__integer)
-  * ImageY [__integer](#__integer)
-  * Layer [__integer](#__integer)
-  * Opacity [__integer](#__integer)
-  * StartTime [__string](#__string)
-  * Width [__integer](#__integer)
+  * Duration [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * FadeIn [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * FadeOut [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * Height [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * ImageInserterInput **required** [__stringMin14PatternS3BmpBMPPngPNGTgaTGA](#__stringmin14patterns3bmpbmppngpngtgatga)
+  * ImageX **required** [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * ImageY **required** [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * Layer **required** [__integerMin0Max99](#__integermin0max99)
+  * Opacity **required** [__integerMin0Max100](#__integermin0max100)
+  * StartTime [__stringPattern01D20305D205D](#__stringpattern01d20305d205d)
+  * Width [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
 
 ### InternalServerErrorException
 * InternalServerErrorException `object`: The service encountered an unexpected condition and cannot fulfill your request.
@@ -1370,26 +1448,26 @@ amazonaws_mediaconvert.UpdateQueue({
 ### Job
 * Job `object`: Each job converts an input file into an output file or files. For more information, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
   * Arn [__string](#__string)
-  * CreatedAt [__timestamp](#__timestamp)
+  * CreatedAt [__timestampIso8601](#__timestampiso8601)
   * ErrorCode [__integer](#__integer)
   * ErrorMessage [__string](#__string)
   * Id [__string](#__string)
   * JobTemplate [__string](#__string)
-  * OutputGroupDetails [ListOfOutputGroupDetail](#listofoutputgroupdetail)
+  * OutputGroupDetails [__listOfOutputGroupDetail](#__listofoutputgroupdetail)
   * Queue [__string](#__string)
-  * Role [__string](#__string)
-  * Settings [JobSettings](#jobsettings)
+  * Role **required** [__string](#__string)
+  * Settings **required** [JobSettings](#jobsettings)
   * Status [JobStatus](#jobstatus)
   * Timing [Timing](#timing)
-  * UserMetadata [MapOf__string](#mapof__string)
+  * UserMetadata [__mapOf__string](#__mapof__string)
 
 ### JobSettings
 * JobSettings `object`: JobSettings contains all the transcode settings for a job.
-  * AdAvailOffset [__integer](#__integer)
+  * AdAvailOffset [__integerMinNegative1000Max1000](#__integerminnegative1000max1000)
   * AvailBlanking [AvailBlanking](#availblanking)
-  * Inputs [ListOfInput](#listofinput)
+  * Inputs **required** [__listOfInput](#__listofinput)
   * NielsenConfiguration [NielsenConfiguration](#nielsenconfiguration)
-  * OutputGroups [ListOfOutputGroup](#listofoutputgroup)
+  * OutputGroups **required** [__listOfOutputGroup](#__listofoutputgroup)
   * TimecodeConfig [TimecodeConfig](#timecodeconfig)
   * TimedMetadataInsertion [TimedMetadataInsertion](#timedmetadatainsertion)
 
@@ -1400,12 +1478,12 @@ amazonaws_mediaconvert.UpdateQueue({
 * JobTemplate `object`: A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
   * Arn [__string](#__string)
   * Category [__string](#__string)
-  * CreatedAt [__timestamp](#__timestamp)
+  * CreatedAt [__timestampIso8601](#__timestampiso8601)
   * Description [__string](#__string)
-  * LastUpdated [__timestamp](#__timestamp)
-  * Name [__string](#__string)
+  * LastUpdated [__timestampIso8601](#__timestampiso8601)
+  * Name **required** [__string](#__string)
   * Queue [__string](#__string)
-  * Settings [JobTemplateSettings](#jobtemplatesettings)
+  * Settings **required** [JobTemplateSettings](#jobtemplatesettings)
   * Type [Type](#type)
 
 ### JobTemplateListBy
@@ -1413,11 +1491,11 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### JobTemplateSettings
 * JobTemplateSettings `object`: JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
-  * AdAvailOffset [__integer](#__integer)
+  * AdAvailOffset [__integerMinNegative1000Max1000](#__integerminnegative1000max1000)
   * AvailBlanking [AvailBlanking](#availblanking)
-  * Inputs [ListOfInputTemplate](#listofinputtemplate)
+  * Inputs [__listOfInputTemplate](#__listofinputtemplate)
   * NielsenConfiguration [NielsenConfiguration](#nielsenconfiguration)
-  * OutputGroups [ListOfOutputGroup](#listofoutputgroup)
+  * OutputGroups **required** [__listOfOutputGroup](#__listofoutputgroup)
   * TimecodeConfig [TimecodeConfig](#timecodeconfig)
   * TimedMetadataInsertion [TimedMetadataInsertion](#timedmetadatainsertion)
 
@@ -1429,7 +1507,7 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### ListJobTemplatesResponse
 * ListJobTemplatesResponse `object`
-  * JobTemplates [ListOfJobTemplate](#listofjobtemplate)
+  * JobTemplates [__listOfJobTemplate](#__listofjobtemplate)
   * NextToken [__string](#__string)
 
 ### ListJobsRequest
@@ -1437,96 +1515,8 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### ListJobsResponse
 * ListJobsResponse `object`
-  * Jobs [ListOfJob](#listofjob)
+  * Jobs [__listOfJob](#__listofjob)
   * NextToken [__string](#__string)
-
-### ListOfAudioDescription
-* ListOfAudioDescription `array`
-  * items [AudioDescription](#audiodescription)
-
-### ListOfCaptionDescription
-* ListOfCaptionDescription `array`
-  * items [CaptionDescription](#captiondescription)
-
-### ListOfCaptionDescriptionPreset
-* ListOfCaptionDescriptionPreset `array`
-  * items [CaptionDescriptionPreset](#captiondescriptionpreset)
-
-### ListOfEndpoint
-* ListOfEndpoint `array`
-  * items [Endpoint](#endpoint)
-
-### ListOfHlsAdMarkers
-* ListOfHlsAdMarkers `array`
-  * items [HlsAdMarkers](#hlsadmarkers)
-
-### ListOfHlsCaptionLanguageMapping
-* ListOfHlsCaptionLanguageMapping `array`
-  * items [HlsCaptionLanguageMapping](#hlscaptionlanguagemapping)
-
-### ListOfId3Insertion
-* ListOfId3Insertion `array`
-  * items [Id3Insertion](#id3insertion)
-
-### ListOfInput
-* ListOfInput `array`
-  * items [Input](#input)
-
-### ListOfInputClipping
-* ListOfInputClipping `array`
-  * items [InputClipping](#inputclipping)
-
-### ListOfInputTemplate
-* ListOfInputTemplate `array`
-  * items [InputTemplate](#inputtemplate)
-
-### ListOfInsertableImage
-* ListOfInsertableImage `array`
-  * items [InsertableImage](#insertableimage)
-
-### ListOfJob
-* ListOfJob `array`
-  * items [Job](#job)
-
-### ListOfJobTemplate
-* ListOfJobTemplate `array`
-  * items [JobTemplate](#jobtemplate)
-
-### ListOfOutput
-* ListOfOutput `array`
-  * items [Output](#output)
-
-### ListOfOutputChannelMapping
-* ListOfOutputChannelMapping `array`
-  * items [OutputChannelMapping](#outputchannelmapping)
-
-### ListOfOutputDetail
-* ListOfOutputDetail `array`
-  * items [OutputDetail](#outputdetail)
-
-### ListOfOutputGroup
-* ListOfOutputGroup `array`
-  * items [OutputGroup](#outputgroup)
-
-### ListOfOutputGroupDetail
-* ListOfOutputGroupDetail `array`
-  * items [OutputGroupDetail](#outputgroupdetail)
-
-### ListOfPreset
-* ListOfPreset `array`
-  * items [Preset](#preset)
-
-### ListOfQueue
-* ListOfQueue `array`
-  * items [Queue](#queue)
-
-### ListOf__integer
-* ListOf__integer `array`
-  * items [__integer](#__integer)
-
-### ListOf__string
-* ListOf__string `array`
-  * items [__string](#__string)
 
 ### ListPresetsRequest
 * ListPresetsRequest `object`
@@ -1534,7 +1524,7 @@ amazonaws_mediaconvert.UpdateQueue({
 ### ListPresetsResponse
 * ListPresetsResponse `object`
   * NextToken [__string](#__string)
-  * Presets [ListOfPreset](#listofpreset)
+  * Presets [__listOfPreset](#__listofpreset)
 
 ### ListQueuesRequest
 * ListQueuesRequest `object`
@@ -1542,7 +1532,7 @@ amazonaws_mediaconvert.UpdateQueue({
 ### ListQueuesResponse
 * ListQueuesResponse `object`
   * NextToken [__string](#__string)
-  * Queues [ListOfQueue](#listofqueue)
+  * Queues [__listOfQueue](#__listofqueue)
 
 ### M2tsAudioBufferModel
 * M2tsAudioBufferModel `string` (values: DVB, ATSC): Selects between the DVB and ATSC buffer models for Dolby Digital audio.
@@ -1580,39 +1570,39 @@ amazonaws_mediaconvert.UpdateQueue({
 ### M2tsSettings
 * M2tsSettings `object`: Settings for M2TS Container.
   * AudioBufferModel [M2tsAudioBufferModel](#m2tsaudiobuffermodel)
-  * AudioFramesPerPes [__integer](#__integer)
-  * AudioPids [ListOf__integer](#listof__integer)
-  * Bitrate [__integer](#__integer)
+  * AudioFramesPerPes [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * AudioPids [__listOf__integerMin32Max8182](#__listof__integermin32max8182)
+  * Bitrate [__integerMin0Max2147483647](#__integermin0max2147483647)
   * BufferModel [M2tsBufferModel](#m2tsbuffermodel)
   * DvbNitSettings [DvbNitSettings](#dvbnitsettings)
   * DvbSdtSettings [DvbSdtSettings](#dvbsdtsettings)
-  * DvbSubPids [ListOf__integer](#listof__integer)
+  * DvbSubPids [__listOf__integerMin32Max8182](#__listof__integermin32max8182)
   * DvbTdtSettings [DvbTdtSettings](#dvbtdtsettings)
-  * DvbTeletextPid [__integer](#__integer)
+  * DvbTeletextPid [__integerMin32Max8182](#__integermin32max8182)
   * EbpAudioInterval [M2tsEbpAudioInterval](#m2tsebpaudiointerval)
   * EbpPlacement [M2tsEbpPlacement](#m2tsebpplacement)
   * EsRateInPes [M2tsEsRateInPes](#m2tsesrateinpes)
-  * FragmentTime [__double](#__double)
-  * MaxPcrInterval [__integer](#__integer)
-  * MinEbpInterval [__integer](#__integer)
+  * FragmentTime [__doubleMin0](#__doublemin0)
+  * MaxPcrInterval [__integerMin0Max500](#__integermin0max500)
+  * MinEbpInterval [__integerMin0Max10000](#__integermin0max10000)
   * NielsenId3 [M2tsNielsenId3](#m2tsnielsenid3)
-  * NullPacketBitrate [__double](#__double)
-  * PatInterval [__integer](#__integer)
+  * NullPacketBitrate [__doubleMin0](#__doublemin0)
+  * PatInterval [__integerMin0Max1000](#__integermin0max1000)
   * PcrControl [M2tsPcrControl](#m2tspcrcontrol)
-  * PcrPid [__integer](#__integer)
-  * PmtInterval [__integer](#__integer)
-  * PmtPid [__integer](#__integer)
-  * PrivateMetadataPid [__integer](#__integer)
-  * ProgramNumber [__integer](#__integer)
+  * PcrPid [__integerMin32Max8182](#__integermin32max8182)
+  * PmtInterval [__integerMin0Max1000](#__integermin0max1000)
+  * PmtPid [__integerMin32Max8182](#__integermin32max8182)
+  * PrivateMetadataPid [__integerMin32Max8182](#__integermin32max8182)
+  * ProgramNumber [__integerMin0Max65535](#__integermin0max65535)
   * RateMode [M2tsRateMode](#m2tsratemode)
-  * Scte35Pid [__integer](#__integer)
+  * Scte35Pid [__integerMin32Max8182](#__integermin32max8182)
   * Scte35Source [M2tsScte35Source](#m2tsscte35source)
   * SegmentationMarkers [M2tsSegmentationMarkers](#m2tssegmentationmarkers)
   * SegmentationStyle [M2tsSegmentationStyle](#m2tssegmentationstyle)
-  * SegmentationTime [__double](#__double)
-  * TimedMetadataPid [__integer](#__integer)
-  * TransportStreamId [__integer](#__integer)
-  * VideoPid [__integer](#__integer)
+  * SegmentationTime [__doubleMin0](#__doublemin0)
+  * TimedMetadataPid [__integerMin32Max8182](#__integermin32max8182)
+  * TransportStreamId [__integerMin0Max65535](#__integermin0max65535)
+  * VideoPid [__integerMin32Max8182](#__integermin32max8182)
 
 ### M3u8NielsenId3
 * M3u8NielsenId3 `string` (values: INSERT, NONE): If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
@@ -1625,46 +1615,22 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### M3u8Settings
 * M3u8Settings `object`: Settings for TS segments in HLS
-  * AudioFramesPerPes [__integer](#__integer)
-  * AudioPids [ListOf__integer](#listof__integer)
+  * AudioFramesPerPes [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * AudioPids [__listOf__integerMin32Max8182](#__listof__integermin32max8182)
   * NielsenId3 [M3u8NielsenId3](#m3u8nielsenid3)
-  * PatInterval [__integer](#__integer)
+  * PatInterval [__integerMin0Max1000](#__integermin0max1000)
   * PcrControl [M3u8PcrControl](#m3u8pcrcontrol)
-  * PcrPid [__integer](#__integer)
-  * PmtInterval [__integer](#__integer)
-  * PmtPid [__integer](#__integer)
-  * PrivateMetadataPid [__integer](#__integer)
-  * ProgramNumber [__integer](#__integer)
-  * Scte35Pid [__integer](#__integer)
+  * PcrPid [__integerMin32Max8182](#__integermin32max8182)
+  * PmtInterval [__integerMin0Max1000](#__integermin0max1000)
+  * PmtPid [__integerMin32Max8182](#__integermin32max8182)
+  * PrivateMetadataPid [__integerMin32Max8182](#__integermin32max8182)
+  * ProgramNumber [__integerMin0Max65535](#__integermin0max65535)
+  * Scte35Pid [__integerMin32Max8182](#__integermin32max8182)
   * Scte35Source [M3u8Scte35Source](#m3u8scte35source)
   * TimedMetadata [TimedMetadata](#timedmetadata)
-  * TimedMetadataPid [__integer](#__integer)
-  * TransportStreamId [__integer](#__integer)
-  * VideoPid [__integer](#__integer)
-
-### MapOfAudioSelector
-* MapOfAudioSelector `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [AudioSelector](#audioselector)
-
-### MapOfAudioSelectorGroup
-* MapOfAudioSelectorGroup `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [AudioSelectorGroup](#audioselectorgroup)
-
-### MapOfCaptionSelector
-* MapOfCaptionSelector `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [CaptionSelector](#captionselector)
-
-### MapOf__string
-* MapOf__string `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [__string](#__string)
+  * TimedMetadataPid [__integerMin32Max8182](#__integermin32max8182)
+  * TransportStreamId [__integerMin0Max65535](#__integermin0max65535)
+  * VideoPid [__integerMin32Max8182](#__integermin32max8182)
 
 ### MovClapAtom
 * MovClapAtom `string` (values: INCLUDE, EXCLUDE): When enabled, include 'clap' atom if appropriate for the video output settings.
@@ -1691,9 +1657,9 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### Mp2Settings
 * Mp2Settings `object`: Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
-  * Bitrate [__integer](#__integer)
-  * Channels [__integer](#__integer)
-  * SampleRate [__integer](#__integer)
+  * Bitrate [__integerMin32000Max384000](#__integermin32000max384000)
+  * Channels [__integerMin1Max2](#__integermin1max2)
+  * SampleRate [__integerMin32000Max48000](#__integermin32000max48000)
 
 ### Mp4CslgAtom
 * Mp4CslgAtom `string` (values: INCLUDE, EXCLUDE): When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
@@ -1721,7 +1687,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * Mpeg2CodecProfile `string` (values: MAIN, PROFILE_422): Use Profile (Mpeg2CodecProfile) to set the MPEG-2 profile for the video output.
 
 ### Mpeg2FramerateControl
-* Mpeg2FramerateControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.
+* Mpeg2FramerateControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
 
 ### Mpeg2FramerateConversionAlgorithm
 * Mpeg2FramerateConversionAlgorithm `string` (values: DUPLICATE_DROP, INTERPOLATE): When set to INTERPOLATE, produces smoother motion during framerate conversion.
@@ -1730,7 +1696,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * Mpeg2GopSizeUnits `string` (values: FRAMES, SECONDS): Indicates if the GOP Size in MPEG2 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.
 
 ### Mpeg2InterlaceMode
-* Mpeg2InterlaceMode `string` (values: PROGRESSIVE, TOP_FIELD, BOTTOM_FIELD, FOLLOW_TOP_FIELD, FOLLOW_BOTTOM_FIELD): Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+* Mpeg2InterlaceMode `string` (values: PROGRESSIVE, TOP_FIELD, BOTTOM_FIELD, FOLLOW_TOP_FIELD, FOLLOW_BOTTOM_FIELD): Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.
 
 ### Mpeg2IntraDcPrecision
 * Mpeg2IntraDcPrecision `string` (values: AUTO, INTRA_DC_PRECISION_8, INTRA_DC_PRECISION_9, INTRA_DC_PRECISION_10, INTRA_DC_PRECISION_11): Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization precision for intra-block DC coefficients. If you choose the value auto, the service will automatically select the precision based on the per-frame compression ratio.
@@ -1750,31 +1716,31 @@ amazonaws_mediaconvert.UpdateQueue({
 ### Mpeg2Settings
 * Mpeg2Settings `object`: Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
   * AdaptiveQuantization [Mpeg2AdaptiveQuantization](#mpeg2adaptivequantization)
-  * Bitrate [__integer](#__integer)
+  * Bitrate [__integerMin1000Max288000000](#__integermin1000max288000000)
   * CodecLevel [Mpeg2CodecLevel](#mpeg2codeclevel)
   * CodecProfile [Mpeg2CodecProfile](#mpeg2codecprofile)
   * FramerateControl [Mpeg2FramerateControl](#mpeg2frameratecontrol)
   * FramerateConversionAlgorithm [Mpeg2FramerateConversionAlgorithm](#mpeg2framerateconversionalgorithm)
-  * FramerateDenominator [__integer](#__integer)
-  * FramerateNumerator [__integer](#__integer)
-  * GopClosedCadence [__integer](#__integer)
-  * GopSize [__double](#__double)
+  * FramerateDenominator [__integerMin1Max1001](#__integermin1max1001)
+  * FramerateNumerator [__integerMin24Max60000](#__integermin24max60000)
+  * GopClosedCadence [__integerMin0Max2147483647](#__integermin0max2147483647)
+  * GopSize [__doubleMin0](#__doublemin0)
   * GopSizeUnits [Mpeg2GopSizeUnits](#mpeg2gopsizeunits)
-  * HrdBufferInitialFillPercentage [__integer](#__integer)
-  * HrdBufferSize [__integer](#__integer)
+  * HrdBufferInitialFillPercentage [__integerMin0Max100](#__integermin0max100)
+  * HrdBufferSize [__integerMin0Max47185920](#__integermin0max47185920)
   * InterlaceMode [Mpeg2InterlaceMode](#mpeg2interlacemode)
   * IntraDcPrecision [Mpeg2IntraDcPrecision](#mpeg2intradcprecision)
-  * MaxBitrate [__integer](#__integer)
-  * MinIInterval [__integer](#__integer)
-  * NumberBFramesBetweenReferenceFrames [__integer](#__integer)
+  * MaxBitrate [__integerMin1000Max300000000](#__integermin1000max300000000)
+  * MinIInterval [__integerMin0Max30](#__integermin0max30)
+  * NumberBFramesBetweenReferenceFrames [__integerMin0Max7](#__integermin0max7)
   * ParControl [Mpeg2ParControl](#mpeg2parcontrol)
-  * ParDenominator [__integer](#__integer)
-  * ParNumerator [__integer](#__integer)
+  * ParDenominator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * ParNumerator [__integerMin1Max2147483647](#__integermin1max2147483647)
   * QualityTuningLevel [Mpeg2QualityTuningLevel](#mpeg2qualitytuninglevel)
   * RateControlMode [Mpeg2RateControlMode](#mpeg2ratecontrolmode)
   * SceneChangeDetect [Mpeg2SceneChangeDetect](#mpeg2scenechangedetect)
   * SlowPal [Mpeg2SlowPal](#mpeg2slowpal)
-  * Softness [__integer](#__integer)
+  * Softness [__integerMin0Max128](#__integermin0max128)
   * SpatialAdaptiveQuantization [Mpeg2SpatialAdaptiveQuantization](#mpeg2spatialadaptivequantization)
   * Syntax [Mpeg2Syntax](#mpeg2syntax)
   * Telecine [Mpeg2Telecine](#mpeg2telecine)
@@ -1800,14 +1766,14 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### MsSmoothEncryptionSettings
 * MsSmoothEncryptionSettings `object`: If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
-  * SpekeKeyProvider [SpekeKeyProvider](#spekekeyprovider)
+  * SpekeKeyProvider **required** [SpekeKeyProvider](#spekekeyprovider)
 
 ### MsSmoothGroupSettings
 * MsSmoothGroupSettings `object`: Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to MS_SMOOTH_GROUP_SETTINGS.
   * AudioDeduplication [MsSmoothAudioDeduplication](#mssmoothaudiodeduplication)
-  * Destination [__string](#__string)
+  * Destination [__stringPatternS3](#__stringpatterns3)
   * Encryption [MsSmoothEncryptionSettings](#mssmoothencryptionsettings)
-  * FragmentLength [__integer](#__integer)
+  * FragmentLength **required** [__integerMin1Max2147483647](#__integermin1max2147483647)
   * ManifestEncoding [MsSmoothManifestEncoding](#mssmoothmanifestencoding)
 
 ### MsSmoothManifestEncoding
@@ -1815,27 +1781,27 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### NielsenConfiguration
 * NielsenConfiguration `object`: Settings for Nielsen Configuration
-  * BreakoutCode [__integer](#__integer)
+  * BreakoutCode [__integerMin0Max9](#__integermin0max9)
   * DistributorId [__string](#__string)
 
 ### NoiseReducer
 * NoiseReducer `object`: Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer (NoiseReducer), you must also select a value for Noise reducer filter (NoiseReducerFilter).
-  * Filter [NoiseReducerFilter](#noisereducerfilter)
+  * Filter **required** [NoiseReducerFilter](#noisereducerfilter)
   * FilterSettings [NoiseReducerFilterSettings](#noisereducerfiltersettings)
   * SpatialFilterSettings [NoiseReducerSpatialFilterSettings](#noisereducerspatialfiltersettings)
 
 ### NoiseReducerFilter
-* NoiseReducerFilter `string` (values: BILATERAL, MEAN, GAUSSIAN, LANCZOS, SHARPEN, CONSERVE, SPATIAL): Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral is an edge preserving noise reduction filter * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) are convolution filters * Conserve is a min/max noise reduction filter * Spatial is frequency-domain filter based on JND principles.
+* NoiseReducerFilter `string` (values: BILATERAL, MEAN, GAUSSIAN, LANCZOS, SHARPEN, CONSERVE, SPATIAL): Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral is an edge preserving noise reduction filter. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) are convolution filters. * Conserve is a min/max noise reduction filter. * Spatial is a frequency-domain filter based on JND principles.
 
 ### NoiseReducerFilterSettings
 * NoiseReducerFilterSettings `object`: Settings for a noise reducer filter
-  * Strength [__integer](#__integer)
+  * Strength [__integerMin0Max3](#__integermin0max3)
 
 ### NoiseReducerSpatialFilterSettings
 * NoiseReducerSpatialFilterSettings `object`: Noise reducer filter settings for spatial filter.
-  * PostFilterSharpenStrength [__integer](#__integer)
-  * Speed [__integer](#__integer)
-  * Strength [__integer](#__integer)
+  * PostFilterSharpenStrength [__integerMin0Max3](#__integermin0max3)
+  * Speed [__integerMinNegative2Max3](#__integerminnegative2max3)
+  * Strength [__integerMin0Max16](#__integermin0max16)
 
 ### NotFoundException
 * NotFoundException `object`: The resource you requested does not exist.
@@ -1846,18 +1812,18 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### Output
 * Output `object`: An output object describes the settings for a single output file or stream in an output group.
-  * AudioDescriptions [ListOfAudioDescription](#listofaudiodescription)
-  * CaptionDescriptions [ListOfCaptionDescription](#listofcaptiondescription)
+  * AudioDescriptions [__listOfAudioDescription](#__listofaudiodescription)
+  * CaptionDescriptions [__listOfCaptionDescription](#__listofcaptiondescription)
   * ContainerSettings [ContainerSettings](#containersettings)
   * Extension [__string](#__string)
-  * NameModifier [__string](#__string)
+  * NameModifier [__stringMin1](#__stringmin1)
   * OutputSettings [OutputSettings](#outputsettings)
-  * Preset [__string](#__string)
+  * Preset [__stringMin0](#__stringmin0)
   * VideoDescription [VideoDescription](#videodescription)
 
 ### OutputChannelMapping
 * OutputChannelMapping `object`: OutputChannel mapping settings.
-  * InputChannels [ListOf__integer](#listof__integer)
+  * InputChannels **required** [__listOf__integerMinNegative60Max6](#__listof__integerminnegative60max6)
 
 ### OutputDetail
 * OutputDetail `object`: Details regarding output
@@ -1868,23 +1834,24 @@ amazonaws_mediaconvert.UpdateQueue({
 * OutputGroup `object`: Group of outputs
   * CustomName [__string](#__string)
   * Name [__string](#__string)
-  * OutputGroupSettings [OutputGroupSettings](#outputgroupsettings)
-  * Outputs [ListOfOutput](#listofoutput)
+  * OutputGroupSettings **required** [OutputGroupSettings](#outputgroupsettings)
+  * Outputs **required** [__listOfOutput](#__listofoutput)
 
 ### OutputGroupDetail
 * OutputGroupDetail `object`: Contains details about the output groups specified in the job settings.
-  * OutputDetails [ListOfOutputDetail](#listofoutputdetail)
+  * OutputDetails [__listOfOutputDetail](#__listofoutputdetail)
 
 ### OutputGroupSettings
 * OutputGroupSettings `object`: Output Group settings, including type
+  * CmafGroupSettings [CmafGroupSettings](#cmafgroupsettings)
   * DashIsoGroupSettings [DashIsoGroupSettings](#dashisogroupsettings)
   * FileGroupSettings [FileGroupSettings](#filegroupsettings)
   * HlsGroupSettings [HlsGroupSettings](#hlsgroupsettings)
   * MsSmoothGroupSettings [MsSmoothGroupSettings](#mssmoothgroupsettings)
-  * Type [OutputGroupType](#outputgrouptype)
+  * Type **required** [OutputGroupType](#outputgrouptype)
 
 ### OutputGroupType
-* OutputGroupType `string` (values: HLS_GROUP_SETTINGS, DASH_ISO_GROUP_SETTINGS, FILE_GROUP_SETTINGS, MS_SMOOTH_GROUP_SETTINGS): Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming)
+* OutputGroupType `string` (values: HLS_GROUP_SETTINGS, DASH_ISO_GROUP_SETTINGS, FILE_GROUP_SETTINGS, MS_SMOOTH_GROUP_SETTINGS, CMAF_GROUP_SETTINGS): Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
 
 ### OutputSdt
 * OutputSdt `string` (values: SDT_FOLLOW, SDT_FOLLOW_IF_PRESENT, SDT_MANUAL, SDT_NONE): Selects method of inserting SDT information into output stream.  "Follow input SDT" copies SDT information from input stream to  output stream. "Follow input SDT if present" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT information. "No SDT" means output  stream will not contain SDT information.
@@ -1897,11 +1864,11 @@ amazonaws_mediaconvert.UpdateQueue({
 * Preset `object`: A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
   * Arn [__string](#__string)
   * Category [__string](#__string)
-  * CreatedAt [__timestamp](#__timestamp)
+  * CreatedAt [__timestampIso8601](#__timestampiso8601)
   * Description [__string](#__string)
-  * LastUpdated [__timestamp](#__timestamp)
-  * Name [__string](#__string)
-  * Settings [PresetSettings](#presetsettings)
+  * LastUpdated [__timestampIso8601](#__timestampiso8601)
+  * Name **required** [__string](#__string)
+  * Settings **required** [PresetSettings](#presetsettings)
   * Type [Type](#type)
 
 ### PresetListBy
@@ -1909,8 +1876,8 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### PresetSettings
 * PresetSettings `object`: Settings for preset
-  * AudioDescriptions [ListOfAudioDescription](#listofaudiodescription)
-  * CaptionDescriptions [ListOfCaptionDescriptionPreset](#listofcaptiondescriptionpreset)
+  * AudioDescriptions [__listOfAudioDescription](#__listofaudiodescription)
+  * CaptionDescriptions [__listOfCaptionDescriptionPreset](#__listofcaptiondescriptionpreset)
   * ContainerSettings [ContainerSettings](#containersettings)
   * VideoDescription [VideoDescription](#videodescription)
 
@@ -1918,13 +1885,13 @@ amazonaws_mediaconvert.UpdateQueue({
 * ProresCodecProfile `string` (values: APPLE_PRORES_422, APPLE_PRORES_422_HQ, APPLE_PRORES_422_LT, APPLE_PRORES_422_PROXY): Use Profile (ProResCodecProfile) to specifiy the type of Apple ProRes codec to use for this output.
 
 ### ProresFramerateControl
-* ProresFramerateControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.
+* ProresFramerateControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
 
 ### ProresFramerateConversionAlgorithm
 * ProresFramerateConversionAlgorithm `string` (values: DUPLICATE_DROP, INTERPOLATE): When set to INTERPOLATE, produces smoother motion during framerate conversion.
 
 ### ProresInterlaceMode
-* ProresInterlaceMode `string` (values: PROGRESSIVE, TOP_FIELD, BOTTOM_FIELD, FOLLOW_TOP_FIELD, FOLLOW_BOTTOM_FIELD): Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+* ProresInterlaceMode `string` (values: PROGRESSIVE, TOP_FIELD, BOTTOM_FIELD, FOLLOW_TOP_FIELD, FOLLOW_BOTTOM_FIELD): Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.
 
 ### ProresParControl
 * ProresParControl `string` (values: INITIALIZE_FROM_SOURCE, SPECIFIED): Use (ProresParControl) to specify how the service determines the pixel aspect ratio. Set to Follow source (INITIALIZE_FROM_SOURCE) to use the pixel aspect ratio from the input.  To specify a different pixel aspect ratio: Using the console, choose it from the dropdown menu. Using the API, set ProresParControl to (SPECIFIED) and provide  for (ParNumerator) and (ParDenominator).
@@ -1934,12 +1901,12 @@ amazonaws_mediaconvert.UpdateQueue({
   * CodecProfile [ProresCodecProfile](#prorescodecprofile)
   * FramerateControl [ProresFramerateControl](#proresframeratecontrol)
   * FramerateConversionAlgorithm [ProresFramerateConversionAlgorithm](#proresframerateconversionalgorithm)
-  * FramerateDenominator [__integer](#__integer)
-  * FramerateNumerator [__integer](#__integer)
+  * FramerateDenominator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * FramerateNumerator [__integerMin1Max2147483647](#__integermin1max2147483647)
   * InterlaceMode [ProresInterlaceMode](#proresinterlacemode)
   * ParControl [ProresParControl](#proresparcontrol)
-  * ParDenominator [__integer](#__integer)
-  * ParNumerator [__integer](#__integer)
+  * ParDenominator [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * ParNumerator [__integerMin1Max2147483647](#__integermin1max2147483647)
   * SlowPal [ProresSlowPal](#proresslowpal)
   * Telecine [ProresTelecine](#prorestelecine)
 
@@ -1952,10 +1919,10 @@ amazonaws_mediaconvert.UpdateQueue({
 ### Queue
 * Queue `object`: MediaConvert jobs are submitted to a queue. Unless specified otherwise jobs are submitted to a built-in default queue. User can create additional queues to separate the jobs of different categories or priority.
   * Arn [__string](#__string)
-  * CreatedAt [__timestamp](#__timestamp)
+  * CreatedAt [__timestampIso8601](#__timestampiso8601)
   * Description [__string](#__string)
-  * LastUpdated [__timestamp](#__timestamp)
-  * Name [__string](#__string)
+  * LastUpdated [__timestampIso8601](#__timestampiso8601)
+  * Name **required** [__string](#__string)
   * Status [QueueStatus](#queuestatus)
   * Type [Type](#type)
 
@@ -1967,16 +1934,16 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### Rectangle
 * Rectangle `object`: Use Rectangle to identify a specific area of the video frame.
-  * Height [__integer](#__integer)
-  * Width [__integer](#__integer)
-  * X [__integer](#__integer)
-  * Y [__integer](#__integer)
+  * Height **required** [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * Width **required** [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * X **required** [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
+  * Y **required** [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
 
 ### RemixSettings
-* RemixSettings `object`: Use Manual audio remixing (RemixSettings) to adjust audio levels for each output channel. With audio remixing, you can output more or fewer audio channels than your input audio source provides.
-  * ChannelMapping [ChannelMapping](#channelmapping)
-  * ChannelsIn [__integer](#__integer)
-  * ChannelsOut [__integer](#__integer)
+* RemixSettings `object`: Use Manual audio remixing (RemixSettings) to adjust audio levels for each audio channel in each output of your job. With audio remixing, you can output more or fewer audio channels than your input audio source provides.
+  * ChannelMapping **required** [ChannelMapping](#channelmapping)
+  * ChannelsIn **required** [__integerMin1Max16](#__integermin1max16)
+  * ChannelsOut **required** [__integerMin1Max8](#__integermin1max8)
 
 ### RespondToAfd
 * RespondToAfd `string` (values: NONE, RESPOND, PASSTHROUGH): Use Respond to AFD (RespondToAfd) to specify how the service changes the video itself in response to AFD values in the input. * Choose Respond to clip the input video frame according to the AFD value, input display aspect ratio, and output display aspect ratio. * Choose Passthrough to include the input AFD values. Do not choose this when AfdSignaling is set to (NONE). A preferred implementation of this workflow is to set RespondToAfd to (NONE) and set AfdSignaling to (AUTO). * Choose None to remove all input AFD values from this output.
@@ -1993,56 +1960,56 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### SpekeKeyProvider
 * SpekeKeyProvider `object`: Settings for use with a SPEKE key provider
-  * ResourceId [__string](#__string)
-  * SystemIds [ListOf__string](#listof__string)
-  * Url [__string](#__string)
+  * ResourceId **required** [__string](#__string)
+  * SystemIds **required** [__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12](#__listof__stringpattern09afaf809afaf409afaf409afaf409afaf12)
+  * Url **required** [__stringPatternHttps](#__stringpatternhttps)
 
 ### StaticKeyProvider
 * StaticKeyProvider `object`: Settings for use with a SPEKE key provider.
-  * KeyFormat [__string](#__string)
-  * KeyFormatVersions [__string](#__string)
-  * StaticKeyValue [__string](#__string)
-  * Url [__string](#__string)
+  * KeyFormat [__stringPatternIdentityAZaZ26AZaZ09163](#__stringpatternidentityazaz26azaz09163)
+  * KeyFormatVersions [__stringPatternDD](#__stringpatterndd)
+  * StaticKeyValue **required** [__stringPatternAZaZ0932](#__stringpatternazaz0932)
+  * Url **required** [__string](#__string)
 
 ### TeletextDestinationSettings
 * TeletextDestinationSettings `object`: Settings for Teletext caption output
-  * PageNumber [__string](#__string)
+  * PageNumber [__stringMin3Max3Pattern1809aFAF09aEAE](#__stringmin3max3pattern1809afaf09aeae)
 
 ### TeletextSourceSettings
 * TeletextSourceSettings `object`: Settings specific to Teletext caption sources, including Page number.
-  * PageNumber [__string](#__string)
+  * PageNumber [__stringMin3Max3Pattern1809aFAF09aEAE](#__stringmin3max3pattern1809afaf09aeae)
 
 ### TimecodeBurnin
 * TimecodeBurnin `object`: Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
-  * FontSize [__integer](#__integer)
+  * FontSize [__integerMin10Max48](#__integermin10max48)
   * Position [TimecodeBurninPosition](#timecodeburninposition)
-  * Prefix [__string](#__string)
+  * Prefix [__stringPattern](#__stringpattern)
 
 ### TimecodeBurninPosition
 * TimecodeBurninPosition `string` (values: TOP_CENTER, TOP_LEFT, TOP_RIGHT, MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT, BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT): Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
 
 ### TimecodeConfig
-* TimecodeConfig `object`: Contains settings used to acquire and adjust timecode information from inputs.
-  * Anchor [__string](#__string)
+* TimecodeConfig `object`: These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
+  * Anchor [__stringPattern010920405090509092](#__stringpattern010920405090509092)
   * Source [TimecodeSource](#timecodesource)
-  * Start [__string](#__string)
-  * TimestampOffset [__string](#__string)
+  * Start [__stringPattern010920405090509092](#__stringpattern010920405090509092)
+  * TimestampOffset [__stringPattern0940191020191209301](#__stringpattern0940191020191209301)
 
 ### TimecodeSource
-* TimecodeSource `string` (values: EMBEDDED, ZEROBASED, SPECIFIEDSTART): Use Timecode source (TimecodeSource) to set how timecodes are handled within this input. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.
+* TimecodeSource `string` (values: EMBEDDED, ZEROBASED, SPECIFIEDSTART): Use Source (TimecodeSource) to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.
 
 ### TimedMetadata
-* TimedMetadata `string` (values: PASSTHROUGH, NONE): If PASSTHROUGH, inserts ID3 timed metadata from the timed_metadata REST command into this output.
+* TimedMetadata `string` (values: PASSTHROUGH, NONE): Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
 
 ### TimedMetadataInsertion
 * TimedMetadataInsertion `object`: Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in your job. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
-  * Id3Insertions [ListOfId3Insertion](#listofid3insertion)
+  * Id3Insertions **required** [__listOfId3Insertion](#__listofid3insertion)
 
 ### Timing
 * Timing `object`: Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
-  * FinishTime [__timestamp](#__timestamp)
-  * StartTime [__timestamp](#__timestamp)
-  * SubmitTime [__timestamp](#__timestamp)
+  * FinishTime [__timestampIso8601](#__timestampiso8601)
+  * StartTime [__timestampIso8601](#__timestampiso8601)
+  * SubmitTime [__timestampIso8601](#__timestampiso8601)
 
 ### TooManyRequestsException
 * TooManyRequestsException `object`: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
@@ -2093,7 +2060,7 @@ amazonaws_mediaconvert.UpdateQueue({
 
 ### VideoCodecSettings
 * VideoCodecSettings `object`: Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value you choose for Video codec (Codec). For each codec enum you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * FRAME_CAPTURE, FrameCaptureSettings
-  * Codec [VideoCodec](#videocodec)
+  * Codec **required** [VideoCodec](#videocodec)
   * FrameCaptureSettings [FrameCaptureSettings](#framecapturesettings)
   * H264Settings [H264Settings](#h264settings)
   * H265Settings [H265Settings](#h265settings)
@@ -2104,19 +2071,19 @@ amazonaws_mediaconvert.UpdateQueue({
 * VideoDescription `object`: Settings for video outputs
   * AfdSignaling [AfdSignaling](#afdsignaling)
   * AntiAlias [AntiAlias](#antialias)
-  * CodecSettings [VideoCodecSettings](#videocodecsettings)
+  * CodecSettings **required** [VideoCodecSettings](#videocodecsettings)
   * ColorMetadata [ColorMetadata](#colormetadata)
   * Crop [Rectangle](#rectangle)
   * DropFrameTimecode [DropFrameTimecode](#dropframetimecode)
-  * FixedAfd [__integer](#__integer)
-  * Height [__integer](#__integer)
+  * FixedAfd [__integerMin0Max15](#__integermin0max15)
+  * Height [__integerMin32Max2160](#__integermin32max2160)
   * Position [Rectangle](#rectangle)
   * RespondToAfd [RespondToAfd](#respondtoafd)
   * ScalingBehavior [ScalingBehavior](#scalingbehavior)
-  * Sharpness [__integer](#__integer)
+  * Sharpness [__integerMin0Max100](#__integermin0max100)
   * TimecodeInsertion [VideoTimecodeInsertion](#videotimecodeinsertion)
   * VideoPreprocessors [VideoPreprocessor](#videopreprocessor)
-  * Width [__integer](#__integer)
+  * Width [__integerMin32Max4096](#__integermin32max4096)
 
 ### VideoDetail
 * VideoDetail `object`: Contains details about the output's video stream
@@ -2136,17 +2103,21 @@ amazonaws_mediaconvert.UpdateQueue({
   * ColorSpace [ColorSpace](#colorspace)
   * ColorSpaceUsage [ColorSpaceUsage](#colorspaceusage)
   * Hdr10Metadata [Hdr10Metadata](#hdr10metadata)
-  * Pid [__integer](#__integer)
-  * ProgramNumber [__integer](#__integer)
+  * Pid [__integerMin1Max2147483647](#__integermin1max2147483647)
+  * ProgramNumber [__integerMinNegative2147483648Max2147483647](#__integerminnegative2147483648max2147483647)
 
 ### VideoTimecodeInsertion
-* VideoTimecodeInsertion `string` (values: DISABLED, PIC_TIMING_SEI): Enable Timecode insertion to include timecode information in this output. Do this in the API by setting (VideoTimecodeInsertion) to (PIC_TIMING_SEI). To get timecodes to appear correctly in your output, also set up the timecode configuration for your job in the input settings. Only enable Timecode insertion when the input framerate is identical to output framerate. Disable this setting to remove the timecode from the output. Default is disabled.
+* VideoTimecodeInsertion `string` (values: DISABLED, PIC_TIMING_SEI): Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable Timecode insertion when the input framerate is identical to the output framerate. To include timecodes in this output, set Timecode insertion (VideoTimecodeInsertion) to PIC_TIMING_SEI. To leave them out, set it to DISABLED. Default is DISABLED. When the service inserts timecodes in an output, by default, it uses any embedded timecodes from the input. If none are present, the service will set the timecode for the first output frame to zero. To change this default behavior, adjust the settings under Timecode configuration (TimecodeConfig). In the console, these settings are located under Job > Job settings > Timecode configuration. Note - Timecode source under input settings (InputTimecodeSource) does not affect the timecodes that are inserted in the output. Source under Job settings > Timecode configuration (TimecodeSource) does.
+
+### WavFormat
+* WavFormat `string` (values: RIFF, RF64): The service defaults to using RIFF for WAV outputs. If your output audio is likely to exceed 4 GB in file size, or if you otherwise need the extended support of the RF64 format, set your output WAV file format to RF64.
 
 ### WavSettings
 * WavSettings `object`: Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
-  * BitDepth [__integer](#__integer)
-  * Channels [__integer](#__integer)
-  * SampleRate [__integer](#__integer)
+  * BitDepth [__integerMin16Max24](#__integermin16max24)
+  * Channels [__integerMin1Max8](#__integermin1max8)
+  * Format [WavFormat](#wavformat)
+  * SampleRate [__integerMin8000Max192000](#__integermin8000max192000)
 
 ### __boolean
 * __boolean `boolean`
@@ -2154,13 +2125,410 @@ amazonaws_mediaconvert.UpdateQueue({
 ### __double
 * __double `number`
 
+### __doubleMin0
+* __doubleMin0 `number`
+
+### __doubleMinNegative59Max0
+* __doubleMinNegative59Max0 `number`
+
+### __doubleMinNegative60Max3
+* __doubleMinNegative60Max3 `number`
+
+### __doubleMinNegative60MaxNegative1
+* __doubleMinNegative60MaxNegative1 `number`
+
 ### __integer
 * __integer `integer`
+
+### __integerMin0Max10
+* __integerMin0Max10 `integer`
+
+### __integerMin0Max100
+* __integerMin0Max100 `integer`
+
+### __integerMin0Max1000
+* __integerMin0Max1000 `integer`
+
+### __integerMin0Max10000
+* __integerMin0Max10000 `integer`
+
+### __integerMin0Max1152000000
+* __integerMin0Max1152000000 `integer`
+
+### __integerMin0Max128
+* __integerMin0Max128 `integer`
+
+### __integerMin0Max1466400000
+* __integerMin0Max1466400000 `integer`
+
+### __integerMin0Max15
+* __integerMin0Max15 `integer`
+
+### __integerMin0Max16
+* __integerMin0Max16 `integer`
+
+### __integerMin0Max2147483647
+* __integerMin0Max2147483647 `integer`
+
+### __integerMin0Max255
+* __integerMin0Max255 `integer`
+
+### __integerMin0Max3
+* __integerMin0Max3 `integer`
+
+### __integerMin0Max30
+* __integerMin0Max30 `integer`
+
+### __integerMin0Max3600
+* __integerMin0Max3600 `integer`
+
+### __integerMin0Max47185920
+* __integerMin0Max47185920 `integer`
+
+### __integerMin0Max500
+* __integerMin0Max500 `integer`
+
+### __integerMin0Max50000
+* __integerMin0Max50000 `integer`
+
+### __integerMin0Max65535
+* __integerMin0Max65535 `integer`
+
+### __integerMin0Max7
+* __integerMin0Max7 `integer`
+
+### __integerMin0Max8
+* __integerMin0Max8 `integer`
+
+### __integerMin0Max9
+* __integerMin0Max9 `integer`
+
+### __integerMin0Max96
+* __integerMin0Max96 `integer`
+
+### __integerMin0Max99
+* __integerMin0Max99 `integer`
+
+### __integerMin1000Max1152000000
+* __integerMin1000Max1152000000 `integer`
+
+### __integerMin1000Max1466400000
+* __integerMin1000Max1466400000 `integer`
+
+### __integerMin1000Max288000000
+* __integerMin1000Max288000000 `integer`
+
+### __integerMin1000Max30000
+* __integerMin1000Max30000 `integer`
+
+### __integerMin1000Max300000000
+* __integerMin1000Max300000000 `integer`
+
+### __integerMin10Max48
+* __integerMin10Max48 `integer`
+
+### __integerMin16Max24
+* __integerMin16Max24 `integer`
+
+### __integerMin1Max1
+* __integerMin1Max1 `integer`
+
+### __integerMin1Max100
+* __integerMin1Max100 `integer`
+
+### __integerMin1Max10000000
+* __integerMin1Max10000000 `integer`
+
+### __integerMin1Max1001
+* __integerMin1Max1001 `integer`
+
+### __integerMin1Max16
+* __integerMin1Max16 `integer`
+
+### __integerMin1Max2
+* __integerMin1Max2 `integer`
+
+### __integerMin1Max2147483647
+* __integerMin1Max2147483647 `integer`
+
+### __integerMin1Max31
+* __integerMin1Max31 `integer`
+
+### __integerMin1Max32
+* __integerMin1Max32 `integer`
+
+### __integerMin1Max4
+* __integerMin1Max4 `integer`
+
+### __integerMin1Max6
+* __integerMin1Max6 `integer`
+
+### __integerMin1Max8
+* __integerMin1Max8 `integer`
+
+### __integerMin24Max60000
+* __integerMin24Max60000 `integer`
+
+### __integerMin25Max10000
+* __integerMin25Max10000 `integer`
+
+### __integerMin25Max2000
+* __integerMin25Max2000 `integer`
+
+### __integerMin32000Max384000
+* __integerMin32000Max384000 `integer`
+
+### __integerMin32000Max48000
+* __integerMin32000Max48000 `integer`
+
+### __integerMin32Max2160
+* __integerMin32Max2160 `integer`
+
+### __integerMin32Max4096
+* __integerMin32Max4096 `integer`
+
+### __integerMin32Max8182
+* __integerMin32Max8182 `integer`
+
+### __integerMin48000Max48000
+* __integerMin48000Max48000 `integer`
+
+### __integerMin6000Max1024000
+* __integerMin6000Max1024000 `integer`
+
+### __integerMin64000Max640000
+* __integerMin64000Max640000 `integer`
+
+### __integerMin8000Max192000
+* __integerMin8000Max192000 `integer`
+
+### __integerMin8000Max96000
+* __integerMin8000Max96000 `integer`
+
+### __integerMin96Max600
+* __integerMin96Max600 `integer`
+
+### __integerMinNegative1000Max1000
+* __integerMinNegative1000Max1000 `integer`
+
+### __integerMinNegative180Max180
+* __integerMinNegative180Max180 `integer`
+
+### __integerMinNegative2147483648Max2147483647
+* __integerMinNegative2147483648Max2147483647 `integer`
+
+### __integerMinNegative2Max3
+* __integerMinNegative2Max3 `integer`
+
+### __integerMinNegative5Max5
+* __integerMinNegative5Max5 `integer`
+
+### __integerMinNegative60Max6
+* __integerMinNegative60Max6 `integer`
+
+### __integerMinNegative70Max0
+* __integerMinNegative70Max0 `integer`
+
+### __listOfAudioDescription
+* __listOfAudioDescription `array`
+  * items [AudioDescription](#audiodescription)
+
+### __listOfCaptionDescription
+* __listOfCaptionDescription `array`
+  * items [CaptionDescription](#captiondescription)
+
+### __listOfCaptionDescriptionPreset
+* __listOfCaptionDescriptionPreset `array`
+  * items [CaptionDescriptionPreset](#captiondescriptionpreset)
+
+### __listOfEndpoint
+* __listOfEndpoint `array`
+  * items [Endpoint](#endpoint)
+
+### __listOfHlsAdMarkers
+* __listOfHlsAdMarkers `array`
+  * items [HlsAdMarkers](#hlsadmarkers)
+
+### __listOfHlsCaptionLanguageMapping
+* __listOfHlsCaptionLanguageMapping `array`
+  * items [HlsCaptionLanguageMapping](#hlscaptionlanguagemapping)
+
+### __listOfId3Insertion
+* __listOfId3Insertion `array`
+  * items [Id3Insertion](#id3insertion)
+
+### __listOfInput
+* __listOfInput `array`
+  * items [Input](#input)
+
+### __listOfInputClipping
+* __listOfInputClipping `array`
+  * items [InputClipping](#inputclipping)
+
+### __listOfInputTemplate
+* __listOfInputTemplate `array`
+  * items [InputTemplate](#inputtemplate)
+
+### __listOfInsertableImage
+* __listOfInsertableImage `array`
+  * items [InsertableImage](#insertableimage)
+
+### __listOfJob
+* __listOfJob `array`
+  * items [Job](#job)
+
+### __listOfJobTemplate
+* __listOfJobTemplate `array`
+  * items [JobTemplate](#jobtemplate)
+
+### __listOfOutput
+* __listOfOutput `array`
+  * items [Output](#output)
+
+### __listOfOutputChannelMapping
+* __listOfOutputChannelMapping `array`
+  * items [OutputChannelMapping](#outputchannelmapping)
+
+### __listOfOutputDetail
+* __listOfOutputDetail `array`
+  * items [OutputDetail](#outputdetail)
+
+### __listOfOutputGroup
+* __listOfOutputGroup `array`
+  * items [OutputGroup](#outputgroup)
+
+### __listOfOutputGroupDetail
+* __listOfOutputGroupDetail `array`
+  * items [OutputGroupDetail](#outputgroupdetail)
+
+### __listOfPreset
+* __listOfPreset `array`
+  * items [Preset](#preset)
+
+### __listOfQueue
+* __listOfQueue `array`
+  * items [Queue](#queue)
+
+### __listOf__integerMin1Max2147483647
+* __listOf__integerMin1Max2147483647 `array`
+  * items [__integerMin1Max2147483647](#__integermin1max2147483647)
+
+### __listOf__integerMin32Max8182
+* __listOf__integerMin32Max8182 `array`
+  * items [__integerMin32Max8182](#__integermin32max8182)
+
+### __listOf__integerMinNegative60Max6
+* __listOf__integerMinNegative60Max6 `array`
+  * items [__integerMinNegative60Max6](#__integerminnegative60max6)
+
+### __listOf__stringMin1
+* __listOf__stringMin1 `array`
+  * items [__stringMin1](#__stringmin1)
+
+### __listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12
+* __listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 `array`
+  * items [__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12](#__stringpattern09afaf809afaf409afaf409afaf409afaf12)
+
+### __long
+* __long `integer`
+
+### __mapOfAudioSelector
+* __mapOfAudioSelector `array`
+  * items `object`
+    * key [__string](#__string)
+    * value [AudioSelector](#audioselector)
+
+### __mapOfAudioSelectorGroup
+* __mapOfAudioSelectorGroup `array`
+  * items `object`
+    * key [__string](#__string)
+    * value [AudioSelectorGroup](#audioselectorgroup)
+
+### __mapOfCaptionSelector
+* __mapOfCaptionSelector `array`
+  * items `object`
+    * key [__string](#__string)
+    * value [CaptionSelector](#captionselector)
+
+### __mapOf__string
+* __mapOf__string `array`
+  * items `object`
+    * key [__string](#__string)
+    * value [__string](#__string)
 
 ### __string
 * __string `string`
 
-### __timestamp
-* __timestamp `string`
+### __stringMin0
+* __stringMin0 `string`
+
+### __stringMin1
+* __stringMin1 `string`
+
+### __stringMin14PatternS3BmpBMPPngPNG
+* __stringMin14PatternS3BmpBMPPngPNG `string`
+
+### __stringMin14PatternS3BmpBMPPngPNGTgaTGA
+* __stringMin14PatternS3BmpBMPPngPNGTgaTGA `string`
+
+### __stringMin14PatternS3SccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTSmiSMI
+* __stringMin14PatternS3SccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTSmiSMI `string`
+
+### __stringMin1Max256
+* __stringMin1Max256 `string`
+
+### __stringMin32Max32Pattern09aFAF32
+* __stringMin32Max32Pattern09aFAF32 `string`
+
+### __stringMin3Max3Pattern1809aFAF09aEAE
+* __stringMin3Max3Pattern1809aFAF09aEAE `string`
+
+### __stringPattern
+* __stringPattern `string`
+
+### __stringPattern010920405090509092
+* __stringPattern010920405090509092 `string`
+
+### __stringPattern01D20305D205D
+* __stringPattern01D20305D205D `string`
+
+### __stringPattern0940191020191209301
+* __stringPattern0940191020191209301 `string`
+
+### __stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12
+* __stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 `string`
+
+### __stringPatternAZaZ0902
+* __stringPatternAZaZ0902 `string`
+
+### __stringPatternAZaZ0932
+* __stringPatternAZaZ0932 `string`
+
+### __stringPatternDD
+* __stringPatternDD `string`
+
+### __stringPatternHttps
+* __stringPatternHttps `string`
+
+### __stringPatternIdentityAZaZ26AZaZ09163
+* __stringPatternIdentityAZaZ26AZaZ09163 `string`
+
+### __stringPatternS3
+* __stringPatternS3 `string`
+
+### __stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MM
+* __stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MM `string`
+
+### __stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEE
+* __stringPatternS3MM2VVMMPPEEGGAAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEE `string`
+
+### __stringPatternWS
+* __stringPatternWS `string`
+
+### __timestampIso8601
+* __timestampIso8601 `string`
+
+### __timestampUnix
+* __timestampUnix `string`
 
 

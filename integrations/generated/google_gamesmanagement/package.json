@@ -1,6 +1,6 @@
 {
   "name": "@datafire/google_gamesmanagement",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Google Play Game Services Management",
   "repository": {

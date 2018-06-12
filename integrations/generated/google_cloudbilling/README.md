@@ -1,6 +1,6 @@
 # @datafire/google_cloudbilling
 
-Client library for Google Cloud Billing
+Client library for Cloud Billing
 
 ## Installation and Usage
 ```bash
@@ -69,8 +69,8 @@ google_cloudbilling.oauthRefresh(null, context)
   * expiration `string`
 
 ### billingAccounts.list
-Lists the billing accounts that the current authenticated user
-[owns](https://support.google.com/cloud/answer/4430947).
+Lists the billing accounts that the current authenticated user has
+permission to [view](https://cloud.google.com/billing/docs/how-to/billing-access).
 
 
 ```js
@@ -79,6 +79,7 @@ google_cloudbilling.billingAccounts.list({}, context)
 
 #### Input
 * input `object`
+  * filter `string`: Options for how to filter the returned billing accounts.
   * pageSize `integer`: Requested page size. The maximum page size is 100; this is also the
   * pageToken `string`: A token identifying a page of results to return. This should be a
   * $.xgafv `string` (values: 1, 2): V1 error format.
@@ -97,6 +98,44 @@ google_cloudbilling.billingAccounts.list({}, context)
 
 #### Output
 * output [ListBillingAccountsResponse](#listbillingaccountsresponse)
+
+### billingAccounts.create
+Creates a billing account.
+This method can only be used to create
+[billing subaccounts](https://cloud.google.com/billing/docs/concepts)
+for GCP resellers.
+When creating a subaccount, the current authenticated user must have the
+`billing.accounts.update` IAM permission on the master account, which is
+typically given to billing account
+[administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
+
+> This method is currently in
+> [Beta](https://cloud.google.com/terms/launch-stages).
+
+
+```js
+google_cloudbilling.billingAccounts.create({}, context)
+```
+
+#### Input
+* input `object`
+  * body [BillingAccount](#billingaccount)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [BillingAccount](#billingaccount)
 
 ### services.list
 Lists all public cloud services.
@@ -129,8 +168,8 @@ google_cloudbilling.services.list({}, context)
 
 ### billingAccounts.get
 Gets information about a billing account. The current authenticated user
-must be an [owner of the billing
-account](https://support.google.com/cloud/answer/4430947).
+must be a [viewer of the billing
+account](https://cloud.google.com/billing/docs/how-to/billing-access).
 
 
 ```js
@@ -142,6 +181,46 @@ google_cloudbilling.billingAccounts.get({
 #### Input
 * input `object`
   * name **required** `string`: The resource name of the billing account to retrieve. For example,
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [BillingAccount](#billingaccount)
+
+### billingAccounts.patch
+Updates a billing account's fields.
+Currently the only field that can be edited is `display_name`.
+The current authenticated user must have the `billing.accounts.update`
+IAM permission, which is typically given to the
+[administrator](https://cloud.google.com/billing/docs/how-to/billing-access)
+of the billing account.
+
+> This method is currently in
+> [Beta](https://cloud.google.com/terms/launch-stages).
+
+
+```js
+google_cloudbilling.billingAccounts.patch({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [BillingAccount](#billingaccount)
+  * name **required** `string`: The name of the billing account resource to be updated.
+  * updateMask `string`: The update mask applied to the resource.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -202,14 +281,14 @@ billing account, this method changes the billing account used for resource
 usage charges.
 
 *Note:* Incurred charges that have not yet been reported in the transaction
-history of the Google Cloud Console may be billed to the new billing
+history of the GCP Console might be billed to the new billing
 account, even if the charge occurred before the new billing account was
 assigned to the project.
 
 The current authenticated user must have ownership privileges for both the
 [project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
 ) and the [billing
-account](https://support.google.com/cloud/answer/4430947).
+account](https://cloud.google.com/billing/docs/how-to/billing-access).
 
 You can disable billing on the project by setting the
 `billing_account_name` field to empty. This action disassociates the
@@ -255,9 +334,9 @@ google_cloudbilling.projects.updateBillingInfo({
 
 ### billingAccounts.projects.list
 Lists the projects associated with a billing account. The current
-authenticated user must have the "billing.resourceAssociations.list" IAM
+authenticated user must have the `billing.resourceAssociations.list` IAM
 permission, which is often given to billing account
-[viewers](https://support.google.com/cloud/answer/4430947).
+[viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
 
 
 ```js
@@ -323,6 +402,116 @@ google_cloudbilling.services.skus.list({
 #### Output
 * output [ListSkusResponse](#listskusresponse)
 
+### billingAccounts.getIamPolicy
+Gets the access control policy for a billing account.
+The caller must have the `billing.accounts.getIamPolicy` permission on the
+account, which is often given to billing account
+[viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
+
+> This method is currently in
+> [Beta](https://cloud.google.com/terms/launch-stages).
+
+
+```js
+google_cloudbilling.billingAccounts.getIamPolicy({
+  "resource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being requested.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Policy](#policy)
+
+### billingAccounts.setIamPolicy
+Sets the access control policy for a billing account. Replaces any existing
+policy.
+The caller must have the `billing.accounts.setIamPolicy` permission on the
+account, which is often given to billing account
+[administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
+
+> This method is currently in
+> [Beta](https://cloud.google.com/terms/launch-stages).
+
+
+```js
+google_cloudbilling.billingAccounts.setIamPolicy({
+  "resource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetIamPolicyRequest](#setiampolicyrequest)
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being specified.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Policy](#policy)
+
+### billingAccounts.testIamPermissions
+Tests the access control policy for a billing account. This method takes
+the resource and a set of permissions as input and returns the subset of
+the input permissions that the caller is allowed for that resource.
+
+> This method is currently in
+> [Beta](https://cloud.google.com/terms/launch-stages).
+
+
+```js
+google_cloudbilling.billingAccounts.testIamPermissions({
+  "resource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [TestIamPermissionsRequest](#testiampermissionsrequest)
+  * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [TestIamPermissionsResponse](#testiampermissionsresponse)
+
 
 
 ## Definitions
@@ -333,11 +522,30 @@ google_cloudbilling.services.skus.list({
   * aggregationInterval `string` (values: AGGREGATION_INTERVAL_UNSPECIFIED, DAILY, MONTHLY)
   * aggregationLevel `string` (values: AGGREGATION_LEVEL_UNSPECIFIED, ACCOUNT, PROJECT)
 
+### AuditConfig
+* AuditConfig `object`: Specifies the audit configuration for a service.
+  * auditLogConfigs `array`: The configuration for logging of each type of permission.
+    * items [AuditLogConfig](#auditlogconfig)
+  * service `string`: Specifies a service that will be enabled for audit logging.
+
+### AuditLogConfig
+* AuditLogConfig `object`: Provides the configuration for logging a type of permissions.
+  * exemptedMembers `array`: Specifies the identities that do not cause logging for this type of
+    * items `string`
+  * logType `string` (values: LOG_TYPE_UNSPECIFIED, ADMIN_READ, DATA_WRITE, DATA_READ): The log type that this config enables.
+
 ### BillingAccount
-* BillingAccount `object`: A billing account in [Google Cloud
+* BillingAccount `object`: A billing account in [GCP Console](https://console.cloud.google.com/).
   * displayName `string`: The display name given to the billing account, such as `My Billing
+  * masterBillingAccount `string`: If this account is a
   * name `string`: The resource name of the billing account. The resource name has the form
   * open `boolean`: True if the billing account is open, and will therefore be charged for any
+
+### Binding
+* Binding `object`: Associates `members` with a `role`.
+  * members `array`: Specifies the identities requesting access for a Cloud Platform resource.
+    * items `string`
+  * role `string`: Role that is assigned to `members`.
 
 ### Category
 * Category `object`: Represents the category hierarchy of a SKU.
@@ -376,6 +584,15 @@ google_cloudbilling.services.skus.list({
   * nanos `integer`: Number of nano (10^-9) units of the amount.
   * units `string`: The whole units of the amount.
 
+### Policy
+* Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to
+  * auditConfigs `array`: Specifies cloud audit logging configuration for this policy.
+    * items [AuditConfig](#auditconfig)
+  * bindings `array`: Associates a list of `members` to a `role`.
+    * items [Binding](#binding)
+  * etag `string`: `etag` is used for optimistic concurrency control as a way to help
+  * version `integer`: Deprecated.
+
 ### PricingExpression
 * PricingExpression `object`: Expresses a mathematical pricing formula. For Example:-
   * baseUnit `string`: The base unit for the SKU which is the unit used in usage exports.
@@ -396,7 +613,7 @@ google_cloudbilling.services.skus.list({
   * summary `string`: An optional human readable summary of the pricing information, has a
 
 ### ProjectBillingInfo
-* ProjectBillingInfo `object`: Encapsulation of billing information for a Cloud Console project. A project
+* ProjectBillingInfo `object`: Encapsulation of billing information for a GCP Console project. A project
   * billingAccountName `string`: The resource name of the billing account associated with the project, if
   * billingEnabled `boolean`: True if the project is associated with an open billing account, to which
   * name `string`: The resource name for the `ProjectBillingInfo`; has the form
@@ -407,6 +624,11 @@ google_cloudbilling.services.skus.list({
   * displayName `string`: A human readable display name for this service.
   * name `string`: The resource name for the service.
   * serviceId `string`: The identifier for the service.
+
+### SetIamPolicyRequest
+* SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.
+  * policy [Policy](#policy)
+  * updateMask `string`: OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
 
 ### Sku
 * Sku `object`: Encapsulates a single SKU in Google Cloud Platform
@@ -419,6 +641,16 @@ google_cloudbilling.services.skus.list({
   * serviceRegions `array`: List of service regions this SKU is offered at.
     * items `string`
   * skuId `string`: The identifier for the SKU.
+
+### TestIamPermissionsRequest
+* TestIamPermissionsRequest `object`: Request message for `TestIamPermissions` method.
+  * permissions `array`: The set of permissions to check for the `resource`. Permissions with
+    * items `string`
+
+### TestIamPermissionsResponse
+* TestIamPermissionsResponse `object`: Response message for `TestIamPermissions` method.
+  * permissions `array`: A subset of `TestPermissionsRequest.permissions` that the caller is
+    * items `string`
 
 ### TierRate
 * TierRate `object`: The price rate indicating starting usage and its corresponding price.

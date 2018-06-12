@@ -1,6 +1,6 @@
 # @datafire/google_script
 
-Client library for Google Apps Script
+Client library for Apps Script
 
 ## Installation and Usage
 ```bash
@@ -22,7 +22,8 @@ google_script.projects.create({}).then(data => {
 
 ## Description
 
-An API for managing and executing Google Apps Script projects.
+An API for managing and executing Google Apps Script projects. <aside class="note"><b>Note</b>: In order to use this API in your apps, you must <a href="/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app"> enable it for use</a>. To allow other apps to manage your scripts, you must <a href="/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects"> grant them access</a>.</aside>
+
 
 ## Actions
 
@@ -699,8 +700,8 @@ google_script.scripts.run({
   * duration `string`: Duration the execution spent executing.
   * executingUser `string`: User-facing name for the user executing the script.
   * functionName `string`: Name of the function the started the execution.
-  * processStatus `string` (values: PROCESS_STATUS_UNSPECIFIED, RUNNING, PAUSED, COMPLETED, CANCELED, FAILED, TIMED_OUT, UNKNOWN): The executions status.
-  * processType `string` (values: PROCESS_TYPE_UNSPECIFIED, ADD_ON, EXECUTION_API, TIME_DRIVEN, TRIGGER, WEBAPP, EDITOR): The executions type.
+  * processStatus `string` (values: PROCESS_STATUS_UNSPECIFIED, RUNNING, PAUSED, COMPLETED, CANCELED, FAILED, TIMED_OUT, UNKNOWN, DELAYED): The executions status.
+  * processType `string` (values: PROCESS_TYPE_UNSPECIFIED, ADD_ON, EXECUTION_API, TIME_DRIVEN, TRIGGER, WEBAPP, EDITOR, SIMPLE_TRIGGER, MENU): The executions type.
   * projectName `string`: Name of the script being executed.
   * startTime `string`: Time the execution started.
   * userAccessLevel `string` (values: USER_ACCESS_LEVEL_UNSPECIFIED, NONE, READ, WRITE, OWNER): The executing users access level to the script.
@@ -794,7 +795,7 @@ google_script.scripts.run({
 
 ### Status
 * Status `object`: If a `run` call succeeds but the script function (or Apps Script itself) throws an exception, the response body's error field contains this `Status` object.
-  * code `integer`: The status code. For this API, this value either: <ul> <li> 3, indicating an `INVALID_ARGUMENT` error, or</li> <li> 1, indicating a `CANCELLED` execution.</li> </ul>
+  * code `integer`: The status code. For this API, this value either: <ul> <li> 10, indicating a `SCRIPT_TIMEOUT` error,</li> <li> 3, indicating an `INVALID_ARGUMENT` error, or</li> <li> 1, indicating a `CANCELLED` execution.</li> </ul>
   * details `array`: An array that contains a single ExecutionError object that provides information about the nature of the error.
     * items `object`
   * message `string`: A developer-facing error message, which is in English. Any user-facing error message is localized and sent in the [google.rpc.Status.details](google.rpc.Status.details) field, or localized by the client.

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/taggun",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for taggun.io",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/taggun.io/1.0.35/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/taggun.io/1.1.30/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

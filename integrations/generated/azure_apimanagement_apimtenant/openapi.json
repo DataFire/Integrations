@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on tenant entity associated with your Azure API Management deployment. Using this entity you can manage properties and configuration that apply to the entire API Management service instance.",
     "title": "ApiManagementClient",
-    "version": "2017-03-01",
+    "version": "2018-01-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/apimanagement/resource-manager/Microsoft.ApiManagement/stable/2017-03-01/apimtenant.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimtenant.json",
         "version": "2.0"
       }
     ],
@@ -153,7 +153,7 @@
           "ApiManagementGetTenantAccess": {
             "parameters": {
               "accessName": "access",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -207,11 +207,12 @@
             "$ref": "#/parameters/AccessParameter"
           },
           {
-            "description": "The entity state (Etag) version of the property to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation.",
+            "description": "ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.",
             "in": "header",
             "name": "If-Match",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -235,36 +236,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -278,7 +284,7 @@
             "parameters": {
               "If-Match": "*",
               "accessName": "access",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "parameters": {
                 "enabled": true
               },
@@ -351,36 +357,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -393,7 +404,7 @@
           "ApiManagementGetTenantAccess": {
             "parameters": {
               "accessName": "access",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -461,36 +472,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -503,7 +519,7 @@
           "ApiManagementTenantAccessRegenerateKey": {
             "parameters": {
               "accessName": "access",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -564,36 +580,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -606,7 +627,7 @@
           "ApiManagementTenantAccessRegenerateKey": {
             "parameters": {
               "accessName": "access",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -667,36 +688,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -709,7 +735,7 @@
           "ApiManagementTenantAccessRegenerateKey": {
             "parameters": {
               "accessName": "access",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -770,36 +796,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -812,7 +843,7 @@
           "ApiManagementTenantAccessRegenerateKey": {
             "parameters": {
               "accessName": "access",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -892,36 +923,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -933,7 +969,7 @@
         "x-ms-examples": {
           "ApiManagementTenantConfigurationDeploy": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "configurationName": "configuration",
               "parameters": {
                 "branch": "master"
@@ -957,7 +993,7 @@
               },
               "202": {
                 "headers": {
-                  "location": "https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tenant/operationResults/5a1af4ae2a6d2e0b688d7517?api-version=2017-03-01"
+                  "location": "https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tenant/operationResults/5a1af4ae2a6d2e0b688d7517?api-version=2018-01-01"
                 }
               }
             }
@@ -1034,36 +1070,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -1075,7 +1116,7 @@
         "x-ms-examples": {
           "ApiManagementTenantConfigurationSave": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "configurationName": "configuration",
               "parameters": {
                 "branch": "master"
@@ -1097,7 +1138,7 @@
               },
               "202": {
                 "headers": {
-                  "location": "https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tenant/operationResults/5a1af57d2a6d2e0b688d751b?api-version=2017-03-01"
+                  "location": "https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tenant/operationResults/5a1af57d2a6d2e0b688d751b?api-version=2018-01-01"
                 }
               }
             }
@@ -1162,7 +1203,7 @@
         "x-ms-examples": {
           "ApiManagementTenantAccessSyncState": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "configurationName": "configuration",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -1249,36 +1290,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -1290,7 +1336,7 @@
         "x-ms-examples": {
           "ApiManagementTenantConfigurationValidate": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "configurationName": "configuration",
               "parameters": {
                 "branch": "master"
@@ -1453,7 +1499,7 @@
               },
               "202": {
                 "headers": {
-                  "location": "https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tenant/operationResults/5a1af64e2a6d2e0b688d751e?api-version=2017-03-01"
+                  "location": "https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tenant/operationResults/5a1af64e2a6d2e0b688d751e?api-version=2018-01-01"
                 }
               }
             }
@@ -1522,36 +1568,41 @@
           "type": "array"
         },
         "error": {
-          "description": "Error Body contract.",
+          "description": "Error Response.",
           "properties": {
-            "code": {
-              "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-              "type": "string"
-            },
-            "details": {
-              "description": "The list of invalid fields send in request, in case of validation error.",
-              "items": {
-                "description": "Error Field contract.",
-                "properties": {
-                  "code": {
-                    "description": "Property level error code.",
-                    "type": "string"
+            "error": {
+              "description": "Error Body contract.",
+              "properties": {
+                "code": {
+                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                  "type": "string"
+                },
+                "details": {
+                  "description": "The list of invalid fields send in request, in case of validation error.",
+                  "items": {
+                    "description": "Error Field contract.",
+                    "properties": {
+                      "code": {
+                        "description": "Property level error code.",
+                        "type": "string"
+                      },
+                      "message": {
+                        "description": "Human-readable representation of property-level error.",
+                        "type": "string"
+                      },
+                      "target": {
+                        "description": "Property name.",
+                        "type": "string"
+                      }
+                    }
                   },
-                  "message": {
-                    "description": "Human-readable representation of property-level error.",
-                    "type": "string"
-                  },
-                  "target": {
-                    "description": "Property name.",
-                    "type": "string"
-                  }
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Human-readable representation of the error.",
+                  "type": "string"
                 }
-              },
-              "type": "array"
-            },
-            "message": {
-              "description": "Human-readable representation of the error.",
-              "type": "string"
+              }
             }
           }
         },

@@ -46,14 +46,19 @@ azure_automation_dscconfiguration.DscConfiguration_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
+  * $filter `string`: The filter to apply on the operation.
+  * $skip `integer`: The number of rows to skip.
+  * $top `integer`: The the number of rows to take.
+  * $inlinecount `string`: Return total rows.
 
 #### Output
 * output `object`: The response model for the list configuration operation.
   * nextLink `string`: Gets or sets the next link.
+  * totalCount `integer`: Gets the total number of configurations matching filter criteria.
   * value `array`: Gets or sets a list of configurations.
     * items `object`: Definition of the configuration type.
       * etag `string`: Gets or sets the etag of the resource.
@@ -63,6 +68,7 @@ azure_automation_dscconfiguration.DscConfiguration_ListByAutomationAccount({
         * jobCount `integer`: Gets or sets the job count of the configuration.
         * lastModifiedTime `string`: Gets or sets the last modified time.
         * logVerbose `boolean`: Gets or sets verbose log option.
+        * nodeConfigurationCount `integer`: Gets the number of compiled node configurations.
         * parameters `object`: Gets or sets the configuration parameters.
         * provisioningState `string` (values: Succeeded): Gets or sets the provisioning state of the configuration.
         * source `object`: Definition of the content source.
@@ -73,11 +79,11 @@ azure_automation_dscconfiguration.DscConfiguration_ListByAutomationAccount({
           * value `string`: Gets or sets the value of the content. This is based on the content source type.
           * version `string`: Gets or sets the version of the content.
         * state `string` (values: New, Edit, Published): Gets or sets the state of the configuration.
-      * id `string`: Resource Id
-      * location **required** `string`: Resource location
-      * name `string`: Resource name
-      * tags `object`: Resource tags
-      * type `string`: Resource type
+      * location `string`: The Azure Region where the resource lives
+      * tags `object`: Resource tags.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### DscConfiguration_Delete
 Delete the dsc configuration identified by configuration name.
@@ -95,7 +101,7 @@ azure_automation_dscconfiguration.DscConfiguration_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * configurationName **required** `string`: The configuration name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -120,7 +126,7 @@ azure_automation_dscconfiguration.DscConfiguration_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * configurationName **required** `string`: The configuration name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -135,6 +141,7 @@ azure_automation_dscconfiguration.DscConfiguration_Get({
     * jobCount `integer`: Gets or sets the job count of the configuration.
     * lastModifiedTime `string`: Gets or sets the last modified time.
     * logVerbose `boolean`: Gets or sets verbose log option.
+    * nodeConfigurationCount `integer`: Gets the number of compiled node configurations.
     * parameters `object`: Gets or sets the configuration parameters.
     * provisioningState `string` (values: Succeeded): Gets or sets the provisioning state of the configuration.
     * source `object`: Definition of the content source.
@@ -145,11 +152,74 @@ azure_automation_dscconfiguration.DscConfiguration_Get({
       * value `string`: Gets or sets the value of the content. This is based on the content source type.
       * version `string`: Gets or sets the version of the content.
     * state `string` (values: New, Edit, Published): Gets or sets the state of the configuration.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
+
+### DscConfiguration_Update
+Create the configuration identified by configuration name.
+
+
+```js
+azure_automation_dscconfiguration.DscConfiguration_Update({
+  "resourceGroupName": "",
+  "automationAccountName": "",
+  "configurationName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The automation account name.
+  * configurationName **required** `string`: The create or update parameters for configuration.
+  * parameters `object`: The parameters supplied to the create or update configuration operation.
+    * name `string`: Gets or sets name of the resource.
+    * properties `object`: The properties to create or update configuration.
+      * description `string`: Gets or sets the description of the configuration.
+      * logProgress `boolean`: Gets or sets progress log option.
+      * logVerbose `boolean`: Gets or sets verbose log option.
+      * parameters `object`: Gets or sets the configuration parameters.
+      * source **required** `object`: Definition of the content source.
+        * hash `object`: Definition of the runbook property type.
+          * algorithm **required** `string`: Gets or sets the content hash algorithm used to hash the content.
+          * value **required** `string`: Gets or sets expected hash value of the content.
+        * type `string` (values: embeddedContent, uri): Gets or sets the content source type.
+        * value `string`: Gets or sets the value of the content. This is based on the content source type.
+        * version `string`: Gets or sets the version of the content.
+    * tags `object`: Gets or sets the tags attached to the resource.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output `object`: Definition of the configuration type.
+  * etag `string`: Gets or sets the etag of the resource.
+  * properties `object`: Definition of the configuration property type.
+    * creationTime `string`: Gets or sets the creation time.
+    * description `string`: Gets or sets the description.
+    * jobCount `integer`: Gets or sets the job count of the configuration.
+    * lastModifiedTime `string`: Gets or sets the last modified time.
+    * logVerbose `boolean`: Gets or sets verbose log option.
+    * nodeConfigurationCount `integer`: Gets the number of compiled node configurations.
+    * parameters `object`: Gets or sets the configuration parameters.
+    * provisioningState `string` (values: Succeeded): Gets or sets the provisioning state of the configuration.
+    * source `object`: Definition of the content source.
+      * hash `object`: Definition of the runbook property type.
+        * algorithm **required** `string`: Gets or sets the content hash algorithm used to hash the content.
+        * value **required** `string`: Gets or sets expected hash value of the content.
+      * type `string` (values: embeddedContent, uri): Gets or sets the content source type.
+      * value `string`: Gets or sets the value of the content. This is based on the content source type.
+      * version `string`: Gets or sets the version of the content.
+    * state `string` (values: New, Edit, Published): Gets or sets the state of the configuration.
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### DscConfiguration_CreateOrUpdate
 Create the configuration identified by configuration name.
@@ -168,7 +238,7 @@ azure_automation_dscconfiguration.DscConfiguration_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * configurationName **required** `string`: The create or update parameters for configuration.
   * parameters **required** `object`: The parameters supplied to the create or update configuration operation.
@@ -199,6 +269,7 @@ azure_automation_dscconfiguration.DscConfiguration_CreateOrUpdate({
     * jobCount `integer`: Gets or sets the job count of the configuration.
     * lastModifiedTime `string`: Gets or sets the last modified time.
     * logVerbose `boolean`: Gets or sets verbose log option.
+    * nodeConfigurationCount `integer`: Gets the number of compiled node configurations.
     * parameters `object`: Gets or sets the configuration parameters.
     * provisioningState `string` (values: Succeeded): Gets or sets the provisioning state of the configuration.
     * source `object`: Definition of the content source.
@@ -209,11 +280,11 @@ azure_automation_dscconfiguration.DscConfiguration_CreateOrUpdate({
       * value `string`: Gets or sets the value of the content. This is based on the content source type.
       * version `string`: Gets or sets the version of the content.
     * state `string` (values: New, Edit, Published): Gets or sets the state of the configuration.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### DscConfiguration_GetContent
 Retrieve the configuration script identified by configuration name.
@@ -231,14 +302,14 @@ azure_automation_dscconfiguration.DscConfiguration_GetContent({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * configurationName **required** `string`: The configuration name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `file`
+* output `string`
 
 
 

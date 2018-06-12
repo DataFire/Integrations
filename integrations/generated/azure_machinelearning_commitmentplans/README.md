@@ -7,7 +7,13 @@ Client library for Azure ML Commitment Plans Management Client
 npm install --save @datafire/azure_machinelearning_commitmentplans
 ```
 ```js
-let azure_machinelearning_commitmentplans = require('@datafire/azure_machinelearning_commitmentplans').create();
+let azure_machinelearning_commitmentplans = require('@datafire/azure_machinelearning_commitmentplans').create({
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: ""
+});
 
 azure_machinelearning_commitmentplans.CommitmentPlans_List({
   "subscriptionId": "",
@@ -42,6 +48,25 @@ azure_machinelearning_commitmentplans.CommitmentPlans_List({
 
 #### Output
 * output [CommitmentPlanListResult](#commitmentplanlistresult)
+
+### Skus_List
+Lists the available commitment plan SKUs.
+
+
+```js
+azure_machinelearning_commitmentplans.Skus_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Azure Subscription ID.
+  * api-version **required** `string`: The version of the Microsoft.MachineLearning resource provider API to use.
+
+#### Output
+* output [SkuListResult](#skulistresult)
 
 ### CommitmentPlans_ListInResourceGroup
 Retrieve all Azure ML commitment plans in a resource group.
@@ -265,6 +290,21 @@ azure_machinelearning_commitmentplans.UsageHistory_List({
 
 ## Definitions
 
+### CatalogSku
+* CatalogSku `object`: Details of a commitment plan SKU.
+  * capabilities `array`: The capability information for the specified SKU.
+    * items [SkuCapability](#skucapability)
+  * capacity [SkuCapacity](#skucapacity)
+  * costs `array`: The cost information for the specified SKU.
+    * items [SkuCost](#skucost)
+  * locations `array`: Regions where the SKU is available.
+    * items `string`
+  * name `string`: SKU name
+  * resourceType `string`: Resource type name
+  * restrictions `array`: Restrictions which would prevent a SKU from being used. This is empty if there are no restrictions.
+    * items [SkuRestrictions](#skurestrictions)
+  * tier `string`: SKU tier
+
 ### CommitmentAssociation
 * CommitmentAssociation `object`: Represents the association between a commitment plan and some other resource, such as a Machine Learning web service.
   * etag `string`: An entity tag used to enforce optimistic concurrency.
@@ -362,6 +402,36 @@ azure_machinelearning_commitmentplans.UsageHistory_List({
   * capacity `integer`: The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
   * name `string`: The SKU name. Along with tier, uniquely identifies the SKU.
   * tier `string`: The SKU tier. Along with name, uniquely identifies the SKU.
+
+### SkuCapability
+* SkuCapability `object`: Describes The SKU capabilites object.
+  * name `string`: The capability name.
+  * value `string`: The capability value.
+
+### SkuCapacity
+* SkuCapacity `object`: Describes scaling information of a SKU.
+  * default `integer`: The default capacity.
+  * maximum `integer`: The maximum capacity that can be set.
+  * minimum `integer`: The minimum capacity.
+  * scaleType `string` (values: Automatic, Manual, None): The scale type applicable to the sku.
+
+### SkuCost
+* SkuCost `object`: Describes metadata for SKU cost info.
+  * extendedUnit `string`: The overall duration represented by the quantity.
+  * meterID `string`: The meter used for this part of a SKU's cost.
+  * quantity `integer`: The multiplier for the meter ID.
+
+### SkuListResult
+* SkuListResult `object`: The list of commitment plan SKUs.
+  * value `array`
+    * items [CatalogSku](#catalogsku)
+
+### SkuRestrictions
+* SkuRestrictions `object`: Describes restrictions which would prevent a SKU from being used.
+  * reasonCode `string` (values: QuotaId, NotAvailableForSubscription): The reason for restriction.
+  * type `string` (values: location, zone): The type of restrictions.
+  * values `array`: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
+    * items `string`
 
 ### Tags
 * Tags `object`: Resource tags

@@ -135,16 +135,4 @@ azure_sql_backuplongtermretentionpolicies.BackupLongTermRetentionPolicies_Create
   * recoveryServicesBackupPolicyResourceId **required** `string`: The azure recovery services backup protection policy resource id
   * state **required** `string` (values: Disabled, Enabled): The status of the backup long term retention policy
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

@@ -105,8 +105,8 @@ in the HTTP Headers:
 
 Many RETS vendors have strict requirements for showing disclaimers
 with specific information embedded. For example, in many areas it's
-required to show the time of the last listing refresh inside the
-disclaimer.
+required to show the timestamp of the time the listings were
+refreshed inside a disclaimer or on a listing page.
 
 The timestamp of the last listing refresh timestamp can be found in
 one of two spots:
@@ -118,10 +118,14 @@ one of two spots:
 
   - `OPTIONS /`
 
-    Using this route, you can see the timestamp for all RETS
-    vendors associated with your account.
+    This request will show the last update timestamp for all RETS
+    vendors associated with your application. Look for the
+    `updates` list in the JSON response.
 
   - `OPTIONS /properties`
+
+    Using this request, look for the `lastUpdate` field in the JSON
+    response.
 
 
 ## Actions
@@ -139,7 +143,7 @@ simplyrets.openhouses.get({}, context)
 * input `object`
   * type `string` (values: residential, rental, multifamily, condominium, commercial, land, farm): Request listings by a specific property type. This
   * listingId `string`: Request openhouses for a specific `listingId`.
-  * cities `array`: Filter the openhouses returned by a list of valid cities. A
+  * cities `array`: Filter the openhouses returned by a list of valid cities.
   * brokers `array`: Filter the listings returned by brokerage with a Broker ID.
   * agent `string`: Filter the listings returned by an agent ID.  Note, the
   * minprice `integer`: Filter listings by a minimum price.

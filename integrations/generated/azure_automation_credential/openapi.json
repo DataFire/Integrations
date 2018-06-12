@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/credential.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/credential.json",
         "version": "2.0"
       }
     ],
@@ -67,12 +67,15 @@
         "operationId": "Credential_ListByAutomationAccount",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -109,17 +112,36 @@
                 "value": {
                   "description": "Gets or sets a list of credentials.",
                   "items": {
+                    "allOf": [
+                      {
+                        "allOf": [
+                          {
+                            "description": "The core properties of ARM resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource Id for the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                      }
+                    ],
                     "description": "Definition of the credential.",
                     "properties": {
-                      "id": {
-                        "description": "Gets the id of the resource.",
-                        "readOnly": true,
-                        "type": "string"
-                      },
-                      "name": {
-                        "description": "Gets the name of the credential.",
-                        "type": "string"
-                      },
                       "properties": {
                         "description": "Definition of the credential properties",
                         "properties": {
@@ -127,7 +149,8 @@
                             "description": "Gets the creation time.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "description": {
                             "description": "Gets or sets the description.",
@@ -137,7 +160,8 @@
                             "description": "Gets the last modified time.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "userName": {
                             "description": "Gets the user name of the credential.",
@@ -2209,12 +2233,15 @@
         "operationId": "Credential_Delete",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -2293,12 +2320,15 @@
         "operationId": "Credential_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -2333,17 +2363,36 @@
           "200": {
             "description": "OK",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the credential.",
               "properties": {
-                "id": {
-                  "description": "Gets the id of the resource.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets the name of the credential.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of the credential properties",
                   "properties": {
@@ -2351,7 +2400,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -2361,7 +2411,8 @@
                       "description": "Gets the last modified time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "userName": {
                       "description": "Gets the user name of the credential.",
@@ -2429,12 +2480,15 @@
         "operationId": "Credential_Update",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -2479,10 +2533,7 @@
                     }
                   }
                 }
-              },
-              "required": [
-                "name"
-              ]
+              }
             }
           },
           {
@@ -2504,17 +2555,36 @@
           "200": {
             "description": "OK",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the credential.",
               "properties": {
-                "id": {
-                  "description": "Gets the id of the resource.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets the name of the credential.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of the credential properties",
                   "properties": {
@@ -2522,7 +2592,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -2532,7 +2603,8 @@
                       "description": "Gets the last modified time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "userName": {
                       "description": "Gets the user name of the credential.",
@@ -2608,12 +2680,15 @@
         "operationId": "Credential_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -2688,17 +2763,36 @@
           "200": {
             "description": "OK",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the credential.",
               "properties": {
-                "id": {
-                  "description": "Gets the id of the resource.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets the name of the credential.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of the credential properties",
                   "properties": {
@@ -2706,7 +2800,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -2716,7 +2811,8 @@
                       "description": "Gets the last modified time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "userName": {
                       "description": "Gets the user name of the credential.",
@@ -2731,17 +2827,36 @@
           "201": {
             "description": "Created",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the credential.",
               "properties": {
-                "id": {
-                  "description": "Gets the id of the resource.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets the name of the credential.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of the credential properties",
                   "properties": {
@@ -2749,7 +2864,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -2759,7 +2875,8 @@
                       "description": "Gets the last modified time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "userName": {
                       "description": "Gets the user name of the credential.",

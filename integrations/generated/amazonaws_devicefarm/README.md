@@ -50,6 +50,27 @@ amazonaws_devicefarm.CreateDevicePool({
 #### Output
 * output [CreateDevicePoolResult](#createdevicepoolresult)
 
+### CreateInstanceProfile
+
+
+
+```js
+amazonaws_devicefarm.CreateInstanceProfile({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * description [Message](#message)
+  * excludeAppPackagesFromCleanup [PackageIds](#packageids)
+  * name **required** [Name](#name)
+  * packageCleanup [Boolean](#boolean)
+  * rebootAfterUse [Boolean](#boolean)
+
+#### Output
+* output [CreateInstanceProfileResult](#createinstanceprofileresult)
+
 ### CreateNetworkProfile
 
 
@@ -113,12 +134,14 @@ amazonaws_devicefarm.CreateRemoteAccessSession({
   * clientId [ClientId](#clientid)
   * configuration [CreateRemoteAccessSessionConfiguration](#createremoteaccesssessionconfiguration)
   * deviceArn **required** [AmazonResourceName](#amazonresourcename)
+  * instanceArn [AmazonResourceName](#amazonresourcename)
   * interactionMode [InteractionMode](#interactionmode)
   * name [Name](#name)
   * projectArn **required** [AmazonResourceName](#amazonresourcename)
   * remoteDebugEnabled [Boolean](#boolean)
   * remoteRecordAppArn [AmazonResourceName](#amazonresourcename)
   * remoteRecordEnabled [Boolean](#boolean)
+  * skipAppResign [Boolean](#boolean)
   * sshPublicKey [SshPublicKey](#sshpublickey)
 
 #### Output
@@ -146,6 +169,28 @@ amazonaws_devicefarm.CreateUpload({
 #### Output
 * output [CreateUploadResult](#createuploadresult)
 
+### CreateVPCEConfiguration
+
+
+
+```js
+amazonaws_devicefarm.CreateVPCEConfiguration({
+  "vpceConfigurationName": "",
+  "vpceServiceName": "",
+  "serviceDnsName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * serviceDnsName **required** [ServiceDnsName](#servicednsname)
+  * vpceConfigurationDescription [VPCEConfigurationDescription](#vpceconfigurationdescription)
+  * vpceConfigurationName **required** [VPCEConfigurationName](#vpceconfigurationname)
+  * vpceServiceName **required** [VPCEServiceName](#vpceservicename)
+
+#### Output
+* output [CreateVPCEConfigurationResult](#createvpceconfigurationresult)
+
 ### DeleteDevicePool
 
 
@@ -162,6 +207,23 @@ amazonaws_devicefarm.DeleteDevicePool({
 
 #### Output
 * output [DeleteDevicePoolResult](#deletedevicepoolresult)
+
+### DeleteInstanceProfile
+
+
+
+```js
+amazonaws_devicefarm.DeleteInstanceProfile({
+  "arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+#### Output
+* output [DeleteInstanceProfileResult](#deleteinstanceprofileresult)
 
 ### DeleteNetworkProfile
 
@@ -248,6 +310,23 @@ amazonaws_devicefarm.DeleteUpload({
 #### Output
 * output [DeleteUploadResult](#deleteuploadresult)
 
+### DeleteVPCEConfiguration
+
+
+
+```js
+amazonaws_devicefarm.DeleteVPCEConfiguration({
+  "arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+#### Output
+* output [DeleteVPCEConfigurationResult](#deletevpceconfigurationresult)
+
 ### GetAccountSettings
 
 
@@ -279,6 +358,23 @@ amazonaws_devicefarm.GetDevice({
 #### Output
 * output [GetDeviceResult](#getdeviceresult)
 
+### GetDeviceInstance
+
+
+
+```js
+amazonaws_devicefarm.GetDeviceInstance({
+  "arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+#### Output
+* output [GetDeviceInstanceResult](#getdeviceinstanceresult)
+
 ### GetDevicePool
 
 
@@ -309,12 +405,30 @@ amazonaws_devicefarm.GetDevicePoolCompatibility({
 #### Input
 * input `object`
   * appArn [AmazonResourceName](#amazonresourcename)
+  * configuration [ScheduleRunConfiguration](#schedulerunconfiguration)
   * devicePoolArn **required** [AmazonResourceName](#amazonresourcename)
   * test [ScheduleRunTest](#scheduleruntest)
   * testType [TestType](#testtype)
 
 #### Output
 * output [GetDevicePoolCompatibilityResult](#getdevicepoolcompatibilityresult)
+
+### GetInstanceProfile
+
+
+
+```js
+amazonaws_devicefarm.GetInstanceProfile({
+  "arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+#### Output
+* output [GetInstanceProfileResult](#getinstanceprofileresult)
 
 ### GetJob
 
@@ -468,6 +582,23 @@ amazonaws_devicefarm.GetUpload({
 #### Output
 * output [GetUploadResult](#getuploadresult)
 
+### GetVPCEConfiguration
+
+
+
+```js
+amazonaws_devicefarm.GetVPCEConfiguration({
+  "arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+#### Output
+* output [GetVPCEConfigurationResult](#getvpceconfigurationresult)
+
 ### InstallToRemoteAccessSession
 
 
@@ -508,6 +639,22 @@ amazonaws_devicefarm.ListArtifacts({
 #### Output
 * output [ListArtifactsResult](#listartifactsresult)
 
+### ListDeviceInstances
+
+
+
+```js
+amazonaws_devicefarm.ListDeviceInstances({}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults [Integer](#integer)
+  * nextToken [PaginationToken](#paginationtoken)
+
+#### Output
+* output [ListDeviceInstancesResult](#listdeviceinstancesresult)
+
 ### ListDevicePools
 
 
@@ -544,6 +691,22 @@ amazonaws_devicefarm.ListDevices({}, context)
 
 #### Output
 * output [ListDevicesResult](#listdevicesresult)
+
+### ListInstanceProfiles
+
+
+
+```js
+amazonaws_devicefarm.ListInstanceProfiles({}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults [Integer](#integer)
+  * nextToken [PaginationToken](#paginationtoken)
+
+#### Output
+* output [ListInstanceProfilesResult](#listinstanceprofilesresult)
 
 ### ListJobs
 
@@ -779,6 +942,22 @@ amazonaws_devicefarm.ListUploads({
 #### Output
 * output [ListUploadsResult](#listuploadsresult)
 
+### ListVPCEConfigurations
+
+
+
+```js
+amazonaws_devicefarm.ListVPCEConfigurations({}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults [Integer](#integer)
+  * nextToken [PaginationToken](#paginationtoken)
+
+#### Output
+* output [ListVPCEConfigurationsResult](#listvpceconfigurationsresult)
+
 ### PurchaseOffering
 
 
@@ -873,6 +1052,25 @@ amazonaws_devicefarm.StopRun({
 #### Output
 * output [StopRunResult](#stoprunresult)
 
+### UpdateDeviceInstance
+
+
+
+```js
+amazonaws_devicefarm.UpdateDeviceInstance({
+  "arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+  * labels [InstanceLabels](#instancelabels)
+  * profileArn [AmazonResourceName](#amazonresourcename)
+
+#### Output
+* output [UpdateDeviceInstanceResult](#updatedeviceinstanceresult)
+
 ### UpdateDevicePool
 
 
@@ -892,6 +1090,28 @@ amazonaws_devicefarm.UpdateDevicePool({
 
 #### Output
 * output [UpdateDevicePoolResult](#updatedevicepoolresult)
+
+### UpdateInstanceProfile
+
+
+
+```js
+amazonaws_devicefarm.UpdateInstanceProfile({
+  "arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+  * description [Message](#message)
+  * excludeAppPackagesFromCleanup [PackageIds](#packageids)
+  * name [Name](#name)
+  * packageCleanup [Boolean](#boolean)
+  * rebootAfterUse [Boolean](#boolean)
+
+#### Output
+* output [UpdateInstanceProfileResult](#updateinstanceprofileresult)
 
 ### UpdateNetworkProfile
 
@@ -940,6 +1160,27 @@ amazonaws_devicefarm.UpdateProject({
 #### Output
 * output [UpdateProjectResult](#updateprojectresult)
 
+### UpdateVPCEConfiguration
+
+
+
+```js
+amazonaws_devicefarm.UpdateVPCEConfiguration({
+  "arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+  * serviceDnsName [ServiceDnsName](#servicednsname)
+  * vpceConfigurationDescription [VPCEConfigurationDescription](#vpceconfigurationdescription)
+  * vpceConfigurationName [VPCEConfigurationName](#vpceconfigurationname)
+  * vpceServiceName [VPCEServiceName](#vpceservicename)
+
+#### Output
+* output [UpdateVPCEConfigurationResult](#updatevpceconfigurationresult)
+
 
 
 ## Definitions
@@ -953,6 +1194,7 @@ amazonaws_devicefarm.UpdateProject({
   * defaultJobTimeoutMinutes [JobTimeoutMinutes](#jobtimeoutminutes)
   * maxJobTimeoutMinutes [JobTimeoutMinutes](#jobtimeoutminutes)
   * maxSlots [MaxSlotMap](#maxslotmap)
+  * skipAppResign [SkipAppResign](#skipappresign)
   * trialMinutes [TrialMinutes](#trialminutes)
   * unmeteredDevices [PurchasedDevicesMap](#purchaseddevicesmap)
   * unmeteredRemoteAccessDevices [PurchasedDevicesMap](#purchaseddevicesmap)
@@ -1035,6 +1277,18 @@ amazonaws_devicefarm.UpdateProject({
 * CreateDevicePoolResult `object`: Represents the result of a create device pool request.
   * devicePool [DevicePool](#devicepool)
 
+### CreateInstanceProfileRequest
+* CreateInstanceProfileRequest `object`
+  * description [Message](#message)
+  * excludeAppPackagesFromCleanup [PackageIds](#packageids)
+  * name **required** [Name](#name)
+  * packageCleanup [Boolean](#boolean)
+  * rebootAfterUse [Boolean](#boolean)
+
+### CreateInstanceProfileResult
+* CreateInstanceProfileResult `object`
+  * instanceProfile [InstanceProfile](#instanceprofile)
+
 ### CreateNetworkProfileRequest
 * CreateNetworkProfileRequest `object`
   * description [Message](#message)
@@ -1064,7 +1318,7 @@ amazonaws_devicefarm.UpdateProject({
   * project [Project](#project)
 
 ### CreateRemoteAccessSessionConfiguration
-* CreateRemoteAccessSessionConfiguration `object`: Creates the configuration settings for a remote access session, including the device model and type.
+* CreateRemoteAccessSessionConfiguration `object`: Configuration settings for a remote access session, including billing method.
   * billingMethod [BillingMethod](#billingmethod)
 
 ### CreateRemoteAccessSessionRequest
@@ -1072,12 +1326,14 @@ amazonaws_devicefarm.UpdateProject({
   * clientId [ClientId](#clientid)
   * configuration [CreateRemoteAccessSessionConfiguration](#createremoteaccesssessionconfiguration)
   * deviceArn **required** [AmazonResourceName](#amazonresourcename)
+  * instanceArn [AmazonResourceName](#amazonresourcename)
   * interactionMode [InteractionMode](#interactionmode)
   * name [Name](#name)
   * projectArn **required** [AmazonResourceName](#amazonresourcename)
   * remoteDebugEnabled [Boolean](#boolean)
   * remoteRecordAppArn [AmazonResourceName](#amazonresourcename)
   * remoteRecordEnabled [Boolean](#boolean)
+  * skipAppResign [Boolean](#boolean)
   * sshPublicKey [SshPublicKey](#sshpublickey)
 
 ### CreateRemoteAccessSessionResult
@@ -1094,6 +1350,17 @@ amazonaws_devicefarm.UpdateProject({
 ### CreateUploadResult
 * CreateUploadResult `object`: Represents the result of a create upload request.
   * upload [Upload](#upload)
+
+### CreateVPCEConfigurationRequest
+* CreateVPCEConfigurationRequest `object`
+  * serviceDnsName **required** [ServiceDnsName](#servicednsname)
+  * vpceConfigurationDescription [VPCEConfigurationDescription](#vpceconfigurationdescription)
+  * vpceConfigurationName **required** [VPCEConfigurationName](#vpceconfigurationname)
+  * vpceServiceName **required** [VPCEServiceName](#vpceservicename)
+
+### CreateVPCEConfigurationResult
+* CreateVPCEConfigurationResult `object`
+  * vpceConfiguration [VPCEConfiguration](#vpceconfiguration)
 
 ### CurrencyCode
 * CurrencyCode `string` (values: USD)
@@ -1113,6 +1380,13 @@ amazonaws_devicefarm.UpdateProject({
 
 ### DeleteDevicePoolResult
 * DeleteDevicePoolResult `object`: Represents the result of a delete device pool request.
+
+### DeleteInstanceProfileRequest
+* DeleteInstanceProfileRequest `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+### DeleteInstanceProfileResult
+* DeleteInstanceProfileResult `object`
 
 ### DeleteNetworkProfileRequest
 * DeleteNetworkProfileRequest `object`
@@ -1149,6 +1423,13 @@ amazonaws_devicefarm.UpdateProject({
 ### DeleteUploadResult
 * DeleteUploadResult `object`: Represents the result of a delete upload request.
 
+### DeleteVPCEConfigurationRequest
+* DeleteVPCEConfigurationRequest `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+### DeleteVPCEConfigurationResult
+* DeleteVPCEConfigurationResult `object`
+
 ### Device
 * Device `object`: Represents a device type that an app is tested against.
   * arn [AmazonResourceName](#amazonresourcename)
@@ -1159,6 +1440,7 @@ amazonaws_devicefarm.UpdateProject({
   * formFactor [DeviceFormFactor](#deviceformfactor)
   * heapSize [Long](#long)
   * image [String](#string)
+  * instances [DeviceInstances](#deviceinstances)
   * manufacturer [String](#string)
   * memory [Long](#long)
   * model [String](#string)
@@ -1172,7 +1454,7 @@ amazonaws_devicefarm.UpdateProject({
   * resolution [Resolution](#resolution)
 
 ### DeviceAttribute
-* DeviceAttribute `string` (values: ARN, PLATFORM, FORM_FACTOR, MANUFACTURER, REMOTE_ACCESS_ENABLED, REMOTE_DEBUG_ENABLED, APPIUM_VERSION)
+* DeviceAttribute `string` (values: ARN, PLATFORM, FORM_FACTOR, MANUFACTURER, REMOTE_ACCESS_ENABLED, REMOTE_DEBUG_ENABLED, APPIUM_VERSION, INSTANCE_ARN, INSTANCE_LABELS, FLEET_TYPE)
 
 ### DeviceFormFactor
 * DeviceFormFactor `string` (values: PHONE, TABLET)
@@ -1180,6 +1462,19 @@ amazonaws_devicefarm.UpdateProject({
 ### DeviceHostPaths
 * DeviceHostPaths `array`
   * items [String](#string)
+
+### DeviceInstance
+* DeviceInstance `object`: Represents the device instance.
+  * arn [AmazonResourceName](#amazonresourcename)
+  * deviceArn [AmazonResourceName](#amazonresourcename)
+  * instanceProfile [InstanceProfile](#instanceprofile)
+  * labels [InstanceLabels](#instancelabels)
+  * status [InstanceStatus](#instancestatus)
+  * udid [String](#string)
+
+### DeviceInstances
+* DeviceInstances `array`
+  * items [DeviceInstance](#deviceinstance)
 
 ### DeviceMinutes
 * DeviceMinutes `object`: Represents the total (metered or unmetered) minutes used by the resource to run tests. Contains the sum of minutes consumed by all children.
@@ -1227,12 +1522,13 @@ amazonaws_devicefarm.UpdateProject({
   * accountsCleanup [AccountsCleanup](#accountscleanup)
   * appPackagesCleanup [AppPackagesCleanup](#apppackagescleanup)
   * jobTimeoutMinutes [JobTimeoutMinutes](#jobtimeoutminutes)
+  * skipAppResign [SkipAppResign](#skipappresign)
 
 ### ExecutionResult
 * ExecutionResult `string` (values: PENDING, PASSED, WARNED, FAILED, SKIPPED, ERRORED, STOPPED)
 
 ### ExecutionResultCode
-* ExecutionResultCode `string` (values: PARSING_FAILED)
+* ExecutionResultCode `string` (values: PARSING_FAILED, VPC_ENDPOINT_SETUP_FAILED)
 
 ### ExecutionStatus
 * ExecutionStatus `string` (values: PENDING, PENDING_CONCURRENCY, PENDING_DEVICE, PROCESSING, SCHEDULING, PREPARING, RUNNING, COMPLETED, STOPPING)
@@ -1247,9 +1543,18 @@ amazonaws_devicefarm.UpdateProject({
 * GetAccountSettingsResult `object`: Represents the account settings return values from the <code>GetAccountSettings</code> request.
   * accountSettings [AccountSettings](#accountsettings)
 
+### GetDeviceInstanceRequest
+* GetDeviceInstanceRequest `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+### GetDeviceInstanceResult
+* GetDeviceInstanceResult `object`
+  * deviceInstance [DeviceInstance](#deviceinstance)
+
 ### GetDevicePoolCompatibilityRequest
 * GetDevicePoolCompatibilityRequest `object`: Represents a request to the get device pool compatibility operation.
   * appArn [AmazonResourceName](#amazonresourcename)
+  * configuration [ScheduleRunConfiguration](#schedulerunconfiguration)
   * devicePoolArn **required** [AmazonResourceName](#amazonresourcename)
   * test [ScheduleRunTest](#scheduleruntest)
   * testType [TestType](#testtype)
@@ -1274,6 +1579,14 @@ amazonaws_devicefarm.UpdateProject({
 ### GetDeviceResult
 * GetDeviceResult `object`: Represents the result of a get device request.
   * device [Device](#device)
+
+### GetInstanceProfileRequest
+* GetInstanceProfileRequest `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+### GetInstanceProfileResult
+* GetInstanceProfileResult `object`
+  * instanceProfile [InstanceProfile](#instanceprofile)
 
 ### GetJobRequest
 * GetJobRequest `object`: Represents a request to the get job operation.
@@ -1349,6 +1662,14 @@ amazonaws_devicefarm.UpdateProject({
 * GetUploadResult `object`: Represents the result of a get upload request.
   * upload [Upload](#upload)
 
+### GetVPCEConfigurationRequest
+* GetVPCEConfigurationRequest `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+
+### GetVPCEConfigurationResult
+* GetVPCEConfigurationResult `object`
+  * vpceConfiguration [VPCEConfiguration](#vpceconfiguration)
+
 ### HostAddress
 * HostAddress `string`
 
@@ -1374,11 +1695,35 @@ amazonaws_devicefarm.UpdateProject({
 * InstallToRemoteAccessSessionResult `object`: Represents the response from the server after AWS Device Farm makes a request to install to a remote access session.
   * appUpload [Upload](#upload)
 
+### InstanceLabels
+* InstanceLabels `array`
+  * items [String](#string)
+
+### InstanceProfile
+* InstanceProfile `object`: Represents the instance profile.
+  * arn [AmazonResourceName](#amazonresourcename)
+  * description [Message](#message)
+  * excludeAppPackagesFromCleanup [PackageIds](#packageids)
+  * name [Name](#name)
+  * packageCleanup [Boolean](#boolean)
+  * rebootAfterUse [Boolean](#boolean)
+
+### InstanceProfiles
+* InstanceProfiles `array`
+  * items [InstanceProfile](#instanceprofile)
+
+### InstanceStatus
+* InstanceStatus `string` (values: IN_USE, PREPARING, AVAILABLE, NOT_AVAILABLE)
+
 ### Integer
 * Integer `integer`
 
 ### InteractionMode
 * InteractionMode `string` (values: INTERACTIVE, NO_VIDEO, VIDEO_ONLY)
+
+### InvalidOperationException
+* InvalidOperationException `object`: There was an error with the update request, or you do not have sufficient permissions to update this VPC endpoint configuration.
+  * message [Message](#message)
 
 ### IosPaths
 * IosPaths `array`
@@ -1391,6 +1736,7 @@ amazonaws_devicefarm.UpdateProject({
   * created [DateTime](#datetime)
   * device [Device](#device)
   * deviceMinutes [DeviceMinutes](#deviceminutes)
+  * instanceArn [AmazonResourceName](#amazonresourcename)
   * message [Message](#message)
   * name [Name](#name)
   * result [ExecutionResult](#executionresult)
@@ -1421,6 +1767,16 @@ amazonaws_devicefarm.UpdateProject({
   * artifacts [Artifacts](#artifacts)
   * nextToken [PaginationToken](#paginationtoken)
 
+### ListDeviceInstancesRequest
+* ListDeviceInstancesRequest `object`
+  * maxResults [Integer](#integer)
+  * nextToken [PaginationToken](#paginationtoken)
+
+### ListDeviceInstancesResult
+* ListDeviceInstancesResult `object`
+  * deviceInstances [DeviceInstances](#deviceinstances)
+  * nextToken [PaginationToken](#paginationtoken)
+
 ### ListDevicePoolsRequest
 * ListDevicePoolsRequest `object`: Represents the result of a list device pools request.
   * arn **required** [AmazonResourceName](#amazonresourcename)
@@ -1440,6 +1796,16 @@ amazonaws_devicefarm.UpdateProject({
 ### ListDevicesResult
 * ListDevicesResult `object`: Represents the result of a list devices operation.
   * devices [Devices](#devices)
+  * nextToken [PaginationToken](#paginationtoken)
+
+### ListInstanceProfilesRequest
+* ListInstanceProfilesRequest `object`
+  * maxResults [Integer](#integer)
+  * nextToken [PaginationToken](#paginationtoken)
+
+### ListInstanceProfilesResult
+* ListInstanceProfilesResult `object`
+  * instanceProfiles [InstanceProfiles](#instanceprofiles)
   * nextToken [PaginationToken](#paginationtoken)
 
 ### ListJobsRequest
@@ -1570,6 +1936,16 @@ amazonaws_devicefarm.UpdateProject({
   * nextToken [PaginationToken](#paginationtoken)
   * uploads [Uploads](#uploads)
 
+### ListVPCEConfigurationsRequest
+* ListVPCEConfigurationsRequest `object`
+  * maxResults [Integer](#integer)
+  * nextToken [PaginationToken](#paginationtoken)
+
+### ListVPCEConfigurationsResult
+* ListVPCEConfigurationsResult `object`
+  * nextToken [PaginationToken](#paginationtoken)
+  * vpceConfigurations [VPCEConfigurations](#vpceconfigurations)
+
 ### Location
 * Location `object`: <p>Represents a latitude and longitude pair, expressed in geographic coordinate system degrees (for example 47.6204, -122.3491).</p> <p>Elevation is currently not supported.</p>
   * latitude **required** [Double](#double)
@@ -1686,6 +2062,10 @@ amazonaws_devicefarm.UpdateProject({
 * Offerings `array`
   * items [Offering](#offering)
 
+### PackageIds
+* PackageIds `array`
+  * items [String](#string)
+
 ### PaginationToken
 * PaginationToken `string`
 
@@ -1768,6 +2148,7 @@ amazonaws_devicefarm.UpdateProject({
   * deviceUdid [String](#string)
   * endpoint [String](#string)
   * hostAddress [HostAddress](#hostaddress)
+  * instanceArn [AmazonResourceName](#amazonresourcename)
   * interactionMode [InteractionMode](#interactionmode)
   * message [Message](#message)
   * name [Name](#name)
@@ -1775,6 +2156,7 @@ amazonaws_devicefarm.UpdateProject({
   * remoteRecordAppArn [AmazonResourceName](#amazonresourcename)
   * remoteRecordEnabled [Boolean](#boolean)
   * result [ExecutionResult](#executionresult)
+  * skipAppResign [SkipAppResign](#skipappresign)
   * started [DateTime](#datetime)
   * status [ExecutionStatus](#executionstatus)
   * stopped [DateTime](#datetime)
@@ -1834,6 +2216,7 @@ amazonaws_devicefarm.UpdateProject({
   * result [ExecutionResult](#executionresult)
   * resultCode [ExecutionResultCode](#executionresultcode)
   * seed [Integer](#integer)
+  * skipAppResign [SkipAppResign](#skipappresign)
   * started [DateTime](#datetime)
   * status [ExecutionStatus](#executionstatus)
   * stopped [DateTime](#datetime)
@@ -1868,6 +2251,7 @@ amazonaws_devicefarm.UpdateProject({
   * location [Location](#location)
   * networkProfileArn [AmazonResourceName](#amazonresourcename)
   * radios [Radios](#radios)
+  * vpceConfigurationArns [AmazonResourceNames](#amazonresourcenames)
 
 ### ScheduleRunRequest
 * ScheduleRunRequest `object`: Represents a request to the schedule run operation.
@@ -1893,6 +2277,12 @@ amazonaws_devicefarm.UpdateProject({
 ### ServiceAccountException
 * ServiceAccountException `object`: There was a problem with the service account.
   * message [Message](#message)
+
+### ServiceDnsName
+* ServiceDnsName `string`
+
+### SkipAppResign
+* SkipAppResign `boolean`
 
 ### SshPublicKey
 * SshPublicKey `string`
@@ -1987,6 +2377,16 @@ amazonaws_devicefarm.UpdateProject({
     * key [ExecutionResult](#executionresult)
     * value [UniqueProblems](#uniqueproblems)
 
+### UpdateDeviceInstanceRequest
+* UpdateDeviceInstanceRequest `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+  * labels [InstanceLabels](#instancelabels)
+  * profileArn [AmazonResourceName](#amazonresourcename)
+
+### UpdateDeviceInstanceResult
+* UpdateDeviceInstanceResult `object`
+  * deviceInstance [DeviceInstance](#deviceinstance)
+
 ### UpdateDevicePoolRequest
 * UpdateDevicePoolRequest `object`: Represents a request to the update device pool operation.
   * arn **required** [AmazonResourceName](#amazonresourcename)
@@ -1997,6 +2397,19 @@ amazonaws_devicefarm.UpdateProject({
 ### UpdateDevicePoolResult
 * UpdateDevicePoolResult `object`: Represents the result of an update device pool request.
   * devicePool [DevicePool](#devicepool)
+
+### UpdateInstanceProfileRequest
+* UpdateInstanceProfileRequest `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+  * description [Message](#message)
+  * excludeAppPackagesFromCleanup [PackageIds](#packageids)
+  * name [Name](#name)
+  * packageCleanup [Boolean](#boolean)
+  * rebootAfterUse [Boolean](#boolean)
+
+### UpdateInstanceProfileResult
+* UpdateInstanceProfileResult `object`
+  * instanceProfile [InstanceProfile](#instanceprofile)
 
 ### UpdateNetworkProfileRequest
 * UpdateNetworkProfileRequest `object`
@@ -2027,6 +2440,18 @@ amazonaws_devicefarm.UpdateProject({
 * UpdateProjectResult `object`: Represents the result of an update project request.
   * project [Project](#project)
 
+### UpdateVPCEConfigurationRequest
+* UpdateVPCEConfigurationRequest `object`
+  * arn **required** [AmazonResourceName](#amazonresourcename)
+  * serviceDnsName [ServiceDnsName](#servicednsname)
+  * vpceConfigurationDescription [VPCEConfigurationDescription](#vpceconfigurationdescription)
+  * vpceConfigurationName [VPCEConfigurationName](#vpceconfigurationname)
+  * vpceServiceName [VPCEServiceName](#vpceservicename)
+
+### UpdateVPCEConfigurationResult
+* UpdateVPCEConfigurationResult `object`
+  * vpceConfiguration [VPCEConfiguration](#vpceconfiguration)
+
 ### Upload
 * Upload `object`: An app or a set of one or more tests to upload or that have been uploaded.
   * arn [AmazonResourceName](#amazonresourcename)
@@ -2048,5 +2473,26 @@ amazonaws_devicefarm.UpdateProject({
 ### Uploads
 * Uploads `array`
   * items [Upload](#upload)
+
+### VPCEConfiguration
+* VPCEConfiguration `object`: Represents an Amazon Virtual Private Cloud (VPC) endpoint configuration.
+  * arn [AmazonResourceName](#amazonresourcename)
+  * serviceDnsName [ServiceDnsName](#servicednsname)
+  * vpceConfigurationDescription [VPCEConfigurationDescription](#vpceconfigurationdescription)
+  * vpceConfigurationName [VPCEConfigurationName](#vpceconfigurationname)
+  * vpceServiceName [VPCEServiceName](#vpceservicename)
+
+### VPCEConfigurationDescription
+* VPCEConfigurationDescription `string`
+
+### VPCEConfigurationName
+* VPCEConfigurationName `string`
+
+### VPCEConfigurations
+* VPCEConfigurations `array`
+  * items [VPCEConfiguration](#vpceconfiguration)
+
+### VPCEServiceName
+* VPCEServiceName `string`
 
 

@@ -46,6 +46,28 @@ amazonaws_appstream2.AssociateFleet({
 #### Output
 * output [AssociateFleetResult](#associatefleetresult)
 
+### CopyImage
+
+
+
+```js
+amazonaws_appstream2.CopyImage({
+  "SourceImageName": "",
+  "DestinationImageName": "",
+  "DestinationRegion": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DestinationImageDescription [Description](#description)
+  * DestinationImageName **required** [Name](#name)
+  * DestinationRegion **required** [RegionName](#regionname)
+  * SourceImageName **required** [Name](#name)
+
+#### Output
+* output [CopyImageResponse](#copyimageresponse)
+
 ### CreateDirectoryConfig
 
 
@@ -162,9 +184,11 @@ amazonaws_appstream2.CreateStack({
 * input `object`
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
+  * FeedbackURL [FeedbackURL](#feedbackurl)
   * Name **required** [String](#string)
   * RedirectURL [RedirectURL](#redirecturl)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
+  * UserSettings [UserSettingList](#usersettinglist)
 
 #### Output
 * output [CreateStackResult](#createstackresult)
@@ -642,9 +666,11 @@ amazonaws_appstream2.UpdateStack({
   * DeleteStorageConnectors [Boolean](#boolean)
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
+  * FeedbackURL [FeedbackURL](#feedbackurl)
   * Name **required** [String](#string)
   * RedirectURL [RedirectURL](#redirecturl)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
+  * UserSettings [UserSettingList](#usersettinglist)
 
 #### Output
 * output [UpdateStackResult](#updatestackresult)
@@ -658,6 +684,9 @@ amazonaws_appstream2.UpdateStack({
 
 ### AccountPassword
 * AccountPassword `string`
+
+### Action
+* Action `string` (values: CLIPBOARD_COPY_FROM_LOCAL_DEVICE, CLIPBOARD_COPY_TO_LOCAL_DEVICE, FILE_UPLOAD, FILE_DOWNLOAD, PRINTING_TO_LOCAL_DEVICE)
 
 ### Application
 * Application `object`: Describes an application in the application catalog.
@@ -710,6 +739,17 @@ amazonaws_appstream2.UpdateStack({
 ### ConcurrentModificationException
 * ConcurrentModificationException `object`: An API error occurred. Wait a few minutes and try again.
   * Message [ErrorMessage](#errormessage)
+
+### CopyImageRequest
+* CopyImageRequest `object`
+  * DestinationImageDescription [Description](#description)
+  * DestinationImageName **required** [Name](#name)
+  * DestinationRegion **required** [RegionName](#regionname)
+  * SourceImageName **required** [Name](#name)
+
+### CopyImageResponse
+* CopyImageResponse `object`
+  * DestinationImageName [Name](#name)
 
 ### CreateDirectoryConfigRequest
 * CreateDirectoryConfigRequest `object`
@@ -770,9 +810,11 @@ amazonaws_appstream2.UpdateStack({
 * CreateStackRequest `object`
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
+  * FeedbackURL [FeedbackURL](#feedbackurl)
   * Name **required** [String](#string)
   * RedirectURL [RedirectURL](#redirecturl)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
+  * UserSettings [UserSettingList](#usersettinglist)
 
 ### CreateStackResult
 * CreateStackResult `object`
@@ -925,10 +967,17 @@ amazonaws_appstream2.UpdateStack({
 ### DisplayName
 * DisplayName `string`
 
+### Domain
+* Domain `string`: GSuite domain for GDrive integration.
+
 ### DomainJoinInfo
 * DomainJoinInfo `object`: Contains the information needed to join a Microsoft Active Directory domain.
   * DirectoryName [DirectoryName](#directoryname)
   * OrganizationalUnitDistinguishedName [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+
+### DomainList
+* DomainList `array`
+  * items [Domain](#domain)
 
 ### ErrorMessage
 * ErrorMessage `string`: The error message in the exception.
@@ -939,6 +988,9 @@ amazonaws_appstream2.UpdateStack({
 
 ### ExpireSessionResult
 * ExpireSessionResult `object`
+
+### FeedbackURL
+* FeedbackURL `string`
 
 ### Fleet
 * Fleet `object`: Contains the parameters for a fleet.
@@ -1043,7 +1095,7 @@ amazonaws_appstream2.UpdateStack({
   * items [Image](#image)
 
 ### ImageState
-* ImageState `string` (values: PENDING, AVAILABLE, FAILED, DELETING)
+* ImageState `string` (values: PENDING, AVAILABLE, FAILED, COPYING, DELETING)
 
 ### ImageStateChangeReason
 * ImageStateChangeReason `object`: Describes the reason why the last image state change occurred.
@@ -1051,7 +1103,7 @@ amazonaws_appstream2.UpdateStack({
   * Message [String](#string)
 
 ### ImageStateChangeReasonCode
-* ImageStateChangeReasonCode `string` (values: INTERNAL_ERROR, IMAGE_BUILDER_NOT_AVAILABLE)
+* ImageStateChangeReasonCode `string` (values: INTERNAL_ERROR, IMAGE_BUILDER_NOT_AVAILABLE, IMAGE_COPY_FAILURE)
 
 ### IncompatibleImageException
 * IncompatibleImageException `object`: The image does not support storage connectors.
@@ -1059,6 +1111,10 @@ amazonaws_appstream2.UpdateStack({
 
 ### Integer
 * Integer `integer`
+
+### InvalidAccountStatusException
+* InvalidAccountStatusException `object`: The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. 
+  * Message [ErrorMessage](#errormessage)
 
 ### InvalidParameterCombinationException
 * InvalidParameterCombinationException `object`: Indicates an incorrect combination of parameters, or a missing parameter.
@@ -1123,11 +1179,17 @@ amazonaws_appstream2.UpdateStack({
 * OrganizationalUnitDistinguishedNamesList `array`
   * items [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
 
+### Permission
+* Permission `string` (values: ENABLED, DISABLED)
+
 ### PlatformType
 * PlatformType `string` (values: WINDOWS)
 
 ### RedirectURL
 * RedirectURL `string`
+
+### RegionName
+* RegionName `string`
 
 ### ResourceAlreadyExistsException
 * ResourceAlreadyExistsException `object`: The specified resource already exists.
@@ -1189,13 +1251,15 @@ amazonaws_appstream2.UpdateStack({
   * CreatedTime [Timestamp](#timestamp)
   * Description [String](#string)
   * DisplayName [String](#string)
+  * FeedbackURL [FeedbackURL](#feedbackurl)
   * Name **required** [String](#string)
   * RedirectURL [RedirectURL](#redirecturl)
   * StackErrors [StackErrors](#stackerrors)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
+  * UserSettings [UserSettingList](#usersettinglist)
 
 ### StackAttribute
-* StackAttribute `string` (values: STORAGE_CONNECTORS, REDIRECT_URL)
+* StackAttribute `string` (values: STORAGE_CONNECTORS, STORAGE_CONNECTOR_HOMEFOLDERS, STORAGE_CONNECTOR_GOOGLE_DRIVE, REDIRECT_URL, FEEDBACK_URL, THEME_NAME, USER_SETTINGS)
 
 ### StackAttributes
 * StackAttributes `array`
@@ -1249,8 +1313,9 @@ amazonaws_appstream2.UpdateStack({
   * ImageBuilder [ImageBuilder](#imagebuilder)
 
 ### StorageConnector
-* StorageConnector `object`: Describes a storage connector.
+* StorageConnector `object`: Describes a connector to enable persistent storage for users.
   * ConnectorType **required** [StorageConnectorType](#storageconnectortype)
+  * Domains [DomainList](#domainlist)
   * ResourceIdentifier [ResourceIdentifier](#resourceidentifier)
 
 ### StorageConnectorList
@@ -1258,7 +1323,7 @@ amazonaws_appstream2.UpdateStack({
   * items [StorageConnector](#storageconnector)
 
 ### StorageConnectorType
-* StorageConnectorType `string` (values: HOMEFOLDERS): The type of storage connector.
+* StorageConnectorType `string` (values: HOMEFOLDERS, GOOGLE_DRIVE): The type of storage connector.
 
 ### StreamingUrlUserId
 * StreamingUrlUserId `string`
@@ -1345,9 +1410,11 @@ amazonaws_appstream2.UpdateStack({
   * DeleteStorageConnectors [Boolean](#boolean)
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
+  * FeedbackURL [FeedbackURL](#feedbackurl)
   * Name **required** [String](#string)
   * RedirectURL [RedirectURL](#redirecturl)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
+  * UserSettings [UserSettingList](#usersettinglist)
 
 ### UpdateStackResult
 * UpdateStackResult `object`
@@ -1355,6 +1422,15 @@ amazonaws_appstream2.UpdateStack({
 
 ### UserId
 * UserId `string`
+
+### UserSetting
+* UserSetting `object`: Describes an action and whether the action is enabled or disabled for users during their streaming sessions.
+  * Action **required** [Action](#action)
+  * Permission **required** [Permission](#permission)
+
+### UserSettingList
+* UserSettingList `array`
+  * items [UserSetting](#usersetting)
 
 ### VisibilityType
 * VisibilityType `string` (values: PUBLIC, PRIVATE)

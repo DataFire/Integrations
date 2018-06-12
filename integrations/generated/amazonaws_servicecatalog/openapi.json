@@ -821,7 +821,7 @@
         }
       ],
       "post": {
-        "description": "<p>Creates a plan. A plan includes the list of resources that will be created (when provisioning a new product) or modified (when updating a provisioned product) when the plan is executed.</p> <p>You can create one plan per provisioned product. To create a plan for an existing provisioned product, it's status must be AVAILBLE or TAINTED.</p> <p>To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>. To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.</p>",
+        "description": "<p>Creates a plan. A plan includes the list of resources to be created (when provisioning a new product) or modified (when updating a provisioned product) when the plan is executed.</p> <p>You can create one plan per provisioned product. To create a plan for an existing provisioned product, the product status must be AVAILBLE or TAINTED.</p> <p>To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>. To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.</p>",
         "operationId": "CreateProvisionedProductPlan",
         "parameters": [
           {
@@ -1412,6 +1412,77 @@
             "description": "InvalidParametersException",
             "schema": {
               "$ref": "#/definitions/InvalidParametersException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteTagOption": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deletes the specified TagOption.</p> <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>",
+        "operationId": "DeleteTagOption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteTagOptionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteTagOptionOutput"
+            }
+          },
+          "480": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
         }
@@ -2979,7 +3050,7 @@
         }
       ],
       "post": {
-        "description": "Lists the plans for the specified provisioned product or all plans the user has access to.",
+        "description": "Lists the plans for the specified provisioned product or all plans to which the user has access.",
         "operationId": "ListProvisionedProductPlans",
         "parameters": [
           {
@@ -5014,6 +5085,22 @@
       "properties": {},
       "type": "object"
     },
+    "DeleteTagOptionInput": {
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/TagOptionId",
+          "description": "The TagOption identifier."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DeleteTagOptionOutput": {
+      "properties": {},
+      "type": "object"
+    },
     "DescribeConstraintInput": {
       "properties": {
         "AcceptLanguage": {
@@ -5273,7 +5360,7 @@
         },
         "ResourceChanges": {
           "$ref": "#/definitions/ResourceChanges",
-          "description": "Information about the resources changes that will occur when the plan is executed."
+          "description": "Information about the resource changes that will occur when the plan is executed."
         }
       },
       "type": "object"
@@ -5632,6 +5719,10 @@
         "PageToken": {
           "$ref": "#/definitions/PageToken",
           "description": "The page token for the next set of results. To retrieve the first set of results, use null."
+        },
+        "PortfolioShareType": {
+          "$ref": "#/definitions/PortfolioShareType",
+          "description": "<p>The type of shared portfolios to list. The default is to list imported portfolios.</p> <ul> <li> <p> <code>AWS_SERVICECATALOG</code> - List default portfolios</p> </li> <li> <p> <code>IMPORTED</code> - List imported portfolios</p> </li> </ul>"
         }
       },
       "type": "object"
@@ -6177,6 +6268,13 @@
       "type": "string"
     },
     "PortfolioName": {
+      "type": "string"
+    },
+    "PortfolioShareType": {
+      "enum": [
+        "IMPORTED",
+        "AWS_SERVICECATALOG"
+      ],
       "type": "string"
     },
     "Principal": {
@@ -7246,11 +7344,11 @@
         },
         "Evaluation": {
           "$ref": "#/definitions/EvaluationType",
-          "description": "For static evaluations, the value the resource attribute will change and the new value is known. For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated."
+          "description": "For static evaluations, the value of the resource attribute will change and the new value is known. For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated."
         },
         "Target": {
           "$ref": "#/definitions/ResourceTargetDefinition",
-          "description": "Information about the resource attribute that will be modified."
+          "description": "Information about the resource attribute to be modified."
         }
       },
       "type": "object"
@@ -7333,7 +7431,7 @@
       "properties": {
         "Attribute": {
           "$ref": "#/definitions/ResourceAttribute",
-          "description": "The attribute that will change."
+          "description": "The attribute to be changed."
         },
         "Name": {
           "$ref": "#/definitions/PropertyName",
@@ -7341,7 +7439,7 @@
         },
         "RequiresRecreation": {
           "$ref": "#/definitions/RequiresRecreation",
-          "description": "If the attribute is <code>Properties</code>, indicates whether a change to this property causes the resource to be recreated."
+          "description": "If the attribute is <code>Properties</code>, indicates whether a change to this property causes the resource to be re-created."
         }
       },
       "type": "object"

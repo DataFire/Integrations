@@ -324,6 +324,7 @@ amazonaws_iam.CreateRole({
 * input `object`
   * AssumeRolePolicyDocument **required** [policyDocumentType](#policydocumenttype)
   * Description [roleDescriptionType](#roledescriptiontype)
+  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
   * Path [pathType](#pathtype)
   * RoleName **required** [roleNameType](#rolenametype)
 
@@ -2131,6 +2132,25 @@ amazonaws_iam.UpdateOpenIDConnectProviderThumbprint({
 #### Output
 *Output schema unknown*
 
+### UpdateRole
+
+
+
+```js
+amazonaws_iam.UpdateRole({
+  "RoleName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description [roleDescriptionType](#roledescriptiontype)
+  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
+  * RoleName **required** [roleNameType](#rolenametype)
+
+#### Output
+* output [UpdateRoleResponse](#updateroleresponse)
+
 ### UpdateRoleDescription
 
 
@@ -2333,7 +2353,7 @@ amazonaws_iam.UploadSigningCertificate({
 ## Definitions
 
 ### AccessKey
-* AccessKey `object`: <p>Contains information about an AWS access key.</p> <p> This data type is used as a response element in the <a>CreateAccessKey</a> and <a>ListAccessKeys</a> actions. </p> <note> <p>The <code>SecretAccessKey</code> value is returned only in response to <a>CreateAccessKey</a>. You can get a secret access key only when you first create an access key; you cannot recover the secret access key later. If you lose a secret access key, you must create a new access key.</p> </note>
+* AccessKey `object`: <p>Contains information about an AWS access key.</p> <p> This data type is used as a response element in the <a>CreateAccessKey</a> and <a>ListAccessKeys</a> operations. </p> <note> <p>The <code>SecretAccessKey</code> value is returned only in response to <a>CreateAccessKey</a>. You can get a secret access key only when you first create an access key; you cannot recover the secret access key later. If you lose a secret access key, you must create a new access key.</p> </note>
   * AccessKeyId **required** [accessKeyIdType](#accesskeyidtype)
   * CreateDate [dateType](#datetype)
   * SecretAccessKey **required** [accessKeySecretType](#accesskeysecrettype)
@@ -2341,13 +2361,13 @@ amazonaws_iam.UploadSigningCertificate({
   * UserName **required** [userNameType](#usernametype)
 
 ### AccessKeyLastUsed
-* AccessKeyLastUsed `object`: <p>Contains information about the last time an AWS access key was used.</p> <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> action.</p>
+* AccessKeyLastUsed `object`: <p>Contains information about the last time an AWS access key was used.</p> <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> operation.</p>
   * LastUsedDate **required** [dateType](#datetype)
   * Region **required** [stringType](#stringtype)
   * ServiceName **required** [stringType](#stringtype)
 
 ### AccessKeyMetadata
-* AccessKeyMetadata `object`: <p>Contains information about an AWS access key, without its secret key.</p> <p>This data type is used as a response element in the <a>ListAccessKeys</a> action.</p>
+* AccessKeyMetadata `object`: <p>Contains information about an AWS access key, without its secret key.</p> <p>This data type is used as a response element in the <a>ListAccessKeys</a> operation.</p>
   * AccessKeyId [accessKeyIdType](#accesskeyidtype)
   * CreateDate [dateType](#datetype)
   * Status [statusType](#statustype)
@@ -2395,7 +2415,7 @@ amazonaws_iam.UploadSigningCertificate({
   * UserName **required** [userNameType](#usernametype)
 
 ### AttachedPolicy
-* AttachedPolicy `object`: <p>Contains information about an attached policy.</p> <p>An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> actions. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* AttachedPolicy `object`: <p>Contains information about an attached policy.</p> <p>An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
   * PolicyArn [arnType](#arntype)
   * PolicyName [policyNameType](#policynametype)
 
@@ -2512,6 +2532,7 @@ amazonaws_iam.UploadSigningCertificate({
 * CreateRoleRequest `object`
   * AssumeRolePolicyDocument **required** [policyDocumentType](#policydocumenttype)
   * Description [roleDescriptionType](#roledescriptiontype)
+  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
   * Path [pathType](#pathtype)
   * RoleName **required** [roleNameType](#rolenametype)
 
@@ -2954,7 +2975,7 @@ amazonaws_iam.UploadSigningCertificate({
   * User **required** [User](#user)
 
 ### Group
-* Group `object`: <p>Contains information about an IAM group entity.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateGroup</a> </p> </li> <li> <p> <a>GetGroup</a> </p> </li> <li> <p> <a>ListGroups</a> </p> </li> </ul>
+* Group `object`: <p>Contains information about an IAM group entity.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <a>CreateGroup</a> </p> </li> <li> <p> <a>GetGroup</a> </p> </li> <li> <p> <a>ListGroups</a> </p> </li> </ul>
   * Arn **required** [arnType](#arntype)
   * CreateDate **required** [dateType](#datetype)
   * GroupId **required** [idType](#idtype)
@@ -2962,7 +2983,7 @@ amazonaws_iam.UploadSigningCertificate({
   * Path **required** [pathType](#pathtype)
 
 ### GroupDetail
-* GroupDetail `object`: <p>Contains information about an IAM group, including all of the group's policies.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p>
+* GroupDetail `object`: <p>Contains information about an IAM group, including all of the group's policies.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
   * Arn [arnType](#arntype)
   * AttachedManagedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
   * CreateDate [dateType](#datetype)
@@ -2972,7 +2993,7 @@ amazonaws_iam.UploadSigningCertificate({
   * Path [pathType](#pathtype)
 
 ### InstanceProfile
-* InstanceProfile `object`: <p>Contains information about an instance profile.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateInstanceProfile</a> </p> </li> <li> <p> <a>GetInstanceProfile</a> </p> </li> <li> <p> <a>ListInstanceProfiles</a> </p> </li> <li> <p> <a>ListInstanceProfilesForRole</a> </p> </li> </ul>
+* InstanceProfile `object`: <p>Contains information about an instance profile.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <a>CreateInstanceProfile</a> </p> </li> <li> <p> <a>GetInstanceProfile</a> </p> </li> <li> <p> <a>ListInstanceProfiles</a> </p> </li> <li> <p> <a>ListInstanceProfilesForRole</a> </p> </li> </ul>
   * Arn **required** [arnType](#arntype)
   * CreateDate **required** [dateType](#datetype)
   * InstanceProfileId **required** [idType](#idtype)
@@ -3307,13 +3328,13 @@ amazonaws_iam.UploadSigningCertificate({
   * VirtualMFADevices **required** [virtualMFADeviceListType](#virtualmfadevicelisttype)
 
 ### LoginProfile
-* LoginProfile `object`: <p>Contains the user name and password create date for a user.</p> <p> This data type is used as a response element in the <a>CreateLoginProfile</a> and <a>GetLoginProfile</a> actions. </p>
+* LoginProfile `object`: <p>Contains the user name and password create date for a user.</p> <p> This data type is used as a response element in the <a>CreateLoginProfile</a> and <a>GetLoginProfile</a> operations. </p>
   * CreateDate **required** [dateType](#datetype)
   * PasswordResetRequired [booleanType](#booleantype)
   * UserName **required** [userNameType](#usernametype)
 
 ### MFADevice
-* MFADevice `object`: <p>Contains information about an MFA device.</p> <p>This data type is used as a response element in the <a>ListMFADevices</a> action.</p>
+* MFADevice `object`: <p>Contains information about an MFA device.</p> <p>This data type is used as a response element in the <a>ListMFADevices</a> operation.</p>
   * EnableDate **required** [dateType](#datetype)
   * SerialNumber **required** [serialNumberType](#serialnumbertype)
   * UserName **required** [userNameType](#usernametype)
@@ -3327,7 +3348,7 @@ amazonaws_iam.UploadSigningCertificate({
   * message [malformedPolicyDocumentMessage](#malformedpolicydocumentmessage)
 
 ### ManagedPolicyDetail
-* ManagedPolicyDetail `object`: <p>Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p> <p>For more information about managed policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* ManagedPolicyDetail `object`: <p>Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p> <p>For more information about managed policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
   * Arn [arnType](#arntype)
   * AttachmentCount [attachmentCountType](#attachmentcounttype)
   * CreateDate [dateType](#datetype)
@@ -3360,11 +3381,11 @@ amazonaws_iam.UploadSigningCertificate({
 * OpenIDConnectProviderUrlType `string`: Contains a URL that specifies the endpoint for an OpenID Connect provider.
 
 ### OrganizationsDecisionDetail
-* OrganizationsDecisionDetail `object`: Contains information about AWS Organizations's affect on a policy simulation.
+* OrganizationsDecisionDetail `object`: Contains information about AWS Organizations's effect on a policy simulation.
   * AllowedByOrganizations [booleanType](#booleantype)
 
 ### PasswordPolicy
-* PasswordPolicy `object`: <p>Contains information about the account password policy.</p> <p> This data type is used as a response element in the <a>GetAccountPasswordPolicy</a> action. </p>
+* PasswordPolicy `object`: <p>Contains information about the account password policy.</p> <p> This data type is used as a response element in the <a>GetAccountPasswordPolicy</a> operation. </p>
   * AllowUsersToChangePassword [booleanType](#booleantype)
   * ExpirePasswords [booleanType](#booleantype)
   * HardExpiry [booleanObjectType](#booleanobjecttype)
@@ -3381,7 +3402,7 @@ amazonaws_iam.UploadSigningCertificate({
   * message [passwordPolicyViolationMessage](#passwordpolicyviolationmessage)
 
 ### Policy
-* Policy `object`: <p>Contains information about a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicy</a>, <a>GetPolicy</a>, and <a>ListPolicies</a> actions. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* Policy `object`: <p>Contains information about a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicy</a>, <a>GetPolicy</a>, and <a>ListPolicies</a> operations. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
   * Arn [arnType](#arntype)
   * AttachmentCount [attachmentCountType](#attachmentcounttype)
   * CreateDate [dateType](#datetype)
@@ -3394,7 +3415,7 @@ amazonaws_iam.UploadSigningCertificate({
   * UpdateDate [dateType](#datetype)
 
 ### PolicyDetail
-* PolicyDetail `object`: <p>Contains information about an IAM policy, including the policy document.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p>
+* PolicyDetail `object`: <p>Contains information about an IAM policy, including the policy document.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
   * PolicyDocument [policyDocumentType](#policydocumenttype)
   * PolicyName [policyNameType](#policynametype)
 
@@ -3406,7 +3427,7 @@ amazonaws_iam.UploadSigningCertificate({
   * message [policyEvaluationErrorMessage](#policyevaluationerrormessage)
 
 ### PolicyGroup
-* PolicyGroup `object`: <p>Contains information about a group that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> action. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* PolicyGroup `object`: <p>Contains information about a group that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
   * GroupId [idType](#idtype)
   * GroupName [groupNameType](#groupnametype)
 
@@ -3422,7 +3443,7 @@ amazonaws_iam.UploadSigningCertificate({
   * message [policyNotAttachableMessage](#policynotattachablemessage)
 
 ### PolicyRole
-* PolicyRole `object`: <p>Contains information about a role that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> action. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* PolicyRole `object`: <p>Contains information about a role that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
   * RoleId [idType](#idtype)
   * RoleName [roleNameType](#rolenametype)
 
@@ -3434,7 +3455,7 @@ amazonaws_iam.UploadSigningCertificate({
 * PolicySourceType `string` (values: user, group, role, aws-managed, user-managed, resource, none)
 
 ### PolicyUser
-* PolicyUser `object`: <p>Contains information about a user that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> action. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* PolicyUser `object`: <p>Contains information about a user that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
   * UserId [idType](#idtype)
   * UserName [userNameType](#usernametype)
 
@@ -3443,7 +3464,7 @@ amazonaws_iam.UploadSigningCertificate({
   * items [PolicyUser](#policyuser)
 
 ### PolicyVersion
-* PolicyVersion `object`: <p>Contains information about a version of a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicyVersion</a>, <a>GetPolicyVersion</a>, <a>ListPolicyVersions</a>, and <a>GetAccountAuthorizationDetails</a> actions. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* PolicyVersion `object`: <p>Contains information about a version of a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicyVersion</a>, <a>GetPolicyVersion</a>, <a>ListPolicyVersions</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
   * CreateDate [dateType](#datetype)
   * Document [policyDocumentType](#policydocumenttype)
   * IsDefaultVersion [booleanType](#booleantype)
@@ -3525,7 +3546,7 @@ amazonaws_iam.UploadSigningCertificate({
 * ResourceNameType `string`
 
 ### ResourceSpecificResult
-* ResourceSpecificResult `object`: <p>Contains the result of the simulation of a single API action call on a single resource.</p> <p>This data type is used by a member of the <a>EvaluationResult</a> data type.</p>
+* ResourceSpecificResult `object`: <p>Contains the result of the simulation of a single API operation call on a single resource.</p> <p>This data type is used by a member of the <a>EvaluationResult</a> data type.</p>
   * EvalDecisionDetails [EvalDecisionDetailsType](#evaldecisiondetailstype)
   * EvalResourceDecision **required** [PolicyEvaluationDecisionType](#policyevaluationdecisiontype)
   * EvalResourceName **required** [ResourceNameType](#resourcenametype)
@@ -3544,17 +3565,18 @@ amazonaws_iam.UploadSigningCertificate({
   * UserName **required** [existingUserNameType](#existingusernametype)
 
 ### Role
-* Role `object`: Contains information about an IAM role. This structure is returned as a response element in several APIs that interact with roles.
+* Role `object`: Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
   * Arn **required** [arnType](#arntype)
   * AssumeRolePolicyDocument [policyDocumentType](#policydocumenttype)
   * CreateDate **required** [dateType](#datetype)
   * Description [roleDescriptionType](#roledescriptiontype)
+  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
   * Path **required** [pathType](#pathtype)
   * RoleId **required** [idType](#idtype)
   * RoleName **required** [roleNameType](#rolenametype)
 
 ### RoleDetail
-* RoleDetail `object`: <p>Contains information about an IAM role, including all of the role's policies.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p>
+* RoleDetail `object`: <p>Contains information about an IAM role, including all of the role's policies.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
   * Arn [arnType](#arntype)
   * AssumeRolePolicyDocument [policyDocumentType](#policydocumenttype)
   * AttachedManagedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
@@ -3570,7 +3592,7 @@ amazonaws_iam.UploadSigningCertificate({
   * items [RoleUsageType](#roleusagetype)
 
 ### RoleUsageType
-* RoleUsageType `object`: <p>An object that contains details about how a service-linked role is used.</p> <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
+* RoleUsageType `object`: <p>An object that contains details about how a service-linked role is used, if that information is returned by the service.</p> <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
   * Region [RegionNameType](#regionnametype)
   * Resources [ArnListType](#arnlisttype)
 
@@ -3591,7 +3613,7 @@ amazonaws_iam.UploadSigningCertificate({
 * SAMLProviderNameType `string`
 
 ### SSHPublicKey
-* SSHPublicKey `object`: <p>Contains information about an SSH public key.</p> <p>This data type is used as a response element in the <a>GetSSHPublicKey</a> and <a>UploadSSHPublicKey</a> actions. </p>
+* SSHPublicKey `object`: <p>Contains information about an SSH public key.</p> <p>This data type is used as a response element in the <a>GetSSHPublicKey</a> and <a>UploadSSHPublicKey</a> operations. </p>
   * Fingerprint **required** [publicKeyFingerprintType](#publickeyfingerprinttype)
   * SSHPublicKeyBody **required** [publicKeyMaterialType](#publickeymaterialtype)
   * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
@@ -3604,20 +3626,20 @@ amazonaws_iam.UploadSigningCertificate({
   * items [SSHPublicKeyMetadata](#sshpublickeymetadata)
 
 ### SSHPublicKeyMetadata
-* SSHPublicKeyMetadata `object`: <p>Contains information about an SSH public key, without the key's body or fingerprint.</p> <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a> action.</p>
+* SSHPublicKeyMetadata `object`: <p>Contains information about an SSH public key, without the key's body or fingerprint.</p> <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a> operation.</p>
   * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
   * Status **required** [statusType](#statustype)
   * UploadDate **required** [dateType](#datetype)
   * UserName **required** [userNameType](#usernametype)
 
 ### ServerCertificate
-* ServerCertificate `object`: <p>Contains information about a server certificate.</p> <p> This data type is used as a response element in the <a>GetServerCertificate</a> action. </p>
+* ServerCertificate `object`: <p>Contains information about a server certificate.</p> <p> This data type is used as a response element in the <a>GetServerCertificate</a> operation. </p>
   * CertificateBody **required** [certificateBodyType](#certificatebodytype)
   * CertificateChain [certificateChainType](#certificatechaintype)
   * ServerCertificateMetadata **required** [ServerCertificateMetadata](#servercertificatemetadata)
 
 ### ServerCertificateMetadata
-* ServerCertificateMetadata `object`: <p>Contains information about a server certificate without its certificate body, certificate chain, and private key.</p> <p> This data type is used as a response element in the <a>UploadServerCertificate</a> and <a>ListServerCertificates</a> actions. </p>
+* ServerCertificateMetadata `object`: <p>Contains information about a server certificate without its certificate body, certificate chain, and private key.</p> <p> This data type is used as a response element in the <a>UploadServerCertificate</a> and <a>ListServerCertificates</a> operations. </p>
   * Arn **required** [arnType](#arntype)
   * Expiration [dateType](#datetype)
   * Path **required** [pathType](#pathtype)
@@ -3634,7 +3656,7 @@ amazonaws_iam.UploadSigningCertificate({
   * message [serviceNotSupportedMessage](#servicenotsupportedmessage)
 
 ### ServiceSpecificCredential
-* ServiceSpecificCredential `object`: Contains the details of a service specific credential.
+* ServiceSpecificCredential `object`: Contains the details of a service-specific credential.
   * CreateDate **required** [dateType](#datetype)
   * ServiceName **required** [serviceName](#servicename)
   * ServicePassword **required** [servicePassword](#servicepassword)
@@ -3662,7 +3684,7 @@ amazonaws_iam.UploadSigningCertificate({
   * VersionId **required** [policyVersionIdType](#policyversionidtype)
 
 ### SigningCertificate
-* SigningCertificate `object`: <p>Contains information about an X.509 signing certificate.</p> <p>This data type is used as a response element in the <a>UploadSigningCertificate</a> and <a>ListSigningCertificates</a> actions. </p>
+* SigningCertificate `object`: <p>Contains information about an X.509 signing certificate.</p> <p>This data type is used as a response element in the <a>UploadSigningCertificate</a> and <a>ListSigningCertificates</a> operations. </p>
   * CertificateBody **required** [certificateBodyType](#certificatebodytype)
   * CertificateId **required** [certificateIdType](#certificateidtype)
   * Status **required** [statusType](#statustype)
@@ -3774,6 +3796,15 @@ amazonaws_iam.UploadSigningCertificate({
 * UpdateRoleDescriptionResponse `object`
   * Role [Role](#role)
 
+### UpdateRoleRequest
+* UpdateRoleRequest `object`
+  * Description [roleDescriptionType](#roledescriptiontype)
+  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
+  * RoleName **required** [roleNameType](#rolenametype)
+
+### UpdateRoleResponse
+* UpdateRoleResponse `object`
+
 ### UpdateSAMLProviderRequest
 * UpdateSAMLProviderRequest `object`
   * SAMLMetadataDocument **required** [SAMLMetadataDocumentType](#samlmetadatadocumenttype)
@@ -3844,7 +3875,7 @@ amazonaws_iam.UploadSigningCertificate({
   * Certificate **required** [SigningCertificate](#signingcertificate)
 
 ### User
-* User `object`: <p>Contains information about an IAM user entity.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateUser</a> </p> </li> <li> <p> <a>GetUser</a> </p> </li> <li> <p> <a>ListUsers</a> </p> </li> </ul>
+* User `object`: <p>Contains information about an IAM user entity.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <a>CreateUser</a> </p> </li> <li> <p> <a>GetUser</a> </p> </li> <li> <p> <a>ListUsers</a> </p> </li> </ul>
   * Arn **required** [arnType](#arntype)
   * CreateDate **required** [dateType](#datetype)
   * PasswordLastUsed [dateType](#datetype)
@@ -3853,7 +3884,7 @@ amazonaws_iam.UploadSigningCertificate({
   * UserName **required** [userNameType](#usernametype)
 
 ### UserDetail
-* UserDetail `object`: <p>Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p>
+* UserDetail `object`: <p>Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
   * Arn [arnType](#arntype)
   * AttachedManagedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
   * CreateDate [dateType](#datetype)
@@ -3875,7 +3906,7 @@ amazonaws_iam.UploadSigningCertificate({
 * accessKeyIdType `string`
 
 ### accessKeyMetadataListType
-* accessKeyMetadataListType `array`: <p>Contains a list of access key metadata.</p> <p>This data type is used as a response element in the <a>ListAccessKeys</a> action.</p>
+* accessKeyMetadataListType `array`: <p>Contains a list of access key metadata.</p> <p>This data type is used as a response element in the <a>ListAccessKeys</a> operation.</p>
   * items [AccessKeyMetadata](#accesskeymetadata)
 
 ### accessKeySecretType
@@ -3920,7 +3951,7 @@ amazonaws_iam.UploadSigningCertificate({
 * certificateIdType `string`
 
 ### certificateListType
-* certificateListType `array`: <p>Contains a list of signing certificates.</p> <p>This data type is used as a response element in the <a>ListSigningCertificates</a> action.</p>
+* certificateListType `array`: <p>Contains a list of signing certificates.</p> <p>This data type is used as a response element in the <a>ListSigningCertificates</a> operation.</p>
   * items [SigningCertificate](#signingcertificate)
 
 ### clientIDListType
@@ -3975,7 +4006,7 @@ amazonaws_iam.UploadSigningCertificate({
   * items [GroupDetail](#groupdetail)
 
 ### groupListType
-* groupListType `array`: <p>Contains a list of IAM groups.</p> <p>This data type is used as a response element in the <a>ListGroups</a> action.</p>
+* groupListType `array`: <p>Contains a list of IAM groups.</p> <p>This data type is used as a response element in the <a>ListGroups</a> operation.</p>
   * items [Group](#group)
 
 ### groupNameListType
@@ -4032,7 +4063,7 @@ amazonaws_iam.UploadSigningCertificate({
 * maxPasswordAgeType `integer`
 
 ### mfaDeviceListType
-* mfaDeviceListType `array`: <p>Contains a list of MFA devices.</p> <p>This data type is used as a response element in the <a>ListMFADevices</a> and <a>ListVirtualMFADevices</a> actions. </p>
+* mfaDeviceListType `array`: <p>Contains a list of MFA devices.</p> <p>This data type is used as a response element in the <a>ListMFADevices</a> and <a>ListVirtualMFADevices</a> operations. </p>
   * items [MFADevice](#mfadevice)
 
 ### minimumPasswordLengthType
@@ -4078,7 +4109,7 @@ amazonaws_iam.UploadSigningCertificate({
   * items [Policy](#policy)
 
 ### policyNameListType
-* policyNameListType `array`: <p>Contains a list of policy names.</p> <p>This data type is used as a response element in the <a>ListPolicies</a> action.</p>
+* policyNameListType `array`: <p>Contains a list of policy names.</p> <p>This data type is used as a response element in the <a>ListPolicies</a> operation.</p>
   * items [policyNameType](#policynametype)
 
 ### policyNameType
@@ -4116,8 +4147,11 @@ amazonaws_iam.UploadSigningCertificate({
   * items [RoleDetail](#roledetail)
 
 ### roleListType
-* roleListType `array`: <p>Contains a list of IAM roles.</p> <p>This data type is used as a response element in the <a>ListRoles</a> action.</p>
+* roleListType `array`: <p>Contains a list of IAM roles.</p> <p>This data type is used as a response element in the <a>ListRoles</a> operation.</p>
   * items [Role](#role)
+
+### roleMaxSessionDurationType
+* roleMaxSessionDurationType `integer`
 
 ### roleNameType
 * roleNameType `string`
@@ -4186,7 +4220,7 @@ amazonaws_iam.UploadSigningCertificate({
   * items [UserDetail](#userdetail)
 
 ### userListType
-* userListType `array`: <p>Contains a list of users.</p> <p>This data type is used as a response element in the <a>GetGroup</a> and <a>ListUsers</a> actions. </p>
+* userListType `array`: <p>Contains a list of users.</p> <p>This data type is used as a response element in the <a>GetGroup</a> and <a>ListUsers</a> operations. </p>
   * items [User](#user)
 
 ### userNameType

@@ -289,6 +289,12 @@
             "schema": {
               "$ref": "#/definitions/NoSuchEntityException"
             }
+          },
+          "485": {
+            "description": "InvalidCrossAccountRoleException",
+            "schema": {
+              "$ref": "#/definitions/InvalidCrossAccountRoleException"
+            }
           }
         }
       }
@@ -3366,7 +3372,6 @@
       "required": [
         "arn",
         "name",
-        "resourceGroupArn",
         "createdAt",
         "updatedAt"
       ],
@@ -3600,8 +3605,7 @@
         }
       },
       "required": [
-        "assessmentTargetName",
-        "resourceGroupArn"
+        "assessmentTargetName"
       ],
       "type": "object"
     },
@@ -6009,8 +6013,7 @@
       },
       "required": [
         "assessmentTargetArn",
-        "assessmentTargetName",
-        "resourceGroupArn"
+        "assessmentTargetName"
       ],
       "type": "object"
     },

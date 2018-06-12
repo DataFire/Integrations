@@ -11,6 +11,7 @@ let caldav = require('@datafire/caldav').create({
   username: "",
   password: "",
   server: "",
+  basePath: "",
   principalPath: ""
 });
 

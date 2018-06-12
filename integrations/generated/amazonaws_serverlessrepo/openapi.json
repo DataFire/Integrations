@@ -6,6 +6,7 @@
   ],
   "host": "serverlessrepo.amazonaws.com",
   "basePath": "/",
+  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -144,6 +145,20 @@
             "schema": {
               "$ref": "#/definitions/ListApplicationsRequest"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxItems",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -262,6 +277,67 @@
       }
     },
     "/applications/{applicationId}": {
+      "delete": {
+        "description": "Deletes the specified application.",
+        "operationId": "DeleteApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteApplicationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "applicationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Gets the specified application.",
         "operationId": "GetApplication",
@@ -658,6 +734,20 @@
             }
           },
           {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxItems",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
             "in": "path",
             "name": "applicationId",
             "required": true,
@@ -844,7 +934,7 @@
         },
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app.\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "CreationTime": {
           "$ref": "#/definitions/__string",
@@ -852,23 +942,27 @@
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "LicenseUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to a license file of the app that matches the spdxLicenseID of your application.\\nMax size 5 MB"
+          "description": "<p>A link to a license file of the app that matches the spdxLicenseID of your application.</p><p>Max size 5 MB</p>"
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the application.\\nMin Length=1. Max Length=140\\nPattern: \"[a-zA-Z0-9\\\\-]+\";"
+          "description": "<p>The name of the application.</p><p>Min Length=1. Max Length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>"
         },
         "ReadmeUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A link to the readme file that contains a more detailed description of the application and how it works in Markdown language.</p><p>Max size 5 MB</p>"
         },
         "SpdxLicenseId": {
           "$ref": "#/definitions/__string",
@@ -879,13 +973,19 @@
           "description": "Version information about the application."
         }
       },
+      "required": [
+        "Description",
+        "Author",
+        "ApplicationId",
+        "Name"
+      ],
       "type": "object"
     },
     "ApplicationPage": {
       "description": "List of application details.",
       "properties": {
         "Applications": {
-          "$ref": "#/definitions/ListOfApplicationSummary",
+          "$ref": "#/definitions/__listOfApplicationSummary",
           "description": "Array of application summaries."
         },
         "NextToken": {
@@ -893,27 +993,33 @@
           "description": "The token to request the next page of results."
         }
       },
+      "required": [
+        "Applications"
+      ],
       "type": "object"
     },
     "ApplicationPolicy": {
       "description": "Policy statements applied to the application.",
       "properties": {
         "Statements": {
-          "$ref": "#/definitions/ListOfApplicationPolicyStatement",
+          "$ref": "#/definitions/__listOfApplicationPolicyStatement",
           "description": "Array of policy statements applied to the application."
         }
       },
+      "required": [
+        "Statements"
+      ],
       "type": "object"
     },
     "ApplicationPolicyStatement": {
       "description": "Policy statement applied to the application.",
       "properties": {
         "Actions": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "A list of supported actions:\\n\\n GetApplication \\n \\n\\n CreateCloudFormationChangeSet \\n \\n\\n ListApplicationVersions \\n \\n\\n SearchApplications \\n \\n\\n Deploy (Note: This action enables all other actions above.)"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>A list of supported actions:</p><p>\n GetApplication\n </p><p>\n CreateCloudFormationChangeSet\n </p><p>\n ListApplicationVersions\n </p><p>\n SearchApplications\n </p><p>\n Deploy (Note: This action enables all other actions above.)</p>"
         },
         "Principals": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "An AWS account ID, or * to make the application public."
         },
         "StatementId": {
@@ -921,6 +1027,10 @@
           "description": "A unique ID for the statement."
         }
       },
+      "required": [
+        "Principals",
+        "Actions"
+      ],
       "type": "object"
     },
     "ApplicationSummary": {
@@ -932,7 +1042,7 @@
         },
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "CreationTime": {
           "$ref": "#/definitions/__string",
@@ -940,21 +1050,31 @@
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the application.\\nMin Length=1. Max Length=140\\nPattern: \"[a-zA-Z0-9\\\\-]+\";"
+          "description": "<p>The name of the application.</p><p>Min Length=1. Max Length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>"
         },
         "SpdxLicenseId": {
           "$ref": "#/definitions/__string",
-          "description": "A valid identifier from https://spdx.org/licenses/ ."
+          "description": "A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>."
         }
       },
+      "required": [
+        "Description",
+        "Author",
+        "ApplicationId",
+        "Name"
+      ],
       "type": "object"
     },
     "ApplicationVersionPage": {
@@ -965,10 +1085,13 @@
           "description": "The token to request the next page of results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionSummary",
+          "$ref": "#/definitions/__listOfVersionSummary",
           "description": "Array of version summaries for the application."
         }
       },
+      "required": [
+        "Versions"
+      ],
       "type": "object"
     },
     "BadRequestException": {
@@ -994,17 +1117,23 @@
         },
         "ChangeSetId": {
           "$ref": "#/definitions/__string",
-          "description": "The ARN of the change set.\\nLength Constraints: Minimum length of 1.\\nPattern: arn:[-a-zA-Z0-9:/]*"
+          "description": "<p>The ARN of the change set.</p><p>Length Constraints: Minimum length of 1.</p><p>Pattern: Amazon Resource Name (ARN):[-a-zA-Z0-9:/]*</p>"
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "StackId": {
           "$ref": "#/definitions/__string",
           "description": "The unique ID of the stack."
         }
       },
+      "required": [
+        "ChangeSetId",
+        "ApplicationId",
+        "StackId",
+        "SemanticVersion"
+      ],
       "type": "object"
     },
     "ConflictException": {
@@ -1026,39 +1155,43 @@
       "properties": {
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app.\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "LicenseBody": {
           "$ref": "#/definitions/__string",
-          "description": "A raw text file that contains the license of the app that matches the spdxLicenseID of your application.\\nMax size 5 MB"
+          "description": "<p>A raw text file that contains the license of the app that matches the spdxLicenseID of your application.</p><p>Max size 5 MB</p>"
         },
         "LicenseUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to a license file of the app that matches the spdxLicenseID of your application.\\nMax size 5 MB"
+          "description": "<p>A link to a license file of the app that matches the spdxLicenseID of your application.</p><p>Max size 5 MB</p>"
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the application you want to publish.\\nMin Length=1. Max Length=140\\nPattern: \"[a-zA-Z0-9\\\\-]+\";"
+          "description": "<p>The name of the application you want to publish.</p><p>Min Length=1. Max Length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>"
         },
         "ReadmeBody": {
           "$ref": "#/definitions/__string",
-          "description": "A raw text Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A raw text Readme file that contains a more detailed description of the application and how it works in markdown language.</p><p>Max size 5 MB</p>"
         },
         "ReadmeUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.</p><p>Max size 5 MB</p>"
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "SourceCodeUrl": {
           "$ref": "#/definitions/__string",
@@ -1066,56 +1199,65 @@
         },
         "SpdxLicenseId": {
           "$ref": "#/definitions/__string",
-          "description": "A valid identifier from https://spdx.org/licenses/ ."
+          "description": "A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>."
         },
         "TemplateBody": {
           "$ref": "#/definitions/__string",
-          "description": "The raw packaged SAM template of your application."
+          "description": "The raw packaged AWS SAM template of your application."
         },
         "TemplateUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the packaged SAM template of your application."
+          "description": "A link to the packaged AWS SAM template of your application."
         }
       },
+      "required": [
+        "Description",
+        "Name",
+        "Author"
+      ],
       "type": "object"
     },
     "CreateApplicationRequest": {
       "properties": {
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app.\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "LicenseBody": {
           "$ref": "#/definitions/__string",
-          "description": "A raw text file that contains the license of the app that matches the spdxLicenseID of your application.\\nMax size 5 MB"
+          "description": "<p>A raw text file that contains the license of the app that matches the spdxLicenseID of your application.</p><p>Max size 5 MB</p>"
         },
         "LicenseUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to a license file of the app that matches the spdxLicenseID of your application.\\nMax size 5 MB"
+          "description": "<p>A link to a license file of the app that matches the spdxLicenseID of your application.</p><p>Max size 5 MB</p>"
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the application you want to publish.\\nMin Length=1. Max Length=140\\nPattern: \"[a-zA-Z0-9\\\\-]+\";"
+          "description": "<p>The name of the application you want to publish.</p><p>Min Length=1. Max Length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>"
         },
         "ReadmeBody": {
           "$ref": "#/definitions/__string",
-          "description": "A raw text Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A raw text Readme file that contains a more detailed description of the application and how it works in markdown language.</p><p>Max size 5 MB</p>"
         },
         "ReadmeUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.</p><p>Max size 5 MB</p>"
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "SourceCodeUrl": {
           "$ref": "#/definitions/__string",
@@ -1123,15 +1265,15 @@
         },
         "SpdxLicenseId": {
           "$ref": "#/definitions/__string",
-          "description": "A valid identifier from https://spdx.org/licenses/ ."
+          "description": "A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>."
         },
         "TemplateBody": {
           "$ref": "#/definitions/__string",
-          "description": "The raw packaged SAM template of your application."
+          "description": "The raw packaged AWS SAM template of your application."
         },
         "TemplateUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the packaged SAM template of your application."
+          "description": "A link to the packaged AWS SAM template of your application."
         }
       },
       "type": "object"
@@ -1144,7 +1286,7 @@
         },
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app.\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "CreationTime": {
           "$ref": "#/definitions/__string",
@@ -1152,23 +1294,27 @@
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "LicenseUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to a license file of the app that matches the spdxLicenseID of your application.\\nMax size 5 MB"
+          "description": "<p>A link to a license file of the app that matches the spdxLicenseID of your application.</p><p>Max size 5 MB</p>"
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the application.\\nMin Length=1. Max Length=140\\nPattern: \"[a-zA-Z0-9\\\\-]+\";"
+          "description": "<p>The name of the application.</p><p>Min Length=1. Max Length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>"
         },
         "ReadmeUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A link to the readme file that contains a more detailed description of the application and how it works in Markdown language.</p><p>Max size 5 MB</p>"
         },
         "SpdxLicenseId": {
           "$ref": "#/definitions/__string",
@@ -1190,11 +1336,11 @@
         },
         "TemplateBody": {
           "$ref": "#/definitions/__string",
-          "description": "The raw packaged SAM template of your application."
+          "description": "The raw packaged AWS SAM template of your application."
         },
         "TemplateUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the packaged SAM template of your application."
+          "description": "A link to the packaged AWS SAM template of your application."
         }
       },
       "type": "object"
@@ -1207,11 +1353,11 @@
         },
         "TemplateBody": {
           "$ref": "#/definitions/__string",
-          "description": "The raw packaged SAM template of your application."
+          "description": "The raw packaged AWS SAM template of your application."
         },
         "TemplateUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the packaged SAM template of your application."
+          "description": "A link to the packaged AWS SAM template of your application."
         }
       },
       "type": "object"
@@ -1227,12 +1373,12 @@
           "description": "The date/time this resource was created."
         },
         "ParameterDefinitions": {
-          "$ref": "#/definitions/ListOfParameterDefinition",
+          "$ref": "#/definitions/__listOfParameterDefinition",
           "description": "Array of parameter types supported by the application."
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "SourceCodeUrl": {
           "$ref": "#/definitions/__string",
@@ -1240,7 +1386,7 @@
         },
         "TemplateUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the packaged SAM template of your application."
+          "description": "A link to the packaged AWS SAM template of your application."
         }
       },
       "type": "object"
@@ -1249,34 +1395,36 @@
       "description": "Create application ChangeSet request.",
       "properties": {
         "ParameterOverrides": {
-          "$ref": "#/definitions/ListOfParameterValue",
+          "$ref": "#/definitions/__listOfParameterValue",
           "description": "A list of parameter values for the parameters of the application."
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "StackName": {
           "$ref": "#/definitions/__string",
-          "description": "The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates\\n the change set by comparing this stack's information with the information that you submit, such as a modified\\n template or different parameter input values. \\nConstraints: Minimum length of 1.\\nPattern: ([a-zA-Z][-a-zA-Z0-9]*)|(arn:\\b(aws|aws-us-gov|aws-cn)\\b:[-a-zA-Z0-9:/._+]*)"
+          "description": "<p>The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates\n the change set by comparing this stack's information with the information that you submit, such as a modified\n template or different parameter input values. </p><p>Constraints: Minimum length of 1.</p><p>Pattern: ([a-zA-Z][-a-zA-Z0-9]*)|(arn:\\b(aws|aws-us-gov|aws-cn)\\b:[-a-zA-Z0-9:/._+]*)</p>"
         }
       },
+      "required": [
+        "StackName"
+      ],
       "type": "object"
     },
     "CreateCloudFormationChangeSetRequest": {
-      "description": "Create application ChangeSet request",
       "properties": {
         "ParameterOverrides": {
-          "$ref": "#/definitions/ListOfParameterValue",
+          "$ref": "#/definitions/__listOfParameterValue",
           "description": "A list of parameter values for the parameters of the application."
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "StackName": {
           "$ref": "#/definitions/__string",
-          "description": "The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates\\n the change set by comparing this stack's information with the information that you submit, such as a modified\\n template or different parameter input values. \\nConstraints: Minimum length of 1.\\nPattern: ([a-zA-Z][-a-zA-Z0-9]*)|(arn:\\b(aws|aws-us-gov|aws-cn)\\b:[-a-zA-Z0-9:/._+]*)"
+          "description": "<p>The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates\n the change set by comparing this stack's information with the information that you submit, such as a modified\n template or different parameter input values. </p><p>Constraints: Minimum length of 1.</p><p>Pattern: ([a-zA-Z][-a-zA-Z0-9]*)|(arn:\\b(aws|aws-us-gov|aws-cn)\\b:[-a-zA-Z0-9:/._+]*)</p>"
         }
       },
       "type": "object"
@@ -1289,17 +1437,21 @@
         },
         "ChangeSetId": {
           "$ref": "#/definitions/__string",
-          "description": "The ARN of the change set.\\nLength Constraints: Minimum length of 1.\\nPattern: arn:[-a-zA-Z0-9:/]*"
+          "description": "<p>The ARN of the change set.</p><p>Length Constraints: Minimum length of 1.</p><p>Pattern: Amazon Resource Name (ARN):[-a-zA-Z0-9:/]*</p>"
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "StackId": {
           "$ref": "#/definitions/__string",
           "description": "The unique ID of the stack."
         }
       },
+      "type": "object"
+    },
+    "DeleteApplicationRequest": {
+      "properties": {},
       "type": "object"
     },
     "ForbiddenException": {
@@ -1323,7 +1475,7 @@
     "GetApplicationPolicyResponse": {
       "properties": {
         "Statements": {
-          "$ref": "#/definitions/ListOfApplicationPolicyStatement",
+          "$ref": "#/definitions/__listOfApplicationPolicyStatement",
           "description": "Array of policy statements applied to the application."
         }
       },
@@ -1341,7 +1493,7 @@
         },
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app.\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "CreationTime": {
           "$ref": "#/definitions/__string",
@@ -1349,23 +1501,27 @@
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "LicenseUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to a license file of the app that matches the spdxLicenseID of your application.\\nMax size 5 MB"
+          "description": "<p>A link to a license file of the app that matches the spdxLicenseID of your application.</p><p>Max size 5 MB</p>"
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the application.\\nMin Length=1. Max Length=140\\nPattern: \"[a-zA-Z0-9\\\\-]+\";"
+          "description": "<p>The name of the application.</p><p>Min Length=1. Max Length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>"
         },
         "ReadmeUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A link to the readme file that contains a more detailed description of the application and how it works in Markdown language.</p><p>Max size 5 MB</p>"
         },
         "SpdxLicenseId": {
           "$ref": "#/definitions/__string",
@@ -1403,7 +1559,7 @@
           "description": "The token to request the next page of results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionSummary",
+          "$ref": "#/definitions/__listOfVersionSummary",
           "description": "Array of version summaries for the application."
         }
       },
@@ -1416,7 +1572,7 @@
     "ListApplicationsResponse": {
       "properties": {
         "Applications": {
-          "$ref": "#/definitions/ListOfApplicationSummary",
+          "$ref": "#/definitions/__listOfApplicationSummary",
           "description": "Array of application summaries."
         },
         "NextToken": {
@@ -1425,42 +1581,6 @@
         }
       },
       "type": "object"
-    },
-    "ListOfApplicationPolicyStatement": {
-      "items": {
-        "$ref": "#/definitions/ApplicationPolicyStatement"
-      },
-      "type": "array"
-    },
-    "ListOfApplicationSummary": {
-      "items": {
-        "$ref": "#/definitions/ApplicationSummary"
-      },
-      "type": "array"
-    },
-    "ListOfParameterDefinition": {
-      "items": {
-        "$ref": "#/definitions/ParameterDefinition"
-      },
-      "type": "array"
-    },
-    "ListOfParameterValue": {
-      "items": {
-        "$ref": "#/definitions/ParameterValue"
-      },
-      "type": "array"
-    },
-    "ListOfVersionSummary": {
-      "items": {
-        "$ref": "#/definitions/VersionSummary"
-      },
-      "type": "array"
-    },
-    "ListOf__string": {
-      "items": {
-        "$ref": "#/definitions/__string"
-      },
-      "type": "array"
     },
     "MaxItems": {
       "maximum": 100,
@@ -1489,16 +1609,16 @@
           "description": "A regular expression that represents the patterns to allow for String types."
         },
         "AllowedValues": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "Array containing the list of values allowed for the parameter."
         },
         "ConstraintDescription": {
           "$ref": "#/definitions/__string",
-          "description": "A string that explains a constraint when the constraint is violated. For example, without a constraint description,\\n a parameter that has an allowed pattern of [A-Za-z0-9]+ displays the following error message when the user\\n specifies an invalid value:\\n\\n Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+ \\n \\nBy adding a constraint description, such as \"must contain only uppercase and lowercase letters, and numbers,\" you can display\\n the following customized error message:\\n\\n Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers."
+          "description": "<p>A string that explains a constraint when the constraint is violated. For example, without a constraint description,\n a parameter that has an allowed pattern of [A-Za-z0-9]+ displays the following error message when the user\n specifies an invalid value:</p><p>\n Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+\n </p><p>By adding a constraint description, such as \"must contain only uppercase and lowercase letters, and numbers,\" you can display\n the following customized error message:</p><p>\n Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers.\n </p>"
         },
         "DefaultValue": {
           "$ref": "#/definitions/__string",
-          "description": "A value of the appropriate type for the template to use if no value is specified when a stack is created.\\n If you define constraints for the parameter, you must specify a value that adheres to those constraints."
+          "description": "A value of the appropriate type for the template to use if no value is specified when a stack is created.\n If you define constraints for the parameter, you must specify a value that adheres to those constraints."
         },
         "Description": {
           "$ref": "#/definitions/__string",
@@ -1526,17 +1646,21 @@
         },
         "NoEcho": {
           "$ref": "#/definitions/__boolean",
-          "description": "Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the\\n value to true, the parameter value is masked with asterisks (*****)."
+          "description": "Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the\n value to true, the parameter value is masked with asterisks (*****)."
         },
         "ReferencedByResources": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "A list of SAM resources that use this parameter."
+          "$ref": "#/definitions/__listOf__string",
+          "description": "A list of AWS SAM resources that use this parameter."
         },
         "Type": {
           "$ref": "#/definitions/__string",
-          "description": "The type of the parameter.\\nValid values: String | Number | List<Number> | CommaDelimitedList \\n \\n\\n String : A literal string.\\nFor example, users could specify \"MyUserName\" .\\n\\n Number : An integer or float. AWS CloudFormation validates the parameter value as a number; however, when you use the\\n parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.\\nFor example, users could specify \"8888\" .\\n\\n List<Number> : An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers; however, when\\n you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.\\nFor example, users could specify \"80,20\", and a Ref results in [\"80\",\"20\"] .\\n\\n CommaDelimitedList : An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas.\\n Also, each member string is space-trimmed.\\nFor example, users could specify \"test,dev,prod\", and a Ref results in [\"test\",\"dev\",\"prod\"] ."
+          "description": "<p>The type of the parameter.</p><p>Valid values: String | Number | List&lt;Number> | CommaDelimitedList\n </p><p>\n String: A literal string.</p><p>For example, users could specify \"MyUserName\".</p><p>\n Number: An integer or float. AWS CloudFormation validates the parameter value as a number; however, when you use the\n parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.</p><p>For example, users could specify \"8888\".</p><p>\n List&lt;Number>: An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers; however, when\n you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.</p><p>For example, users could specify \"80,20\", and a Ref results in [\"80\",\"20\"].</p><p>\n CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas.\n Also, each member string is space-trimmed.</p><p>For example, users could specify \"test,dev,prod\", and a Ref results in [\"test\",\"dev\",\"prod\"].</p>"
         }
       },
+      "required": [
+        "ReferencedByResources",
+        "Name"
+      ],
       "type": "object"
     },
     "ParameterValue": {
@@ -1544,20 +1668,23 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation\\n uses the default value that is specified in your template."
+          "description": "The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation\n uses the default value that is specified in your template."
         },
         "Value": {
           "$ref": "#/definitions/__string",
           "description": "The input value associated with the parameter."
         }
       },
+      "required": [
+        "Value",
+        "Name"
+      ],
       "type": "object"
     },
     "PutApplicationPolicyRequest": {
-      "description": "Put policy request",
       "properties": {
         "Statements": {
-          "$ref": "#/definitions/ListOfApplicationPolicyStatement",
+          "$ref": "#/definitions/__listOfApplicationPolicyStatement",
           "description": "Array of policy statements applied to the application."
         }
       },
@@ -1566,7 +1693,7 @@
     "PutApplicationPolicyResponse": {
       "properties": {
         "Statements": {
-          "$ref": "#/definitions/ListOfApplicationPolicyStatement",
+          "$ref": "#/definitions/__listOfApplicationPolicyStatement",
           "description": "Array of policy statements applied to the application."
         }
       },
@@ -1591,23 +1718,27 @@
       "properties": {
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app.\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "ReadmeBody": {
           "$ref": "#/definitions/__string",
-          "description": "A raw text Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A raw text Readme file that contains a more detailed description of the application and how it works in markdown language.</p><p>Max size 5 MB</p>"
         },
         "ReadmeUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.</p><p>Max size 5 MB</p>"
         }
       },
       "type": "object"
@@ -1616,23 +1747,27 @@
       "properties": {
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app.\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "ReadmeBody": {
           "$ref": "#/definitions/__string",
-          "description": "A raw text Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A raw text Readme file that contains a more detailed description of the application and how it works in markdown language.</p><p>Max size 5 MB</p>"
         },
         "ReadmeUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.</p><p>Max size 5 MB</p>"
         }
       },
       "type": "object"
@@ -1645,7 +1780,7 @@
         },
         "Author": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the author publishing the app.\\nMin Length=1. Max Length=127.\\nPattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";"
+          "description": "<p>The name of the author publishing the app.</p><p>Min Length=1. Max Length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"
         },
         "CreationTime": {
           "$ref": "#/definitions/__string",
@@ -1653,23 +1788,27 @@
         },
         "Description": {
           "$ref": "#/definitions/__string",
-          "description": "The description of the application.\\nMin Length=1. Max Length=256"
+          "description": "<p>The description of the application.</p><p>Min Length=1. Max Length=256</p>"
+        },
+        "HomePageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL with more information about the application, for example\n the location of your GitHub repository for the application."
         },
         "Labels": {
-          "$ref": "#/definitions/ListOf__string",
-          "description": "Labels to improve discovery of apps in search results.\\nMin Length=1. Max Length=127. Maximum number of labels: 10\\nPattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";"
+          "$ref": "#/definitions/__listOf__string",
+          "description": "<p>Labels to improve discovery of apps in search results.</p><p>Min Length=1. Max Length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>"
         },
         "LicenseUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to a license file of the app that matches the spdxLicenseID of your application.\\nMax size 5 MB"
+          "description": "<p>A link to a license file of the app that matches the spdxLicenseID of your application.</p><p>Max size 5 MB</p>"
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "The name of the application.\\nMin Length=1. Max Length=140\\nPattern: \"[a-zA-Z0-9\\\\-]+\";"
+          "description": "<p>The name of the application.</p><p>Min Length=1. Max Length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>"
         },
         "ReadmeUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the Readme file that contains a more detailed description of the application and how it works in markdown language.\\nMax size 5 MB"
+          "description": "<p>A link to the readme file that contains a more detailed description of the application and how it works in Markdown language.</p><p>Max size 5 MB</p>"
         },
         "SpdxLicenseId": {
           "$ref": "#/definitions/__string",
@@ -1694,12 +1833,12 @@
           "description": "The date/time this resource was created."
         },
         "ParameterDefinitions": {
-          "$ref": "#/definitions/ListOfParameterDefinition",
+          "$ref": "#/definitions/__listOfParameterDefinition",
           "description": "Array of parameter types supported by the application."
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "SourceCodeUrl": {
           "$ref": "#/definitions/__string",
@@ -1707,9 +1846,16 @@
         },
         "TemplateUrl": {
           "$ref": "#/definitions/__string",
-          "description": "A link to the packaged SAM template of your application."
+          "description": "A link to the packaged AWS SAM template of your application."
         }
       },
+      "required": [
+        "TemplateUrl",
+        "ParameterDefinitions",
+        "CreationTime",
+        "ApplicationId",
+        "SemanticVersion"
+      ],
       "type": "object"
     },
     "VersionSummary": {
@@ -1725,13 +1871,18 @@
         },
         "SemanticVersion": {
           "$ref": "#/definitions/__string",
-          "description": "The semantic version of the application:\\n\\n https://semver.org/"
+          "description": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>"
         },
         "SourceCodeUrl": {
           "$ref": "#/definitions/__string",
           "description": "A link to a public repository for the source code of your application."
         }
       },
+      "required": [
+        "CreationTime",
+        "ApplicationId",
+        "SemanticVersion"
+      ],
       "type": "object"
     },
     "__boolean": {
@@ -1744,11 +1895,46 @@
     "__integer": {
       "type": "integer"
     },
-    "__string": {
-      "type": "string"
+    "__listOfApplicationPolicyStatement": {
+      "items": {
+        "$ref": "#/definitions/ApplicationPolicyStatement"
+      },
+      "type": "array"
     },
-    "__timestamp": {
-      "format": "date-time",
+    "__listOfApplicationSummary": {
+      "items": {
+        "$ref": "#/definitions/ApplicationSummary"
+      },
+      "type": "array"
+    },
+    "__listOfParameterDefinition": {
+      "items": {
+        "$ref": "#/definitions/ParameterDefinition"
+      },
+      "type": "array"
+    },
+    "__listOfParameterValue": {
+      "items": {
+        "$ref": "#/definitions/ParameterValue"
+      },
+      "type": "array"
+    },
+    "__listOfVersionSummary": {
+      "items": {
+        "$ref": "#/definitions/VersionSummary"
+      },
+      "type": "array"
+    },
+    "__listOf__string": {
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "__long": {
+      "type": "integer"
+    },
+    "__string": {
       "type": "string"
     }
   }

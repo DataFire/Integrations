@@ -116,7 +116,7 @@
     },
     "/batch/schedule": {
       "post": {
-        "description": "Schedules a batch of SMS messages to be sent at the date-time you specify",
+        "description": "Schedules a batch of SMS messages to be sent at the date time you specify",
         "operationId": "scheduleBatch",
         "parameters": [
           {
@@ -336,6 +336,12 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/SendMessageResponse"
+            }
+          },
+          "402": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ExtendedErrorModel"
             }
           },
           "default": {
@@ -574,6 +580,16 @@
           "description": "The sender of the message. Should be no longer than 11 characters for alphanumeric or 15 characters for numeric sender ID's. No spaces or special characters.",
           "example": "YourCompany",
           "type": "string"
+        },
+        "tag": {
+          "description": "An identifying label for the message, which you can use to filter and report on messages you've sent later. Ideal for campaigns.",
+          "example": "SummerSpecial",
+          "type": "string"
+        },
+        "ttl": {
+          "description": "The number of minutes before the message is deleted. Optional. Omit to prevent delivery report deletion.",
+          "example": 10,
+          "type": "number"
         }
       },
       "required": [
@@ -617,18 +633,12 @@
     },
     "ErrorModel": {
       "properties": {
-        "code": {
-          "maximum": 600,
-          "minimum": 100,
-          "type": "integer"
-        },
         "message": {
           "type": "string"
         }
       },
       "required": [
-        "message",
-        "code"
+        "message"
       ],
       "type": "object"
     },
@@ -641,10 +651,14 @@
           "properties": {
             "errorCode": {
               "type": "number"
+            },
+            "status": {
+              "type": "string"
             }
           },
           "required": [
-            "errorCode"
+            "errorCode",
+            "status"
           ],
           "type": "object"
         }
@@ -694,6 +708,11 @@
           "description": "An identifying label for the message, which you can use to filter and report on messages you've sent later. Ideal for campaigns.",
           "example": "SummerSpecial",
           "type": "string"
+        },
+        "ttl": {
+          "description": "The number of minutes before the message is deleted. Optional. Omit to prevent delivery report deletion.",
+          "example": 10,
+          "type": "number"
         }
       },
       "required": [
@@ -724,6 +743,23 @@
         "destination": {
           "example": 447777777777,
           "type": "number"
+        },
+        "failureReason": {
+          "properties": {
+            "code": {
+              "example": 34,
+              "type": "number"
+            },
+            "details": {
+              "example": "Handset error",
+              "type": "string"
+            },
+            "permanent": {
+              "example": false,
+              "type": "boolean"
+            }
+          },
+          "type": "object"
         },
         "id": {
           "example": 123456789,

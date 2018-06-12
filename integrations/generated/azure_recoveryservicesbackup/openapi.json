@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/recoveryservicesbackup/resource-manager/Microsoft.RecoveryServices/stable/2016-06-01/recoveryservicesbackup.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/recoveryservicesbackup/resource-manager/Microsoft.RecoveryServices/stable/2016-06-01/recoveryservicesbackup.json",
         "version": "2.0"
       }
     ],
@@ -703,9 +703,7 @@
           "RecoveryPoints"
         ],
         "x-ms-odata": "#/definitions/BMSRPQueryObject",
-        "x-ms-pageable": {
-          "nextLinkName": "null"
-        }
+        "x-ms-pageable": {}
       }
     },
     "/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}": {
@@ -1365,9 +1363,7 @@
           "ProtectionPolicies"
         ],
         "x-ms-odata": "#/definitions/ProtectionPolicyQueryObject",
-        "x-ms-pageable": {
-          "nextLinkName": "null"
-        }
+        "x-ms-pageable": {}
       }
     },
     "/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}": {
@@ -1725,9 +1721,7 @@
           "ProtectionContainers"
         ],
         "x-ms-odata": "#/definitions/BMSContainerQueryObject",
-        "x-ms-pageable": {
-          "nextLinkName": "null"
-        }
+        "x-ms-pageable": {}
       }
     }
   },

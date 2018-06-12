@@ -57,7 +57,7 @@
     "/h5/profiles/{player}/appearance": {
       "get": {
         "description": "<p>This Endpoint retrieves appearance information for a player.</p>\n<p>If the player is a member of a Company, the Company's ID and Name will be provided. Additional Company information is available via the Stats API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.profiles.player.appearance.get",
+        "operationId": "5969689a2109180f287972a8",
         "parameters": [
           {
             "description": "The Player's Gamertag",
@@ -96,13 +96,14 @@
           "500": {
             "description": "Internal Server Error."
           }
-        }
+        },
+        "summary": "Halo 5 - Player Appearance"
       }
     },
     "/h5/profiles/{player}/emblem": {
       "get": {
         "description": "<p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Emblem. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname \"image.halocdn.com\") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Emblem, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Halo 5 - Emblem Image\" to \"Halo 5 - Player Emblem Image\".</li>\n    </ul>\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Emblem Image\" to \"Halo 5 - Emblem Image\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.profiles.player.emblem.get",
+        "operationId": "58acdc2e2109180bdcacc404",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -134,13 +135,14 @@
           "500": {
             "description": "Internal Server Error."
           }
-        }
+        },
+        "summary": "Halo 5 - Player Emblem Image"
       }
     },
     "/h5/profiles/{player}/spartan": {
       "get": {
         "description": "<p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Spartan's appearance. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname \"image.halocdn.com\") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Spartan's appearance, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Halo 5 - Spartan Image\" to \"Halo 5 - Player Spartan Image\".</li>\n    </ul>\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Spartan Image\" to \"Halo 5 - Spartan Image\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.profiles.player.spartan.get",
+        "operationId": "58acdc2e2109180bdcacc405",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -178,7 +180,8 @@
           "500": {
             "description": "Internal Server Error."
           }
-        }
+        },
+        "summary": "Halo 5 - Player Spartan Image"
       }
     }
   }

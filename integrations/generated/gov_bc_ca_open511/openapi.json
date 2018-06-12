@@ -1,18 +1,12 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "api.open511.gov.bc.ca",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "TRANBMClientRelations@gov.bc.ca",
       "name": "Drive BC",
       "url": "http://www.drivebc.ca/"
     },
-    "description": "This API is DriveBC's implementation of the Open511 specification.  It provides information about known road events (traffic accidents, construction, etc.) in British Columbia, Canada.",
+    "description": "This API is DriveBC's implementation of the Open511 specification.  It provides information about known road events (traffic accidents, construction, etc.) in British Columbia, Canada.  Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.",
     "license": {
       "name": "Open Government License - British Columbia",
       "url": "http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61"
@@ -28,9 +22,13 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/open511/open511_swagger2.json",
-        "version": "2.0"
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.6.2"
+        },
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/open511/open511_OAS3.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -41,17 +39,10 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "DriveBC Open511 API Guidelines",
-    "url": "http://api.open511.gov.bc.ca/help"
-  },
-  "produces": [
-    "application/json"
-  ],
-  "tags": [
-    {
-      "name": "resources"
-    }
+  "host": "api.open511.gov.bc.ca",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/areas": {
@@ -75,16 +66,14 @@
             "description": "List of packages"
           }
         },
-        "summary": "Lists the geographical areas (e.g. districts) that can be used to filter events.",
         "tags": [
           "resources"
         ],
-        "operationId": "areas.get"
+        "summary": "Lists the geographical areas (e.g. districts) that can be used to filter events."
       }
     },
     "/events": {
       "get": {
-        "description": "The events resource provides information about road events (e.g. accidents, construction, special events). The response is a list of event elements matching the filtering parameters if any are provided. ",
         "parameters": [
           {
             "default": "json",
@@ -186,11 +175,11 @@
             "description": "List of packages"
           }
         },
-        "summary": "Lists road events",
         "tags": [
           "resources"
         ],
-        "operationId": "events.get"
+        "description": "The events resource provides information about road events (e.g. accidents, construction, special events). The response is a list of event elements matching the filtering parameters if any are provided. ",
+        "summary": "Lists road events"
       }
     },
     "/jurisdiction": {
@@ -214,11 +203,10 @@
             "description": "List of packages"
           }
         },
-        "summary": "Lists the jurisdictions publishing data through this Open511 API implementation",
         "tags": [
           "resources"
         ],
-        "operationId": "jurisdiction.get"
+        "summary": "Lists the jurisdictions publishing data through this Open511 API implementation"
       }
     },
     "/jurisdictiongeography": {
@@ -242,12 +230,22 @@
             "description": "List of packages"
           }
         },
-        "summary": "Provides the geographical boundaries for all the jurisdictions.",
         "tags": [
           "resources"
         ],
-        "operationId": "jurisdictiongeography.get"
+        "summary": "Provides the geographical boundaries for all the jurisdictions."
       }
     }
-  }
+  },
+  "definitions": {},
+  "tags": [
+    {
+      "name": "resources"
+    }
+  ],
+  "externalDocs": {
+    "description": "Additional API Documentation",
+    "url": "http://api.open511.gov.bc.ca/help"
+  },
+  "x-components": {}
 }

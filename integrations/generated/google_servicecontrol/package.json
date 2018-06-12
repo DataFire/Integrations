@@ -1,8 +1,8 @@
 {
   "name": "@datafire/google_servicecontrol",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Google Service Control",
+  "description": "DataFire integration for Service Control",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

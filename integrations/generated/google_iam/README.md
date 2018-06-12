@@ -1,6 +1,6 @@
 # @datafire/google_iam
 
-Client library for Google Identity and Access Management (IAM)
+Client library for Identity and Access Management (IAM)
 
 ## Installation and Usage
 ```bash
@@ -561,7 +561,7 @@ google_iam.organizations.roles.list({
   * pageSize `integer`: Optional limit on the number of roles to include in the response.
   * pageToken `string`: Optional pagination token returned in an earlier ListRolesResponse.
   * parent **required** `string`: The resource name of the parent resource in one of the following formats:
-  * showDeleted `boolean`: Include Roles that have been deleted.
+  * showDeleted `boolean` (values: BASIC, FULL): Include Roles that have been deleted.
   * view `string` (values: BASIC, FULL): Optional view for the returned Role objects.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
@@ -710,9 +710,21 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 
 ## Definitions
 
+### AuditConfig
+* AuditConfig `object`: Specifies the audit configuration for a service.
+  * auditLogConfigs `array`: The configuration for logging of each type of permission.
+    * items [AuditLogConfig](#auditlogconfig)
+  * service `string`: Specifies a service that will be enabled for audit logging.
+
 ### AuditData
 * AuditData `object`: Audit log information specific to Cloud IAM. This message is serialized
   * policyDelta [PolicyDelta](#policydelta)
+
+### AuditLogConfig
+* AuditLogConfig `object`: Provides the configuration for logging a type of permissions.
+  * exemptedMembers `array`: Specifies the identities that do not cause logging for this type of
+    * items `string`
+  * logType `string` (values: LOG_TYPE_UNSPECIFIED, ADMIN_READ, DATA_WRITE, DATA_READ): The log type that this config enables.
 
 ### AuditableService
 * AuditableService `object`: Contains information about an auditable service.
@@ -777,6 +789,8 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 
 ### Policy
 * Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to
+  * auditConfigs `array`: Specifies cloud audit logging configuration for this policy.
+    * items [AuditConfig](#auditconfig)
   * bindings `array`: Associates a list of `members` to a `role`.
     * items [Binding](#binding)
   * etag `string`: `etag` is used for optimistic concurrency control as a way to help
@@ -855,6 +869,7 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 ### SetIamPolicyRequest
 * SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.
   * policy [Policy](#policy)
+  * updateMask `string`: OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
 
 ### SignBlobRequest
 * SignBlobRequest `object`: The service account sign blob request.

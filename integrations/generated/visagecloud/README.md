@@ -144,6 +144,7 @@ visagecloud.performAnalysisUsingPOST({
   * storeAnalysisPicture `boolean`: Boolean value indicating whether you want the picture of the analysis to be stored for later retrieval
   * storeFacePictures `boolean`: Boolean value indicating whether you want the faces inside the picture to be stored for later retrieval
   * storeResult `boolean`: Boolean value indicating whether you want the result of the analysis to be stored
+  * retentionTime `integer`: How many seconds the results should be retained in stoarage?
   * pictureURL `string`: The URL of the picture, assuming it is served by a third party server. Server should be accesible from the Internet or through another netwoek by VisageCloud infrastructure
   * picture `string`: The multipart/form-data version of the image, in case a direct upload is used. At least one of picture or pictureURL must be present
   * algorithmVersion `string` (values: V1, V2): Algorithm version (V2 is more performant but not backward compatible)
@@ -194,6 +195,7 @@ visagecloud.performRecognitionUsingPOST({
   * storeAnalysisPicture `boolean`: Boolean value indicating whether you want the picture of the analysis to be stored for later retrieval
   * storeFacePictures `boolean`: Boolean value indicating whether you want the faces inside the picture to be stored for later retrieval
   * storeResult `boolean`: Boolean value indicating whether you want the result of the analysis to be stored
+  * retentionTime `integer`: How many seconds the results should be retained in stoarage?
   * collectionId **required** `string`: Uniquely identified collection that can store multiple profiles
   * labels `array`: Labels associated with the given picture or picture URL
   * attributeFilters `array` (values: NO_FILTER, GENDER_FILTER, AGE_GROUP_FILTER): Filters that will be applied on the recognition operation

@@ -59,7 +59,7 @@ clarify.v1.bundles.post({}, context)
   * external_id `string`: A string that can refer to an item in an external system. Up to 128 characters.
 
 #### Output
-* output [Ref_(of_Bundle)](#ref_(of_bundle))
+* output [Ref%20(of%20Bundle)](#ref%20(of%20bundle))
 
 ### v1.bundles.bundle_id.delete
 Delete a bundle and its related metadata and tracks. This will only delete media stored on Clarify systems and not delete the source media on remote systems.<br/><br/>Successful response will be a HTTP code 204 with an empty body.
@@ -115,7 +115,7 @@ clarify.v1.bundles.bundle_id.put({
   * version `integer`: Object version.
 
 #### Output
-* output [Ref_(of_Bundle)](#ref_(of_bundle))
+* output [Ref%20(of%20Bundle)](#ref%20(of%20bundle))
 
 ### v1.bundles.bundle_id.insights.get
 Gets the insights for a bundle.<br/><br/>URLs of the available insights for the bundle are in the _links object, with the link relations (keys) of the format <b>insight:insight_name</b>.<br/><br/>Documentation on the insights available and the data returned can be found at <a target="clarify" href="http://docs.clarify.io/insights/">http://docs.clarify.io/insights/</a>
@@ -284,7 +284,7 @@ clarify.v1.bundles.bundle_id.tracks.post({
   * version `integer`: Object version.
 
 #### Output
-* output [Ref_(of_Track)](#ref_(of_track))
+* output [Ref%20(of%20Track)](#ref%20(of%20track))
 
 ### v1.bundles.bundle_id.tracks.put
 Update tracks for a bundle.<br/><br/><b>parts_complete</b> a boolean <code>true</code> or <cade>false</code>. If true, any tracks in the PENDING state will be queued for processing and no more media parts may be added to the tracks. Default is false.<br/><br/>If <b>version</b> specified, the track will only be updated if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the track will always be updated.
@@ -368,7 +368,7 @@ clarify.v1.bundles.bundle_id.tracks.track_id.put({
   * version `integer`: Object version.
 
 #### Output
-* output [Ref_(of_Track)](#ref_(of_track))
+* output [Ref%20(of%20Track)](#ref%20(of%20track))
 
 ### v1reportsscores
 Analyzes bundle content over a series of time periods grouped by the value of <b>group_field</b> metadata field and generates a report of top scores.<br/><br/><b>interval</b> specifies the duration of each time period in the report. For example, you can generate a report that gives monthly statistics. If there are no bundles for a given period, that period will not be present in the report.<br/><br/><b>score_field</b> specifies a bundle, insights, or metadata field to use as a score. The scores will be averaged across the group and listed in descending order.<br/><br/><b>group_field</b> specifies a metadata field by which to group statistics. Typically the field will represent a user or team id to get a report of the scores for the top users or teams.<br/><br/><b>filter</b> is used to limit the bundles in the report according to specific criteria based on metadata and bundle values.  A report filter behaves in the same way as a search filter. It uses an expression syntax similar to Javascript boolean expressions. An expression is made up of zero or more terms joined by logical operators with each term having a field, a comparison operator, and a literal value. Parentheses can be used to logically group terms.<br/><br/><div class="notes-indent">A filter term is of the form: <b><i><code>field-name comparison-operator literal-value</code></b></i> where:<br/><br/><b><i><code>field-name</code></i></b> is a metadata field or <code>bundle.name</code>, <code>bundle.id</code>, <code>bundle.external_id</code>, <code>bundle.created</code>, or <code>bundle.updated</code>.<br/><br/><b><i><code>comparison-operator</code></i></b> is <code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt=</code>, or <code>!=</code><br/><br/><b><i><code>literal-value</code></i></b> is a number (integer or decimal), boolean <code><i>true</i></code> or <code><i>false</i></code>, or a string with either double quotes (<code>"</code>) or single quotes (<code>'</code>).<br/><br/>Logical operators between terms (and groups of terms) can be <code>&&</code> (logical AND), <code>||</code> (logical OR). A logical NOT is <code>!</code> and can be placed before a term (or group of terms.)</div><br/><br/>An example filter expression (assuming you have used metadata fields category and tag): </p><br><div class="notes-indent"><code>category=="music" && (tag == "soft" || tag == "smooth") && tag != "jazz" && bundle.created > "2014-03-15T00:00:00.0Z"</code></div><br/><br/><p><b>language</b> parameter specifies the language to use for analyzing the report. This value is only relevant for language-related insight data. Supported languages: en, en-UK, en-US, es, fr.
@@ -465,11 +465,17 @@ clarify.v1search({}, context)
 ### Ref
 * Ref [object](#object)
 
-### Ref_(of_Bundle)
+### Ref (of Bundle)
 
+
+### Ref (of Track)
+
+
+### Ref_(of_Bundle)
+* Ref_(of_Bundle) [object](#object)
 
 ### Ref_(of_Track)
-
+* Ref_(of_Track) [object](#object)
 
 ### ReportPeriod
 * ReportPeriod [object](#object)

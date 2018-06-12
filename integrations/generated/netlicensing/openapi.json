@@ -210,6 +210,23 @@
             "type": "string"
           },
           {
+            "description": "For 'TIMEVOLUME' license type.",
+            "in": "formData",
+            "items": {
+              "default": "DAY",
+              "enum": [
+                "DAY",
+                "WEEK",
+                "MONTH",
+                "YEAR"
+              ],
+              "type": "string"
+            },
+            "name": "timeVolumePeriod",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Mandatory for 'TIMEVOLUME' license type.",
             "format": "date-time",
             "in": "formData",
@@ -238,6 +255,20 @@
             "name": "hidden",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "in": "formData",
+            "name": "quantity",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "in": "formData",
+            "name": "usedQuantity",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -405,8 +436,26 @@
             "type": "string"
           },
           {
+            "description": "Mandatory for 'TIMEVOLUME' license type.",
             "in": "formData",
             "name": "timeVolume",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "For 'TIMEVOLUME' license type.",
+            "in": "formData",
+            "items": {
+              "default": "DAY",
+              "enum": [
+                "DAY",
+                "WEEK",
+                "MONTH",
+                "YEAR"
+              ],
+              "type": "string"
+            },
+            "name": "timeVolumePeriod",
             "required": false,
             "type": "string"
           },
@@ -431,6 +480,20 @@
             "name": "hidden",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "in": "formData",
+            "name": "quantity",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "in": "formData",
+            "name": "usedQuantity",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -949,25 +1012,43 @@
           },
           {
             "collectionFormat": "multi",
-            "description": "type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME",
+            "description": "type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING, QUANTITY",
             "in": "formData",
             "items": {
               "default": "FEATURE",
               "enum": [
                 "FEATURE",
                 "TIMEVOLUME",
-                "FLOATING"
+                "FLOATING",
+                "QUANTITY"
               ],
               "type": "string"
             },
             "name": "licenseType",
             "required": true,
-            "type": "array"
+            "type": "string"
           },
           {
             "description": "Mandatory for 'TIMEVOLUME' license type.",
             "in": "formData",
             "name": "timeVolume",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "For 'TIMEVOLUME' license type.",
+            "in": "formData",
+            "items": {
+              "default": "DAY",
+              "enum": [
+                "DAY",
+                "WEEK",
+                "MONTH",
+                "YEAR"
+              ],
+              "type": "string"
+            },
+            "name": "timeVolumePeriod",
             "required": false,
             "type": "string"
           },
@@ -1013,6 +1094,13 @@
             "name": "hideLicenses",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "in": "formData",
+            "name": "quantity",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1178,25 +1266,43 @@
           },
           {
             "collectionFormat": "multi",
-            "description": "type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING",
+            "description": "type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING, QUANTITY",
             "in": "formData",
             "items": {
               "default": "FEATURE",
               "enum": [
                 "FEATURE",
                 "TIMEVOLUME",
-                "FLOATING"
+                "FLOATING",
+                "QUANTITY"
               ],
               "type": "string"
             },
             "name": "licenseType",
             "required": false,
-            "type": "array"
+            "type": "string"
           },
           {
             "description": "Mandatory for 'TIMEVOLUME' license type.",
             "in": "formData",
             "name": "timeVolume",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "For 'TIMEVOLUME' license type.",
+            "in": "formData",
+            "items": {
+              "default": "DAY",
+              "enum": [
+                "DAY",
+                "WEEK",
+                "MONTH",
+                "YEAR"
+              ],
+              "type": "string"
+            },
+            "name": "timeVolumePeriod",
             "required": false,
             "type": "string"
           },
@@ -1242,6 +1348,13 @@
             "name": "hideLicenses",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "in": "formData",
+            "name": "quantity",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1859,13 +1972,16 @@
                 "Subscription",
                 "TryAndBuy",
                 "Rental",
-                "Floating"
+                "Floating",
+                "MultiFeature",
+                "PayPerUse",
+                "Quota"
               ],
               "type": "string"
             },
             "name": "licensingModel",
             "required": true,
-            "type": "array"
+            "type": "string"
           },
           {
             "description": "Maximum checkout validity (days). Mandatory for 'Floating' licensing model.",
@@ -2081,7 +2197,7 @@
             },
             "name": "licensingModel",
             "required": false,
-            "type": "array"
+            "type": "string"
           },
           {
             "description": "Maximum checkout validity (days). Mandatory for 'Floating' licensing model.",

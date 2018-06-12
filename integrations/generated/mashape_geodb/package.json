@@ -1,8 +1,8 @@
 {
   "name": "@datafire/mashape_geodb",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Geo DB",
+  "description": "DataFire integration for GeoDB",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

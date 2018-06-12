@@ -7,7 +7,7 @@
   "info": {
     "description": "The Data Migration Service helps people migrate their data from on-premise database servers to Azure, or from older database software to newer software. The service manages one or more workers that are joined to a customer's virtual network, which is assumed to provide connectivity to their databases. To avoid frequent updates to the resource provider, data migration tasks are implemented by the resource provider in a generic way as task resources, each of which has a task type (which identifies the type of work to run), input, and output. The client is responsible for providing appropriate task type and inputs, which will be passed through unexamined to the machines that implement the functionality, and for understanding the output, which is passed back unexamined to the client.",
     "title": "Azure Data Migration Service Resource Provider",
-    "version": "2017-11-15-preview",
+    "version": "2018-03-15-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -20,7 +20,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/datamigration/resource-manager/Microsoft.DataMigration/2017-11-15-preview/datamigration.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/datamigration/resource-manager/Microsoft.DataMigration/preview/2018-03-15-preview/datamigration.json",
         "version": "2.0"
       }
     ],
@@ -188,7 +188,7 @@
                 "readOnly": true,
                 "type": "string",
                 "x-ms-enum": {
-                  "modelAsString": false,
+                  "modelAsString": true,
                   "name": "ProjectProvisioningState"
                 }
               },
@@ -223,7 +223,7 @@
                 ],
                 "type": "string",
                 "x-ms-enum": {
-                  "modelAsString": false,
+                  "modelAsString": true,
                   "name": "ProjectSourcePlatform"
                 }
               },
@@ -258,7 +258,7 @@
                 ],
                 "type": "string",
                 "x-ms-enum": {
-                  "modelAsString": false,
+                  "modelAsString": true,
                   "name": "ProjectTargetPlatform"
                 }
               }
@@ -362,7 +362,7 @@
                 "readOnly": true,
                 "type": "string",
                 "x-ms-enum": {
-                  "modelAsString": false,
+                  "modelAsString": true,
                   "name": "TaskState"
                 }
               },
@@ -492,7 +492,7 @@
                 "readOnly": true,
                 "type": "string",
                 "x-ms-enum": {
-                  "modelAsString": false,
+                  "modelAsString": true,
                   "name": "ServiceProvisioningState"
                 }
               },
@@ -681,7 +681,7 @@
         "x-ms-examples": {
           "Operations_List": {
             "parameters": {
-              "api-version": "2017-11-15-preview"
+              "api-version": "2018-03-15-preview"
             },
             "responses": {
               "200": {
@@ -747,7 +747,7 @@
                   ],
                   "type": "string",
                   "x-ms-enum": {
-                    "modelAsString": false,
+                    "modelAsString": true,
                     "name": "NameCheckFailureReason"
                   }
                 }
@@ -794,7 +794,7 @@
         "x-ms-examples": {
           "Services_CheckNameAvailability": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "location": "eastus",
               "parameters": {
                 "requestedName": {
@@ -925,7 +925,7 @@
         "x-ms-examples": {
           "Services_Usages": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "location": "westus",
               "subscriptionId": "90fb80a6-0f71-4761-8f03-921e7396f3c0"
             },
@@ -1062,7 +1062,7 @@
                             "readOnly": true,
                             "type": "string",
                             "x-ms-enum": {
-                              "modelAsString": false,
+                              "modelAsString": true,
                               "name": "ServiceProvisioningState"
                             }
                           },
@@ -1155,7 +1155,7 @@
         "x-ms-examples": {
           "Services_List": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
             },
             "responses": {
@@ -1281,7 +1281,7 @@
                             "readOnly": true,
                             "type": "string",
                             "x-ms-enum": {
-                              "modelAsString": false,
+                              "modelAsString": true,
                               "name": "ResourceSkuCapacityScaleType"
                             }
                           }
@@ -1355,7 +1355,7 @@
                               "readOnly": true,
                               "type": "string",
                               "x-ms-enum": {
-                                "modelAsString": false,
+                                "modelAsString": true,
                                 "name": "ResourceSkuRestrictionsReasonCode"
                               }
                             },
@@ -1367,7 +1367,7 @@
                               "readOnly": true,
                               "type": "string",
                               "x-ms-enum": {
-                                "modelAsString": false,
+                                "modelAsString": true,
                                 "name": "ResourceSkuRestrictionsType"
                               }
                             },
@@ -1443,7 +1443,7 @@
         "x-ms-examples": {
           "ListSkus": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "subscriptionId": "subid"
             },
             "responses": {
@@ -1608,7 +1608,7 @@
                             "readOnly": true,
                             "type": "string",
                             "x-ms-enum": {
-                              "modelAsString": false,
+                              "modelAsString": true,
                               "name": "ServiceProvisioningState"
                             }
                           },
@@ -1701,7 +1701,7 @@
         "x-ms-examples": {
           "Services_ListByResourceGroup": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
             },
@@ -1801,7 +1801,7 @@
         "x-ms-examples": {
           "Services_CreateOrUpdate": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "serviceName": "DmsSdkService",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
@@ -1907,7 +1907,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ServiceProvisioningState"
                       }
                     },
@@ -1995,7 +1995,7 @@
         "x-ms-examples": {
           "Services_CreateOrUpdate": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "serviceName": "DmsSdkService",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
@@ -2133,7 +2133,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ServiceProvisioningState"
                       }
                     },
@@ -2224,7 +2224,7 @@
         "x-ms-examples": {
           "Services_CreateOrUpdate": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "parameters": {
                 "properties": {
@@ -2354,7 +2354,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ServiceProvisioningState"
                       }
                     },
@@ -2488,7 +2488,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ServiceProvisioningState"
                       }
                     },
@@ -2579,7 +2579,7 @@
         "x-ms-examples": {
           "Services_CreateOrUpdate": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "parameters": {
                 "location": "southcentralus",
@@ -2680,7 +2680,7 @@
                   ],
                   "type": "string",
                   "x-ms-enum": {
-                    "modelAsString": false,
+                    "modelAsString": true,
                     "name": "NameCheckFailureReason"
                   }
                 }
@@ -2727,7 +2727,7 @@
         "x-ms-examples": {
           "Services_CheckChildrenNameAvailability": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "parameters": {
                 "requestedName": {
@@ -2837,7 +2837,7 @@
         "x-ms-examples": {
           "Services_CheckStatus": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "serviceName": "DmsSdkService",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
@@ -2852,10 +2852,14 @@
                     "diagnostic.echo",
                     "diagnostic.error",
                     "diagnostic.fastCount",
+                    "DataMigration.CompleteAzureSqlDbMIMigration",
                     "ConnectToSource.SqlServer",
                     "GetUserTables.Sql",
+                    "ConnectToTarget.AzureSqlDbMI",
                     "ConnectToTarget.SqlDb",
-                    "Migrate.SqlServer.SqlDb"
+                    "Migrate.SqlServer.SqlDb",
+                    "Migrate.SqlServer.AzureSqlDbMI",
+                    "ValidateMigrationInput.SqlServer.AzureSqlDbMI"
                   ],
                   "vmSize": "Standard_A1_v2"
                 }
@@ -2986,7 +2990,7 @@
                             "readOnly": true,
                             "type": "string",
                             "x-ms-enum": {
-                              "modelAsString": false,
+                              "modelAsString": true,
                               "name": "ProjectProvisioningState"
                             }
                           },
@@ -3021,7 +3025,7 @@
                             ],
                             "type": "string",
                             "x-ms-enum": {
-                              "modelAsString": false,
+                              "modelAsString": true,
                               "name": "ProjectSourcePlatform"
                             }
                           },
@@ -3056,7 +3060,7 @@
                             ],
                             "type": "string",
                             "x-ms-enum": {
-                              "modelAsString": false,
+                              "modelAsString": true,
                               "name": "ProjectTargetPlatform"
                             }
                           }
@@ -3116,7 +3120,7 @@
         "x-ms-examples": {
           "Projects_List": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "serviceName": "DmsSdkService",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
@@ -3216,7 +3220,7 @@
         "x-ms-examples": {
           "Projects_Delete": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "projectName": "DmsSdkProject",
               "serviceName": "DmsSdkService",
@@ -3330,7 +3334,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectProvisioningState"
                       }
                     },
@@ -3365,7 +3369,7 @@
                       ],
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectSourcePlatform"
                       }
                     },
@@ -3400,7 +3404,7 @@
                       ],
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectTargetPlatform"
                       }
                     }
@@ -3455,7 +3459,7 @@
         "x-ms-examples": {
           "Projects_Get": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "projectName": "DmsSdkProject",
               "serviceName": "DmsSdkService",
@@ -3599,7 +3603,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectProvisioningState"
                       }
                     },
@@ -3634,7 +3638,7 @@
                       ],
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectSourcePlatform"
                       }
                     },
@@ -3669,7 +3673,7 @@
                       ],
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectTargetPlatform"
                       }
                     }
@@ -3724,7 +3728,7 @@
         "x-ms-examples": {
           "Projects_Update": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "parameters": {
                 "properties": {
@@ -3857,7 +3861,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectProvisioningState"
                       }
                     },
@@ -3892,7 +3896,7 @@
                       ],
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectSourcePlatform"
                       }
                     },
@@ -3927,7 +3931,7 @@
                       ],
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectTargetPlatform"
                       }
                     }
@@ -4035,7 +4039,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectProvisioningState"
                       }
                     },
@@ -4070,7 +4074,7 @@
                       ],
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectSourcePlatform"
                       }
                     },
@@ -4105,7 +4109,7 @@
                       ],
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "ProjectTargetPlatform"
                       }
                     }
@@ -4160,7 +4164,7 @@
         "x-ms-examples": {
           "Projects_CreateOrUpdate": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "parameters": {
                 "location": "southcentralus",
@@ -4318,7 +4322,7 @@
                             "readOnly": true,
                             "type": "string",
                             "x-ms-enum": {
-                              "modelAsString": false,
+                              "modelAsString": true,
                               "name": "TaskState"
                             }
                           },
@@ -4382,7 +4386,7 @@
         "x-ms-examples": {
           "Tasks_List": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "projectName": "DmsSdkProject",
               "serviceName": "DmsSdkService",
@@ -4479,7 +4483,7 @@
         "x-ms-examples": {
           "Tasks_Delete": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "projectName": "DmsSdkProject",
               "serviceName": "DmsSdkService",
@@ -4587,7 +4591,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "TaskState"
                       }
                     },
@@ -4646,7 +4650,7 @@
         "x-ms-examples": {
           "Tasks_Get": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "projectName": "DmsSdkProject",
               "serviceName": "DmsSdkService",
@@ -4786,7 +4790,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "TaskState"
                       }
                     },
@@ -4845,7 +4849,7 @@
         "x-ms-examples": {
           "Tasks_Update": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "parameters": {
                 "properties": {
@@ -4981,7 +4985,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "TaskState"
                       }
                     },
@@ -5077,7 +5081,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "TaskState"
                       }
                     },
@@ -5136,7 +5140,7 @@
         "x-ms-examples": {
           "Tasks_CreateOrUpdate": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "parameters": {
                 "properties": {
@@ -5311,7 +5315,7 @@
                       "readOnly": true,
                       "type": "string",
                       "x-ms-enum": {
-                        "modelAsString": false,
+                        "modelAsString": true,
                         "name": "TaskState"
                       }
                     },
@@ -5370,7 +5374,7 @@
         "x-ms-examples": {
           "Tasks_Cancel": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "projectName": "DmsSdkProject",
               "serviceName": "DmsSdkService",
@@ -5462,7 +5466,7 @@
                             ],
                             "type": "string",
                             "x-ms-enum": {
-                              "modelAsString": false,
+                              "modelAsString": true,
                               "name": "ServiceScalability"
                             }
                           }
@@ -5544,7 +5548,7 @@
         "x-ms-examples": {
           "Services_ListSkus": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "serviceName": "DmsSdkService",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
@@ -5637,7 +5641,7 @@
         "x-ms-examples": {
           "Services_Start": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "serviceName": "DmsSdkService",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
@@ -5720,7 +5724,7 @@
         "x-ms-examples": {
           "Services_Stop": {
             "parameters": {
-              "api-version": "2017-11-15-preview",
+              "api-version": "2018-03-15-preview",
               "groupName": "DmsSdkRg",
               "serviceName": "DmsSdkService",
               "subscriptionId": "fc04246f-04c5-437e-ac5e-206a19e7193f"
@@ -5740,11 +5744,6 @@
     }
   },
   "definitions": {
-    "ODataError": {
-      "type": "object"
-    },
-    "ODataErrror": {
-      "type": "object"
-    }
+    "ODataError": {}
   }
 }

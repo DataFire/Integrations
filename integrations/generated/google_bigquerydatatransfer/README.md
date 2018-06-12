@@ -15,7 +15,7 @@ let google_bigquerydatatransfer = require('@datafire/google_bigquerydatatransfer
   redirect_uri: ""
 });
 
-google_bigquerydatatransfer.projects.locations.transferConfigs.runs.delete({
+google_bigquerydatatransfer.projects.transferConfigs.runs.delete({
   "name": ""
 }).then(data => {
   console.log(data);
@@ -69,12 +69,12 @@ google_bigquerydatatransfer.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### projects.locations.transferConfigs.runs.delete
+### projects.transferConfigs.runs.delete
 Deletes the specified transfer run.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.transferConfigs.runs.delete({
+google_bigquerydatatransfer.projects.transferConfigs.runs.delete({
   "name": ""
 }, context)
 ```
@@ -99,12 +99,12 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.runs.delete({
 #### Output
 * output [Empty](#empty)
 
-### projects.locations.transferConfigs.runs.get
+### projects.transferConfigs.runs.get
 Returns information about the particular transfer run.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.transferConfigs.runs.get({
+google_bigquerydatatransfer.projects.transferConfigs.runs.get({
   "name": ""
 }, context)
 ```
@@ -129,13 +129,13 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.runs.get({
 #### Output
 * output [TransferRun](#transferrun)
 
-### projects.locations.transferConfigs.patch
+### projects.transferConfigs.patch
 Updates a data transfer configuration.
 All fields must be set, even if they are not updated.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.transferConfigs.patch({
+google_bigquerydatatransfer.projects.transferConfigs.patch({
   "name": ""
 }, context)
 ```
@@ -196,7 +196,7 @@ google_bigquerydatatransfer.projects.locations.list({
 #### Output
 * output [ListLocationsResponse](#listlocationsresponse)
 
-### projects.locations.dataSources.checkValidCreds
+### projects.dataSources.checkValidCreds
 Returns true if valid credentials exist for the given data source and
 requesting user.
 Some data sources doesn't support service account, so we need to talk to
@@ -206,7 +206,7 @@ create a transfer config.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.dataSources.checkValidCreds({
+google_bigquerydatatransfer.projects.dataSources.checkValidCreds({
   "name": ""
 }, context)
 ```
@@ -232,13 +232,13 @@ google_bigquerydatatransfer.projects.locations.dataSources.checkValidCreds({
 #### Output
 * output [CheckValidCredsResponse](#checkvalidcredsresponse)
 
-### projects.locations.dataSources.list
+### projects.dataSources.list
 Lists supported data sources and returns their settings,
 which can be used for UI rendering.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.dataSources.list({
+google_bigquerydatatransfer.projects.dataSources.list({
   "parent": ""
 }, context)
 ```
@@ -265,12 +265,12 @@ google_bigquerydatatransfer.projects.locations.dataSources.list({
 #### Output
 * output [ListDataSourcesResponse](#listdatasourcesresponse)
 
-### projects.locations.transferConfigs.runs.list
+### projects.transferConfigs.runs.list
 Returns information about running and completed jobs.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.transferConfigs.runs.list({
+google_bigquerydatatransfer.projects.transferConfigs.runs.list({
   "parent": ""
 }, context)
 ```
@@ -299,12 +299,12 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.runs.list({
 #### Output
 * output [ListTransferRunsResponse](#listtransferrunsresponse)
 
-### projects.locations.transferConfigs.list
+### projects.transferConfigs.list
 Returns information about all data transfers in the project.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.transferConfigs.list({
+google_bigquerydatatransfer.projects.transferConfigs.list({
   "parent": ""
 }, context)
 ```
@@ -332,12 +332,12 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.list({
 #### Output
 * output [ListTransferConfigsResponse](#listtransferconfigsresponse)
 
-### projects.locations.transferConfigs.create
+### projects.transferConfigs.create
 Creates a new data transfer configuration.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.transferConfigs.create({
+google_bigquerydatatransfer.projects.transferConfigs.create({
   "parent": ""
 }, context)
 ```
@@ -364,12 +364,12 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.create({
 #### Output
 * output [TransferConfig](#transferconfig)
 
-### projects.locations.transferConfigs.runs.transferLogs.list
+### projects.transferConfigs.runs.transferLogs.list
 Returns user facing log messages for the data transfer run.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.transferConfigs.runs.transferLogs.list({
+google_bigquerydatatransfer.projects.transferConfigs.runs.transferLogs.list({
   "parent": ""
 }, context)
 ```
@@ -397,7 +397,7 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.runs.transferLogs
 #### Output
 * output [ListTransferLogsResponse](#listtransferlogsresponse)
 
-### projects.locations.transferConfigs.scheduleRuns
+### projects.transferConfigs.scheduleRuns
 Creates transfer runs for a time range [start_time, end_time].
 For each date - or whatever granularity the data source supports - in the
 range, one transfer run is created.
@@ -405,7 +405,7 @@ Note that runs are created per UTC time in the time range.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
+google_bigquerydatatransfer.projects.transferConfigs.scheduleRuns({
   "parent": ""
 }, context)
 ```
@@ -455,14 +455,14 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
   * helpUrl `string`: Url for the help document for this data source.
   * manualRunsDisabled `boolean`: Disables backfilling and manual run scheduling
   * minimumScheduleInterval `string`: The minimum interval for scheduler to schedule runs.
-  * name `string`: Data source resource name.
+  * name `string`: Output only. Data source resource name.
   * parameters `array`: Data source parameters.
     * items [DataSourceParameter](#datasourceparameter)
   * scopes `array`: Api auth scopes for which refresh token needs to be obtained. Only valid
     * items `string`
   * supportsCustomSchedule `boolean`: Specifies whether the data source supports a user defined schedule, or
-  * supportsMultipleTransfers `boolean`: Indicates whether the data source supports multiple transfers
-  * transferType `string` (values: TRANSFER_TYPE_UNSPECIFIED, BATCH, STREAMING): Transfer type. Currently supports only batch transfers,
+  * supportsMultipleTransfers `boolean`: Deprecated. This field has no effect.
+  * transferType `string` (values: TRANSFER_TYPE_UNSPECIFIED, BATCH, STREAMING): Deprecated. This field has no effect.
   * updateDeadlineSeconds `integer`: The number of seconds to wait for an update from the data source
 
 ### DataSourceParameter
@@ -471,14 +471,14 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
     * items `string`
   * description `string`: Parameter description.
   * displayName `string`: Parameter display name in the user interface.
-  * fields `array`: When parameter is a record, describes child fields.
+  * fields `array`: Deprecated. This field has no effect.
     * items [DataSourceParameter](#datasourceparameter)
   * immutable `boolean`: Cannot be changed after initial creation.
   * maxValue `number`: For integer and double values specifies maxminum allowed value.
   * minValue `number`: For integer and double values specifies minimum allowed value.
   * paramId `string`: Parameter identifier.
-  * recurse `boolean`: If set to true, schema should be taken from the parent with the same
-  * repeated `boolean`: Can parameter have multiple values.
+  * recurse `boolean`: Deprecated. This field has no effect.
+  * repeated `boolean`: Deprecated. This field has no effect.
   * required `boolean`: Is parameter required.
   * type `string` (values: TYPE_UNSPECIFIED, STRING, INTEGER, DOUBLE, BOOLEAN, RECORD, PLUS_PAGE): Parameter type.
   * validationDescription `string`: Description of the requirements for this field, in case the user input does
@@ -520,6 +520,7 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
 
 ### Location
 * Location `object`: A resource that represents Google Cloud Platform location.
+  * displayName `string`: The friendly name for this location, typically a nearby city name.
   * labels `object`: Cross-service attributes for the location. For example
   * locationId `string`: The canonical id for this location. For example: `"us-east1"`.
   * metadata `object`: Service-specific metadata. For example the available capacity at the given

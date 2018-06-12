@@ -1,6 +1,6 @@
 # @datafire/google_cloudfunctions
 
-Client library for Google Cloud Functions
+Client library for Cloud Functions
 
 ## Installation and Usage
 ```bash
@@ -22,7 +22,7 @@ google_cloudfunctions.operations.list({}).then(data => {
 
 ## Description
 
-API for managing lightweight user-provided functions executed in response to events.
+Manages lightweight user-provided functions executed in response to events.
 
 ## Actions
 
@@ -172,21 +172,19 @@ google_cloudfunctions.projects.locations.functions.delete({
 #### Output
 * output [Operation](#operation)
 
-### operations.get
-Gets the latest state of a long-running operation.  Clients can use this
-method to poll the operation result at intervals as recommended by the API
-service.
+### projects.locations.functions.get
+Returns a function with the given name from the requested project.
 
 
 ```js
-google_cloudfunctions.operations.get({
+google_cloudfunctions.projects.locations.functions.get({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: The name of the operation resource.
+  * name **required** `string`: The name of the function which details should be obtained.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -202,7 +200,7 @@ google_cloudfunctions.operations.get({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [Operation](#operation)
+* output [CloudFunction](#cloudfunction)
 
 ### projects.locations.functions.patch
 Updates existing function.
@@ -385,7 +383,7 @@ these restrictions:
 When making a HTTP PUT request, these two headers need to be specified:
 
 * `content-type: application/zip`
-* `x-google-content-length-range: 0,104857600`
+* `x-goog-content-length-range: 0,104857600`
 
 
 ```js
@@ -438,6 +436,7 @@ google_cloudfunctions.projects.locations.functions.generateUploadUrl({
   * httpsTrigger [HttpsTrigger](#httpstrigger)
   * labels `object`: Labels associated with this Cloud Function.
   * name `string`: A user-defined name of the function. Function names must be unique
+  * runtime `string`: The runtime in which the function is going to run. If empty, defaults to
   * serviceAccountEmail `string`: Output only. The email of the function's service account.
   * sourceArchiveUrl `string`: The Google Cloud Storage URL, starting with gs://, pointing to the zip
   * sourceRepository [SourceRepository](#sourcerepository)
@@ -497,6 +496,7 @@ google_cloudfunctions.projects.locations.functions.generateUploadUrl({
 
 ### Location
 * Location `object`: A resource that represents Google Cloud Platform location.
+  * displayName `string`: The friendly name for this location, typically a nearby city name.
   * labels `object`: Cross-service attributes for the location. For example
   * locationId `string`: The canonical id for this location. For example: `"us-east1"`.
   * metadata `object`: Service-specific metadata. For example the available capacity at the given

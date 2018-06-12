@@ -7,7 +7,7 @@
   "info": {
     "description": "The Run Commands Client.",
     "title": "RunCommandsClient",
-    "version": "2017-03-30",
+    "version": "2017-12-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/compute/resource-manager/Microsoft.Compute/stable/2017-03-30/runCommands.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/compute/resource-manager/Microsoft.Compute/stable/2017-12-01/runCommands.json",
         "version": "2.0"
       }
     ],
@@ -110,7 +110,7 @@
         "x-ms-examples": {
           "VirtualMachineRunCommandList": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "location": "SoutheastAsia",
               "subscriptionId": "subid"
             },
@@ -119,46 +119,74 @@
                 "body": {
                   "value": [
                     {
-                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
-                      "description": "Configure the machine to enable remote powershell.",
+                      "description": "Configure the machine to enable remote PowerShell.",
                       "id": "EnableRemotePS",
                       "label": "Enable remote PowerShell",
-                      "osType": "Windows"
+                      "osType": "Windows",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
                     },
                     {
-                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
-                      "description": "List detailed information for the RDP settings: port number, domain profile, etc. and optionally reset the RDP.",
-                      "id": "GetRDP",
-                      "label": "RDP configuration",
-                      "osType": "Windows"
-                    },
-                    {
-                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP.",
                       "id": "IPConfig",
                       "label": "List IP configuration",
-                      "osType": "Windows"
+                      "osType": "Windows",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
                     },
                     {
-                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
-                      "description": "Executes a custom PowerShell script with optional parameters.",
-                      "id": "PowerShellScript",
+                      "description": "Custom multiline PowerShell script should be defined in script property. Optional parameters can be set in parameters property.",
+                      "id": "RunPowerShellScript",
                       "label": "Executes a PowerShell script",
-                      "osType": "Windows"
+                      "osType": "Windows",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
                     },
                     {
-                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
-                      "description": "Executes a custom script with optional parameters.",
-                      "id": "CustomScriptForLinux",
+                      "description": "Custom multiline shell script should be defined in script property. Optional parameters can be set in parameters property.",
+                      "id": "RunShellScript",
                       "label": "Executes a Linux shell script",
-                      "osType": "Linux"
+                      "osType": "Linux",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
                     },
                     {
-                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Get the configuration of all network interfaces.",
                       "id": "ifconfig",
                       "label": "List network configuration",
-                      "osType": "Linux"
+                      "osType": "Linux",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                    },
+                    {
+                      "description": "Checks if the local Administrator account is disabled, and if so enables it.",
+                      "id": "EnableAdminAccount",
+                      "label": "Enable administrator account",
+                      "osType": "Windows",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                    },
+                    {
+                      "description": "Reset built-in Administrator account password.",
+                      "id": "ResetAccountPassword",
+                      "label": "Reset built-in Administrator account password",
+                      "osType": "Windows",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                    },
+                    {
+                      "description": "Checks registry settings and domain policy settings. Suggests policy actions if machine is part of a domain or modifies the settings to default values.",
+                      "id": "RDPSettings",
+                      "label": "Verify RDP Listener Settings",
+                      "osType": "Windows",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                    },
+                    {
+                      "description": "Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port.",
+                      "id": "SetRDPPort",
+                      "label": "Set Remote Desktop port",
+                      "osType": "Windows",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                    },
+                    {
+                      "description": "Removes the SSL certificate tied to the RDP listener and restores the RDP listerner security to default. Use this script if you see any issues with the certificate.",
+                      "id": "ResetRDPCert",
+                      "label": "Restore RDP Authentication mode to defaults",
+                      "osType": "Windows",
+                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
                     }
                   ]
                 }
@@ -212,8 +240,8 @@
         "x-ms-examples": {
           "VirtualMachineRunCommandGet": {
             "parameters": {
-              "api-version": "2017-03-30",
-              "commandId": "PowerShellScript",
+              "api-version": "2017-12-01",
+              "commandId": "RunPowerShellScript",
               "location": "SoutheastAsia",
               "subscriptionId": "24fb23e3-6ba3-41f0-9b6e-e41131d5d61e"
             },
@@ -221,29 +249,28 @@
               "200": {
                 "body": {
                   "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
-                  "description": "Executes a custom PowerShell script with optional parameters.",
-                  "id": "PowerShellScript",
+                  "description": "Custom multiline PowerShell script should be defined in script property. Optional parameters can be set in parameters property.",
+                  "id": "RunPowerShellScript",
                   "label": "Executes a PowerShell script",
                   "osType": "Windows",
                   "parameters": [
                     {
-                      "name": "customScript",
-                      "required": true,
-                      "type": "string"
+                      "name": "arg1",
+                      "type": "string",
+                      "value": "value1"
                     },
                     {
-                      "name": "customParameters",
-                      "required": false,
-                      "type": "string"
+                      "name": "arg2",
+                      "type": "string",
+                      "value": "value2"
                     }
                   ],
                   "script": [
                     "param(",
-                    "  [string]$customScript,",
-                    "  [string]$customParameters",
+                    "    [string]$arg1,",
+                    "    [string]$arg2",
                     ")",
-                    "$scriptBlock = [Scriptblock]::Create(\".{$customScript} $(&{$args} $customParameters)\")",
-                    "Invoke-Command $scriptBlock"
+                    "Write-Host This is a sample script with parameters $arg1 $arg2"
                   ]
                 }
               }
@@ -305,10 +332,10 @@
           "VirtualMachineRunCommand": {
             "parameters": {
               "$top": "1",
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "monitor": "true",
               "parameters": {
-                "commandId": "ipconfig"
+                "commandId": "RunPowerShellScript"
               },
               "resourceGroupName": "crptestar98131",
               "subscriptionId": "24fb23e3-6ba3-41f0-9b6e-e41131d5d61e",
@@ -331,7 +358,7 @@
                         "code": "ComponentStatus/StdErr/succeeded",
                         "displayStatus": "Provisioning succeeded",
                         "level": "Info",
-                        "message": "#< CLIXML \n<Objs Version=\"1.1.0.1\" xmlns=\"http://schemas.microsoft.com/powershell/2004/04\"><Obj S=\"progress\" RefId=\"0\"><TN RefId=\"0\"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"1\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">2</I64><PR N=\"Record\"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"2\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">3</I64><PR N=\"Record\"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>"
+                        "message": ""
                       }
                     ]
                   },

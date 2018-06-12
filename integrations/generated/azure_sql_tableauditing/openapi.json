@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/tableAuditing.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/tableAuditing.json",
         "version": "2.0"
       }
     ],
@@ -167,6 +167,7 @@
                   "value": [
                     {
                       "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-6852/providers/Microsoft.Sql/servers/blobauditingtest-2080/databases/testdb/auditingPolicies/Default",
+                      "kind": null,
                       "location": "West US",
                       "name": "Default",
                       "properties": {
@@ -174,7 +175,13 @@
                         "auditingState": "New",
                         "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
                         "fullAuditLogsTableName": "SQLDBAuditLogsBlobauditingtest2080",
-                        "retentionDays": "0"
+                        "retentionDays": "0",
+                        "storageAccountKey": null,
+                        "storageAccountName": null,
+                        "storageAccountResourceGroupName": null,
+                        "storageAccountSecondaryKey": null,
+                        "storageAccountSubscriptionId": null,
+                        "storageTableEndpoint": null
                       },
                       "type": "Microsoft.Sql/servers/databases/auditingPolicies"
                     }
@@ -232,6 +239,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-6852/providers/Microsoft.Sql/servers/blobauditingtest-2080/databases/testdb/auditingPolicies/Default",
+                  "kind": null,
                   "location": "West US",
                   "name": "Default",
                   "properties": {
@@ -239,7 +247,13 @@
                     "auditingState": "New",
                     "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
                     "fullAuditLogsTableName": "SQLDBAuditLogsBlobauditingtest2080",
-                    "retentionDays": "0"
+                    "retentionDays": "0",
+                    "storageAccountKey": null,
+                    "storageAccountName": null,
+                    "storageAccountResourceGroupName": null,
+                    "storageAccountSecondaryKey": null,
+                    "storageAccountSubscriptionId": null,
+                    "storageTableEndpoint": null
                   },
                   "type": "Microsoft.Sql/servers/databases/auditingPolicies"
                 }
@@ -309,6 +323,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-6852/providers/Microsoft.Sql/servers/blobauditingtest-2080/databases/testdb/auditingPolicies/Default",
+                  "kind": null,
                   "location": "West US",
                   "name": "Default",
                   "properties": {
@@ -316,7 +331,13 @@
                     "auditingState": "New",
                     "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
                     "fullAuditLogsTableName": "SQLDBAuditLogsBlobauditingtest2080",
-                    "retentionDays": "0"
+                    "retentionDays": "0",
+                    "storageAccountKey": null,
+                    "storageAccountName": null,
+                    "storageAccountResourceGroupName": null,
+                    "storageAccountSecondaryKey": null,
+                    "storageAccountSubscriptionId": null,
+                    "storageTableEndpoint": null
                   },
                   "type": "Microsoft.Sql/servers/databases/auditingPolicies"
                 }
@@ -377,6 +398,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-6852/providers/Microsoft.Sql/servers/blobauditingtest-2080/databases/testdb/auditingPolicies/Default",
+                  "kind": null,
                   "location": "West US",
                   "name": "Default",
                   "properties": {
@@ -385,6 +407,12 @@
                     "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
                     "fullAuditLogsTableName": "SQLDBAuditLogsBlobauditingtest2080Testdb",
                     "retentionDays": "0",
+                    "storageAccountKey": null,
+                    "storageAccountName": null,
+                    "storageAccountResourceGroupName": null,
+                    "storageAccountSecondaryKey": null,
+                    "storageAccountSubscriptionId": null,
+                    "storageTableEndpoint": null,
                     "useServerDefault": "Enabled"
                   },
                   "type": "Microsoft.Sql/servers/databases/auditingPolicies"
@@ -449,6 +477,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-6852/providers/Microsoft.Sql/servers/blobauditingtest-2080/databases/testdb/auditingPolicies/Default",
+                  "kind": null,
                   "location": "West US",
                   "name": "Default",
                   "properties": {
@@ -457,6 +486,12 @@
                     "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
                     "fullAuditLogsTableName": "SQLDBAuditLogsBlobauditingtest2080Testdb",
                     "retentionDays": "0",
+                    "storageAccountKey": null,
+                    "storageAccountName": null,
+                    "storageAccountResourceGroupName": null,
+                    "storageAccountSecondaryKey": null,
+                    "storageAccountSubscriptionId": null,
+                    "storageTableEndpoint": null,
                     "useServerDefault": "Enabled"
                   },
                   "type": "Microsoft.Sql/servers/databases/auditingPolicies"
@@ -535,6 +570,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-6852/providers/Microsoft.Sql/servers/blobauditingtest-2080/databases/testdb/auditingPolicies/Default",
+                  "kind": null,
                   "location": "West US",
                   "name": "Default",
                   "properties": {
@@ -543,6 +579,12 @@
                     "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
                     "fullAuditLogsTableName": "SQLDBAuditLogsBlobauditingtest2080Testdb",
                     "retentionDays": "0",
+                    "storageAccountKey": null,
+                    "storageAccountName": null,
+                    "storageAccountResourceGroupName": null,
+                    "storageAccountSecondaryKey": null,
+                    "storageAccountSubscriptionId": null,
+                    "storageTableEndpoint": null,
                     "useServerDefault": "Enabled"
                   },
                   "type": "Microsoft.Sql/servers/databases/auditingPolicies"
@@ -607,6 +649,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-6852/providers/Microsoft.Sql/servers/blobauditingtest-2080/databases/testdb/connectionPolicies/default",
+                  "kind": null,
                   "location": "West US",
                   "name": "default",
                   "properties": {
@@ -694,6 +737,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-6852/providers/Microsoft.Sql/servers/blobauditingtest-2080/databases/testdb/connectionPolicies/default",
+                  "kind": null,
                   "location": "West US",
                   "name": "default",
                   "properties": {
@@ -718,7 +762,33 @@
     "DatabaseConnectionPolicy": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "A database connection policy.",
@@ -778,7 +848,33 @@
     "DatabaseTableAuditingPolicy": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "A database table auditing policy.",
@@ -830,42 +926,36 @@
         }
       }
     },
-    "ProxyResource": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "ARM proxy resource.",
-      "properties": {},
-      "type": "object"
-    },
-    "Resource": {
-      "description": "ARM resource.",
-      "properties": {
-        "id": {
-          "description": "Resource ID.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "name": {
-          "description": "Resource name.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "type": {
-          "description": "Resource type.",
-          "readOnly": true,
-          "type": "string"
-        }
-      },
-      "type": "object",
-      "x-ms-azure-resource": true
-    },
     "ServerTableAuditingPolicy": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "A server table auditing policy.",

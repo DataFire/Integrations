@@ -423,6 +423,23 @@ amazonaws_servicecatalog.DeleteProvisioningArtifact({
 #### Output
 * output [DeleteProvisioningArtifactOutput](#deleteprovisioningartifactoutput)
 
+### DeleteTagOption
+
+
+
+```js
+amazonaws_servicecatalog.DeleteTagOption({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** [TagOptionId](#tagoptionid)
+
+#### Output
+* output [DeleteTagOptionOutput](#deletetagoptionoutput)
+
 ### DescribeConstraint
 
 
@@ -742,6 +759,7 @@ amazonaws_servicecatalog.ListAcceptedPortfolioShares({}, context)
   * AcceptLanguage [AcceptLanguage](#acceptlanguage)
   * PageSize [PageSize](#pagesize)
   * PageToken [PageToken](#pagetoken)
+  * PortfolioShareType [PortfolioShareType](#portfoliosharetype)
 
 #### Output
 * output [ListAcceptedPortfolioSharesOutput](#listacceptedportfoliosharesoutput)
@@ -1570,6 +1588,13 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### DeleteProvisioningArtifactOutput
 * DeleteProvisioningArtifactOutput `object`
 
+### DeleteTagOptionInput
+* DeleteTagOptionInput `object`
+  * Id **required** [TagOptionId](#tagoptionid)
+
+### DeleteTagOptionOutput
+* DeleteTagOptionOutput `object`
+
 ### DescribeConstraintInput
 * DescribeConstraintInput `object`
   * AcceptLanguage [AcceptLanguage](#acceptlanguage)
@@ -1803,6 +1828,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * AcceptLanguage [AcceptLanguage](#acceptlanguage)
   * PageSize [PageSize](#pagesize)
   * PageToken [PageToken](#pagetoken)
+  * PortfolioShareType [PortfolioShareType](#portfoliosharetype)
 
 ### ListAcceptedPortfolioSharesOutput
 * ListAcceptedPortfolioSharesOutput `object`
@@ -2017,6 +2043,9 @@ amazonaws_servicecatalog.UpdateTagOption({
 
 ### PortfolioName
 * PortfolioName `string`
+
+### PortfolioShareType
+* PortfolioShareType `string` (values: IMPORTED, AWS_SERVICECATALOG)
 
 ### Principal
 * Principal `object`: Information about a principal.

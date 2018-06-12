@@ -12,7 +12,7 @@ let haloapi_ugc = require('@datafire/haloapi_ugc').create({
   apiKeyQuery: ""
 });
 
-haloapi_ugc.h5.players.player.gamevariants.get({
+haloapi_ugc.58acde292109180bdcacc40d({
   "player": ""
 }).then(data => {
   console.log(data);
@@ -25,7 +25,7 @@ API that provides Metadata about User-Generated Content (Maps and Game Variants)
 
 ## Actions
 
-### h5.players.player.gamevariants.get
+### 58acde292109180bdcacc40d
 <p>Retrieves a list of Game Variants created by a Player.</p>
 <br />
 <h4>Changelog</h4>
@@ -46,7 +46,7 @@ API that provides Metadata about User-Generated Content (Maps and Game Variants)
 
 
 ```js
-haloapi_ugc.h5.players.player.gamevariants.get({
+haloapi_ugc.58acde292109180bdcacc40d({
   "player": ""
 }, context)
 ```
@@ -62,7 +62,7 @@ haloapi_ugc.h5.players.player.gamevariants.get({
 #### Output
 *Output schema unknown*
 
-### h5.players.player.gamevariants.variant.get
+### 58acde292109180bdcacc40c
 <p>Retrieves Metadata about a Player-created Game Variant.</p>
 <br />
 <h4>Changelog</h4>
@@ -83,7 +83,7 @@ haloapi_ugc.h5.players.player.gamevariants.get({
 
 
 ```js
-haloapi_ugc.h5.players.player.gamevariants.variant.get({
+haloapi_ugc.58acde292109180bdcacc40c({
   "player": "",
   "variant": ""
 }, context)
@@ -97,7 +97,7 @@ haloapi_ugc.h5.players.player.gamevariants.variant.get({
 #### Output
 *Output schema unknown*
 
-### h5.players.player.mapvariants.get
+### 58acde292109180bdcacc40f
 <p>Retrieves a list Map Variants created by a Player.</p>
 <br />
 <h4>Changelog</h4>
@@ -118,7 +118,7 @@ haloapi_ugc.h5.players.player.gamevariants.variant.get({
 
 
 ```js
-haloapi_ugc.h5.players.player.mapvariants.get({
+haloapi_ugc.58acde292109180bdcacc40f({
   "player": ""
 }, context)
 ```
@@ -134,7 +134,7 @@ haloapi_ugc.h5.players.player.mapvariants.get({
 #### Output
 *Output schema unknown*
 
-### h5.players.player.mapvariants.variant.get
+### 58acde292109180bdcacc40e
 <p>Retrieves Metadata about a Player-created Map Variant.</p>
 <br />
 <h4>Changelog</h4>
@@ -155,7 +155,7 @@ haloapi_ugc.h5.players.player.mapvariants.get({
 
 
 ```js
-haloapi_ugc.h5.players.player.mapvariants.variant.get({
+haloapi_ugc.58acde292109180bdcacc40e({
   "player": "",
   "variant": ""
 }, context)

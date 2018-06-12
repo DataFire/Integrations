@@ -408,6 +408,27 @@ amazonaws_clouddirectory.ListObjectAttributes({
 #### Output
 * output [ListObjectAttributesResponse](#listobjectattributesresponse)
 
+### GetObjectAttributes
+
+
+
+```js
+amazonaws_clouddirectory.GetObjectAttributes({
+  "ObjectReference": {},
+  "SchemaFacet": {},
+  "AttributeNames": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeNames **required** [AttributeNameList](#attributenamelist)
+  * ObjectReference **required** [ObjectReference](#objectreference)
+  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+
+#### Output
+* output [GetObjectAttributesResponse](#getobjectattributesresponse)
+
 ### ListObjectChildren
 
 
@@ -1022,6 +1043,61 @@ amazonaws_clouddirectory.AttachTypedLink({
 #### Output
 * output [AttachTypedLinkResponse](#attachtypedlinkresponse)
 
+### GetLinkAttributes
+
+
+
+```js
+amazonaws_clouddirectory.GetLinkAttributes({
+  "TypedLinkSpecifier": {
+    "TypedLinkFacet": {
+      "SchemaArn": "",
+      "TypedLinkName": ""
+    },
+    "SourceObjectReference": {},
+    "TargetObjectReference": {},
+    "IdentityAttributeValues": []
+  },
+  "AttributeNames": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeNames **required** [AttributeNameList](#attributenamelist)
+  * ConsistencyLevel [ConsistencyLevel](#consistencylevel)
+  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+
+#### Output
+* output [GetLinkAttributesResponse](#getlinkattributesresponse)
+
+### UpdateLinkAttributes
+
+
+
+```js
+amazonaws_clouddirectory.UpdateLinkAttributes({
+  "TypedLinkSpecifier": {
+    "TypedLinkFacet": {
+      "SchemaArn": "",
+      "TypedLinkName": ""
+    },
+    "SourceObjectReference": {},
+    "TargetObjectReference": {},
+    "IdentityAttributeValues": []
+  },
+  "AttributeUpdates": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeUpdates **required** [LinkAttributeUpdateList](#linkattributeupdatelist)
+  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+
+#### Output
+* output [UpdateLinkAttributesResponse](#updatelinkattributesresponse)
+
 ### DetachTypedLink
 
 
@@ -1373,10 +1449,10 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchCreateObject
 * BatchCreateObject `object`: Represents the output of a <a>CreateObject</a> operation.
-  * BatchReferenceName **required** [BatchReferenceName](#batchreferencename)
-  * LinkName **required** [LinkName](#linkname)
+  * BatchReferenceName [BatchReferenceName](#batchreferencename)
+  * LinkName [LinkName](#linkname)
   * ObjectAttributeList **required** [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * ParentReference **required** [ObjectReference](#objectreference)
+  * ParentReference [ObjectReference](#objectreference)
   * SchemaFacet **required** [SchemaFacetList](#schemafacetlist)
 
 ### BatchCreateObjectResponse
@@ -1401,7 +1477,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchDetachObject
 * BatchDetachObject `object`: Represents the output of a <a>DetachObject</a> operation.
-  * BatchReferenceName **required** [BatchReferenceName](#batchreferencename)
+  * BatchReferenceName [BatchReferenceName](#batchreferencename)
   * LinkName **required** [LinkName](#linkname)
   * ParentReference **required** [ObjectReference](#objectreference)
 
@@ -1423,6 +1499,25 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchDetachTypedLinkResponse
 * BatchDetachTypedLinkResponse `object`: Represents the output of a <a>DetachTypedLink</a> response operation.
+
+### BatchGetLinkAttributes
+* BatchGetLinkAttributes `object`: Retrieves attributes that are associated with a typed link inside a <a>BatchRead</a> operation. For more information, see <a>GetLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.
+  * AttributeNames **required** [AttributeNameList](#attributenamelist)
+  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+
+### BatchGetLinkAttributesResponse
+* BatchGetLinkAttributesResponse `object`: Represents the output of a <a>GetLinkAttributes</a> response operation.
+  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
+
+### BatchGetObjectAttributes
+* BatchGetObjectAttributes `object`: Retrieves attributes within a facet that are associated with an object inside an <a>BatchRead</a> operation. For more information, see <a>GetObjectAttributes</a> and <a>BatchReadRequest$Operations</a>.
+  * AttributeNames **required** [AttributeNameList](#attributenamelist)
+  * ObjectReference **required** [ObjectReference](#objectreference)
+  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+
+### BatchGetObjectAttributesResponse
+* BatchGetObjectAttributesResponse `object`: Represents the output of a <a>GetObjectAttributes</a> response operation.
+  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
 
 ### BatchGetObjectInformation
 * BatchGetObjectInformation `object`: Retrieves metadata about an object inside a <a>BatchRead</a> operation. For more information, see <a>GetObjectInformation</a> and <a>BatchReadRequest$Operations</a>.
@@ -1562,6 +1657,8 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchReadOperation
 * BatchReadOperation `object`: Represents the output of a <code>BatchRead</code> operation.
+  * GetLinkAttributes [BatchGetLinkAttributes](#batchgetlinkattributes)
+  * GetObjectAttributes [BatchGetObjectAttributes](#batchgetobjectattributes)
   * GetObjectInformation [BatchGetObjectInformation](#batchgetobjectinformation)
   * ListAttachedIndices [BatchListAttachedIndices](#batchlistattachedindices)
   * ListIncomingTypedLinks [BatchListIncomingTypedLinks](#batchlistincomingtypedlinks)
@@ -1597,6 +1694,8 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchReadSuccessfulResponse
 * BatchReadSuccessfulResponse `object`: Represents the output of a <code>BatchRead</code> success response operation.
+  * GetLinkAttributes [BatchGetLinkAttributesResponse](#batchgetlinkattributesresponse)
+  * GetObjectAttributes [BatchGetObjectAttributesResponse](#batchgetobjectattributesresponse)
   * GetObjectInformation [BatchGetObjectInformationResponse](#batchgetobjectinformationresponse)
   * ListAttachedIndices [BatchListAttachedIndicesResponse](#batchlistattachedindicesresponse)
   * ListIncomingTypedLinks [BatchListIncomingTypedLinksResponse](#batchlistincomingtypedlinksresponse)
@@ -1620,6 +1719,14 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 ### BatchRemoveFacetFromObjectResponse
 * BatchRemoveFacetFromObjectResponse `object`: An empty result that represents success.
 
+### BatchUpdateLinkAttributes
+* BatchUpdateLinkAttributes `object`: Updates a given typed link’s attributes inside a <a>BatchRead</a> operation. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>. For more information, see <a>UpdateLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.
+  * AttributeUpdates **required** [LinkAttributeUpdateList](#linkattributeupdatelist)
+  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+
+### BatchUpdateLinkAttributesResponse
+* BatchUpdateLinkAttributesResponse `object`: Represents the output of a <a>UpdateLinkAttributes</a> response operation.
+
 ### BatchUpdateObjectAttributes
 * BatchUpdateObjectAttributes `object`: Represents the output of a <code>BatchUpdate</code> operation. 
   * AttributeUpdates **required** [ObjectAttributeUpdateList](#objectattributeupdatelist)
@@ -1636,7 +1743,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
   * Type [BatchWriteExceptionType](#batchwriteexceptiontype)
 
 ### BatchWriteExceptionType
-* BatchWriteExceptionType `string` (values: InternalServiceException, ValidationException, InvalidArnException, LinkNameAlreadyInUseException, StillContainsLinksException, FacetValidationException, ObjectNotDetachedException, ResourceNotFoundException, AccessDeniedException, InvalidAttachmentException, NotIndexException, IndexedAttributeMissingException, ObjectAlreadyDetachedException, NotPolicyException, DirectoryNotEnabledException, LimitExceededException, UnsupportedIndexTypeException)
+* BatchWriteExceptionType `string` (values: InternalServiceException, ValidationException, InvalidArnException, LinkNameAlreadyInUseException, StillContainsLinksException, FacetValidationException, ObjectNotDetachedException, ResourceNotFoundException, AccessDeniedException, InvalidAttachmentException, NotIndexException, NotNodeException, IndexedAttributeMissingException, ObjectAlreadyDetachedException, NotPolicyException, DirectoryNotEnabledException, LimitExceededException, UnsupportedIndexTypeException)
 
 ### BatchWriteOperation
 * BatchWriteOperation `object`: Represents the output of a <code>BatchWrite</code> operation. 
@@ -1653,6 +1760,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
   * DetachPolicy [BatchDetachPolicy](#batchdetachpolicy)
   * DetachTypedLink [BatchDetachTypedLink](#batchdetachtypedlink)
   * RemoveFacetFromObject [BatchRemoveFacetFromObject](#batchremovefacetfromobject)
+  * UpdateLinkAttributes [BatchUpdateLinkAttributes](#batchupdatelinkattributes)
   * UpdateObjectAttributes [BatchUpdateObjectAttributes](#batchupdateobjectattributes)
 
 ### BatchWriteOperationList
@@ -1674,6 +1782,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
   * DetachPolicy [BatchDetachPolicyResponse](#batchdetachpolicyresponse)
   * DetachTypedLink [BatchDetachTypedLinkResponse](#batchdetachtypedlinkresponse)
   * RemoveFacetFromObject [BatchRemoveFacetFromObjectResponse](#batchremovefacetfromobjectresponse)
+  * UpdateLinkAttributes [BatchUpdateLinkAttributesResponse](#batchupdatelinkattributesresponse)
   * UpdateObjectAttributes [BatchUpdateObjectAttributesResponse](#batchupdateobjectattributesresponse)
 
 ### BatchWriteOperationResponseList
@@ -1862,7 +1971,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
   * Message [ExceptionMessage](#exceptionmessage)
 
 ### DirectoryNotEnabledException
-* DirectoryNotEnabledException `object`: An operation can only operate on a directory that is not enabled.
+* DirectoryNotEnabledException `object`: Operations are only permitted on enabled directories.
   * Message [ExceptionMessage](#exceptionmessage)
 
 ### DirectoryState
@@ -1886,7 +1995,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * ExceptionMessage `string`
 
 ### Facet
-* Facet `object`: A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <a>Rule</a>s, and <code>ObjectTypes</code>.
+* Facet `object`: A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <code> <a>Rule</a>s</code>, and <code>ObjectTypes</code>. See <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/whatarefacets.html">Facets</a> for more information.
   * Name [FacetName](#facetname)
   * ObjectType [ObjectType](#objecttype)
 
@@ -1971,6 +2080,26 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * GetFacetResponse `object`
   * Facet [Facet](#facet)
 
+### GetLinkAttributesRequest
+* GetLinkAttributesRequest `object`
+  * AttributeNames **required** [AttributeNameList](#attributenamelist)
+  * ConsistencyLevel [ConsistencyLevel](#consistencylevel)
+  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+
+### GetLinkAttributesResponse
+* GetLinkAttributesResponse `object`
+  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
+
+### GetObjectAttributesRequest
+* GetObjectAttributesRequest `object`
+  * AttributeNames **required** [AttributeNameList](#attributenamelist)
+  * ObjectReference **required** [ObjectReference](#objectreference)
+  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+
+### GetObjectAttributesResponse
+* GetObjectAttributesResponse `object`
+  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
+
 ### GetObjectInformationRequest
 * GetObjectInformationRequest `object`
   * ObjectReference **required** [ObjectReference](#objectreference)
@@ -2048,6 +2177,20 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 ### LimitExceededException
 * LimitExceededException `object`: Indicates that limits are exceeded. See <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html">Limits</a> for more information.
   * Message [ExceptionMessage](#exceptionmessage)
+
+### LinkAttributeAction
+* LinkAttributeAction `object`: The action to take on a typed link attribute value. Updates are only supported for attributes which don’t contribute to link identity.
+  * AttributeActionType [UpdateActionType](#updateactiontype)
+  * AttributeUpdateValue [TypedAttributeValue](#typedattributevalue)
+
+### LinkAttributeUpdate
+* LinkAttributeUpdate `object`: Structure that contains attribute update information.
+  * AttributeAction [LinkAttributeAction](#linkattributeaction)
+  * AttributeKey [AttributeKey](#attributekey)
+
+### LinkAttributeUpdateList
+* LinkAttributeUpdateList `array`
+  * items [LinkAttributeUpdate](#linkattributeupdate)
 
 ### LinkName
 * LinkName `string`
@@ -2535,7 +2678,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
   * StringValue [StringAttributeValue](#stringattributevalue)
 
 ### TypedAttributeValueRange
-* TypedAttributeValueRange `object`: A range of attribute values.
+* TypedAttributeValueRange `object`: A range of attribute values. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#rangefilters">Range Filters</a>.
   * EndMode **required** [RangeMode](#rangemode)
   * EndValue [TypedAttributeValue](#typedattributevalue)
   * StartMode **required** [RangeMode](#rangemode)
@@ -2624,6 +2767,14 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### UpdateFacetResponse
 * UpdateFacetResponse `object`
+
+### UpdateLinkAttributesRequest
+* UpdateLinkAttributesRequest `object`
+  * AttributeUpdates **required** [LinkAttributeUpdateList](#linkattributeupdatelist)
+  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+
+### UpdateLinkAttributesResponse
+* UpdateLinkAttributesResponse `object`
 
 ### UpdateObjectAttributesRequest
 * UpdateObjectAttributesRequest `object`

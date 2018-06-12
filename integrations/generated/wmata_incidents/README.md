@@ -12,7 +12,7 @@ let wmata_incidents = require('@datafire/wmata_incidents').create({
   apiKeyQuery: ""
 });
 
-wmata_incidents.json.ElevatorIncidents.get({}).then(data => {
+wmata_incidents.54763641281d830c946a3d76({}).then(data => {
   console.log(data);
 });
 ```
@@ -23,7 +23,7 @@ Rail, bus, and elevator disruptions/outages.
 
 ## Actions
 
-### BusIncidents.get
+### 54763641281d830c946a3d78
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a set of reported bus incidents/delays for a given Route. Omit the
@@ -103,7 +103,7 @@ but <em>may</em> differ from what our bus methods return.</td>
 
 
 ```js
-wmata_incidents.BusIncidents.get({}, context)
+wmata_incidents.54763641281d830c946a3d78({}, context)
 ```
 
 #### Input
@@ -113,7 +113,7 @@ wmata_incidents.BusIncidents.get({}, context)
 #### Output
 *Output schema unknown*
 
-### ElevatorIncidents.get
+### 54763641281d830c946a3d79
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of <em>reported</em> elevator and escalator outages at a
@@ -247,7 +247,7 @@ or <span class="text-info">ESCALATOR</span>.</td>
 
 
 ```js
-wmata_incidents.ElevatorIncidents.get({}, context)
+wmata_incidents.54763641281d830c946a3d79({}, context)
 ```
 
 #### Input
@@ -257,7 +257,7 @@ wmata_incidents.ElevatorIncidents.get({}, context)
 #### Output
 *Output schema unknown*
 
-### Incidents.get
+### 54763641281d830c946a3d7a
 <h4 class="text-primary">Description</h4>
 
 <p>Returns reported rail incidents (significant disruptions and delays to
@@ -370,7 +370,7 @@ StartLocationFullName</td>
 
 
 ```js
-wmata_incidents.Incidents.get(null, context)
+wmata_incidents.54763641281d830c946a3d7a(null, context)
 ```
 
 #### Input
@@ -379,7 +379,7 @@ wmata_incidents.Incidents.get(null, context)
 #### Output
 *Output schema unknown*
 
-### json.BusIncidents.get
+### 54763641281d830c946a3d75
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a set of reported bus incidents/delays for a given Route. Omit the
@@ -459,7 +459,7 @@ but <em>may</em> differ from what our bus methods return.</td>
 
 
 ```js
-wmata_incidents.json.BusIncidents.get({}, context)
+wmata_incidents.54763641281d830c946a3d75({}, context)
 ```
 
 #### Input
@@ -469,7 +469,7 @@ wmata_incidents.json.BusIncidents.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.ElevatorIncidents.get
+### 54763641281d830c946a3d76
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of <em>reported</em> elevator and escalator outages at a
@@ -603,7 +603,7 @@ or <span class="text-info">ESCALATOR</span>.</td>
 
 
 ```js
-wmata_incidents.json.ElevatorIncidents.get({}, context)
+wmata_incidents.54763641281d830c946a3d76({}, context)
 ```
 
 #### Input
@@ -613,7 +613,7 @@ wmata_incidents.json.ElevatorIncidents.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.Incidents.get
+### 54763641281d830c946a3d77
 <h4 class="text-primary">Description</h4>
 
 <p>Returns reported rail incidents (significant disruptions and delays to
@@ -726,7 +726,7 @@ StartLocationFullName</td>
 
 
 ```js
-wmata_incidents.json.Incidents.get(null, context)
+wmata_incidents.54763641281d830c946a3d77(null, context)
 ```
 
 #### Input

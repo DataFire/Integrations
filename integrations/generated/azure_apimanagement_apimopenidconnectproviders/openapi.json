@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on OpenId Connect Provider entity associated with your Azure API Management deployment. API Management allows you to access APIs secured with token from [OpenID Connect Provider ](http://openid.net/connect/) to be accessed from the Developer Console.",
     "title": "ApiManagementClient",
-    "version": "2017-03-01",
+    "version": "2018-01-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/apimanagement/resource-manager/Microsoft.ApiManagement/stable/2017-03-01/apimopenidconnectproviders.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimopenidconnectproviders.json",
         "version": "2.0"
       }
     ],
@@ -150,7 +150,7 @@
         "x-ms-examples": {
           "ApiManagementListOpenIdConnectProviders": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -212,11 +212,12 @@
             "$ref": "#/parameters/OpenIdConnectIdParameter"
           },
           {
-            "description": "The entity state (Etag) version of the OpenID Connect Provider to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation.",
+            "description": "ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.",
             "in": "header",
             "name": "If-Match",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -234,42 +235,50 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OpenId Connect Provider was successfully deleted."
+          },
           "204": {
             "description": "OpenId Connect Provider was successfully deleted."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -282,13 +291,14 @@
           "ApiManagementDeleteOpenIdConnectProvider": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "opid": "templateOpenIdConnect3",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
             },
             "responses": {
+              "200": {},
               "204": {}
             }
           }
@@ -351,36 +361,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -392,7 +407,7 @@
         "x-ms-examples": {
           "ApiManagementGetOpenIdConnectProvider": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "opid": "templateOpenIdConnect2",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -471,36 +486,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -512,7 +532,7 @@
         "x-ms-examples": {
           "ApiManagementHeadOpenIdConnectProvider": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "opid": "templateOpenIdConnect2",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -564,11 +584,12 @@
             }
           },
           {
-            "description": "The entity state (Etag) version of the OpenID Connect Provider to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation.",
+            "description": "ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.",
             "in": "header",
             "name": "If-Match",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -592,36 +613,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -634,7 +660,7 @@
           "ApiManagementUpdateOpenIdConnectProvider": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "opid": "templateOpenIdConnect2",
               "parameters": {
                 "properties": {
@@ -687,6 +713,14 @@
             }
           },
           {
+            "description": "ETag of the Entity. Not required when creating an entity, but required when updating an entity.",
+            "in": "header",
+            "name": "If-Match",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
             "description": "Version of the API to be used with the client request.",
             "in": "query",
             "name": "api-version",
@@ -717,36 +751,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -758,7 +797,7 @@
         "x-ms-examples": {
           "ApiManagementCreateOpenIdConnectProvider": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "opid": "templateOpenIdConnect3",
               "parameters": {
                 "properties": {

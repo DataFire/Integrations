@@ -1418,6 +1418,7 @@ apacta.invoices.post({}, context)
 * input `object`
   * invoice `object`
     * contact_id `string`
+    * created_or_modified_gte `string`
     * date_from `string`
     * date_to `string`
     * erp_id `string`

@@ -1252,8 +1252,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Products optimisatisation copied"
+          "200": {
+            "description": "Products optimisatisation copied",
+            "schema": {
+              "$ref": "#/definitions/copyOptimisationResponse"
+            }
           },
           "400": {
             "$ref": "#/responses/BadRequestResponse"
@@ -9868,9 +9871,9 @@
       ],
       "type": "object"
     },
-    "additionalProductColumnFilters": {
+    "additionalAnalyticsProductColumnFilters": {
       "additionalProperties": {
-        "$ref": "#/definitions/productColumnFilter"
+        "$ref": "#/definitions/analyticsProductColumnFilter"
       },
       "description": "Describes a filter on a product's column.\nThe key is the column identifier of your catalog or a custom column.\n",
       "type": "object"
@@ -9945,7 +9948,13 @@
     },
     "analyticsIndexLovLinks": {
       "properties": {
-        "numericProductColumnFilterOperatorNameLov": {
+        "analyticsNumericalProductColumnFilterOperatorNameLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "analyticsProductColumnFilterOperatorNameLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "analyticsStringProductColumnFilterOperatorNameLov": {
           "$ref": "#/definitions/BeezUP.Common.LOVLink3"
         },
         "performanceIndicatorFilterOperatorNameLov": {
@@ -9969,14 +9978,60 @@
         "performanceIndicatorTypeLov": {
           "$ref": "#/definitions/BeezUP.Common.LOVLink3"
         },
-        "productColumnFilterOperatorNameLov": {
-          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
-        },
         "storeOptimisationRuleExecutionStatusLov": {
           "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        }
+      },
+      "type": "object"
+    },
+    "analyticsProductColumnFilter": {
+      "example": {
+        "672644c7-5bd0-4e25-88c1-1f732bda5e4c": {
+          "operatorName": "NumericalGreaterThan",
+          "values": [
+            "100"
+          ]
+        }
+      },
+      "properties": {
+        "operatorName": {
+          "$ref": "#/definitions/analyticsProductColumnFilterOperatorName"
         },
-        "stringProductColumnFilterOperatorNameLov": {
-          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        "values": {
+          "description": "Must be null if the operator is \"IsNull\" or \"IsNotNull\".\nCan contains multiple value in case of \"InList\" operator. Otherwise a single value is expected.\n",
+          "example": [
+            "My value"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "operatorName"
+      ],
+      "type": "object"
+    },
+    "analyticsProductColumnFilterOperatorName": {
+      "description": "Indicate the operator you want to apply on the columnId",
+      "type": "string",
+      "x-lov": "AnalyticsProductColumnFilterOperatorName"
+    },
+    "analyticsProductColumnFilters": {
+      "properties": {
+        "additionalAnalyticsProductColumnFilters": {
+          "$ref": "#/definitions/additionalAnalyticsProductColumnFilters"
+        },
+        "sku": {
+          "description": "The product sku filter",
+          "example": "M1234",
+          "type": "string"
+        },
+        "title": {
+          "description": "The product title filter",
+          "example": "RefrigÃ©rateur",
+          "type": "string"
         }
       },
       "type": "object"
@@ -13493,6 +13548,30 @@
       ],
       "type": "object"
     },
+    "copyOptimisationResponse": {
+      "description": "Products optimisatisation copied",
+      "properties": {
+        "catalogProductCount": {
+          "description": "The catalog product count",
+          "example": 101,
+          "type": "integer"
+        },
+        "channel": {
+          "$ref": "#/definitions/BeezUP.Common.ChannelBasicInfo"
+        },
+        "enabledProductCount": {
+          "description": "The enabled product count",
+          "example": 101,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "channel",
+        "catalogProductCount",
+        "enabledProductCount"
+      ],
+      "type": "object"
+    },
     "costSettings": {
       "description": "If this property is not indicated please force the user to configure the cost settings.\nDefines the cost type you have on this channel with the cost value.\n",
       "properties": {
@@ -14599,23 +14678,6 @@
         "pageNumber",
         "pageSize",
         "columnIdList"
-      ],
-      "type": "object"
-    },
-    "globalPerformanceIndicatorByChannel": {
-      "properties": {
-        "channel": {
-          "$ref": "#/definitions/BeezUP.Common.ChannelBasicInfo"
-        },
-        "globalPerformanceIndicator": {
-          "description": "Indicates the global performance indicator for this channel",
-          "example": 10.42,
-          "type": "number"
-        }
-      },
-      "required": [
-        "channel",
-        "globalPerformanceIndicator"
       ],
       "type": "object"
     },
@@ -17202,6 +17264,19 @@
                       "thirdParameter": 100
                     }
                   },
+                  "analyticsProductColumnFilters": {
+                    "additionalAnalyticsProductColumnFilters": [
+                      {
+                        "columnId": "672644c7-5bd0-4e25-88c1-1f732bda5e4c",
+                        "operatorName": "NumericalGreaterThan",
+                        "values": [
+                          100
+                        ]
+                      }
+                    ],
+                    "sku": "M1234",
+                    "title": "RefrigÃ©rateur"
+                  },
                   "beginPeriodUtcDate": "2006-11-20T00:00:00Z",
                   "categoryFilter": {
                     "categoryPath": [
@@ -17218,19 +17293,6 @@
                       "value": 10.42
                     }
                   ],
-                  "productColumnFilters": {
-                    "additionalProductColumnFilters": [
-                      {
-                        "columnId": "672644c7-5bd0-4e25-88c1-1f732bda5e4c",
-                        "operatorName": "NumericGreaterTo",
-                        "values": [
-                          100
-                        ]
-                      }
-                    ],
-                    "sku": "M1234",
-                    "title": "RefrigÃ©rateur"
-                  },
                   "productState": "All"
                 }
               }
@@ -17325,6 +17387,19 @@
                       "thirdParameter": 100
                     }
                   },
+                  "analyticsProductColumnFilters": {
+                    "additionalAnalyticsProductColumnFilters": [
+                      {
+                        "columnId": "672644c7-5bd0-4e25-88c1-1f732bda5e4c",
+                        "operatorName": "NumericalGreaterThan",
+                        "values": [
+                          100
+                        ]
+                      }
+                    ],
+                    "sku": "M1234",
+                    "title": "RefrigÃ©rateur"
+                  },
                   "beginPeriodUtcDate": "2006-11-20T00:00:00Z",
                   "categoryFilter": {
                     "categoryPath": [
@@ -17343,19 +17418,6 @@
                       "value": 10.42
                     }
                   ],
-                  "productColumnFilters": {
-                    "additionalProductColumnFilters": [
-                      {
-                        "columnId": "672644c7-5bd0-4e25-88c1-1f732bda5e4c",
-                        "operatorName": "NumericGreaterTo",
-                        "values": [
-                          100
-                        ]
-                      }
-                    ],
-                    "sku": "M1234",
-                    "title": "RefrigÃ©rateur"
-                  },
                   "productState": "All"
                 }
               }
@@ -18340,8 +18402,8 @@
         },
         {
           "properties": {
-            "productColumnFilters": {
-              "$ref": "#/definitions/productColumnFilters"
+            "analyticsProductColumnFilters": {
+              "$ref": "#/definitions/analyticsProductColumnFilters"
             },
             "productColumnsToDisplay": {
               "$ref": "#/definitions/productColumnsToDisplay"
@@ -19612,13 +19674,9 @@
     },
     "performanceIndicatorFilterOperatorName": {
       "description": "Indicates the operator you want to apply on this indicator",
-      "enum": [
-        "Equals",
-        "GreaterTo",
-        "LowerTo"
-      ],
       "example": "Equals",
-      "type": "string"
+      "type": "string",
+      "x-lov": "PerformanceIndicatorFilterOperatorName"
     },
     "performanceIndicatorFormula": {
       "description": "The KPI formula",
@@ -19801,67 +19859,6 @@
         "values",
         "exists"
       ]
-    },
-    "productColumnFilter": {
-      "example": {
-        "672644c7-5bd0-4e25-88c1-1f732bda5e4c": {
-          "operatorName": "NumericGreaterTo",
-          "values": [
-            "100"
-          ]
-        }
-      },
-      "properties": {
-        "operatorName": {
-          "$ref": "#/definitions/productColumnFilterOperatorName"
-        },
-        "values": {
-          "description": "Must be null if the operator is \"IsNull\" or \"IsNotNull\".\nCan contains multiple value in case of \"InList\" operator. Otherwise a single value is expected.\n",
-          "example": [
-            "My value"
-          ],
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "required": [
-        "operatorName"
-      ],
-      "type": "object"
-    },
-    "productColumnFilterOperatorName": {
-      "description": "Indicate the operator you want to apply on the columnId",
-      "enum": [
-        "Equals",
-        "Contains",
-        "InList",
-        "IsNull",
-        "IsNotNull",
-        "NumericEquals",
-        "NumericGreaterTo",
-        "NumericLowerTo"
-      ],
-      "type": "string"
-    },
-    "productColumnFilters": {
-      "properties": {
-        "additionalProductColumnFilters": {
-          "$ref": "#/definitions/additionalProductColumnFilters"
-        },
-        "sku": {
-          "description": "The product sku filter",
-          "example": "M1234",
-          "type": "string"
-        },
-        "title": {
-          "description": "The product title filter",
-          "example": "RefrigÃ©rateur",
-          "type": "string"
-        }
-      },
-      "type": "object"
     },
     "productColumnsToDisplay": {
       "example": [
@@ -20610,7 +20607,7 @@
     "reportByChannel": {
       "properties": {
         "catalogProductCount": {
-          "description": "The catalog product count for this channel",
+          "description": "The catalog product count",
           "example": 101,
           "type": "integer"
         },
@@ -20618,17 +20615,17 @@
           "$ref": "#/definitions/BeezUP.Common.ChannelBasicInfo"
         },
         "clickCount": {
-          "description": "The click count for this channel",
+          "description": "The click count",
           "example": 1024,
           "type": "integer"
         },
         "cost": {
-          "description": "The cost for this channel",
+          "description": "The cost for",
           "example": 1234.12,
           "type": "number"
         },
         "enabledProductCount": {
-          "description": "The enabled product count for this channel",
+          "description": "The enabled product count",
           "example": 101,
           "type": "integer"
         },
@@ -20636,32 +20633,32 @@
           "$ref": "#/definitions/reportByChannelLinks"
         },
         "margin": {
-          "description": "The margin for this channel",
+          "description": "The margin",
           "example": 23.1,
           "type": "number"
         },
         "orderCount": {
-          "description": "The order count for this channel",
+          "description": "The order count",
           "example": 42,
           "type": "integer"
         },
         "performanceIndicator": {
-          "description": "The performance indicator based on the performance indicator formula indicated in the request for this channel",
+          "description": "The performance indicator based on the performance indicator formula indicated in the request",
           "example": 12.21,
           "type": "number"
         },
         "roi": {
-          "description": "The Return On Investment for this channel",
+          "description": "The Return On Investment",
           "example": 42.42,
           "type": "number"
         },
         "soldProductCount": {
-          "description": "The product sold count count for this channel",
+          "description": "The product sold count count",
           "example": 2,
           "type": "integer"
         },
         "totalSales": {
-          "description": "The total sales for this channel",
+          "description": "The total sales",
           "example": 234.42,
           "type": "number"
         }
@@ -20778,42 +20775,42 @@
     "reportByDayAllChannels": {
       "properties": {
         "clickCount": {
-          "description": "The click count for this day and all channels",
+          "description": "The click count",
           "example": 101,
           "type": "integer"
         },
         "cost": {
-          "description": "The cost for this day and all channels",
+          "description": "The cost",
           "example": 10.42,
           "type": "number"
         },
         "margin": {
-          "description": "The margin for this day and all channels",
+          "description": "The margin",
           "example": 42.42,
           "type": "number"
         },
         "orderCount": {
-          "description": "The order count for this day and all channels",
+          "description": "The order count",
           "example": 42,
           "type": "integer"
         },
         "performanceIndicator": {
-          "description": "The performance indicator based on the performance indicator formula indicated in the request for this day and all channels",
+          "description": "The performance indicator based on the performance indicator formula indicated in the request",
           "example": 23.09,
           "type": "number"
         },
         "roi": {
-          "description": "The Return On Investment for this day and all channels",
+          "description": "The Return On Investment",
           "example": 23.11,
           "type": "number"
         },
         "soldProductCount": {
-          "description": "The product sold count count for this day and all channels",
+          "description": "The product sold count count",
           "example": 2,
           "type": "integer"
         },
         "totalSales": {
-          "description": "The total sales for this day and all channels",
+          "description": "The total sales",
           "example": 234.42,
           "type": "number"
         }
@@ -20831,63 +20828,71 @@
       "type": "object"
     },
     "reportByDayByChannel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/reportByDayAllChannels"
+        },
+        {
+          "properties": {
+            "channel": {
+              "$ref": "#/definitions/BeezUP.Common.ChannelBasicInfo"
+            }
+          },
+          "required": [
+            "channel"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "reportByDayGlobal": {
       "properties": {
-        "channel": {
-          "$ref": "#/definitions/BeezUP.Common.ChannelBasicInfo"
+        "allChannels": {
+          "$ref": "#/definitions/reportByDayGlobalAllChannels"
         },
-        "clickCount": {
-          "description": "The click count for this day and this channel",
-          "example": 101,
-          "type": "integer"
-        },
-        "cost": {
-          "description": "The cost for this day and this channel",
-          "example": 10.42,
-          "type": "number"
-        },
-        "margin": {
-          "description": "The margin for this day and this channel",
-          "example": 42.42,
-          "type": "number"
-        },
-        "orderCount": {
-          "description": "The order count for this day and this channel",
-          "example": 42,
-          "type": "integer"
-        },
+        "byChannels": {
+          "items": {
+            "$ref": "#/definitions/reportByDayGlobalByChannel"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "allChannels",
+        "byChannels"
+      ],
+      "type": "object"
+    },
+    "reportByDayGlobalAllChannels": {
+      "properties": {
         "performanceIndicator": {
-          "description": "The performance indicator based on the performance indicator formula indicated in the request for this day and this channel",
-          "example": 23.09,
-          "type": "number"
-        },
-        "roi": {
-          "description": "The Return On Investment for this day and this channel",
-          "example": 23.11,
-          "type": "number"
-        },
-        "soldProductCount": {
-          "description": "The product sold count count for this day and this channel",
-          "example": 2,
-          "type": "integer"
-        },
-        "totalSales": {
-          "description": "The total sales for this day and this channel",
-          "example": 234.42,
+          "description": "Indicates the global performance indicator",
+          "example": 10.42,
           "type": "number"
         }
       },
       "required": [
-        "channel",
-        "clickCount",
-        "cost",
-        "orderCount",
-        "roi",
-        "margin",
-        "performanceIndicator",
-        "totalSales",
-        "soldProductCount"
+        "performanceIndicator"
       ],
       "type": "object"
+    },
+    "reportByDayGlobalByChannel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/reportByDayGlobalAllChannels"
+        },
+        {
+          "properties": {
+            "channel": {
+              "$ref": "#/definitions/BeezUP.Common.ChannelBasicInfo"
+            }
+          },
+          "required": [
+            "channel"
+          ],
+          "type": "object"
+        }
+      ]
     },
     "reportByDayRequest": {
       "properties": {
@@ -20940,16 +20945,12 @@
           },
           "type": "array"
         },
-        "globalPerformanceIndicators": {
-          "items": {
-            "$ref": "#/definitions/globalPerformanceIndicatorByChannel"
-          },
-          "type": "array"
+        "global": {
+          "$ref": "#/definitions/reportByDayGlobal"
         }
       },
       "required": [
         "currencyCode",
-        "globalPerformanceIndicators",
         "days"
       ],
       "type": "object"
@@ -21084,8 +21085,8 @@
         },
         {
           "properties": {
-            "productColumnFilters": {
-              "$ref": "#/definitions/productColumnFilters"
+            "analyticsProductColumnFilters": {
+              "$ref": "#/definitions/analyticsProductColumnFilters"
             },
             "productColumnsToDisplay": {
               "$ref": "#/definitions/productColumnsToDisplay"
@@ -21287,8 +21288,8 @@
         },
         {
           "properties": {
-            "productColumnFilters": {
-              "$ref": "#/definitions/productColumnFilters"
+            "analyticsProductColumnFilters": {
+              "$ref": "#/definitions/analyticsProductColumnFilters"
             },
             "productColumnsToDisplay": {
               "$ref": "#/definitions/productColumnsToDisplay"

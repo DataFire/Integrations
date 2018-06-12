@@ -1,6 +1,6 @@
 # @datafire/google_container
 
-Client library for Google Kubernetes Engine
+Client library for Kubernetes Engine
 
 ## Installation and Usage
 ```bash
@@ -84,8 +84,9 @@ google_container.projects.zones.clusters.list({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * parent `string`: The parent (project and location) where the clusters will be listed.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -129,8 +130,8 @@ google_container.projects.zones.clusters.create({
 #### Input
 * input `object`
   * body [CreateClusterRequest](#createclusterrequest)
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -170,9 +171,10 @@ google_container.projects.zones.clusters.delete({
 
 #### Input
 * input `object`
-  * clusterId **required** `string`: The name of the cluster to delete.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to delete.
+  * name `string`: The name (project, location, cluster) of the cluster to delete.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -204,9 +206,10 @@ google_container.projects.zones.clusters.get({
 
 #### Input
 * input `object`
-  * clusterId **required** `string`: The name of the cluster to retrieve.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to retrieve.
+  * name `string`: The name (project, location, cluster) of the cluster to retrieve.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -239,9 +242,9 @@ google_container.projects.zones.clusters.update({
 #### Input
 * input `object`
   * body [UpdateClusterRequest](#updateclusterrequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -260,7 +263,7 @@ google_container.projects.zones.clusters.update({
 * output [Operation](#operation)
 
 ### projects.zones.clusters.addons
-Sets the addons of a specific cluster.
+Sets the addons for a specific cluster.
 
 
 ```js
@@ -274,9 +277,9 @@ google_container.projects.zones.clusters.addons({
 #### Input
 * input `object`
   * body [SetAddonsConfigRequest](#setaddonsconfigrequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -309,9 +312,9 @@ google_container.projects.zones.clusters.legacyAbac({
 #### Input
 * input `object`
   * body [SetLegacyAbacRequest](#setlegacyabacrequest)
-  * clusterId **required** `string`: The name of the cluster to update.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to update.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -330,7 +333,7 @@ google_container.projects.zones.clusters.legacyAbac({
 * output [Operation](#operation)
 
 ### projects.zones.clusters.locations
-Sets the locations of a specific cluster.
+Sets the locations for a specific cluster.
 
 
 ```js
@@ -344,9 +347,9 @@ google_container.projects.zones.clusters.locations({
 #### Input
 * input `object`
   * body [SetLocationsRequest](#setlocationsrequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -365,7 +368,7 @@ google_container.projects.zones.clusters.locations({
 * output [Operation](#operation)
 
 ### projects.zones.clusters.logging
-Sets the logging service of a specific cluster.
+Sets the logging service for a specific cluster.
 
 
 ```js
@@ -379,9 +382,9 @@ google_container.projects.zones.clusters.logging({
 #### Input
 * input `object`
   * body [SetLoggingServiceRequest](#setloggingservicerequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -400,7 +403,7 @@ google_container.projects.zones.clusters.logging({
 * output [Operation](#operation)
 
 ### projects.zones.clusters.master
-Updates the master of a specific cluster.
+Updates the master for a specific cluster.
 
 
 ```js
@@ -414,9 +417,9 @@ google_container.projects.zones.clusters.master({
 #### Input
 * input `object`
   * body [UpdateMasterRequest](#updatemasterrequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -435,7 +438,7 @@ google_container.projects.zones.clusters.master({
 * output [Operation](#operation)
 
 ### projects.zones.clusters.monitoring
-Sets the monitoring service of a specific cluster.
+Sets the monitoring service for a specific cluster.
 
 
 ```js
@@ -449,9 +452,9 @@ google_container.projects.zones.clusters.monitoring({
 #### Input
 * input `object`
   * body [SetMonitoringServiceRequest](#setmonitoringservicerequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -483,9 +486,10 @@ google_container.projects.zones.clusters.nodePools.list({
 
 #### Input
 * input `object`
-  * clusterId **required** `string`: The name of the cluster.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster.
+  * parent `string`: The parent (project, location, cluster id) where the node pools will be
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -518,9 +522,9 @@ google_container.projects.zones.clusters.nodePools.create({
 #### Input
 * input `object`
   * body [CreateNodePoolRequest](#createnodepoolrequest)
-  * clusterId **required** `string`: The name of the cluster.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -553,10 +557,11 @@ google_container.projects.zones.clusters.nodePools.delete({
 
 #### Input
 * input `object`
-  * clusterId **required** `string`: The name of the cluster.
-  * nodePoolId **required** `string`: The name of the node pool to delete.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster.
+  * name `string`: The name (project, location, cluster, node pool id) of the node pool to
+  * nodePoolId **required** `string`: Deprecated. The name of the node pool to delete.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -589,10 +594,11 @@ google_container.projects.zones.clusters.nodePools.get({
 
 #### Input
 * input `object`
-  * clusterId **required** `string`: The name of the cluster.
-  * nodePoolId **required** `string`: The name of the node pool.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster.
+  * name `string`: The name (project, location, cluster, node pool id) of the node pool to
+  * nodePoolId **required** `string`: Deprecated. The name of the node pool.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -611,7 +617,7 @@ google_container.projects.zones.clusters.nodePools.get({
 * output [NodePool](#nodepool)
 
 ### projects.zones.clusters.nodePools.autoscaling
-Sets the autoscaling settings of a specific node pool.
+Sets the autoscaling settings for a specific node pool.
 
 
 ```js
@@ -626,10 +632,10 @@ google_container.projects.zones.clusters.nodePools.autoscaling({
 #### Input
 * input `object`
   * body [SetNodePoolAutoscalingRequest](#setnodepoolautoscalingrequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * nodePoolId **required** `string`: The name of the node pool to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * nodePoolId **required** `string`: Deprecated. The name of the node pool to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -663,10 +669,10 @@ google_container.projects.zones.clusters.nodePools.setManagement({
 #### Input
 * input `object`
   * body [SetNodePoolManagementRequest](#setnodepoolmanagementrequest)
-  * clusterId **required** `string`: The name of the cluster to update.
-  * nodePoolId **required** `string`: The name of the node pool to update.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to update.
+  * nodePoolId **required** `string`: Deprecated. The name of the node pool to update.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -685,7 +691,7 @@ google_container.projects.zones.clusters.nodePools.setManagement({
 * output [Operation](#operation)
 
 ### projects.zones.clusters.nodePools.setSize
-Sets the size of a specific node pool.
+Sets the size for a specific node pool.
 
 
 ```js
@@ -700,10 +706,10 @@ google_container.projects.zones.clusters.nodePools.setSize({
 #### Input
 * input `object`
   * body [SetNodePoolSizeRequest](#setnodepoolsizerequest)
-  * clusterId **required** `string`: The name of the cluster to update.
-  * nodePoolId **required** `string`: The name of the node pool to update.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to update.
+  * nodePoolId **required** `string`: Deprecated. The name of the node pool to update.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -722,7 +728,7 @@ google_container.projects.zones.clusters.nodePools.setSize({
 * output [Operation](#operation)
 
 ### projects.zones.clusters.nodePools.update
-Updates the version and/or image type of a specific node pool.
+Updates the version and/or image type for a specific node pool.
 
 
 ```js
@@ -737,10 +743,10 @@ google_container.projects.zones.clusters.nodePools.update({
 #### Input
 * input `object`
   * body [UpdateNodePoolRequest](#updatenodepoolrequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * nodePoolId **required** `string`: The name of the node pool to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * nodePoolId **required** `string`: Deprecated. The name of the node pool to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -775,10 +781,10 @@ google_container.projects.zones.clusters.nodePools.rollback({
 #### Input
 * input `object`
   * body [RollbackNodePoolUpgradeRequest](#rollbacknodepoolupgraderequest)
-  * clusterId **required** `string`: The name of the cluster to rollback.
-  * nodePoolId **required** `string`: The name of the node pool to rollback.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to rollback.
+  * nodePoolId **required** `string`: Deprecated. The name of the node pool to rollback.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -811,9 +817,9 @@ google_container.projects.zones.clusters.resourceLabels({
 #### Input
 * input `object`
   * body [SetLabelsRequest](#setlabelsrequest)
-  * clusterId **required** `string`: The name of the cluster.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -846,9 +852,9 @@ google_container.projects.zones.clusters.completeIpRotation({
 #### Input
 * input `object`
   * body [CompleteIPRotationRequest](#completeiprotationrequest)
-  * clusterId **required** `string`: The name of the cluster.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -903,7 +909,7 @@ google_container.projects.zones.clusters.setMaintenancePolicy({
 
 ### projects.zones.clusters.setMasterAuth
 Used to set master auth materials. Currently supports :-
-Changing the admin password of a specific cluster.
+Changing the admin password for a specific cluster.
 This can be either via password generation or explicitly set the password.
 
 
@@ -918,9 +924,9 @@ google_container.projects.zones.clusters.setMasterAuth({
 #### Input
 * input `object`
   * body [SetMasterAuthRequest](#setmasterauthrequest)
-  * clusterId **required** `string`: The name of the cluster to upgrade.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster to upgrade.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -953,9 +959,9 @@ google_container.projects.zones.clusters.setNetworkPolicy({
 #### Input
 * input `object`
   * body [SetNetworkPolicyRequest](#setnetworkpolicyrequest)
-  * clusterId **required** `string`: The name of the cluster.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -988,9 +994,9 @@ google_container.projects.zones.clusters.startIpRotation({
 #### Input
 * input `object`
   * body [StartIPRotationRequest](#startiprotationrequest)
-  * clusterId **required** `string`: The name of the cluster.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * clusterId **required** `string`: Deprecated. The name of the cluster.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -1021,8 +1027,9 @@ google_container.projects.zones.operations.list({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine [zone](/compute/docs/zones#available)
+  * parent `string`: The parent (project and location) where the operations will be listed.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -1054,9 +1061,10 @@ google_container.projects.zones.operations.get({
 
 #### Input
 * input `object`
-  * operationId **required** `string`: The server-assigned `name` of the operation.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * name `string`: The name (project, location, operation id) of the operation to get.
+  * operationId **required** `string`: Deprecated. The server-assigned `name` of the operation.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -1089,9 +1097,9 @@ google_container.projects.zones.operations.cancel({
 #### Input
 * input `object`
   * body [CancelOperationRequest](#canceloperationrequest)
-  * operationId **required** `string`: The server-assigned `name` of the operation.
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine
+  * operationId **required** `string`: Deprecated. The server-assigned `name` of the operation.
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -1122,8 +1130,9 @@ google_container.projects.zones.getServerconfig({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The Google Developers Console [project ID or project
-  * zone **required** `string`: The name of the Google Compute Engine [zone](/compute/docs/zones#available)
+  * name `string`: The name (project and location) of the server config to get
+  * projectId **required** `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone **required** `string`: Deprecated. The name of the Google Compute Engine
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -1140,6 +1149,839 @@ google_container.projects.zones.getServerconfig({
 
 #### Output
 * output [ServerConfig](#serverconfig)
+
+### projects.locations.clusters.nodePools.delete
+Deletes a node pool from a cluster.
+
+
+```js
+google_container.projects.locations.clusters.nodePools.delete({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clusterId `string`: Deprecated. The name of the cluster.
+  * name **required** `string`: The name (project, location, cluster, node pool id) of the node pool to
+  * nodePoolId `string`: Deprecated. The name of the node pool to delete.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.operations.get
+Gets the specified operation.
+
+
+```js
+google_container.projects.locations.operations.get({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clusterId `string`: Deprecated. The name of the cluster.
+  * name **required** `string`: The name (project, location, operation id) of the operation to get.
+  * operationId `string`: Deprecated. The server-assigned `name` of the operation.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.nodePools.update
+Updates the version and/or image type for a specific node pool.
+
+
+```js
+google_container.projects.locations.clusters.nodePools.update({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [UpdateNodePoolRequest](#updatenodepoolrequest)
+  * name **required** `string`: The name (project, location, cluster, node pool) of the node pool to
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.getServerConfig
+Returns configuration info about the Kubernetes Engine service.
+
+
+```js
+google_container.projects.locations.getServerConfig({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: The name (project and location) of the server config to get
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ServerConfig](#serverconfig)
+
+### projects.locations.operations.cancel
+Cancels the specified operation.
+
+
+```js
+google_container.projects.locations.operations.cancel({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [CancelOperationRequest](#canceloperationrequest)
+  * name **required** `string`: The name (project, location, operation id) of the operation to cancel.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Empty](#empty)
+
+### projects.locations.clusters.completeIpRotation
+Completes master IP rotation.
+
+
+```js
+google_container.projects.locations.clusters.completeIpRotation({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [CompleteIPRotationRequest](#completeiprotationrequest)
+  * name **required** `string`: The name (project, location, cluster id) of the cluster to complete IP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.nodePools.rollback
+Roll back the previously Aborted or Failed NodePool upgrade.
+This will be an no-op if the last upgrade successfully completed.
+
+
+```js
+google_container.projects.locations.clusters.nodePools.rollback({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [RollbackNodePoolUpgradeRequest](#rollbacknodepoolupgraderequest)
+  * name **required** `string`: The name (project, location, cluster, node pool id) of the node poll to
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setAddons
+Sets the addons for a specific cluster.
+
+
+```js
+google_container.projects.locations.clusters.setAddons({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetAddonsConfigRequest](#setaddonsconfigrequest)
+  * name **required** `string`: The name (project, location, cluster) of the cluster to set addons.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.nodePools.setAutoscaling
+Sets the autoscaling settings for a specific node pool.
+
+
+```js
+google_container.projects.locations.clusters.nodePools.setAutoscaling({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetNodePoolAutoscalingRequest](#setnodepoolautoscalingrequest)
+  * name **required** `string`: The name (project, location, cluster, node pool) of the node pool to set
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setLegacyAbac
+Enables or disables the ABAC authorization mechanism on a cluster.
+
+
+```js
+google_container.projects.locations.clusters.setLegacyAbac({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetLegacyAbacRequest](#setlegacyabacrequest)
+  * name **required** `string`: The name (project, location, cluster id) of the cluster to set legacy abac.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setLocations
+Sets the locations for a specific cluster.
+
+
+```js
+google_container.projects.locations.clusters.setLocations({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetLocationsRequest](#setlocationsrequest)
+  * name **required** `string`: The name (project, location, cluster) of the cluster to set locations.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setLogging
+Sets the logging service for a specific cluster.
+
+
+```js
+google_container.projects.locations.clusters.setLogging({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetLoggingServiceRequest](#setloggingservicerequest)
+  * name **required** `string`: The name (project, location, cluster) of the cluster to set logging.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setMaintenancePolicy
+Sets the maintenance policy for a cluster.
+
+
+```js
+google_container.projects.locations.clusters.setMaintenancePolicy({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetMaintenancePolicyRequest](#setmaintenancepolicyrequest)
+  * name **required** `string`: The name (project, location, cluster id) of the cluster to set maintenance
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.nodePools.setManagement
+Sets the NodeManagement options for a node pool.
+
+
+```js
+google_container.projects.locations.clusters.nodePools.setManagement({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetNodePoolManagementRequest](#setnodepoolmanagementrequest)
+  * name **required** `string`: The name (project, location, cluster, node pool id) of the node pool to set
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setMasterAuth
+Used to set master auth materials. Currently supports :-
+Changing the admin password for a specific cluster.
+This can be either via password generation or explicitly set the password.
+
+
+```js
+google_container.projects.locations.clusters.setMasterAuth({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetMasterAuthRequest](#setmasterauthrequest)
+  * name **required** `string`: The name (project, location, cluster) of the cluster to set auth.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setMonitoring
+Sets the monitoring service for a specific cluster.
+
+
+```js
+google_container.projects.locations.clusters.setMonitoring({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetMonitoringServiceRequest](#setmonitoringservicerequest)
+  * name **required** `string`: The name (project, location, cluster) of the cluster to set monitoring.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setNetworkPolicy
+Enables/Disables Network Policy for a cluster.
+
+
+```js
+google_container.projects.locations.clusters.setNetworkPolicy({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetNetworkPolicyRequest](#setnetworkpolicyrequest)
+  * name **required** `string`: The name (project, location, cluster id) of the cluster to set networking
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.setResourceLabels
+Sets labels on a cluster.
+
+
+```js
+google_container.projects.locations.clusters.setResourceLabels({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetLabelsRequest](#setlabelsrequest)
+  * name **required** `string`: The name (project, location, cluster id) of the cluster to set labels.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.nodePools.setSize
+Sets the size for a specific node pool.
+
+
+```js
+google_container.projects.locations.clusters.nodePools.setSize({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SetNodePoolSizeRequest](#setnodepoolsizerequest)
+  * name **required** `string`: The name (project, location, cluster, node pool id) of the node pool to set
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.startIpRotation
+Start master IP rotation.
+
+
+```js
+google_container.projects.locations.clusters.startIpRotation({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [StartIPRotationRequest](#startiprotationrequest)
+  * name **required** `string`: The name (project, location, cluster id) of the cluster to start IP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.updateMaster
+Updates the master for a specific cluster.
+
+
+```js
+google_container.projects.locations.clusters.updateMaster({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [UpdateMasterRequest](#updatemasterrequest)
+  * name **required** `string`: The name (project, location, cluster) of the cluster to update.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.list
+Lists all clusters owned by a project in either the specified zone or all
+zones.
+
+
+```js
+google_container.projects.locations.clusters.list({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * parent **required** `string`: The parent (project and location) where the clusters will be listed.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListClustersResponse](#listclustersresponse)
+
+### projects.locations.clusters.create
+Creates a cluster, consisting of the specified number and type of Google
+Compute Engine instances.
+
+By default, the cluster is created in the project's
+[default network](/compute/docs/networks-and-firewalls#networks).
+
+One firewall is added for the cluster. After cluster creation,
+the cluster creates routes for each node to allow the containers
+on that node to communicate with all other instances in the
+cluster.
+
+Finally, an entry is added to the project's global metadata indicating
+which CIDR range is being used by the cluster.
+
+
+```js
+google_container.projects.locations.clusters.create({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [CreateClusterRequest](#createclusterrequest)
+  * parent **required** `string`: The parent (project and location) where the cluster will be created.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.clusters.nodePools.list
+Lists the node pools for a cluster.
+
+
+```js
+google_container.projects.locations.clusters.nodePools.list({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clusterId `string`: Deprecated. The name of the cluster.
+  * parent **required** `string`: The parent (project, location, cluster id) where the node pools will be
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListNodePoolsResponse](#listnodepoolsresponse)
+
+### projects.locations.clusters.nodePools.create
+Creates a node pool for a cluster.
+
+
+```js
+google_container.projects.locations.clusters.nodePools.create({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [CreateNodePoolRequest](#createnodepoolrequest)
+  * parent **required** `string`: The parent (project, location, cluster id) where the node pool will be
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.operations.list
+Lists all operations in a project in a specific zone or all zones.
+
+
+```js
+google_container.projects.locations.operations.list({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * parent **required** `string`: The parent (project and location) where the operations will be listed.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListOperationsResponse](#listoperationsresponse)
 
 
 
@@ -1164,6 +2006,10 @@ google_container.projects.zones.getServerconfig({
 
 ### CancelOperationRequest
 * CancelOperationRequest `object`: CancelOperationRequest cancels a single operation.
+  * name `string`: The name (project, location, operation id) of the operation to cancel.
+  * operationId `string`: Deprecated. The server-assigned `name` of the operation.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### CidrBlock
 * CidrBlock `object`: CidrBlock contains an optional name and one CIDR block.
@@ -1193,6 +2039,7 @@ google_container.projects.zones.getServerconfig({
   * ipAllocationPolicy [IPAllocationPolicy](#ipallocationpolicy)
   * labelFingerprint `string`: The fingerprint of the set of labels for this cluster.
   * legacyAbac [LegacyAbac](#legacyabac)
+  * location `string`: [Output only] The name of the Google Compute Engine
   * locations `array`: The list of Google Compute Engine
     * items `string`
   * loggingService `string`: The logging service the cluster should use to write logs.
@@ -1210,7 +2057,7 @@ google_container.projects.zones.getServerconfig({
   * resourceLabels `object`: The resource labels for the cluster to use to annotate any related
   * selfLink `string`: [Output only] Server-defined URL for the resource.
   * servicesIpv4Cidr `string`: [Output only] The IP address range of the Kubernetes services in
-  * status `string` (values: STATUS_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR): [Output only] The current status of this cluster.
+  * status `string` (values: STATUS_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED): [Output only] The current status of this cluster.
   * statusMessage `string`: [Output only] Additional information about the current status of this
   * subnetwork `string`: The name of the Google Compute Engine
   * zone `string`: [Output only] The name of the Google Compute Engine
@@ -1222,7 +2069,7 @@ google_container.projects.zones.getServerconfig({
   * desiredLocations `array`: The desired list of Google Compute Engine
     * items `string`
   * desiredMasterAuthorizedNetworksConfig [MasterAuthorizedNetworksConfig](#masterauthorizednetworksconfig)
-  * desiredMasterVersion `string`: The Kubernetes version to change the master to. The only valid value is the
+  * desiredMasterVersion `string`: The Kubernetes version to change the master to.
   * desiredMonitoringService `string`: The monitoring service the cluster should use to write metrics.
   * desiredNodePoolAutoscaling [NodePoolAutoscaling](#nodepoolautoscaling)
   * desiredNodePoolId `string`: The node pool to be upgraded. This field is mandatory if
@@ -1230,14 +2077,25 @@ google_container.projects.zones.getServerconfig({
 
 ### CompleteIPRotationRequest
 * CompleteIPRotationRequest `object`: CompleteIPRotationRequest moves the cluster master back into single-IP mode.
+  * clusterId `string`: Deprecated. The name of the cluster.
+  * name `string`: The name (project, location, cluster id) of the cluster to complete IP
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### CreateClusterRequest
 * CreateClusterRequest `object`: CreateClusterRequest creates a cluster.
   * cluster [Cluster](#cluster)
+  * parent `string`: The parent (project and location) where the cluster will be created.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### CreateNodePoolRequest
 * CreateNodePoolRequest `object`: CreateNodePoolRequest creates a node pool for a cluster.
+  * clusterId `string`: Deprecated. The name of the cluster.
   * nodePool [NodePool](#nodepool)
+  * parent `string`: The parent (project, location, cluster id) where the node pool will be
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### DailyMaintenanceWindow
 * DailyMaintenanceWindow `object`: Time window specified for daily maintenance operations.
@@ -1314,7 +2172,7 @@ google_container.projects.zones.getServerconfig({
   * username `string`: The username to use for HTTP basic authentication to the master endpoint.
 
 ### MasterAuthorizedNetworksConfig
-* MasterAuthorizedNetworksConfig `object`: Master authorized networks is a Beta feature.
+* MasterAuthorizedNetworksConfig `object`: Configuration options for the master authorized networks feature. Enabled
   * cidrBlocks `array`: cidr_blocks define up to 10 external networks that could access
     * items [CidrBlock](#cidrblock)
   * enabled `boolean`: Whether or not master authorized networks is enabled.
@@ -1376,6 +2234,7 @@ google_container.projects.zones.getServerconfig({
 * Operation `object`: This operation resource represents operations that may have happened or are
   * detail `string`: Detailed operation progress, if available.
   * endTime `string`: [Output only] The time the operation completed, in
+  * location `string`: [Output only] The name of the Google Compute Engine
   * name `string`: The server-assigned ID for the operation.
   * operationType `string` (values: TYPE_UNSPECIFIED, CREATE_CLUSTER, DELETE_CLUSTER, UPGRADE_MASTER, UPGRADE_NODES, REPAIR_CLUSTER, UPDATE_CLUSTER, CREATE_NODE_POOL, DELETE_NODE_POOL, SET_NODE_POOL_MANAGEMENT, AUTO_REPAIR_NODES, AUTO_UPGRADE_NODES, SET_LABELS, SET_MASTER_AUTH, SET_NODE_POOL_SIZE, SET_NETWORK_POLICY, SET_MAINTENANCE_POLICY): The operation type.
   * selfLink `string`: Server-defined URL for the resource.
@@ -1387,6 +2246,11 @@ google_container.projects.zones.getServerconfig({
 
 ### RollbackNodePoolUpgradeRequest
 * RollbackNodePoolUpgradeRequest `object`: RollbackNodePoolUpgradeRequest rollbacks the previously Aborted or Failed
+  * clusterId `string`: Deprecated. The name of the cluster to rollback.
+  * name `string`: The name (project, location, cluster, node pool id) of the node poll to
+  * nodePoolId `string`: Deprecated. The name of the node pool to rollback.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### ServerConfig
 * ServerConfig `object`: Kubernetes Engine service configuration.
@@ -1402,68 +2266,137 @@ google_container.projects.zones.getServerconfig({
 ### SetAddonsConfigRequest
 * SetAddonsConfigRequest `object`: SetAddonsConfigRequest sets the addons associated with the cluster.
   * addonsConfig [AddonsConfig](#addonsconfig)
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
+  * name `string`: The name (project, location, cluster) of the cluster to set addons.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetLabelsRequest
 * SetLabelsRequest `object`: SetLabelsRequest sets the Google Cloud Platform labels on a Google Container
+  * clusterId `string`: Deprecated. The name of the cluster.
   * labelFingerprint `string`: The fingerprint of the previous set of labels for this resource,
+  * name `string`: The name (project, location, cluster id) of the cluster to set labels.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
   * resourceLabels `object`: The labels to set for that cluster.
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetLegacyAbacRequest
 * SetLegacyAbacRequest `object`: SetLegacyAbacRequest enables or disables the ABAC authorization mechanism for
+  * clusterId `string`: Deprecated. The name of the cluster to update.
   * enabled `boolean`: Whether ABAC authorization will be enabled in the cluster.
+  * name `string`: The name (project, location, cluster id) of the cluster to set legacy abac.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetLocationsRequest
 * SetLocationsRequest `object`: SetLocationsRequest sets the locations of the cluster.
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
   * locations `array`: The desired list of Google Compute Engine
     * items `string`
+  * name `string`: The name (project, location, cluster) of the cluster to set locations.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetLoggingServiceRequest
 * SetLoggingServiceRequest `object`: SetLoggingServiceRequest sets the logging service of a cluster.
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
   * loggingService `string`: The logging service the cluster should use to write metrics.
+  * name `string`: The name (project, location, cluster) of the cluster to set logging.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetMaintenancePolicyRequest
 * SetMaintenancePolicyRequest `object`: SetMaintenancePolicyRequest sets the maintenance policy for a cluster.
+  * clusterId `string`: The name of the cluster to update.
   * maintenancePolicy [MaintenancePolicy](#maintenancepolicy)
+  * name `string`: The name (project, location, cluster id) of the cluster to set maintenance
+  * projectId `string`: The Google Developers Console [project ID or project
+  * zone `string`: The name of the Google Compute Engine
 
 ### SetMasterAuthRequest
 * SetMasterAuthRequest `object`: SetMasterAuthRequest updates the admin password of a cluster.
   * action `string` (values: UNKNOWN, SET_PASSWORD, GENERATE_PASSWORD, SET_USERNAME): The exact form of action to be taken on the master auth.
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
+  * name `string`: The name (project, location, cluster) of the cluster to set auth.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
   * update [MasterAuth](#masterauth)
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetMonitoringServiceRequest
 * SetMonitoringServiceRequest `object`: SetMonitoringServiceRequest sets the monitoring service of a cluster.
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
   * monitoringService `string`: The monitoring service the cluster should use to write metrics.
+  * name `string`: The name (project, location, cluster) of the cluster to set monitoring.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetNetworkPolicyRequest
 * SetNetworkPolicyRequest `object`: SetNetworkPolicyRequest enables/disables network policy for a cluster.
+  * clusterId `string`: Deprecated. The name of the cluster.
+  * name `string`: The name (project, location, cluster id) of the cluster to set networking
   * networkPolicy [NetworkPolicy](#networkpolicy)
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetNodePoolAutoscalingRequest
 * SetNodePoolAutoscalingRequest `object`: SetNodePoolAutoscalingRequest sets the autoscaler settings of a node pool.
   * autoscaling [NodePoolAutoscaling](#nodepoolautoscaling)
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
+  * name `string`: The name (project, location, cluster, node pool) of the node pool to set
+  * nodePoolId `string`: Deprecated. The name of the node pool to upgrade.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetNodePoolManagementRequest
 * SetNodePoolManagementRequest `object`: SetNodePoolManagementRequest sets the node management properties of a node
+  * clusterId `string`: Deprecated. The name of the cluster to update.
   * management [NodeManagement](#nodemanagement)
+  * name `string`: The name (project, location, cluster, node pool id) of the node pool to set
+  * nodePoolId `string`: Deprecated. The name of the node pool to update.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### SetNodePoolSizeRequest
 * SetNodePoolSizeRequest `object`: SetNodePoolSizeRequest sets the size a node
+  * clusterId `string`: Deprecated. The name of the cluster to update.
+  * name `string`: The name (project, location, cluster, node pool id) of the node pool to set
   * nodeCount `integer`: The desired node count for the pool.
+  * nodePoolId `string`: Deprecated. The name of the node pool to update.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### StartIPRotationRequest
 * StartIPRotationRequest `object`: StartIPRotationRequest creates a new IP for the cluster and then performs
+  * clusterId `string`: Deprecated. The name of the cluster.
+  * name `string`: The name (project, location, cluster id) of the cluster to start IP
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * rotateCredentials `boolean`: Whether to rotate credentials during IP rotation.
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### UpdateClusterRequest
 * UpdateClusterRequest `object`: UpdateClusterRequest updates the settings of a cluster.
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
+  * name `string`: The name (project, location, cluster) of the cluster to update.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
   * update [ClusterUpdate](#clusterupdate)
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### UpdateMasterRequest
 * UpdateMasterRequest `object`: UpdateMasterRequest updates the master of the cluster.
-  * masterVersion `string`: The Kubernetes version to change the master to. Use "-" to have the server
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
+  * masterVersion `string`: The Kubernetes version to change the master to.
+  * name `string`: The name (project, location, cluster) of the cluster to update.
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 ### UpdateNodePoolRequest
 * UpdateNodePoolRequest `object`: UpdateNodePoolRequests update a node pool's image and/or version.
+  * clusterId `string`: Deprecated. The name of the cluster to upgrade.
   * imageType `string`: The desired image type for the node pool.
+  * name `string`: The name (project, location, cluster, node pool) of the node pool to
+  * nodePoolId `string`: Deprecated. The name of the node pool to upgrade.
   * nodeVersion `string`: The Kubernetes version to change the nodes to (typically an
+  * projectId `string`: Deprecated. The Google Developers Console [project ID or project
+  * zone `string`: Deprecated. The name of the Google Compute Engine
 
 

@@ -26,7 +26,7 @@ amazonaws_mgh.AssociateCreatedArtifact({
 
 ## Description
 
-<p/>
+The AWS Migration Hub API methods help to obtain server and application migration status and integrate your resource-specific migration tool by providing a programmatic interface to Migration Hub. 
 
 ## Actions
 
@@ -364,7 +364,7 @@ amazonaws_mgh.PutResourceAttributes({
 ## Definitions
 
 ### AccessDeniedException
-* AccessDeniedException `object`: Exception raised when the account making the call is not whitelisted or there are other authentication errors.
+* AccessDeniedException `object`: You do not have sufficient access to perform this action.
   * Message [ErrorMessage](#errormessage)
 
 ### ApplicationId
@@ -611,7 +611,7 @@ amazonaws_mgh.PutResourceAttributes({
 * NotifyMigrationTaskStateResult `object`
 
 ### PolicyErrorException
-* PolicyErrorException `object`: Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>ADSCaller</code> role is missing or not configured correctly.
+* PolicyErrorException `object`: Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.
   * Message [ErrorMessage](#errormessage)
 
 ### ProgressPercent
@@ -639,7 +639,7 @@ amazonaws_mgh.PutResourceAttributes({
 * PutResourceAttributesResult `object`
 
 ### ResourceAttribute
-* ResourceAttribute `object`: Attribute associated with a resource.
+* ResourceAttribute `object`: <p>Attribute associated with a resource.</p> <p>Note the corresponding format required per type listed below:</p> <dl> <dt>IPV4</dt> <dd> <p> <code>x.x.x.x</code> </p> <p> <i>where x is an integer in the range [0,255]</i> </p> </dd> <dt>IPV6</dt> <dd> <p> <code>y : y : y : y : y : y : y : y</code> </p> <p> <i>where y is a hexadecimal between 0 and FFFF. [0, FFFF]</i> </p> </dd> <dt>MAC_ADDRESS</dt> <dd> <p> <code>^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$</code> </p> </dd> <dt>FQDN</dt> <dd> <p> <code>^[^&lt;&gt;{}\\\\/?,=\\p{Cntrl}]{1,256}$</code> </p> </dd> </dl>
   * Type **required** [ResourceAttributeType](#resourceattributetype)
   * Value **required** [ResourceAttributeValue](#resourceattributevalue)
 
@@ -648,7 +648,7 @@ amazonaws_mgh.PutResourceAttributes({
   * items [ResourceAttribute](#resourceattribute)
 
 ### ResourceAttributeType
-* ResourceAttributeType `string` (values: IPV4_ADDRESS, IPV6_ADDRESS, MAC_ADDRESS, FQDN, VM_MANAGER_ID, VM_MANAGED_OBJECT_REFERENCE, VM_NAME, VM_PATH, BIOS_ID, MOTHERBOARD_SERIAL_NUMBER, LABEL)
+* ResourceAttributeType `string` (values: IPV4_ADDRESS, IPV6_ADDRESS, MAC_ADDRESS, FQDN, VM_MANAGER_ID, VM_MANAGED_OBJECT_REFERENCE, VM_NAME, VM_PATH, BIOS_ID, MOTHERBOARD_SERIAL_NUMBER)
 
 ### ResourceAttributeValue
 * ResourceAttributeValue `string`
@@ -661,7 +661,7 @@ amazonaws_mgh.PutResourceAttributes({
   * Message [ErrorMessage](#errormessage)
 
 ### ServiceUnavailableException
-* ServiceUnavailableException `object`: Exception raised when the service encounters throttled communication with upstream dependencies or is overloaded with requests.
+* ServiceUnavailableException `object`: Exception raised when there is an internal, configuration, or dependency error encountered.
   * Message [ErrorMessage](#errormessage)
 
 ### Status

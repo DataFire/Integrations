@@ -23,7 +23,7 @@ amazonaws_lambda.InvokeAsync({
 
 ## Description
 
-<fullname>AWS Lambda</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is AWS Lambda</a>, and for information about how the service works, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p>
+<fullname>AWS Lambda</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is AWS Lambda</a>, and for information about how the service works, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p>
 
 ## Actions
 
@@ -742,7 +742,7 @@ amazonaws_lambda.PutFunctionConcurrency({
 * Date `string`
 
 ### DeadLetterConfig
-* DeadLetterConfig `object`: The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+* DeadLetterConfig `object`: The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ). For more information, see <a>dlq</a>. 
   * TargetArn [ResourceArn](#resourcearn)
 
 ### DeleteAliasRequest
@@ -1110,7 +1110,7 @@ amazonaws_lambda.PutFunctionConcurrency({
 * RoleArn `string`
 
 ### Runtime
-* Runtime `string` (values: nodejs, nodejs4.3, nodejs6.10, java8, python2.7, python3.6, dotnetcore1.0, dotnetcore2.0, nodejs4.3-edge, go1.x)
+* Runtime `string` (values: nodejs, nodejs4.3, nodejs6.10, nodejs8.10, java8, python2.7, python3.6, dotnetcore1.0, dotnetcore2.0, nodejs4.3-edge, go1.x)
 
 ### S3Bucket
 * S3Bucket `string`

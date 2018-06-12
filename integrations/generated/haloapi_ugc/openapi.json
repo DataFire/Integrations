@@ -60,7 +60,7 @@
     "/h5/players/{player}/gamevariants": {
       "get": {
         "description": "<p>Retrieves a list of Game Variants created by a Player.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"List Game Variants\" to \"Halo 5 - Player Game Variants\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>August 5, 2016:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.players.player.gamevariants.get",
+        "operationId": "58acde292109180bdcacc40d",
         "parameters": [
           {
             "description": "The Gamertag of the Player that owns the listed Game Variants.",
@@ -153,13 +153,14 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "summary": "Halo 5 - Player Game Variants"
       }
     },
     "/h5/players/{player}/gamevariants/{variant}": {
       "get": {
         "description": "<p>Retrieves Metadata about a Player-created Game Variant.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Get Game Variant\" to \"Halo 5 - Player Game Variant\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>August 5, 2016:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.players.player.gamevariants.variant.get",
+        "operationId": "58acde292109180bdcacc40c",
         "parameters": [
           {
             "description": "The Gamertag of the Player that owns the Game Variant.",
@@ -226,13 +227,14 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "summary": "Halo 5 - Player Game Variant"
       }
     },
     "/h5/players/{player}/mapvariants": {
       "get": {
         "description": "<p>Retrieves a list Map Variants created by a Player.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"List Map Variants\" to \"Halo 5 - Player Map Variants\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>August 5, 2016:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.players.player.mapvariants.get",
+        "operationId": "58acde292109180bdcacc40f",
         "parameters": [
           {
             "description": "The Gamertag of the Player that owns the listed Map Variants.",
@@ -319,13 +321,14 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "summary": "Halo 5 - Player Map Variants"
       }
     },
     "/h5/players/{player}/mapvariants/{variant}": {
       "get": {
         "description": "<p>Retrieves Metadata about a Player-created Map Variant.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Get Map Variant\" to \"Halo 5 - Player Map Variant\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>August 5, 2016:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.players.player.mapvariants.variant.get",
+        "operationId": "58acde292109180bdcacc40e",
         "parameters": [
           {
             "description": "The Gamertag of the Player that owns the Map Variant.",
@@ -395,7 +398,8 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "summary": "Halo 5 - Player Map Variant"
       }
     }
   }

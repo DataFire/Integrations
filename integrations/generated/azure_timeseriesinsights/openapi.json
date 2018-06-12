@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/timeseriesinsights/resource-manager/Microsoft.TimeSeriesInsights/stable/2017-11-15/timeseriesinsights.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/timeseriesinsights/resource-manager/Microsoft.TimeSeriesInsights/stable/2017-11-15/timeseriesinsights.json",
         "version": "2.0"
       }
     ],
@@ -515,6 +515,12 @@
                     "dataAccessFqdn": "<dataAccessIdFqdn>",
                     "dataAccessId": "<dataAccessId>",
                     "dataRetentionTime": "P31D",
+                    "partitionKeyProperties": [
+                      {
+                        "name": "DeviceId1",
+                        "type": "String"
+                      }
+                    ],
                     "provisioningState": "Succeeded",
                     "storageLimitExceededBehavior": "PurgeOldData"
                   },
@@ -678,7 +684,13 @@
               "parameters": {
                 "location": "West US",
                 "properties": {
-                  "dataRetentionTime": "P31D"
+                  "dataRetentionTime": "P31D",
+                  "partitionKeyProperties": [
+                    {
+                      "name": "DeviceId1",
+                      "type": "String"
+                    }
+                  ]
                 },
                 "sku": {
                   "capacity": 1,
@@ -2157,6 +2169,13 @@
           "format": "duration",
           "type": "string"
         },
+        "partitionKeyProperties": {
+          "description": "The list of partition keys according to which the data in the environment will be ordered.",
+          "items": {
+            "$ref": "#/definitions/PartitionKeyProperty"
+          },
+          "type": "array"
+        },
         "storageLimitExceededBehavior": {
           "description": "The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If \"PauseIngress\" is specified, new events will not be read from the event source. If \"PurgeOldData\" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.",
           "enum": [
@@ -2193,6 +2212,13 @@
           "description": "ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.",
           "format": "duration",
           "type": "string"
+        },
+        "partitionKeyProperties": {
+          "description": "The list of event properties which will be used to partition data in the environment.",
+          "items": {
+            "$ref": "#/definitions/PartitionKeyProperty"
+          },
+          "type": "array"
         },
         "storageLimitExceededBehavior": {
           "description": "The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If \"PauseIngress\" is specified, new events will not be read from the event source. If \"PurgeOldData\" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.",
@@ -2761,6 +2787,26 @@
         }
       }
     },
+    "PartitionKeyProperty": {
+      "description": "The structure of the property that a partition key can have. An environment can have multiple such properties.",
+      "properties": {
+        "name": {
+          "description": "The name of the property.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the property.",
+          "enum": [
+            "String"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "PropertyType"
+          }
+        }
+      }
+    },
     "ProvisioningState": {
       "description": "Provisioning state of the resource.",
       "enum": [
@@ -2797,6 +2843,18 @@
     "ReferenceDataSetCreationProperties": {
       "description": "Properties used to create a reference data set.",
       "properties": {
+        "dataStringComparisonBehavior": {
+          "description": "The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.",
+          "enum": [
+            "Ordinal",
+            "OrdinalIgnoreCase"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "DataStringComparisonBehavior"
+          }
+        },
         "keyProperties": {
           "description": "The list of key properties for the reference data set.",
           "items": {

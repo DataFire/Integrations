@@ -1,6 +1,6 @@
 # @datafire/weatherbit
 
-Client library for Weatherbit.io - Weather
+Client library for Weatherbit.io - Swagger UI Weather API documentation
 
 ## Installation and Usage
 ```bash
@@ -22,7 +22,7 @@ weatherbit.bulk.history.daily_city_city_country_country.get({
 
 ## Description
 
-This is the documentation for the Weatherbit API.  The base URL for the API is [http://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/) or [https://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/). Below is the Swagger UI documentation for the API. All API requests require the `key` parameter.        An Example for a 5 day forecast for London, UK would be `http://api.weatherbit.io/v2.0/forecast/3hourly?city=London`&`country=UK`
+This is the documentation for the Weatherbit Weather API.  The base URL for the API is [http://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/) or [https://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/). Below is the Swagger UI documentation for the API. All API requests require the `key` parameter.        An Example for a 5 day forecast for London, UK would be `http://api.weatherbit.io/v2.0/forecast/3hourly?city=London`&`country=UK`. See our [Weather API description page](https://www.weatherbit.io/api) for additional documentation.
 
 ## Actions
 
@@ -47,8 +47,8 @@ weatherbit.bulk.history.daily_city_city_country_country.get({
   * country **required** `string`: Country Code (2 letter).
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -73,8 +73,8 @@ weatherbit.bulk.history.daily_city_id_city_id.get({
   * city_id **required** `string`: City ID. Example: 4487042
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -99,8 +99,8 @@ weatherbit.bulk.history.daily_ip_ip.get({
   * ip **required** `string`: IP Address, or auto. Example: ip=auto
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -127,8 +127,8 @@ weatherbit.bulk.history.daily_lat_lat_lon_lon.get({
   * lon **required** `number`: Longitude component of location.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -154,8 +154,8 @@ weatherbit.bulk.history.daily_postal_code_postal_code.get({
   * country `string`: Country Code (2 letter).
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -180,8 +180,8 @@ weatherbit.bulk.history.daily_station_station.get({
   * station **required** `string`: Station ID.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -209,8 +209,8 @@ weatherbit.bulk.history.hourly_city_city_country_country.get({
   * country **required** `string`: Country Code (2 letter).
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -235,8 +235,8 @@ weatherbit.bulk.history.hourly_city_id_city_id.get({
   * city_id **required** `string`: City ID. Example: 4487042
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -261,8 +261,8 @@ weatherbit.bulk.history.hourly_ip_ip.get({
   * ip **required** `string`: IP Address, or auto. Example: ip=auto
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -289,8 +289,8 @@ weatherbit.bulk.history.hourly_lat_lat_lon_lon.get({
   * lon **required** `number`: Longitude component of location.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -316,8 +316,8 @@ weatherbit.bulk.history.hourly_postal_code_postal_code.get({
   * country `string`: Country Code (2 letter).
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -342,8 +342,8 @@ weatherbit.bulk.history.hourly_station_station.get({
   * station **required** `string`: Station ID.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -383,9 +383,9 @@ weatherbit.current_cities_cities.get({
 #### Input
 * input `object`
   * cities **required** `string`: Comma separated list of City ID's. Example: 4487042, 4494942, 4504871
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * marine `string` (values: t): Marine stations only (buoys, oil platforms, etc)
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback - Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -410,8 +410,8 @@ weatherbit.current_city_city_country_country.get({
   * state `string`: Full name of state.
   * country **required** `string`: Country Code (2 letter).
   * marine `string` (values: t): Marine stations only (buoys, oil platforms, etc)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback - Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -432,9 +432,9 @@ weatherbit.current_city_id_city_id.get({
 #### Input
 * input `object`
   * city_id **required** `string`: City ID. Example: 4487042
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * marine `string` (values: t): Marine stations only (buoys, oil platforms, etc)
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback - Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -456,8 +456,8 @@ weatherbit.current_ip_ip.get({
 * input `object`
   * ip **required** `string`: IP Address, or auto. Example: ip=auto
   * marine `string` (values: t): Marine stations only (buoys, oil platforms, etc)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback - Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -481,8 +481,8 @@ weatherbit.current_lat_lat_lon_lon.get({
   * lat **required** `number`: Latitude component of location.
   * lon **required** `number`: Longitude component of location.
   * marine `string` (values: t): Marine stations only (buoys, oil platforms, etc)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback - Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -505,8 +505,8 @@ weatherbit.current_postal_code_postal_code.get({
   * postal_code **required** `string`: Postal Code. Example: 28546
   * country `string`: Country Code (2 letter).
   * marine `string` (values: t): Marine stations only (buoys, oil platforms, etc)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback - Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -527,8 +527,8 @@ weatherbit.current_station_station.get({
 #### Input
 * input `object`
   * station **required** `string`: Station Call ID.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -549,8 +549,8 @@ weatherbit.current_stations_stations.get({
 #### Input
 * input `object`
   * stations **required** `string`: Comma separated list of Station Call ID's. Example: KRDU,KBFI,KVNY
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -576,8 +576,8 @@ weatherbit.forecast.3hourly_city_city_country_country.get({
   * state `string`: Full name of state.
   * country **required** `string`: Country Code (2 letter).
   * days `number`: Number of days to return. Default 5.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -600,8 +600,8 @@ weatherbit.forecast.3hourly_city_id_city_id.get({
 * input `object`
   * city_id **required** `integer`: City ID. Example: 4487042
   * days `number`: Number of days to return. Default 5.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -624,8 +624,8 @@ weatherbit.forecast.3hourly_ip_ip.get({
 * input `object`
   * ip **required** `string`: IP address, or auto. Example: ip=auto
   * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -650,8 +650,8 @@ weatherbit.forecast.3hourly_lat_lat_lon_lon.get({
   * lat **required** `number`: Latitude component of location.
   * lon **required** `number`: Longitude component of location.
   * days `number`: Number of days to return. Default 5.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -675,8 +675,8 @@ weatherbit.forecast.3hourly_postal_code_postal_code.get({
   * postal_code **required** `integer`: Postal Code. Example: 28546
   * country `string`: Country Code (2 letter).
   * days `number`: Number of days to return. Default 5.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -702,8 +702,8 @@ weatherbit.forecast.daily_city_city_country_country.get({
   * state `string`: Full name of state.
   * country **required** `string`: Country Code (2 letter).
   * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example - callback=func
   * key **required** `string`: Your registered API key.
 
@@ -726,8 +726,8 @@ weatherbit.forecast.daily_city_id_city_id.get({
 * input `object`
   * city_id **required** `integer`: City ID. Example: 4487042
   * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -750,8 +750,8 @@ weatherbit.forecast.daily_ip_ip.get({
 * input `object`
   * ip **required** `string`: IP address, or auto. Example: ip=auto
   * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -776,8 +776,8 @@ weatherbit.forecast.daily_lat_lat_lon_lon.get({
   * lat **required** `number`: Latitude component of location.
   * lon **required** `number`: Longitude component of location.
   * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -801,8 +801,8 @@ weatherbit.forecast.daily_postal_code_postal_code.get({
   * postal_code **required** `integer`: Postal Code. Example: 28546
   * country `string`: Country Code (2 letter).
   * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -827,8 +827,8 @@ weatherbit.forecast.hourly_city_city_country_country.get({
   * city **required** `string`: City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR
   * state `string`: Full name of state.
   * country **required** `string`: Country Code (2 letter).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * hours `integer`: Number of hours to return.
   * key **required** `string`: Your registered API key.
@@ -851,8 +851,8 @@ weatherbit.forecast.hourly_city_id_city_id.get({
 #### Input
 * input `object`
   * city_id **required** `integer`: City ID. Example: 4487042
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example - callback=func
   * hours `integer`: Number of hours to return.
   * key **required** `string`: Your registered API key.
@@ -876,8 +876,8 @@ weatherbit.forecast.hourly_ip_ip.get({
 * input `object`
   * ip **required** `string`: IP address, or auto. Example: ip=auto
   * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * hours `integer`: Number of hours to return.
   * key **required** `string`: Your registered API key.
@@ -902,8 +902,8 @@ weatherbit.forecast.hourly_lat_lat_lon_lon.get({
 * input `object`
   * lat **required** `number`: Latitude component of location.
   * lon **required** `number`: Longitude component of location.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example - callback=func
   * key **required** `string`: Your registered API key.
   * hours `integer`: Number of hours to return.
@@ -927,8 +927,8 @@ weatherbit.forecast.hourly_postal_code_postal_code.get({
 * input `object`
   * postal_code **required** `integer`: Postal Code. Example: 28546
   * country `string`: Country Code (2 letter).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example - callback=func
   * hours `integer`: Number of hours to return.
   * key **required** `string`: Your registered API key.
@@ -957,8 +957,8 @@ weatherbit.history.daily_city_city_country_country.get({
   * country **required** `string`: Country Code (2 letter).
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -983,8 +983,8 @@ weatherbit.history.daily_city_id_city_id.get({
   * city_id **required** `string`: City ID. Example: 4487042
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1009,8 +1009,8 @@ weatherbit.history.daily_ip_ip.get({
   * ip **required** `string`: IP Address, or auto. Example: ip=auto
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1037,8 +1037,8 @@ weatherbit.history.daily_lat_lat_lon_lon.get({
   * lon **required** `number`: Longitude component of location.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1064,8 +1064,8 @@ weatherbit.history.daily_postal_code_postal_code.get({
   * country `string`: Country Code (2 letter).
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1090,8 +1090,8 @@ weatherbit.history.daily_station_station.get({
   * station **required** `string`: Station ID.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1122,7 +1122,8 @@ weatherbit.history.energy.bbox_lat1_lat1_lon1_lon1_lat2_lat2_lon2_lon2.get({
   * lon2 **required** `number`: Longitude of lower right corner.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
+  * threshold `number`: Temperature threshold to use to calculate degree days (default 18 C) 
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1149,7 +1150,9 @@ weatherbit.history.energy_lat_lat_lon_lon.get({
   * lon **required** `number`: Longitude component of location.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
+  * tp `string` (values: daily, monthly): Time period to aggregate by (daily, monthly)
+  * threshold `number`: Temperature threshold to use to calculate degree days (default 18 C) 
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1177,8 +1180,8 @@ weatherbit.history.hourly_city_city_country_country.get({
   * country **required** `string`: Country Code (2 letter).
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1203,8 +1206,8 @@ weatherbit.history.hourly_city_id_city_id.get({
   * city_id **required** `string`: City ID. Example: 4487042
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1229,8 +1232,8 @@ weatherbit.history.hourly_ip_ip.get({
   * ip **required** `string`: IP Address, or auto. Example: ip=auto
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1257,8 +1260,8 @@ weatherbit.history.hourly_lat_lat_lon_lon.get({
   * lon **required** `number`: Longitude component of location.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1284,8 +1287,8 @@ weatherbit.history.hourly_postal_code_postal_code.get({
   * country `string`: Country Code (2 letter).
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1310,8 +1313,8 @@ weatherbit.history.hourly_station_station.get({
   * station **required** `string`: Station ID.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a href='/api/requests'>language field description</a>
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1351,12 +1354,12 @@ weatherbit.ip_ip_ip.get({
   * clouds `integer`: Cloud cover (%)
   * country_code `string`: Country abbreviation
   * datetime `string`: Cycle Hour (UTC) of observation
-  * dewpt `number`: Dew point temperature - Default (C)
+  * dewpt `number`: Dew point temperature - default (C)
   * dhi `number`: Direct component of solar insolation (W/m^2)
   * elev_angle `number`: Current solar elevation angle (Degrees)
   * hour_angle `number`: Current solar hour angle (Degrees)
-  * lat `string`: Latitude
-  * lon `string`: Longitude
+  * lat `number`: Latitude
+  * lon `number`: Longitude
   * ob_time `string`: Full time (UTC) of observation (YYYY-MM-DD HH:MM)
   * pod `string`: Part of the day (d = day, n = night)
   * precip `number`: Precipitation in last hour - Default (mm)
@@ -1372,14 +1375,14 @@ weatherbit.ip_ip_ip.get({
   * timezone `string`: Local IANA time zone
   * ts `number`: Unix Timestamp
   * uv `number`: UV Index
-  * vis `string`: Visibility - Default (M)
+  * vis `integer`: Visibility - default (M)
   * weather `object`
     * code `string`: Weather Condition code
     * description `string`: Weather Condition description
     * icon `string`: Icon code for forecast image display
   * wind_cdir `string`: Cardinal wind direction
   * wind_cdir_full `string`: Cardinal wind direction (text)
-  * wind_dir `integer`: Wind direction (Degrees)
+  * wind_dir `integer`: Wind direction (degrees)
   * wind_speed `number`: Wind speed - Default (m/s)
 
 ### CurrentObsGroup
@@ -1390,13 +1393,12 @@ weatherbit.ip_ip_ip.get({
 
 ### EnergyObs
 * EnergyObs `object`
-  * cdd `number`: Cooling degree days - base 18 degrees (C)
+  * cdd `number`: Cooling degree days
   * city_name `string`: City name (closest)
   * clouds `integer`: Average cloud cover (%)
   * country_code `string`: Country abbreviation
   * dewpt `number`: Average dew point temperature - Default (C)
-  * dhi `number`: Average direct component of solar insolation (W/m^2)
-  * hdd `number`: Heating degree days - base 18 degrees (C)
+  * hdd `number`: Heating degree days
   * lat `string`: Latitude
   * lon `string`: Longitude
   * precip `number`: Total precipitation in period - Default (mm)
@@ -1404,7 +1406,10 @@ weatherbit.ip_ip_ip.get({
   * snow `number`: Total snowfall in period - Default (mm)
   * state_code `string`: State abbreviation
   * station_id `string`: Source Station ID
-  * sun_hours `number`: Average number of daily sun hours - # hours where Solar Insolation > 1000 W/m^2
+  * sun_hours `number`: Average number of daily sun hours - # hours where Solar GHI > 1000 W/m^2
+  * t_dhi `number`: Total diffuse horizontal solar irradiance (W/m^2)
+  * t_dni `number`: Total direct normal solar irradiance (W/m^2)
+  * t_ghi `number`: Total global horizontal solar irradiance (W/m^2)
   * temp `number`: Average temperature - Default (C)
   * timezone `string`: Local IANA time zone
   * wind_dir `integer`: Average wind direction (Degrees)
@@ -1425,22 +1430,23 @@ weatherbit.ip_ip_ip.get({
 
 ### Forecast
 * Forecast `object`
-  * app_max_temp `number`: Apparent Maximum daily Temperature - Default (C)
-  * app_min_temp `number`: Apparent Minimum daily Temperature - Default (C)
+  * app_max_temp `number`: Apparent Maximum daily Temperature - default (C)
+  * app_min_temp `number`: Apparent Minimum daily Temperature - default (C)
   * clouds `integer`: Cloud cover as a percentage (%)
   * datetime `string`: (UTC) Date in format "YYYY-MM-DD"
-  * dewpt `number`: Dewpoint (Average) - Default (C)
-  * max_dhi `number`: Max direct component of solar insolation (W/m^2)
-  * max_temp `number`: Maximum daily Temperature - Default (C)
-  * min_temp `number`: Minimum daily Temperature - Default (C)
+  * dewpt `number`: Dewpoint (Average) - default (C)
+  * max_dhi `number`: [Deprecated] Max direct component of solar insolation (W/m^2)
+  * max_temp `number`: Maximum daily Temperature - default (C)
+  * min_temp `number`: Minimum daily Temperature - default (C)
   * pod `string`: Part of the day (d = day, n = night)
   * pop `number`: Chance of Precipitation as a percentage (%)
-  * precip `number`: Accumulated precipitation since last forecast point. Default (mm)
+  * precip `number`: Accumulated precipitation since last forecast point - default (mm)
   * pres `number`: Pressure (mb)
   * rh `integer`: Relative Humidity as a percentage (%)
   * slp `number`: Mean Sea level pressure (mb)
-  * snow `number`: Accumulated snowfall since last forecast point. Default (mm)
-  * temp `number`: Temperature (Average) - Default (C)
+  * snow `number`: Accumulated snowfall since last forecast point - default (mm)
+  * snow_depth `number`: Snow Depth - default (mm)
+  * temp `number`: Temperature (Average) - default (C)
   * ts `number`: Unix Timestamp
   * uv `number`: UV Index
   * vis `number`: Average Visibility default (KM)
@@ -1470,7 +1476,9 @@ weatherbit.ip_ip_ip.get({
   * clouds `integer`: Cloud cover as a percentage (%)
   * datetime `string`: (UTC) Date in format "YYYY-MM-DD:HH"
   * dewpt `number`: Dewpoint - Default (C)
-  * dhi `number`: Direct component of solar radiation (W/m^2)
+  * dhi `number`: Diffuse normal solar irradiance (W/m^2)
+  * dni `number`: Direct normal solar irradiance (W/m^2)
+  * ghi `number`: Global horizontal solar irradiance (W/m^2)
   * pod `string`: Part of day (d = day, n = night)
   * pop `number`: Chance of Precipitation as a percentage (%)
   * precip `number`: Accumulated precipitation since last forecast point. Default (mm)
@@ -1478,8 +1486,9 @@ weatherbit.ip_ip_ip.get({
   * pres `number`: Pressure (mb)
   * rh `integer`: Relative Humidity as a percentage (%)
   * slp `number`: Mean Sea level pressure (mb)
-  * snow `number`: Accumulated snowfall since last forecast point. Default (mm)
+  * snow `number`: Accumulated snowfall since last forecast point - Default (mm)
   * snow6h `number`: 6 hour accumulated snowfall. Default (mm)
+  * snow_depth `number`: Snow depth - Default (mm)
   * temp `number`: Temperature - Default (C)
   * ts `number`: Unix Timestamp
   * uv `number`: UV Index
@@ -1531,6 +1540,8 @@ weatherbit.ip_ip_ip.get({
     * items [HistoryObj](#historyobj)
   * lat `string`: Latitude
   * lon `string`: Longitude
+  * sources `array`: Weather stations used in response
+    * items `string`
   * state_code `string`: State abbreviation
   * timezone `string`: Local IANA time zone
 
@@ -1542,6 +1553,8 @@ weatherbit.ip_ip_ip.get({
     * items [HistoryDayObj](#historydayobj)
   * lat `string`: Latitude
   * lon `string`: Longitude
+  * sources `array`: Weather stations used in response
+    * items `string`
   * state_code `string`: State abbreviation
   * timezone `string`: Local IANA time zone
 
@@ -1549,38 +1562,45 @@ weatherbit.ip_ip_ip.get({
 * HistoryDayObj `object`
   * datetime `string`: Date in format "YYYY-MM-DD". All datetime is in (UTC)
   * dewpt `number`: Average dewpoint - Default (C)
-  * dhi `integer`: Average direct solar insolation (W/m^2)
-  * max_temp `number`: Max Temperature - Default (C)
-  * max_temp_ts `number`: Time of Max Temperature - Unix Timestamp
+  * dhi `integer`: Average hourly diffuse horizontal solar irradiance (W/m^2)
+  * dni `integer`: Average direct normal solar irradiance (W/m^2)
+  * ghi `integer`: Average hourly global horizontal solar irradiance (W/m^2)
+  * max_temp `number`: Max temperature - Default (C)
+  * max_temp_ts `number`: Time of max memperature - Unix Timestamp
   * max_uv `integer`: Max UV Index (1-11+)
-  * max_wind_dir `integer`: Direction of wind at time of max wind - (Degrees)
-  * max_wind_spd `number`: Average Wind Speed - Default (m/s)
-  * max_wind_spd_ts `number`: Time of max wind - Unix Timestamp
-  * min_temp `number`: Min Temperature - Default (C)
-  * min_temp_ts `number`: Time of Max Temperature - Unix Timestamp
-  * precip `number`: Liquid equivalent precipitation - Default (mm)
+  * max_wind_dir `integer`: Direction of wind at time of max 2min wind (degrees)
+  * max_wind_spd `number`: Max 2min Wind Speed - default (m/s)
+  * max_wind_spd_ts `number`: Time of max 2min wind - unix timestamp
+  * min_temp `number`: Min temperature - Default (C)
+  * min_temp_ts `number`: Time of max temperature - unix timestamp
+  * precip `number`: Liquid equivalent precipitation - default (mm)
   * pres `number`: Average pressure (mb)
   * rh `integer`: Average relative humidity as a percentage (%)
-  * slp `number`: Average Sea level pressure (mb)
-  * snow `number`: Snowfall - Default (mm)
-  * t_dhi `integer`: Total/Cumulative direct solar insolation (W/m^2)
-  * temp `number`: Average Temperature - Default (C)
-  * ts `number`: Unix Timestamp of datetime (Midnight UTC)
-  * wind_dir `integer`: Average Wind direction - (Degrees)
-  * wind_spd `number`: Average Wind Speed - Default (m/s)
+  * slp `number`: Average sea level pressure (mb)
+  * snow `number`: Snowfall - default (mm)
+  * snow_depth `number`: Snow Depth - default (mm)
+  * t_dhi `integer`: Total diffuse horizontal solar irradiance (W/m^2)
+  * t_dni `integer`: Total direct normal solar irradiance (W/m^2)
+  * t_ghi `integer`: Total global horizontal solar irradiance (W/m^2)
+  * temp `number`: Average temperature - Default (C)
+  * ts `number`: Unix timestamp of datetime (Midnight UTC)
+  * wind_dir `integer`: Average wind direction (degrees)
+  * wind_gust_spd `number`: Wind gust direction (degrees)
+  * wind_spd `number`: Average wind speed - default (m/s)
 
 ### HistoryObj
 * HistoryObj `object`
   * datetime `string`: Date in format "YYYY-MM-DD:HH". All datetime is in (UTC)
   * dewpt `integer`: Dew point (Default Celcius)
-  * dhi `number`: Direct component of solar insolation (W/m^2)
-  * elev_angle `integer`: Solar elevation angle (Degrees)
-  * h_angle `integer`: Solar hour angle (Degrees)
+  * dhi `number`: Diffuse normal solar irradiance (W/m^2)
+  * dni `number`: Direct normal solar irradiance (W/m^2)
+  * elev_angle `number`: Solar elevation angle (Degrees)
+  * ghi `number`: Global horizontal solar irradiance (W/m^2)
+  * h_angle `number`: Solar hour angle (Degrees)
   * pod `string`: Part of the day (d = day, n = night)
   * precip `number`: Liquid equivalent precipitation - Default (mm)
   * precip6h `number`: Liquid equivalent precipitation in last 6 hours - Default (mm)
   * pres `number`: Pressure (mb)
-  * qc `number`: Set to 0 measurement has not yet been quality controlled, and should not be considered an authoritative observation
   * rh `integer`: Relative Humidity as a percentage (%)
   * slp `number`: Sea level pressure (mb)
   * snow `number`: Snowfall - Default (mm)

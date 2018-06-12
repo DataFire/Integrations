@@ -878,7 +878,7 @@
       "type": "string"
     },
     "p_pccs": {
-      "description": "Current Compliance Status:\n- E�= EffViol\n- S�= CSchVio\n- X = EffNMth\n- T = CSchRpt\n- D�= DMR NR\n- N�= RptViol\n- P�= ResPend\n- R�= Resolvd\n- M�= Manual\n- V�= NonRNCV\n- U = N/A\n- W = N/A\nMay contain multiple comma-separated values.",
+      "description": "Current Compliance Status:\n- E = EffViol\n- S = CSchVio\n- X = EffNMth\n- T = CSchRpt\n- D = DMR NR\n- N = RptViol\n- P = ResPend\n- R = Resolvd\n- M = Manual\n- V = NonRNCV\n- U = N/A\n- W = N/A\nMay contain multiple comma-separated values.",
       "in": "query",
       "name": "p_pccs",
       "required": false,

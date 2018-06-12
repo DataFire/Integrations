@@ -1,6 +1,6 @@
 # @datafire/google_datastore
 
-Client library for Google Cloud Datastore
+Client library for Cloud Datastore
 
 ## Installation and Usage
 ```bash
@@ -164,6 +164,79 @@ google_datastore.projects.commit({
 
 #### Output
 * output [CommitResponse](#commitresponse)
+
+### projects.export
+Exports a copy of all or a subset of entities from Google Cloud Datastore
+to another storage system, such as Google Cloud Storage. Recent updates to
+entities may not be reflected in the export. The export occurs in the
+background and its progress can be monitored and managed via the
+Operation resource that is created. The output of an export may only be
+used once the associated operation is done. If an export operation is
+cancelled before completion it may leave partial data behind in Google
+Cloud Storage.
+
+
+```js
+google_datastore.projects.export({
+  "projectId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [GoogleDatastoreAdminV1ExportEntitiesRequest](#googledatastoreadminv1exportentitiesrequest)
+  * projectId **required** `string`: Project ID against which to make the request.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [GoogleLongrunningOperation](#googlelongrunningoperation)
+
+### projects.import
+Imports entities into Google Cloud Datastore. Existing entities with the
+same key are overwritten. The import occurs in the background and its
+progress can be monitored and managed via the Operation resource that is
+created. If an ImportEntities operation is cancelled, it is possible
+that a subset of the data has already been imported to Cloud Datastore.
+
+
+```js
+google_datastore.projects.import({
+  "projectId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [GoogleDatastoreAdminV1ImportEntitiesRequest](#googledatastoreadminv1importentitiesrequest)
+  * projectId **required** `string`: Project ID against which to make the request.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [GoogleLongrunningOperation](#googlelongrunningoperation)
 
 ### projects.lookup
 Looks up entities by key.
@@ -500,6 +573,58 @@ google_datastore.projects.operations.cancel({
 * Filter `object`: A holder for any type of filter.
   * compositeFilter [CompositeFilter](#compositefilter)
   * propertyFilter [PropertyFilter](#propertyfilter)
+
+### GoogleDatastoreAdminV1CommonMetadata
+* GoogleDatastoreAdminV1CommonMetadata `object`: Metadata common to all Datastore Admin operations.
+  * endTime `string`: The time the operation ended, either successfully or otherwise.
+  * labels `object`: The client-assigned labels which were provided when the operation was
+  * operationType `string` (values: OPERATION_TYPE_UNSPECIFIED, EXPORT_ENTITIES, IMPORT_ENTITIES): The type of the operation. Can be used as a filter in
+  * startTime `string`: The time that work began on the operation.
+  * state `string` (values: STATE_UNSPECIFIED, INITIALIZING, PROCESSING, CANCELLING, FINALIZING, SUCCESSFUL, FAILED, CANCELLED): The current state of the Operation.
+
+### GoogleDatastoreAdminV1EntityFilter
+* GoogleDatastoreAdminV1EntityFilter `object`: Identifies a subset of entities in a project. This is specified as
+  * kinds `array`: If empty, then this represents all kinds.
+    * items `string`
+  * namespaceIds `array`: An empty list represents all namespaces. This is the preferred
+    * items `string`
+
+### GoogleDatastoreAdminV1ExportEntitiesMetadata
+* GoogleDatastoreAdminV1ExportEntitiesMetadata `object`: Metadata for ExportEntities operations.
+  * common [GoogleDatastoreAdminV1CommonMetadata](#googledatastoreadminv1commonmetadata)
+  * entityFilter [GoogleDatastoreAdminV1EntityFilter](#googledatastoreadminv1entityfilter)
+  * outputUrlPrefix `string`: Location for the export metadata and data files. This will be the same
+  * progressBytes [GoogleDatastoreAdminV1Progress](#googledatastoreadminv1progress)
+  * progressEntities [GoogleDatastoreAdminV1Progress](#googledatastoreadminv1progress)
+
+### GoogleDatastoreAdminV1ExportEntitiesRequest
+* GoogleDatastoreAdminV1ExportEntitiesRequest `object`: The request for
+  * entityFilter [GoogleDatastoreAdminV1EntityFilter](#googledatastoreadminv1entityfilter)
+  * labels `object`: Client-assigned labels.
+  * outputUrlPrefix `string`: Location for the export metadata and data files.
+
+### GoogleDatastoreAdminV1ExportEntitiesResponse
+* GoogleDatastoreAdminV1ExportEntitiesResponse `object`: The response for
+  * outputUrl `string`: Location of the output metadata file. This can be used to begin an import
+
+### GoogleDatastoreAdminV1ImportEntitiesMetadata
+* GoogleDatastoreAdminV1ImportEntitiesMetadata `object`: Metadata for ImportEntities operations.
+  * common [GoogleDatastoreAdminV1CommonMetadata](#googledatastoreadminv1commonmetadata)
+  * entityFilter [GoogleDatastoreAdminV1EntityFilter](#googledatastoreadminv1entityfilter)
+  * inputUrl `string`: The location of the import metadata file. This will be the same value as
+  * progressBytes [GoogleDatastoreAdminV1Progress](#googledatastoreadminv1progress)
+  * progressEntities [GoogleDatastoreAdminV1Progress](#googledatastoreadminv1progress)
+
+### GoogleDatastoreAdminV1ImportEntitiesRequest
+* GoogleDatastoreAdminV1ImportEntitiesRequest `object`: The request for
+  * entityFilter [GoogleDatastoreAdminV1EntityFilter](#googledatastoreadminv1entityfilter)
+  * inputUrl `string`: The full resource URL of the external storage location. Currently, only
+  * labels `object`: Client-assigned labels.
+
+### GoogleDatastoreAdminV1Progress
+* GoogleDatastoreAdminV1Progress `object`: Measures the progress of a particular metric.
+  * workCompleted `string`: The amount of work that has been completed. Note that this may be greater
+  * workEstimated `string`: An estimate of how much work needs to be performed. May be zero if the
 
 ### GoogleDatastoreAdminV1beta1CommonMetadata
 * GoogleDatastoreAdminV1beta1CommonMetadata `object`: Metadata common to all Datastore Admin operations.

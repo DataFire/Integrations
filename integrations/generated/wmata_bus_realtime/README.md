@@ -12,7 +12,7 @@ let wmata_bus_realtime = require('@datafire/wmata_bus_realtime').create({
   apiKeyQuery: ""
 });
 
-wmata_bus_realtime.Predictions.get({
+wmata_bus_realtime.5476365e031f5909e4fe331e({
   "StopID": ""
 }).then(data => {
   console.log(data);
@@ -25,7 +25,7 @@ Real-time bus prediction methods.
 
 ## Actions
 
-### Predictions.get
+### 5476365e031f5909e4fe331e
 <h4 class="text-primary">Description</h4>
 
 <p>Returns next bus arrival times at a stop.</p>
@@ -115,7 +115,7 @@ from bus positions.</td>
 
 
 ```js
-wmata_bus_realtime.Predictions.get({
+wmata_bus_realtime.5476365e031f5909e4fe331e({
   "StopID": ""
 }, context)
 ```
@@ -127,7 +127,7 @@ wmata_bus_realtime.Predictions.get({
 #### Output
 *Output schema unknown*
 
-### json.jPredictions.get
+### 5476365e031f5909e4fe331d
 <h4 class="text-primary">Description</h4>
 
 <p>Returns next bus arrival times at a stop.</p>
@@ -217,7 +217,7 @@ from bus positions.</td>
 
 
 ```js
-wmata_bus_realtime.json.jPredictions.get({
+wmata_bus_realtime.5476365e031f5909e4fe331d({
   "StopID": ""
 }, context)
 ```

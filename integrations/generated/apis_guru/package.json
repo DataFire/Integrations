@@ -1,6 +1,6 @@
 {
   "name": "@datafire/apis_guru",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for APIs.guru",
   "repository": {

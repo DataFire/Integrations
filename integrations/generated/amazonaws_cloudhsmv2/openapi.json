@@ -1383,7 +1383,7 @@
       "type": "object"
     },
     "EniId": {
-      "pattern": "eni-[0-9a-fA-F]{8}",
+      "pattern": "eni-[0-9a-fA-F]{8,17}",
       "type": "string"
     },
     "ExternalAz": {
@@ -1596,7 +1596,7 @@
       "type": "array"
     },
     "SubnetId": {
-      "pattern": "subnet-[0-9a-fA-F]{8}",
+      "pattern": "subnet-[0-9a-fA-F]{8,17}",
       "type": "string"
     },
     "SubnetIds": {
@@ -1671,6 +1671,7 @@
     "TagValue": {
       "maxLength": 256,
       "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
       "type": "string"
     },
     "Timestamp": {

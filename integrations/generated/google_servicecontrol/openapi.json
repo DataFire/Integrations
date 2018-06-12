@@ -11,12 +11,7 @@
       "url": "https://google.com"
     },
     "description": "Google Service Control provides control plane functionality to managed services, such as logging, monitoring, and status checks.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Service Control",
+    "title": "Service Control",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://servicecontrol.googleapis.com/$discovery/rest?version=v1",
@@ -52,23 +47,12 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/servicecontrol": "Manage your Google Service Control data"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/servicecontrol": "Manage your Google Service Control data"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -254,16 +238,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/servicecontrol"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/servicecontrol"
             ]
           }
@@ -316,7 +294,7 @@
         }
       ],
       "post": {
-        "description": "Checks an operation with Google Service Control to decide whether\nthe given operation should proceed. It should be called before the\noperation is executed.\n\nIf feasible, the client should cache the check results and reuse them for\n60 seconds. In case of server errors, the client can rely on the cached\nresults for longer time.\n\nNOTE: the CheckRequest has the size limit of 64KB.\n\nThis method requires the `servicemanagement.services.check` permission\non the specified service. For more information, see\n[Google Cloud IAM](https://cloud.google.com/iam).",
+        "description": "Checks whether an operation on a service should be allowed to proceed\nbased on the configuration of the service and related policies. It must be\ncalled before the operation is executed.\n\nIf feasible, the client should cache the check results and reuse them for\n60 seconds. In case of any server errors, the client should rely on the\ncached results for much longer time to avoid outage.\nWARNING: There is general 60s delay for the configuration and policy\npropagation, therefore callers MUST NOT depend on the `Check` method having\nthe latest policy information.\n\nNOTE: the CheckRequest has the size limit of 64KB.\n\nThis method requires the `servicemanagement.services.check` permission\non the specified service. For more information, see\n[Cloud IAM](https://cloud.google.com/iam).",
         "operationId": "services.check",
         "parameters": [
           {
@@ -346,16 +324,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/servicecontrol"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/servicecontrol"
             ]
           }
@@ -438,16 +410,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/servicecontrol"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/servicecontrol"
             ]
           }
@@ -530,16 +496,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/servicecontrol"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/servicecontrol"
             ]
           }
@@ -622,16 +582,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/servicecontrol"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/servicecontrol"
             ]
           }
@@ -714,16 +668,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/servicecontrol"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/servicecontrol"
             ]
           }
@@ -933,6 +881,7 @@
             "NO_LOAS_PROJECT",
             "LOAS_PROJECT_DISABLED",
             "SECURITY_POLICY_VIOLATED",
+            "INVALID_CREDENTIAL",
             "NAMESPACE_LOOKUP_UNAVAILABLE",
             "SERVICE_STATUS_UNAVAILABLE",
             "BILLING_STATUS_UNAVAILABLE",
@@ -1352,7 +1301,7 @@
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Labels describing the operation. Only the following labels are allowed:\n\n- Labels describing monitored resources as defined in\n  the service configuration.\n- Default labels of metric values. When specified, labels defined in the\n  metric value override these default.\n- The following labels defined by Google Cloud Platform:\n    - `cloud.googleapis.com/location` describing the location where the\n       operation happened,\n    - `servicecontrol.googleapis.com/user_agent` describing the user agent\n       of the API request,\n    - `servicecontrol.googleapis.com/service_agent` describing the service\n       used to handle the API request (e.g. ESP),\n    - `servicecontrol.googleapis.com/platform` describing the platform\n       where the API is served (e.g. GAE, GCE, GKE).",
+          "description": "Labels describing the operation. Only the following labels are allowed:\n\n- Labels describing monitored resources as defined in\n  the service configuration.\n- Default labels of metric values. When specified, labels defined in the\n  metric value override these default.\n- The following labels defined by Google Cloud Platform:\n    - `cloud.googleapis.com/location` describing the location where the\n       operation happened,\n    - `servicecontrol.googleapis.com/user_agent` describing the user agent\n       of the API request,\n    - `servicecontrol.googleapis.com/service_agent` describing the service\n       used to handle the API request (e.g. ESP),\n    - `servicecontrol.googleapis.com/platform` describing the platform\n       where the API is served, such as App Engine, Compute Engine, or\n       Kubernetes Engine.",
           "type": "object"
         },
         "logEntries": {
@@ -1386,7 +1335,7 @@
           "type": "string"
         },
         "resources": {
-          "description": "The resources that are involved in the operation.",
+          "description": "The resources that are involved in the operation.\nThe maximum supported number of entries in this field is 100.",
           "items": {
             "$ref": "#/definitions/ResourceInfo"
           },

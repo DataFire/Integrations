@@ -576,6 +576,56 @@ azure_cosmos_db.DatabaseAccounts_ListMetrics({
 #### Output
 * output [MetricListResult](#metriclistresult)
 
+### DatabaseAccounts_OfflineRegion
+Offline the specified region for the specified Azure Cosmos DB database account.
+
+
+```js
+azure_cosmos_db.DatabaseAccounts_OfflineRegion({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "regionParameterForOffline": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Azure subscription ID.
+  * resourceGroupName **required** `string`: Name of an Azure resource group.
+  * accountName **required** `string`: Cosmos DB database account name.
+  * api-version **required** `string`: Version of the API to be used with the client request. The current version is 2015-04-08.
+  * regionParameterForOffline **required** [RegionForOnlineOffline](#regionforonlineoffline)
+
+#### Output
+*Output schema unknown*
+
+### DatabaseAccounts_OnlineRegion
+Online the specified region for the specified Azure Cosmos DB database account.
+
+
+```js
+azure_cosmos_db.DatabaseAccounts_OnlineRegion({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "regionParameterForOnline": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Azure subscription ID.
+  * resourceGroupName **required** `string`: Name of an Azure resource group.
+  * accountName **required** `string`: Cosmos DB database account name.
+  * api-version **required** `string`: Version of the API to be used with the client request. The current version is 2015-04-08.
+  * regionParameterForOnline **required** [RegionForOnlineOffline](#regionforonlineoffline)
+
+#### Output
+*Output schema unknown*
+
 ### Percentile_ListMetrics
 Retrieves the metrics determined by the given filter for the given database account. This url is only for PBS and Replication Latency data
 
@@ -859,7 +909,7 @@ azure_cosmos_db.DatabaseAccounts_ListUsages({
 
 ### Capability
 * Capability `object`: Cosmos DB capability object
-  * name `string`: Name of the Cosmos DB capability
+  * name `string`: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
 
 ### ConsistencyPolicy
 * ConsistencyPolicy `object`: The consistency policy for the Cosmos DB database account.
@@ -900,8 +950,11 @@ azure_cosmos_db.DatabaseAccounts_ListUsages({
   * databaseAccountOfferType **required** [DatabaseAccountOfferType](#databaseaccountoffertype)
   * enableAutomaticFailover `boolean`: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
   * ipRangeFilter [IPRangeFilter](#iprangefilter)
+  * isVirtualNetworkFilterEnabled `boolean`: Flag to indicate whether to enable/disable Virtual Network ACL rules.
   * locations **required** `array`: An array that contains the georeplication locations enabled for the Cosmos DB account.
     * items [Location](#location)
+  * virtualNetworkRules `array`: List of Virtual Network ACL rules configured for the Cosmos DB account.
+    * items [VirtualNetworkRule](#virtualnetworkrule)
 
 ### DatabaseAccountListConnectionStringsResult
 * DatabaseAccountListConnectionStringsResult `object`: The connection strings for the given database account.
@@ -943,9 +996,12 @@ azure_cosmos_db.DatabaseAccounts_ListUsages({
   * failoverPolicies `array`: An array that contains the regions ordered by their failover priorities.
     * items [FailoverPolicy](#failoverpolicy)
   * ipRangeFilter [IPRangeFilter](#iprangefilter)
+  * isVirtualNetworkFilterEnabled `boolean`: Flag to indicate whether to enable/disable Virtual Network ACL rules.
   * provisioningState [ProvisioningState](#provisioningstate)
   * readLocations `array`: An array that contains of the read locations enabled for the Cosmos DB account.
     * items [Location](#location)
+  * virtualNetworkRules `array`: List of Virtual Network ACL rules configured for the Cosmos DB account.
+    * items [VirtualNetworkRule](#virtualnetworkrule)
   * writeLocations `array`: An array that contains the write location for the Cosmos DB account.
     * items [Location](#location)
 
@@ -957,6 +1013,11 @@ azure_cosmos_db.DatabaseAccounts_ListUsages({
 * DatabaseAccountsListResult `object`: The List operation response, that contains the database accounts and their properties.
   * value `array`: List of database account and their properties.
     * items [DatabaseAccount](#databaseaccount)
+
+### ErrorResponse
+* ErrorResponse `object`: Error Response.
+  * code `string`: Error code.
+  * message `string`: Error message indicating why the operation failed.
 
 ### FailoverPolicies
 * FailoverPolicies `object`: The list of new failover policies for the failover priority change.
@@ -1109,6 +1170,10 @@ azure_cosmos_db.DatabaseAccounts_ListUsages({
 ### ProvisioningState
 * ProvisioningState `string`: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation.
 
+### RegionForOnlineOffline
+* RegionForOnlineOffline `object`: Cosmos DB region to online or offline.
+  * region **required** `string`: Cosmos DB region, with spaces between words and each word capitalized.
+
 ### Resource
 * Resource `object`: A database account resource.
   * id `string`: The unique resource identifier of the database account.
@@ -1118,7 +1183,7 @@ azure_cosmos_db.DatabaseAccounts_ListUsages({
   * type `string`: The type of Azure resource.
 
 ### Tags
-* Tags `object`: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+* Tags `object`: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 
 ### UnitType
 * UnitType `string` (values: Count, Bytes, Seconds, Percent, CountPerSecond, BytesPerSecond, Milliseconds): The unit of the metric.
@@ -1135,5 +1200,9 @@ azure_cosmos_db.DatabaseAccounts_ListUsages({
 * UsagesResult `object`: The response to a list usage request.
   * value `array`: The list of usages for the database. A usage is a point in time metric
     * items [Usage](#usage)
+
+### VirtualNetworkRule
+* VirtualNetworkRule `object`: Virtual Network ACL Rule object
+  * id `string`: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
 
 

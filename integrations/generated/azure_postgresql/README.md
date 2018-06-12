@@ -24,7 +24,7 @@ azure_postgresql.Operations_List({
 
 ## Description
 
-The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resources including servers, databases, firewall rules, VNET rules, log files and configurations.
+The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resources including servers, databases, firewall rules, log files and configurations with new business model.
 
 ## Actions
 
@@ -83,25 +83,6 @@ azure_postgresql.LocationBasedPerformanceTier_List({
   * api-version **required** `string`: The API version to use for the request.
   * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * locationName **required** `string`: The name of the location.
-
-#### Output
-* output [PerformanceTierListResult](#performancetierlistresult)
-
-### PerformanceTiers_List
-List all the performance tiers in a given subscription.
-
-
-```js
-azure_postgresql.PerformanceTiers_List({
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The API version to use for the request.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
 
 #### Output
 * output [PerformanceTierListResult](#performancetierlistresult)
@@ -540,106 +521,6 @@ azure_postgresql.LogFiles_ListByServer({
 #### Output
 * output [LogFileListResult](#logfilelistresult)
 
-### VirtualNetworkRules_ListByServer
-Gets a list of virtual network rules in a server.
-
-
-```js
-azure_postgresql.VirtualNetworkRules_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-  * serverName **required** `string`: The name of the server.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
-  * api-version **required** `string`: The API version to use for the request.
-
-#### Output
-* output [VirtualNetworkRuleListResult](#virtualnetworkrulelistresult)
-
-### VirtualNetworkRules_Delete
-Deletes the virtual network rule with the given name.
-
-
-```js
-azure_postgresql.VirtualNetworkRules_Delete({
-  "resourceGroupName": "",
-  "serverName": "",
-  "virtualNetworkRuleName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-  * serverName **required** `string`: The name of the server.
-  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
-  * api-version **required** `string`: The API version to use for the request.
-
-#### Output
-*Output schema unknown*
-
-### VirtualNetworkRules_Get
-Gets a virtual network rule.
-
-
-```js
-azure_postgresql.VirtualNetworkRules_Get({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": "",
-  "virtualNetworkRuleName": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-  * serverName **required** `string`: The name of the server.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
-  * api-version **required** `string`: The API version to use for the request.
-  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule.
-
-#### Output
-* output [VirtualNetworkRule](#virtualnetworkrule)
-
-### VirtualNetworkRules_CreateOrUpdate
-Creates or updates an existing virtual network rule.
-
-
-```js
-azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": "",
-  "virtualNetworkRuleName": "",
-  "parameters": {}
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-  * serverName **required** `string`: The name of the server.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
-  * api-version **required** `string`: The API version to use for the request.
-  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule.
-  * parameters **required** [VirtualNetworkRule](#virtualnetworkrule)
-
-#### Output
-* output [VirtualNetworkRule](#virtualnetworkrule)
-
 
 
 ## Definitions
@@ -758,17 +639,20 @@ azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
 
 ### PerformanceTierProperties
 * PerformanceTierProperties `object`: Performance tier properties
-  * backupRetentionDays `integer`: Backup retention in days for the performance tier edition
   * id `string`: ID of the performance tier.
+  * maxBackupRetentionDays `integer`: Maximum Backup retention in days for the performance tier edition
+  * maxStorageMB `integer`: Max storage allowed for a server.
+  * minBackupRetentionDays `integer`: Minimum Backup retention in days for the performance tier edition
+  * minStorageMB `integer`: Max storage allowed for a server.
   * serviceLevelObjectives `array`: Service level objectives associated with the performance tier
     * items [PerformanceTierServiceLevelObjectives](#performancetierservicelevelobjectives)
 
 ### PerformanceTierServiceLevelObjectives
 * PerformanceTierServiceLevelObjectives `object`: Service level objectives for performance tier.
-  * dtu `integer`: Database throughput unit associated with the service level objective
   * edition `string`: Edition of the performance tier.
+  * hardwareGeneration `string`: Hardware generation associated with the service level objective
   * id `string`: ID for the service level objective.
-  * storageMB `integer`: Maximum storage in MB associated with the service level objective
+  * vCore `integer`: vCore associated with the service level objective
 
 ### ProxyResource
 * ProxyResource `object`: Resource properties.
@@ -801,9 +685,10 @@ azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
 ### ServerProperties
 * ServerProperties `object`: The properties of a server.
   * administratorLogin `string`: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+  * earliestRestoreDate `string`: Earliest restore point creation time (ISO8601 format)
   * fullyQualifiedDomainName `string`: The fully qualified domain name of a server.
   * sslEnforcement [SslEnforcement](#sslenforcement)
-  * storageMB `integer`: The maximum storage allowed for a server.
+  * storageProfile [StorageProfile](#storageprofile)
   * userVisibleState `string` (values: Ready, Dropping, Disabled): A state of a server that is visible to user.
   * version [ServerVersion](#serverversion)
 
@@ -811,7 +696,7 @@ azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
 * ServerPropertiesForCreate `object`: The properties used to create a new server.
   * createMode **required** `string` (values: Default, PointInTimeRestore): The mode to create a new server.
   * sslEnforcement [SslEnforcement](#sslenforcement)
-  * storageMB `integer`: The maximum storage allowed for a server.
+  * storageProfile [StorageProfile](#storageprofile)
   * version [ServerVersion](#serverversion)
 
 ### ServerPropertiesForDefaultCreate
@@ -820,7 +705,7 @@ azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
   * administratorLoginPassword **required** `string`: The password of the administrator login.
   * createMode **required** `string` (values: Default, PointInTimeRestore): The mode to create a new server.
   * sslEnforcement [SslEnforcement](#sslenforcement)
-  * storageMB `integer`: The maximum storage allowed for a server.
+  * storageProfile [StorageProfile](#storageprofile)
   * version [ServerVersion](#serverversion)
 
 ### ServerPropertiesForRestore
@@ -829,7 +714,7 @@ azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
   * sourceServerId **required** `string`: The source server id to restore from.
   * createMode **required** `string` (values: Default, PointInTimeRestore): The mode to create a new server.
   * sslEnforcement [SslEnforcement](#sslenforcement)
-  * storageMB `integer`: The maximum storage allowed for a server.
+  * storageProfile [StorageProfile](#storageprofile)
   * version [ServerVersion](#serverversion)
 
 ### ServerUpdateParameters
@@ -837,7 +722,7 @@ azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
   * properties `object`: The properties that can be updated for a server.
     * administratorLoginPassword `string`: The password of the administrator login.
     * sslEnforcement [SslEnforcement](#sslenforcement)
-    * storageMB `integer`: The max storage allowed for a server.
+    * storageProfile [StorageProfile](#storageprofile)
     * version [ServerVersion](#serverversion)
   * sku [Sku](#sku)
   * tags `object`: Application-specific metadata in the form of key-value pairs.
@@ -849,12 +734,18 @@ azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
 * Sku `object`: Billing information related properties of a server.
   * capacity `integer`: The scale up/out capacity, representing server's compute units.
   * family `string`: The family of hardware.
-  * name `string`: The name of the sku, typically, a letter + Number code, e.g. P3.
+  * name `string`: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
   * size `string`: The size code, to be interpreted by resource as appropriate.
-  * tier `string` (values: Basic, Standard): The tier of the particular SKU, e.g. Basic.
+  * tier `string` (values: Basic, GeneralPurpose, MemoryOptimized): The tier of the particular SKU, e.g. Basic.
 
 ### SslEnforcement
 * SslEnforcement `string` (values: Enabled, Disabled): Enable ssl enforcement or not when connect to server.
+
+### StorageProfile
+* StorageProfile `object`: Storage Profile properties of a server
+  * backupRetentionDays `integer`: Backup retention days for the server.
+  * geoRedundantBackup `string` (values: Enabled, Disabled): Enable Geo-redundant or not for server backup.
+  * storageMB `integer`: Max storage allowed for a server.
 
 ### TrackedResource
 * TrackedResource `object`: Resource properties including location and tags for track resources.
@@ -863,24 +754,5 @@ azure_postgresql.VirtualNetworkRules_CreateOrUpdate({
   * id `string`: Resource ID
   * name `string`: Resource name.
   * type `string`: Resource type.
-
-### VirtualNetworkRule
-* VirtualNetworkRule `object`: A virtual network rule.
-  * properties [VirtualNetworkRuleProperties](#virtualnetworkruleproperties)
-  * id `string`: Resource ID
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### VirtualNetworkRuleListResult
-* VirtualNetworkRuleListResult `object`: A list of virtual network rules.
-  * nextLink `string`: Link to retrieve next page of results.
-  * value `array`: Array of results.
-    * items [VirtualNetworkRule](#virtualnetworkrule)
-
-### VirtualNetworkRuleProperties
-* VirtualNetworkRuleProperties `object`: Properties of a virtual network rule.
-  * ignoreMissingVnetServiceEndpoint `boolean`: Create firewall rule before the virtual network has vnet service endpoint enabled.
-  * state `string` (values: Initializing, InProgress, Ready, Deleting, Unknown): Virtual Network Rule State
-  * virtualNetworkSubnetId **required** `string`: The ARM resource id of the virtual network subnet.
 
 

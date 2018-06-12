@@ -1,6 +1,6 @@
 # @datafire/google_servicemanagement
 
-Client library for Google Service Management
+Client library for Service Management
 
 ## Installation and Usage
 ```bash
@@ -305,6 +305,10 @@ This method only stores the service configuration. To roll out the service
 configuration to backend systems please call
 CreateServiceRollout.
 
+Only the 100 most recent service configurations and ones referenced by
+existing rollouts are kept for each service. The rest will be deleted
+eventually.
+
 
 ```js
 google_servicemanagement.services.configs.create({
@@ -374,6 +378,10 @@ Specification). This method stores the source configurations as well as the
 generated service configuration. To rollout the service configuration to
 other services,
 please call CreateServiceRollout.
+
+Only the 100 most recent configuration sources and ones referenced by
+existing service configurtions are kept for each service. The rest will be
+deleted eventually.
 
 Operation<response: SubmitConfigSourceResponse>
 
@@ -448,6 +456,10 @@ pushed to Google Cloud Logging.
 Please note that any previous pending and running Rollouts and associated
 Operations will be automatically cancelled so that the latest Rollout will
 not be blocked by previous Rollouts.
+
+Only the 100 most recent (in any state) and the last 10 successful (if not
+already part of the set of 100 most recent) rollouts are kept for each
+service. The rest will be deleted eventually.
 
 Operation<response: Rollout>
 
@@ -810,6 +822,18 @@ google_servicemanagement.services.consumers.testIamPermissions({
   * syntax `string` (values: SYNTAX_PROTO2, SYNTAX_PROTO3): The source syntax of the service.
   * version `string`: A version string for this interface. If specified, must have the form
 
+### AuditConfig
+* AuditConfig `object`: Specifies the audit configuration for a service.
+  * auditLogConfigs `array`: The configuration for logging of each type of permission.
+    * items [AuditLogConfig](#auditlogconfig)
+  * service `string`: Specifies a service that will be enabled for audit logging.
+
+### AuditLogConfig
+* AuditLogConfig `object`: Provides the configuration for logging a type of permissions.
+  * exemptedMembers `array`: Specifies the identities that do not cause logging for this type of
+    * items `string`
+  * logType `string` (values: LOG_TYPE_UNSPECIFIED, ADMIN_READ, DATA_WRITE, DATA_READ): The log type that this config enables.
+
 ### AuthProvider
 * AuthProvider `object`: Configuration for an anthentication provider, including support for
   * audiences `string`: The list of JWT
@@ -832,7 +856,7 @@ google_servicemanagement.services.consumers.testIamPermissions({
 
 ### AuthenticationRule
 * AuthenticationRule `object`: Authentication rules for the service.
-  * allowWithoutCredential `boolean`: Whether to allow requests without a credential. The credential can be
+  * allowWithoutCredential `boolean`: If true, the service accepts API keys without any other credential.
   * customAuth [CustomAuthRequirements](#customauthrequirements)
   * oauth [OAuthRequirements](#oauthrequirements)
   * requirements `array`: Requirements for additional authentication providers.
@@ -868,7 +892,6 @@ google_servicemanagement.services.consumers.testIamPermissions({
 
 ### Binding
 * Binding `object`: Associates `members` with a `role`.
-  * condition [Expr](#expr)
   * members `array`: Specifies the identities requesting access for a Cloud Platform resource.
     * items `string`
   * role `string`: Role that is assigned to `members`.
@@ -910,6 +933,10 @@ google_servicemanagement.services.consumers.testIamPermissions({
 
 ### ContextRule
 * ContextRule `object`: A context rule provides information about the context for an individual API
+  * allowedRequestExtensions `array`: A list of full type names or extension IDs of extensions allowed in grpc
+    * items `string`
+  * allowedResponseExtensions `array`: A list of full type names or extension IDs of extensions allowed in grpc
+    * items `string`
   * provided `array`: A list of full type names of provided contexts.
     * items `string`
   * requested `array`: A list of full type names of requested contexts.
@@ -1005,13 +1032,6 @@ google_servicemanagement.services.consumers.testIamPermissions({
 * Experimental `object`: Experimental service configuration. These configuration options can
   * authorization [AuthorizationConfig](#authorizationconfig)
 
-### Expr
-* Expr `object`: Represents an expression text. Example:
-  * description `string`: An optional description of the expression. This is a longer text which
-  * expression `string`: Textual representation of an expression in
-  * location `string`: An optional string indicating the location of the expression for error
-  * title `string`: An optional title for the expression, i.e. a short string describing
-
 ### Field
 * Field `object`: A single field of a message type.
   * cardinality `string` (values: CARDINALITY_UNKNOWN, CARDINALITY_OPTIONAL, CARDINALITY_REQUIRED, CARDINALITY_REPEATED): The field cardinality.
@@ -1025,17 +1045,6 @@ google_servicemanagement.services.consumers.testIamPermissions({
     * items [Option](#option)
   * packed `boolean`: Whether to use alternative packed wire representation.
   * typeUrl `string`: The field type URL, without the scheme, for message or enumeration
-
-### FlowOperationMetadata
-* FlowOperationMetadata `object`: The metadata associated with a long running operation resource.
-  * cancelState `string` (values: RUNNING, UNCANCELLABLE, CANCELLED): The state of the operation with respect to cancellation.
-  * deadline `string`: Deadline for the flow to complete, to prevent orphaned Operations.
-  * flowName `string`: The name of the top-level flow corresponding to this operation.
-  * operationType `integer`: Operation type which is a flow type and subtype info as that is missing in
-  * resourceNames `array`: The full name of the resources that this flow is directly associated with.
-    * items `string`
-  * startTime `string`: The start time of the operation.
-  * surface `string` (values: UNSPECIFIED_OP_SERVICE, SERVICE_MANAGEMENT, SERVICE_USAGE, SERVICE_CONSUMER_MANAGEMENT)
 
 ### GenerateConfigReportRequest
 * GenerateConfigReportRequest `object`: Request message for GenerateConfigReport method.
@@ -1242,6 +1251,8 @@ google_servicemanagement.services.consumers.testIamPermissions({
 
 ### Policy
 * Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to
+  * auditConfigs `array`: Specifies cloud audit logging configuration for this policy.
+    * items [AuditConfig](#auditconfig)
   * bindings `array`: Associates a list of `members` to a `role`.
     * items [Binding](#binding)
   * etag `string`: `etag` is used for optimistic concurrency control as a way to help
@@ -1315,7 +1326,6 @@ google_servicemanagement.services.consumers.testIamPermissions({
   * types `array`: A list of all proto message types included in this API service.
     * items [Type](#type)
   * usage [Usage](#usage)
-  * visibility [Visibility](#visibility)
 
 ### SetIamPolicyRequest
 * SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.
@@ -1412,15 +1422,5 @@ google_servicemanagement.services.consumers.testIamPermissions({
   * allowUnregisteredCalls `boolean`: If true, the selected method allows unregistered calls, e.g. calls
   * selector `string`: Selects the methods to which this rule applies. Use '*' to indicate all
   * skipServiceControl `boolean`: If true, the selected method should skip service control and the control
-
-### Visibility
-* Visibility `object`: `Visibility` defines restrictions for the visibility of service
-  * rules `array`: A list of visibility rules that apply to individual API elements.
-    * items [VisibilityRule](#visibilityrule)
-
-### VisibilityRule
-* VisibilityRule `object`: A visibility rule provides visibility configuration for an individual API
-  * restriction `string`: A comma-separated list of visibility labels that apply to the `selector`.
-  * selector `string`: Selects methods, messages, fields, enums, etc. to which this rule applies.
 
 

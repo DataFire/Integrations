@@ -11,12 +11,7 @@
       "url": "https://google.com"
     },
     "description": "The Google Cloud Resource Manager API provides methods for creating, reading, and updating project metadata.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Cloud Resource Manager",
+    "title": "Cloud Resource Manager",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v1",
@@ -49,23 +44,12 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -226,16 +210,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -309,16 +287,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -394,16 +366,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -449,16 +415,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -509,7 +469,7 @@
         }
       ],
       "post": {
-        "description": "Request that a new Project be created. The result is an Operation which\ncan be used to track the creation process. It is automatically deleted\nafter a few hours, so there is no need to call DeleteOperation.\n\nOur SLO permits Project creation to take up to 30 seconds at the 90th\npercentile. As of 2016-08-29, we are observing 6 seconds 50th percentile\nlatency. 95th percentile latency is around 11 seconds. We recommend\npolling at the 5th second with an exponential backoff.\n\nAuthorization requires the Google IAM permission\n`resourcemanager.projects.create` on the specified parent for the new\nproject.",
+        "description": "Request that a new Project be created. The result is an Operation which\ncan be used to track the creation process. It is automatically deleted\nafter a few hours, so there is no need to call DeleteOperation.\n\nOur SLO permits Project creation to take up to 30 seconds at the 90th\npercentile. As of 2016-08-29, we are observing 6 seconds 50th percentile\nlatency. 95th percentile latency is around 11 seconds. We recommend\npolling at the 5th second with an exponential backoff.\n\nAuthorization requires the Google IAM permission\n`resourcemanager.projects.create` on the specified parent for the new\nproject. The parent is identified by a specified ResourceId,\nwhich must include both an ID and a type, such as organization.\n\nThis method does not associate the new project with a billing account.\nYou can set or update the billing account associated with a project using\nthe [`projects.updateBillingInfo`]\n(/billing/reference/rest/v1/projects/updateBillingInfo) method.",
         "operationId": "projects.create",
         "parameters": [
           {
@@ -532,9 +492,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -545,7 +502,7 @@
     },
     "/v1/projects/{projectId}": {
       "delete": {
-        "description": "Marks the Project identified by the specified\n`project_id` (for example, `my-project-123`) for deletion.\nThis method will only affect the Project if the following criteria are met:\n\n+ The Project does not have a billing account associated with it.\n+ The Project has a lifecycle state of\nACTIVE.\n\nThis method changes the Project's lifecycle state from\nACTIVE\nto DELETE_REQUESTED.\nThe deletion starts at an unspecified time,\nat which point the Project is no longer accessible.\n\nUntil the deletion completes, you can check the lifecycle state\nchecked by retrieving the Project with GetProject,\nand the Project remains visible to ListProjects.\nHowever, you cannot update the project.\n\nAfter the deletion completes, the Project is not retrievable by\nthe  GetProject and\nListProjects methods.\n\nThe caller must have modify permissions for this Project.",
+        "description": "Marks the Project identified by the specified\n`project_id` (for example, `my-project-123`) for deletion.\nThis method will only affect the Project if it has a lifecycle state of\nACTIVE.\n\nThis method changes the Project's lifecycle state from\nACTIVE\nto DELETE_REQUESTED.\nThe deletion starts at an unspecified time,\nat which point the Project is no longer accessible.\n\nUntil the deletion completes, you can check the lifecycle state\nchecked by retrieving the Project with GetProject,\nand the Project remains visible to ListProjects.\nHowever, you cannot update the project.\n\nAfter the deletion completes, the Project is not retrievable by\nthe  GetProject and\nListProjects methods.\n\nThe caller must have modify permissions for this Project.",
         "operationId": "projects.delete",
         "parameters": [
           {
@@ -567,9 +524,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -602,16 +556,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -691,9 +639,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -776,16 +721,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -868,9 +807,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -952,16 +888,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1014,7 +944,7 @@
         }
       ],
       "post": {
-        "description": "Sets the IAM access control policy for the specified Project. Overwrites\nany existing policy.\n\nThe following constraints apply when using `setIamPolicy()`:\n\n+ Project does not support `allUsers` and `allAuthenticatedUsers` as\n`members` in a `Binding` of a `Policy`.\n\n+ The owner role can be granted only to `user` and `serviceAccount`.\n\n+ Service accounts can be made owners of a project directly\nwithout any restrictions. However, to be added as an owner, a user must be\ninvited via Cloud Platform console and must accept the invitation.\n\n+ A user cannot be granted the owner role using `setIamPolicy()`. The user\nmust be granted the owner role using the Cloud Platform Console and must\nexplicitly accept the invitation.\n\n+ Invitations to grant the owner role cannot be sent using\n`setIamPolicy()`;\nthey must be sent only using the Cloud Platform Console.\n\n+ Membership changes that leave the project without any owners that have\naccepted the Terms of Service (ToS) will be rejected.\n\n+ If the project is not part of an organization, there must be at least\none owner who has accepted the Terms of Service (ToS) agreement in the\npolicy. Calling `setIamPolicy()` to remove the last ToS-accepted owner\nfrom the policy will fail. This restriction also applies to legacy\nprojects that no longer have owners who have accepted the ToS. Edits to\nIAM policies will be rejected until the lack of a ToS-accepting owner is\nrectified.\n\n+ This method will replace the existing policy, and cannot be used to\nappend additional IAM settings.\n\nNote: Removing service accounts from policies or changing their roles\ncan render services completely inoperable. It is important to understand\nhow the service account is being used before removing or updating its\nroles.\n\nAuthorization requires the Google IAM permission\n`resourcemanager.projects.setIamPolicy` on the project",
+        "description": "Sets the IAM access control policy for the specified Project. Overwrites\nany existing policy.\n\nThe following constraints apply when using `setIamPolicy()`:\n\n+ Project does not support `allUsers` and `allAuthenticatedUsers` as\n`members` in a `Binding` of a `Policy`.\n\n+ The owner role can be granted only to `user` and `serviceAccount`.\n\n+ Service accounts can be made owners of a project directly\nwithout any restrictions. However, to be added as an owner, a user must be\ninvited via Cloud Platform console and must accept the invitation.\n\n+ A user cannot be granted the owner role using `setIamPolicy()`. The user\nmust be granted the owner role using the Cloud Platform Console and must\nexplicitly accept the invitation.\n\n+ You can only grant ownership of a project to a member by using the\nGCP Console. Inviting a member will deliver an invitation email that\nthey must accept. An invitation email is not generated if you are\ngranting a role other than owner, or if both the member you are inviting\nand the project are part of your organization.\n\n+ Membership changes that leave the project without any owners that have\naccepted the Terms of Service (ToS) will be rejected.\n\n+ If the project is not part of an organization, there must be at least\none owner who has accepted the Terms of Service (ToS) agreement in the\npolicy. Calling `setIamPolicy()` to remove the last ToS-accepted owner\nfrom the policy will fail. This restriction also applies to legacy\nprojects that no longer have owners who have accepted the ToS. Edits to\nIAM policies will be rejected until the lack of a ToS-accepting owner is\nrectified.\n\n+ This method will replace the existing policy, and cannot be used to\nappend additional IAM settings.\n\nNote: Removing service accounts from policies or changing their roles\ncan render services completely inoperable. It is important to understand\nhow the service account is being used before removing or updating its\nroles.\n\nAuthorization requires the Google IAM permission\n`resourcemanager.projects.setIamPolicy` on the project",
         "operationId": "projects.setIamPolicy",
         "parameters": [
           {
@@ -1043,9 +973,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1128,16 +1055,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1173,16 +1094,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1216,16 +1131,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1350,9 +1259,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1435,16 +1341,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1528,16 +1428,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1621,16 +1515,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1714,16 +1602,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1807,16 +1689,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1900,9 +1776,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1984,9 +1857,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -2070,16 +1940,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -2105,7 +1969,7 @@
       "description": "Specifies the audit configuration for a service.\nThe configuration determines which permission types are logged, and what\nidentities, if any, are exempted from logging.\nAn AuditConfig must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service,\nthe union of the two AuditConfigs is used for that service: the log_types\nspecified in each AuditConfig are enabled, and the exempted_members in each\nAuditLogConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n    {\n      \"audit_configs\": [\n        {\n          \"service\": \"allServices\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n              \"exempted_members\": [\n                \"user:foo@gmail.com\"\n              ]\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n            },\n            {\n              \"log_type\": \"ADMIN_READ\",\n            }\n          ]\n        },\n        {\n          \"service\": \"fooservice.googleapis.com\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n              \"exempted_members\": [\n                \"user:bar@gmail.com\"\n              ]\n            }\n          ]\n        }\n      ]\n    }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ\nlogging. It also exempts foo@gmail.com from DATA_READ logging, and\nbar@gmail.com from DATA_WRITE logging.",
       "properties": {
         "auditLogConfigs": {
-          "description": "The configuration for logging of each type of permission.\nNext ID: 4",
+          "description": "The configuration for logging of each type of permission.",
           "items": {
             "$ref": "#/definitions/AuditLogConfig"
           },
@@ -2145,7 +2009,7 @@
       "description": "Associates `members` with a `role`.",
       "properties": {
         "members": {
-          "description": "Specifies the identities requesting access for a Cloud Platform resource.\n`members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is\n   on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone\n   who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google\n   account. For example, `alice@gmail.com` or `joe@example.com`.\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service\n   account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group.\n   For example, `admins@example.com`.\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the\n   users of that domain. For example, `google.com` or `example.com`.\n\n",
+          "description": "Specifies the identities requesting access for a Cloud Platform resource.\n`members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is\n   on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone\n   who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google\n   account. For example, `alice@gmail.com` .\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service\n   account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group.\n   For example, `admins@example.com`.\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the\n   users of that domain. For example, `google.com` or `example.com`.\n\n",
           "items": {
             "type": "string"
           },
@@ -2291,7 +2155,7 @@
       "description": "Response from the GetAncestry method.",
       "properties": {
         "ancestor": {
-          "description": "Ancestors are ordered from bottom to top of the resource hierarchy. The\nfirst ancestor is the project itself, followed by the project's parent,\netc.",
+          "description": "Ancestors are ordered from bottom to top of the resource hierarchy. The\nfirst ancestor is the project itself, followed by the project's parent,\netc..",
           "items": {
             "$ref": "#/definitions/Ancestor"
           },
@@ -2346,7 +2210,7 @@
           "type": "string"
         },
         "reason": {
-          "description": "Concise user-visible strings indicating why an action cannot be performed\non a resource. Maximum lenth of 200 characters.\n\nExample: 'Holds production API key'",
+          "description": "Concise user-visible strings indicating why an action cannot be performed\non a resource. Maximum length of 200 characters.\n\nExample: 'Holds production API key'",
           "type": "string"
         },
         "restrictions": {
@@ -2582,7 +2446,7 @@
           "type": "string"
         },
         "displayName": {
-          "description": "A friendly string to be used to refer to the Organization in the UI.\nAssigned by the server, set to the primary domain of the G Suite\ncustomer that owns the organization.\n@OutputOnly",
+          "description": "A human-readable string that refers to the Organization in the\nGCP Console UI. This string is set by the server and cannot be\nchanged. The string will be set to the primary domain (for example,\n\"google.com\") of the G Suite customer that owns the organization.\n@OutputOnly",
           "type": "string"
         },
         "lifecycleState": {
@@ -2609,14 +2473,14 @@
       "description": "The entity that owns an Organization. The lifetime of the Organization and\nall of its descendants are bound to the `OrganizationOwner`. If the\n`OrganizationOwner` is deleted, the Organization and all its descendants will\nbe deleted.",
       "properties": {
         "directoryCustomerId": {
-          "description": "The Google for Work customer id used in the Directory API.",
+          "description": "The G Suite customer id used in the Directory API.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "Policy": {
-      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
+      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**JSON Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\"\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\n**YAML Example**\n\n    bindings:\n    - members:\n      - user:mike@example.com\n      - group:admins@example.com\n      - domain:google.com\n      - serviceAccount:my-other-app@appspot.gserviceaccount.com\n      role: roles/owner\n    - members:\n      - user:sean@example.com\n      role: roles/viewer\n\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
       "properties": {
         "auditConfigs": {
           "description": "Specifies cloud audit logging configuration for this policy.",
@@ -2732,7 +2596,7 @@
       "description": "The request sent to the `SearchOrganizations` method.",
       "properties": {
         "filter": {
-          "description": "An optional query string used to filter the Organizations to return in\nthe response. Filter rules are case-insensitive.\n\n\nOrganizations may be filtered by `owner.directoryCustomerId` or by\n`domain`, where the domain is a Google for Work domain, for example:\n\n|Filter|Description|\n|------|-----------|\n|owner.directorycustomerid:123456789|Organizations with\n`owner.directory_customer_id` equal to `123456789`.|\n|domain:google.com|Organizations corresponding to the domain `google.com`.|\n\nThis field is optional.",
+          "description": "An optional query string used to filter the Organizations to return in\nthe response. Filter rules are case-insensitive.\n\n\nOrganizations may be filtered by `owner.directoryCustomerId` or by\n`domain`, where the domain is a G Suite domain, for example:\n\n|Filter|Description|\n|------|-----------|\n|owner.directorycustomerid:123456789|Organizations with\n`owner.directory_customer_id` equal to `123456789`.|\n|domain:google.com|Organizations corresponding to the domain `google.com`.|\n\nThis field is optional.",
           "type": "string"
         },
         "pageSize": {

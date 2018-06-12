@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/databaseSecurityAlertPolicies.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/databaseSecurityAlertPolicies.json",
         "version": "2.0"
       }
     ],
@@ -361,7 +361,33 @@
     "DatabaseSecurityAlertPolicy": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "Contains information about a database Threat Detection policy.",
@@ -454,68 +480,6 @@
         "state"
       ],
       "type": "object"
-    },
-    "ProxyResource": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "ARM proxy resource."
-    },
-    "Resource": {
-      "description": "ARM resource.",
-      "properties": {
-        "id": {
-          "description": "Resource ID.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "name": {
-          "description": "Resource name.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "type": {
-          "description": "Resource type.",
-          "readOnly": true,
-          "type": "string"
-        }
-      },
-      "x-ms-azure-resource": true
-    },
-    "TrackedResource": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "ARM tracked top level resource.",
-      "properties": {
-        "location": {
-          "description": "Resource location.",
-          "type": "string",
-          "x-ms-mutability": [
-            "read",
-            "create"
-          ]
-        },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource tags.",
-          "type": "object",
-          "x-ms-mutability": [
-            "read",
-            "create",
-            "update"
-          ]
-        }
-      },
-      "required": [
-        "location"
-      ]
     }
   }
 }

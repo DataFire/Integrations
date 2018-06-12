@@ -83,18 +83,6 @@ azure_sql_serviceobjectives.ServiceObjectives_Get({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### ServiceObjective
 * ServiceObjective `object`: Represents a database service objective.
   * properties [ServiceObjectiveProperties](#serviceobjectiveproperties)

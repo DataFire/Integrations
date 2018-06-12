@@ -11,12 +11,7 @@
       "url": "https://google.com"
     },
     "description": "View Abusive Experience Report data, and get a list of sites that have a significant number of abusive experiences.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Abusive Experience Report",
+    "title": "Abusive Experience Report",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://abusiveexperiencereport.googleapis.com/$discovery/rest?version=v1",
@@ -49,21 +44,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/xapi.zoo": "Test scope for access to the Zoo service"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/xapi.zoo": "Test scope for access to the Zoo service"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -194,9 +179,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/xapi.zoo"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/xapi.zoo"
             ]
           }
         ],
@@ -272,9 +254,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/xapi.zoo"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/xapi.zoo"
             ]
           }
         ],
@@ -327,7 +306,7 @@
   },
   "definitions": {
     "SiteSummaryResponse": {
-      "description": "Response message for GetSiteSummary.",
+      "description": "Response message for GetSiteSummary.\nDo not confuse with same message in google.ads.experiencereport.v1",
       "properties": {
         "abusiveStatus": {
           "description": "The status of the site reviewed for the abusive experiences.",

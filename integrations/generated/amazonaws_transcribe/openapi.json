@@ -164,7 +164,152 @@
         }
       ],
       "post": {
-        "description": "Returns information about a transcription job. To see the status of the job, check the <code>Status</code> field. If the status is <code>COMPLETE</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code> field.",
+        "description": "Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file.",
+        "operationId": "CreateVocabulary",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateVocabularyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateVocabularyResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteVocabulary": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a vocabulary from Amazon Transcribe. ",
+        "operationId": "DeleteVocabulary",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteVocabularyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetTranscriptionJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns information about a transcription job. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code> field.",
         "operationId": "GetTranscriptionJob",
         "parameters": [
           {
@@ -205,6 +350,83 @@
             "description": "NotFoundException",
             "schema": {
               "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetVocabulary": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Gets information about a vocabulary.",
+        "operationId": "GetVocabulary",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetVocabularyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetVocabularyResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
             }
           }
         }
@@ -272,6 +494,91 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ListTranscriptionJobsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListVocabularies": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of vocabularies that match the specified criteria. If no criteria are specified, returns the entire list of vocabularies.",
+        "operationId": "ListVocabularies",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListVocabulariesRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListVocabulariesResponse"
             }
           },
           "480": {
@@ -371,17 +678,97 @@
           }
         }
       }
+    },
+    "/#UpdateVocabulary": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates an existing vocabulary with new values.",
+        "operationId": "UpdateVocabulary",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateVocabularyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateVocabularyResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
     "BadRequestException": {
-      "description": "There is a problem with one of the input fields. Check the S3 bucket name, make sure that the job name is not a duplicate, and confirm that you are using the correct file format. Then resend your request.",
+      "description": "Your request didn't pass one or more validation tests. For example, a name already exists when createing a resource or a name may not exist when getting a transcription job or custom vocabulary. See the exception <code>Message</code> field for more information.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/FailureReason"
         }
       },
       "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
     },
     "ConflictException": {
       "description": "The <code>JobName</code> field is a duplicate of a previously entered job name. Resend your request with a different name.",
@@ -392,9 +779,68 @@
       },
       "type": "object"
     },
+    "CreateVocabularyRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code of the vocabulary entries."
+        },
+        "Phrases": {
+          "$ref": "#/definitions/Phrases",
+          "description": "An array of strings that contains the vocabulary entries. "
+        },
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive."
+        }
+      },
+      "required": [
+        "VocabularyName",
+        "LanguageCode",
+        "Phrases"
+      ],
+      "type": "object"
+    },
+    "CreateVocabularyResponse": {
+      "properties": {
+        "FailureReason": {
+          "$ref": "#/definitions/FailureReason",
+          "description": "If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains information about why the job failed."
+        },
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code of the vocabulary entries."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "The date and time that the vocabulary was created."
+        },
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of the vocabulary."
+        },
+        "VocabularyState": {
+          "$ref": "#/definitions/VocabularyState",
+          "description": "The processing state of the vocabulary. When the <code>VocabularyState</code> field contains <code>READY</code> the vocabulary is ready to be used in a <code>StartTranscriptionJob</code> request."
+        }
+      },
+      "type": "object"
+    },
     "DateTime": {
       "format": "date-time",
       "type": "string"
+    },
+    "DeleteVocabularyRequest": {
+      "properties": {
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of the vocabulary to delete. "
+        }
+      },
+      "required": [
+        "VocabularyName"
+      ],
+      "type": "object"
     },
     "FailureReason": {
       "type": "string"
@@ -420,6 +866,47 @@
       },
       "type": "object"
     },
+    "GetVocabularyRequest": {
+      "properties": {
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of the vocabulary to return information about. The name is case-sensitive."
+        }
+      },
+      "required": [
+        "VocabularyName"
+      ],
+      "type": "object"
+    },
+    "GetVocabularyResponse": {
+      "properties": {
+        "DownloadUri": {
+          "$ref": "#/definitions/Uri",
+          "description": "The S3 location where the vocabulary is stored. Use this URI to get the contents of the vocabulary. The URI is available for a limited time."
+        },
+        "FailureReason": {
+          "$ref": "#/definitions/FailureReason",
+          "description": "If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains information about why the job failed."
+        },
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code of the vocabulary entries."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "The date and time that the vocabulary was last modified."
+        },
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of the vocabulary to return."
+        },
+        "VocabularyState": {
+          "$ref": "#/definitions/VocabularyState",
+          "description": "The processing state of the vocabulary."
+        }
+      },
+      "type": "object"
+    },
     "InternalFailureException": {
       "description": "There was an internal error. Check the error message and try your request again.",
       "properties": {
@@ -437,7 +924,7 @@
       "type": "string"
     },
     "LimitExceededException": {
-      "description": "Either you have sent too many requests or your input file is longer than 2 hours. Wait before you resend your request, or use a smaller file and resend the request.",
+      "description": "Either you have sent too many requests or your input file is too long. Wait before you resend your request, or use a smaller file and resend the request.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/String"
@@ -447,9 +934,13 @@
     },
     "ListTranscriptionJobsRequest": {
       "properties": {
+        "JobNameContains": {
+          "$ref": "#/definitions/TranscriptionJobName",
+          "description": "When specified, the jobs returned in the list are limited to jobs whose name contains the specified string."
+        },
         "MaxResults": {
           "$ref": "#/definitions/MaxResults",
-          "description": "The maximum number of jobs to return in the response."
+          "description": "The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -460,16 +951,13 @@
           "description": "When specified, returns only transcription jobs with the specified status."
         }
       },
-      "required": [
-        "Status"
-      ],
       "type": "object"
     },
     "ListTranscriptionJobsResponse": {
       "properties": {
         "NextToken": {
           "$ref": "#/definitions/NextToken",
-          "description": "The <code>ListTranscriptionJobs</code> operation returns a page of jobs at a time. The size of the page is set by the <code>MaxResults</code> parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code> token. Include the token in the next request to the <code>ListTranscriptionJobs</code> operation to return in the next page of jobs."
+          "description": "The <code>ListTranscriptionJobs</code> operation returns a page of jobs at a time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code> token. Include the token in the next request to the <code>ListTranscriptionJobs</code> operation to return in the next page of jobs."
         },
         "Status": {
           "$ref": "#/definitions/TranscriptionJobStatus",
@@ -482,9 +970,52 @@
       },
       "type": "object"
     },
+    "ListVocabulariesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of vocabularies to return in the response. If there are fewer results in the list, this response contains only the actual results."
+        },
+        "NameContains": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string. The search is case-insensitive, <code>ListVocabularies</code> will return both \"vocabularyname\" and \"VocabularyName\" in the response list."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the result of the previous request to <code>ListVocabularies</code> was truncated, include the <code>NextToken</code> to fetch the next set of jobs."
+        },
+        "StateEquals": {
+          "$ref": "#/definitions/VocabularyState",
+          "description": "When specified, only returns vocabularies with the <code>VocabularyState</code> field equal to the specified state."
+        }
+      },
+      "type": "object"
+    },
+    "ListVocabulariesResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>ListVocabularies</code> operation returns a page of vocabularies at a time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code> token. Include the token in the next request to the <code>ListVocabularies</code> operation to return in the next page of jobs."
+        },
+        "Status": {
+          "$ref": "#/definitions/TranscriptionJobStatus",
+          "description": "The requested vocabulary state."
+        },
+        "Vocabularies": {
+          "$ref": "#/definitions/Vocabularies",
+          "description": "A list of objects that describe the vocabularies that match the search criteria in the request."
+        }
+      },
+      "type": "object"
+    },
     "MaxResults": {
       "maximum": 100,
       "minimum": 1,
+      "type": "integer"
+    },
+    "MaxSpeakers": {
+      "maximum": 10,
+      "minimum": 2,
       "type": "integer"
     },
     "Media": {
@@ -492,7 +1023,7 @@
       "properties": {
         "MediaFileUri": {
           "$ref": "#/definitions/Uri",
-          "description": "<p>The S3 location of the input media file. The general form is:</p> <p> <code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-west-2.amazonaws.com/examplebucket/example.mp4</code> </p> <p> <code>https://s3-us-west-2.amazonaws.com/examplebucket/mediadocs/example.mp4</code> </p>"
+          "description": "<p>The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p> <p> <code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code> </p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code> </p> <p>For more information about S3 object names, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>"
         }
       },
       "type": "object"
@@ -516,10 +1047,39 @@
       "type": "string"
     },
     "NotFoundException": {
-      "description": "We can't find the requested job. Check the job name and try your request again.",
+      "description": "We can't find the requested transcription job or custom vocabulary. Check the name and try your request again.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "Phrase": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
+    "Phrases": {
+      "items": {
+        "$ref": "#/definitions/Phrase"
+      },
+      "type": "array"
+    },
+    "Settings": {
+      "description": "Provides optional settings for the <code>StartTranscriptionJob</code> operation.",
+      "properties": {
+        "MaxSpeakerLabels": {
+          "$ref": "#/definitions/MaxSpeakers",
+          "description": "The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers will be identified as a single speaker. If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code> field to true."
+        },
+        "ShowSpeakerLabels": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Determines whether the transcription job should use speaker recognition to identify different speakers in the input audio. If you set the <code>ShowSpeakerLabels</code> field to true, you must also set the maximum number of speaker labels <code>MaxSpeakerLabels</code> field."
+        },
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of a vocabulary to use when processing the transcription job."
         }
       },
       "type": "object"
@@ -541,6 +1101,10 @@
         "MediaSampleRateHertz": {
           "$ref": "#/definitions/MediaSampleRateHertz",
           "description": "The sample rate, in Hertz, of the audio track in the input media file. "
+        },
+        "Settings": {
+          "$ref": "#/definitions/Settings",
+          "description": "A <code>Settings</code> object that provides optional settings for a transcription job."
         },
         "TranscriptionJobName": {
           "$ref": "#/definitions/TranscriptionJobName",
@@ -572,7 +1136,7 @@
       "properties": {
         "TranscriptFileUri": {
           "$ref": "#/definitions/Uri",
-          "description": "<p>The S3 location where the transcription result is stored. The general form of this Uri is:</p> <p> <code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-west-2.amazonaws.com/examplebucket/example.json</code> </p> <p> <code>https://s3-us-west-2.amazonaws.com/examplebucket/mediadocs/example.json</code> </p>"
+          "description": "The S3 location where the transcription result is stored. Use this URI to access the results of the transcription job. "
         }
       },
       "type": "object"
@@ -608,6 +1172,10 @@
           "$ref": "#/definitions/MediaSampleRateHertz",
           "description": "The sample rate, in Hertz, of the audio track in the input media file. "
         },
+        "Settings": {
+          "$ref": "#/definitions/Settings",
+          "description": "Optional settings for the transcription job."
+        },
         "Transcript": {
           "$ref": "#/definitions/Transcript",
           "description": "An object that describes the output of the transcription job."
@@ -618,7 +1186,7 @@
         },
         "TranscriptionJobStatus": {
           "$ref": "#/definitions/TranscriptionJobStatus",
-          "description": "The identifier assigned to the job when it was created."
+          "description": "The status of the transcription job."
         }
       },
       "type": "object"
@@ -673,9 +1241,94 @@
       },
       "type": "object"
     },
+    "UpdateVocabularyRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code of the vocabulary entries."
+        },
+        "Phrases": {
+          "$ref": "#/definitions/Phrases",
+          "description": "An array of strings containing the vocabulary entries."
+        },
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of the vocabulary to update. The name is case-sensitive."
+        }
+      },
+      "required": [
+        "VocabularyName",
+        "LanguageCode",
+        "Phrases"
+      ],
+      "type": "object"
+    },
+    "UpdateVocabularyResponse": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code of the vocabulary entries."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "The date and time that the vocabulary was updated."
+        },
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of the vocabulary that was updated."
+        },
+        "VocabularyState": {
+          "$ref": "#/definitions/VocabularyState",
+          "description": "The processing state of the vocabulary. When the <code>VocabularyState</code> field contains <code>READY</code> the vocabulary is ready to be used in a <code>StartTranscriptionJob</code> request."
+        }
+      },
+      "type": "object"
+    },
     "Uri": {
       "maxLength": 2000,
       "minLength": 1,
+      "type": "string"
+    },
+    "Vocabularies": {
+      "items": {
+        "$ref": "#/definitions/VocabularyInfo"
+      },
+      "type": "array"
+    },
+    "VocabularyInfo": {
+      "description": "Provides information about a custom vocabulary.",
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code of the vocabulary entries."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "The date and time that the vocabulary was last modified."
+        },
+        "VocabularyName": {
+          "$ref": "#/definitions/VocabularyName",
+          "description": "The name of the vocabulary."
+        },
+        "VocabularyState": {
+          "$ref": "#/definitions/VocabularyState",
+          "description": "The processing state of the vocabulary. If the state is <code>READY</code> you can use the vocabulary in a <code>StartTranscriptionJob</code> request."
+        }
+      },
+      "type": "object"
+    },
+    "VocabularyName": {
+      "maxLength": 200,
+      "minLength": 1,
+      "pattern": "^[0-9a-zA-Z._-]+",
+      "type": "string"
+    },
+    "VocabularyState": {
+      "enum": [
+        "PENDING",
+        "READY",
+        "FAILED"
+      ],
       "type": "string"
     }
   }

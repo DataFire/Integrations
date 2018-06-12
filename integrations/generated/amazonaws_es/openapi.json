@@ -833,6 +833,277 @@
         }
       ]
     },
+    "/2015-01-01/es/purchaseReservedInstanceOffering": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Allows you to purchase reserved Elasticsearch instances.",
+        "operationId": "PurchaseReservedElasticsearchInstanceOffering",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseReservedElasticsearchInstanceOfferingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PurchaseReservedElasticsearchInstanceOfferingResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "DisabledOperationException",
+            "schema": {
+              "$ref": "#/definitions/DisabledOperationException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          }
+        }
+      }
+    },
+    "/2015-01-01/es/reservedInstanceOfferings": {
+      "get": {
+        "description": "Lists available reserved Elasticsearch instance offerings.",
+        "operationId": "DescribeReservedElasticsearchInstanceOfferings",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeReservedElasticsearchInstanceOfferingsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeReservedElasticsearchInstanceOfferingsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "DisabledOperationException",
+            "schema": {
+              "$ref": "#/definitions/DisabledOperationException"
+            }
+          },
+          "483": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/2015-01-01/es/reservedInstances": {
+      "get": {
+        "description": "Returns information about reserved Elasticsearch instances for this account.",
+        "operationId": "DescribeReservedElasticsearchInstances",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeReservedElasticsearchInstancesRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeReservedElasticsearchInstancesResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "DisabledOperationException",
+            "schema": {
+              "$ref": "#/definitions/DisabledOperationException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
     "/2015-01-01/es/role": {
       "delete": {
         "description": "Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr\" target=\"_blank\">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.",
@@ -1313,6 +1584,46 @@
       "description": "ARN of the Cloudwatch log group to which log needs to be published.",
       "type": "string"
     },
+    "CognitoOptions": {
+      "description": "Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Specifies the option to enable Cognito for Kibana authentication."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "Specifies the Cognito identity pool ID for Kibana authentication."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolId",
+          "description": "Specifies the Cognito user pool ID for Kibana authentication."
+        }
+      },
+      "type": "object"
+    },
+    "CognitoOptionsStatus": {
+      "description": "Status of the Cognito options for the specified Elasticsearch domain.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/CognitoOptions",
+          "description": "Specifies the Cognito options for the specified Elasticsearch domain."
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus",
+          "description": "Specifies the status of the Cognito options for the specified Elasticsearch domain."
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
     "CreateElasticsearchDomainRequest": {
       "properties": {
         "AccessPolicies": {
@@ -1322,6 +1633,10 @@
         "AdvancedOptions": {
           "$ref": "#/definitions/AdvancedOptions",
           "description": " Option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information."
+        },
+        "CognitoOptions": {
+          "$ref": "#/definitions/CognitoOptions",
+          "description": "Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>."
         },
         "DomainName": {
           "$ref": "#/definitions/DomainName",
@@ -1462,6 +1777,44 @@
       },
       "type": "object"
     },
+    "DescribeReservedElasticsearchInstanceOfferingsRequest": {
+      "description": "Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code>",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeReservedElasticsearchInstanceOfferingsResponse": {
+      "description": "Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code>",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Provides an identifier to allow retrieval of paginated results."
+        },
+        "ReservedElasticsearchInstanceOfferings": {
+          "$ref": "#/definitions/ReservedElasticsearchInstanceOfferingList",
+          "description": "List of reserved Elasticsearch instance offerings"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeReservedElasticsearchInstancesRequest": {
+      "description": "Container for parameters to <code>DescribeReservedElasticsearchInstances</code>",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeReservedElasticsearchInstancesResponse": {
+      "description": "Container for results from <code>DescribeReservedElasticsearchInstances</code>",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Provides an identifier to allow retrieval of paginated results."
+        },
+        "ReservedElasticsearchInstances": {
+          "$ref": "#/definitions/ReservedElasticsearchInstanceList",
+          "description": "List of reserved Elasticsearch instances."
+        }
+      },
+      "type": "object"
+    },
     "DisabledOperationException": {
       "description": "An error occured because the client wanted to access a not supported operation. Gives http status code of 409.",
       "properties": {},
@@ -1502,6 +1855,10 @@
         "$ref": "#/definitions/DomainName"
       },
       "type": "array"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number"
     },
     "EBSOptions": {
       "description": "Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs\" target=\"_blank\"> Configuring EBS-based Storage</a>.",
@@ -1647,6 +2004,10 @@
           "$ref": "#/definitions/AdvancedOptionsStatus",
           "description": "Specifies the <code>AdvancedOptions</code> for the domain. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuring Advanced Options</a> for more information."
         },
+        "CognitoOptions": {
+          "$ref": "#/definitions/CognitoOptionsStatus",
+          "description": "The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>."
+        },
         "EBSOptions": {
           "$ref": "#/definitions/EBSOptionsStatus",
           "description": "Specifies the <code>EBSOptions</code> for the Elasticsearch domain."
@@ -1692,6 +2053,10 @@
         "AdvancedOptions": {
           "$ref": "#/definitions/AdvancedOptions",
           "description": "Specifies the status of the <code>AdvancedOptions</code>"
+        },
+        "CognitoOptions": {
+          "$ref": "#/definitions/CognitoOptions",
+          "description": "The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>."
         },
         "Created": {
           "$ref": "#/definitions/Boolean",
@@ -1848,6 +2213,21 @@
     "ErrorMessage": {
       "type": "string"
     },
+    "GUID": {
+      "pattern": "\\p{XDigit}{8}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{12}",
+      "type": "string"
+    },
+    "IdentityPoolId": {
+      "maxLength": 55,
+      "minLength": 1,
+      "pattern": "[\\w-]+:[0-9a-f-]+",
+      "type": "string"
+    },
+    "InstanceCount": {
+      "description": "Specifies the number of EC2 instances in the Elasticsearch domain.",
+      "minimum": 1,
+      "type": "integer"
+    },
     "InstanceCountLimits": {
       "description": " InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType. ",
       "properties": {
@@ -1871,6 +2251,9 @@
     },
     "InstanceRole": {
       "type": "string"
+    },
+    "Integer": {
+      "type": "integer"
     },
     "IntegerClass": {
       "type": "integer"
@@ -2110,6 +2493,62 @@
       "description": "Access policy rules for an Elasticsearch domain service endpoints. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies\" target=\"_blank\">Configuring Access Policies</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>. The maximum size of a policy document is 100 KB.",
       "type": "string"
     },
+    "PurchaseReservedElasticsearchInstanceOfferingRequest": {
+      "description": "Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code>",
+      "properties": {
+        "InstanceCount": {
+          "$ref": "#/definitions/InstanceCount",
+          "description": "The number of Elasticsearch instances to reserve."
+        },
+        "ReservationName": {
+          "$ref": "#/definitions/ReservationToken",
+          "description": "A customer-specified identifier to track this reservation."
+        },
+        "ReservedElasticsearchInstanceOfferingId": {
+          "$ref": "#/definitions/GUID",
+          "description": "The ID of the reserved Elasticsearch instance offering to purchase."
+        }
+      },
+      "required": [
+        "ReservedElasticsearchInstanceOfferingId",
+        "ReservationName"
+      ],
+      "type": "object"
+    },
+    "PurchaseReservedElasticsearchInstanceOfferingResponse": {
+      "description": "Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.",
+      "properties": {
+        "ReservationName": {
+          "$ref": "#/definitions/ReservationToken",
+          "description": "The customer-specified identifier used to track this reservation."
+        },
+        "ReservedElasticsearchInstanceId": {
+          "$ref": "#/definitions/GUID",
+          "description": "Details of the reserved Elasticsearch instance which was purchased."
+        }
+      },
+      "type": "object"
+    },
+    "RecurringCharge": {
+      "description": "Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.",
+      "properties": {
+        "RecurringChargeAmount": {
+          "$ref": "#/definitions/Double",
+          "description": "The monetary amount of the recurring charge."
+        },
+        "RecurringChargeFrequency": {
+          "$ref": "#/definitions/String",
+          "description": "The frequency of the recurring charge."
+        }
+      },
+      "type": "object"
+    },
+    "RecurringChargeList": {
+      "items": {
+        "$ref": "#/definitions/RecurringCharge"
+      },
+      "type": "array"
+    },
     "RemoveTagsRequest": {
       "description": "Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.",
       "properties": {
@@ -2128,6 +2567,127 @@
       ],
       "type": "object"
     },
+    "ReservationToken": {
+      "maxLength": 64,
+      "minLength": 5,
+      "type": "string"
+    },
+    "ReservedElasticsearchInstance": {
+      "description": "Details of a reserved Elasticsearch instance.",
+      "properties": {
+        "CurrencyCode": {
+          "$ref": "#/definitions/String",
+          "description": "The currency code for the reserved Elasticsearch instance offering."
+        },
+        "Duration": {
+          "$ref": "#/definitions/Integer",
+          "description": "The duration, in seconds, for which the Elasticsearch instance is reserved."
+        },
+        "ElasticsearchInstanceCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of Elasticsearch instances that have been reserved."
+        },
+        "ElasticsearchInstanceType": {
+          "$ref": "#/definitions/ESPartitionInstanceType",
+          "description": "The Elasticsearch instance type offered by the reserved instance offering."
+        },
+        "FixedPrice": {
+          "$ref": "#/definitions/Double",
+          "description": "The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering. "
+        },
+        "PaymentOption": {
+          "$ref": "#/definitions/ReservedElasticsearchInstancePaymentOption",
+          "description": "The payment option as defined in the reserved Elasticsearch instance offering."
+        },
+        "RecurringCharges": {
+          "$ref": "#/definitions/RecurringChargeList",
+          "description": "The charge to your account regardless of whether you are creating any domains using the instance offering."
+        },
+        "ReservationName": {
+          "$ref": "#/definitions/ReservationToken",
+          "description": "The customer-specified identifier to track this reservation."
+        },
+        "ReservedElasticsearchInstanceId": {
+          "$ref": "#/definitions/GUID",
+          "description": "The unique identifier for the reservation."
+        },
+        "ReservedElasticsearchInstanceOfferingId": {
+          "$ref": "#/definitions/String",
+          "description": "The offering identifier."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/UpdateTimestamp",
+          "description": "The time the reservation started."
+        },
+        "State": {
+          "$ref": "#/definitions/String",
+          "description": "The state of the reserved Elasticsearch instance."
+        },
+        "UsagePrice": {
+          "$ref": "#/definitions/Double",
+          "description": "The rate you are charged for each hour for the domain that is using this reserved instance."
+        }
+      },
+      "type": "object"
+    },
+    "ReservedElasticsearchInstanceList": {
+      "items": {
+        "$ref": "#/definitions/ReservedElasticsearchInstance"
+      },
+      "type": "array"
+    },
+    "ReservedElasticsearchInstanceOffering": {
+      "description": "Details of a reserved Elasticsearch instance offering.",
+      "properties": {
+        "CurrencyCode": {
+          "$ref": "#/definitions/String",
+          "description": "The currency code for the reserved Elasticsearch instance offering."
+        },
+        "Duration": {
+          "$ref": "#/definitions/Integer",
+          "description": "The duration, in seconds, for which the offering will reserve the Elasticsearch instance."
+        },
+        "ElasticsearchInstanceType": {
+          "$ref": "#/definitions/ESPartitionInstanceType",
+          "description": "The Elasticsearch instance type offered by the reserved instance offering."
+        },
+        "FixedPrice": {
+          "$ref": "#/definitions/Double",
+          "description": "The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering. "
+        },
+        "PaymentOption": {
+          "$ref": "#/definitions/ReservedElasticsearchInstancePaymentOption",
+          "description": "Payment option for the reserved Elasticsearch instance offering"
+        },
+        "RecurringCharges": {
+          "$ref": "#/definitions/RecurringChargeList",
+          "description": "The charge to your account regardless of whether you are creating any domains using the instance offering."
+        },
+        "ReservedElasticsearchInstanceOfferingId": {
+          "$ref": "#/definitions/GUID",
+          "description": "The Elasticsearch reserved instance offering identifier."
+        },
+        "UsagePrice": {
+          "$ref": "#/definitions/Double",
+          "description": "The rate you are charged for each hour the domain that is using the offering is running."
+        }
+      },
+      "type": "object"
+    },
+    "ReservedElasticsearchInstanceOfferingList": {
+      "items": {
+        "$ref": "#/definitions/ReservedElasticsearchInstanceOffering"
+      },
+      "type": "array"
+    },
+    "ReservedElasticsearchInstancePaymentOption": {
+      "enum": [
+        "ALL_UPFRONT",
+        "PARTIAL_UPFRONT",
+        "NO_UPFRONT"
+      ],
+      "type": "string"
+    },
     "ResourceAlreadyExistsException": {
       "description": "An exception for creating a resource that already exists. Gives http status code of 400.",
       "properties": {},
@@ -2137,6 +2697,11 @@
       "description": "An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.",
       "properties": {},
       "type": "object"
+    },
+    "RoleArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string"
     },
     "ServiceUrl": {
       "description": "The endpoint to which service requests are submitted. For example, <code>search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.es.amazonaws.com</code> or <code>doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.es.amazonaws.com</code>.",
@@ -2281,6 +2846,10 @@
           "$ref": "#/definitions/AdvancedOptions",
           "description": "Modifies the advanced option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information."
         },
+        "CognitoOptions": {
+          "$ref": "#/definitions/CognitoOptions",
+          "description": "Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>."
+        },
         "EBSOptions": {
           "$ref": "#/definitions/EBSOptions",
           "description": "Specify the type and size of the EBS volume that you want to use. "
@@ -2319,6 +2888,12 @@
     },
     "UpdateTimestamp": {
       "format": "date-time",
+      "type": "string"
+    },
+    "UserPoolId": {
+      "maxLength": 55,
+      "minLength": 1,
+      "pattern": "[\\w-]+_[0-9a-zA-Z]+",
       "type": "string"
     },
     "VPCDerivedInfo": {

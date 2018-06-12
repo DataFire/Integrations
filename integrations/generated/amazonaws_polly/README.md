@@ -318,7 +318,7 @@ amazonaws_polly.DescribeVoices({}, context)
 * Text `string`
 
 ### TextLengthExceededException
-* TextLengthExceededException `object`: The value of the "Text" parameter is longer than the accepted limits. The limit for input text is a maximum of 3000 characters total, of which no more than 1500 can be billed characters. SSML tags are not counted as billed characters.
+* TextLengthExceededException `object`: The value of the "Text" parameter is longer than the accepted limits. The limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. SSML tags are not counted as billed characters.
   * message [ErrorMessage](#errormessage)
 
 ### TextType
@@ -341,7 +341,7 @@ amazonaws_polly.DescribeVoices({}, context)
   * Name [VoiceName](#voicename)
 
 ### VoiceId
-* VoiceId `string` (values: Geraint, Gwyneth, Mads, Naja, Hans, Marlene, Nicole, Russell, Amy, Brian, Emma, Raveena, Ivy, Joanna, Joey, Justin, Kendra, Kimberly, Matthew, Salli, Conchita, Enrique, Miguel, Penelope, Chantal, Celine, Mathieu, Dora, Karl, Carla, Giorgio, Mizuki, Liv, Lotte, Ruben, Ewa, Jacek, Jan, Maja, Ricardo, Vitoria, Cristiano, Ines, Carmen, Maxim, Tatyana, Astrid, Filiz, Vicki, Takumi, Seoyeon, Aditi)
+* VoiceId `string` (values: Geraint, Gwyneth, Mads, Naja, Hans, Marlene, Nicole, Russell, Amy, Brian, Emma, Raveena, Ivy, Joanna, Joey, Justin, Kendra, Kimberly, Matthew, Salli, Conchita, Enrique, Miguel, Penelope, Chantal, Celine, Lea, Mathieu, Dora, Karl, Carla, Giorgio, Mizuki, Liv, Lotte, Ruben, Ewa, Jacek, Jan, Maja, Ricardo, Vitoria, Cristiano, Ines, Carmen, Maxim, Tatyana, Astrid, Filiz, Vicki, Takumi, Seoyeon, Aditi)
 
 ### VoiceList
 * VoiceList `array`

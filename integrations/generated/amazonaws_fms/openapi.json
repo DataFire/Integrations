@@ -1,0 +1,1573 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "fms.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS Firewall Manager</fullname> <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for developers who need detailed information about the AWS Firewall Manager API actions, data types, and errors. For detailed information about AWS Firewall Manager features, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html\">AWS Firewall Manager Developer Guide</a>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Firewall Management Service",
+    "version": "2018-01-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/fms-2018-01-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "fms",
+    "x-datafire": {
+      "name": "amazonaws_fms",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/fms/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be associated with a master account in AWS Organizations or associated with a member account that has the appropriate permissions. If the account ID that you submit is not an AWS Organizations master account, AWS Firewall Manager will set the appropriate permissions for the given member account.</p> <p>The account that you associate with AWS Firewall Manager is called the AWS Firewall manager administrator account. </p>",
+        "operationId": "AssociateAdminAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateAdminAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteNotificationChannel": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
+        "operationId": "DeleteNotificationChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteNotificationChannelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeletePolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Permanently deletes an AWS Firewall Manager policy. ",
+        "operationId": "DeletePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeletePolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#DisassociateAdminAccount": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disassociates the account that has been set as the AWS Firewall Manager administrator account. You will need to submit an <code>AssociateAdminAccount</code> request to set a new account as the AWS Firewall administrator.",
+        "operationId": "DisassociateAdminAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateAdminAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetAdminAccount": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager administrator.",
+        "operationId": "GetAdminAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAdminAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAdminAccountResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetComplianceDetail": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns detailed compliance information about the specified member account. Details include resources that are in and out of compliance with the specified policy. Resources are considered non-compliant if the specified policy has not been applied to them.",
+        "operationId": "GetComplianceDetail",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetComplianceDetailRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetComplianceDetailResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetNotificationChannel": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns information about the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.",
+        "operationId": "GetNotificationChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetNotificationChannelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetNotificationChannelResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetPolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns information about the specified AWS Firewall Manager policy.",
+        "operationId": "GetPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetPolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListComplianceStatus": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns an array of <code>PolicyComplianceStatus</code> objects in the response. Use <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected by the specified policy. ",
+        "operationId": "ListComplianceStatus",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListComplianceStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListComplianceStatusResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListPolicies": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns an array of <code>PolicySummary</code> objects in the response.",
+        "operationId": "ListPolicies",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListPoliciesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPoliciesResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#PutNotificationChannel": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.",
+        "operationId": "PutNotificationChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutNotificationChannelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#PutPolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates an AWS Firewall Manager policy.",
+        "operationId": "PutPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutPolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutPolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "483": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AWSAccountId": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AssociateAdminAccountRequest": {
+      "properties": {
+        "AdminAccount": {
+          "$ref": "#/definitions/AWSAccountId",
+          "description": "The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. For more information about AWS Organizations and master accounts, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the AWS Accounts in Your Organization</a>."
+        }
+      },
+      "required": [
+        "AdminAccount"
+      ],
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "ComplianceViolator": {
+      "description": "Details of the resource that is not protected by the policy.",
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The resource ID."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type. This is in the format shown in <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a>. Valid values are <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> or <code>AWS::CloudFront::Distribution</code>."
+        },
+        "ViolationReason": {
+          "$ref": "#/definitions/ViolationReason",
+          "description": "The reason that the resource is not protected by the policy."
+        }
+      },
+      "type": "object"
+    },
+    "ComplianceViolators": {
+      "items": {
+        "$ref": "#/definitions/ComplianceViolator"
+      },
+      "type": "array"
+    },
+    "DeleteNotificationChannelRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeletePolicyRequest": {
+      "properties": {
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The ID of the policy that you want to delete. <code>PolicyId</code> is returned by <code>PutPolicy</code> and by <code>ListPolicies</code>."
+        }
+      },
+      "required": [
+        "PolicyId"
+      ],
+      "type": "object"
+    },
+    "DisassociateAdminAccountRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    },
+    "EvaluationResult": {
+      "description": "Describes the compliance status for the account. An account is considered non-compliant if it includes resources that are not protected by the specified policy.",
+      "properties": {
+        "ComplianceStatus": {
+          "$ref": "#/definitions/PolicyComplianceStatusType",
+          "description": "Describes an AWS account's compliance with the AWS Firewall Manager policy."
+        },
+        "EvaluationLimitExceeded": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates that over 100 resources are non-compliant with the AWS Firewall Manager policy."
+        },
+        "ViolatorCount": {
+          "$ref": "#/definitions/ResourceCount",
+          "description": "Number of resources that are non-compliant with the specified policy. A resource is considered non-compliant if it is not associated with the specified policy."
+        }
+      },
+      "type": "object"
+    },
+    "EvaluationResults": {
+      "items": {
+        "$ref": "#/definitions/EvaluationResult"
+      },
+      "type": "array"
+    },
+    "GetAdminAccountRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetAdminAccountResponse": {
+      "properties": {
+        "AdminAccount": {
+          "$ref": "#/definitions/AWSAccountId",
+          "description": "The AWS account that is set as the AWS Firewall Manager administrator."
+        }
+      },
+      "type": "object"
+    },
+    "GetComplianceDetailRequest": {
+      "properties": {
+        "MemberAccount": {
+          "$ref": "#/definitions/AWSAccountId",
+          "description": "The AWS account that owns the resources that you want to get the details for."
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The ID of the policy that you want to get the details for. <code>PolicyId</code> is returned by <code>PutPolicy</code> and by <code>ListPolicies</code>."
+        }
+      },
+      "required": [
+        "PolicyId",
+        "MemberAccount"
+      ],
+      "type": "object"
+    },
+    "GetComplianceDetailResponse": {
+      "properties": {
+        "PolicyComplianceDetail": {
+          "$ref": "#/definitions/PolicyComplianceDetail",
+          "description": "Information about the resources and the policy that you specified in the <code>GetComplianceDetail</code> request."
+        }
+      },
+      "type": "object"
+    },
+    "GetNotificationChannelRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetNotificationChannelResponse": {
+      "properties": {
+        "SnsRoleName": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The IAM role that is used by AWS Firewall Manager to record activity to SNS."
+        },
+        "SnsTopicArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The SNS topic that records AWS Firewall Manager activity. "
+        }
+      },
+      "type": "object"
+    },
+    "GetPolicyRequest": {
+      "properties": {
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The ID of the AWS Firewall Manager policy that you want the details for."
+        }
+      },
+      "required": [
+        "PolicyId"
+      ],
+      "type": "object"
+    },
+    "GetPolicyResponse": {
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/Policy",
+          "description": "Information about the specified AWS Firewall Manager policy."
+        },
+        "PolicyArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the specified policy."
+        }
+      },
+      "type": "object"
+    },
+    "InternalErrorException": {
+      "description": "The operation failed because of a system problem, even though the request was valid. Retry your request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidInputException": {
+      "description": "The parameters of the request were invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidOperationException": {
+      "description": "The operation failed because there was nothing to do. For example, you might have submitted an <code>AssociateAdminAccount</code> request, but the account ID that you submitted was already set as the AWS Firewall Manager administrator.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": "The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an AWS account. For more information, see <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>AWS WAF Developer Guide</i>.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ListComplianceStatusRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/PaginationMaxResults",
+          "description": "Specifies the number of <code>PolicyComplianceStatus</code> objects that you want AWS Firewall Manager to return for this request. If you have more <code>PolicyComplianceStatus</code> objects than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of <code>PolicyComplianceStatus</code> objects."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If you specify a value for <code>MaxResults</code> and you have more <code>PolicyComplianceStatus</code> objects than the number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of <code>PolicyComplianceStatus</code> objects. For the second and subsequent <code>ListComplianceStatus</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of <code>PolicyComplianceStatus</code> objects."
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The ID of the AWS Firewall Manager policy that you want the details for."
+        }
+      },
+      "required": [
+        "PolicyId"
+      ],
+      "type": "object"
+    },
+    "ListComplianceStatusResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If you have more <code>PolicyComplianceStatus</code> objects than the number that you specified for <code>MaxResults</code> in the request, the response includes a <code>NextToken</code> value. To list more <code>PolicyComplianceStatus</code> objects, submit another <code>ListComplianceStatus</code> request, and specify the <code>NextToken</code> value from the response in the <code>NextToken</code> value in the next request."
+        },
+        "PolicyComplianceStatusList": {
+          "$ref": "#/definitions/PolicyComplianceStatusList",
+          "description": "An array of <code>PolicyComplianceStatus</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListPoliciesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/PaginationMaxResults",
+          "description": "Specifies the number of <code>PolicySummary</code> objects that you want AWS Firewall Manager to return for this request. If you have more <code>PolicySummary</code> objects than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of <code>PolicySummary</code> objects."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If you specify a value for <code>MaxResults</code> and you have more <code>PolicySummary</code> objects than the number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of <code>PolicySummary</code> objects. For the second and subsequent <code>ListPolicies</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of <code>PolicySummary</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListPoliciesResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If you have more <code>PolicySummary</code> objects than the number that you specified for <code>MaxResults</code> in the request, the response includes a <code>NextToken</code> value. To list more <code>PolicySummary</code> objects, submit another <code>ListPolicies</code> request, and specify the <code>NextToken</code> value from the response in the <code>NextToken</code> value in the next request."
+        },
+        "PolicyList": {
+          "$ref": "#/definitions/PolicySummaryList",
+          "description": "An array of <code>PolicySummary</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ManagedServiceData": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PaginationMaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PaginationToken": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "Policy": {
+      "description": "An AWS Firewall Manager policy.",
+      "properties": {
+        "ExcludeResourceTags": {
+          "$ref": "#/definitions/Boolean",
+          "description": "If set to <code>True</code>, resources with the tags that are specified in the <code>ResourceTag</code> array are not protected by the policy. If set to <code>False</code>, and the <code>ResourceTag</code> array is not null, only resources with the specified tags are associated with the policy."
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The ID of the AWS Firewall Manager policy."
+        },
+        "PolicyName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The friendly name of the AWS Firewall Manager policy."
+        },
+        "PolicyUpdateToken": {
+          "$ref": "#/definitions/PolicyUpdateToken",
+          "description": "A unique identifier for each update to the policy. When issuing a <code>PutPolicy</code> request, the <code>PolicyUpdateToken</code> in the request must match the <code>PolicyUpdateToken</code> of the current policy version. To get the <code>PolicyUpdateToken</code> of the current policy version, use a <code>GetPolicy</code> request."
+        },
+        "RemediationEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates if the policy should be automatically applied to new resources."
+        },
+        "ResourceTags": {
+          "$ref": "#/definitions/ResourceTags",
+          "description": "An array of <code>ResourceTag</code> objects."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of resource to protect with the policy, either an Application Load Balancer or a CloudFront distribution. This is in the format shown in <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a>. Valid values are <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> or <code>AWS::CloudFront::Distribution</code>."
+        },
+        "SecurityServicePolicyData": {
+          "$ref": "#/definitions/SecurityServicePolicyData",
+          "description": "Details about the security service that is being used to protect the resources."
+        }
+      },
+      "required": [
+        "PolicyName",
+        "SecurityServicePolicyData",
+        "ResourceType",
+        "ExcludeResourceTags",
+        "RemediationEnabled"
+      ],
+      "type": "object"
+    },
+    "PolicyComplianceDetail": {
+      "description": "Describes the non-compliant resources in a member account for a specific AWS Firewall Manager policy. A maximum of 100 entries are displayed. If more than 100 resources are non-compliant, <code>EvaluationLimitExceeded</code> is set to <code>True</code>.",
+      "properties": {
+        "EvaluationLimitExceeded": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates if over 100 resources are non-compliant with the AWS Firewall Manager policy."
+        },
+        "ExpiredAt": {
+          "$ref": "#/definitions/TimeStamp",
+          "description": "A time stamp that indicates when the returned information should be considered out-of-date."
+        },
+        "MemberAccount": {
+          "$ref": "#/definitions/AWSAccountId",
+          "description": "The AWS account ID."
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The ID of the AWS Firewall Manager policy."
+        },
+        "PolicyOwner": {
+          "$ref": "#/definitions/AWSAccountId",
+          "description": "The AWS account that created the AWS Firewall Manager policy."
+        },
+        "Violators": {
+          "$ref": "#/definitions/ComplianceViolators",
+          "description": "An array of resources that are not protected by the policy."
+        }
+      },
+      "type": "object"
+    },
+    "PolicyComplianceStatus": {
+      "description": "Indicates whether the account is compliant with the specified policy. An account is considered non-compliant if it includes resources that are not protected by the policy.",
+      "properties": {
+        "EvaluationResults": {
+          "$ref": "#/definitions/EvaluationResults",
+          "description": "An array of <code>EvaluationResult</code> objects."
+        },
+        "LastUpdated": {
+          "$ref": "#/definitions/TimeStamp",
+          "description": "Time stamp of the last update to the <code>EvaluationResult</code> objects."
+        },
+        "MemberAccount": {
+          "$ref": "#/definitions/AWSAccountId",
+          "description": "The member account ID."
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The ID of the AWS Firewall Manager policy."
+        },
+        "PolicyName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The friendly name of the AWS Firewall Manager policy."
+        },
+        "PolicyOwner": {
+          "$ref": "#/definitions/AWSAccountId",
+          "description": "The AWS account that created the AWS Firewall Manager policy."
+        }
+      },
+      "type": "object"
+    },
+    "PolicyComplianceStatusList": {
+      "items": {
+        "$ref": "#/definitions/PolicyComplianceStatus"
+      },
+      "type": "array"
+    },
+    "PolicyComplianceStatusType": {
+      "enum": [
+        "COMPLIANT",
+        "NON_COMPLIANT"
+      ],
+      "type": "string"
+    },
+    "PolicyId": {
+      "maxLength": 36,
+      "minLength": 36,
+      "type": "string"
+    },
+    "PolicySummary": {
+      "description": "Details of the AWS Firewall Manager policy. ",
+      "properties": {
+        "PolicyArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the specified policy."
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The ID of the specified policy."
+        },
+        "PolicyName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The friendly name of the specified policy."
+        },
+        "RemediationEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates if the policy should be automatically applied to new resources."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of resource to protect with the policy, either an Application Load Balancer or a CloudFront distribution. This is in the format shown in <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a>. Valid values are <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> or <code>AWS::CloudFront::Distribution</code>."
+        },
+        "SecurityServiceType": {
+          "$ref": "#/definitions/SecurityServiceType",
+          "description": "The service that the policy is using to protect the resources. This value is <code>WAF</code>."
+        }
+      },
+      "type": "object"
+    },
+    "PolicySummaryList": {
+      "items": {
+        "$ref": "#/definitions/PolicySummary"
+      },
+      "type": "array"
+    },
+    "PolicyUpdateToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PutNotificationChannelRequest": {
+      "properties": {
+        "SnsRoleName": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity. "
+        },
+        "SnsTopicArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager."
+        }
+      },
+      "required": [
+        "SnsTopicArn",
+        "SnsRoleName"
+      ],
+      "type": "object"
+    },
+    "PutPolicyRequest": {
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/Policy",
+          "description": "The details of the AWS Firewall Manager policy to be created."
+        }
+      },
+      "required": [
+        "Policy"
+      ],
+      "type": "object"
+    },
+    "PutPolicyResponse": {
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/Policy",
+          "description": "The details of the AWS Firewall Manager policy that was created."
+        },
+        "PolicyArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the policy that was created."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceArn": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceCount": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ResourceId": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource was not found.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTag": {
+      "description": "The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from protection by the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. Tags are combined with an \"OR.\" That is, if you add more than one tag, if any of the tags matches, the resource is considered a match for the include or exclude. <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html\">Working with Tag Editor</a>.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The resource tag key."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The resource tag value."
+        }
+      },
+      "required": [
+        "Key"
+      ],
+      "type": "object"
+    },
+    "ResourceTags": {
+      "items": {
+        "$ref": "#/definitions/ResourceTag"
+      },
+      "maxItems": 8,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ResourceType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SecurityServicePolicyData": {
+      "description": "Details about the security service that is being used to protect the resources.",
+      "properties": {
+        "ManagedServiceData": {
+          "$ref": "#/definitions/ManagedServiceData",
+          "description": "<p>Details about the service. This contains <code>WAF</code> data in JSON format, as shown in the following example:</p> <p> <code>ManagedServiceData\": \"{\\\"type\\\": \\\"WAF\\\", \\\"ruleGroups\\\": [{\\\"id\\\": \\\"12345678-1bcd-9012-efga-0987654321ab\\\", \\\"overrideAction\\\" : {\\\"type\\\": \\\"COUNT\\\"}}], \\\"defaultAction\\\": {\\\"type\\\": \\\"BLOCK\\\"}}</code> </p>"
+        },
+        "Type": {
+          "$ref": "#/definitions/SecurityServiceType",
+          "description": "The service that the policy is using to protect the resources. This value is <code>WAF</code>."
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object"
+    },
+    "SecurityServiceType": {
+      "enum": [
+        "WAF"
+      ],
+      "type": "string"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TimeStamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ViolationReason": {
+      "enum": [
+        "WEB_ACL_MISSING_RULE_GROUP",
+        "RESOURCE_MISSING_WEB_ACL",
+        "RESOURCE_INCORRECT_WEB_ACL"
+      ],
+      "type": "string"
+    }
+  }
+}

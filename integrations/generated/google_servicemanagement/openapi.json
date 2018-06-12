@@ -11,12 +11,7 @@
       "url": "https://google.com"
     },
     "description": "Google Service Management allows service producers to publish their services on Google Cloud Platform so that they can be discovered and used by service consumers.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Service Management",
+    "title": "Service Management",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://servicemanagement.googleapis.com/$discovery/rest?version=v1",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -60,19 +55,6 @@
         "https://www.googleapis.com/auth/service.management": "Manage your Google API service configuration",
         "https://www.googleapis.com/auth/service.management.readonly": "View your Google API service configuration"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/service.management": "Manage your Google API service configuration",
-        "https://www.googleapis.com/auth/service.management.readonly": "View your Google API service configuration"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -232,16 +214,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -334,32 +310,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -433,16 +397,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -477,16 +435,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -519,32 +471,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -636,32 +576,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -749,32 +677,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -825,7 +741,7 @@
         }
       ],
       "post": {
-        "description": "Creates a new service configuration (version) for a managed service.\nThis method only stores the service configuration. To roll out the service\nconfiguration to backend systems please call\nCreateServiceRollout.",
+        "description": "Creates a new service configuration (version) for a managed service.\nThis method only stores the service configuration. To roll out the service\nconfiguration to backend systems please call\nCreateServiceRollout.\n\nOnly the 100 most recent service configurations and ones referenced by\nexisting rollouts are kept for each service. The rest will be deleted\neventually.",
         "operationId": "services.configs.create",
         "parameters": [
           {
@@ -855,16 +771,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -916,32 +826,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -1035,7 +933,7 @@
         }
       ],
       "post": {
-        "description": "Creates a new service configuration (version) for a managed service based\non\nuser-supplied configuration source files (for example: OpenAPI\nSpecification). This method stores the source configurations as well as the\ngenerated service configuration. To rollout the service configuration to\nother services,\nplease call CreateServiceRollout.\n\nOperation<response: SubmitConfigSourceResponse>",
+        "description": "Creates a new service configuration (version) for a managed service based\non\nuser-supplied configuration source files (for example: OpenAPI\nSpecification). This method stores the source configurations as well as the\ngenerated service configuration. To rollout the service configuration to\nother services,\nplease call CreateServiceRollout.\n\nOnly the 100 most recent configuration sources and ones referenced by\nexisting service configurtions are kept for each service. The rest will be\ndeleted eventually.\n\nOperation<response: SubmitConfigSourceResponse>",
         "operationId": "services.configs.submit",
         "parameters": [
           {
@@ -1065,16 +963,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -1127,32 +1019,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -1203,7 +1083,7 @@
         }
       ],
       "post": {
-        "description": "Creates a new service configuration rollout. Based on rollout, the\nGoogle Service Management will roll out the service configurations to\ndifferent backend services. For example, the logging configuration will be\npushed to Google Cloud Logging.\n\nPlease note that any previous pending and running Rollouts and associated\nOperations will be automatically cancelled so that the latest Rollout will\nnot be blocked by previous Rollouts.\n\nOperation<response: Rollout>",
+        "description": "Creates a new service configuration rollout. Based on rollout, the\nGoogle Service Management will roll out the service configurations to\ndifferent backend services. For example, the logging configuration will be\npushed to Google Cloud Logging.\n\nPlease note that any previous pending and running Rollouts and associated\nOperations will be automatically cancelled so that the latest Rollout will\nnot be blocked by previous Rollouts.\n\nOnly the 100 most recent (in any state) and the last 10 successful (if not\nalready part of the set of 100 most recent) rollouts are kept for each\nservice. The rest will be deleted eventually.\n\nOperation<response: Rollout>",
         "operationId": "services.rollouts.create",
         "parameters": [
           {
@@ -1233,16 +1113,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -1284,32 +1158,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -1433,16 +1295,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -1525,16 +1381,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -1610,16 +1460,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -1695,16 +1539,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -1740,16 +1578,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -1874,32 +1706,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -1983,16 +1803,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -2076,32 +1890,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management.readonly"
             ]
           }
@@ -2165,6 +1967,46 @@
         },
         "version": {
           "description": "A version string for this interface. If specified, must have the form\n`major-version.minor-version`, as in `1.10`. If the minor version is\nomitted, it defaults to zero. If the entire version field is empty, the\nmajor version is derived from the package name, as outlined below. If the\nfield is not empty, the version in the package name will be verified to be\nconsistent with what is provided here.\n\nThe versioning schema uses [semantic\nversioning](http://semver.org) where the major version number\nindicates a breaking change and the minor version an additive,\nnon-breaking change. Both version numbers are signals to users\nwhat to expect from different versions, and should be carefully\nchosen based on the product plan.\n\nThe major version is also reflected in the package name of the\ninterface, which must end in `v<major-version>`, as in\n`google.feature.v1`. For major versions 0 and 1, the suffix can\nbe omitted. Zero major versions must only be used for\nexperimental, non-GA interfaces.\n",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AuditConfig": {
+      "description": "Specifies the audit configuration for a service.\nThe configuration determines which permission types are logged, and what\nidentities, if any, are exempted from logging.\nAn AuditConfig must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service,\nthe union of the two AuditConfigs is used for that service: the log_types\nspecified in each AuditConfig are enabled, and the exempted_members in each\nAuditLogConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n    {\n      \"audit_configs\": [\n        {\n          \"service\": \"allServices\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n              \"exempted_members\": [\n                \"user:foo@gmail.com\"\n              ]\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n            },\n            {\n              \"log_type\": \"ADMIN_READ\",\n            }\n          ]\n        },\n        {\n          \"service\": \"fooservice.googleapis.com\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n              \"exempted_members\": [\n                \"user:bar@gmail.com\"\n              ]\n            }\n          ]\n        }\n      ]\n    }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ\nlogging. It also exempts foo@gmail.com from DATA_READ logging, and\nbar@gmail.com from DATA_WRITE logging.",
+      "properties": {
+        "auditLogConfigs": {
+          "description": "The configuration for logging of each type of permission.",
+          "items": {
+            "$ref": "#/definitions/AuditLogConfig"
+          },
+          "type": "array"
+        },
+        "service": {
+          "description": "Specifies a service that will be enabled for audit logging.\nFor example, `storage.googleapis.com`, `cloudsql.googleapis.com`.\n`allServices` is a special value that covers all services.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AuditLogConfig": {
+      "description": "Provides the configuration for logging a type of permissions.\nExample:\n\n    {\n      \"audit_log_configs\": [\n        {\n          \"log_type\": \"DATA_READ\",\n          \"exempted_members\": [\n            \"user:foo@gmail.com\"\n          ]\n        },\n        {\n          \"log_type\": \"DATA_WRITE\",\n        }\n      ]\n    }\n\nThis enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting\nfoo@gmail.com from DATA_READ logging.",
+      "properties": {
+        "exemptedMembers": {
+          "description": "Specifies the identities that do not cause logging for this type of\npermission.\nFollows the same format of Binding.members.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "logType": {
+          "description": "The log type that this config enables.",
+          "enum": [
+            "LOG_TYPE_UNSPECIFIED",
+            "ADMIN_READ",
+            "DATA_WRITE",
+            "DATA_READ"
+          ],
           "type": "string"
         }
       },
@@ -2234,7 +2076,7 @@
       "description": "Authentication rules for the service.\n\nBy default, if a method has any authentication requirements, every request\nmust include a valid credential matching one of the requirements.\nIt's an error to include more than one kind of credential in a single\nrequest.\n\nIf a method doesn't have any auth requirements, request credentials will be\nignored.",
       "properties": {
         "allowWithoutCredential": {
-          "description": "Whether to allow requests without a credential. The credential can be\nan OAuth token, Google cookies (first-party auth) or EndUserCreds.\n\nFor requests without credentials, if the service control environment is\nspecified, each incoming request **must** be associated with a service\nconsumer. This can be done by passing an API key that belongs to a consumer\nproject.",
+          "description": "If true, the service accepts API keys without any other credential.",
           "type": "boolean"
         },
         "customAuth": {
@@ -2339,12 +2181,8 @@
     "Binding": {
       "description": "Associates `members` with a `role`.",
       "properties": {
-        "condition": {
-          "$ref": "#/definitions/Expr",
-          "description": "The condition that is associated with this binding.\nNOTE: an unsatisfied condition will not allow user access via current\nbinding. Different bindings, including their conditions, are examined\nindependently.\nThis field is only visible as GOOGLE_INTERNAL or CONDITION_TRUSTED_TESTER."
-        },
         "members": {
-          "description": "Specifies the identities requesting access for a Cloud Platform resource.\n`members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is\n   on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone\n   who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google\n   account. For example, `alice@gmail.com` or `joe@example.com`.\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service\n   account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group.\n   For example, `admins@example.com`.\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the\n   users of that domain. For example, `google.com` or `example.com`.\n\n",
+          "description": "Specifies the identities requesting access for a Cloud Platform resource.\n`members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is\n   on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone\n   who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google\n   account. For example, `alice@gmail.com` .\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service\n   account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group.\n   For example, `admins@example.com`.\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the\n   users of that domain. For example, `google.com` or `example.com`.\n\n",
           "items": {
             "type": "string"
           },
@@ -2460,7 +2298,7 @@
       "type": "object"
     },
     "Context": {
-      "description": "`Context` defines which contexts an API requests.\n\nExample:\n\n    context:\n      rules:\n      - selector: \"*\"\n        requested:\n        - google.rpc.context.ProjectContext\n        - google.rpc.context.OriginContext\n\nThe above specifies that all methods in the API request\n`google.rpc.context.ProjectContext` and\n`google.rpc.context.OriginContext`.\n\nAvailable context types are defined in package\n`google.rpc.context`.",
+      "description": "`Context` defines which contexts an API requests.\n\nExample:\n\n    context:\n      rules:\n      - selector: \"*\"\n        requested:\n        - google.rpc.context.ProjectContext\n        - google.rpc.context.OriginContext\n\nThe above specifies that all methods in the API request\n`google.rpc.context.ProjectContext` and\n`google.rpc.context.OriginContext`.\n\nAvailable context types are defined in package\n`google.rpc.context`.\n\nThis also provides mechanism to whitelist any protobuf message extension that\ncan be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and\n“x-goog-ext-<extension_id>-jspb” format. For example, list any service\nspecific protobuf types that can appear in grpc metadata as follows in your\nyaml file:\n\nExample:\n\n    context:\n      rules:\n       - selector: \"google.example.library.v1.LibraryService.CreateBook\"\n         allowed_request_extensions:\n         - google.foo.v1.NewExtension\n         allowed_response_extensions:\n         - google.foo.v1.NewExtension\n\nYou can also specify extension ID instead of fully qualified extension name\nhere.",
       "properties": {
         "rules": {
           "description": "A list of RPC context rules that apply to individual API methods.\n\n**NOTE:** All service configuration rules follow \"last one wins\" order.",
@@ -2475,6 +2313,20 @@
     "ContextRule": {
       "description": "A context rule provides information about the context for an individual API\nelement.",
       "properties": {
+        "allowedRequestExtensions": {
+          "description": "A list of full type names or extension IDs of extensions allowed in grpc\nside channel from client to backend.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "allowedResponseExtensions": {
+          "description": "A list of full type names or extension IDs of extensions allowed in grpc\nside channel from backend to client.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "provided": {
           "description": "A list of full type names of provided contexts.",
           "items": {
@@ -2602,7 +2454,7 @@
       "type": "object"
     },
     "Documentation": {
-      "description": "`Documentation` provides the information for describing a service.\n\nExample:\n<pre><code>documentation:\n  summary: >\n    The Google Calendar API gives access\n    to most calendar features.\n  pages:\n  - name: Overview\n    content: &#40;== include google/foo/overview.md ==&#41;\n  - name: Tutorial\n    content: &#40;== include google/foo/tutorial.md ==&#41;\n    subpages;\n    - name: Java\n      content: &#40;== include google/foo/tutorial_java.md ==&#41;\n  rules:\n  - selector: google.calendar.Calendar.Get\n    description: >\n      ...\n  - selector: google.calendar.Calendar.Put\n    description: >\n      ...\n</code></pre>\nDocumentation is provided in markdown syntax. In addition to\nstandard markdown features, definition lists, tables and fenced\ncode blocks are supported. Section headers can be provided and are\ninterpreted relative to the section nesting of the context where\na documentation fragment is embedded.\n\nDocumentation from the IDL is merged with documentation defined\nvia the config at normalization time, where documentation provided\nby config rules overrides IDL provided.\n\nA number of constructs specific to the API platform are supported\nin documentation text.\n\nIn order to reference a proto element, the following\nnotation can be used:\n<pre><code>&#91;fully.qualified.proto.name]&#91;]</code></pre>\nTo override the display text used for the link, this can be used:\n<pre><code>&#91;display text]&#91;fully.qualified.proto.name]</code></pre>\nText can be excluded from doc using the following notation:\n<pre><code>&#40;-- internal comment --&#41;</code></pre>\nComments can be made conditional using a visibility label. The below\ntext will be only rendered if the `BETA` label is available:\n<pre><code>&#40;--BETA: comment for BETA users --&#41;</code></pre>\nA few directives are available in documentation. Note that\ndirectives must appear on a single line to be properly\nidentified. The `include` directive includes a markdown file from\nan external source:\n<pre><code>&#40;== include path/to/file ==&#41;</code></pre>\nThe `resource_for` directive marks a message to be the resource of\na collection in REST view. If it is not specified, tools attempt\nto infer the resource from the operations in a collection:\n<pre><code>&#40;== resource_for v1.shelves.books ==&#41;</code></pre>\nThe directive `suppress_warning` does not directly affect documentation\nand is documented together with service config validation.",
+      "description": "`Documentation` provides the information for describing a service.\n\nExample:\n<pre><code>documentation:\n  summary: >\n    The Google Calendar API gives access\n    to most calendar features.\n  pages:\n  - name: Overview\n    content: &#40;== include google/foo/overview.md ==&#41;\n  - name: Tutorial\n    content: &#40;== include google/foo/tutorial.md ==&#41;\n    subpages;\n    - name: Java\n      content: &#40;== include google/foo/tutorial_java.md ==&#41;\n  rules:\n  - selector: google.calendar.Calendar.Get\n    description: >\n      ...\n  - selector: google.calendar.Calendar.Put\n    description: >\n      ...\n</code></pre>\nDocumentation is provided in markdown syntax. In addition to\nstandard markdown features, definition lists, tables and fenced\ncode blocks are supported. Section headers can be provided and are\ninterpreted relative to the section nesting of the context where\na documentation fragment is embedded.\n\nDocumentation from the IDL is merged with documentation defined\nvia the config at normalization time, where documentation provided\nby config rules overrides IDL provided.\n\nA number of constructs specific to the API platform are supported\nin documentation text.\n\nIn order to reference a proto element, the following\nnotation can be used:\n<pre><code>&#91;fully.qualified.proto.name]&#91;]</code></pre>\nTo override the display text used for the link, this can be used:\n<pre><code>&#91;display text]&#91;fully.qualified.proto.name]</code></pre>\nText can be excluded from doc using the following notation:\n<pre><code>&#40;-- internal comment --&#41;</code></pre>\n\nA few directives are available in documentation. Note that\ndirectives must appear on a single line to be properly\nidentified. The `include` directive includes a markdown file from\nan external source:\n<pre><code>&#40;== include path/to/file ==&#41;</code></pre>\nThe `resource_for` directive marks a message to be the resource of\na collection in REST view. If it is not specified, tools attempt\nto infer the resource from the operations in a collection:\n<pre><code>&#40;== resource_for v1.shelves.books ==&#41;</code></pre>\nThe directive `suppress_warning` does not directly affect documentation\nand is documented together with service config validation.",
       "properties": {
         "documentationRootUrl": {
           "description": "The URL to the root of documentation.",
@@ -2761,28 +2613,6 @@
       },
       "type": "object"
     },
-    "Expr": {
-      "description": "Represents an expression text. Example:\n\n    title: \"User account presence\"\n    description: \"Determines whether the request has a user account\"\n    expression: \"size(request.user) > 0\"",
-      "properties": {
-        "description": {
-          "description": "An optional description of the expression. This is a longer text which\ndescribes the expression, e.g. when hovered over it in a UI.",
-          "type": "string"
-        },
-        "expression": {
-          "description": "Textual representation of an expression in\nCommon Expression Language syntax.\n\nThe application context of the containing message determines which\nwell-known feature set of CEL is supported.",
-          "type": "string"
-        },
-        "location": {
-          "description": "An optional string indicating the location of the expression for error\nreporting, e.g. a file name and a position in the file.",
-          "type": "string"
-        },
-        "title": {
-          "description": "An optional title for the expression, i.e. a short string describing\nits purpose. This can be used e.g. in UIs which allow to enter the\nexpression.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Field": {
       "description": "A single field of a message type.",
       "properties": {
@@ -2856,56 +2686,6 @@
         },
         "typeUrl": {
           "description": "The field type URL, without the scheme, for message or enumeration\ntypes. Example: `\"type.googleapis.com/google.protobuf.Timestamp\"`.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "FlowOperationMetadata": {
-      "description": "The metadata associated with a long running operation resource.",
-      "properties": {
-        "cancelState": {
-          "description": "The state of the operation with respect to cancellation.",
-          "enum": [
-            "RUNNING",
-            "UNCANCELLABLE",
-            "CANCELLED"
-          ],
-          "type": "string"
-        },
-        "deadline": {
-          "description": "Deadline for the flow to complete, to prevent orphaned Operations.\n\nIf the flow has not completed by this time, it may be terminated by\nthe engine, or force-failed by Operation lookup.\n\nNote that this is not a hard deadline after which the Flow will\ndefinitely be failed, rather it is a deadline after which it is reasonable\nto suspect a problem and other parts of the system may kill operation\nto ensure we don't have orphans.\nsee also: go/prevent-orphaned-operations",
-          "format": "google-datetime",
-          "type": "string"
-        },
-        "flowName": {
-          "description": "The name of the top-level flow corresponding to this operation.\nMust be equal to the \"name\" field for a FlowName enum.",
-          "type": "string"
-        },
-        "operationType": {
-          "description": "Operation type which is a flow type and subtype info as that is missing in\nour datastore otherwise. This maps to the ordinal value of the enum:\njcg/api/tenant/operations/OperationNamespace.java",
-          "format": "int32",
-          "type": "integer"
-        },
-        "resourceNames": {
-          "description": "The full name of the resources that this flow is directly associated with.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "startTime": {
-          "description": "The start time of the operation.",
-          "format": "google-datetime",
-          "type": "string"
-        },
-        "surface": {
-          "enum": [
-            "UNSPECIFIED_OP_SERVICE",
-            "SERVICE_MANAGEMENT",
-            "SERVICE_USAGE",
-            "SERVICE_CONSUMER_MANAGEMENT"
-          ],
           "type": "string"
         }
       },
@@ -3352,7 +3132,7 @@
           "type": "string"
         },
         "unit": {
-          "description": "The unit in which the metric value is reported. It is only applicable\nif the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The\nsupported units are a subset of [The Unified Code for Units of\nMeasure](http://unitsofmeasure.org/ucum.html) standard:\n\n**Basic units (UNIT)**\n\n* `bit`   bit\n* `By`    byte\n* `s`     second\n* `min`   minute\n* `h`     hour\n* `d`     day\n\n**Prefixes (PREFIX)**\n\n* `k`     kilo    (10**3)\n* `M`     mega    (10**6)\n* `G`     giga    (10**9)\n* `T`     tera    (10**12)\n* `P`     peta    (10**15)\n* `E`     exa     (10**18)\n* `Z`     zetta   (10**21)\n* `Y`     yotta   (10**24)\n* `m`     milli   (10**-3)\n* `u`     micro   (10**-6)\n* `n`     nano    (10**-9)\n* `p`     pico    (10**-12)\n* `f`     femto   (10**-15)\n* `a`     atto    (10**-18)\n* `z`     zepto   (10**-21)\n* `y`     yocto   (10**-24)\n* `Ki`    kibi    (2**10)\n* `Mi`    mebi    (2**20)\n* `Gi`    gibi    (2**30)\n* `Ti`    tebi    (2**40)\n\n**Grammar**\n\nThe grammar includes the dimensionless unit `1`, such as `1/s`.\n\nThe grammar also includes these connectors:\n\n* `/`    division (as an infix operator, e.g. `1/s`).\n* `.`    multiplication (as an infix operator, e.g. `GBy.d`)\n\nThe grammar for a unit is as follows:\n\n    Expression = Component { \".\" Component } { \"/\" Component } ;\n\n    Component = [ PREFIX ] UNIT [ Annotation ]\n              | Annotation\n              | \"1\"\n              ;\n\n    Annotation = \"{\" NAME \"}\" ;\n\nNotes:\n\n* `Annotation` is just a comment if it follows a `UNIT` and is\n   equivalent to `1` if it is used alone. For examples,\n   `{requests}/s == 1/s`, `By{transmitted}/s == By/s`.\n* `NAME` is a sequence of non-blank printable ASCII characters not\n   containing '{' or '}'.",
+          "description": "The unit in which the metric value is reported. It is only applicable\nif the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The\nsupported units are a subset of [The Unified Code for Units of\nMeasure](http://unitsofmeasure.org/ucum.html) standard:\n\n**Basic units (UNIT)**\n\n* `bit`   bit\n* `By`    byte\n* `s`     second\n* `min`   minute\n* `h`     hour\n* `d`     day\n\n**Prefixes (PREFIX)**\n\n* `k`     kilo    (10**3)\n* `M`     mega    (10**6)\n* `G`     giga    (10**9)\n* `T`     tera    (10**12)\n* `P`     peta    (10**15)\n* `E`     exa     (10**18)\n* `Z`     zetta   (10**21)\n* `Y`     yotta   (10**24)\n* `m`     milli   (10**-3)\n* `u`     micro   (10**-6)\n* `n`     nano    (10**-9)\n* `p`     pico    (10**-12)\n* `f`     femto   (10**-15)\n* `a`     atto    (10**-18)\n* `z`     zepto   (10**-21)\n* `y`     yocto   (10**-24)\n* `Ki`    kibi    (2**10)\n* `Mi`    mebi    (2**20)\n* `Gi`    gibi    (2**30)\n* `Ti`    tebi    (2**40)\n\n**Grammar**\n\nThe grammar also includes these connectors:\n\n* `/`    division (as an infix operator, e.g. `1/s`).\n* `.`    multiplication (as an infix operator, e.g. `GBy.d`)\n\nThe grammar for a unit is as follows:\n\n    Expression = Component { \".\" Component } { \"/\" Component } ;\n\n    Component = ( [ PREFIX ] UNIT | \"%\" ) [ Annotation ]\n              | Annotation\n              | \"1\"\n              ;\n\n    Annotation = \"{\" NAME \"}\" ;\n\nNotes:\n\n* `Annotation` is just a comment if it follows a `UNIT` and is\n   equivalent to `1` if it is used alone. For examples,\n   `{requests}/s == 1/s`, `By{transmitted}/s == By/s`.\n* `NAME` is a sequence of non-blank printable ASCII characters not\n   containing '{' or '}'.\n* `1` represents dimensionless value 1, such as in `1/s`.\n* `%` represents dimensionless value 1/100, and annotates values giving\n   a percentage.",
           "type": "string"
         },
         "valueType": {
@@ -3580,8 +3360,15 @@
       "type": "object"
     },
     "Policy": {
-      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
+      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**JSON Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\"\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\n**YAML Example**\n\n    bindings:\n    - members:\n      - user:mike@example.com\n      - group:admins@example.com\n      - domain:google.com\n      - serviceAccount:my-other-app@appspot.gserviceaccount.com\n      role: roles/owner\n    - members:\n      - user:sean@example.com\n      role: roles/viewer\n\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
       "properties": {
+        "auditConfigs": {
+          "description": "Specifies cloud audit logging configuration for this policy.",
+          "items": {
+            "$ref": "#/definitions/AuditConfig"
+          },
+          "type": "array"
+        },
         "bindings": {
           "description": "Associates a list of `members` to a `role`.\n`bindings` with no members will result in an error.",
           "items": {
@@ -3858,10 +3645,6 @@
         "usage": {
           "$ref": "#/definitions/Usage",
           "description": "Configuration controlling usage of this service."
-        },
-        "visibility": {
-          "$ref": "#/definitions/Visibility",
-          "description": "API visibility configuration."
         }
       },
       "type": "object"
@@ -4157,33 +3940,6 @@
         "skipServiceControl": {
           "description": "If true, the selected method should skip service control and the control\nplane features, such as quota and billing, will not be available.\nThis flag is used by Google Cloud Endpoints to bypass checks for internal\nmethods, such as service health check methods.",
           "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "Visibility": {
-      "description": "`Visibility` defines restrictions for the visibility of service\nelements.  Restrictions are specified using visibility labels\n(e.g., TRUSTED_TESTER) that are elsewhere linked to users and projects.\n\nUsers and projects can have access to more than one visibility label. The\neffective visibility for multiple labels is the union of each label's\nelements, plus any unrestricted elements.\n\nIf an element and its parents have no restrictions, visibility is\nunconditionally granted.\n\nExample:\n\n    visibility:\n      rules:\n      - selector: google.calendar.Calendar.EnhancedSearch\n        restriction: TRUSTED_TESTER\n      - selector: google.calendar.Calendar.Delegate\n        restriction: GOOGLE_INTERNAL\n\nHere, all methods are publicly visible except for the restricted methods\nEnhancedSearch and Delegate.",
-      "properties": {
-        "rules": {
-          "description": "A list of visibility rules that apply to individual API elements.\n\n**NOTE:** All service configuration rules follow \"last one wins\" order.",
-          "items": {
-            "$ref": "#/definitions/VisibilityRule"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "VisibilityRule": {
-      "description": "A visibility rule provides visibility configuration for an individual API\nelement.",
-      "properties": {
-        "restriction": {
-          "description": "A comma-separated list of visibility labels that apply to the `selector`.\nAny of the listed labels can be used to grant the visibility.\n\nIf a rule has multiple labels, removing one of the labels but not all of\nthem can break clients.\n\nExample:\n\n    visibility:\n      rules:\n      - selector: google.calendar.Calendar.EnhancedSearch\n        restriction: GOOGLE_INTERNAL, TRUSTED_TESTER\n\nRemoving GOOGLE_INTERNAL from this restriction will break clients that\nrely on this method and only had access to it through GOOGLE_INTERNAL.",
-          "type": "string"
-        },
-        "selector": {
-          "description": "Selects methods, messages, fields, enums, etc. to which this rule applies.\n\nRefer to selector for syntax details.",
-          "type": "string"
         }
       },
       "type": "object"

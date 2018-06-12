@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_sql_canceloperations",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for SqlManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/sql-cancelOperations/2017-03-01-preview/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/sql-cancelOperations/2017-10-01-preview/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

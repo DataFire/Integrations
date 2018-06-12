@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Builds on top of the Google+ platform for Google Apps Domains.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google+ Domains",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/plusDomains/v1/rest",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/plus.circles.read": "View your circles and the people and pages in them",
@@ -66,25 +61,6 @@
         "https://www.googleapis.com/auth/userinfo.email": "View your email address",
         "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/plus.circles.read": "View your circles and the people and pages in them",
-        "https://www.googleapis.com/auth/plus.circles.write": "Manage your circles and add people and pages. People and pages you add to your circles will be notified. Others may see this information publicly. People you add to circles can use Hangouts with you.",
-        "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
-        "https://www.googleapis.com/auth/plus.me": "Know who you are on Google",
-        "https://www.googleapis.com/auth/plus.media.upload": "Send your photos and videos to Google+",
-        "https://www.googleapis.com/auth/plus.profiles.read": "View your own Google+ profile and profiles visible to you",
-        "https://www.googleapis.com/auth/plus.stream.read": "View your Google+ posts, comments, and stream",
-        "https://www.googleapis.com/auth/plus.stream.write": "Manage your Google+ posts, comments, and stream",
-        "https://www.googleapis.com/auth/userinfo.email": "View your email address",
-        "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -144,13 +120,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -202,24 +178,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.stream.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.stream.read"
             ]
           }
@@ -303,16 +270,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.stream.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.stream.read"
             ]
           }
@@ -375,16 +336,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.stream.write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.stream.write"
             ]
           }
@@ -446,16 +401,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.stream.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.stream.read"
             ]
           }
@@ -510,16 +459,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.write"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.write"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.login"
             ]
           }
@@ -552,16 +495,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.read"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.login"
             ]
           }
@@ -624,16 +561,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.write"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.write"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.login"
             ]
           }
@@ -673,16 +604,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.write"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.write"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.login"
             ]
           }
@@ -734,16 +659,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.write"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.write"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.login"
             ]
           }
@@ -791,16 +710,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.read"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.login"
             ]
           }
@@ -876,16 +789,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.write"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.write"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.login"
             ]
           }
@@ -920,16 +827,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.stream.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.stream.read"
             ]
           }
@@ -987,40 +888,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.profiles.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.profiles.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userinfo.email"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userinfo.profile"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.profile"
             ]
           }
@@ -1114,24 +1000,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.stream.write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.stream.write"
             ]
           }
@@ -1191,24 +1068,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.stream.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.stream.read"
             ]
           }
@@ -1281,24 +1149,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -1371,24 +1230,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -1451,24 +1301,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.write"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -1622,7 +1463,6 @@
           "video/rtp-enc-aescm128",
           "video/rtploopback",
           "video/rtx",
-          "video/smpte291",
           "video/smpte292m",
           "video/ulpfec",
           "video/vc1",
@@ -1650,7 +1490,6 @@
           "video/vnd.mpegurl",
           "video/vnd.ms-playready.media.pyv",
           "video/vnd.nokia.interleaved-multimedia",
-          "video/vnd.nokia.mp4vr",
           "video/vnd.nokia.videovoip",
           "video/vnd.objectvideo",
           "video/vnd.radgamettools.bink",
@@ -1718,24 +1557,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.media.upload"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.media.upload"
             ]
           }
@@ -1805,24 +1635,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.circles.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.circles.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/plus.me"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }

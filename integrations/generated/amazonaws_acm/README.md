@@ -80,6 +80,25 @@ amazonaws_acm.DescribeCertificate({
 #### Output
 * output [DescribeCertificateResponse](#describecertificateresponse)
 
+### ExportCertificate
+
+
+
+```js
+amazonaws_acm.ExportCertificate({
+  "CertificateArn": "",
+  "Passphrase": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateArn **required** [Arn](#arn)
+  * Passphrase **required** [PassphraseBlob](#passphraseblob)
+
+#### Output
+* output [ExportCertificateResponse](#exportcertificateresponse)
+
 ### GetCertificate
 
 
@@ -186,9 +205,11 @@ amazonaws_acm.RequestCertificate({
 
 #### Input
 * input `object`
+  * CertificateAuthorityArn [Arn](#arn)
   * DomainName **required** [DomainNameString](#domainnamestring)
   * DomainValidationOptions [DomainValidationOptionList](#domainvalidationoptionlist)
   * IdempotencyToken [IdempotencyToken](#idempotencytoken)
+  * Options [CertificateOptions](#certificateoptions)
   * SubjectAlternativeNames [DomainList](#domainlist)
   * ValidationMethod [ValidationMethod](#validationmethod)
 
@@ -212,6 +233,25 @@ amazonaws_acm.ResendValidationEmail({
   * CertificateArn **required** [Arn](#arn)
   * Domain **required** [DomainNameString](#domainnamestring)
   * ValidationDomain **required** [DomainNameString](#domainnamestring)
+
+#### Output
+*Output schema unknown*
+
+### UpdateCertificateOptions
+
+
+
+```js
+amazonaws_acm.UpdateCertificateOptions({
+  "CertificateArn": "",
+  "Options": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateArn **required** [Arn](#arn)
+  * Options **required** [CertificateOptions](#certificateoptions)
 
 #### Output
 *Output schema unknown*
@@ -243,6 +283,7 @@ amazonaws_acm.ResendValidationEmail({
 ### CertificateDetail
 * CertificateDetail `object`: Contains metadata about an ACM certificate. This structure is returned in the response to a <a>DescribeCertificate</a> request. 
   * CertificateArn [Arn](#arn)
+  * CertificateAuthorityArn [Arn](#arn)
   * CreatedAt [TStamp](#tstamp)
   * DomainName [DomainNameString](#domainnamestring)
   * DomainValidationOptions [DomainValidationList](#domainvalidationlist)
@@ -256,6 +297,8 @@ amazonaws_acm.ResendValidationEmail({
   * KeyUsages [KeyUsageList](#keyusagelist)
   * NotAfter [TStamp](#tstamp)
   * NotBefore [TStamp](#tstamp)
+  * Options [CertificateOptions](#certificateoptions)
+  * RenewalEligibility [RenewalEligibility](#renewaleligibility)
   * RenewalSummary [RenewalSummary](#renewalsummary)
   * RevocationReason [RevocationReason](#revocationreason)
   * RevokedAt [TStamp](#tstamp)
@@ -265,6 +308,10 @@ amazonaws_acm.ResendValidationEmail({
   * Subject [String](#string)
   * SubjectAlternativeNames [DomainList](#domainlist)
   * Type [CertificateType](#certificatetype)
+
+### CertificateOptions
+* CertificateOptions `object`: Structure that contains options for your certificate. Currently, you can use this only to specify whether to opt in to or out of certificate transparency logging. Some browsers require that public certificates issued for your domain be recorded in a log. Certificates that are not logged typically generate a browser error. Transparency makes it possible for you to detect SSL/TLS certificates that have been mistakenly or maliciously issued for your domain. For general information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a>. 
+  * CertificateTransparencyLoggingPreference [CertificateTransparencyLoggingPreference](#certificatetransparencyloggingpreference)
 
 ### CertificateStatus
 * CertificateStatus `string` (values: PENDING_VALIDATION, ISSUED, INACTIVE, EXPIRED, VALIDATION_TIMED_OUT, REVOKED, FAILED)
@@ -282,8 +329,11 @@ amazonaws_acm.ResendValidationEmail({
 * CertificateSummaryList `array`
   * items [CertificateSummary](#certificatesummary)
 
+### CertificateTransparencyLoggingPreference
+* CertificateTransparencyLoggingPreference `string` (values: ENABLED, DISABLED)
+
 ### CertificateType
-* CertificateType `string` (values: IMPORTED, AMAZON_ISSUED)
+* CertificateType `string` (values: IMPORTED, AMAZON_ISSUED, PRIVATE)
 
 ### DeleteCertificateRequest
 * DeleteCertificateRequest `object`
@@ -329,6 +379,17 @@ amazonaws_acm.ResendValidationEmail({
 * DomainValidationOptionList `array`
   * items [DomainValidationOption](#domainvalidationoption)
 
+### ExportCertificateRequest
+* ExportCertificateRequest `object`
+  * CertificateArn **required** [Arn](#arn)
+  * Passphrase **required** [PassphraseBlob](#passphraseblob)
+
+### ExportCertificateResponse
+* ExportCertificateResponse `object`
+  * Certificate [CertificateBody](#certificatebody)
+  * CertificateChain [CertificateChain](#certificatechain)
+  * PrivateKey [PrivateKey](#privatekey)
+
 ### ExtendedKeyUsage
 * ExtendedKeyUsage `object`: The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension. 
   * Name [ExtendedKeyUsageName](#extendedkeyusagename)
@@ -346,7 +407,7 @@ amazonaws_acm.ResendValidationEmail({
 * ExtendedKeyUsageName `string` (values: TLS_WEB_SERVER_AUTHENTICATION, TLS_WEB_CLIENT_AUTHENTICATION, CODE_SIGNING, EMAIL_PROTECTION, TIME_STAMPING, OCSP_SIGNING, IPSEC_END_SYSTEM, IPSEC_TUNNEL, IPSEC_USER, ANY, NONE, CUSTOM)
 
 ### FailureReason
-* FailureReason `string` (values: NO_AVAILABLE_CONTACTS, ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, CAA_ERROR, OTHER)
+* FailureReason `string` (values: NO_AVAILABLE_CONTACTS, ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, CAA_ERROR, PCA_LIMIT_EXCEEDED, PCA_INVALID_ARN, PCA_INVALID_STATE, PCA_REQUEST_FAILED, PCA_RESOURCE_NOT_FOUND, PCA_INVALID_ARGS, OTHER)
 
 ### Filters
 * Filters `object`: This structure can be used in the <a>ListCertificates</a> action to filter the output of the certificate list. 
@@ -390,7 +451,7 @@ amazonaws_acm.ResendValidationEmail({
   * message [String](#string)
 
 ### InvalidStateException
-* InvalidStateException `object`: Processing has reached an invalid state. For example, this exception can occur if the specified domain is not using email validation, or the current certificate status does not permit the requested operation. See the exception message returned by ACM to determine which state is not valid.
+* InvalidStateException `object`: Processing has reached an invalid state.
   * message [String](#string)
 
 ### InvalidTagException
@@ -420,7 +481,7 @@ amazonaws_acm.ResendValidationEmail({
 * KeyUsageName `string` (values: DIGITAL_SIGNATURE, NON_REPUDIATION, KEY_ENCIPHERMENT, DATA_ENCIPHERMENT, KEY_AGREEMENT, CERTIFICATE_SIGNING, CRL_SIGNING, ENCIPHER_ONLY, DECIPHER_ONLY, ANY, CUSTOM)
 
 ### LimitExceededException
-* LimitExceededException `object`: An ACM limit has been exceeded. For example, you may have input more domains than are allowed or you've requested too many certificates for your account. See the exception message returned by ACM to determine which limit you have violated. For more information about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a> topic.
+* LimitExceededException `object`: An ACM limit has been exceeded.
   * message [String](#string)
 
 ### ListCertificatesRequest
@@ -449,6 +510,12 @@ amazonaws_acm.ResendValidationEmail({
 ### NextToken
 * NextToken `string`
 
+### PassphraseBlob
+* PassphraseBlob `string`
+
+### PrivateKey
+* PrivateKey `string`
+
 ### PrivateKeyBlob
 * PrivateKeyBlob `string`
 
@@ -460,6 +527,9 @@ amazonaws_acm.ResendValidationEmail({
   * CertificateArn **required** [Arn](#arn)
   * Tags **required** [TagList](#taglist)
 
+### RenewalEligibility
+* RenewalEligibility `string` (values: ELIGIBLE, INELIGIBLE)
+
 ### RenewalStatus
 * RenewalStatus `string` (values: PENDING_AUTO_RENEWAL, PENDING_VALIDATION, SUCCESS, FAILED)
 
@@ -470,9 +540,11 @@ amazonaws_acm.ResendValidationEmail({
 
 ### RequestCertificateRequest
 * RequestCertificateRequest `object`
+  * CertificateAuthorityArn [Arn](#arn)
   * DomainName **required** [DomainNameString](#domainnamestring)
   * DomainValidationOptions [DomainValidationOptionList](#domainvalidationoptionlist)
   * IdempotencyToken [IdempotencyToken](#idempotencytoken)
+  * Options [CertificateOptions](#certificateoptions)
   * SubjectAlternativeNames [DomainList](#domainlist)
   * ValidationMethod [ValidationMethod](#validationmethod)
 
@@ -495,7 +567,7 @@ amazonaws_acm.ResendValidationEmail({
   * message [String](#string)
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: The specified certificate cannot be found in the caller's account, or the caller's account cannot be found.
+* ResourceNotFoundException `object`: The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
   * message [String](#string)
 
 ### ResourceRecord
@@ -531,6 +603,11 @@ amazonaws_acm.ResendValidationEmail({
 ### TooManyTagsException
 * TooManyTagsException `object`: The request contains too many tags. Try the request again with fewer tags.
   * message [String](#string)
+
+### UpdateCertificateOptionsRequest
+* UpdateCertificateOptionsRequest `object`
+  * CertificateArn **required** [Arn](#arn)
+  * Options **required** [CertificateOptions](#certificateoptions)
 
 ### ValidationEmailList
 * ValidationEmailList `array`

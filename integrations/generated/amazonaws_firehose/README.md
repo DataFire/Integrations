@@ -22,7 +22,7 @@ amazonaws_firehose.CreateDeliveryStream({
 
 ## Description
 
-<fullname>Amazon Kinesis Firehose API Reference</fullname> <p>Amazon Kinesis Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), and Amazon Redshift.</p>
+<fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.</p>
 
 ## Actions
 
@@ -103,6 +103,25 @@ amazonaws_firehose.ListDeliveryStreams({}, context)
 #### Output
 * output [ListDeliveryStreamsOutput](#listdeliverystreamsoutput)
 
+### ListTagsForDeliveryStream
+
+
+
+```js
+amazonaws_firehose.ListTagsForDeliveryStream({
+  "DeliveryStreamName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeliveryStreamName **required** [DeliveryStreamName](#deliverystreamname)
+  * ExclusiveStartTagKey [TagKey](#tagkey)
+  * Limit [ListTagsForDeliveryStreamInputLimit](#listtagsfordeliverystreaminputlimit)
+
+#### Output
+* output [ListTagsForDeliveryStreamOutput](#listtagsfordeliverystreamoutput)
+
 ### PutRecord
 
 
@@ -143,6 +162,44 @@ amazonaws_firehose.PutRecordBatch({
 #### Output
 * output [PutRecordBatchOutput](#putrecordbatchoutput)
 
+### TagDeliveryStream
+
+
+
+```js
+amazonaws_firehose.TagDeliveryStream({
+  "DeliveryStreamName": "",
+  "Tags": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeliveryStreamName **required** [DeliveryStreamName](#deliverystreamname)
+  * Tags **required** [TagDeliveryStreamInputTagList](#tagdeliverystreaminputtaglist)
+
+#### Output
+* output [TagDeliveryStreamOutput](#tagdeliverystreamoutput)
+
+### UntagDeliveryStream
+
+
+
+```js
+amazonaws_firehose.UntagDeliveryStream({
+  "DeliveryStreamName": "",
+  "TagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeliveryStreamName **required** [DeliveryStreamName](#deliverystreamname)
+  * TagKeys **required** [TagKeyList](#tagkeylist)
+
+#### Output
+* output [UntagDeliveryStreamOutput](#untagdeliverystreamoutput)
+
 ### UpdateDestination
 
 
@@ -176,6 +233,9 @@ amazonaws_firehose.UpdateDestination({
 ### AWSKMSKeyARN
 * AWSKMSKeyARN `string`
 
+### BlockSizeBytes
+* BlockSizeBytes `integer`
+
 ### BooleanObject
 * BooleanObject `boolean`
 
@@ -183,7 +243,7 @@ amazonaws_firehose.UpdateDestination({
 * BucketARN `string`
 
 ### BufferingHints
-* BufferingHints `object`: Describes hints for the buffering to perform before delivering data to the destination. Please note that these options are treated as hints, and therefore Kinesis Firehose may choose to use different values when it is optimal.
+* BufferingHints `object`: Describes hints for the buffering to perform before delivering data to the destination. These options are treated as hints, and therefore Kinesis Data Firehose might choose to use different values when it is optimal.
   * IntervalInSeconds [IntervalInSeconds](#intervalinseconds)
   * SizeInMBs [SizeInMBs](#sizeinmbs)
 
@@ -195,6 +255,12 @@ amazonaws_firehose.UpdateDestination({
 
 ### ClusterJDBCURL
 * ClusterJDBCURL `string`
+
+### ColumnToJsonKeyMappings
+* ColumnToJsonKeyMappings `array`
+  * items `object`
+    * key [NonEmptyStringWithoutWhitespace](#nonemptystringwithoutwhitespace)
+    * value [NonEmptyString](#nonemptystring)
 
 ### CompressionFormat
 * CompressionFormat `string` (values: UNCOMPRESSED, GZIP, ZIP, Snappy)
@@ -229,6 +295,13 @@ amazonaws_firehose.UpdateDestination({
 
 ### Data
 * Data `string`
+
+### DataFormatConversionConfiguration
+* DataFormatConversionConfiguration `object`: Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html">Kinesis Data Firehose Record Format Conversion</a>.
+  * Enabled [BooleanObject](#booleanobject)
+  * InputFormatConfiguration [InputFormatConfiguration](#inputformatconfiguration)
+  * OutputFormatConfiguration [OutputFormatConfiguration](#outputformatconfiguration)
+  * SchemaConfiguration [SchemaConfiguration](#schemaconfiguration)
 
 ### DataTableColumns
 * DataTableColumns `string`
@@ -290,6 +363,11 @@ amazonaws_firehose.UpdateDestination({
 ### DescribeDeliveryStreamOutput
 * DescribeDeliveryStreamOutput `object`
   * DeliveryStreamDescription **required** [DeliveryStreamDescription](#deliverystreamdescription)
+
+### Deserializer
+* Deserializer `object`: The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the <a>Serializer</a>. Kinesis Data Firehose supports two types of deserializers: the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON">Apache Hive JSON SerDe</a> and the <a href="https://github.com/rcongiu/Hive-JSON-Serde">OpenX JSON SerDe</a>.
+  * HiveJsonSerDe [HiveJsonSerDe](#hivejsonserde)
+  * OpenXJsonSerDe [OpenXJsonSerDe](#openxjsonserde)
 
 ### DestinationDescription
 * DestinationDescription `object`: Describes the destination for a delivery stream.
@@ -372,7 +450,7 @@ amazonaws_firehose.UpdateDestination({
 * ElasticsearchRetryDurationInSeconds `integer`
 
 ### ElasticsearchRetryOptions
-* ElasticsearchRetryOptions `object`: Configures retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon ES.
+* ElasticsearchRetryOptions `object`: Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES.
   * DurationInSeconds [ElasticsearchRetryDurationInSeconds](#elasticsearchretrydurationinseconds)
 
 ### ElasticsearchS3BackupMode
@@ -398,6 +476,7 @@ amazonaws_firehose.UpdateDestination({
   * BufferingHints [BufferingHints](#bufferinghints)
   * CloudWatchLoggingOptions [CloudWatchLoggingOptions](#cloudwatchloggingoptions)
   * CompressionFormat [CompressionFormat](#compressionformat)
+  * DataFormatConversionConfiguration [DataFormatConversionConfiguration](#dataformatconversionconfiguration)
   * EncryptionConfiguration [EncryptionConfiguration](#encryptionconfiguration)
   * Prefix [Prefix](#prefix)
   * ProcessingConfiguration [ProcessingConfiguration](#processingconfiguration)
@@ -411,6 +490,7 @@ amazonaws_firehose.UpdateDestination({
   * BufferingHints **required** [BufferingHints](#bufferinghints)
   * CloudWatchLoggingOptions [CloudWatchLoggingOptions](#cloudwatchloggingoptions)
   * CompressionFormat **required** [CompressionFormat](#compressionformat)
+  * DataFormatConversionConfiguration [DataFormatConversionConfiguration](#dataformatconversionconfiguration)
   * EncryptionConfiguration **required** [EncryptionConfiguration](#encryptionconfiguration)
   * Prefix [Prefix](#prefix)
   * ProcessingConfiguration [ProcessingConfiguration](#processingconfiguration)
@@ -424,6 +504,7 @@ amazonaws_firehose.UpdateDestination({
   * BufferingHints [BufferingHints](#bufferinghints)
   * CloudWatchLoggingOptions [CloudWatchLoggingOptions](#cloudwatchloggingoptions)
   * CompressionFormat [CompressionFormat](#compressionformat)
+  * DataFormatConversionConfiguration [DataFormatConversionConfiguration](#dataformatconversionconfiguration)
   * EncryptionConfiguration [EncryptionConfiguration](#encryptionconfiguration)
   * Prefix [Prefix](#prefix)
   * ProcessingConfiguration [ProcessingConfiguration](#processingconfiguration)
@@ -443,6 +524,14 @@ amazonaws_firehose.UpdateDestination({
 ### HECToken
 * HECToken `string`
 
+### HiveJsonSerDe
+* HiveJsonSerDe `object`: The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
+  * TimestampFormats [ListOfNonEmptyStrings](#listofnonemptystrings)
+
+### InputFormatConfiguration
+* InputFormatConfiguration `object`: Specifies the deserializer you want to use to convert the format of the input data.
+  * Deserializer [Deserializer](#deserializer)
+
 ### IntervalInSeconds
 * IntervalInSeconds `integer`
 
@@ -458,12 +547,12 @@ amazonaws_firehose.UpdateDestination({
 * KinesisStreamARN `string`
 
 ### KinesisStreamSourceConfiguration
-* KinesisStreamSourceConfiguration `object`: The stream and role ARNs for a Kinesis stream used as the source for a delivery stream.
+* KinesisStreamSourceConfiguration `object`: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream.
   * KinesisStreamARN **required** [KinesisStreamARN](#kinesisstreamarn)
   * RoleARN **required** [RoleARN](#rolearn)
 
 ### KinesisStreamSourceDescription
-* KinesisStreamSourceDescription `object`: Details about a Kinesis stream used as the source for a Kinesis Firehose delivery stream.
+* KinesisStreamSourceDescription `object`: Details about a Kinesis data stream used as the source for a Kinesis Data Firehose delivery stream.
   * DeliveryStartTimestamp [DeliveryStartTimestamp](#deliverystarttimestamp)
   * KinesisStreamARN [KinesisStreamARN](#kinesisstreamarn)
   * RoleARN [RoleARN](#rolearn)
@@ -486,6 +575,32 @@ amazonaws_firehose.UpdateDestination({
   * DeliveryStreamNames **required** [DeliveryStreamNameList](#deliverystreamnamelist)
   * HasMoreDeliveryStreams **required** [BooleanObject](#booleanobject)
 
+### ListOfNonEmptyStrings
+* ListOfNonEmptyStrings `array`
+  * items [NonEmptyString](#nonemptystring)
+
+### ListOfNonEmptyStringsWithoutWhitespace
+* ListOfNonEmptyStringsWithoutWhitespace `array`
+  * items [NonEmptyStringWithoutWhitespace](#nonemptystringwithoutwhitespace)
+
+### ListTagsForDeliveryStreamInput
+* ListTagsForDeliveryStreamInput `object`
+  * DeliveryStreamName **required** [DeliveryStreamName](#deliverystreamname)
+  * ExclusiveStartTagKey [TagKey](#tagkey)
+  * Limit [ListTagsForDeliveryStreamInputLimit](#listtagsfordeliverystreaminputlimit)
+
+### ListTagsForDeliveryStreamInputLimit
+* ListTagsForDeliveryStreamInputLimit `integer`
+
+### ListTagsForDeliveryStreamOutput
+* ListTagsForDeliveryStreamOutput `object`
+  * HasMoreTags **required** [BooleanObject](#booleanobject)
+  * Tags **required** [ListTagsForDeliveryStreamOutputTagList](#listtagsfordeliverystreamoutputtaglist)
+
+### ListTagsForDeliveryStreamOutputTagList
+* ListTagsForDeliveryStreamOutputTagList `array`
+  * items [Tag](#tag)
+
 ### LogGroupName
 * LogGroupName `string`
 
@@ -495,8 +610,67 @@ amazonaws_firehose.UpdateDestination({
 ### NoEncryptionConfig
 * NoEncryptionConfig `string` (values: NoEncryption)
 
+### NonEmptyString
+* NonEmptyString `string`
+
+### NonEmptyStringWithoutWhitespace
+* NonEmptyStringWithoutWhitespace `string`
+
 ### NonNegativeIntegerObject
 * NonNegativeIntegerObject `integer`
+
+### OpenXJsonSerDe
+* OpenXJsonSerDe `object`: The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
+  * CaseInsensitive [BooleanObject](#booleanobject)
+  * ColumnToJsonKeyMappings [ColumnToJsonKeyMappings](#columntojsonkeymappings)
+  * ConvertDotsInJsonKeysToUnderscores [BooleanObject](#booleanobject)
+
+### OrcCompression
+* OrcCompression `string` (values: NONE, ZLIB, SNAPPY)
+
+### OrcFormatVersion
+* OrcFormatVersion `string` (values: V0_11, V0_12)
+
+### OrcRowIndexStride
+* OrcRowIndexStride `integer`
+
+### OrcSerDe
+* OrcSerDe `object`: A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <a href="https://orc.apache.org/docs/">Apache ORC</a>.
+  * BlockSizeBytes [BlockSizeBytes](#blocksizebytes)
+  * BloomFilterColumns [ListOfNonEmptyStringsWithoutWhitespace](#listofnonemptystringswithoutwhitespace)
+  * BloomFilterFalsePositiveProbability [Proportion](#proportion)
+  * Compression [OrcCompression](#orccompression)
+  * DictionaryKeyThreshold [Proportion](#proportion)
+  * EnablePadding [BooleanObject](#booleanobject)
+  * FormatVersion [OrcFormatVersion](#orcformatversion)
+  * PaddingTolerance [Proportion](#proportion)
+  * RowIndexStride [OrcRowIndexStride](#orcrowindexstride)
+  * StripeSizeBytes [OrcStripeSizeBytes](#orcstripesizebytes)
+
+### OrcStripeSizeBytes
+* OrcStripeSizeBytes `integer`
+
+### OutputFormatConfiguration
+* OutputFormatConfiguration `object`: Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data before it writes it to Amazon S3.
+  * Serializer [Serializer](#serializer)
+
+### ParquetCompression
+* ParquetCompression `string` (values: UNCOMPRESSED, GZIP, SNAPPY)
+
+### ParquetPageSizeBytes
+* ParquetPageSizeBytes `integer`
+
+### ParquetSerDe
+* ParquetSerDe `object`: A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <a href="https://parquet.apache.org/documentation/latest/">Apache Parquet</a>.
+  * BlockSizeBytes [BlockSizeBytes](#blocksizebytes)
+  * Compression [ParquetCompression](#parquetcompression)
+  * EnableDictionaryCompression [BooleanObject](#booleanobject)
+  * MaxPaddingBytes [NonNegativeIntegerObject](#nonnegativeintegerobject)
+  * PageSizeBytes [ParquetPageSizeBytes](#parquetpagesizebytes)
+  * WriterVersion [ParquetWriterVersion](#parquetwriterversion)
+
+### ParquetWriterVersion
+* ParquetWriterVersion `string` (values: V1, V2)
 
 ### Password
 * Password `string`
@@ -535,6 +709,9 @@ amazonaws_firehose.UpdateDestination({
 
 ### ProcessorType
 * ProcessorType `string` (values: Lambda)
+
+### Proportion
+* Proportion `number`
 
 ### PutRecordBatchInput
 * PutRecordBatchInput `object`
@@ -621,7 +798,7 @@ amazonaws_firehose.UpdateDestination({
 * RedshiftRetryDurationInSeconds `integer`
 
 ### RedshiftRetryOptions
-* RedshiftRetryOptions `object`: Configures retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon Redshift.
+* RedshiftRetryOptions `object`: Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift.
   * DurationInSeconds [RedshiftRetryDurationInSeconds](#redshiftretrydurationinseconds)
 
 ### RedshiftS3BackupMode
@@ -671,15 +848,29 @@ amazonaws_firehose.UpdateDestination({
   * Prefix [Prefix](#prefix)
   * RoleARN [RoleARN](#rolearn)
 
+### SchemaConfiguration
+* SchemaConfiguration `object`: Specifies the schema to which you want Kinesis Data Firehose to configure your data before it writes it to Amazon S3.
+  * CatalogId [NonEmptyStringWithoutWhitespace](#nonemptystringwithoutwhitespace)
+  * DatabaseName [NonEmptyStringWithoutWhitespace](#nonemptystringwithoutwhitespace)
+  * Region [NonEmptyStringWithoutWhitespace](#nonemptystringwithoutwhitespace)
+  * RoleARN [NonEmptyStringWithoutWhitespace](#nonemptystringwithoutwhitespace)
+  * TableName [NonEmptyStringWithoutWhitespace](#nonemptystringwithoutwhitespace)
+  * VersionId [NonEmptyStringWithoutWhitespace](#nonemptystringwithoutwhitespace)
+
+### Serializer
+* Serializer `object`: The serializer that you want Kinesis Data Firehose to use to convert data to the target format before writing it to Amazon S3. Kinesis Data Firehose supports two types of serializers: the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html">ORC SerDe</a> and the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html">Parquet SerDe</a>.
+  * OrcSerDe [OrcSerDe](#orcserde)
+  * ParquetSerDe [ParquetSerDe](#parquetserde)
+
 ### ServiceUnavailableException
-* ServiceUnavailableException `object`: The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Firehose Limits</a>.
+* ServiceUnavailableException `object`: The service is unavailable. Back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose Limits</a>.
   * message [ErrorMessage](#errormessage)
 
 ### SizeInMBs
 * SizeInMBs `integer`
 
 ### SourceDescription
-* SourceDescription `object`: Details about a Kinesis stream used as the source for a Kinesis Firehose delivery stream.
+* SourceDescription `object`: Details about a Kinesis data stream used as the source for a Kinesis Data Firehose delivery stream.
   * KinesisStreamSourceDescription [KinesisStreamSourceDescription](#kinesisstreamsourcedescription)
 
 ### SplunkDestinationConfiguration
@@ -722,14 +913,49 @@ amazonaws_firehose.UpdateDestination({
 * SplunkRetryDurationInSeconds `integer`
 
 ### SplunkRetryOptions
-* SplunkRetryOptions `object`: Configures retry behavior in case Kinesis Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+* SplunkRetryOptions `object`: Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk, or if it doesn't receive an acknowledgment from Splunk.
   * DurationInSeconds [SplunkRetryDurationInSeconds](#splunkretrydurationinseconds)
 
 ### SplunkS3BackupMode
 * SplunkS3BackupMode `string` (values: FailedEventsOnly, AllEvents)
 
+### Tag
+* Tag `object`: Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+  * Key **required** [TagKey](#tagkey)
+  * Value [TagValue](#tagvalue)
+
+### TagDeliveryStreamInput
+* TagDeliveryStreamInput `object`
+  * DeliveryStreamName **required** [DeliveryStreamName](#deliverystreamname)
+  * Tags **required** [TagDeliveryStreamInputTagList](#tagdeliverystreaminputtaglist)
+
+### TagDeliveryStreamInputTagList
+* TagDeliveryStreamInputTagList `array`
+  * items [Tag](#tag)
+
+### TagDeliveryStreamOutput
+* TagDeliveryStreamOutput `object`
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagValue
+* TagValue `string`
+
 ### Timestamp
 * Timestamp `string`
+
+### UntagDeliveryStreamInput
+* UntagDeliveryStreamInput `object`
+  * DeliveryStreamName **required** [DeliveryStreamName](#deliverystreamname)
+  * TagKeys **required** [TagKeyList](#tagkeylist)
+
+### UntagDeliveryStreamOutput
+* UntagDeliveryStreamOutput `object`
 
 ### UpdateDestinationInput
 * UpdateDestinationInput `object`

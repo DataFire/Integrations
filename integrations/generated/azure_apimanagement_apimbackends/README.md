@@ -77,7 +77,7 @@ azure_apimanagement_apimbackends.Backend_Delete({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
-  * If-Match **required** `string`: The entity state (Etag) version of the backend to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -156,7 +156,7 @@ azure_apimanagement_apimbackends.Backend_Update({
   * serviceName **required** `string`: The name of the API Management service.
   * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
   * parameters **required** [BackendUpdateParameters](#backendupdateparameters)
-  * If-Match **required** `string`: The entity state (Etag) version of the backend to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -184,6 +184,7 @@ azure_apimanagement_apimbackends.Backend_CreateOrUpdate({
   * serviceName **required** `string`: The name of the API Management service.
   * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
   * parameters **required** [BackendContract](#backendcontract)
+  * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -287,7 +288,7 @@ azure_apimanagement_apimbackends.Backend_Reconnect({
 
 ### BackendReconnectProperties
 * BackendReconnectProperties `object`: Properties to control reconnect requests.
-  * after `string`: Duration in ISO8601 format after which reconnect will be initiated.
+  * after `string`: Duration in ISO8601 format after which reconnect will be initiated. Minimum duration of the Reconect is PT2M.
 
 ### BackendServiceFabricClusterProperties
 * BackendServiceFabricClusterProperties `object`: Properties of the Service Fabric Type Backend.

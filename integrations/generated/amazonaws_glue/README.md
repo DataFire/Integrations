@@ -268,8 +268,7 @@ amazonaws_glue.CreateDatabase({
 ```js
 amazonaws_glue.CreateDevEndpoint({
   "EndpointName": "",
-  "RoleArn": "",
-  "PublicKey": ""
+  "RoleArn": ""
 }, context)
 ```
 
@@ -279,7 +278,7 @@ amazonaws_glue.CreateDevEndpoint({
   * ExtraJarsS3Path [GenericString](#genericstring)
   * ExtraPythonLibsS3Path [GenericString](#genericstring)
   * NumberOfNodes [IntegerValue](#integervalue)
-  * PublicKey **required** [GenericString](#genericstring)
+  * PublicKey [GenericString](#genericstring)
   * RoleArn **required** [RoleArn](#rolearn)
   * SecurityGroupIds [StringList](#stringlist)
   * SubnetId [GenericString](#genericstring)
@@ -310,7 +309,9 @@ amazonaws_glue.CreateJob({
   * LogUri [UriString](#uristring)
   * MaxRetries [MaxRetries](#maxretries)
   * Name **required** [NameString](#namestring)
+  * NotificationProperty [NotificationProperty](#notificationproperty)
   * Role **required** [RoleString](#rolestring)
+  * Timeout [Timeout](#timeout)
 
 #### Output
 * output [CreateJobResponse](#createjobresponse)
@@ -395,6 +396,7 @@ amazonaws_glue.CreateTrigger({
   * Name **required** [NameString](#namestring)
   * Predicate [Predicate](#predicate)
   * Schedule [GenericString](#genericstring)
+  * StartOnCreation [BooleanValue](#booleanvalue)
   * Type **required** [TriggerType](#triggertype)
 
 #### Output
@@ -1275,6 +1277,8 @@ amazonaws_glue.StartJobRun({
   * Arguments [GenericMap](#genericmap)
   * JobName **required** [NameString](#namestring)
   * JobRunId [IdString](#idstring)
+  * NotificationProperty [NotificationProperty](#notificationproperty)
+  * Timeout [Timeout](#timeout)
 
 #### Output
 * output [StartJobRunResponse](#startjobrunresponse)
@@ -1593,6 +1597,8 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * Action `object`: Defines an action to be initiated by a trigger.
   * Arguments [GenericMap](#genericmap)
   * JobName [NameString](#namestring)
+  * NotificationProperty [NotificationProperty](#notificationproperty)
+  * Timeout [Timeout](#timeout)
 
 ### ActionList
 * ActionList `array`
@@ -1687,7 +1693,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * items [PartitionValueList](#partitionvaluelist)
 
 ### BatchStopJobRunError
-* BatchStopJobRunError `object`: Records an error that occurred when attempting to stop a specified JobRun.
+* BatchStopJobRunError `object`: Records an error that occurred when attempting to stop a specified job run.
   * ErrorDetail [ErrorDetail](#errordetail)
   * JobName [NameString](#namestring)
   * JobRunId [IdString](#idstring)
@@ -1999,7 +2005,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * ExtraJarsS3Path [GenericString](#genericstring)
   * ExtraPythonLibsS3Path [GenericString](#genericstring)
   * NumberOfNodes [IntegerValue](#integervalue)
-  * PublicKey **required** [GenericString](#genericstring)
+  * PublicKey [GenericString](#genericstring)
   * RoleArn **required** [RoleArn](#rolearn)
   * SecurityGroupIds [StringList](#stringlist)
   * SubnetId [GenericString](#genericstring)
@@ -2039,7 +2045,9 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * LogUri [UriString](#uristring)
   * MaxRetries [MaxRetries](#maxretries)
   * Name **required** [NameString](#namestring)
+  * NotificationProperty [NotificationProperty](#notificationproperty)
   * Role **required** [RoleString](#rolestring)
+  * Timeout [Timeout](#timeout)
 
 ### CreateJobResponse
 * CreateJobResponse `object`
@@ -2087,6 +2095,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Name **required** [NameString](#namestring)
   * Predicate [Predicate](#predicate)
   * Schedule [GenericString](#genericstring)
+  * StartOnCreation [BooleanValue](#booleanvalue)
   * Type **required** [TriggerType](#triggertype)
 
 ### CreateTriggerResponse
@@ -2259,6 +2268,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * LastModifiedTimestamp [TimestampValue](#timestampvalue)
   * LastUpdateStatus [GenericString](#genericstring)
   * NumberOfNodes [IntegerValue](#integervalue)
+  * PrivateAddress [GenericString](#genericstring)
   * PublicAddress [GenericString](#genericstring)
   * PublicKey [GenericString](#genericstring)
   * RoleArn [RoleArn](#rolearn)
@@ -2299,6 +2309,9 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### ExecutionProperty
 * ExecutionProperty `object`: An execution property of a job.
   * MaxConcurrentRuns [MaxConcurrentRuns](#maxconcurrentruns)
+
+### ExecutionTime
+* ExecutionTime `integer`
 
 ### FieldType
 * FieldType `string`
@@ -2682,7 +2695,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * items [JdbcTarget](#jdbctarget)
 
 ### Job
-* Job `object`: Specifies a job.
+* Job `object`: Specifies a job definition.
   * AllocatedCapacity [IntegerValue](#integervalue)
   * Command [JobCommand](#jobcommand)
   * Connections [ConnectionsList](#connectionslist)
@@ -2694,7 +2707,9 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * LogUri [UriString](#uristring)
   * MaxRetries [MaxRetries](#maxretries)
   * Name [NameString](#namestring)
+  * NotificationProperty [NotificationProperty](#notificationproperty)
   * Role [RoleString](#rolestring)
+  * Timeout [Timeout](#timeout)
 
 ### JobBookmarkEntry
 * JobBookmarkEntry `object`: Defines a point which a job can resume processing.
@@ -2705,7 +2720,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Version [IntegerValue](#integervalue)
 
 ### JobCommand
-* JobCommand `object`: Specifies code that executes a job.
+* JobCommand `object`: Specifies code executed when a job is run.
   * Name [GenericString](#genericstring)
   * ScriptLocation [ScriptLocationString](#scriptlocationstring)
 
@@ -2723,13 +2738,16 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Attempt [AttemptCount](#attemptcount)
   * CompletedOn [TimestampValue](#timestampvalue)
   * ErrorMessage [ErrorString](#errorstring)
+  * ExecutionTime [ExecutionTime](#executiontime)
   * Id [IdString](#idstring)
   * JobName [NameString](#namestring)
   * JobRunState [JobRunState](#jobrunstate)
   * LastModifiedOn [TimestampValue](#timestampvalue)
+  * NotificationProperty [NotificationProperty](#notificationproperty)
   * PredecessorRuns [PredecessorList](#predecessorlist)
   * PreviousRunId [IdString](#idstring)
   * StartedOn [TimestampValue](#timestampvalue)
+  * Timeout [Timeout](#timeout)
   * TriggerName [NameString](#namestring)
 
 ### JobRunList
@@ -2737,10 +2755,10 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * items [JobRun](#jobrun)
 
 ### JobRunState
-* JobRunState `string` (values: STARTING, RUNNING, STOPPING, STOPPED, SUCCEEDED, FAILED)
+* JobRunState `string` (values: STARTING, RUNNING, STOPPING, STOPPED, SUCCEEDED, FAILED, TIMEOUT)
 
 ### JobUpdate
-* JobUpdate `object`: Specifies information used to update an existing job. Note that the previous job definition will be completely overwritten by this information.
+* JobUpdate `object`: Specifies information used to update an existing job definition. Note that the previous job definition will be completely overwritten by this information.
   * AllocatedCapacity [IntegerValue](#integervalue)
   * Command [JobCommand](#jobcommand)
   * Connections [ConnectionsList](#connectionslist)
@@ -2749,7 +2767,9 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * ExecutionProperty [ExecutionProperty](#executionproperty)
   * LogUri [UriString](#uristring)
   * MaxRetries [MaxRetries](#maxretries)
+  * NotificationProperty [NotificationProperty](#notificationproperty)
   * Role [RoleString](#rolestring)
+  * Timeout [Timeout](#timeout)
 
 ### JsonClassifier
 * JsonClassifier `object`: A classifier for <code>JSON</code> content.
@@ -2857,6 +2877,13 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### NonNegativeInteger
 * NonNegativeInteger `integer`
+
+### NotificationProperty
+* NotificationProperty `object`: Specifies configuration properties of a notification.
+  * NotifyDelayAfter [NotifyDelayAfter](#notifydelayafter)
+
+### NotifyDelayAfter
+* NotifyDelayAfter `integer`
 
 ### OperationTimeoutException
 * OperationTimeoutException `object`: The operation timed out.
@@ -3079,6 +3106,8 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Arguments [GenericMap](#genericmap)
   * JobName **required** [NameString](#namestring)
   * JobRunId [IdString](#idstring)
+  * NotificationProperty [NotificationProperty](#notificationproperty)
+  * Timeout [Timeout](#timeout)
 
 ### StartJobRunResponse
 * StartJobRunResponse `object`
@@ -3203,6 +3232,9 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### TableVersionErrors
 * TableVersionErrors `array`
   * items [TableVersionError](#tableversionerror)
+
+### Timeout
+* Timeout `integer`
 
 ### Timestamp
 * Timestamp `string`

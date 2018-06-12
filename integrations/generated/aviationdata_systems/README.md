@@ -12,8 +12,9 @@ let aviationdata_systems = require('@datafire/aviationdata_systems').create({
   password: ""
 });
 
-aviationdata_systems.AirportIATA_AirportIATASearch({
-  "airport_iata": ""
+aviationdata_systems.AutoCompleteAirportName_AirportNameSearch({
+  "airport_name": "",
+  "airport_service_type": ""
 }).then(data => {
   console.log(data);
 });
@@ -24,40 +25,6 @@ aviationdata_systems.AirportIATA_AirportIATASearch({
 
 
 ## Actions
-
-### AirportIATA_AirportIATASearch
-Required parameters: airport_iata
-
-
-```js
-aviationdata_systems.AirportIATA_AirportIATASearch({
-  "airport_iata": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * airport_iata **required** `string`: Required: The airports IATA code
-
-#### Output
-* output [AirportsAPI.Controllers.AirportIATAController.Response](#airportsapi.controllers.airportiatacontroller.response)
-
-### AirportDetails_AirportNameSearch
-Required parameters: airport_name
-
-
-```js
-aviationdata_systems.AirportDetails_AirportNameSearch({
-  "airport_name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * airport_name **required** `string`: Required: The airports name
-
-#### Output
-* output [AirportsAPI.Controllers.AirportDetailsController.Response](#airportsapi.controllers.airportdetailscontroller.response)
 
 ### AutoCompleteAirportName_AirportNameSearch
 Required parameters: airport_name, airport_service_type. Optional parameter: country code (ISO 3166-1).
@@ -79,38 +46,39 @@ aviationdata_systems.AutoCompleteAirportName_AirportNameSearch({
 #### Output
 * output [AirportsAPI.Controllers.AutoCompleteAirportNameController.Response](#airportsapi.controllers.autocompleteairportnamecontroller.response)
 
-### CountryList_CountryAirportList
-Country list. Returns a list of countries where airport data is available
+### AirportIATA_AirportIATASearch
+Required parameters: airport_iata
 
 
 ```js
-aviationdata_systems.CountryList_CountryAirportList(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output [AirportsAPI.Controllers.CountryListController.CountryListResponse](#airportsapi.controllers.countrylistcontroller.countrylistresponse)
-
-### CountryAirportList_CountryAirportList
-Required parameters: country code (ISO 3166-1), airport_service_type.
-
-
-```js
-aviationdata_systems.CountryAirportList_CountryAirportList({
-  "country_code": "",
-  "airport_service_type": ""
+aviationdata_systems.AirportIATA_AirportIATASearch({
+  "airport_iata": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * country_code **required** `string`: Country code (ISO 3166-1). This can be found via /countries
-  * airport_service_type **required** `string` (values: All, Scheduled, NonScheduled): Required: Needs to be: All, Scheduled or NonScheduled
+  * airport_iata **required** `string`: Required: The airports IATA code
 
 #### Output
-* output [AirportsAPI.Controllers.CountryAirportListController.AirportListResponse](#airportsapi.controllers.countryairportlistcontroller.airportlistresponse)
+* output [AirportsAPI.Controllers.AirportIATAController.Response](#airportsapi.controllers.airportiatacontroller.response)
+
+### AirportDetails_AirportNameSearch
+Required parameters: airport_name, api_mode
+
+
+```js
+aviationdata_systems.AirportDetails_AirportNameSearch({
+  "airport_name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * airport_name **required** `string`: Required: The airports name
+
+#### Output
+* output [AirportsAPI.Controllers.AirportDetailsController.Response](#airportsapi.controllers.airportdetailscontroller.response)
 
 ### NearestAirports_NearestAirportList
 Required parameters: result_count, latitude, longitude, airport_service_type
@@ -132,6 +100,39 @@ aviationdata_systems.NearestAirports_NearestAirportList({
 
 #### Output
 * output [AirportsAPI.Controllers.NearestAirportsController.Response](#airportsapi.controllers.nearestairportscontroller.response)
+
+### CountryAirportList_CountryAirportList
+Required parameters: country code (ISO 3166-1), airport_service_type.
+
+
+```js
+aviationdata_systems.CountryAirportList_CountryAirportList({
+  "country_code": "",
+  "airport_service_type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * country_code **required** `string`: Country code (ISO 3166-1). This can be found via /countries
+  * airport_service_type **required** `string` (values: All, Scheduled, NonScheduled): Required: Needs to be: All, Scheduled or NonScheduled
+
+#### Output
+* output [AirportsAPI.Controllers.CountryAirportListController.AirportListResponse](#airportsapi.controllers.countryairportlistcontroller.airportlistresponse)
+
+### CountryList_CountryAirportList
+Country list. Returns a list of countries where airport data is available
+
+
+```js
+aviationdata_systems.CountryList_CountryAirportList(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [AirportsAPI.Controllers.CountryListController.CountryListResponse](#airportsapi.controllers.countrylistcontroller.countrylistresponse)
 
 
 
@@ -202,6 +203,7 @@ aviationdata_systems.NearestAirports_NearestAirportList({
   * latitude `string`
   * local_code `string`
   * location `string`
+  * logo_url `string`
   * longitude `string`
   * scheduled_service `boolean`
   * website `string`

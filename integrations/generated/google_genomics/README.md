@@ -454,10 +454,6 @@ google_genomics.annotationsets.update({
 ### callsets.create
 Creates a new call set.
 
-For the definitions of call sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.callsets.create({}, context)
@@ -485,10 +481,6 @@ google_genomics.callsets.create({}, context)
 
 ### callsets.search
 Gets a list of call sets matching the criteria.
-
-For the definitions of call sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Implements
 [GlobalAllianceApi.searchCallSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L178).
@@ -521,10 +513,6 @@ google_genomics.callsets.search({}, context)
 ### callsets.delete
 Deletes a call set.
 
-For the definitions of call sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.callsets.delete({
@@ -555,10 +543,6 @@ google_genomics.callsets.delete({
 ### callsets.get
 Gets a call set by ID.
 
-For the definitions of call sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.callsets.get({
@@ -588,10 +572,6 @@ google_genomics.callsets.get({
 
 ### callsets.patch
 Updates a call set.
-
-For the definitions of call sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 This method supports patch semantics.
 
@@ -627,10 +607,6 @@ google_genomics.callsets.patch({
 ### datasets.list
 Lists datasets within a project.
 
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.datasets.list({}, context)
@@ -660,10 +636,6 @@ google_genomics.datasets.list({}, context)
 
 ### datasets.create
 Creates a new dataset.
-
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 
 ```js
@@ -698,10 +670,6 @@ the
 datasets.undelete
 operation.
 
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.datasets.delete({
@@ -732,10 +700,6 @@ google_genomics.datasets.delete({
 ### datasets.get
 Gets a dataset by ID.
 
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.datasets.get({
@@ -765,10 +729,6 @@ google_genomics.datasets.get({
 
 ### datasets.patch
 Updates a dataset.
-
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 This method supports patch semantics.
 
@@ -804,10 +764,6 @@ google_genomics.datasets.patch({
 ### datasets.undelete
 Undeletes a dataset by restoring a dataset which was deleted via this API.
 
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 This operation is only possible for a week after the deletion occurred.
 
 
@@ -841,10 +797,6 @@ google_genomics.datasets.undelete({
 ### readgroupsets.search
 Searches for read group sets matching the criteria.
 
-For the definitions of read group sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 Implements
 [GlobalAllianceApi.searchReadGroupSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/readmethods.avdl#L135).
 
@@ -876,10 +828,6 @@ google_genomics.readgroupsets.search({}, context)
 ### readgroupsets.delete
 Deletes a read group set.
 
-For the definitions of read group sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.readgroupsets.delete({
@@ -910,10 +858,6 @@ google_genomics.readgroupsets.delete({
 ### readgroupsets.get
 Gets a read group set by ID.
 
-For the definitions of read group sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.readgroupsets.get({
@@ -943,10 +887,6 @@ google_genomics.readgroupsets.get({
 
 ### readgroupsets.patch
 Updates a read group set.
-
-For the definitions of read group sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 This method supports patch semantics.
 
@@ -983,10 +923,6 @@ google_genomics.readgroupsets.patch({
 Lists fixed width coverage buckets for a read group set, each of which
 correspond to a range of a reference sequence. Each bucket summarizes
 coverage information across its corresponding genomic range.
-
-For the definitions of read group sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Coverage is defined as the number of reads which are aligned to a given
 base in the reference sequence. Coverage buckets are available at several
@@ -1030,10 +966,6 @@ google_genomics.readgroupsets.coveragebuckets.list({
 ### readgroupsets.export
 Exports a read group set to a BAM file in Google Cloud Storage.
 
-For the definitions of read group sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 Note that currently there may be some differences between exported BAM
 files and the original BAM file at the time of import. See
 ImportReadGroupSets
@@ -1070,10 +1002,6 @@ google_genomics.readgroupsets.export({
 ### readgroupsets.import
 Creates read group sets by asynchronously importing the provided
 information.
-
-For the definitions of read group sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 The caller must have WRITE permissions to the dataset.
 
@@ -1114,10 +1042,6 @@ google_genomics.readgroupsets.import({}, context)
 
 ### reads.search
 Gets a list of reads for one or more read group sets.
-
-For the definitions of read group sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Reads search operates over a genomic coordinate space of reference sequence
 & position defined over the reference sequences to which the requested
@@ -1166,10 +1090,6 @@ google_genomics.reads.search({}, context)
 ### references.search
 Searches for references which match the given criteria.
 
-For the definitions of references and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 Implements
 [GlobalAllianceApi.searchReferences](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L146).
 
@@ -1200,10 +1120,6 @@ google_genomics.references.search({}, context)
 
 ### references.get
 Gets a reference.
-
-For the definitions of references and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Implements
 [GlobalAllianceApi.getReference](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L158).
@@ -1237,10 +1153,6 @@ google_genomics.references.get({
 
 ### references.bases.list
 Lists the bases in a reference, optionally restricted to a range.
-
-For the definitions of references and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Implements
 [GlobalAllianceApi.getReferenceBases](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L221).
@@ -1279,10 +1191,6 @@ google_genomics.references.bases.list({
 ### referencesets.search
 Searches for reference sets which match the given criteria.
 
-For the definitions of references and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 Implements
 [GlobalAllianceApi.searchReferenceSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L71)
 
@@ -1313,10 +1221,6 @@ google_genomics.referencesets.search({}, context)
 
 ### referencesets.get
 Gets a reference set.
-
-For the definitions of references and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Implements
 [GlobalAllianceApi.getReferenceSet](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L83).
@@ -1351,10 +1255,6 @@ google_genomics.referencesets.get({
 ### variants.create
 Creates a new variant.
 
-For the definitions of variants and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.variants.create({}, context)
@@ -1382,10 +1282,6 @@ google_genomics.variants.create({}, context)
 
 ### variants.search
 Gets a list of variants matching the criteria.
-
-For the definitions of variants and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Implements
 [GlobalAllianceApi.searchVariants](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L126).
@@ -1418,10 +1314,6 @@ google_genomics.variants.search({}, context)
 ### variants.delete
 Deletes a variant.
 
-For the definitions of variants and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.variants.delete({
@@ -1452,10 +1344,6 @@ google_genomics.variants.delete({
 ### variants.get
 Gets a variant by ID.
 
-For the definitions of variants and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.variants.get({
@@ -1485,10 +1373,6 @@ google_genomics.variants.get({
 
 ### variants.patch
 Updates a variant.
-
-For the definitions of variants and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 This method supports patch semantics. Returns the modified variant without
 its calls.
@@ -1524,10 +1408,6 @@ google_genomics.variants.patch({
 
 ### variants.import
 Creates variant data by asynchronously importing the provided information.
-
-For the definitions of variant sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 The variants for import will be merged with any existing variant that
 matches its reference sequence, start, end, reference bases, and
@@ -1569,10 +1449,6 @@ google_genomics.variants.import({}, context)
 
 ### variants.merge
 Merges the given variants with existing variants.
-
-For the definitions of variants and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Each variant will be
 merged with an existing variant that matches its reference sequence,
@@ -1688,10 +1564,6 @@ google_genomics.variants.merge({}, context)
 ### variantsets.create
 Creates a new variant set.
 
-For the definitions of variant sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 The provided variant set must have a valid `datasetId` set - all other
 fields are optional. Note that the `id` field will be ignored, as this is
 assigned by the server.
@@ -1723,10 +1595,6 @@ google_genomics.variantsets.create({}, context)
 
 ### variantsets.search
 Returns a list of all variant sets matching search criteria.
-
-For the definitions of variant sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 Implements
 [GlobalAllianceApi.searchVariantSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L49).
@@ -1760,10 +1628,6 @@ google_genomics.variantsets.search({}, context)
 Deletes a variant set including all variants, call sets, and calls within.
 This is not reversible.
 
-For the definitions of variant sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.variantsets.delete({
@@ -1794,10 +1658,6 @@ google_genomics.variantsets.delete({
 ### variantsets.get
 Gets a variant set by ID.
 
-For the definitions of variant sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.variantsets.get({
@@ -1827,10 +1687,6 @@ google_genomics.variantsets.get({
 
 ### variantsets.patch
 Updates a variant set using patch semantics.
-
-For the definitions of variant sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 
 ```js
@@ -1863,10 +1719,6 @@ google_genomics.variantsets.patch({
 
 ### variantsets.export
 Exports variant set data to an external destination.
-
-For the definitions of variant sets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 
 ```js
@@ -1966,10 +1818,6 @@ policy or resource does not exist.
 See <a href="/iam/docs/managing-policies#getting_a_policy">Getting a
 Policy</a> for more information.
 
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-
 
 ```js
 google_genomics.datasets.getIamPolicy({
@@ -2001,10 +1849,6 @@ google_genomics.datasets.getIamPolicy({
 ### datasets.setIamPolicy
 Sets the access control policy on the specified dataset. Replaces any
 existing policy.
-
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 See <a href="/iam/docs/managing-policies#setting_a_policy">Setting a
 Policy</a> for more information.
@@ -2041,10 +1885,6 @@ google_genomics.datasets.setIamPolicy({
 Returns permissions that a caller has on the specified resource.
 See <a href="/iam/docs/managing-policies#testing_permissions">Testing
 Permissions</a> for more information.
-
-For the definitions of datasets and other genomics resources, see
-[Fundamentals of Google
-Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
 
 
 ```js
@@ -2161,6 +2001,18 @@ google_genomics.datasets.testIamPermissions({
   * machineType `string`: The machine type of the instance.
   * zone `string`: The availability zone in which the instance resides.
 
+### ContainerStartedEvent
+* ContainerStartedEvent `object`: This event is generated when a container starts.
+  * actionId `integer`: The numeric ID of the action that started this container.
+  * ipAddress `string`: The public IP address that can be used to connect to the container.  This
+  * portMappings `object`: The container to host port mappings installed for this container.  This
+
+### ContainerStoppedEvent
+* ContainerStoppedEvent `object`: This event is generated when a container exits.
+  * actionId `integer`: The numeric ID of the action that started this container.
+  * exitStatus `integer`: The exit status of the container.
+  * stderr `string`: The tail end of any content written to standard error by the container.
+
 ### CoverageBucket
 * CoverageBucket `object`: A bucket over which read coverage has been precomputed. A bucket corresponds
   * meanCoverage `number`: The average number of reads which are aligned to each individual
@@ -2173,6 +2025,12 @@ google_genomics.datasets.testIamPermissions({
   * name `string`: The dataset name.
   * projectId `string`: The Google Cloud project ID that this dataset belongs to.
 
+### DelayedEvent
+* DelayedEvent `object`: This event is generated whenever a resource limitation or transient error
+  * cause `string`: A textual description of the cause of the delay.  The string may change
+  * metrics `array`: If the delay was caused by a resource shortage, this field lists the
+    * items `string`
+
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
 
@@ -2180,6 +2038,12 @@ google_genomics.datasets.testIamPermissions({
 * Entry `object`
   * annotation [Annotation](#annotation)
   * status [Status](#status)
+
+### Event
+* Event `object`: Event carries information about events that occur during pipeline execution.
+  * description `string`: A human readable description of the event.  Note that these strings may
+  * details `object`: Machine readable details about the event.
+  * timestamp `string`: The time that the event occurred.
 
 ### Exon
 * Exon `object`
@@ -2214,6 +2078,11 @@ google_genomics.datasets.testIamPermissions({
 * ExternalId `object`
   * id `string`: The id used by the source of this data.
   * sourceName `string`: The name of the source of this data.
+
+### FailedEvent
+* FailedEvent `object`: This event is generated when the execution of a pipeline has failed.  Note
+  * cause `string`: The human readable description of the cause of the failure.
+  * code `string` (values: OK, CANCELLED, UNKNOWN, INVALID_ARGUMENT, DEADLINE_EXCEEDED, NOT_FOUND, ALREADY_EXISTS, PERMISSION_DENIED, UNAUTHENTICATED, RESOURCE_EXHAUSTED, FAILED_PRECONDITION, ABORTED, OUT_OF_RANGE, UNIMPLEMENTED, INTERNAL, UNAVAILABLE, DATA_LOSS): The Google standard error code that best describes this failure.
 
 ### GetIamPolicyRequest
 * GetIamPolicyRequest `object`: Request message for `GetIamPolicy` method.
@@ -2288,7 +2157,7 @@ google_genomics.datasets.testIamPermissions({
 * Operation `object`: This resource represents a long-running operation that is the result of a
   * done `boolean`: If the value is `false`, it means the operation is still in progress.
   * error [Status](#status)
-  * metadata `object`: An OperationMetadata object. This will always be returned with the Operation.
+  * metadata `object`: An OperationMetadata or Metadata object. This will always be returned with the Operation.
   * name `string`: The server-assigned name, which is only unique within the same service that originally returns it. For example&#58; `operations/CJHU7Oi_ChDrveSpBRjfuL-qzoWAgEw`
   * response `object`: If importing ReadGroupSets, an ImportReadGroupSetsResponse is returned. If importing Variants, an ImportVariantsResponse is returned. For pipelines and exports, an Empty response is returned.
 
@@ -2331,6 +2200,14 @@ google_genomics.datasets.testIamPermissions({
   * name `string`: The display name of the program. This is typically the colloquial name of
   * prevProgramId `string`: The ID of the program run before this one.
   * version `string`: The version of the program run.
+
+### PullStartedEvent
+* PullStartedEvent `object`: This event is generated when the worker starts pulling an image.
+  * imageUri `string`: The URI of the image that was pulled.
+
+### PullStoppedEvent
+* PullStoppedEvent `object`: This event is generated when the worker stops pulling an image.
+  * imageUri `string`: The URI of the image that was pulled.
 
 ### Range
 * Range `object`: A 0-based half-open genomic coordinate range for search requests.
@@ -2593,6 +2470,11 @@ google_genomics.datasets.testIamPermissions({
 ### UndeleteDatasetRequest
 * UndeleteDatasetRequest `object`
 
+### UnexpectedExitStatusEvent
+* UnexpectedExitStatusEvent `object`: This event is generated when the execution of a container results in a
+  * actionId `integer`: The numeric ID of the action that started the container.
+  * exitStatus `integer`: The exit status of the container.
+
 ### Variant
 * Variant `object`: A variant represents a change in DNA sequence relative to a reference
   * alternateBases `array`: The bases that appear instead of the reference bases.
@@ -2657,5 +2539,15 @@ google_genomics.datasets.testIamPermissions({
   * number `string`: The number of values that can be included in a field described by this
   * type `string` (values: TYPE_UNSPECIFIED, INTEGER, FLOAT, FLAG, CHARACTER, STRING): The type of data. Possible types include: Integer, Float,
   * value `string`: The value field for simple metadata
+
+### WorkerAssignedEvent
+* WorkerAssignedEvent `object`: This event is generated once a worker VM has been assigned to run the
+  * instance `string`: The worker's instance name.
+  * zone `string`: The zone the worker is running in.
+
+### WorkerReleasedEvent
+* WorkerReleasedEvent `object`: This event is generated when the worker VM that was assigned to the pipeline
+  * instance `string`: The worker's instance name.
+  * zone `string`: The zone the worker was running in.
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/firebrowse",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for FireBrowse Beta API",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/firebrowse.org/1.1.35/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/firebrowse.org/1.1.38/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

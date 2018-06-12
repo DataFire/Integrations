@@ -1,6 +1,6 @@
 {
   "name": "@datafire/nytimes_movie_reviews",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Movie Reviews",
   "repository": {

@@ -13,8 +13,10 @@ let amazonaws_transcribe = require('@datafire/amazonaws_transcribe').create({
   region: ""
 });
 
-amazonaws_transcribe.GetTranscriptionJob({
-  "TranscriptionJobName": ""
+amazonaws_transcribe.CreateVocabulary({
+  "VocabularyName": "",
+  "LanguageCode": "",
+  "Phrases": []
 }).then(data => {
   console.log(data);
 });
@@ -25,6 +27,44 @@ amazonaws_transcribe.GetTranscriptionJob({
 Operations and objects for transcribing speech to text.
 
 ## Actions
+
+### CreateVocabulary
+
+
+
+```js
+amazonaws_transcribe.CreateVocabulary({
+  "VocabularyName": "",
+  "LanguageCode": "",
+  "Phrases": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * LanguageCode **required** [LanguageCode](#languagecode)
+  * Phrases **required** [Phrases](#phrases)
+  * VocabularyName **required** [VocabularyName](#vocabularyname)
+
+#### Output
+* output [CreateVocabularyResponse](#createvocabularyresponse)
+
+### DeleteVocabulary
+
+
+
+```js
+amazonaws_transcribe.DeleteVocabulary({
+  "VocabularyName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * VocabularyName **required** [VocabularyName](#vocabularyname)
+
+#### Output
+*Output schema unknown*
 
 ### GetTranscriptionJob
 
@@ -43,14 +83,49 @@ amazonaws_transcribe.GetTranscriptionJob({
 #### Output
 * output [GetTranscriptionJobResponse](#gettranscriptionjobresponse)
 
+### GetVocabulary
+
+
+
+```js
+amazonaws_transcribe.GetVocabulary({
+  "VocabularyName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * VocabularyName **required** [VocabularyName](#vocabularyname)
+
+#### Output
+* output [GetVocabularyResponse](#getvocabularyresponse)
+
 ### ListTranscriptionJobs
 
 
 
 ```js
-amazonaws_transcribe.ListTranscriptionJobs({
-  "Status": ""
-}, context)
+amazonaws_transcribe.ListTranscriptionJobs({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * JobNameContains [TranscriptionJobName](#transcriptionjobname)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * Status [TranscriptionJobStatus](#transcriptionjobstatus)
+
+#### Output
+* output [ListTranscriptionJobsResponse](#listtranscriptionjobsresponse)
+
+### ListVocabularies
+
+
+
+```js
+amazonaws_transcribe.ListVocabularies({}, context)
 ```
 
 #### Input
@@ -58,11 +133,12 @@ amazonaws_transcribe.ListTranscriptionJobs({
   * MaxResults `string`
   * NextToken `string`
   * MaxResults [MaxResults](#maxresults)
+  * NameContains [VocabularyName](#vocabularyname)
   * NextToken [NextToken](#nexttoken)
-  * Status **required** [TranscriptionJobStatus](#transcriptionjobstatus)
+  * StateEquals [VocabularyState](#vocabularystate)
 
 #### Output
-* output [ListTranscriptionJobsResponse](#listtranscriptionjobsresponse)
+* output [ListVocabulariesResponse](#listvocabulariesresponse)
 
 ### StartTranscriptionJob
 
@@ -83,25 +159,68 @@ amazonaws_transcribe.StartTranscriptionJob({
   * Media **required** [Media](#media)
   * MediaFormat **required** [MediaFormat](#mediaformat)
   * MediaSampleRateHertz [MediaSampleRateHertz](#mediasampleratehertz)
+  * Settings [Settings](#settings)
   * TranscriptionJobName **required** [TranscriptionJobName](#transcriptionjobname)
 
 #### Output
 * output [StartTranscriptionJobResponse](#starttranscriptionjobresponse)
+
+### UpdateVocabulary
+
+
+
+```js
+amazonaws_transcribe.UpdateVocabulary({
+  "VocabularyName": "",
+  "LanguageCode": "",
+  "Phrases": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * LanguageCode **required** [LanguageCode](#languagecode)
+  * Phrases **required** [Phrases](#phrases)
+  * VocabularyName **required** [VocabularyName](#vocabularyname)
+
+#### Output
+* output [UpdateVocabularyResponse](#updatevocabularyresponse)
 
 
 
 ## Definitions
 
 ### BadRequestException
-* BadRequestException `object`: There is a problem with one of the input fields. Check the S3 bucket name, make sure that the job name is not a duplicate, and confirm that you are using the correct file format. Then resend your request.
+* BadRequestException `object`: Your request didn't pass one or more validation tests. For example, a name already exists when createing a resource or a name may not exist when getting a transcription job or custom vocabulary. See the exception <code>Message</code> field for more information.
   * Message [FailureReason](#failurereason)
+
+### Boolean
+* Boolean `boolean`
 
 ### ConflictException
 * ConflictException `object`: The <code>JobName</code> field is a duplicate of a previously entered job name. Resend your request with a different name.
   * Message [String](#string)
 
+### CreateVocabularyRequest
+* CreateVocabularyRequest `object`
+  * LanguageCode **required** [LanguageCode](#languagecode)
+  * Phrases **required** [Phrases](#phrases)
+  * VocabularyName **required** [VocabularyName](#vocabularyname)
+
+### CreateVocabularyResponse
+* CreateVocabularyResponse `object`
+  * FailureReason [FailureReason](#failurereason)
+  * LanguageCode [LanguageCode](#languagecode)
+  * LastModifiedTime [DateTime](#datetime)
+  * VocabularyName [VocabularyName](#vocabularyname)
+  * VocabularyState [VocabularyState](#vocabularystate)
+
 ### DateTime
 * DateTime `string`
+
+### DeleteVocabularyRequest
+* DeleteVocabularyRequest `object`
+  * VocabularyName **required** [VocabularyName](#vocabularyname)
 
 ### FailureReason
 * FailureReason `string`
@@ -114,6 +233,19 @@ amazonaws_transcribe.StartTranscriptionJob({
 * GetTranscriptionJobResponse `object`
   * TranscriptionJob [TranscriptionJob](#transcriptionjob)
 
+### GetVocabularyRequest
+* GetVocabularyRequest `object`
+  * VocabularyName **required** [VocabularyName](#vocabularyname)
+
+### GetVocabularyResponse
+* GetVocabularyResponse `object`
+  * DownloadUri [Uri](#uri)
+  * FailureReason [FailureReason](#failurereason)
+  * LanguageCode [LanguageCode](#languagecode)
+  * LastModifiedTime [DateTime](#datetime)
+  * VocabularyName [VocabularyName](#vocabularyname)
+  * VocabularyState [VocabularyState](#vocabularystate)
+
 ### InternalFailureException
 * InternalFailureException `object`: There was an internal error. Check the error message and try your request again.
   * Message [String](#string)
@@ -122,14 +254,15 @@ amazonaws_transcribe.StartTranscriptionJob({
 * LanguageCode `string` (values: en-US, es-US)
 
 ### LimitExceededException
-* LimitExceededException `object`: Either you have sent too many requests or your input file is longer than 2 hours. Wait before you resend your request, or use a smaller file and resend the request.
+* LimitExceededException `object`: Either you have sent too many requests or your input file is too long. Wait before you resend your request, or use a smaller file and resend the request.
   * Message [String](#string)
 
 ### ListTranscriptionJobsRequest
 * ListTranscriptionJobsRequest `object`
+  * JobNameContains [TranscriptionJobName](#transcriptionjobname)
   * MaxResults [MaxResults](#maxresults)
   * NextToken [NextToken](#nexttoken)
-  * Status **required** [TranscriptionJobStatus](#transcriptionjobstatus)
+  * Status [TranscriptionJobStatus](#transcriptionjobstatus)
 
 ### ListTranscriptionJobsResponse
 * ListTranscriptionJobsResponse `object`
@@ -137,8 +270,24 @@ amazonaws_transcribe.StartTranscriptionJob({
   * Status [TranscriptionJobStatus](#transcriptionjobstatus)
   * TranscriptionJobSummaries [TranscriptionJobSummaries](#transcriptionjobsummaries)
 
+### ListVocabulariesRequest
+* ListVocabulariesRequest `object`
+  * MaxResults [MaxResults](#maxresults)
+  * NameContains [VocabularyName](#vocabularyname)
+  * NextToken [NextToken](#nexttoken)
+  * StateEquals [VocabularyState](#vocabularystate)
+
+### ListVocabulariesResponse
+* ListVocabulariesResponse `object`
+  * NextToken [NextToken](#nexttoken)
+  * Status [TranscriptionJobStatus](#transcriptionjobstatus)
+  * Vocabularies [Vocabularies](#vocabularies)
+
 ### MaxResults
 * MaxResults `integer`
+
+### MaxSpeakers
+* MaxSpeakers `integer`
 
 ### Media
 * Media `object`: Describes the input media file in a transcription request.
@@ -154,8 +303,21 @@ amazonaws_transcribe.StartTranscriptionJob({
 * NextToken `string`
 
 ### NotFoundException
-* NotFoundException `object`: We can't find the requested job. Check the job name and try your request again.
+* NotFoundException `object`: We can't find the requested transcription job or custom vocabulary. Check the name and try your request again.
   * Message [String](#string)
+
+### Phrase
+* Phrase `string`
+
+### Phrases
+* Phrases `array`
+  * items [Phrase](#phrase)
+
+### Settings
+* Settings `object`: Provides optional settings for the <code>StartTranscriptionJob</code> operation.
+  * MaxSpeakerLabels [MaxSpeakers](#maxspeakers)
+  * ShowSpeakerLabels [Boolean](#boolean)
+  * VocabularyName [VocabularyName](#vocabularyname)
 
 ### StartTranscriptionJobRequest
 * StartTranscriptionJobRequest `object`
@@ -163,6 +325,7 @@ amazonaws_transcribe.StartTranscriptionJob({
   * Media **required** [Media](#media)
   * MediaFormat **required** [MediaFormat](#mediaformat)
   * MediaSampleRateHertz [MediaSampleRateHertz](#mediasampleratehertz)
+  * Settings [Settings](#settings)
   * TranscriptionJobName **required** [TranscriptionJobName](#transcriptionjobname)
 
 ### StartTranscriptionJobResponse
@@ -185,6 +348,7 @@ amazonaws_transcribe.StartTranscriptionJob({
   * Media [Media](#media)
   * MediaFormat [MediaFormat](#mediaformat)
   * MediaSampleRateHertz [MediaSampleRateHertz](#mediasampleratehertz)
+  * Settings [Settings](#settings)
   * Transcript [Transcript](#transcript)
   * TranscriptionJobName [TranscriptionJobName](#transcriptionjobname)
   * TranscriptionJobStatus [TranscriptionJobStatus](#transcriptionjobstatus)
@@ -208,7 +372,37 @@ amazonaws_transcribe.StartTranscriptionJob({
   * TranscriptionJobName [TranscriptionJobName](#transcriptionjobname)
   * TranscriptionJobStatus [TranscriptionJobStatus](#transcriptionjobstatus)
 
+### UpdateVocabularyRequest
+* UpdateVocabularyRequest `object`
+  * LanguageCode **required** [LanguageCode](#languagecode)
+  * Phrases **required** [Phrases](#phrases)
+  * VocabularyName **required** [VocabularyName](#vocabularyname)
+
+### UpdateVocabularyResponse
+* UpdateVocabularyResponse `object`
+  * LanguageCode [LanguageCode](#languagecode)
+  * LastModifiedTime [DateTime](#datetime)
+  * VocabularyName [VocabularyName](#vocabularyname)
+  * VocabularyState [VocabularyState](#vocabularystate)
+
 ### Uri
 * Uri `string`
+
+### Vocabularies
+* Vocabularies `array`
+  * items [VocabularyInfo](#vocabularyinfo)
+
+### VocabularyInfo
+* VocabularyInfo `object`: Provides information about a custom vocabulary.
+  * LanguageCode [LanguageCode](#languagecode)
+  * LastModifiedTime [DateTime](#datetime)
+  * VocabularyName [VocabularyName](#vocabularyname)
+  * VocabularyState [VocabularyState](#vocabularystate)
+
+### VocabularyName
+* VocabularyName `string`
+
+### VocabularyState
+* VocabularyState `string` (values: PENDING, READY, FAILED)
 
 

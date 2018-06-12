@@ -953,7 +953,7 @@ amazonaws_rekognition.StopStreamProcessor({
 * FaceAttributes `string` (values: DEFAULT, ALL)
 
 ### FaceDetail
-* FaceDetail `object`: Structure containing attributes of the face that the algorithm detected.
+* FaceDetail `object`: <p>Structure containing attributes of the face that the algorithm detected.</p> <p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes. The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p> <p> is the only Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes. To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for . The following Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input parameter.</p> <ul> <li> <p>GetCelebrityRecognition</p> </li> <li> <p>GetPersonTracking</p> </li> <li> <p>GetFaceSearch</p> </li> </ul> <p>The Rekognition Image and operations can return all facial attributes. To specify which attributes to return, use the <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
   * AgeRange [AgeRange](#agerange)
   * Beard [Beard](#beard)
   * BoundingBox [BoundingBox](#boundingbox)
@@ -1243,7 +1243,7 @@ amazonaws_rekognition.StopStreamProcessor({
   * items [Landmark](#landmark)
 
 ### LimitExceededException
-* LimitExceededException `object`: <p/>
+* LimitExceededException `object`: An Amazon Rekognition service limit was exceeded. For example, if you start too many Rekognition Video jobs concurrently, calls to start operations (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. 
 
 ### ListCollectionsRequest
 * ListCollectionsRequest `object`
@@ -1340,7 +1340,7 @@ amazonaws_rekognition.StopStreamProcessor({
 * PersonIndex `integer`
 
 ### PersonMatch
-* PersonMatch `object`: Information about a person whose face matches a face(s) in a Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (,information about the person (<a>PersonDetail</a>) and the timestamp for when the person was detected in a video. An array of <code>PersonMatch</code> objects is returned by . 
+* PersonMatch `object`: Information about a person whose face matches a face(s) in a Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (, information about the person (<a>PersonDetail</a>) and the timestamp for when the person was detected in a video. An array of <code>PersonMatch</code> objects is returned by . 
   * FaceMatches [FaceMatchList](#facematchlist)
   * Person [PersonDetail](#persondetail)
   * Timestamp [Timestamp](#timestamp)

@@ -11,7 +11,7 @@
     },
     "description": "Open, scableable, transparent payroll API.",
     "title": "PayRun.IO",
-    "version": "17.18.6.206",
+    "version": "18.19.1.208",
     "x-apisguru-categories": [
       "financial"
     ],
@@ -2238,6 +2238,82 @@
         ]
       }
     },
+    "/Employer/{EmployerId}/Employee/{EmployeeId}/Revisions": {
+      "get": {
+        "description": "Gets links to all employee revisions",
+        "operationId": "GetEmployeeRevisions",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The employee's unique identifier. E.g EE001",
+            "in": "path",
+            "name": "EmployeeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get all employee revisions",
+        "tags": [
+          "Employee"
+        ]
+      }
+    },
     "/Employer/{EmployerId}/Employee/{EmployeeId}/Tag/{TagId}": {
       "delete": {
         "description": "Deletes a tag from the employee",
@@ -3951,6 +4027,82 @@
         ]
       }
     },
+    "/Employer/{EmployerId}/PayCode/{PayCodeId}/Revisions": {
+      "get": {
+        "description": "Returns links to all revisions of the pay code",
+        "operationId": "GetPayCodeRevisions",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pay code unique identifier. E.g. CODE001",
+            "in": "path",
+            "name": "PayCodeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get all revisions of the Pay Code",
+        "tags": [
+          "PayCode"
+        ]
+      }
+    },
     "/Employer/{EmployerId}/PayCode/{PayCodeId}/Tag/{TagId}": {
       "delete": {
         "description": "Deletes a tag from the pay code",
@@ -5353,6 +5505,89 @@
         ]
       }
     },
+    "/Employer/{EmployerId}/PaySchedule/{PayScheduleId}/PayRun/{PayRunId}/Commentaries": {
+      "get": {
+        "description": "Get links to all commentaries for the specified pay run.",
+        "operationId": "GetCommentariesFromPayRun",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pay schedule's unique identifier. E.g SCH001",
+            "in": "path",
+            "name": "PayScheduleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pay run's unique identifier. E.g. PR001",
+            "in": "path",
+            "name": "PayRunId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get links to all commentaries for the specified pay run",
+        "tags": [
+          "PayRun"
+        ]
+      }
+    },
     "/Employer/{EmployerId}/PaySchedule/{PayScheduleId}/PayRun/{PayRunId}/Employee/{EmployeeId}": {
       "delete": {
         "description": "Delete pay run results for a single employee",
@@ -5603,7 +5838,8 @@
         },
         "summary": "Gets the report lines from the specified pay run",
         "tags": [
-          "ReportLine"
+          "ReportLine",
+          "PayRun"
         ]
       }
     },
@@ -7114,6 +7350,82 @@
         ]
       }
     },
+    "/Employer/{EmployerId}/Pension/{PensionId}/Revisions": {
+      "get": {
+        "description": "Returns links to all revisions of the pension",
+        "operationId": "GetPensionRevisions",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pension's unique identifier. E.g PEN001",
+            "in": "path",
+            "name": "PensionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get all pension revisions",
+        "tags": [
+          "Pension"
+        ]
+      }
+    },
     "/Employer/{EmployerId}/Pension/{PensionId}/{EffectiveDate}": {
       "delete": {
         "description": "Deletes the specified pension revision for the matching revision date",
@@ -7809,6 +8121,15 @@
             "type": "string"
           },
           {
+            "description": "The reporting instruction object.",
+            "in": "body",
+            "name": "ReportingInstruction",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReportingInstruction"
+            }
+          },
+          {
             "default": "Auto",
             "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
             "format": "string",
@@ -7945,6 +8266,15 @@
             "type": "string"
           },
           {
+            "description": "The reporting instruction object.",
+            "in": "body",
+            "name": "ReportingInstruction",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReportingInstruction"
+            }
+          },
+          {
             "default": "Auto",
             "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
             "format": "string",
@@ -7998,6 +8328,75 @@
         "summary": "Creates a new Reporting Instruction",
         "tags": [
           "ReportLineInstruction"
+        ]
+      }
+    },
+    "/Employer/{EmployerId}/Revisions": {
+      "get": {
+        "description": "Gets links to all the employer revisions",
+        "operationId": "GetEmployerRevisions",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Gets the employer revisions",
+        "tags": [
+          "Employer"
         ]
       }
     },
@@ -10522,6 +10921,20 @@
             "type": "string"
           },
           {
+            "description": "The element index to begin the report. Used to control paging within large data sets. E.g. 1",
+            "in": "query",
+            "name": "StartIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The highest element index to return from the report. Used to control paging within large data sets. E.g. 100",
+            "in": "query",
+            "name": "MaxIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "Auto",
             "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
             "format": "string",
@@ -10614,6 +11027,20 @@
             "type": "string"
           },
           {
+            "description": "The element index to begin the report. Used to control paging within large data sets. E.g. 1",
+            "in": "query",
+            "name": "StartIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The highest element index to return from the report. Used to control paging within large data sets. E.g. 100",
+            "in": "query",
+            "name": "MaxIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "Auto",
             "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
             "format": "string",
@@ -10670,6 +11097,82 @@
         ]
       }
     },
+    "/Report/LASTPAYDATE/run": {
+      "get": {
+        "description": "Returns the result of the executed last pay date report for the given query parameters",
+        "operationId": "GetLastPayDateReportOuput",
+        "parameters": [
+          {
+            "description": "The employer unique key. E.g. ER001",
+            "in": "query",
+            "name": "EmployerKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The employee unique key. E.g. EE001",
+            "in": "query",
+            "name": "EmployeeKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The result of the last pay date report execution",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Runs the last pay date report",
+        "tags": [
+          "Reports"
+        ]
+      }
+    },
     "/Report/NETPAY/run": {
       "get": {
         "description": "Returns the result of the executed net pay report for the given query parameters",
@@ -10702,6 +11205,20 @@
             "format": "integer",
             "in": "query",
             "name": "TaxPeriod",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The element index to begin the report. Used to control paging within large data sets. E.g. 1",
+            "in": "query",
+            "name": "StartIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The highest element index to return from the report. Used to control paging within large data sets. E.g. 100",
+            "in": "query",
+            "name": "MaxIndex",
             "required": false,
             "type": "string"
           },
@@ -10762,6 +11279,82 @@
         ]
       }
     },
+    "/Report/NEXTPERIOD/run": {
+      "get": {
+        "description": "Returns the result of the executed next pay period report for the given query parameters",
+        "operationId": "GetNextPayPeriodDatesReportOutput",
+        "parameters": [
+          {
+            "description": "The employer unique key. E.g. ER001",
+            "in": "query",
+            "name": "EmployerKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pay schedule unique key. E.g. SCH001",
+            "in": "query",
+            "name": "PayScheduleKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The result of the next pay period report execution",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Runs the next pay period report",
+        "tags": [
+          "Reports"
+        ]
+      }
+    },
     "/Report/P11SUM/run": {
       "get": {
         "description": "Returns the result of the executed P11 summary report for the given query parameters",
@@ -10794,6 +11387,20 @@
             "format": "integer",
             "in": "query",
             "name": "TaxPeriod",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The element index to begin the report. Used to control paging within large data sets. E.g. 1",
+            "in": "query",
+            "name": "StartIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The highest element index to return from the report. Used to control paging within large data sets. E.g. 100",
+            "in": "query",
+            "name": "MaxIndex",
             "required": false,
             "type": "string"
           },
@@ -11126,6 +11733,20 @@
             "type": "string"
           },
           {
+            "description": "The element index to begin the report. Used to control paging within large data sets. E.g. 1",
+            "in": "query",
+            "name": "StartIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The highest element index to return from the report. Used to control paging within large data sets. E.g. 100",
+            "in": "query",
+            "name": "MaxIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "Auto",
             "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
             "format": "string",
@@ -11218,6 +11839,27 @@
             "type": "string"
           },
           {
+            "description": "The element index to begin the report. Used to control paging within large data sets. E.g. 1",
+            "in": "query",
+            "name": "StartIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The highest element index to return from the report. Used to control paging within large data sets. E.g. 100",
+            "in": "query",
+            "name": "MaxIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The payment date context for the report. E.g. 2018-04-30",
+            "in": "query",
+            "name": "PaymentDate",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "Auto",
             "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
             "format": "string",
@@ -11269,6 +11911,126 @@
           }
         },
         "summary": "Runs the payslip report",
+        "tags": [
+          "Reports"
+        ]
+      }
+    },
+    "/Report/PAYSLIP2/run": {
+      "get": {
+        "description": "Returns the result of the executed concise payslip report for the given query parameters",
+        "operationId": "GetPayslip2ReportOutput",
+        "parameters": [
+          {
+            "description": "The employer unique key. E.g. ER001",
+            "in": "query",
+            "name": "EmployerKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pay schedule unique key. E.g. SCH001",
+            "in": "query",
+            "name": "PayScheduleKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
+            "format": "integer",
+            "in": "query",
+            "name": "TaxYear",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The tax period number.",
+            "format": "integer",
+            "in": "query",
+            "name": "TaxPeriod",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "A comma separated list of the employee codes. E.g. EMP001,EMP002",
+            "in": "query",
+            "name": "EmployeeCodes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The element index to begin the report. Used to control paging within large data sets. E.g. 1",
+            "in": "query",
+            "name": "StartIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The highest element index to return from the report. Used to control paging within large data sets. E.g. 100",
+            "in": "query",
+            "name": "MaxIndex",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The payment date context for the report. E.g. 2018-04-30",
+            "in": "query",
+            "name": "PaymentDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The result of the concise payslip report execution",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Runs the concide payslip report",
         "tags": [
           "Reports"
         ]
@@ -19122,7 +19884,8 @@
                 "P45YtdTaxRule",
                 "YtdInstructionRule",
                 "TaxCodeRegionChangeRule",
-                "AutoEnrolmentStatusChangeRule"
+                "AutoEnrolmentStatusChangeRule",
+                "EmployeeDeceasedRule"
               ],
               "title": "RuleExclusions",
               "type": "string"
@@ -19512,7 +20275,8 @@
                 "P45YtdTaxRule",
                 "YtdInstructionRule",
                 "TaxCodeRegionChangeRule",
-                "AutoEnrolmentStatusChangeRule"
+                "AutoEnrolmentStatusChangeRule",
+                "EmployeeDeceasedRule"
               ],
               "title": "RuleExclusions",
               "type": "string"
@@ -19982,6 +20746,12 @@
       "properties": {
         "PayRun": {
           "properties": {
+            "Executed": {
+              "description": "The pay run's executed",
+              "format": "date",
+              "title": "Executed",
+              "type": "string"
+            },
             "IsSupplementary": {
               "description": "The pay run's is supplementary",
               "title": "IsSupplementary",
@@ -20324,8 +21094,7 @@
               "enum": [
                 "NotSet",
                 "NetBased",
-                "ReliefAtSourceIncluded",
-                "ReliefAtSourceExcluded"
+                "ReliefAtSource"
               ],
               "title": "TaxationMethod",
               "type": "string"

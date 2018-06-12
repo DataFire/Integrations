@@ -56,6 +56,11 @@ amazonaws_translate.TranslateText({
 ### BoundedLengthString
 * BoundedLengthString `string`
 
+### DetectedLanguageLowConfidenceException
+* DetectedLanguageLowConfidenceException `object`: The confidence that Amazon Comprehend accurately detected the source language is low. If a low confidence level is acceptable for your application, you can use the language in the exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer Guide</i>.
+  * DetectedLanguageCode [LanguageCodeString](#languagecodestring)
+  * Message [String](#string)
+
 ### InternalServerException
 * InternalServerException `object`: An internal server error occurred. Retry your request.
   * Message [String](#string)

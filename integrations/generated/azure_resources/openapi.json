@@ -7,7 +7,7 @@
   "info": {
     "description": "Provides operations for working with resources and resource groups.",
     "title": "ResourceManagementClient",
-    "version": "2017-05-10",
+    "version": "2018-02-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/resources/resource-manager/Microsoft.Resources/stable/2017-05-10/resources.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Resources/stable/2018-02-01/resources.json",
         "version": "2.0"
       }
     ],
@@ -2072,6 +2072,7 @@
       "properties": {
         "id": {
           "description": "The ID of the deployment.",
+          "readOnly": true,
           "type": "string"
         },
         "name": {
@@ -2085,7 +2086,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "x-ms-azure-resource": true
     },
     "DeploymentExtendedFilter": {
       "description": "Deployment filter.",
@@ -2214,6 +2216,10 @@
             "name": "DeploymentMode"
           }
         },
+        "onErrorDeployment": {
+          "$ref": "#/definitions/OnErrorDeployment",
+          "description": "The deployment on error behavior."
+        },
         "parameters": {
           "description": "Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.",
           "type": "object"
@@ -2265,6 +2271,10 @@
             "modelAsString": false,
             "name": "DeploymentMode"
           }
+        },
+        "onErrorDeployment": {
+          "$ref": "#/definitions/OnErrorDeploymentExtended",
+          "description": "The deployment on error behavior."
         },
         "outputs": {
           "description": "Key/value pairs that represent deploymentoutput.",
@@ -2412,12 +2422,62 @@
         "type": {
           "description": "The identity type.",
           "enum": [
-            "SystemAssigned"
+            "SystemAssigned",
+            "UserAssigned",
+            "SystemAssigned, UserAssigned",
+            "None"
           ],
           "type": "string",
           "x-ms-enum": {
             "modelAsString": false,
             "name": "ResourceIdentityType"
+          }
+        }
+      }
+    },
+    "OnErrorDeployment": {
+      "description": "Deployment on error behavior.",
+      "properties": {
+        "deploymentName": {
+          "description": "The deployment to be used on error case.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.",
+          "enum": [
+            "LastSuccessful",
+            "SpecificDeployment"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "OnErrorDeploymentType"
+          }
+        }
+      }
+    },
+    "OnErrorDeploymentExtended": {
+      "description": "Deployment on error behavior with additional details.",
+      "properties": {
+        "deploymentName": {
+          "description": "The deployment to be used on error case.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "The state of the provisioning for the on error deployment.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.",
+          "enum": [
+            "LastSuccessful",
+            "SpecificDeployment"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "OnErrorDeploymentType"
           }
         }
       }
@@ -2611,7 +2671,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "x-ms-azure-resource": true
     },
     "ResourceGroupExportResult": {
       "description": "Resource group export result.",
@@ -2838,6 +2899,7 @@
         },
         "id": {
           "description": "The tag ID.",
+          "readOnly": true,
           "type": "string"
         },
         "tagName": {
@@ -2862,13 +2924,15 @@
         },
         "id": {
           "description": "The tag ID.",
+          "readOnly": true,
           "type": "string"
         },
         "tagValue": {
           "description": "The tag value.",
           "type": "string"
         }
-      }
+      },
+      "x-ms-azure-resource": true
     },
     "TagsListResult": {
       "description": "List of subscription tags.",

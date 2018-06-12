@@ -47,7 +47,7 @@ azure_automation_softwareupdateconfigurationmachinerun.SoftwareUpdateConfigurati
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The name of the automation account.
   * api-version **required** `string`: Client Api Version.
   * clientRequestId `string`: Identifies this specific client request.
@@ -98,7 +98,7 @@ azure_automation_softwareupdateconfigurationmachinerun.SoftwareUpdateConfigurati
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The name of the automation account.
   * softwareUpdateConfigurationMachineRunId **required** `string`: The Id of the software update configuration machine run.
   * api-version **required** `string`: Client Api Version.

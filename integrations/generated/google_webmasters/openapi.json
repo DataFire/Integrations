@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "View Google Search Console data for your verified sites.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Search Console",
     "version": "v3",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/webmasters/v3/rest",
@@ -52,23 +47,12 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
         "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
-        "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -120,13 +104,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -166,16 +150,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -214,7 +192,7 @@
         "operationId": "sites.delete",
         "parameters": [
           {
-            "description": "The URI of the property as defined in Search Console. Examples: http://www.example.com/ or android-app://com.example/",
+            "description": "The URI of the property as defined in Search Console. Examples: http://www.example.com/ or android-app://com.example/ Note: for property-sets, use the URI that starts with sc-set: which is used in Search Console URLs.",
             "in": "path",
             "name": "siteUrl",
             "required": true,
@@ -230,9 +208,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
@@ -245,7 +220,7 @@
         "operationId": "sites.get",
         "parameters": [
           {
-            "description": "The URI of the property as defined in Search Console. Examples: http://www.example.com/ or android-app://com.example/",
+            "description": "The URI of the property as defined in Search Console. Examples: http://www.example.com/ or android-app://com.example/ Note: for property-sets, use the URI that starts with sc-set: which is used in Search Console URLs.",
             "in": "path",
             "name": "siteUrl",
             "required": true,
@@ -264,16 +239,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -325,9 +294,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters"
             ]
           }
@@ -392,16 +358,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -442,16 +402,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -513,9 +467,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
@@ -554,16 +505,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -622,9 +567,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters"
             ]
           }
@@ -694,16 +636,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -791,16 +727,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -892,9 +822,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
@@ -963,16 +890,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }

@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/datafactory/resource-manager/Microsoft.DataFactory/preview/2017-09-01-preview/datafactory.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/datafactory/resource-manager/Microsoft.DataFactory/preview/2017-09-01-preview/datafactory.json",
         "version": "2.0"
       }
     ],
@@ -104,6 +104,14 @@
       "minLength": 1,
       "name": "linkedServiceName",
       "pattern": "^[A-Za-z0-9_][^<>*#.%&:\\\\+?/]*$",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "locationId": {
+      "description": "The location identifier.",
+      "in": "path",
+      "name": "locationId",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
@@ -496,6 +504,103 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.DataFactory/locations/{locationId}/configureFactoryRepo": {
+      "post": {
+        "description": "Updates a factory's repo information.",
+        "operationId": "Factories_ConfigureFactoryRepo",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/locationId"
+          },
+          {
+            "$ref": "#/parameters/api-version"
+          },
+          {
+            "description": "Update factory repo request definition.",
+            "in": "body",
+            "name": "factoryRepoUpdate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FactoryRepoUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "$ref": "#/definitions/Factory"
+            }
+          },
+          "default": {
+            "description": "An error response received from the Azure Data Factory service.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "configureFactoryRepo"
+        ],
+        "x-ms-examples": {
+          "Factories_ConfigureFactoryRepo": {
+            "parameters": {
+              "api-version": "2017-09-01-preview",
+              "factoryRepoUpdate": {
+                "factoryId": "/subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleresourcegroup/providers/Microsoft.DataFactory/factories/examplefactoryname",
+                "resourceGroupName": "exampleResourceGroup",
+                "vstsConfiguration": {
+                  "accountName": "msdata",
+                  "collaborationBranch": "master",
+                  "lastCommitId": "",
+                  "projectName": "datafactory",
+                  "repositoryName": "exampleRepo",
+                  "rootFolder": "/",
+                  "tenantId": "12f988bf-86d1-41af-91ab-2d7cd011db49"
+                }
+              },
+              "locationId": "eastus",
+              "subscriptionId": "12345678-1234-1234-12345678abc"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleresourcegroup/providers/Microsoft.DataFactory/factories/examplefactoryname",
+                  "location": "East US",
+                  "name": "exampleFactoryName",
+                  "properties": {
+                    "createTime": "2017-09-13T17:33:54.0294655Z",
+                    "provisioningState": "Succeeded",
+                    "version": "2017-09-01-preview",
+                    "vstsConfiguration": {
+                      "accountName": "msdata",
+                      "collaborationBranch": "master",
+                      "lastCommitId": "",
+                      "projectName": "datafactory",
+                      "repositoryName": "exampleRepo",
+                      "rootFolder": "/",
+                      "tenantId": "12f988bf-86d1-41af-91ab-2d7cd011db49"
+                    }
+                  },
+                  "tags": {},
+                  "type": "Microsoft.DataFactory/factories"
+                },
+                "headers": {
+                  "Date": "Wed, 13 Sep 2017 17:33:54 GMT",
+                  "X-Content-Type-Options": "nosniff",
+                  "x-ms-correlation-request-id": "8d66d31c-23f3-4ac1-bc8c-1b6464342ad1",
+                  "x-ms-ratelimit-remaining-subscription-writes": "1198",
+                  "x-ms-request-id": "dc1954ed-a1d3-4437-bd73-480ffdf1ea5a"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories": {
       "get": {
         "description": "Lists factories.",
@@ -630,6 +735,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:31 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -639,6 +745,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:31 GMT",
                   "x-ms-correlation-request-id": "95fce457-ddee-44a2-84a1-05c33b32d807",
@@ -852,7 +959,18 @@
             "parameters": {
               "api-version": "2017-09-01-preview",
               "factory": {
-                "location": "East US"
+                "location": "East US",
+                "properties": {
+                  "vstsConfiguration": {
+                    "accountName": "msdata",
+                    "collaborationBranch": "master",
+                    "lastCommitId": "",
+                    "projectName": "datafactory",
+                    "repositoryName": "exampleRepo",
+                    "rootFolder": "/",
+                    "tenantId": "12f988bf-86d1-41af-91ab-2d7cd011db49"
+                  }
+                }
               },
               "factoryName": "exampleFactoryName",
               "resourceGroupName": "exampleResourceGroup",
@@ -867,7 +985,16 @@
                   "properties": {
                     "createTime": "2017-09-13T17:33:54.0294655Z",
                     "provisioningState": "Succeeded",
-                    "version": "2017-09-01-preview"
+                    "version": "2017-09-01-preview",
+                    "vstsConfiguration": {
+                      "accountName": "msdata",
+                      "collaborationBranch": "master",
+                      "lastCommitId": "",
+                      "projectName": "datafactory",
+                      "repositoryName": "exampleRepo",
+                      "rootFolder": "/",
+                      "tenantId": "12f988bf-86d1-41af-91ab-2d7cd011db49"
+                    }
                   },
                   "tags": {},
                   "type": "Microsoft.DataFactory/factories"
@@ -931,6 +1058,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Mon, 02 Oct 2017 17:27:33 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -1092,6 +1220,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:27 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -1101,6 +1230,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:27 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -1296,6 +1426,7 @@
               },
               "datasetName": "exampleDataset",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "resourceGroupName": "exampleResourceGroup",
               "subscriptionId": "12345678-1234-1234-12345678abc"
             },
@@ -1380,6 +1511,7 @@
               },
               "datasetName": "exampleDataset",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "resourceGroupName": "exampleResourceGroup",
               "subscriptionId": "12345678-1234-1234-12345678abc"
             },
@@ -1573,6 +1705,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:29 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -1582,6 +1715,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:29 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -1862,6 +1996,7 @@
             "parameters": {
               "api-version": "2017-09-01-preview",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "integrationRuntime": {
                 "properties": {
                   "description": "A managed reserved integration runtime",
@@ -2372,6 +2507,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Thu, 19 Oct 2017 15:22:16 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -2379,6 +2515,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Thu, 19 Oct 2017 15:22:16 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -3038,6 +3175,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Tue, 28 Nov 2017 06:05:42 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -3045,6 +3183,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Tue, 28 Nov 2017 06:05:44 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -3147,6 +3286,7 @@
                 }
               },
               "202": {
+                "body": null,
                 "headers": {
                   "Date": "Tue, 28 Nov 2017 07:17:56 GMT",
                   "Location": "https://adfrpnightly.svc.datafactory-test.azure.com/subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/integrationRuntimes/exampleManagedIntegrationRuntime/start/operationresults/9a070152cddb4c839d482ccfb76a7537?api-version=2017-09-01-preview",
@@ -3210,6 +3350,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Tue, 28 Nov 2017 07:40:23 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -3217,6 +3358,7 @@
                 }
               },
               "202": {
+                "body": null,
                 "headers": {
                   "Date": "Tue, 28 Nov 2017 07:39:21 GMT",
                   "Location": "https://adfrpnightly.svc.datafactory-test.azure.com/subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/integrationRuntimes/exampleManagedIntegrationRuntime/stop/operationresults/50799841b7f94497ae43291b791db7e0?api-version=2017-09-01-preview",
@@ -3277,6 +3419,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Sun, 20 Aug 2017 08:46:58 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -3334,6 +3477,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Tue, 14 Nov 2017 03:42:42 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -3474,6 +3618,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:28 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -3483,6 +3628,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:28 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -3628,6 +3774,7 @@
             "parameters": {
               "api-version": "2017-09-01-preview",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "linkedService": {
                 "properties": {
                   "type": "AzureStorage",
@@ -3673,6 +3820,7 @@
             "parameters": {
               "api-version": "2017-09-01-preview",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "linkedService": {
                 "properties": {
                   "description": "Example description",
@@ -3980,12 +4128,15 @@
         "x-ms-examples": {
           "ActivityRuns_ListByPipelineRun": {
             "parameters": {
+              "activityName": null,
               "api-version": "2017-09-01-preview",
               "endTime": "2017-09-13T18%3A07%3A59.6211018Z",
               "factoryName": "exampleFactoryName",
+              "linkedServiceName": null,
               "resourceGroupName": "exampleResourceGroup",
               "runId": "a420e4fd-ebe9-4758-8db7-852b4d06245e",
               "startTime": "2017-09-13T17%3A54%3A57.0811551Z",
+              "status": null,
               "subscriptionId": "12345678-1234-1234-12345678abc"
             },
             "responses": {
@@ -4277,6 +4428,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:27 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -4286,6 +4438,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:27 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -4479,6 +4632,7 @@
             "parameters": {
               "api-version": "2017-09-01-preview",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "pipeline": {
                 "properties": {
                   "activities": [
@@ -4620,6 +4774,7 @@
             "parameters": {
               "api-version": "2017-09-01-preview",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "pipeline": {
                 "properties": {
                   "activities": [
@@ -4987,6 +5142,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:26 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -4996,6 +5152,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:26 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -5158,6 +5315,7 @@
             "parameters": {
               "api-version": "2017-09-01-preview",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "resourceGroupName": "exampleResourceGroup",
               "subscriptionId": "12345678-1234-1234-12345678abc",
               "trigger": {
@@ -5236,6 +5394,7 @@
             "parameters": {
               "api-version": "2017-09-01-preview",
               "factoryName": "exampleFactoryName",
+              "ifMatch": null,
               "resourceGroupName": "exampleResourceGroup",
               "subscriptionId": "12345678-1234-1234-12345678abc",
               "trigger": {
@@ -5361,6 +5520,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 17:58:23 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -5421,6 +5581,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 18:04:25 GMT",
                   "X-Content-Type-Options": "nosniff",
@@ -5735,6 +5896,13 @@
           "description": "The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.",
           "discriminator": "type",
           "properties": {
+            "annotations": {
+              "description": "List of tags that can be used for describing the Dataset.",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
             "description": {
               "description": "Dataset description.",
               "type": "string"
@@ -5742,6 +5910,13 @@
             "linkedServiceName": {
               "description": "Linked service reference type.",
               "properties": {
+                "parameters": {
+                  "additionalProperties": {
+                    "type": "object"
+                  },
+                  "description": "An object mapping parameter names to argument values.",
+                  "type": "object"
+                },
                 "referenceName": {
                   "description": "Reference LinkedService name.",
                   "type": "string"
@@ -5775,7 +5950,8 @@
                       "Int",
                       "Float",
                       "Bool",
-                      "Array"
+                      "Array",
+                      "SecureString"
                     ],
                     "type": "string",
                     "x-ms-enum": {
@@ -5954,6 +6130,27 @@
           "description": "Version of the factory.",
           "readOnly": true,
           "type": "string"
+        },
+        "vstsConfiguration": {
+          "$ref": "#/definitions/FactoryVSTSConfiguration",
+          "description": "VSTS repo information of the factory."
+        }
+      }
+    },
+    "FactoryRepoUpdate": {
+      "description": "Factory's VSTS repo information.",
+      "properties": {
+        "factoryResourceId": {
+          "description": "The factory resource id.",
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "description": "The resource group name.",
+          "type": "string"
+        },
+        "vstsConfiguration": {
+          "$ref": "#/definitions/FactoryVSTSConfiguration",
+          "description": "VSTS repo information of the factory."
         }
       }
     },
@@ -5970,6 +6167,39 @@
           },
           "description": "The resource tags.",
           "type": "object"
+        }
+      }
+    },
+    "FactoryVSTSConfiguration": {
+      "description": "Factory's VSTS repo information.",
+      "properties": {
+        "accountName": {
+          "description": "VSTS account name.",
+          "type": "string"
+        },
+        "collaborationBranch": {
+          "description": "VSTS collaboration branch.",
+          "type": "string"
+        },
+        "lastCommitId": {
+          "description": "VSTS last commit id.",
+          "type": "string"
+        },
+        "projectName": {
+          "description": "VSTS project name.",
+          "type": "string"
+        },
+        "repositoryName": {
+          "description": "VSTS repository name.",
+          "type": "string"
+        },
+        "rootFolder": {
+          "description": "VSTS root folder.",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "VSTS tenant id.",
+          "type": "string"
         }
       }
     },
@@ -6165,6 +6395,13 @@
     "LinkedServiceReference": {
       "description": "Linked service reference type.",
       "properties": {
+        "parameters": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "description": "An object mapping parameter names to argument values.",
+          "type": "object"
+        },
         "referenceName": {
           "description": "Reference LinkedService name.",
           "type": "string"
@@ -6197,6 +6434,13 @@
           "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.",
           "discriminator": "type",
           "properties": {
+            "annotations": {
+              "description": "List of tags that can be used for describing the Dataset.",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
             "connectVia": {
               "description": "Integration runtime reference type.",
               "properties": {
@@ -6227,6 +6471,40 @@
             "description": {
               "description": "Linked service description.",
               "type": "string"
+            },
+            "parameters": {
+              "additionalProperties": {
+                "description": "Definition of a single parameter for an entity.",
+                "properties": {
+                  "defaultValue": {
+                    "description": "Default value of parameter.",
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "Parameter type.",
+                    "enum": [
+                      "Object",
+                      "String",
+                      "Int",
+                      "Float",
+                      "Bool",
+                      "Array",
+                      "SecureString"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ParameterType"
+                    }
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "type": "object"
+              },
+              "description": "Definition of all parameters for an entity.",
+              "type": "object"
             },
             "type": {
               "description": "Type of linked service.",
@@ -6423,7 +6701,8 @@
               "Int",
               "Float",
               "Bool",
-              "Array"
+              "Array",
+              "SecureString"
             ],
             "type": "string",
             "x-ms-enum": {
@@ -6455,7 +6734,8 @@
             "Int",
             "Float",
             "Bool",
-            "Array"
+            "Array",
+            "SecureString"
           ],
           "type": "string",
           "x-ms-enum": {
@@ -6602,6 +6882,13 @@
               },
               "type": "array"
             },
+            "annotations": {
+              "description": "List of tags that can be used for describing the Pipeline.",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
             "concurrency": {
               "description": "The max number of concurrent runs for the pipeline.",
               "minimum": 1,
@@ -6627,7 +6914,8 @@
                       "Int",
                       "Float",
                       "Bool",
-                      "Array"
+                      "Array",
+                      "SecureString"
                     ],
                     "type": "string",
                     "x-ms-enum": {

@@ -7,11 +7,16 @@ Client library for Azure ML Web Services Management Client
 npm install --save @datafire/azure_machinelearning_webservices
 ```
 ```js
-let azure_machinelearning_webservices = require('@datafire/azure_machinelearning_webservices').create();
+let azure_machinelearning_webservices = require('@datafire/azure_machinelearning_webservices').create({
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: ""
+});
 
-azure_machinelearning_webservices.WebServices_ListBySubscriptionId({
-  "api-version": "",
-  "subscriptionId": ""
+azure_machinelearning_webservices.Operations_List({
+  "api-version": ""
 }).then(data => {
   console.log(data);
 });
@@ -22,6 +27,23 @@ azure_machinelearning_webservices.WebServices_ListBySubscriptionId({
 These APIs allow end users to operate on Azure Machine Learning Web Services resources. They support the following operations:<ul><li>Create or update a web service</li><li>Get a web service</li><li>Patch a web service</li><li>Delete a web service</li><li>Get All Web Services in a Resource Group </li><li>Get All Web Services in a Subscription</li><li>Get Web Services Keys</li></ul>
 
 ## Actions
+
+### Operations_List
+Lists all the available REST API operations.
+
+
+```js
+azure_machinelearning_webservices.Operations_List({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The version of the Microsoft.MachineLearning resource provider API to use.
+
+#### Output
+* output [OperationEntityListResult](#operationentitylistresult)
 
 ### WebServices_ListBySubscriptionId
 Gets the web services in the specified subscription.
@@ -332,6 +354,23 @@ azure_machinelearning_webservices.WebServices_ListKeys({
   * modeValuesInfo `object`: Definitions for nested interface parameters if this is a complex module parameter.
   * name `string`: Parameter name.
   * parameterType `string`: Parameter type.
+
+### OperationDisplayInfo
+* OperationDisplayInfo `object`: The API operation info.
+  * description `string`: The description of the operation.
+  * operation `string`: The action that users can perform, based on their permission level.
+  * provider `string`: The service provider.
+  * resource `string`: The resource on which the operation is performed.
+
+### OperationEntity
+* OperationEntity `object`: An API operation.
+  * display [OperationDisplayInfo](#operationdisplayinfo)
+  * name `string`: Operation name: {provider}/{resource}/{operation}.
+
+### OperationEntityListResult
+* OperationEntityListResult `object`: The list of REST API operations.
+  * value `array`: The list of operations.
+    * items [OperationEntity](#operationentity)
 
 ### OutputPort
 * OutputPort `object`: Asset output port

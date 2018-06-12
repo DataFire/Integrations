@@ -1596,6 +1596,15 @@ amazonaws_s3.PutBucketWebsite({
 * Buckets `array`
   * items [Bucket](#bucket)
 
+### BytesProcessed
+* BytesProcessed `integer`
+
+### BytesReturned
+* BytesReturned `integer`
+
+### BytesScanned
+* BytesScanned `integer`
+
 ### CORSConfiguration
 * CORSConfiguration `object`
   * CORSRules **required** [CORSRules](#corsrules)
@@ -1684,6 +1693,9 @@ amazonaws_s3.PutBucketWebsite({
 * CompletedPartList `array`
   * items [CompletedPart](#completedpart)
 
+### CompressionType
+* CompressionType `string` (values: NONE, GZIP)
+
 ### Condition
 * Condition `object`
   * HttpErrorCodeReturnedEquals [HttpErrorCodeReturnedEquals](#httperrorcodereturnedequals)
@@ -1712,6 +1724,9 @@ amazonaws_s3.PutBucketWebsite({
 
 ### ContentType
 * ContentType `string`
+
+### ContinuationEvent
+* ContinuationEvent `object`
 
 ### CopyObjectOutput
 * CopyObjectOutput `object`
@@ -1903,6 +1918,9 @@ amazonaws_s3.PutBucketWebsite({
 ### EmailAddress
 * EmailAddress `string`
 
+### EnableRequestProgress
+* EnableRequestProgress `boolean`
+
 ### EncodingType
 * EncodingType `string` (values: url): Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
 
@@ -1915,6 +1933,9 @@ amazonaws_s3.PutBucketWebsite({
 ### EncryptionConfiguration
 * EncryptionConfiguration `object`: Container for information regarding encryption based configuration for replicas.
   * ReplicaKmsKeyID [ReplicaKmsKeyID](#replicakmskeyid)
+
+### EndEvent
+* EndEvent `object`
 
 ### Error
 * Error `object`
@@ -2227,6 +2248,8 @@ amazonaws_s3.PutBucketWebsite({
 ### InputSerialization
 * InputSerialization `object`: Describes the serialization format of the object.
   * CSV [CSVInput](#csvinput)
+  * CompressionType [CompressionType](#compressiontype)
+  * JSON [JSONInput](#jsoninput)
 
 ### InventoryConfiguration
 * InventoryConfiguration `object`
@@ -2294,6 +2317,17 @@ amazonaws_s3.PutBucketWebsite({
 
 ### IsTruncated
 * IsTruncated `boolean`
+
+### JSONInput
+* JSONInput `object`
+  * Type [JSONType](#jsontype)
+
+### JSONOutput
+* JSONOutput `object`
+  * RecordDelimiter [RecordDelimiter](#recorddelimiter)
+
+### JSONType
+* JSONType `string` (values: DOCUMENT, LINES)
 
 ### KMSContext
 * KMSContext `string`
@@ -2491,10 +2525,10 @@ amazonaws_s3.PutBucketWebsite({
 * LocationPrefix `string`
 
 ### LoggingEnabled
-* LoggingEnabled `object`
-  * TargetBucket [TargetBucket](#targetbucket)
+* LoggingEnabled `object`: Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.
+  * TargetBucket **required** [TargetBucket](#targetbucket)
   * TargetGrants [TargetGrants](#targetgrants)
-  * TargetPrefix [TargetPrefix](#targetprefix)
+  * TargetPrefix **required** [TargetPrefix](#targetprefix)
 
 ### MFA
 * MFA `string`
@@ -2617,7 +2651,7 @@ amazonaws_s3.PutBucketWebsite({
   * NoncurrentDays [Days](#days)
 
 ### NoncurrentVersionTransition
-* NoncurrentVersionTransition `object`: Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object's lifetime.
+* NoncurrentVersionTransition `object`: Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.
   * NoncurrentDays [Days](#days)
   * StorageClass [TransitionStorageClass](#transitionstorageclass)
 
@@ -2679,7 +2713,7 @@ amazonaws_s3.PutBucketWebsite({
 * ObjectNotInActiveTierError `object`: The source object of the COPY operation is not in the active tier and is only stored in Amazon Glacier.
 
 ### ObjectStorageClass
-* ObjectStorageClass `string` (values: STANDARD, REDUCED_REDUNDANCY, GLACIER)
+* ObjectStorageClass `string` (values: STANDARD, REDUCED_REDUNDANCY, GLACIER, STANDARD_IA, ONEZONE_IA)
 
 ### ObjectVersion
 * ObjectVersion `object`
@@ -2709,6 +2743,7 @@ amazonaws_s3.PutBucketWebsite({
 ### OutputSerialization
 * OutputSerialization `object`: Describes how results of the Select job are serialized.
   * CSV [CSVOutput](#csvoutput)
+  * JSON [JSONOutput](#jsonoutput)
 
 ### Owner
 * Owner `object`
@@ -2749,6 +2784,16 @@ amazonaws_s3.PutBucketWebsite({
 
 ### Prefix
 * Prefix `string`
+
+### Progress
+* Progress `object`
+  * BytesProcessed [BytesProcessed](#bytesprocessed)
+  * BytesReturned [BytesReturned](#bytesreturned)
+  * BytesScanned [BytesScanned](#bytesscanned)
+
+### ProgressEvent
+* ProgressEvent `object`
+  * Details [Progress](#progress)
 
 ### Protocol
 * Protocol `string` (values: http, https)
@@ -2885,6 +2930,10 @@ amazonaws_s3.PutBucketWebsite({
 ### RecordDelimiter
 * RecordDelimiter `string`
 
+### RecordsEvent
+* RecordsEvent `object`
+  * Payload [Body](#body)
+
 ### Redirect
 * Redirect `object`
   * HostName [HostName](#hostname)
@@ -2939,6 +2988,10 @@ amazonaws_s3.PutBucketWebsite({
 ### RequestPaymentConfiguration
 * RequestPaymentConfiguration `object`
   * Payer **required** [Payer](#payer)
+
+### RequestProgress
+* RequestProgress `object`
+  * Enabled [EnableRequestProgress](#enablerequestprogress)
 
 ### ResponseCacheControl
 * ResponseCacheControl `string`
@@ -3045,6 +3098,26 @@ amazonaws_s3.PutBucketWebsite({
 ### SSES3
 * SSES3 `object`: Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
 
+### SelectObjectContentEventStream
+* SelectObjectContentEventStream `object`
+  * Cont [ContinuationEvent](#continuationevent)
+  * End [EndEvent](#endevent)
+  * Progress [ProgressEvent](#progressevent)
+  * Records [RecordsEvent](#recordsevent)
+  * Stats [StatsEvent](#statsevent)
+
+### SelectObjectContentOutput
+* SelectObjectContentOutput `object`
+  * Payload [SelectObjectContentEventStream](#selectobjectcontenteventstream)
+
+### SelectObjectContentRequest
+* SelectObjectContentRequest `object`: Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html">S3Select API Documentation</a>.
+  * Expression **required** [Expression](#expression)
+  * ExpressionType **required** [ExpressionType](#expressiontype)
+  * InputSerialization **required** [InputSerialization](#inputserialization)
+  * OutputSerialization **required** [OutputSerialization](#outputserialization)
+  * RequestProgress [RequestProgress](#requestprogress)
+
 ### SelectParameters
 * SelectParameters `object`: Describes the parameters for Select job types.
   * Expression **required** [Expression](#expression)
@@ -3089,8 +3162,18 @@ amazonaws_s3.PutBucketWebsite({
 ### StartAfter
 * StartAfter `string`
 
+### Stats
+* Stats `object`
+  * BytesProcessed [BytesProcessed](#bytesprocessed)
+  * BytesReturned [BytesReturned](#bytesreturned)
+  * BytesScanned [BytesScanned](#bytesscanned)
+
+### StatsEvent
+* StatsEvent `object`
+  * Details [Stats](#stats)
+
 ### StorageClass
-* StorageClass `string` (values: STANDARD, REDUCED_REDUNDANCY, STANDARD_IA)
+* StorageClass `string` (values: STANDARD, REDUCED_REDUNDANCY, STANDARD_IA, ONEZONE_IA)
 
 ### StorageClassAnalysis
 * StorageClassAnalysis `object`
@@ -3182,7 +3265,7 @@ amazonaws_s3.PutBucketWebsite({
   * items [Transition](#transition)
 
 ### TransitionStorageClass
-* TransitionStorageClass `string` (values: GLACIER, STANDARD_IA)
+* TransitionStorageClass `string` (values: GLACIER, STANDARD_IA, ONEZONE_IA)
 
 ### Type
 * Type `string` (values: CanonicalUser, AmazonCustomerByEmail, Group)

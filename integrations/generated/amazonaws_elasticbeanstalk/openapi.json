@@ -1091,6 +1091,55 @@
         }
       }
     },
+    "/#DescribeAccountAttributes": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS account.</p> <p>The result currently has one set of attributes—resource quotas.</p>",
+        "operationId": "DescribeAccountAttributes",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAccountAttributesResult"
+            }
+          },
+          "480": {
+            "description": "InsufficientPrivilegesException",
+            "schema": {
+              "$ref": "#/definitions/InsufficientPrivilegesException"
+            }
+          }
+        }
+      }
+    },
     "/#DescribeApplicationVersions": {
       "parameters": [
         {
@@ -2794,9 +2843,16 @@
       ],
       "type": "string"
     },
+    "ApplicationArn": {
+      "type": "string"
+    },
     "ApplicationDescription": {
       "description": "Describes the properties of an application.",
       "properties": {
+        "ApplicationArn": {
+          "$ref": "#/definitions/ApplicationArn",
+          "description": "The Amazon Resource Name (ARN) of the application."
+        },
         "ApplicationName": {
           "$ref": "#/definitions/ApplicationName",
           "description": "The name of the application."
@@ -2963,12 +3019,19 @@
       },
       "type": "object"
     },
+    "ApplicationVersionArn": {
+      "type": "string"
+    },
     "ApplicationVersionDescription": {
       "description": "Describes the properties of an application version.",
       "properties": {
         "ApplicationName": {
           "$ref": "#/definitions/ApplicationName",
           "description": "The name of the application to which the application version belongs."
+        },
+        "ApplicationVersionArn": {
+          "$ref": "#/definitions/ApplicationVersionArn",
+          "description": "The Amazon Resource Name (ARN) of the application version."
         },
         "BuildArn": {
           "$ref": "#/definitions/String",
@@ -4049,6 +4112,15 @@
       "format": "date-time",
       "type": "string"
     },
+    "DescribeAccountAttributesResult": {
+      "properties": {
+        "ResourceQuotas": {
+          "$ref": "#/definitions/ResourceQuotas",
+          "description": "The Elastic Beanstalk resource quotas associated with the calling AWS account."
+        }
+      },
+      "type": "object"
+    },
     "DescribeApplicationVersionsMessage": {
       "description": "Request to describe application versions.",
       "example": {
@@ -4614,7 +4686,7 @@
         },
         "EnvironmentArn": {
           "$ref": "#/definitions/EnvironmentArn",
-          "description": "The environment's Amazon Resource Name (ARN), which can be used in other API reuqests that require an ARN."
+          "description": "The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN."
         },
         "EnvironmentId": {
           "$ref": "#/definitions/EnvironmentId",
@@ -5176,7 +5248,7 @@
       "type": "array"
     },
     "InsufficientPrivilegesException": {
-      "description": "The specified account does not have sufficient privileges for one of more AWS services.",
+      "description": "The specified account does not have sufficient privileges for one or more AWS services.",
       "properties": {},
       "type": "object"
     },
@@ -5951,6 +6023,42 @@
     "ResourceNotFoundException": {
       "description": "A resource doesn't exist for the specified Amazon Resource Name (ARN).",
       "properties": {},
+      "type": "object"
+    },
+    "ResourceQuota": {
+      "description": "The AWS Elastic Beanstalk quota information for a single resource type in an AWS account. It reflects the resource's limits for this account.",
+      "properties": {
+        "Maximum": {
+          "$ref": "#/definitions/BoxedInt",
+          "description": "The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can use."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceQuotas": {
+      "description": "A set of per-resource AWS Elastic Beanstalk quotas associated with an AWS account. They reflect Elastic Beanstalk resource limits for this account.",
+      "properties": {
+        "ApplicationQuota": {
+          "$ref": "#/definitions/ResourceQuota",
+          "description": "The quota for applications in the AWS account."
+        },
+        "ApplicationVersionQuota": {
+          "$ref": "#/definitions/ResourceQuota",
+          "description": "The quota for application versions in the AWS account."
+        },
+        "ConfigurationTemplateQuota": {
+          "$ref": "#/definitions/ResourceQuota",
+          "description": "The quota for configuration templates in the AWS account."
+        },
+        "CustomPlatformQuota": {
+          "$ref": "#/definitions/ResourceQuota",
+          "description": "The quota for custom platforms in the AWS account."
+        },
+        "EnvironmentQuota": {
+          "$ref": "#/definitions/ResourceQuota",
+          "description": "The quota for environments in the AWS account."
+        }
+      },
       "type": "object"
     },
     "ResourceTagsDescriptionMessage": {

@@ -149,6 +149,44 @@ postmarkapp_account.rotateDKIMKeyForDomain({
 #### Output
 * output [DKIMRotationResponse](#dkimrotationresponse)
 
+### requestDkimVerificationForDomain
+Request DNS Verification for DKIM
+
+
+```js
+postmarkapp_account.requestDkimVerificationForDomain({
+  "X-Postmark-Account-Token": "",
+  "domainid": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * domainid **required** `integer`: The ID for the Domain for which DKIM DNS records should be verified.
+
+#### Output
+* output [DomainExtendedInformation](#domainextendedinformation)
+
+### requestReturnPathVerificationForDomain
+Request DNS Verification for Return-Path
+
+
+```js
+postmarkapp_account.requestReturnPathVerificationForDomain({
+  "X-Postmark-Account-Token": "",
+  "domainid": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * domainid **required** `integer`: The ID for the Domain for which Return-Path DNS records should be verified.
+
+#### Output
+* output [DomainExtendedInformation](#domainextendedinformation)
+
 ### requestSPFVerificationForDomain
 Request DNS Verification for SPF
 

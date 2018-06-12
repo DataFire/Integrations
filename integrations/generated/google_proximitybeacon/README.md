@@ -1,6 +1,6 @@
 # @datafire/google_proximitybeacon
 
-Client library for Google Proximity Beacon
+Client library for Proximity Beacon
 
 ## Installation and Usage
 ```bash
@@ -760,7 +760,7 @@ google_proximitybeacon.namespaces.update({
 ### Date
 * Date `object`: Represents a whole calendar date, e.g. date of birth. The time of day and
   * day `integer`: Day of month. Must be from 1 to 31 and valid for the year and month, or 0
-  * month `integer`: Month of year. Must be from 1 to 12.
+  * month `integer`: Month of year. Must be from 1 to 12, or 0 if specifying a date without a
   * year `integer`: Year of date. Must be from 1 to 9999, or 0 if specifying a date without
 
 ### DeleteAttachmentsResponse

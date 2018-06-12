@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Access Gmail mailboxes including sending user email.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Gmail",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://mail.google.com/": "Read, send, delete, and manage your email",
@@ -66,25 +61,6 @@
         "https://www.googleapis.com/auth/gmail.settings.basic": "Manage your basic mail settings",
         "https://www.googleapis.com/auth/gmail.settings.sharing": "Manage your sensitive mail settings, including who can manage your mail"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://mail.google.com/": "Read, send, delete, and manage your email",
-        "https://www.googleapis.com/auth/gmail.compose": "Manage drafts and send emails",
-        "https://www.googleapis.com/auth/gmail.insert": "Insert mail into your mailbox",
-        "https://www.googleapis.com/auth/gmail.labels": "Manage mailbox labels",
-        "https://www.googleapis.com/auth/gmail.metadata": "View your email message metadata such as labels and headers, but not the email body",
-        "https://www.googleapis.com/auth/gmail.modify": "View and modify but not delete your email",
-        "https://www.googleapis.com/auth/gmail.readonly": "View your email messages and settings",
-        "https://www.googleapis.com/auth/gmail.send": "Send email on your behalf",
-        "https://www.googleapis.com/auth/gmail.settings.basic": "Manage your basic mail settings",
-        "https://www.googleapis.com/auth/gmail.settings.sharing": "Manage your sensitive mail settings, including who can manage your mail"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -144,13 +120,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -214,32 +190,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.compose"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -306,24 +270,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.compose"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -392,24 +347,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.compose"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -449,24 +395,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.compose"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -520,32 +457,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.compose"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -619,24 +544,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.compose"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -713,32 +629,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -797,40 +701,25 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.labels"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -894,24 +783,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.labels"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -951,24 +831,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.labels"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1009,40 +880,25 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.labels"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -1113,24 +969,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.labels"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1178,24 +1025,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.labels"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1267,32 +1105,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -1377,24 +1203,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.insert"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.insert"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1457,9 +1274,6 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           }
         ],
@@ -1521,16 +1335,10 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1631,24 +1439,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.insert"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.insert"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1717,32 +1516,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.compose"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.send"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.send"
             ]
           }
@@ -1781,9 +1568,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://mail.google.com/"
-            ],
-            "Oauth2c": [
               "https://mail.google.com/"
             ]
           }
@@ -1847,32 +1631,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -1968,16 +1740,10 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -2043,16 +1809,10 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -2118,16 +1878,10 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -2177,24 +1931,15 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -2253,40 +1998,25 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.compose"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -2345,32 +2075,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2434,9 +2152,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
         ],
@@ -2471,32 +2186,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2560,9 +2263,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
         ],
@@ -2600,9 +2300,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2643,32 +2340,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2727,32 +2412,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2816,9 +2489,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
         ],
@@ -2856,9 +2526,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -2899,32 +2566,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2983,32 +2638,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -3072,9 +2715,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
         ],
@@ -3109,32 +2749,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -3198,9 +2826,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
         ],
@@ -3235,32 +2860,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -3324,9 +2937,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
         ],
@@ -3364,9 +2974,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3407,32 +3014,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -3503,16 +3098,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3560,16 +3149,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3612,40 +3195,25 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3716,16 +3284,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3772,16 +3334,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3829,40 +3385,25 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3955,16 +3496,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -4027,9 +3562,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
         ],
@@ -4064,32 +3596,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -4153,9 +3673,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
         ],
@@ -4210,32 +3727,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -4307,32 +3812,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -4395,9 +3888,6 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           }
         ],
@@ -4459,32 +3949,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -4580,16 +4058,10 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -4655,16 +4127,10 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -4730,16 +4196,10 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -4805,32 +4265,20 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.metadata"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/gmail.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -5584,7 +5032,7 @@
       "description": "Settings associated with a send-as alias, which can be either the primary login address associated with the account or a custom \"from\" address. Send-as aliases correspond to the \"Send Mail As\" feature in the web interface.",
       "properties": {
         "displayName": {
-          "description": "A name that appears in the \"From:\" header for mail sent using this alias. For custom \"from\" addresses, when this is empty, Gmail will populate the \"From:\" header with the name that is used for the primary address associated with the account.",
+          "description": "A name that appears in the \"From:\" header for mail sent using this alias. For custom \"from\" addresses, when this is empty, Gmail will populate the \"From:\" header with the name that is used for the primary address associated with the account. If the admin has disabled the ability for users to update their name format, requests to update this field for the primary login will silently fail.",
           "type": "string"
         },
         "isDefault": {

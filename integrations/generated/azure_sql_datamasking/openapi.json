@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/dataMasking.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/dataMasking.json",
         "version": "2.0"
       }
     ],
@@ -155,6 +155,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-331/dataMaskingPolicies/Default",
+                  "kind": null,
                   "location": "Central US",
                   "name": "Default",
                   "properties": {
@@ -233,6 +234,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-331/dataMaskingPolicies/Default",
+                  "kind": null,
                   "location": "Central US",
                   "name": "Default",
                   "properties": {
@@ -264,6 +266,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-331/dataMaskingPolicies/Default",
+                  "kind": null,
                   "location": "Central US",
                   "name": "Default",
                   "properties": {
@@ -331,11 +334,16 @@
                   "value": [
                     {
                       "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                      "kind": null,
                       "location": "Central US",
+                      "name": null,
                       "properties": {
+                        "aliasName": null,
                         "columnName": "test1",
                         "id": "dbo_Table_1_test1",
                         "maskingFunction": "Text",
+                        "numberFrom": null,
+                        "numberTo": null,
                         "prefixSize": "1",
                         "replacementString": "asdf",
                         "ruleState": "Enabled",
@@ -347,15 +355,21 @@
                     },
                     {
                       "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                      "kind": null,
                       "location": "Central US",
+                      "name": null,
                       "properties": {
+                        "aliasName": null,
                         "columnName": "test1",
                         "id": "dbo_Table_1_test1",
                         "maskingFunction": "Number",
                         "numberFrom": "0",
                         "numberTo": "2",
+                        "prefixSize": null,
+                        "replacementString": null,
                         "ruleState": "Enabled",
                         "schemaName": "dbo",
+                        "suffixSize": null,
                         "tableName": "Table_1"
                       },
                       "type": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
@@ -451,14 +465,21 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                  "kind": null,
                   "location": "Central US",
+                  "name": null,
                   "properties": {
                     "aliasName": "nickname",
                     "columnName": "test1",
                     "id": "dbo_Table_1_test1",
                     "maskingFunction": "Default",
+                    "numberFrom": null,
+                    "numberTo": null,
+                    "prefixSize": null,
+                    "replacementString": null,
                     "ruleState": "Enabled",
                     "schemaName": "dbo",
+                    "suffixSize": null,
                     "tableName": "Table_1"
                   },
                   "type": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
@@ -467,14 +488,21 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                  "kind": null,
                   "location": "Central US",
+                  "name": null,
                   "properties": {
                     "aliasName": "nickname",
                     "columnName": "test1",
                     "id": "dbo_Table_1_test1",
                     "maskingFunction": "Default",
+                    "numberFrom": null,
+                    "numberTo": null,
+                    "prefixSize": null,
+                    "replacementString": null,
                     "ruleState": "Enabled",
                     "schemaName": "dbo",
+                    "suffixSize": null,
                     "tableName": "Table_1"
                   },
                   "type": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
@@ -504,13 +532,21 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                  "kind": null,
                   "location": "Central US",
+                  "name": null,
                   "properties": {
+                    "aliasName": null,
                     "columnName": "test1",
                     "id": "dbo_Table_1_test1",
                     "maskingFunction": "Default",
+                    "numberFrom": null,
+                    "numberTo": null,
+                    "prefixSize": null,
+                    "replacementString": null,
                     "ruleState": "Enabled",
                     "schemaName": "dbo",
+                    "suffixSize": null,
                     "tableName": "Table_1"
                   },
                   "type": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
@@ -519,13 +555,21 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                  "kind": null,
                   "location": "Central US",
+                  "name": null,
                   "properties": {
+                    "aliasName": null,
                     "columnName": "test1",
                     "id": "dbo_Table_1_test1",
                     "maskingFunction": "Default",
+                    "numberFrom": null,
+                    "numberTo": null,
+                    "prefixSize": null,
+                    "replacementString": null,
                     "ruleState": "Enabled",
                     "schemaName": "dbo",
+                    "suffixSize": null,
                     "tableName": "Table_1"
                   },
                   "type": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
@@ -557,15 +601,21 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                  "kind": null,
                   "location": "Central US",
+                  "name": null,
                   "properties": {
+                    "aliasName": null,
                     "columnName": "test1",
                     "id": "dbo_Table_1_test1",
                     "maskingFunction": "Number",
                     "numberFrom": "0",
                     "numberTo": "2",
+                    "prefixSize": null,
+                    "replacementString": null,
                     "ruleState": "Enabled",
                     "schemaName": "dbo",
+                    "suffixSize": null,
                     "tableName": "Table_1"
                   },
                   "type": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
@@ -574,15 +624,21 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                  "kind": null,
                   "location": "Central US",
+                  "name": null,
                   "properties": {
+                    "aliasName": null,
                     "columnName": "test1",
                     "id": "dbo_Table_1_test1",
                     "maskingFunction": "Number",
                     "numberFrom": "0",
                     "numberTo": "2",
+                    "prefixSize": null,
+                    "replacementString": null,
                     "ruleState": "Enabled",
                     "schemaName": "dbo",
+                    "suffixSize": null,
                     "tableName": "Table_1"
                   },
                   "type": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
@@ -615,11 +671,16 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                  "kind": null,
                   "location": "Central US",
+                  "name": null,
                   "properties": {
+                    "aliasName": null,
                     "columnName": "test1",
                     "id": "dbo_Table_1_test1",
                     "maskingFunction": "Text",
+                    "numberFrom": null,
+                    "numberTo": null,
                     "prefixSize": "1",
                     "replacementString": "asdf",
                     "ruleState": "Enabled",
@@ -633,11 +694,16 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-6852/databases/sqlcrudtest-331/dataMaskingPolicies/Default/rules/",
+                  "kind": null,
                   "location": "Central US",
+                  "name": null,
                   "properties": {
+                    "aliasName": null,
                     "columnName": "test1",
                     "id": "dbo_Table_1_test1",
                     "maskingFunction": "Text",
+                    "numberFrom": null,
+                    "numberTo": null,
                     "prefixSize": "1",
                     "replacementString": "asdf",
                     "ruleState": "Enabled",
@@ -658,7 +724,33 @@
     "DataMaskingPolicy": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "Represents a database data masking policy.",
@@ -717,7 +809,33 @@
     "DataMaskingRule": {
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "allOf": [
+            {
+              "description": "ARM resource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
         }
       ],
       "description": "Represents a database data masking rule.",
@@ -830,35 +948,6 @@
         "tableName",
         "columnName"
       ]
-    },
-    "ProxyResource": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "ARM proxy resource."
-    },
-    "Resource": {
-      "description": "ARM resource.",
-      "properties": {
-        "id": {
-          "description": "Resource ID.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "name": {
-          "description": "Resource name.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "type": {
-          "description": "Resource type.",
-          "readOnly": true,
-          "type": "string"
-        }
-      },
-      "x-ms-azure-resource": true
     }
   }
 }

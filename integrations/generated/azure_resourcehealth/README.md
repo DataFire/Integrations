@@ -180,7 +180,7 @@ azure_resourcehealth.AvailabilityStatuses_GetByResource({
 * operation `object`: Operation available in the resourcehealth resource provider.
   * display `object`: Properties of the operation.
     * description `string`: Description of the operation.
-    * operation `string`: Operation.
+    * operation `string`: Operation name.
     * provider `string`: Provider name.
     * resource `string`: Resource name.
   * name `string`: Name of the operation.

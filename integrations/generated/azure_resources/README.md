@@ -1036,6 +1036,7 @@ azure_resources.Resources_CreateOrUpdateById({
 * DeploymentProperties `object`: Deployment properties.
   * debugSetting [DebugSetting](#debugsetting)
   * mode **required** `string` (values: Incremental, Complete): The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
+  * onErrorDeployment [OnErrorDeployment](#onerrordeployment)
   * parameters `object`: Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
   * parametersLink [ParametersLink](#parameterslink)
   * template `object`: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
@@ -1048,6 +1049,7 @@ azure_resources.Resources_CreateOrUpdateById({
   * dependencies `array`: The list of deployment dependencies.
     * items [Dependency](#dependency)
   * mode `string` (values: Incremental, Complete): The deployment mode. Possible values are Incremental and Complete.
+  * onErrorDeployment [OnErrorDeploymentExtended](#onerrordeploymentextended)
   * outputs `object`: Key/value pairs that represent deploymentoutput.
   * parameters `object`: Deployment parameters. Use only one of Parameters or ParametersLink.
   * parametersLink [ParametersLink](#parameterslink)
@@ -1097,7 +1099,18 @@ azure_resources.Resources_CreateOrUpdateById({
 * Identity `object`: Identity for the resource.
   * principalId `string`: The principal ID of resource identity.
   * tenantId `string`: The tenant ID of resource.
-  * type `string` (values: SystemAssigned): The identity type.
+  * type `string` (values: SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None): The identity type.
+
+### OnErrorDeployment
+* OnErrorDeployment `object`: Deployment on error behavior.
+  * deploymentName `string`: The deployment to be used on error case.
+  * type `string` (values: LastSuccessful, SpecificDeployment): The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
+
+### OnErrorDeploymentExtended
+* OnErrorDeploymentExtended `object`: Deployment on error behavior with additional details.
+  * deploymentName `string`: The deployment to be used on error case.
+  * provisioningState `string`: The state of the provisioning for the on error deployment.
+  * type `string` (values: LastSuccessful, SpecificDeployment): The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
 
 ### ParametersLink
 * ParametersLink `object`: Entity representing the reference to the deployment paramaters.

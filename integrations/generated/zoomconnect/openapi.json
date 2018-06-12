@@ -20,7 +20,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "swagger",
         "url": "https://www.zoomconnect.com/zoom/api-docs",
@@ -1349,6 +1349,13 @@
             "name": "read",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "return only inbox messages which are a reply to the message with the given message id",
+            "in": "query",
+            "name": "repliesToMessageId",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2718,10 +2725,27 @@
         "read": {
           "type": "boolean"
         },
+        "repliedToMessage": {
+          "$ref": "#/definitions/WebServiceMessageLink"
+        },
         "toNumber": {
           "type": "string"
         },
         "userDataField": {
+          "type": "string"
+        }
+      }
+    },
+    "WebServiceMessageLink": {
+      "description": "WebServiceMessageLink",
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "messageId": {
           "type": "string"
         }
       }

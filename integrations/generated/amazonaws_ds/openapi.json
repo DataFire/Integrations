@@ -2933,6 +2933,101 @@
         }
       }
     },
+    "/#ResetUserPassword": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Resets the password for any user in your AWS Managed Microsoft AD or Simple AD directory.",
+        "operationId": "ResetUserPassword",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ResetUserPasswordRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResetUserPasswordResult"
+            }
+          },
+          "480": {
+            "description": "DirectoryUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/DirectoryUnavailableException"
+            }
+          },
+          "481": {
+            "description": "UserDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/UserDoesNotExistException"
+            }
+          },
+          "482": {
+            "description": "InvalidPasswordException",
+            "schema": {
+              "$ref": "#/definitions/InvalidPasswordException"
+            }
+          },
+          "483": {
+            "description": "UnsupportedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedOperationException"
+            }
+          },
+          "484": {
+            "description": "EntityDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/EntityDoesNotExistException"
+            }
+          },
+          "485": {
+            "description": "ClientException",
+            "schema": {
+              "$ref": "#/definitions/ClientException"
+            }
+          },
+          "486": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          }
+        }
+      }
+    },
     "/#RestoreFromSnapshot": {
       "parameters": [
         {
@@ -3982,6 +4077,12 @@
       "format": "date-time",
       "type": "string"
     },
+    "CustomerUserName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^(?!.*\\\\|.*\"|.*\\/|.*\\[|.*\\]|.*:|.*;|.*\\||.*=|.*,|.*\\+|.*\\*|.*\\?|.*<|.*>|.*@).*$",
+      "type": "string"
+    },
     "DeleteAssociatedConditionalForwarder": {
       "type": "boolean"
     },
@@ -4946,6 +5047,18 @@
       },
       "type": "object"
     },
+    "InvalidPasswordException": {
+      "description": "The new password provided by the user does not meet the password complexity requirements defined in your directory.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        },
+        "RequestId": {
+          "$ref": "#/definitions/RequestId"
+        }
+      },
+      "type": "object"
+    },
     "IpAddr": {
       "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
       "type": "string"
@@ -5336,6 +5449,32 @@
       "description": "The AWS request identifier.",
       "pattern": "^([A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12})$",
       "type": "string"
+    },
+    "ResetUserPasswordRequest": {
+      "properties": {
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "Identifier of the AWS Managed Microsoft AD or Simple AD directory in which the user resides."
+        },
+        "NewPassword": {
+          "$ref": "#/definitions/UserPassword",
+          "description": "The new password that will be reset."
+        },
+        "UserName": {
+          "$ref": "#/definitions/CustomerUserName",
+          "description": "The username of the user whose password will be reset."
+        }
+      },
+      "required": [
+        "DirectoryId",
+        "UserName",
+        "NewPassword"
+      ],
+      "type": "object"
+    },
+    "ResetUserPasswordResult": {
+      "properties": {},
+      "type": "object"
     },
     "ResourceId": {
       "pattern": "^[d]-[0-9a-f]{10}$",
@@ -5882,9 +6021,27 @@
     "UseSameUsername": {
       "type": "boolean"
     },
+    "UserDoesNotExistException": {
+      "description": "The user provided a username that does not exist in your directory.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        },
+        "RequestId": {
+          "$ref": "#/definitions/RequestId"
+        }
+      },
+      "type": "object"
+    },
     "UserName": {
       "minLength": 1,
       "pattern": "[a-zA-Z0-9._-]+",
+      "type": "string"
+    },
+    "UserPassword": {
+      "format": "password",
+      "maxLength": 127,
+      "minLength": 1,
       "type": "string"
     },
     "VerifyTrustRequest": {

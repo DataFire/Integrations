@@ -31,7 +31,7 @@ isendpro.getCampagne({
 
 [2] Pour utiliser cette API vous devez:
 - Créer un compte iSendPro sur https://isendpro.com/
-- Créditer votre compte 
+- Créditer votre compte
     - Remarque: obtention d'un crédit de test possible sous conditions
 - Noter votre clé de compte (keyid)
   - Elle vous sera indispensable à l'utilisation de l'API
@@ -45,9 +45,9 @@ isendpro.getCampagne({
 ## Actions
 
 ### getCampagne
-Retourne les SMS envoyés sur une période donnée en fonction d'une date de début et d'une date de fin. 
+Retourne les SMS envoyés sur une période donnée en fonction d'une date de début et d'une date de fin.
 
-Les dates sont au format YYYY-MM-DD hh:mm. 
+Les dates sont au format YYYY-MM-DD hh:mm.
 
 Le fichier rapport de campagne est sous la forme d'un fichier zip + contenant un fichier csv contenant le détail des envois.
 
@@ -121,7 +121,7 @@ Supprime un numero en liste noire
 ```js
 isendpro.delListeNoire({
   "keyid": "",
-  "dellisteNoire": "",
+  "delListeNoire": "",
   "num": ""
 }, context)
 ```
@@ -129,7 +129,7 @@ isendpro.delListeNoire({
 #### Input
 * input `object`
   * keyid **required** `string`: Clé API
-  * dellisteNoire **required** `string` (values: 1): Doit valoir "1"
+  * delListeNoire **required** `string` (values: 1): Doit valoir "1"
   * num **required** `string`: numéro de mobile à supprimer
 
 #### Output
@@ -155,7 +155,7 @@ isendpro.getListeNoire({
 * output `file`
 
 ### getHlr
-Réalise un lookup HLR sur les numéros 
+Réalise un lookup HLR sur les numéros
 
 
 
@@ -240,6 +240,26 @@ isendpro.setListeNoire({
 #### Output
 * output [LISTENOIREReponse](#listenoirereponse)
 
+### addShortlink
+add a shortlink
+
+
+```js
+isendpro.addShortlink({
+  "addshortlinkrequest": {
+    "keyid": "",
+    "shortlink": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * addshortlinkrequest **required** [ShortlinkRequest](#shortlinkrequest)
+
+#### Output
+* output [ShortlinkResponse](#shortlinkresponse)
+
 ### sendSms
 Envoi un sms vers un unique destinataire
 
@@ -283,6 +303,48 @@ isendpro.sendSmsMulti({
 #### Output
 * output [SMSReponse](#smsreponse)
 
+### subaccountAdd
+Ajoute un sous compte
+
+
+```js
+isendpro.subaccountAdd({
+  "addsubaccountrequest": {
+    "keyid": "",
+    "subAccountEdit": "",
+    "subAccountLogin": "",
+    "subAccountPassword": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * addsubaccountrequest **required** [SubaccountAddRequest](#subaccountaddrequest)
+
+#### Output
+* output [SubaccountAddResponse](#subaccountaddresponse)
+
+### subaccountEdit
+Edit a subaccount
+
+
+```js
+isendpro.subaccountEdit({
+  "editsubaccountrequest": {
+    "keyid": "",
+    "subAccountEdit": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * editsubaccountrequest **required** [SubaccountRequest](#subaccountrequest)
+
+#### Output
+* output [SubaccountResponse](#subaccountresponse)
+
 
 
 ## Definitions
@@ -307,9 +369,11 @@ isendpro.sendSmsMulti({
   * comptage **required** `string` (values: 1)
   * date_envoi `string`: Date d'envoi au format YYYY-MM-DD hh:mm . Ce paramètre est optionnel, si il est omis l'envoi est réalisé immédiatement.
   * emetteur `string`: - L'emetteur doit être une chaîne alphanumérique comprise entre 4 et 11 caractères.
+  * gmt_zone `string` (values: Pacific/Midway, America/Adak, Etc/GMT+10, Pacific/Marquesas, Pacific/Gambier, America/Anchorage, America/Ensenada, Etc/GMT+8, America/Los_Angeles, America/Denver, America/Chihuahua, America/Dawson_Creek, America/Belize, America/Cancun, Chile/EasterIsland, America/Chicago, America/New_York, America/Havana, America/Bogota, America/Caracas, America/Santiago, America/La_Paz, Atlantic/Stanley, America/Campo_Grande, America/Goose_Bay, America/Glace_Bay, America/St_Johns, America/Araguaina, America/Montevideo, America/Miquelon, America/Godthab, America/Argentina/Buenos_Aires, America/Sao_Paulo, America/Noronha, Atlantic/Cape_Verde, Atlantic/Azores, Europe/Belfast, Europe/Dublin, Europe/Lisbon, Europe/London, Africa/Abidjan, Europe/Amsterdam, Europe/Belgrade, Europe/Brussels, Africa/Algiers, Africa/Windhoek, Asia/Beirut, Africa/Cairo, Asia/Gaza, Africa/Blantyre, Asia/Jerusalem, Europe/Minsk, Asia/Damascus, Europe/Moscow, Africa/Addis_Ababa, Asia/Tehran, Asia/Dubai, Asia/Yerevan, Asia/Kabul, Asia/Yekaterinburg, Asia/Tashkent, Asia/Kolkata, Asia/Katmandu, Asia/Dhaka, Asia/Novosibirsk, Asia/Rangoon, Asia/Bangkok, Asia/Krasnoyarsk, Asia/Hong_Kong, Asia/Irkutsk, Australia/Perth, Australia/Eucla, Asia/Tokyo, Asia/Seoul, Asia/Yakutsk, Australia/Adelaide, Australia/Darwin, Australia/Brisbane, Australia/Hobart, Asia/Vladivostok, Australia/Lord_Howe, Etc/GMT-11, Asia/Magadan, Pacific/Norfolk, Asia/Anadyr, Pacific/Auckland, Etc/GMT-12, Pacific/Chatham, Pacific/Tongatapu, Pacific/Kiritimati): Fuseau horaire de la date d'envoi
   * keyid **required** `string`: Clé API
   * nostop `string`: Si le message n’est pas à but commercial, vous pouvez faire une demande pour retirer l’obligation du STOP. Une fois votre demande validée par nos services, vous pourrez supprimer la mention STOP SMS en ajoutant nostop = "1"
   * num **required** `string`: Numero de téléphone au format national (exemple 0680010203) ou international (example 33680010203)
+  * numAzur `string` (values: 1)
   * sms **required** `string`: Message à envoyer aux destinataires. Le message doit être encodé au format utf-8 et ne contenir que des caractères existant dans l'alphabet GSM. Il est également possible d'envoyer (à l'étranger uniquement) des SMS en UCS-2, cf paramètre ucs2 pour plus de détails.
   * smslong `string` (values: 999): Le SMS long permet de dépasser la limite de 160 caractères en envoyant un message constitué
   * tracker `string`: Le tracker doit être une chaine alphanumérique de moins de 50 caractères. Ce tracker sera ensuite renvoyé en paramètre des urls pour les retours des accusés de réception. 
@@ -492,10 +556,12 @@ isendpro.sendSmsMulti({
 * SMSRequest `object`
   * date_envoi `string`: Paramètre optionnel, date d'envoi au format YYYY-MM-DD hh:mm
   * emetteur `string`: L'emetteur doit être une chaîne alphanumérique comprise entre 4 et 11 caractères. Les caractères acceptés sont les chiffres entre 0 et 9, les lettres entre A et Z et l’espace. Il ne peut pas comporter uniquement des chiffres. Pour la modification de l’émetteur et dans le cadre de campagnes commerciales, les opérateurs imposent contractuellement d’ajouter en fin de message le texte suivant : STOP XXXXX De ce fait, le message envoyé ne pourra excéder une longueur de 148 caractères au lieu des 160 caractères, le « STOP » étant rajouté automatiquement.
+  * gmt_zone `string` (values: Pacific/Midway, America/Adak, Etc/GMT+10, Pacific/Marquesas, Pacific/Gambier, America/Anchorage, America/Ensenada, Etc/GMT+8, America/Los_Angeles, America/Denver, America/Chihuahua, America/Dawson_Creek, America/Belize, America/Cancun, Chile/EasterIsland, America/Chicago, America/New_York, America/Havana, America/Bogota, America/Caracas, America/Santiago, America/La_Paz, Atlantic/Stanley, America/Campo_Grande, America/Goose_Bay, America/Glace_Bay, America/St_Johns, America/Araguaina, America/Montevideo, America/Miquelon, America/Godthab, America/Argentina/Buenos_Aires, America/Sao_Paulo, America/Noronha, Atlantic/Cape_Verde, Atlantic/Azores, Europe/Belfast, Europe/Dublin, Europe/Lisbon, Europe/London, Africa/Abidjan, Europe/Amsterdam, Europe/Belgrade, Europe/Brussels, Africa/Algiers, Africa/Windhoek, Asia/Beirut, Africa/Cairo, Asia/Gaza, Africa/Blantyre, Asia/Jerusalem, Europe/Minsk, Asia/Damascus, Europe/Moscow, Africa/Addis_Ababa, Asia/Tehran, Asia/Dubai, Asia/Yerevan, Asia/Kabul, Asia/Yekaterinburg, Asia/Tashkent, Asia/Kolkata, Asia/Katmandu, Asia/Dhaka, Asia/Novosibirsk, Asia/Rangoon, Asia/Bangkok, Asia/Krasnoyarsk, Asia/Hong_Kong, Asia/Irkutsk, Australia/Perth, Australia/Eucla, Asia/Tokyo, Asia/Seoul, Asia/Yakutsk, Australia/Adelaide, Australia/Darwin, Australia/Brisbane, Australia/Hobart, Asia/Vladivostok, Australia/Lord_Howe, Etc/GMT-11, Asia/Magadan, Pacific/Norfolk, Asia/Anadyr, Pacific/Auckland, Etc/GMT-12, Pacific/Chatham, Pacific/Tongatapu, Pacific/Kiritimati): Fuseau horaire de la date d'envoi
   * keyid **required** `string`: Clé API
   * nostop `string`: Si le message n’est pas à but commercial, vous pouvez faire une demande pour retirer l’obligation du STOP. Une fois votre demande validée par nos services, vous pourrez supprimer la mention STOP SMS en ajoutant nostop = "1"
   * num **required** `array`
     * items `string`: Numeros de téléphone au format national (exemple 0680010203) ou international (example 33680010203)
+  * numAzur `string` (values: 1)
   * repertoireId `string`: Id du repertoire
   * sms **required** `array`
     * items `string`: Message à envoyer aux destinataires. Il peut y avoir un seul message ou 1 message par destintaire différent.
@@ -504,16 +570,71 @@ isendpro.sendSmsMulti({
     * items `string`: Le tracker doit être une chaine alphanumérique de moins de 50 caractères. Ce tracker sera ensuite renvoyé en paramètre des urls pour les retours des accusés de réception. 
   * ucs2 `string`: Il est également possible d’envoyer des SMS en alphabet non latin (russe, chinois, arabe, etc) sur les numéros hors France métropolitaine. Pour ce faire, la requête devrait être encodée au format UTF-8 et contenir l’argument ucs2 = "1" Du fait de contraintes techniques, 1 SMS unique ne pourra pas dépasser 70 caractères (au lieu des 160 usuels) et dans le cas de SMS long, chaque sms ne pourra dépasser 67 caractères.
 
+### ShortlinkRequest
+* ShortlinkRequest `object`
+  * keyid **required** `string`
+  * shortlink **required** `string`
+
+### ShortlinkResponse
+* ShortlinkResponse `object`
+  * etat `object`
+    * etat `array`
+      * items `object`
+        * code `number`
+        * message `string`
+        * shortlink `string`
+
 ### SmsUniqueRequest
 * SmsUniqueRequest `object`
   * date_envoi `string`: Date d'envoi au format YYYY-MM-DD hh:mm . Ce paramètre est optionnel, si il est omis l'envoi est réalisé immédiatement.
   * emetteur `string`: - L'emetteur doit être une chaîne alphanumérique comprise entre 4 et 11 caractères.
+  * gmt_zone `string` (values: Pacific/Midway, America/Adak, Etc/GMT+10, Pacific/Marquesas, Pacific/Gambier, America/Anchorage, America/Ensenada, Etc/GMT+8, America/Los_Angeles, America/Denver, America/Chihuahua, America/Dawson_Creek, America/Belize, America/Cancun, Chile/EasterIsland, America/Chicago, America/New_York, America/Havana, America/Bogota, America/Caracas, America/Santiago, America/La_Paz, Atlantic/Stanley, America/Campo_Grande, America/Goose_Bay, America/Glace_Bay, America/St_Johns, America/Araguaina, America/Montevideo, America/Miquelon, America/Godthab, America/Argentina/Buenos_Aires, America/Sao_Paulo, America/Noronha, Atlantic/Cape_Verde, Atlantic/Azores, Europe/Belfast, Europe/Dublin, Europe/Lisbon, Europe/London, Africa/Abidjan, Europe/Amsterdam, Europe/Belgrade, Europe/Brussels, Africa/Algiers, Africa/Windhoek, Asia/Beirut, Africa/Cairo, Asia/Gaza, Africa/Blantyre, Asia/Jerusalem, Europe/Minsk, Asia/Damascus, Europe/Moscow, Africa/Addis_Ababa, Asia/Tehran, Asia/Dubai, Asia/Yerevan, Asia/Kabul, Asia/Yekaterinburg, Asia/Tashkent, Asia/Kolkata, Asia/Katmandu, Asia/Dhaka, Asia/Novosibirsk, Asia/Rangoon, Asia/Bangkok, Asia/Krasnoyarsk, Asia/Hong_Kong, Asia/Irkutsk, Australia/Perth, Australia/Eucla, Asia/Tokyo, Asia/Seoul, Asia/Yakutsk, Australia/Adelaide, Australia/Darwin, Australia/Brisbane, Australia/Hobart, Asia/Vladivostok, Australia/Lord_Howe, Etc/GMT-11, Asia/Magadan, Pacific/Norfolk, Asia/Anadyr, Pacific/Auckland, Etc/GMT-12, Pacific/Chatham, Pacific/Tongatapu, Pacific/Kiritimati): Fuseau horaire de la date d'envoi
   * keyid **required** `string`: Clé API
   * nostop `string`: Si le message n’est pas à but commercial, vous pouvez faire une demande pour retirer l’obligation du STOP. Une fois votre demande validée par nos services, vous pourrez supprimer la mention STOP SMS en ajoutant nostop = "1"
   * num **required** `string`: Numero de téléphone au format national (exemple 0680010203) ou international (example 33680010203)
+  * numAzur `string` (values: 1)
   * sms **required** `string`: Message à envoyer aux destinataires. Le message doit être encodé au format utf-8 et ne contenir que des caractères existant dans l'alphabet GSM. Il est également possible d'envoyer (à l'étranger uniquement) des SMS en UCS-2, cf paramètre ucs2 pour plus de détails.
   * smslong `string`: Le SMS long permet de dépasser la limite de 160 caractères en envoyant un message constitué
   * tracker `string`: Le tracker doit être une chaine alphanumérique de moins de 50 caractères. Ce tracker sera ensuite renvoyé en paramètre des urls pour les retours des accusés de réception. 
   * ucs2 `string`: Il est également possible d’envoyer des SMS en alphabet non latin (russe, chinois, arabe, etc) sur
+
+### SubaccountAddRequest
+* SubaccountAddRequest `object`
+  * keyid **required** `string`
+  * subAccountEdit **required** `string` (values: addAccount)
+  * subAccountLogin **required** `string`
+  * subAccountPassword **required** `string`
+
+### SubaccountAddResponse
+* SubaccountAddResponse `object`
+  * etat `object`
+    * etat `array`
+      * items `object`
+        * code `number`
+        * message `string`
+        * subAccountId `string`
+        * subAccountKeyId `string`
+        * subAccountLogin `string`
+
+### SubaccountRequest
+* SubaccountRequest `object`
+  * keyid **required** `string`: Clé API
+  * subAccountAddCredit `string`: montant du crédit à ajouter
+  * subAccountCountryCode `string`
+  * subAccountEdit **required** `string` (values: setPrice, addCredit, setRestriction): action à réaliser soit setPrice pour définir un prix ou addCredit pour ajouter du credit ou setRestriction modifier la restriction stop /
+  * subAccountKeyId `string`: keyid du sous-compte
+  * subAccountPrice `string`
+  * subAccountRestrictionStop `string` (values: 0, 1)
+  * subAccountRestrictionTime `string` (values: 0, 1)
+
+### SubaccountResponse
+* SubaccountResponse `object`
+  * etat `object`
+    * etat `array`
+      * items `object`
+        * code `string`
+        * message `string`
+        * subAccountId `string`
+        * subAccountKeyid `string`
 
 

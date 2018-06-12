@@ -1085,6 +1085,7 @@ windows_graphrbac.Users_Update({
 
 ### KeyCredential
 * KeyCredential `object`: Active Directory Key Credential information.
+  * customKeyIdentifier `string`: Custom Key Identifier
   * endDate `string`: End date.
   * keyId `string`: Key ID.
   * startDate `string`: Start date.

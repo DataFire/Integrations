@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Manages your DoubleClick Campaign Manager ad campaigns and reports.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "DCM/DFA Reporting And Trafficking",
     "version": "v3.0",
     "x-apiClientRegistration": {
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/dfareporting/v3.0/rest",
@@ -49,25 +44,13 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/ddmconversions": "Manage DoubleClick Digital Marketing conversions",
         "https://www.googleapis.com/auth/dfareporting": "View and manage DoubleClick for Advertisers reports",
         "https://www.googleapis.com/auth/dfatrafficking": "View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/ddmconversions": "Manage DoubleClick Digital Marketing conversions",
-        "https://www.googleapis.com/auth/dfareporting": "View and manage DoubleClick for Advertisers reports",
-        "https://www.googleapis.com/auth/dfatrafficking": "View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -120,13 +103,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -347,9 +330,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -397,16 +377,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -464,16 +438,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -538,9 +506,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -596,9 +561,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -663,9 +625,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -721,9 +680,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -787,9 +743,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -918,9 +871,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -989,9 +939,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1030,9 +977,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1070,9 +1014,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1113,9 +1054,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1232,9 +1170,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1303,9 +1238,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1343,9 +1275,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1386,9 +1315,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1471,6 +1397,7 @@
               "APP_INTERSTITIAL",
               "DISPLAY",
               "DISPLAY_INTERSTITIAL",
+              "IN_STREAM_AUDIO",
               "IN_STREAM_VIDEO"
             ],
             "in": "query",
@@ -1650,9 +1577,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1721,9 +1645,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1762,9 +1683,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1802,9 +1720,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1845,9 +1760,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1958,9 +1870,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2029,9 +1938,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2069,9 +1975,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2111,9 +2014,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2150,9 +2050,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2191,9 +2088,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2326,9 +2220,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2397,9 +2288,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2438,9 +2326,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2478,9 +2363,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2521,9 +2403,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2682,9 +2561,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2753,9 +2629,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2794,9 +2667,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2834,9 +2704,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2877,9 +2744,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2936,9 +2800,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3103,9 +2964,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3174,9 +3032,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3215,9 +3070,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3255,9 +3107,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3324,9 +3173,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3396,9 +3242,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3438,9 +3281,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3633,9 +3473,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3698,9 +3535,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3794,9 +3628,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3852,9 +3683,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3918,9 +3746,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4031,9 +3856,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4102,9 +3924,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4142,9 +3961,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4184,9 +4000,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4223,9 +4036,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4264,9 +4074,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4354,9 +4161,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ddmconversions"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ddmconversions"
             ]
           }
         ],
@@ -4420,9 +4224,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ddmconversions"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ddmconversions"
             ]
           }
         ],
@@ -4455,9 +4256,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4521,9 +4319,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4621,9 +4416,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4720,9 +4512,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4791,9 +4580,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4832,9 +4618,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4872,9 +4655,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4969,9 +4749,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5047,9 +4824,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5094,9 +4868,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5143,9 +4914,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5189,9 +4957,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5237,9 +5002,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5301,9 +5063,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5341,9 +5100,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5472,9 +5228,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5543,9 +5296,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5584,9 +5334,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5624,9 +5371,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5667,9 +5411,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5852,6 +5593,7 @@
                 "FLASH_INPAGE",
                 "HTML5_BANNER",
                 "IMAGE",
+                "INSTREAM_AUDIO",
                 "INSTREAM_VIDEO",
                 "INSTREAM_VIDEO_REDIRECT",
                 "INTERNAL_REDIRECT",
@@ -5885,9 +5627,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5957,9 +5696,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5998,9 +5734,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6038,9 +5771,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6081,9 +5811,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6186,9 +5913,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -6285,9 +6009,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6350,9 +6071,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6505,9 +6223,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6569,9 +6284,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6611,9 +6323,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6705,9 +6414,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6769,9 +6475,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6828,9 +6531,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6971,9 +6671,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7042,9 +6739,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7082,9 +6776,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7124,9 +6815,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7163,9 +6851,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7204,9 +6889,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7312,9 +6994,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -7475,9 +7154,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7546,9 +7222,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7587,9 +7260,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7627,9 +7297,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7693,9 +7360,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7732,9 +7396,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7773,9 +7434,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7908,9 +7566,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7979,9 +7634,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8020,9 +7672,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8060,9 +7709,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8103,9 +7749,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8172,9 +7815,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8244,9 +7884,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8284,9 +7921,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8327,9 +7961,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8387,9 +8018,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8446,9 +8074,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8504,9 +8129,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8571,9 +8193,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8629,9 +8248,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8696,9 +8312,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8754,9 +8367,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8820,9 +8430,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9051,9 +8658,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9122,9 +8726,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9163,9 +8764,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9203,9 +8801,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9246,9 +8841,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9359,9 +8951,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9430,9 +9019,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9470,9 +9056,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9512,9 +9095,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9551,9 +9131,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9592,9 +9169,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9668,6 +9242,7 @@
                 "APP_INTERSTITIAL",
                 "DISPLAY",
                 "DISPLAY_INTERSTITIAL",
+                "IN_STREAM_AUDIO",
                 "IN_STREAM_VIDEO"
               ],
               "type": "string"
@@ -9860,9 +9435,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9931,9 +9503,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9972,9 +9541,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10012,9 +9578,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10119,9 +9682,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10161,9 +9721,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10220,9 +9777,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10287,9 +9841,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10345,9 +9896,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10411,9 +9959,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10534,9 +10079,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10599,9 +10141,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10749,9 +10288,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10821,9 +10357,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10967,9 +10500,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11039,9 +10569,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11169,9 +10696,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11242,9 +10766,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11300,9 +10821,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11397,9 +10915,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11437,9 +10952,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11480,9 +10992,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11602,9 +11111,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11673,9 +11179,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11714,9 +11217,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11754,9 +11254,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11797,9 +11294,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11906,9 +11400,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -11969,9 +11460,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12036,9 +11524,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -12075,9 +11560,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12116,9 +11598,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12188,9 +11667,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -12235,9 +11711,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12316,9 +11789,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -12388,9 +11858,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12484,9 +11951,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12636,9 +12100,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12707,9 +12168,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12748,9 +12206,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12788,9 +12243,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -12832,9 +12284,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12868,7 +12317,7 @@
     },
     "/userprofiles/{profileId}/sizes": {
       "get": {
-        "description": "Retrieves a list of sizes, possibly filtered.",
+        "description": "Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI.",
         "operationId": "sizes.list",
         "parameters": [
           {
@@ -12922,9 +12371,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -12987,9 +12433,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13029,9 +12472,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13142,9 +12582,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13213,9 +12650,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13254,9 +12688,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13294,9 +12725,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13337,9 +12765,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13453,9 +12878,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13518,9 +12940,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13637,9 +13056,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13708,9 +13124,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13749,9 +13162,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13789,9 +13199,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13832,9 +13239,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13891,9 +13295,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13957,9 +13358,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14027,9 +13425,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -14092,9 +13487,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14217,9 +13609,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -14288,9 +13677,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -14328,9 +13714,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14370,9 +13753,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -14409,9 +13789,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14450,9 +13827,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14509,9 +13883,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14575,9 +13946,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14919,7 +14287,7 @@
           "type": "string"
         },
         "traffickerType": {
-          "description": "Trafficker type of this user profile.",
+          "description": "Trafficker type of this user profile. This is a read-only field.",
           "enum": [
             "EXTERNAL_TRAFFICKER",
             "INTERNAL_NON_TRAFFICKER",
@@ -15076,6 +14444,7 @@
             "APP_INTERSTITIAL",
             "DISPLAY",
             "DISPLAY_INTERSTITIAL",
+            "IN_STREAM_AUDIO",
             "IN_STREAM_VIDEO"
           ],
           "type": "string"
@@ -15249,6 +14618,7 @@
             "APP_INTERSTITIAL",
             "DISPLAY",
             "DISPLAY_INTERSTITIAL",
+            "IN_STREAM_AUDIO",
             "IN_STREAM_VIDEO"
           ],
           "type": "string"
@@ -16572,7 +15942,7 @@
           "type": "string"
         },
         "companionCreatives": {
-          "description": "List of companion creatives assigned to an in-Stream videocreative. Acceptable values include IDs of existing flash and image creatives. Applicable to the following creative types: all VPAID and all INSTREAM_VIDEO with dynamicAssetSelection set to false.",
+          "description": "List of companion creatives assigned to an in-Stream video creative. Acceptable values include IDs of existing flash and image creatives. Applicable to the following creative types: all VPAID and all INSTREAM_VIDEO with dynamicAssetSelection set to false.",
           "items": {
             "format": "int64",
             "type": "string"
@@ -16587,6 +15957,7 @@
               "APP_INTERSTITIAL",
               "DISPLAY",
               "DISPLAY_INTERSTITIAL",
+              "IN_STREAM_AUDIO",
               "IN_STREAM_VIDEO"
             ],
             "type": "string"
@@ -16793,6 +16164,7 @@
             "FLASH_INPAGE",
             "HTML5_BANNER",
             "IMAGE",
+            "INSTREAM_AUDIO",
             "INSTREAM_VIDEO",
             "INSTREAM_VIDEO_REDIRECT",
             "INTERNAL_REDIRECT",
@@ -18587,6 +17959,7 @@
             "DBM_PARTNER",
             "DCM_ACCOUNT",
             "DCM_ADVERTISER",
+            "DFP_NETWORK_CODE",
             "ENCRYPTION_ENTITY_TYPE_UNKNOWN"
           ],
           "type": "string"
@@ -20551,6 +19924,7 @@
             "APP_INTERSTITIAL",
             "DISPLAY",
             "DISPLAY_INTERSTITIAL",
+            "IN_STREAM_AUDIO",
             "IN_STREAM_VIDEO"
           ],
           "type": "string"

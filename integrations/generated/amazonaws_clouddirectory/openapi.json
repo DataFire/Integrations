@@ -528,12 +528,6 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
@@ -1793,24 +1787,30 @@
             }
           },
           "487": {
+            "description": "InvalidAttachmentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAttachmentException"
+            }
+          },
+          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "488": {
+          "489": {
             "description": "LinkNameAlreadyInUseException",
             "schema": {
               "$ref": "#/definitions/LinkNameAlreadyInUseException"
             }
           },
-          "489": {
+          "490": {
             "description": "IndexedAttributeMissingException",
             "schema": {
               "$ref": "#/definitions/IndexedAttributeMissingException"
             }
           },
-          "490": {
+          "491": {
             "description": "NotIndexException",
             "schema": {
               "$ref": "#/definitions/NotIndexException"
@@ -1963,7 +1963,7 @@
         }
       ],
       "post": {
-        "description": "Lists objects and indexed values attached to the index.",
+        "description": "Lists objects attached to the specified index.",
         "operationId": "ListIndex",
         "parameters": [
           {
@@ -2015,36 +2015,48 @@
             }
           },
           "483": {
+            "description": "FacetValidationException",
+            "schema": {
+              "$ref": "#/definitions/FacetValidationException"
+            }
+          },
+          "484": {
             "description": "ValidationException",
             "schema": {
               "$ref": "#/definitions/ValidationException"
             }
           },
-          "484": {
+          "485": {
             "description": "LimitExceededException",
             "schema": {
               "$ref": "#/definitions/LimitExceededException"
             }
           },
-          "485": {
+          "486": {
             "description": "AccessDeniedException",
             "schema": {
               "$ref": "#/definitions/AccessDeniedException"
             }
           },
-          "486": {
+          "487": {
             "description": "DirectoryNotEnabledException",
             "schema": {
               "$ref": "#/definitions/DirectoryNotEnabledException"
             }
           },
-          "487": {
+          "488": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "489": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "488": {
+          "490": {
             "description": "NotIndexException",
             "schema": {
               "$ref": "#/definitions/NotIndexException"
@@ -2146,30 +2158,24 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "489": {
+          "488": {
             "description": "FacetValidationException",
             "schema": {
               "$ref": "#/definitions/FacetValidationException"
             }
           },
-          "490": {
+          "489": {
             "description": "LinkNameAlreadyInUseException",
             "schema": {
               "$ref": "#/definitions/LinkNameAlreadyInUseException"
             }
           },
-          "491": {
+          "490": {
             "description": "UnsupportedIndexTypeException",
             "schema": {
               "$ref": "#/definitions/UnsupportedIndexTypeException"
@@ -2410,24 +2416,125 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "489": {
+          "488": {
             "description": "InvalidNextTokenException",
             "schema": {
               "$ref": "#/definitions/InvalidNextTokenException"
             }
           },
-          "490": {
+          "489": {
+            "description": "FacetValidationException",
+            "schema": {
+              "$ref": "#/definitions/FacetValidationException"
+            }
+          }
+        }
+      }
+    },
+    "/amazonclouddirectory/2017-01-11/object/attributes/get": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves attributes within a facet that are associated with an object.",
+        "operationId": "GetObjectAttributes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetObjectAttributesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetObjectAttributesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidArnException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArnException"
+            }
+          },
+          "482": {
+            "description": "RetryableConflictException",
+            "schema": {
+              "$ref": "#/definitions/RetryableConflictException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "DirectoryNotEnabledException",
+            "schema": {
+              "$ref": "#/definitions/DirectoryNotEnabledException"
+            }
+          },
+          "487": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "488": {
             "description": "FacetValidationException",
             "schema": {
               "$ref": "#/definitions/FacetValidationException"
@@ -2543,24 +2650,18 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "489": {
+          "488": {
             "description": "InvalidNextTokenException",
             "schema": {
               "$ref": "#/definitions/InvalidNextTokenException"
             }
           },
-          "490": {
+          "489": {
             "description": "NotNodeException",
             "schema": {
               "$ref": "#/definitions/NotNodeException"
@@ -2773,6 +2874,12 @@
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "488": {
+            "description": "NotNodeException",
+            "schema": {
+              "$ref": "#/definitions/NotNodeException"
+            }
           }
         }
       }
@@ -2808,7 +2915,7 @@
         }
       ],
       "put": {
-        "description": "Adds a new <a>Facet</a> to an object.",
+        "description": "Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.",
         "operationId": "AddFacetToObject",
         "parameters": [
           {
@@ -3314,24 +3421,18 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "489": {
+          "488": {
             "description": "InvalidNextTokenException",
             "schema": {
               "$ref": "#/definitions/InvalidNextTokenException"
             }
           },
-          "490": {
+          "489": {
             "description": "CannotListParentOfRootException",
             "schema": {
               "$ref": "#/definitions/CannotListParentOfRootException"
@@ -3681,6 +3782,12 @@
             }
           },
           "488": {
+            "description": "LinkNameAlreadyInUseException",
+            "schema": {
+              "$ref": "#/definitions/LinkNameAlreadyInUseException"
+            }
+          },
+          "489": {
             "description": "FacetValidationException",
             "schema": {
               "$ref": "#/definitions/FacetValidationException"
@@ -3782,18 +3889,12 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "489": {
+          "488": {
             "description": "NotPolicyException",
             "schema": {
               "$ref": "#/definitions/NotPolicyException"
@@ -3909,24 +4010,18 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "InvalidNextTokenException",
             "schema": {
               "$ref": "#/definitions/InvalidNextTokenException"
             }
           },
-          "489": {
+          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "490": {
+          "489": {
             "description": "NotPolicyException",
             "schema": {
               "$ref": "#/definitions/NotPolicyException"
@@ -4028,18 +4123,12 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "489": {
+          "488": {
             "description": "NotPolicyException",
             "schema": {
               "$ref": "#/definitions/NotPolicyException"
@@ -4155,18 +4244,12 @@
             }
           },
           "487": {
-            "description": "InvalidArnException",
-            "schema": {
-              "$ref": "#/definitions/InvalidArnException"
-            }
-          },
-          "488": {
             "description": "InvalidNextTokenException",
             "schema": {
               "$ref": "#/definitions/InvalidNextTokenException"
             }
           },
-          "489": {
+          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
@@ -5106,7 +5189,7 @@
         }
       ],
       "post": {
-        "description": "Lists schema major versions for a published schema. If <code>SchemaArn</code> is provided, lists the minor version.",
+        "description": "Lists the major version families of each published schema. If a major version ARN is provided as <code>SchemaArn</code>, the minor version revisions in that family are listed instead.",
         "operationId": "ListPublishedSchemaArns",
         "parameters": [
           {
@@ -5921,6 +6004,220 @@
             }
           },
           "490": {
+            "description": "FacetValidationException",
+            "schema": {
+              "$ref": "#/definitions/FacetValidationException"
+            }
+          }
+        }
+      }
+    },
+    "/amazonclouddirectory/2017-01-11/typedlink/attributes/get": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves attributes that are associated with a typed link.",
+        "operationId": "GetLinkAttributes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLinkAttributesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLinkAttributesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidArnException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArnException"
+            }
+          },
+          "482": {
+            "description": "RetryableConflictException",
+            "schema": {
+              "$ref": "#/definitions/RetryableConflictException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "DirectoryNotEnabledException",
+            "schema": {
+              "$ref": "#/definitions/DirectoryNotEnabledException"
+            }
+          },
+          "487": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "488": {
+            "description": "FacetValidationException",
+            "schema": {
+              "$ref": "#/definitions/FacetValidationException"
+            }
+          }
+        }
+      }
+    },
+    "/amazonclouddirectory/2017-01-11/typedlink/attributes/update": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.",
+        "operationId": "UpdateLinkAttributes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateLinkAttributesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateLinkAttributesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidArnException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArnException"
+            }
+          },
+          "482": {
+            "description": "RetryableConflictException",
+            "schema": {
+              "$ref": "#/definitions/RetryableConflictException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "DirectoryNotEnabledException",
+            "schema": {
+              "$ref": "#/definitions/DirectoryNotEnabledException"
+            }
+          },
+          "487": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "488": {
             "description": "FacetValidationException",
             "schema": {
               "$ref": "#/definitions/FacetValidationException"
@@ -7424,10 +7721,7 @@
       },
       "required": [
         "SchemaFacet",
-        "ObjectAttributeList",
-        "ParentReference",
-        "LinkName",
-        "BatchReferenceName"
+        "ObjectAttributeList"
       ],
       "type": "object"
     },
@@ -7505,8 +7799,7 @@
       },
       "required": [
         "ParentReference",
-        "LinkName",
-        "BatchReferenceName"
+        "LinkName"
       ],
       "type": "object"
     },
@@ -7559,6 +7852,67 @@
     "BatchDetachTypedLinkResponse": {
       "description": "Represents the output of a <a>DetachTypedLink</a> response operation.",
       "properties": {},
+      "type": "object"
+    },
+    "BatchGetLinkAttributes": {
+      "description": "Retrieves attributes that are associated with a typed link inside a <a>BatchRead</a> operation. For more information, see <a>GetLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "AttributeNames": {
+          "$ref": "#/definitions/AttributeNameList",
+          "description": "A list of attribute names whose values will be retrieved."
+        },
+        "TypedLinkSpecifier": {
+          "$ref": "#/definitions/TypedLinkSpecifier",
+          "description": "Allows a typed link specifier to be accepted as input."
+        }
+      },
+      "required": [
+        "TypedLinkSpecifier",
+        "AttributeNames"
+      ],
+      "type": "object"
+    },
+    "BatchGetLinkAttributesResponse": {
+      "description": "Represents the output of a <a>GetLinkAttributes</a> response operation.",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "The attributes that are associated with the typed link."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetObjectAttributes": {
+      "description": "Retrieves attributes within a facet that are associated with an object inside an <a>BatchRead</a> operation. For more information, see <a>GetObjectAttributes</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "AttributeNames": {
+          "$ref": "#/definitions/AttributeNameList",
+          "description": "List of attribute names whose values will be retrieved."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose attributes will be retrieved."
+        },
+        "SchemaFacet": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details."
+        }
+      },
+      "required": [
+        "ObjectReference",
+        "SchemaFacet",
+        "AttributeNames"
+      ],
+      "type": "object"
+    },
+    "BatchGetObjectAttributesResponse": {
+      "description": "Represents the output of a <a>GetObjectAttributes</a> response operation.",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "The attribute values that are associated with an object."
+        }
+      },
       "type": "object"
     },
     "BatchGetObjectInformation": {
@@ -8000,6 +8354,14 @@
     "BatchReadOperation": {
       "description": "Represents the output of a <code>BatchRead</code> operation.",
       "properties": {
+        "GetLinkAttributes": {
+          "$ref": "#/definitions/BatchGetLinkAttributes",
+          "description": "Retrieves attributes that are associated with a typed link."
+        },
+        "GetObjectAttributes": {
+          "$ref": "#/definitions/BatchGetObjectAttributes",
+          "description": "Retrieves attributes within a facet that are associated with an object."
+        },
         "GetObjectInformation": {
           "$ref": "#/definitions/BatchGetObjectInformation",
           "description": "Retrieves metadata about an object."
@@ -8097,6 +8459,14 @@
     "BatchReadSuccessfulResponse": {
       "description": "Represents the output of a <code>BatchRead</code> success response operation.",
       "properties": {
+        "GetLinkAttributes": {
+          "$ref": "#/definitions/BatchGetLinkAttributesResponse",
+          "description": "The list of attributes to retrieve from the typed link."
+        },
+        "GetObjectAttributes": {
+          "$ref": "#/definitions/BatchGetObjectAttributesResponse",
+          "description": "Retrieves attributes within a facet that are associated with an object."
+        },
         "GetObjectInformation": {
           "$ref": "#/definitions/BatchGetObjectInformationResponse",
           "description": "Retrieves metadata about an object."
@@ -8170,6 +8540,29 @@
       "properties": {},
       "type": "object"
     },
+    "BatchUpdateLinkAttributes": {
+      "description": "Updates a given typed link’s attributes inside a <a>BatchRead</a> operation. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>. For more information, see <a>UpdateLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "AttributeUpdates": {
+          "$ref": "#/definitions/LinkAttributeUpdateList",
+          "description": "The attributes update structure."
+        },
+        "TypedLinkSpecifier": {
+          "$ref": "#/definitions/TypedLinkSpecifier",
+          "description": "Allows a typed link specifier to be accepted as input."
+        }
+      },
+      "required": [
+        "TypedLinkSpecifier",
+        "AttributeUpdates"
+      ],
+      "type": "object"
+    },
+    "BatchUpdateLinkAttributesResponse": {
+      "description": "Represents the output of a <a>UpdateLinkAttributes</a> response operation.",
+      "properties": {},
+      "type": "object"
+    },
     "BatchUpdateObjectAttributes": {
       "description": "Represents the output of a <code>BatchUpdate</code> operation. ",
       "properties": {
@@ -8226,6 +8619,7 @@
         "AccessDeniedException",
         "InvalidAttachmentException",
         "NotIndexException",
+        "NotNodeException",
         "IndexedAttributeMissingException",
         "ObjectAlreadyDetachedException",
         "NotPolicyException",
@@ -8289,6 +8683,10 @@
         "RemoveFacetFromObject": {
           "$ref": "#/definitions/BatchRemoveFacetFromObject",
           "description": "A batch operation that removes a facet from an object."
+        },
+        "UpdateLinkAttributes": {
+          "$ref": "#/definitions/BatchUpdateLinkAttributes",
+          "description": "Updates a given object's attributes."
         },
         "UpdateObjectAttributes": {
           "$ref": "#/definitions/BatchUpdateObjectAttributes",
@@ -8357,6 +8755,10 @@
         "RemoveFacetFromObject": {
           "$ref": "#/definitions/BatchRemoveFacetFromObjectResponse",
           "description": "The result of a batch remove facet from object operation."
+        },
+        "UpdateLinkAttributes": {
+          "$ref": "#/definitions/BatchUpdateLinkAttributesResponse",
+          "description": "Represents the output of a <code>BatchWrite</code> response operation."
         },
         "UpdateObjectAttributes": {
           "$ref": "#/definitions/BatchUpdateObjectAttributesResponse",
@@ -8820,7 +9222,7 @@
       "type": "object"
     },
     "DirectoryNotEnabledException": {
-      "description": "An operation can only operate on a directory that is not enabled.",
+      "description": "Operations are only permitted on enabled directories.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -8872,7 +9274,7 @@
       "type": "string"
     },
     "Facet": {
-      "description": "A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <a>Rule</a>s, and <code>ObjectTypes</code>.",
+      "description": "A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <code> <a>Rule</a>s</code>, and <code>ObjectTypes</code>. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/whatarefacets.html\">Facets</a> for more information.",
       "properties": {
         "Name": {
           "$ref": "#/definitions/FacetName",
@@ -9095,6 +9497,67 @@
       },
       "type": "object"
     },
+    "GetLinkAttributesRequest": {
+      "properties": {
+        "AttributeNames": {
+          "$ref": "#/definitions/AttributeNameList",
+          "description": "A list of attribute names whose values will be retrieved."
+        },
+        "ConsistencyLevel": {
+          "$ref": "#/definitions/ConsistencyLevel",
+          "description": "The consistency level at which to retrieve the attributes on a typed link."
+        },
+        "TypedLinkSpecifier": {
+          "$ref": "#/definitions/TypedLinkSpecifier",
+          "description": "Allows a typed link specifier to be accepted as input."
+        }
+      },
+      "required": [
+        "TypedLinkSpecifier",
+        "AttributeNames"
+      ],
+      "type": "object"
+    },
+    "GetLinkAttributesResponse": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "The attributes that are associated with the typed link."
+        }
+      },
+      "type": "object"
+    },
+    "GetObjectAttributesRequest": {
+      "properties": {
+        "AttributeNames": {
+          "$ref": "#/definitions/AttributeNameList",
+          "description": "List of attribute names whose values will be retrieved."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose attributes will be retrieved."
+        },
+        "SchemaFacet": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details."
+        }
+      },
+      "required": [
+        "ObjectReference",
+        "SchemaFacet",
+        "AttributeNames"
+      ],
+      "type": "object"
+    },
+    "GetObjectAttributesResponse": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "The attributes that are associated with the object."
+        }
+      },
+      "type": "object"
+    },
     "GetObjectInformationRequest": {
       "properties": {
         "ObjectReference": {
@@ -9276,6 +9739,40 @@
         }
       },
       "type": "object"
+    },
+    "LinkAttributeAction": {
+      "description": "The action to take on a typed link attribute value. Updates are only supported for attributes which don’t contribute to link identity.",
+      "properties": {
+        "AttributeActionType": {
+          "$ref": "#/definitions/UpdateActionType",
+          "description": "A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>."
+        },
+        "AttributeUpdateValue": {
+          "$ref": "#/definitions/TypedAttributeValue",
+          "description": "The value that you want to update to."
+        }
+      },
+      "type": "object"
+    },
+    "LinkAttributeUpdate": {
+      "description": "Structure that contains attribute update information.",
+      "properties": {
+        "AttributeAction": {
+          "$ref": "#/definitions/LinkAttributeAction",
+          "description": "The action to perform as part of the attribute update."
+        },
+        "AttributeKey": {
+          "$ref": "#/definitions/AttributeKey",
+          "description": "The key of the attribute being updated."
+        }
+      },
+      "type": "object"
+    },
+    "LinkAttributeUpdateList": {
+      "items": {
+        "$ref": "#/definitions/LinkAttributeUpdate"
+      },
+      "type": "array"
     },
     "LinkName": {
       "maxLength": 64,
@@ -10514,7 +11011,7 @@
       "type": "object"
     },
     "TypedAttributeValueRange": {
-      "description": "A range of attribute values.",
+      "description": "A range of attribute values. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#rangefilters\">Range Filters</a>.",
       "properties": {
         "EndMode": {
           "$ref": "#/definitions/RangeMode",
@@ -10770,6 +11267,27 @@
       "type": "object"
     },
     "UpdateFacetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateLinkAttributesRequest": {
+      "properties": {
+        "AttributeUpdates": {
+          "$ref": "#/definitions/LinkAttributeUpdateList",
+          "description": "The attributes update structure."
+        },
+        "TypedLinkSpecifier": {
+          "$ref": "#/definitions/TypedLinkSpecifier",
+          "description": "Allows a typed link specifier to be accepted as input."
+        }
+      },
+      "required": [
+        "TypedLinkSpecifier",
+        "AttributeUpdates"
+      ],
+      "type": "object"
+    },
+    "UpdateLinkAttributesResponse": {
       "properties": {},
       "type": "object"
     },

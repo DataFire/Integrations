@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Reports and modifies your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conversions).",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "DoubleClick Search",
     "version": "v2",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/doubleclicksearch/v2/rest",
@@ -52,21 +47,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/doubleclicksearch": "View and manage your advertising data in DoubleClick Search"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/doubleclicksearch": "View and manage your advertising data in DoubleClick Search"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -117,13 +102,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -238,9 +223,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
         ],
@@ -303,9 +285,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
@@ -441,9 +420,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
         ],
@@ -475,9 +451,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
         ],
@@ -508,9 +481,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
@@ -568,9 +538,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
         ],
@@ -626,9 +593,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
@@ -686,9 +650,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
         ],
@@ -721,9 +682,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
@@ -785,9 +743,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/doubleclicksearch"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/doubleclicksearch"
             ]
           }
@@ -1175,7 +1130,7 @@
       "description": "A request object used to create a DoubleClick Search report.",
       "properties": {
         "columns": {
-          "description": "The columns to include in the report. This includes both DoubleClick Search columns and saved columns. For DoubleClick Search columns, only the columnName parameter is required. For saved columns only the savedColumnName parameter is required. Both columnName and savedColumnName cannot be set in the same stanza.",
+          "description": "The columns to include in the report. This includes both DoubleClick Search columns and saved columns. For DoubleClick Search columns, only the columnName parameter is required. For saved columns only the savedColumnName parameter is required. Both columnName and savedColumnName cannot be set in the same stanza.\nThe maximum number of columns per request is 300.",
           "items": {
             "$ref": "#/definitions/ReportApiColumnSpec"
           },
@@ -1186,7 +1141,7 @@
           "type": "string"
         },
         "filters": {
-          "description": "A list of filters to be applied to the report.",
+          "description": "A list of filters to be applied to the report.\nThe maximum number of filters per request is 300.",
           "items": {
             "properties": {
               "column": {
@@ -1198,7 +1153,7 @@
                 "type": "string"
               },
               "values": {
-                "description": "A list of values to filter the column value against.",
+                "description": "A list of values to filter the column value against.\nThe maximum number of filter values per request is 300.",
                 "items": {},
                 "type": "array"
               }
@@ -1225,7 +1180,7 @@
           "type": "integer"
         },
         "orderBy": {
-          "description": "Synchronous report only. A list of columns and directions defining sorting to be performed on the report rows.",
+          "description": "Synchronous report only. A list of columns and directions defining sorting to be performed on the report rows.\nThe maximum number of orderings per request is 300.",
           "items": {
             "properties": {
               "column": {

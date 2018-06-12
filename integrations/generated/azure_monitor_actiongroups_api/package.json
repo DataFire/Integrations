@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_monitor_actiongroups_api",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for Azure Action Groups",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/monitor-actionGroups_API/2017-04-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/monitor-actionGroups_API/2018-03-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

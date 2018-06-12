@@ -1,6 +1,6 @@
 # @datafire/google_cloudresourcemanager
 
-Client library for Google Cloud Resource Manager
+Client library for Cloud Resource Manager
 
 ## Installation and Usage
 ```bash
@@ -217,7 +217,13 @@ polling at the 5th second with an exponential backoff.
 
 Authorization requires the Google IAM permission
 `resourcemanager.projects.create` on the specified parent for the new
-project.
+project. The parent is identified by a specified ResourceId,
+which must include both an ID and a type, such as organization.
+
+This method does not associate the new project with a billing account.
+You can set or update the billing account associated with a project using
+the [`projects.updateBillingInfo`]
+(/billing/reference/rest/v1/projects/updateBillingInfo) method.
 
 
 ```js
@@ -247,10 +253,7 @@ google_cloudresourcemanager.projects.create({}, context)
 ### projects.delete
 Marks the Project identified by the specified
 `project_id` (for example, `my-project-123`) for deletion.
-This method will only affect the Project if the following criteria are met:
-
-+ The Project does not have a billing account associated with it.
-+ The Project has a lifecycle state of
+This method will only affect the Project if it has a lifecycle state of
 ACTIVE.
 
 This method changes the Project's lifecycle state from
@@ -492,9 +495,11 @@ invited via Cloud Platform console and must accept the invitation.
 must be granted the owner role using the Cloud Platform Console and must
 explicitly accept the invitation.
 
-+ Invitations to grant the owner role cannot be sent using
-`setIamPolicy()`;
-they must be sent only using the Cloud Platform Console.
++ You can only grant ownership of a project to a member by using the
+GCP Console. Inviting a member will deliver an invitation email that
+they must accept. An invitation email is not generated if you are
+granting a role other than owner, or if both the member you are inviting
+and the project are part of your organization.
 
 + Membership changes that leave the project without any owners that have
 accepted the Terms of Service (ToS) will be rejected.
@@ -1109,14 +1114,14 @@ google_cloudresourcemanager.organizations.testIamPermissions({
 ### Organization
 * Organization `object`: The root node in the resource hierarchy to which a particular entity's
   * creationTime `string`: Timestamp when the Organization was created. Assigned by the server.
-  * displayName `string`: A friendly string to be used to refer to the Organization in the UI.
+  * displayName `string`: A human-readable string that refers to the Organization in the
   * lifecycleState `string` (values: LIFECYCLE_STATE_UNSPECIFIED, ACTIVE, DELETE_REQUESTED): The organization's current lifecycle state. Assigned by the server.
   * name `string`: Output Only. The resource name of the organization. This is the
   * owner [OrganizationOwner](#organizationowner)
 
 ### OrganizationOwner
 * OrganizationOwner `object`: The entity that owns an Organization. The lifetime of the Organization and
-  * directoryCustomerId `string`: The Google for Work customer id used in the Directory API.
+  * directoryCustomerId `string`: The G Suite customer id used in the Directory API.
 
 ### Policy
 * Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to

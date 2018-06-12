@@ -899,6 +899,89 @@
         }
       }
     },
+    "/#DeleteMailboxPermissions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes permissions granted to a user or group.",
+        "operationId": "DeleteMailboxPermissions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteMailboxPermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteMailboxPermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          },
+          "481": {
+            "description": "EntityStateException",
+            "schema": {
+              "$ref": "#/definitions/EntityStateException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "OrganizationNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/OrganizationNotFoundException"
+            }
+          },
+          "484": {
+            "description": "OrganizationStateException",
+            "schema": {
+              "$ref": "#/definitions/OrganizationStateException"
+            }
+          }
+        }
+      }
+    },
     "/#DeleteResource": {
       "parameters": [
         {
@@ -1919,6 +2002,97 @@
         }
       }
     },
+    "/#ListMailboxPermissions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the mailbox permissions associated with a mailbox.",
+        "operationId": "ListMailboxPermissions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListMailboxPermissionsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListMailboxPermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "OrganizationNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/OrganizationNotFoundException"
+            }
+          },
+          "483": {
+            "description": "OrganizationStateException",
+            "schema": {
+              "$ref": "#/definitions/OrganizationStateException"
+            }
+          }
+        }
+      }
+    },
     "/#ListOrganizations": {
       "parameters": [
         {
@@ -2237,6 +2411,89 @@
             }
           },
           "482": {
+            "description": "OrganizationStateException",
+            "schema": {
+              "$ref": "#/definitions/OrganizationStateException"
+            }
+          }
+        }
+      }
+    },
+    "/#PutMailboxPermissions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Sets permissions for a user or group. This replaces any pre-existing permissions set for the entity.",
+        "operationId": "PutMailboxPermissions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutMailboxPermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutMailboxPermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          },
+          "481": {
+            "description": "EntityStateException",
+            "schema": {
+              "$ref": "#/definitions/EntityStateException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "OrganizationNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/OrganizationNotFoundException"
+            }
+          },
+          "484": {
             "description": "OrganizationStateException",
             "schema": {
               "$ref": "#/definitions/OrganizationStateException"
@@ -2974,6 +3231,32 @@
       "properties": {},
       "type": "object"
     },
+    "DeleteMailboxPermissionsRequest": {
+      "properties": {
+        "EntityId": {
+          "$ref": "#/definitions/WorkMailIdentifier",
+          "description": "The identifier of the entity (user or group) for which to delete mailbox permissions."
+        },
+        "GranteeId": {
+          "$ref": "#/definitions/WorkMailIdentifier",
+          "description": "The identifier of the entity (user or group) for which to delete granted permissions."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/OrganizationId",
+          "description": "The identifier of the organization under which the entity (user or group) exists."
+        }
+      },
+      "required": [
+        "OrganizationId",
+        "EntityId",
+        "GranteeId"
+      ],
+      "type": "object"
+    },
+    "DeleteMailboxPermissionsResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "DeleteResourceRequest": {
       "properties": {
         "OrganizationId": {
@@ -3538,6 +3821,44 @@
       },
       "type": "object"
     },
+    "ListMailboxPermissionsRequest": {
+      "properties": {
+        "EntityId": {
+          "$ref": "#/definitions/WorkMailIdentifier",
+          "description": "The identifier of the entity (user or group) for which to list mailbox permissions."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to return in a single call."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token to use to retrieve the next page of results. The first call does not contain any tokens."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/OrganizationId",
+          "description": "The identifier of the organization under which the entity (user or group) exists."
+        }
+      },
+      "required": [
+        "OrganizationId",
+        "EntityId"
+      ],
+      "type": "object"
+    },
+    "ListMailboxPermissionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token to use to retrieve the next page of results. The value is \"null\" when there are no more results to return."
+        },
+        "Permissions": {
+          "$ref": "#/definitions/Permissions",
+          "description": "One page of the entity's mailbox permissions."
+        }
+      },
+      "type": "object"
+    },
     "ListOrganizationsRequest": {
       "properties": {
         "MaxResults": {
@@ -3809,6 +4130,80 @@
       "maxLength": 256,
       "pattern": "[\\u0020-\\u00FF]+",
       "type": "string"
+    },
+    "Permission": {
+      "description": "Permission granted to an entity (user, group) to access a certain aspect of another entity's mailbox.",
+      "properties": {
+        "GranteeId": {
+          "$ref": "#/definitions/WorkMailIdentifier",
+          "description": "The identifier of the entity (user or group) to which the permissions are granted."
+        },
+        "GranteeType": {
+          "$ref": "#/definitions/MemberType",
+          "description": "The type of entity (user, group) of the entity referred to in GranteeId."
+        },
+        "PermissionValues": {
+          "$ref": "#/definitions/PermissionValues",
+          "description": "The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox."
+        }
+      },
+      "required": [
+        "GranteeId",
+        "GranteeType",
+        "PermissionValues"
+      ],
+      "type": "object"
+    },
+    "PermissionType": {
+      "enum": [
+        "FULL_ACCESS",
+        "SEND_AS",
+        "SEND_ON_BEHALF"
+      ],
+      "type": "string"
+    },
+    "PermissionValues": {
+      "items": {
+        "$ref": "#/definitions/PermissionType"
+      },
+      "type": "array"
+    },
+    "Permissions": {
+      "items": {
+        "$ref": "#/definitions/Permission"
+      },
+      "type": "array"
+    },
+    "PutMailboxPermissionsRequest": {
+      "properties": {
+        "EntityId": {
+          "$ref": "#/definitions/WorkMailIdentifier",
+          "description": "The identifier of the entity (user or group) for which to update mailbox permissions."
+        },
+        "GranteeId": {
+          "$ref": "#/definitions/WorkMailIdentifier",
+          "description": "The identifier of the entity (user or group) to which to grant the permissions."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/OrganizationId",
+          "description": "The identifier of the organization under which the entity (user or group) exists."
+        },
+        "PermissionValues": {
+          "$ref": "#/definitions/PermissionValues",
+          "description": "The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox."
+        }
+      },
+      "required": [
+        "OrganizationId",
+        "EntityId",
+        "GranteeId",
+        "PermissionValues"
+      ],
+      "type": "object"
+    },
+    "PutMailboxPermissionsResponse": {
+      "properties": {},
+      "type": "object"
     },
     "RegisterToWorkMailRequest": {
       "properties": {

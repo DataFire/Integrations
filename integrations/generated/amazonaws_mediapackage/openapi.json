@@ -1039,13 +1039,16 @@
           "description": "The ID of the Channel. The ID must be unique within the region and it\ncannot be changed after a Channel is created.\n"
         }
       },
+      "required": [
+        "Id"
+      ],
       "type": "object"
     },
     "ChannelList": {
       "description": "A collection of Channel records.",
       "properties": {
         "Channels": {
-          "$ref": "#/definitions/ListOfChannel",
+          "$ref": "#/definitions/__listOfChannel",
           "description": "A list of Channel records."
         },
         "NextToken": {
@@ -1061,6 +1064,70 @@
         "Description": {
           "$ref": "#/definitions/__string",
           "description": "A short text description of the Channel."
+        }
+      },
+      "type": "object"
+    },
+    "CmafEncryption": {
+      "description": "A Common Media Application Format (CMAF) encryption configuration.",
+      "properties": {
+        "KeyRotationIntervalSeconds": {
+          "$ref": "#/definitions/__integer",
+          "description": "Time (in seconds) between each encryption key rotation."
+        },
+        "SpekeKeyProvider": {
+          "$ref": "#/definitions/SpekeKeyProvider"
+        }
+      },
+      "required": [
+        "SpekeKeyProvider"
+      ],
+      "type": "object"
+    },
+    "CmafPackage": {
+      "description": "A Common Media Application Format (CMAF) packaging configuration.",
+      "properties": {
+        "Encryption": {
+          "$ref": "#/definitions/CmafEncryption"
+        },
+        "HlsManifests": {
+          "$ref": "#/definitions/__listOfHlsManifest",
+          "description": "A list of HLS manifest configurations"
+        },
+        "SegmentDurationSeconds": {
+          "$ref": "#/definitions/__integer",
+          "description": "Duration (in seconds) of each segment. Actual segments will be\nrounded to the nearest multiple of the source segment duration.\n"
+        },
+        "SegmentPrefix": {
+          "$ref": "#/definitions/__string",
+          "description": "An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId."
+        },
+        "StreamSelection": {
+          "$ref": "#/definitions/StreamSelection"
+        }
+      },
+      "type": "object"
+    },
+    "CmafPackageCreateOrUpdateParameters": {
+      "description": "A Common Media Application Format (CMAF) packaging configuration.",
+      "properties": {
+        "Encryption": {
+          "$ref": "#/definitions/CmafEncryption"
+        },
+        "HlsManifests": {
+          "$ref": "#/definitions/__listOfHlsManifestCreateOrUpdateParameters",
+          "description": "A list of HLS manifest configurations"
+        },
+        "SegmentDurationSeconds": {
+          "$ref": "#/definitions/__integer",
+          "description": "Duration (in seconds) of each segment. Actual segments will be\nrounded to the nearest multiple of the source segment duration.\n"
+        },
+        "SegmentPrefix": {
+          "$ref": "#/definitions/__string",
+          "description": "An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId."
+        },
+        "StreamSelection": {
+          "$ref": "#/definitions/StreamSelection"
         }
       },
       "type": "object"
@@ -1109,6 +1176,9 @@
           "$ref": "#/definitions/__string",
           "description": "The ID of the Channel that the OriginEndpoint will be associated with.\nThis cannot be changed after the OriginEndpoint is created.\n"
         },
+        "CmafPackage": {
+          "$ref": "#/definitions/CmafPackageCreateOrUpdateParameters"
+        },
         "DashPackage": {
           "$ref": "#/definitions/DashPackage"
         },
@@ -1139,7 +1209,7 @@
           "description": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n"
         },
         "Whitelist": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint."
         }
       },
@@ -1158,6 +1228,9 @@
         "ChannelId": {
           "$ref": "#/definitions/__string",
           "description": "The ID of the Channel the OriginEndpoint is associated with."
+        },
+        "CmafPackage": {
+          "$ref": "#/definitions/CmafPackage"
         },
         "DashPackage": {
           "$ref": "#/definitions/DashPackage"
@@ -1193,7 +1266,7 @@
           "description": "The URL of the packaged OriginEndpoint for consumption."
         },
         "Whitelist": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint."
         }
       },
@@ -1305,6 +1378,9 @@
           "$ref": "#/definitions/__string",
           "description": "The ID of the Channel the OriginEndpoint is associated with."
         },
+        "CmafPackage": {
+          "$ref": "#/definitions/CmafPackage"
+        },
         "DashPackage": {
           "$ref": "#/definitions/DashPackage"
         },
@@ -1339,7 +1415,7 @@
           "description": "The URL of the packaged OriginEndpoint for consumption."
         },
         "Whitelist": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint."
         }
       },
@@ -1393,10 +1469,88 @@
       "description": "An HTTP Live Streaming (HLS) ingest resource configuration.",
       "properties": {
         "IngestEndpoints": {
-          "$ref": "#/definitions/ListOfIngestEndpoint",
+          "$ref": "#/definitions/__listOfIngestEndpoint",
           "description": "A list of endpoints to which the source stream should be sent."
         }
       },
+      "type": "object"
+    },
+    "HlsManifest": {
+      "description": "A HTTP Live Streaming (HLS) manifest configuration.",
+      "properties": {
+        "AdMarkers": {
+          "$ref": "#/definitions/AdMarkers",
+          "description": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.\n"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created."
+        },
+        "IncludeIframeOnlyStream": {
+          "$ref": "#/definitions/__boolean",
+          "description": "When enabled, an I-Frame only stream will be included in the output."
+        },
+        "ManifestName": {
+          "$ref": "#/definitions/__string",
+          "description": "An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint."
+        },
+        "PlaylistType": {
+          "$ref": "#/definitions/PlaylistType",
+          "description": "The HTTP Live Streaming (HLS) playlist type.\nWhen either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE\nentry will be included in the media playlist.\n"
+        },
+        "PlaylistWindowSeconds": {
+          "$ref": "#/definitions/__integer",
+          "description": "Time window (in seconds) contained in each parent manifest."
+        },
+        "ProgramDateTimeIntervalSeconds": {
+          "$ref": "#/definitions/__integer",
+          "description": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.\n"
+        },
+        "Url": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL of the packaged OriginEndpoint for consumption."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "HlsManifestCreateOrUpdateParameters": {
+      "description": "A HTTP Live Streaming (HLS) manifest configuration.",
+      "properties": {
+        "AdMarkers": {
+          "$ref": "#/definitions/AdMarkers",
+          "description": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.\n"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created."
+        },
+        "IncludeIframeOnlyStream": {
+          "$ref": "#/definitions/__boolean",
+          "description": "When enabled, an I-Frame only stream will be included in the output."
+        },
+        "ManifestName": {
+          "$ref": "#/definitions/__string",
+          "description": "An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint."
+        },
+        "PlaylistType": {
+          "$ref": "#/definitions/PlaylistType",
+          "description": "The HTTP Live Streaming (HLS) playlist type.\nWhen either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE\nentry will be included in the media playlist.\n"
+        },
+        "PlaylistWindowSeconds": {
+          "$ref": "#/definitions/__integer",
+          "description": "Time window (in seconds) contained in each parent manifest."
+        },
+        "ProgramDateTimeIntervalSeconds": {
+          "$ref": "#/definitions/__integer",
+          "description": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.\n"
+        }
+      },
+      "required": [
+        "Id"
+      ],
       "type": "object"
     },
     "HlsPackage": {
@@ -1423,7 +1577,7 @@
         },
         "ProgramDateTimeIntervalSeconds": {
           "$ref": "#/definitions/__integer",
-          "description": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the \ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.\n"
+          "description": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.\n"
         },
         "SegmentDurationSeconds": {
           "$ref": "#/definitions/__integer",
@@ -1473,7 +1627,7 @@
     "ListChannelsResponse": {
       "properties": {
         "Channels": {
-          "$ref": "#/definitions/ListOfChannel",
+          "$ref": "#/definitions/__listOfChannel",
           "description": "A list of Channel records."
         },
         "NextToken": {
@@ -1482,30 +1636,6 @@
         }
       },
       "type": "object"
-    },
-    "ListOfChannel": {
-      "items": {
-        "$ref": "#/definitions/Channel"
-      },
-      "type": "array"
-    },
-    "ListOfIngestEndpoint": {
-      "items": {
-        "$ref": "#/definitions/IngestEndpoint"
-      },
-      "type": "array"
-    },
-    "ListOfOriginEndpoint": {
-      "items": {
-        "$ref": "#/definitions/OriginEndpoint"
-      },
-      "type": "array"
-    },
-    "ListOf__string": {
-      "items": {
-        "$ref": "#/definitions/__string"
-      },
-      "type": "array"
     },
     "ListOriginEndpointsRequest": {
       "properties": {},
@@ -1518,7 +1648,7 @@
           "description": "A token that can be used to resume pagination from the end of the collection."
         },
         "OriginEndpoints": {
-          "$ref": "#/definitions/ListOfOriginEndpoint",
+          "$ref": "#/definitions/__listOfOriginEndpoint",
           "description": "A list of OriginEndpoint records."
         }
       },
@@ -1581,6 +1711,9 @@
           "$ref": "#/definitions/__string",
           "description": "The ID of the Channel the OriginEndpoint is associated with."
         },
+        "CmafPackage": {
+          "$ref": "#/definitions/CmafPackage"
+        },
         "DashPackage": {
           "$ref": "#/definitions/DashPackage"
         },
@@ -1615,7 +1748,7 @@
           "description": "The URL of the packaged OriginEndpoint for consumption."
         },
         "Whitelist": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint."
         }
       },
@@ -1627,6 +1760,9 @@
         "ChannelId": {
           "$ref": "#/definitions/__string",
           "description": "The ID of the Channel that the OriginEndpoint will be associated with.\nThis cannot be changed after the OriginEndpoint is created.\n"
+        },
+        "CmafPackage": {
+          "$ref": "#/definitions/CmafPackageCreateOrUpdateParameters"
         },
         "DashPackage": {
           "$ref": "#/definitions/DashPackage"
@@ -1658,10 +1794,14 @@
           "description": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n"
         },
         "Whitelist": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint."
         }
       },
+      "required": [
+        "Id",
+        "ChannelId"
+      ],
       "type": "object"
     },
     "OriginEndpointList": {
@@ -1672,7 +1812,7 @@
           "description": "A token that can be used to resume pagination from the end of the collection."
         },
         "OriginEndpoints": {
-          "$ref": "#/definitions/ListOfOriginEndpoint",
+          "$ref": "#/definitions/__listOfOriginEndpoint",
           "description": "A list of OriginEndpoint records."
         }
       },
@@ -1681,6 +1821,9 @@
     "OriginEndpointUpdateParameters": {
       "description": "Configuration parameters for updating an existing OriginEndpoint.",
       "properties": {
+        "CmafPackage": {
+          "$ref": "#/definitions/CmafPackageCreateOrUpdateParameters"
+        },
         "DashPackage": {
           "$ref": "#/definitions/DashPackage"
         },
@@ -1707,7 +1850,7 @@
           "description": "Amount of delay (in seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n"
         },
         "Whitelist": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint."
         }
       },
@@ -1773,7 +1916,7 @@
           "description": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.\n"
         },
         "SystemIds": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "The system IDs to include in key requests."
         },
         "Url": {
@@ -1866,6 +2009,9 @@
     "UpdateOriginEndpointRequest": {
       "description": "Configuration parameters used to update an existing OriginEndpoint.",
       "properties": {
+        "CmafPackage": {
+          "$ref": "#/definitions/CmafPackageCreateOrUpdateParameters"
+        },
         "DashPackage": {
           "$ref": "#/definitions/DashPackage"
         },
@@ -1892,7 +2038,7 @@
           "description": "Amount of delay (in seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n"
         },
         "Whitelist": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint."
         }
       },
@@ -1907,6 +2053,9 @@
         "ChannelId": {
           "$ref": "#/definitions/__string",
           "description": "The ID of the Channel the OriginEndpoint is associated with."
+        },
+        "CmafPackage": {
+          "$ref": "#/definitions/CmafPackage"
         },
         "DashPackage": {
           "$ref": "#/definitions/DashPackage"
@@ -1942,7 +2091,7 @@
           "description": "The URL of the packaged OriginEndpoint for consumption."
         },
         "Whitelist": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint."
         }
       },
@@ -1958,11 +2107,46 @@
     "__integer": {
       "type": "integer"
     },
-    "__string": {
-      "type": "string"
+    "__listOfChannel": {
+      "items": {
+        "$ref": "#/definitions/Channel"
+      },
+      "type": "array"
     },
-    "__timestamp": {
-      "format": "date-time",
+    "__listOfHlsManifest": {
+      "items": {
+        "$ref": "#/definitions/HlsManifest"
+      },
+      "type": "array"
+    },
+    "__listOfHlsManifestCreateOrUpdateParameters": {
+      "items": {
+        "$ref": "#/definitions/HlsManifestCreateOrUpdateParameters"
+      },
+      "type": "array"
+    },
+    "__listOfIngestEndpoint": {
+      "items": {
+        "$ref": "#/definitions/IngestEndpoint"
+      },
+      "type": "array"
+    },
+    "__listOfOriginEndpoint": {
+      "items": {
+        "$ref": "#/definitions/OriginEndpoint"
+      },
+      "type": "array"
+    },
+    "__listOf__string": {
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "__long": {
+      "type": "integer"
+    },
+    "__string": {
       "type": "string"
     }
   }

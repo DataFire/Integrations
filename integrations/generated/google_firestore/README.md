@@ -1,6 +1,6 @@
 # @datafire/google_firestore
 
-Client library for Google Cloud Firestore
+Client library for Cloud Firestore
 
 ## Installation and Usage
 ```bash

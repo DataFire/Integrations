@@ -1,6 +1,6 @@
 {
   "name": "@datafire/payrun",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for PayRun.IO",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/payrun.io/17.18.6.206/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/payrun.io/18.19.1.208/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

@@ -20,7 +20,7 @@
     },
     "termsOfService": "https://aws.amazon.com/service-terms/",
     "title": "Amazon CloudFront",
-    "version": "2017-03-25",
+    "version": "2017-10-30",
     "x-apiClientRegistration": {
       "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
     },
@@ -38,7 +38,7 @@
           "url": "https://github.com/mermade/aws2openapi",
           "version": "1.0.0"
         },
-        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/cloudfront-2017-03-25.normal.json",
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/cloudfront-2017-10-30.normal.json",
         "x-apisguru-direct": true
       }
     ],
@@ -132,7 +132,7 @@
     }
   },
   "paths": {
-    "/2017-03-25/distribution": {
+    "/2017-10-30/distribution": {
       "get": {
         "description": "List distributions. ",
         "operationId": "ListDistributions",
@@ -463,11 +463,29 @@
             "schema": {
               "$ref": "#/definitions/InvalidOriginKeepaliveTimeout"
             }
+          },
+          "520": {
+            "description": "NoSuchFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionConfig"
+            }
+          },
+          "521": {
+            "description": "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior",
+            "schema": {
+              "$ref": "#/definitions/IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior"
+            }
+          },
+          "522": {
+            "description": "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/TooManyDistributionsAssociatedToFieldLevelEncryptionConfig"
+            }
           }
         }
       }
     },
-    "/2017-03-25/distribution/{DistributionId}/invalidation": {
+    "/2017-10-30/distribution/{DistributionId}/invalidation": {
       "get": {
         "description": "Lists invalidation batches. ",
         "operationId": "ListInvalidations",
@@ -628,7 +646,7 @@
         }
       }
     },
-    "/2017-03-25/distribution/{DistributionId}/invalidation/{Id}": {
+    "/2017-10-30/distribution/{DistributionId}/invalidation/{Id}": {
       "get": {
         "description": "Get the information about an invalidation. ",
         "operationId": "GetInvalidation",
@@ -727,7 +745,7 @@
         }
       ]
     },
-    "/2017-03-25/distribution/{Id}": {
+    "/2017-10-30/distribution/{Id}": {
       "delete": {
         "description": "Delete a distribution. ",
         "operationId": "DeleteDistribution",
@@ -869,7 +887,7 @@
         }
       ]
     },
-    "/2017-03-25/distribution/{Id}/config": {
+    "/2017-10-30/distribution/{Id}/config": {
       "get": {
         "description": "Get the configuration information about a distribution. ",
         "operationId": "GetDistributionConfig",
@@ -1204,11 +1222,29 @@
             "schema": {
               "$ref": "#/definitions/InvalidOriginKeepaliveTimeout"
             }
+          },
+          "520": {
+            "description": "NoSuchFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionConfig"
+            }
+          },
+          "521": {
+            "description": "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior",
+            "schema": {
+              "$ref": "#/definitions/IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior"
+            }
+          },
+          "522": {
+            "description": "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/TooManyDistributionsAssociatedToFieldLevelEncryptionConfig"
+            }
           }
         }
       }
     },
-    "/2017-03-25/distribution?WithTags": {
+    "/2017-10-30/distribution?WithTags": {
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1503,11 +1539,29 @@
             "schema": {
               "$ref": "#/definitions/InvalidOriginKeepaliveTimeout"
             }
+          },
+          "521": {
+            "description": "NoSuchFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionConfig"
+            }
+          },
+          "522": {
+            "description": "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior",
+            "schema": {
+              "$ref": "#/definitions/IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior"
+            }
+          },
+          "523": {
+            "description": "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/TooManyDistributionsAssociatedToFieldLevelEncryptionConfig"
+            }
           }
         }
       }
     },
-    "/2017-03-25/distributionsByWebACLId/{WebACLId}": {
+    "/2017-10-30/distributionsByWebACLId/{WebACLId}": {
       "get": {
         "description": "List the distributions that are associated with a specified AWS WAF web ACL. ",
         "operationId": "ListDistributionsByWebACLId",
@@ -1578,7 +1632,853 @@
         }
       ]
     },
-    "/2017-03-25/origin-access-identity/cloudfront": {
+    "/2017-10-30/field-level-encryption": {
+      "get": {
+        "description": "List all field-level encryption configurations that have been created in CloudFront for this account.",
+        "operationId": "ListFieldLevelEncryptionConfigs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListFieldLevelEncryptionConfigsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListFieldLevelEncryptionConfigsResult"
+            }
+          },
+          "480": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Create a new field-level encryption configuration.",
+        "operationId": "CreateFieldLevelEncryptionConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFieldLevelEncryptionConfigRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFieldLevelEncryptionConfigResult"
+            }
+          },
+          "480": {
+            "description": "InconsistentQuantities",
+            "schema": {
+              "$ref": "#/definitions/InconsistentQuantities"
+            }
+          },
+          "481": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          },
+          "482": {
+            "description": "NoSuchFieldLevelEncryptionProfile",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionProfile"
+            }
+          },
+          "483": {
+            "description": "FieldLevelEncryptionConfigAlreadyExists",
+            "schema": {
+              "$ref": "#/definitions/FieldLevelEncryptionConfigAlreadyExists"
+            }
+          },
+          "484": {
+            "description": "TooManyFieldLevelEncryptionConfigs",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionConfigs"
+            }
+          },
+          "485": {
+            "description": "TooManyFieldLevelEncryptionQueryArgProfiles",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionQueryArgProfiles"
+            }
+          },
+          "486": {
+            "description": "TooManyFieldLevelEncryptionContentTypeProfiles",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionContentTypeProfiles"
+            }
+          },
+          "487": {
+            "description": "QueryArgProfileEmpty",
+            "schema": {
+              "$ref": "#/definitions/QueryArgProfileEmpty"
+            }
+          }
+        }
+      }
+    },
+    "/2017-10-30/field-level-encryption-profile": {
+      "get": {
+        "description": "Request a list of field-level encryption profiles that have been created in CloudFront for this account.",
+        "operationId": "ListFieldLevelEncryptionProfiles",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListFieldLevelEncryptionProfilesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListFieldLevelEncryptionProfilesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Create a field-level encryption profile.",
+        "operationId": "CreateFieldLevelEncryptionProfile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFieldLevelEncryptionProfileRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFieldLevelEncryptionProfileResult"
+            }
+          },
+          "480": {
+            "description": "InconsistentQuantities",
+            "schema": {
+              "$ref": "#/definitions/InconsistentQuantities"
+            }
+          },
+          "481": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          },
+          "482": {
+            "description": "NoSuchPublicKey",
+            "schema": {
+              "$ref": "#/definitions/NoSuchPublicKey"
+            }
+          },
+          "483": {
+            "description": "FieldLevelEncryptionProfileAlreadyExists",
+            "schema": {
+              "$ref": "#/definitions/FieldLevelEncryptionProfileAlreadyExists"
+            }
+          },
+          "484": {
+            "description": "FieldLevelEncryptionProfileSizeExceeded",
+            "schema": {
+              "$ref": "#/definitions/FieldLevelEncryptionProfileSizeExceeded"
+            }
+          },
+          "485": {
+            "description": "TooManyFieldLevelEncryptionProfiles",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionProfiles"
+            }
+          },
+          "486": {
+            "description": "TooManyFieldLevelEncryptionEncryptionEntities",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionEncryptionEntities"
+            }
+          },
+          "487": {
+            "description": "TooManyFieldLevelEncryptionFieldPatterns",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionFieldPatterns"
+            }
+          }
+        }
+      }
+    },
+    "/2017-10-30/field-level-encryption-profile/{Id}": {
+      "delete": {
+        "description": "Remove a field-level encryption profile.",
+        "operationId": "DeleteFieldLevelEncryptionProfile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFieldLevelEncryptionProfileRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "InvalidIfMatchVersion",
+            "schema": {
+              "$ref": "#/definitions/InvalidIfMatchVersion"
+            }
+          },
+          "482": {
+            "description": "NoSuchFieldLevelEncryptionProfile",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionProfile"
+            }
+          },
+          "483": {
+            "description": "PreconditionFailed",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailed"
+            }
+          },
+          "484": {
+            "description": "FieldLevelEncryptionProfileInUse",
+            "schema": {
+              "$ref": "#/definitions/FieldLevelEncryptionProfileInUse"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get the field-level encryption profile information.",
+        "operationId": "GetFieldLevelEncryptionProfile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFieldLevelEncryptionProfileRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFieldLevelEncryptionProfileResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "NoSuchFieldLevelEncryptionProfile",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionProfile"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/2017-10-30/field-level-encryption-profile/{Id}/config": {
+      "get": {
+        "description": "Get the field-level encryption profile configuration information.",
+        "operationId": "GetFieldLevelEncryptionProfileConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFieldLevelEncryptionProfileConfigRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFieldLevelEncryptionProfileConfigResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "NoSuchFieldLevelEncryptionProfile",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionProfile"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Update a field-level encryption profile. ",
+        "operationId": "UpdateFieldLevelEncryptionProfile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFieldLevelEncryptionProfileRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFieldLevelEncryptionProfileResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "FieldLevelEncryptionProfileAlreadyExists",
+            "schema": {
+              "$ref": "#/definitions/FieldLevelEncryptionProfileAlreadyExists"
+            }
+          },
+          "482": {
+            "description": "IllegalUpdate",
+            "schema": {
+              "$ref": "#/definitions/IllegalUpdate"
+            }
+          },
+          "483": {
+            "description": "InconsistentQuantities",
+            "schema": {
+              "$ref": "#/definitions/InconsistentQuantities"
+            }
+          },
+          "484": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          },
+          "485": {
+            "description": "InvalidIfMatchVersion",
+            "schema": {
+              "$ref": "#/definitions/InvalidIfMatchVersion"
+            }
+          },
+          "486": {
+            "description": "NoSuchPublicKey",
+            "schema": {
+              "$ref": "#/definitions/NoSuchPublicKey"
+            }
+          },
+          "487": {
+            "description": "NoSuchFieldLevelEncryptionProfile",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionProfile"
+            }
+          },
+          "488": {
+            "description": "PreconditionFailed",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailed"
+            }
+          },
+          "489": {
+            "description": "FieldLevelEncryptionProfileSizeExceeded",
+            "schema": {
+              "$ref": "#/definitions/FieldLevelEncryptionProfileSizeExceeded"
+            }
+          },
+          "490": {
+            "description": "TooManyFieldLevelEncryptionEncryptionEntities",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionEncryptionEntities"
+            }
+          },
+          "491": {
+            "description": "TooManyFieldLevelEncryptionFieldPatterns",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionFieldPatterns"
+            }
+          }
+        }
+      }
+    },
+    "/2017-10-30/field-level-encryption/{Id}": {
+      "delete": {
+        "description": "Remove a field-level encryption configuration.",
+        "operationId": "DeleteFieldLevelEncryptionConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFieldLevelEncryptionConfigRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "InvalidIfMatchVersion",
+            "schema": {
+              "$ref": "#/definitions/InvalidIfMatchVersion"
+            }
+          },
+          "482": {
+            "description": "NoSuchFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionConfig"
+            }
+          },
+          "483": {
+            "description": "PreconditionFailed",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailed"
+            }
+          },
+          "484": {
+            "description": "FieldLevelEncryptionConfigInUse",
+            "schema": {
+              "$ref": "#/definitions/FieldLevelEncryptionConfigInUse"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get the field-level encryption configuration information.",
+        "operationId": "GetFieldLevelEncryption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFieldLevelEncryptionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFieldLevelEncryptionResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "NoSuchFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionConfig"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/2017-10-30/field-level-encryption/{Id}/config": {
+      "get": {
+        "description": "Get the field-level encryption configuration information.",
+        "operationId": "GetFieldLevelEncryptionConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFieldLevelEncryptionConfigRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFieldLevelEncryptionConfigResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "NoSuchFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionConfig"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Update a field-level encryption configuration. ",
+        "operationId": "UpdateFieldLevelEncryptionConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFieldLevelEncryptionConfigRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFieldLevelEncryptionConfigResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "IllegalUpdate",
+            "schema": {
+              "$ref": "#/definitions/IllegalUpdate"
+            }
+          },
+          "482": {
+            "description": "InconsistentQuantities",
+            "schema": {
+              "$ref": "#/definitions/InconsistentQuantities"
+            }
+          },
+          "483": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          },
+          "484": {
+            "description": "InvalidIfMatchVersion",
+            "schema": {
+              "$ref": "#/definitions/InvalidIfMatchVersion"
+            }
+          },
+          "485": {
+            "description": "NoSuchFieldLevelEncryptionProfile",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionProfile"
+            }
+          },
+          "486": {
+            "description": "NoSuchFieldLevelEncryptionConfig",
+            "schema": {
+              "$ref": "#/definitions/NoSuchFieldLevelEncryptionConfig"
+            }
+          },
+          "487": {
+            "description": "PreconditionFailed",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailed"
+            }
+          },
+          "488": {
+            "description": "TooManyFieldLevelEncryptionQueryArgProfiles",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionQueryArgProfiles"
+            }
+          },
+          "489": {
+            "description": "TooManyFieldLevelEncryptionContentTypeProfiles",
+            "schema": {
+              "$ref": "#/definitions/TooManyFieldLevelEncryptionContentTypeProfiles"
+            }
+          },
+          "490": {
+            "description": "QueryArgProfileEmpty",
+            "schema": {
+              "$ref": "#/definitions/QueryArgProfileEmpty"
+            }
+          }
+        }
+      }
+    },
+    "/2017-10-30/origin-access-identity/cloudfront": {
       "get": {
         "description": "Lists origin access identities.",
         "operationId": "ListCloudFrontOriginAccessIdentities",
@@ -1703,7 +2603,7 @@
         }
       }
     },
-    "/2017-03-25/origin-access-identity/cloudfront/{Id}": {
+    "/2017-10-30/origin-access-identity/cloudfront/{Id}": {
       "delete": {
         "description": "Delete an origin access identity. ",
         "operationId": "DeleteCloudFrontOriginAccessIdentity",
@@ -1829,7 +2729,7 @@
         }
       ]
     },
-    "/2017-03-25/origin-access-identity/cloudfront/{Id}/config": {
+    "/2017-10-30/origin-access-identity/cloudfront/{Id}/config": {
       "get": {
         "description": "Get the configuration information about an origin access identity. ",
         "operationId": "GetCloudFrontOriginAccessIdentityConfig",
@@ -1976,7 +2876,373 @@
         }
       }
     },
-    "/2017-03-25/service-linked-role/{RoleName}": {
+    "/2017-10-30/public-key": {
+      "get": {
+        "description": "List all public keys that have been added to CloudFront for this account.",
+        "operationId": "ListPublicKeys",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListPublicKeysRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPublicKeysResult"
+            }
+          },
+          "480": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Add a new public key to CloudFront to use, for example, for field-level encryption. You can add a maximum of 10 public keys with one AWS account.",
+        "operationId": "CreatePublicKey",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreatePublicKeyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreatePublicKeyResult"
+            }
+          },
+          "480": {
+            "description": "PublicKeyAlreadyExists",
+            "schema": {
+              "$ref": "#/definitions/PublicKeyAlreadyExists"
+            }
+          },
+          "481": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          },
+          "482": {
+            "description": "TooManyPublicKeys",
+            "schema": {
+              "$ref": "#/definitions/TooManyPublicKeys"
+            }
+          }
+        }
+      }
+    },
+    "/2017-10-30/public-key/{Id}": {
+      "delete": {
+        "description": "Remove a public key you previously added to CloudFront.",
+        "operationId": "DeletePublicKey",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeletePublicKeyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "PublicKeyInUse",
+            "schema": {
+              "$ref": "#/definitions/PublicKeyInUse"
+            }
+          },
+          "482": {
+            "description": "InvalidIfMatchVersion",
+            "schema": {
+              "$ref": "#/definitions/InvalidIfMatchVersion"
+            }
+          },
+          "483": {
+            "description": "NoSuchPublicKey",
+            "schema": {
+              "$ref": "#/definitions/NoSuchPublicKey"
+            }
+          },
+          "484": {
+            "description": "PreconditionFailed",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailed"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get the public key information.",
+        "operationId": "GetPublicKey",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPublicKeyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetPublicKeyResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "NoSuchPublicKey",
+            "schema": {
+              "$ref": "#/definitions/NoSuchPublicKey"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/2017-10-30/public-key/{Id}/config": {
+      "get": {
+        "description": "Return public key configuration informaation",
+        "operationId": "GetPublicKeyConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPublicKeyConfigRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetPublicKeyConfigResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "NoSuchPublicKey",
+            "schema": {
+              "$ref": "#/definitions/NoSuchPublicKey"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Update public key information. Note that the only value you can change is the comment.",
+        "operationId": "UpdatePublicKey",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdatePublicKeyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdatePublicKeyResult"
+            }
+          },
+          "480": {
+            "description": "AccessDenied",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "481": {
+            "description": "CannotChangeImmutablePublicKeyFields",
+            "schema": {
+              "$ref": "#/definitions/CannotChangeImmutablePublicKeyFields"
+            }
+          },
+          "482": {
+            "description": "InvalidArgument",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgument"
+            }
+          },
+          "483": {
+            "description": "InvalidIfMatchVersion",
+            "schema": {
+              "$ref": "#/definitions/InvalidIfMatchVersion"
+            }
+          },
+          "484": {
+            "description": "IllegalUpdate",
+            "schema": {
+              "$ref": "#/definitions/IllegalUpdate"
+            }
+          },
+          "485": {
+            "description": "NoSuchPublicKey",
+            "schema": {
+              "$ref": "#/definitions/NoSuchPublicKey"
+            }
+          },
+          "486": {
+            "description": "PreconditionFailed",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailed"
+            }
+          }
+        }
+      }
+    },
+    "/2017-10-30/service-linked-role/{RoleName}": {
       "delete": {
         "description": "",
         "operationId": "DeleteServiceLinkedRole",
@@ -2056,7 +3322,7 @@
         }
       ]
     },
-    "/2017-03-25/streaming-distribution": {
+    "/2017-10-30/streaming-distribution": {
       "get": {
         "description": "List streaming distributions. ",
         "operationId": "ListStreamingDistributions",
@@ -2223,7 +3489,7 @@
         }
       }
     },
-    "/2017-03-25/streaming-distribution/{Id}": {
+    "/2017-10-30/streaming-distribution/{Id}": {
       "delete": {
         "description": "<p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API, perform the following steps.</p> <p> <b>To delete an RTMP distribution using the CloudFront API</b>:</p> <ol> <li> <p>Disable the RTMP distribution.</p> </li> <li> <p>Submit a <code>GET Streaming Distribution Config</code> request to get the current configuration and the <code>Etag</code> header for the distribution. </p> </li> <li> <p>Update the XML document that was returned in the response to your <code>GET Streaming Distribution Config</code> request to change the value of <code>Enabled</code> to <code>false</code>.</p> </li> <li> <p>Submit a <code>PUT Streaming Distribution Config</code> request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Then set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Streaming Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to the <code>PUT Streaming Distribution Config</code> request to confirm that the distribution was successfully disabled.</p> </li> <li> <p>Submit a <code>GET Streaming Distribution Config</code> request to confirm that your changes have propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p> </li> <li> <p>Submit a <code>DELETE Streaming Distribution</code> request. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Streaming Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to your <code>DELETE Streaming Distribution</code> request to confirm that the distribution was successfully deleted.</p> </li> </ol> <p>For information about deleting a distribution using the CloudFront console, see <a href=\"http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html\">Deleting a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>",
         "operationId": "DeleteStreamingDistribution",
@@ -2365,7 +3631,7 @@
         }
       ]
     },
-    "/2017-03-25/streaming-distribution/{Id}/config": {
+    "/2017-10-30/streaming-distribution/{Id}/config": {
       "get": {
         "description": "Get the configuration information about a streaming distribution. ",
         "operationId": "GetStreamingDistributionConfig",
@@ -2542,7 +3808,7 @@
         }
       }
     },
-    "/2017-03-25/streaming-distribution?WithTags": {
+    "/2017-10-30/streaming-distribution?WithTags": {
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -2673,7 +3939,7 @@
         }
       }
     },
-    "/2017-03-25/tagging": {
+    "/2017-10-30/tagging": {
       "get": {
         "description": "List tags for a CloudFront resource.",
         "operationId": "ListTagsForResource",
@@ -2750,7 +4016,7 @@
         }
       ]
     },
-    "/2017-03-25/tagging?Operation=Tag": {
+    "/2017-10-30/tagging?Operation=Tag": {
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -2824,7 +4090,7 @@
         }
       }
     },
-    "/2017-03-25/tagging?Operation=Untag": {
+    "/2017-10-30/tagging?Operation=Untag": {
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -3011,6 +4277,9 @@
           "$ref": "#/definitions/long",
           "description": "The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and <code>Expires</code> to objects. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html\">Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>."
         },
+        "FieldLevelEncryptionId": {
+          "$ref": "#/definitions/string"
+        },
         "ForwardedValues": {
           "$ref": "#/definitions/ForwardedValues",
           "description": "A complex type that specifies how CloudFront handles query strings and cookies."
@@ -3097,6 +4366,15 @@
         "Quantity",
         "Items"
       ],
+      "type": "object"
+    },
+    "CannotChangeImmutablePublicKeyFields": {
+      "description": "You can't change the value of a public key.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
       "type": "object"
     },
     "CertificateSource": {
@@ -3229,6 +4507,68 @@
       },
       "type": "array"
     },
+    "ContentTypeProfile": {
+      "description": "A field-level encryption content type profile. ",
+      "properties": {
+        "ContentType": {
+          "$ref": "#/definitions/string",
+          "description": "The content type for a field-level encryption content type-profile mapping. "
+        },
+        "Format": {
+          "$ref": "#/definitions/Format",
+          "description": "The format for a field-level encryption content type-profile mapping. "
+        },
+        "ProfileId": {
+          "$ref": "#/definitions/string",
+          "description": "The profile ID for a field-level encryption content type-profile mapping. "
+        }
+      },
+      "required": [
+        "Format",
+        "ContentType"
+      ],
+      "type": "object"
+    },
+    "ContentTypeProfileConfig": {
+      "description": "The configuration for a field-level encryption content type-profile mapping. ",
+      "properties": {
+        "ContentTypeProfiles": {
+          "$ref": "#/definitions/ContentTypeProfiles",
+          "description": "The configuration for a field-level encryption content type-profile. "
+        },
+        "ForwardWhenContentTypeIsUnknown": {
+          "$ref": "#/definitions/boolean",
+          "description": "The setting in a field-level encryption content type-profile mapping that specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown. "
+        }
+      },
+      "required": [
+        "ForwardWhenContentTypeIsUnknown"
+      ],
+      "type": "object"
+    },
+    "ContentTypeProfileList": {
+      "items": {
+        "$ref": "#/definitions/ContentTypeProfile"
+      },
+      "type": "array"
+    },
+    "ContentTypeProfiles": {
+      "description": "Field-level encryption content type-profile. ",
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/ContentTypeProfileList",
+          "description": "Items in a field-level encryption content type-profile mapping. "
+        },
+        "Quantity": {
+          "$ref": "#/definitions/integer",
+          "description": "The number of field-level encryption content type-profile mappings. "
+        }
+      },
+      "required": [
+        "Quantity"
+      ],
+      "type": "object"
+    },
     "CookieNameList": {
       "items": {
         "$ref": "#/definitions/string"
@@ -3282,7 +4622,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "CreateCloudFrontOriginAccessIdentityResult": {
@@ -3308,7 +4648,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "CreateDistributionResult": {
@@ -3334,7 +4674,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "CreateDistributionWithTagsResult": {
@@ -3343,6 +4683,54 @@
         "Distribution": {
           "$ref": "#/definitions/Distribution",
           "description": "The distribution's information. "
+        }
+      },
+      "type": "object"
+    },
+    "CreateFieldLevelEncryptionConfigRequest": {
+      "properties": {
+        "FieldLevelEncryptionConfig": {
+          "$ref": "#/definitions/FieldLevelEncryptionConfig",
+          "description": "The request to create a new field-level encryption configuration."
+        }
+      },
+      "required": [
+        "FieldLevelEncryptionConfig"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
+      }
+    },
+    "CreateFieldLevelEncryptionConfigResult": {
+      "properties": {
+        "FieldLevelEncryption": {
+          "$ref": "#/definitions/FieldLevelEncryption",
+          "description": "Returned when you create a new field-level encryption configuration."
+        }
+      },
+      "type": "object"
+    },
+    "CreateFieldLevelEncryptionProfileRequest": {
+      "properties": {
+        "FieldLevelEncryptionProfileConfig": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfileConfig",
+          "description": "The request to create a field-level encryption profile."
+        }
+      },
+      "required": [
+        "FieldLevelEncryptionProfileConfig"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
+      }
+    },
+    "CreateFieldLevelEncryptionProfileResult": {
+      "properties": {
+        "FieldLevelEncryptionProfile": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfile",
+          "description": "Returned when you create a new field-level encryption profile."
         }
       },
       "type": "object"
@@ -3360,7 +4748,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "CreateInvalidationResult": {
@@ -3369,6 +4757,30 @@
         "Invalidation": {
           "$ref": "#/definitions/Invalidation",
           "description": "The invalidation's information."
+        }
+      },
+      "type": "object"
+    },
+    "CreatePublicKeyRequest": {
+      "properties": {
+        "PublicKeyConfig": {
+          "$ref": "#/definitions/PublicKeyConfig",
+          "description": "The request to add a public key to CloudFront."
+        }
+      },
+      "required": [
+        "PublicKeyConfig"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
+      }
+    },
+    "CreatePublicKeyResult": {
+      "properties": {
+        "PublicKey": {
+          "$ref": "#/definitions/PublicKey",
+          "description": "Returned when you add a public key."
         }
       },
       "type": "object"
@@ -3386,7 +4798,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "CreateStreamingDistributionResult": {
@@ -3412,7 +4824,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "CreateStreamingDistributionWithTagsResult": {
@@ -3539,6 +4951,9 @@
           "$ref": "#/definitions/long",
           "description": "The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and <code>Expires</code> to objects. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html\">Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>."
         },
+        "FieldLevelEncryptionId": {
+          "$ref": "#/definitions/string"
+        },
         "ForwardedValues": {
           "$ref": "#/definitions/ForwardedValues",
           "description": "A complex type that specifies how CloudFront handles query strings and cookies."
@@ -3587,6 +5002,18 @@
     },
     "DeleteDistributionRequest": {
       "description": "<p>This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.</p> <p> <b>To delete a web distribution using the CloudFront API:</b> </p> <ol> <li> <p>Disable the web distribution </p> </li> <li> <p>Submit a <code>GET Distribution Config</code> request to get the current configuration and the <code>Etag</code> header for the distribution.</p> </li> <li> <p>Update the XML document that was returned in the response to your <code>GET Distribution Config</code> request to change the value of <code>Enabled</code> to <code>false</code>.</p> </li> <li> <p>Submit a <code>PUT Distribution Config</code> request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to the <code>PUT Distribution Config</code> request to confirm that the distribution was successfully disabled.</p> </li> <li> <p>Submit a <code>GET Distribution</code> request to confirm that your changes have propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p> </li> <li> <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 6.</p> </li> <li> <p>Review the response to your <code>DELETE Distribution</code> request to confirm that the distribution was successfully deleted.</p> </li> </ol> <p>For information about deleting a distribution using the CloudFront console, see <a href=\"http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html\">Deleting a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFieldLevelEncryptionConfigRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFieldLevelEncryptionProfileRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeletePublicKeyRequest": {
       "properties": {},
       "type": "object"
     },
@@ -3894,12 +5321,356 @@
       },
       "type": "array"
     },
+    "EncryptionEntities": {
+      "description": "Complex data type for field-level encryption profiles that includes all of the encryption entities. ",
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/EncryptionEntityList",
+          "description": "An array of field patterns in a field-level encryption content type-profile mapping. "
+        },
+        "Quantity": {
+          "$ref": "#/definitions/integer",
+          "description": "Number of field pattern items in a field-level encryption content type-profile mapping. "
+        }
+      },
+      "required": [
+        "Quantity"
+      ],
+      "type": "object"
+    },
+    "EncryptionEntity": {
+      "description": "Complex data type for field-level encryption profiles that includes the encryption key and field pattern specifications. ",
+      "properties": {
+        "FieldPatterns": {
+          "$ref": "#/definitions/FieldPatterns",
+          "description": "Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive. "
+        },
+        "ProviderId": {
+          "$ref": "#/definitions/string",
+          "description": "The provider associated with the public key being used for encryption. This value must also be provided with the private key for applications to be able to decrypt data."
+        },
+        "PublicKeyId": {
+          "$ref": "#/definitions/string",
+          "description": "The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns. "
+        }
+      },
+      "required": [
+        "PublicKeyId",
+        "ProviderId",
+        "FieldPatterns"
+      ],
+      "type": "object"
+    },
+    "EncryptionEntityList": {
+      "items": {
+        "$ref": "#/definitions/EncryptionEntity"
+      },
+      "type": "array"
+    },
     "EventType": {
       "enum": [
         "viewer-request",
         "viewer-response",
         "origin-request",
         "origin-response"
+      ],
+      "type": "string"
+    },
+    "FieldLevelEncryption": {
+      "description": "A complex data type that includes the profile configurations and other options specified for field-level encryption. ",
+      "properties": {
+        "FieldLevelEncryptionConfig": {
+          "$ref": "#/definitions/FieldLevelEncryptionConfig",
+          "description": "A complex data type that includes the profile configurations specified for field-level encryption. "
+        },
+        "Id": {
+          "$ref": "#/definitions/string",
+          "description": "The configuration ID for a field-level encryption configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The last time the field-level encryption configuration was changed. "
+        }
+      },
+      "required": [
+        "Id",
+        "LastModifiedTime",
+        "FieldLevelEncryptionConfig"
+      ],
+      "type": "object"
+    },
+    "FieldLevelEncryptionConfig": {
+      "description": "A complex data type that includes the profile configurations specified for field-level encryption. ",
+      "properties": {
+        "CallerReference": {
+          "$ref": "#/definitions/string",
+          "description": "A unique number that ensures the request can't be replayed."
+        },
+        "Comment": {
+          "$ref": "#/definitions/string",
+          "description": "An optional comment about the configuration."
+        },
+        "ContentTypeProfileConfig": {
+          "$ref": "#/definitions/ContentTypeProfileConfig",
+          "description": "A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use."
+        },
+        "QueryArgProfileConfig": {
+          "$ref": "#/definitions/QueryArgProfileConfig",
+          "description": "A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request."
+        }
+      },
+      "required": [
+        "CallerReference"
+      ],
+      "type": "object"
+    },
+    "FieldLevelEncryptionConfigAlreadyExists": {
+      "description": "The specified configuration for field-level encryption already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "FieldLevelEncryptionConfigInUse": {
+      "description": "The specified configuration for field-level encryption is in use.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "FieldLevelEncryptionList": {
+      "description": "List of field-level encrpytion configurations.",
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/FieldLevelEncryptionSummaryList",
+          "description": "An array of field-level encryption items."
+        },
+        "MaxItems": {
+          "$ref": "#/definitions/integer",
+          "description": "The maximum number of elements you want in the response body. "
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/string",
+          "description": "If there are more elements to be listed, this element is present and contains the value that you can use for the <code>Marker</code> request parameter to continue listing your configurations where you left off."
+        },
+        "Quantity": {
+          "$ref": "#/definitions/integer",
+          "description": "The number of field-level encryption items."
+        }
+      },
+      "required": [
+        "MaxItems",
+        "Quantity"
+      ],
+      "type": "object"
+    },
+    "FieldLevelEncryptionProfile": {
+      "description": "A complex data type for field-level encryption profiles.",
+      "properties": {
+        "FieldLevelEncryptionProfileConfig": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfileConfig",
+          "description": "A complex data type that includes the profile name and the encryption entities for the field-level encryption profile."
+        },
+        "Id": {
+          "$ref": "#/definitions/string",
+          "description": "The ID for a field-level encryption profile configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The last time the field-level encryption profile was updated."
+        }
+      },
+      "required": [
+        "Id",
+        "LastModifiedTime",
+        "FieldLevelEncryptionProfileConfig"
+      ],
+      "type": "object"
+    },
+    "FieldLevelEncryptionProfileAlreadyExists": {
+      "description": "The specified profile for field-level encryption already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "FieldLevelEncryptionProfileConfig": {
+      "description": "A complex data type of profiles for the field-level encryption.",
+      "properties": {
+        "CallerReference": {
+          "$ref": "#/definitions/string",
+          "description": "A unique number that ensures the request can't be replayed."
+        },
+        "Comment": {
+          "$ref": "#/definitions/string",
+          "description": "An optional comment for the field-level encryption profile."
+        },
+        "EncryptionEntities": {
+          "$ref": "#/definitions/EncryptionEntities",
+          "description": "A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key."
+        },
+        "Name": {
+          "$ref": "#/definitions/string",
+          "description": "Profile name for the field-level encryption profile."
+        }
+      },
+      "required": [
+        "Name",
+        "CallerReference",
+        "EncryptionEntities"
+      ],
+      "type": "object"
+    },
+    "FieldLevelEncryptionProfileInUse": {
+      "description": "The specified profile for field-level encryption is in use.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "FieldLevelEncryptionProfileList": {
+      "description": "List of field-level encryption profiles.",
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfileSummaryList",
+          "description": "The field-level encryption profile items."
+        },
+        "MaxItems": {
+          "$ref": "#/definitions/integer",
+          "description": "The maximum number of field-level encryption profiles you want in the response body. "
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/string",
+          "description": "If there are more elements to be listed, this element is present and contains the value that you can use for the <code>Marker</code> request parameter to continue listing your profiles where you left off."
+        },
+        "Quantity": {
+          "$ref": "#/definitions/integer",
+          "description": "The number of field-level encryption profiles."
+        }
+      },
+      "required": [
+        "MaxItems",
+        "Quantity"
+      ],
+      "type": "object"
+    },
+    "FieldLevelEncryptionProfileSizeExceeded": {
+      "description": "The maximum size of a profile for field-level encryption was exceeded.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "FieldLevelEncryptionProfileSummary": {
+      "description": "The field-level encryption profile summary.",
+      "properties": {
+        "Comment": {
+          "$ref": "#/definitions/string",
+          "description": "An optional comment for the field-level encryption profile summary."
+        },
+        "EncryptionEntities": {
+          "$ref": "#/definitions/EncryptionEntities",
+          "description": "A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key."
+        },
+        "Id": {
+          "$ref": "#/definitions/string",
+          "description": "ID for the field-level encryption profile summary."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The time when the the field-level encryption profile summary was last updated."
+        },
+        "Name": {
+          "$ref": "#/definitions/string",
+          "description": "Name for the field-level encryption profile summary."
+        }
+      },
+      "required": [
+        "Id",
+        "LastModifiedTime",
+        "Name",
+        "EncryptionEntities"
+      ],
+      "type": "object"
+    },
+    "FieldLevelEncryptionProfileSummaryList": {
+      "items": {
+        "$ref": "#/definitions/FieldLevelEncryptionProfileSummary"
+      },
+      "type": "array"
+    },
+    "FieldLevelEncryptionSummary": {
+      "description": "A summary of a field-level encryption item.",
+      "properties": {
+        "Comment": {
+          "$ref": "#/definitions/string",
+          "description": "An optional comment about the field-level encryption item."
+        },
+        "ContentTypeProfileConfig": {
+          "$ref": "#/definitions/ContentTypeProfileConfig",
+          "description": " A summary of a content type-profile mapping. "
+        },
+        "Id": {
+          "$ref": "#/definitions/string",
+          "description": "The unique ID of a field-level encryption item."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The last time that the summary of field-level encryption items was modified."
+        },
+        "QueryArgProfileConfig": {
+          "$ref": "#/definitions/QueryArgProfileConfig",
+          "description": " A summary of a query argument-profile mapping. "
+        }
+      },
+      "required": [
+        "Id",
+        "LastModifiedTime"
+      ],
+      "type": "object"
+    },
+    "FieldLevelEncryptionSummaryList": {
+      "items": {
+        "$ref": "#/definitions/FieldLevelEncryptionSummary"
+      },
+      "type": "array"
+    },
+    "FieldPatternList": {
+      "items": {
+        "$ref": "#/definitions/string"
+      },
+      "type": "array"
+    },
+    "FieldPatterns": {
+      "description": "A complex data type that includes the field patterns to match for field-level encryption.",
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/FieldPatternList",
+          "description": "An array of the field-level encryption field patterns."
+        },
+        "Quantity": {
+          "$ref": "#/definitions/integer",
+          "description": "The number of field-level encryption field patterns."
+        }
+      },
+      "required": [
+        "Quantity"
+      ],
+      "type": "object"
+    },
+    "Format": {
+      "enum": [
+        "URLEncoded"
       ],
       "type": "string"
     },
@@ -4019,6 +5790,58 @@
       },
       "type": "object"
     },
+    "GetFieldLevelEncryptionConfigRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetFieldLevelEncryptionConfigResult": {
+      "properties": {
+        "FieldLevelEncryptionConfig": {
+          "$ref": "#/definitions/FieldLevelEncryptionConfig",
+          "description": "Return the field-level encryption configuration information."
+        }
+      },
+      "type": "object"
+    },
+    "GetFieldLevelEncryptionProfileConfigRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetFieldLevelEncryptionProfileConfigResult": {
+      "properties": {
+        "FieldLevelEncryptionProfileConfig": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfileConfig",
+          "description": "Return the field-level encryption profile configuration information."
+        }
+      },
+      "type": "object"
+    },
+    "GetFieldLevelEncryptionProfileRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetFieldLevelEncryptionProfileResult": {
+      "properties": {
+        "FieldLevelEncryptionProfile": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfile",
+          "description": "Return the field-level encryption profile information."
+        }
+      },
+      "type": "object"
+    },
+    "GetFieldLevelEncryptionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetFieldLevelEncryptionResult": {
+      "properties": {
+        "FieldLevelEncryption": {
+          "$ref": "#/definitions/FieldLevelEncryption",
+          "description": "Return the field-level encryption configuration information."
+        }
+      },
+      "type": "object"
+    },
     "GetInvalidationRequest": {
       "description": "The request to get an invalidation's information. ",
       "properties": {},
@@ -4030,6 +5853,32 @@
         "Invalidation": {
           "$ref": "#/definitions/Invalidation",
           "description": "The invalidation's information. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html\">Invalidation Complex Type</a>. "
+        }
+      },
+      "type": "object"
+    },
+    "GetPublicKeyConfigRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetPublicKeyConfigResult": {
+      "properties": {
+        "PublicKeyConfig": {
+          "$ref": "#/definitions/PublicKeyConfig",
+          "description": "Return the result for the public key configuration."
+        }
+      },
+      "type": "object"
+    },
+    "GetPublicKeyRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetPublicKeyResult": {
+      "properties": {
+        "PublicKey": {
+          "$ref": "#/definitions/PublicKey",
+          "description": "Return the public key."
         }
       },
       "type": "object"
@@ -4093,6 +5942,15 @@
         "http2"
       ],
       "type": "string"
+    },
+    "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior": {
+      "description": "The specified configuration for field-level encryption can't be associated with the specified cache behavior.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
     },
     "IllegalUpdate": {
       "description": "Origin and <code>CallerReference</code> cannot be updated. ",
@@ -4447,6 +6305,9 @@
       ],
       "type": "object"
     },
+    "LambdaFunctionARN": {
+      "type": "string"
+    },
     "LambdaFunctionAssociation": {
       "description": "A complex type that contains a Lambda function association.",
       "properties": {
@@ -4455,10 +6316,14 @@
           "description": "<p>Specifies the event type that triggers a Lambda function invocation. You can specify the following values:</p> <ul> <li> <p> <code>viewer-request</code>: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache. </p> </li> <li> <p> <code>origin-request</code>: The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute.</p> </li> <li> <p> <code>origin-response</code>: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.</p> <p>If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.</p> </li> <li> <p> <code>viewer-response</code>: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.</p> <p>If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.</p> </li> </ul>"
         },
         "LambdaFunctionARN": {
-          "$ref": "#/definitions/string",
+          "$ref": "#/definitions/LambdaFunctionARN",
           "description": "The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST."
         }
       },
+      "required": [
+        "LambdaFunctionARN",
+        "EventType"
+      ],
       "type": "object"
     },
     "LambdaFunctionAssociationList": {
@@ -4529,6 +6394,32 @@
       },
       "type": "object"
     },
+    "ListFieldLevelEncryptionConfigsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListFieldLevelEncryptionConfigsResult": {
+      "properties": {
+        "FieldLevelEncryptionList": {
+          "$ref": "#/definitions/FieldLevelEncryptionList",
+          "description": "Returns a list of all field-level encryption configurations that have been created in CloudFront for this account."
+        }
+      },
+      "type": "object"
+    },
+    "ListFieldLevelEncryptionProfilesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListFieldLevelEncryptionProfilesResult": {
+      "properties": {
+        "FieldLevelEncryptionProfileList": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfileList",
+          "description": "Returns a list of the field-level encryption profiles that have been created in CloudFront for this account."
+        }
+      },
+      "type": "object"
+    },
     "ListInvalidationsRequest": {
       "description": "The request to list invalidations. ",
       "properties": {},
@@ -4540,6 +6431,19 @@
         "InvalidationList": {
           "$ref": "#/definitions/InvalidationList",
           "description": "Information about invalidation batches. "
+        }
+      },
+      "type": "object"
+    },
+    "ListPublicKeysRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListPublicKeysResult": {
+      "properties": {
+        "PublicKeyList": {
+          "$ref": "#/definitions/PublicKeyList",
+          "description": "Returns a list of all public keys that have been added to CloudFront for this account."
         }
       },
       "type": "object"
@@ -4666,6 +6570,24 @@
       },
       "type": "object"
     },
+    "NoSuchFieldLevelEncryptionConfig": {
+      "description": "The specified configuration for field-level encryption doesn't exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "NoSuchFieldLevelEncryptionProfile": {
+      "description": "The specified profile for field-level encryption doesn't exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
     "NoSuchInvalidation": {
       "description": "The specified invalidation does not exist.",
       "properties": {
@@ -4677,6 +6599,15 @@
     },
     "NoSuchOrigin": {
       "description": "No origin exists with the specified <code>Origin Id</code>. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "NoSuchPublicKey": {
+      "description": "The specified public key doesn't exist.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/string"
@@ -4848,6 +6779,205 @@
         "PriceClass_All"
       ],
       "type": "string"
+    },
+    "PublicKey": {
+      "description": "A complex data type of public keys you add to CloudFront to use with features like field-level encryption.",
+      "properties": {
+        "CreatedTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "A time you added a public key to CloudFront."
+        },
+        "Id": {
+          "$ref": "#/definitions/string",
+          "description": "A unique ID assigned to a public key you've added to CloudFront."
+        },
+        "PublicKeyConfig": {
+          "$ref": "#/definitions/PublicKeyConfig",
+          "description": "A complex data type for a public key you add to CloudFront to use with features like field-level encryption."
+        }
+      },
+      "required": [
+        "Id",
+        "CreatedTime",
+        "PublicKeyConfig"
+      ],
+      "type": "object"
+    },
+    "PublicKeyAlreadyExists": {
+      "description": "The specified public key already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "PublicKeyConfig": {
+      "description": "Information about a public key you add to CloudFront to use with features like field-level encryption.",
+      "properties": {
+        "CallerReference": {
+          "$ref": "#/definitions/string",
+          "description": "A unique number that ensures the request can't be replayed."
+        },
+        "Comment": {
+          "$ref": "#/definitions/string",
+          "description": "An optional comment about a public key."
+        },
+        "EncodedKey": {
+          "$ref": "#/definitions/string",
+          "description": "The encoded public key that you want to add to CloudFront to use with features like field-level encryption."
+        },
+        "Name": {
+          "$ref": "#/definitions/string",
+          "description": "The name for a public key you add to CloudFront to use with features like field-level encryption."
+        }
+      },
+      "required": [
+        "CallerReference",
+        "Name",
+        "EncodedKey"
+      ],
+      "type": "object"
+    },
+    "PublicKeyInUse": {
+      "description": "The specified public key is in use. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "PublicKeyList": {
+      "description": "A list of public keys you've added to CloudFront to use with features like field-level encryption.",
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/PublicKeySummaryList",
+          "description": "An array of information about a public key you add to CloudFront to use with features like field-level encryption."
+        },
+        "MaxItems": {
+          "$ref": "#/definitions/integer",
+          "description": "The maximum number of public keys you want in the response body. "
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/string",
+          "description": "If there are more elements to be listed, this element is present and contains the value that you can use for the <code>Marker</code> request parameter to continue listing your public keys where you left off."
+        },
+        "Quantity": {
+          "$ref": "#/definitions/integer",
+          "description": "The number of public keys you added to CloudFront to use with features like field-level encryption."
+        }
+      },
+      "required": [
+        "MaxItems",
+        "Quantity"
+      ],
+      "type": "object"
+    },
+    "PublicKeySummary": {
+      "description": " Public key information summary. ",
+      "properties": {
+        "Comment": {
+          "$ref": "#/definitions/string",
+          "description": " Comment for public key information summary. "
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": " Creation time for public key information summary. "
+        },
+        "EncodedKey": {
+          "$ref": "#/definitions/string",
+          "description": " Encoded key for public key information summary. "
+        },
+        "Id": {
+          "$ref": "#/definitions/string",
+          "description": " ID for public key information summary. "
+        },
+        "Name": {
+          "$ref": "#/definitions/string",
+          "description": " Name for public key information summary. "
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "CreatedTime",
+        "EncodedKey"
+      ],
+      "type": "object"
+    },
+    "PublicKeySummaryList": {
+      "items": {
+        "$ref": "#/definitions/PublicKeySummary"
+      },
+      "type": "array"
+    },
+    "QueryArgProfile": {
+      "description": "Query argument-profile mapping for field-level encryption.",
+      "properties": {
+        "ProfileId": {
+          "$ref": "#/definitions/string",
+          "description": "ID of profile to use for field-level encryption query argument-profile mapping"
+        },
+        "QueryArg": {
+          "$ref": "#/definitions/string",
+          "description": "Query argument for field-level encryption query argument-profile mapping."
+        }
+      },
+      "required": [
+        "QueryArg",
+        "ProfileId"
+      ],
+      "type": "object"
+    },
+    "QueryArgProfileConfig": {
+      "description": "Configuration for query argument-profile mapping for field-level encryption.",
+      "properties": {
+        "ForwardWhenQueryArgProfileIsUnknown": {
+          "$ref": "#/definitions/boolean",
+          "description": "Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown."
+        },
+        "QueryArgProfiles": {
+          "$ref": "#/definitions/QueryArgProfiles",
+          "description": "Profiles specified for query argument-profile mapping for field-level encryption."
+        }
+      },
+      "required": [
+        "ForwardWhenQueryArgProfileIsUnknown"
+      ],
+      "type": "object"
+    },
+    "QueryArgProfileEmpty": {
+      "description": "No profile specified for the field-level encryption query argument.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "QueryArgProfileList": {
+      "items": {
+        "$ref": "#/definitions/QueryArgProfile"
+      },
+      "type": "array"
+    },
+    "QueryArgProfiles": {
+      "description": "Query argument-profile mapping for field-level encryption.",
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/QueryArgProfileList",
+          "description": "Number of items for query argument-profile mapping for field-level encryption."
+        },
+        "Quantity": {
+          "$ref": "#/definitions/integer",
+          "description": "Number of profiles for query argument-profile mapping for field-level encryption."
+        }
+      },
+      "required": [
+        "Quantity"
+      ],
+      "type": "object"
     },
     "QueryStringCacheKeys": {
       "properties": {
@@ -5274,7 +7404,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "TagValue": {
@@ -5347,8 +7477,71 @@
       },
       "type": "object"
     },
+    "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig": {
+      "description": "The maximum number of distributions have been associated with the specified configuration for field-level encryption.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
     "TooManyDistributionsWithLambdaAssociations": {
       "description": "Processing your request would cause the maximum number of distributions with Lambda function associations per owner to be exceeded.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "TooManyFieldLevelEncryptionConfigs": {
+      "description": "The maximum number of configurations for field-level encryption have been created.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "TooManyFieldLevelEncryptionContentTypeProfiles": {
+      "description": "The maximum number of content type profiles for field-level encryption have been created.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "TooManyFieldLevelEncryptionEncryptionEntities": {
+      "description": "The maximum number of encryption entities for field-level encryption have been created.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "TooManyFieldLevelEncryptionFieldPatterns": {
+      "description": "The maximum number of field patterns for field-level encryption have been created.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "TooManyFieldLevelEncryptionProfiles": {
+      "description": "The maximum number of profiles for field-level encryption have been created.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "TooManyFieldLevelEncryptionQueryArgProfiles": {
+      "description": "The maximum number of query arg profiles for field-level encryption have been created.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/string"
@@ -5392,6 +7585,15 @@
     },
     "TooManyOrigins": {
       "description": "You cannot create more origins for the distribution.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object"
+    },
+    "TooManyPublicKeys": {
+      "description": "The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/string"
@@ -5477,7 +7679,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "UpdateCloudFrontOriginAccessIdentityRequest": {
@@ -5493,7 +7695,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "UpdateCloudFrontOriginAccessIdentityResult": {
@@ -5519,7 +7721,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "UpdateDistributionResult": {
@@ -5528,6 +7730,78 @@
         "Distribution": {
           "$ref": "#/definitions/Distribution",
           "description": "The distribution's information."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFieldLevelEncryptionConfigRequest": {
+      "properties": {
+        "FieldLevelEncryptionConfig": {
+          "$ref": "#/definitions/FieldLevelEncryptionConfig",
+          "description": "Request to update a field-level encryption configuration. "
+        }
+      },
+      "required": [
+        "FieldLevelEncryptionConfig"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
+      }
+    },
+    "UpdateFieldLevelEncryptionConfigResult": {
+      "properties": {
+        "FieldLevelEncryption": {
+          "$ref": "#/definitions/FieldLevelEncryption",
+          "description": "Return the results of updating the configuration."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFieldLevelEncryptionProfileRequest": {
+      "properties": {
+        "FieldLevelEncryptionProfileConfig": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfileConfig",
+          "description": "Request to update a field-level encryption profile. "
+        }
+      },
+      "required": [
+        "FieldLevelEncryptionProfileConfig"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
+      }
+    },
+    "UpdateFieldLevelEncryptionProfileResult": {
+      "properties": {
+        "FieldLevelEncryptionProfile": {
+          "$ref": "#/definitions/FieldLevelEncryptionProfile",
+          "description": "Return the results of updating the profile."
+        }
+      },
+      "type": "object"
+    },
+    "UpdatePublicKeyRequest": {
+      "properties": {
+        "PublicKeyConfig": {
+          "$ref": "#/definitions/PublicKeyConfig",
+          "description": "Request to update public key information."
+        }
+      },
+      "required": [
+        "PublicKeyConfig"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
+      }
+    },
+    "UpdatePublicKeyResult": {
+      "properties": {
+        "PublicKey": {
+          "$ref": "#/definitions/PublicKey",
+          "description": "Return the results of updating the public key."
         }
       },
       "type": "object"
@@ -5545,7 +7819,7 @@
       ],
       "type": "object",
       "xml": {
-        "namespace": "http://cloudfront.amazonaws.com/doc/2017-03-25/"
+        "namespace": "http://cloudfront.amazonaws.com/doc/2017-10-30/"
       }
     },
     "UpdateStreamingDistributionResult": {

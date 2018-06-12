@@ -61,7 +61,7 @@
     "/": {
       "get": {
         "description": "Retrieve all airports.",
-        "operationId": ".get",
+        "operationId": "58d8bcb7a9e6240e200cff24",
         "responses": {
           "200": {
             "description": "OK",
@@ -81,13 +81,14 @@
               "$ref": "#/definitions/InternalServerErrorResponse"
             }
           }
-        }
+        },
+        "summary": "All airports"
       }
     },
     "/countrycode/{countryCode}": {
       "get": {
         "description": "Retrieve airports by country code.",
-        "operationId": "countrycode.countryCode.get",
+        "operationId": "58d8bcb8a9e6240e200cff26",
         "parameters": [
           {
             "description": "Comma-separated list of country codes (2-character ISO 3166-1). More than 3 country codes is not allowed.",
@@ -116,13 +117,14 @@
               "$ref": "#/definitions/InternalServerErrorResponse"
             }
           }
-        }
+        },
+        "summary": "Airport(s) by country code."
       }
     },
     "/nearest": {
       "get": {
         "description": "Retrieve nearest airports by geo coordinates (latitude/longitude).",
-        "operationId": "nearest.get",
+        "operationId": "58d8bcb8a9e6240e200cff27",
         "parameters": [
           {
             "description": "Latitude in decimals, lower than -90.0 and higher than 90.0 is not allowed.",
@@ -168,13 +170,14 @@
               "$ref": "#/definitions/InternalServerErrorResponse"
             }
           }
-        }
+        },
+        "summary": "Nearest airport(s) by geo coordinates."
       }
     },
     "/nearest/{id}": {
       "get": {
         "description": "Retrieve nearest airports by station id.",
-        "operationId": "nearest.id.get",
+        "operationId": "58d8bcb8a9e6240e200cff28",
         "parameters": [
           {
             "description": "Airport (IATA code) to search nearest airports for.",
@@ -215,13 +218,14 @@
               "$ref": "#/definitions/InternalServerErrorResponse"
             }
           }
-        }
+        },
+        "summary": "Nearest airport(s) by airport id."
       }
     },
     "/{id}": {
       "get": {
         "description": "Retrieve airport by id.",
-        "operationId": "id.get",
+        "operationId": "58d8bcb7a9e6240e200cff25",
         "parameters": [
           {
             "description": "Airport code (3-character IATA code).",
@@ -250,7 +254,8 @@
               "$ref": "#/definitions/InternalServerErrorResponse"
             }
           }
-        }
+        },
+        "summary": "Airport by id."
       }
     }
   },

@@ -87,6 +87,55 @@ amazonaws_sagemaker.CreateEndpointConfig({
 #### Output
 * output [CreateEndpointConfigOutput](#createendpointconfigoutput)
 
+### CreateHyperParameterTuningJob
+
+
+
+```js
+amazonaws_sagemaker.CreateHyperParameterTuningJob({
+  "HyperParameterTuningJobName": "",
+  "HyperParameterTuningJobConfig": {
+    "Strategy": "",
+    "HyperParameterTuningJobObjective": {
+      "Type": "",
+      "MetricName": ""
+    },
+    "ResourceLimits": {
+      "MaxNumberOfTrainingJobs": 0,
+      "MaxParallelTrainingJobs": 0
+    },
+    "ParameterRanges": {}
+  },
+  "TrainingJobDefinition": {
+    "AlgorithmSpecification": {
+      "TrainingImage": "",
+      "TrainingInputMode": ""
+    },
+    "RoleArn": "",
+    "InputDataConfig": [],
+    "OutputDataConfig": {
+      "S3OutputPath": ""
+    },
+    "ResourceConfig": {
+      "InstanceType": "",
+      "InstanceCount": 0,
+      "VolumeSizeInGB": 0
+    },
+    "StoppingCondition": {}
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * HyperParameterTuningJobConfig **required** [HyperParameterTuningJobConfig](#hyperparametertuningjobconfig)
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+  * Tags [TagList](#taglist)
+  * TrainingJobDefinition **required** [HyperParameterTrainingJobDefinition](#hyperparametertrainingjobdefinition)
+
+#### Output
+* output [CreateHyperParameterTuningJobResponse](#createhyperparametertuningjobresponse)
+
 ### CreateModel
 
 
@@ -107,6 +156,7 @@ amazonaws_sagemaker.CreateModel({
   * ModelName **required** [ModelName](#modelname)
   * PrimaryContainer **required** [ContainerDefinition](#containerdefinition)
   * Tags [TagList](#taglist)
+  * VpcConfig [VpcConfig](#vpcconfig)
 
 #### Output
 * output [CreateModelOutput](#createmodeloutput)
@@ -125,8 +175,10 @@ amazonaws_sagemaker.CreateNotebookInstance({
 
 #### Input
 * input `object`
+  * DirectInternetAccess [DirectInternetAccess](#directinternetaccess)
   * InstanceType **required** [InstanceType](#instancetype)
   * KmsKeyId [KmsKeyId](#kmskeyid)
+  * LifecycleConfigName [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
   * RoleArn **required** [RoleArn](#rolearn)
   * SecurityGroupIds [SecurityGroupIds](#securitygroupids)
@@ -135,6 +187,25 @@ amazonaws_sagemaker.CreateNotebookInstance({
 
 #### Output
 * output [CreateNotebookInstanceOutput](#createnotebookinstanceoutput)
+
+### CreateNotebookInstanceLifecycleConfig
+
+
+
+```js
+amazonaws_sagemaker.CreateNotebookInstanceLifecycleConfig({
+  "NotebookInstanceLifecycleConfigName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+  * OnCreate [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+  * OnStart [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+
+#### Output
+* output [CreateNotebookInstanceLifecycleConfigOutput](#createnotebookinstancelifecycleconfigoutput)
 
 ### CreatePresignedNotebookInstanceUrl
 
@@ -190,6 +261,7 @@ amazonaws_sagemaker.CreateTrainingJob({
   * StoppingCondition **required** [StoppingCondition](#stoppingcondition)
   * Tags [TagList](#taglist)
   * TrainingJobName **required** [TrainingJobName](#trainingjobname)
+  * VpcConfig [VpcConfig](#vpcconfig)
 
 #### Output
 * output [CreateTrainingJobResponse](#createtrainingjobresponse)
@@ -262,6 +334,23 @@ amazonaws_sagemaker.DeleteNotebookInstance({
 #### Output
 *Output schema unknown*
 
+### DeleteNotebookInstanceLifecycleConfig
+
+
+
+```js
+amazonaws_sagemaker.DeleteNotebookInstanceLifecycleConfig({
+  "NotebookInstanceLifecycleConfigName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+
+#### Output
+*Output schema unknown*
+
 ### DeleteTags
 
 
@@ -315,6 +404,23 @@ amazonaws_sagemaker.DescribeEndpointConfig({
 #### Output
 * output [DescribeEndpointConfigOutput](#describeendpointconfigoutput)
 
+### DescribeHyperParameterTuningJob
+
+
+
+```js
+amazonaws_sagemaker.DescribeHyperParameterTuningJob({
+  "HyperParameterTuningJobName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+
+#### Output
+* output [DescribeHyperParameterTuningJobResponse](#describehyperparametertuningjobresponse)
+
 ### DescribeModel
 
 
@@ -348,6 +454,23 @@ amazonaws_sagemaker.DescribeNotebookInstance({
 
 #### Output
 * output [DescribeNotebookInstanceOutput](#describenotebookinstanceoutput)
+
+### DescribeNotebookInstanceLifecycleConfig
+
+
+
+```js
+amazonaws_sagemaker.DescribeNotebookInstanceLifecycleConfig({
+  "NotebookInstanceLifecycleConfigName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+
+#### Output
+* output [DescribeNotebookInstanceLifecycleConfigOutput](#describenotebookinstancelifecycleconfigoutput)
 
 ### DescribeTrainingJob
 
@@ -415,6 +538,32 @@ amazonaws_sagemaker.ListEndpoints({}, context)
 #### Output
 * output [ListEndpointsOutput](#listendpointsoutput)
 
+### ListHyperParameterTuningJobs
+
+
+
+```js
+amazonaws_sagemaker.ListHyperParameterTuningJobs({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * CreationTimeAfter [Timestamp](#timestamp)
+  * CreationTimeBefore [Timestamp](#timestamp)
+  * LastModifiedTimeAfter [Timestamp](#timestamp)
+  * LastModifiedTimeBefore [Timestamp](#timestamp)
+  * MaxResults [MaxResults](#maxresults)
+  * NameContains [NameContains](#namecontains)
+  * NextToken [NextToken](#nexttoken)
+  * SortBy [HyperParameterTuningJobSortByOptions](#hyperparametertuningjobsortbyoptions)
+  * SortOrder [SortOrder](#sortorder)
+  * StatusEquals [HyperParameterTuningJobStatus](#hyperparametertuningjobstatus)
+
+#### Output
+* output [ListHyperParameterTuningJobsResponse](#listhyperparametertuningjobsresponse)
+
 ### ListModels
 
 
@@ -438,6 +587,31 @@ amazonaws_sagemaker.ListModels({}, context)
 #### Output
 * output [ListModelsOutput](#listmodelsoutput)
 
+### ListNotebookInstanceLifecycleConfigs
+
+
+
+```js
+amazonaws_sagemaker.ListNotebookInstanceLifecycleConfigs({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * CreationTimeAfter [CreationTime](#creationtime)
+  * CreationTimeBefore [CreationTime](#creationtime)
+  * LastModifiedTimeAfter [LastModifiedTime](#lastmodifiedtime)
+  * LastModifiedTimeBefore [LastModifiedTime](#lastmodifiedtime)
+  * MaxResults [MaxResults](#maxresults)
+  * NameContains [NotebookInstanceLifecycleConfigNameContains](#notebookinstancelifecycleconfignamecontains)
+  * NextToken [NextToken](#nexttoken)
+  * SortBy [NotebookInstanceLifecycleConfigSortKey](#notebookinstancelifecycleconfigsortkey)
+  * SortOrder [NotebookInstanceLifecycleConfigSortOrder](#notebookinstancelifecycleconfigsortorder)
+
+#### Output
+* output [ListNotebookInstanceLifecycleConfigsOutput](#listnotebookinstancelifecycleconfigsoutput)
+
 ### ListNotebookInstances
 
 
@@ -457,6 +631,7 @@ amazonaws_sagemaker.ListNotebookInstances({}, context)
   * MaxResults [MaxResults](#maxresults)
   * NameContains [NotebookInstanceNameContains](#notebookinstancenamecontains)
   * NextToken [NextToken](#nexttoken)
+  * NotebookInstanceLifecycleConfigNameContains [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
   * SortBy [NotebookInstanceSortKey](#notebookinstancesortkey)
   * SortOrder [NotebookInstanceSortOrder](#notebookinstancesortorder)
   * StatusEquals [NotebookInstanceStatus](#notebookinstancestatus)
@@ -511,6 +686,30 @@ amazonaws_sagemaker.ListTrainingJobs({}, context)
 #### Output
 * output [ListTrainingJobsResponse](#listtrainingjobsresponse)
 
+### ListTrainingJobsForHyperParameterTuningJob
+
+
+
+```js
+amazonaws_sagemaker.ListTrainingJobsForHyperParameterTuningJob({
+  "HyperParameterTuningJobName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * SortBy [TrainingJobSortByOptions](#trainingjobsortbyoptions)
+  * SortOrder [SortOrder](#sortorder)
+  * StatusEquals [TrainingJobStatus](#trainingjobstatus)
+
+#### Output
+* output [ListTrainingJobsForHyperParameterTuningJobResponse](#listtrainingjobsforhyperparametertuningjobresponse)
+
 ### StartNotebookInstance
 
 
@@ -524,6 +723,23 @@ amazonaws_sagemaker.StartNotebookInstance({
 #### Input
 * input `object`
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
+
+#### Output
+*Output schema unknown*
+
+### StopHyperParameterTuningJob
+
+
+
+```js
+amazonaws_sagemaker.StopHyperParameterTuningJob({
+  "HyperParameterTuningJobName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
 
 #### Output
 *Output schema unknown*
@@ -619,6 +835,25 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 #### Output
 * output [UpdateNotebookInstanceOutput](#updatenotebookinstanceoutput)
 
+### UpdateNotebookInstanceLifecycleConfig
+
+
+
+```js
+amazonaws_sagemaker.UpdateNotebookInstanceLifecycleConfig({
+  "NotebookInstanceLifecycleConfigName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+  * OnCreate [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+  * OnStart [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+
+#### Output
+* output [UpdateNotebookInstanceLifecycleConfigOutput](#updatenotebookinstancelifecycleconfigoutput)
+
 
 
 ## Definitions
@@ -636,9 +871,18 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 * AlgorithmImage `string`
 
 ### AlgorithmSpecification
-* AlgorithmSpecification `object`: <p>Specifies the training algorithm to use in a <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrainingJob.html">CreateTrainingJob</a> request. </p> <p>For more information about algorithms provided by Amazon SageMaker, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For information about using your own algorithms, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/adv-topics-own-algo.html">Bring Your Own Algorithms </a>. </p>
+* AlgorithmSpecification `object`: <p>Specifies the training algorithm to use in a <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrainingJob.html">CreateTrainingJob</a> request.</p> <p>For more information about algorithms provided by Amazon SageMaker, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For information about using your own algorithms, see <a>your-algorithms</a>. </p>
   * TrainingImage **required** [AlgorithmImage](#algorithmimage)
   * TrainingInputMode **required** [TrainingInputMode](#traininginputmode)
+
+### CategoricalParameterRange
+* CategoricalParameterRange `object`: A list of categorical hyperparameters to tune.
+  * Name **required** [ParameterKey](#parameterkey)
+  * Values **required** [ParameterValues](#parametervalues)
+
+### CategoricalParameterRanges
+* CategoricalParameterRanges `array`
+  * items [CategoricalParameterRange](#categoricalparameterrange)
 
 ### Channel
 * Channel `object`: A channel is a named input source that training algorithms can consume. 
@@ -667,6 +911,16 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### ContentType
 * ContentType `string`
 
+### ContinuousParameterRange
+* ContinuousParameterRange `object`: A list of continuous hyperparameters to tune.
+  * MaxValue **required** [ParameterValue](#parametervalue)
+  * MinValue **required** [ParameterValue](#parametervalue)
+  * Name **required** [ParameterKey](#parameterkey)
+
+### ContinuousParameterRanges
+* ContinuousParameterRanges `array`
+  * items [ContinuousParameterRange](#continuousparameterrange)
+
 ### CreateEndpointConfigInput
 * CreateEndpointConfigInput `object`
   * EndpointConfigName **required** [EndpointConfigName](#endpointconfigname)
@@ -688,12 +942,24 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 * CreateEndpointOutput `object`
   * EndpointArn **required** [EndpointArn](#endpointarn)
 
+### CreateHyperParameterTuningJobRequest
+* CreateHyperParameterTuningJobRequest `object`
+  * HyperParameterTuningJobConfig **required** [HyperParameterTuningJobConfig](#hyperparametertuningjobconfig)
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+  * Tags [TagList](#taglist)
+  * TrainingJobDefinition **required** [HyperParameterTrainingJobDefinition](#hyperparametertrainingjobdefinition)
+
+### CreateHyperParameterTuningJobResponse
+* CreateHyperParameterTuningJobResponse `object`
+  * HyperParameterTuningJobArn **required** [HyperParameterTuningJobArn](#hyperparametertuningjobarn)
+
 ### CreateModelInput
 * CreateModelInput `object`
   * ExecutionRoleArn **required** [RoleArn](#rolearn)
   * ModelName **required** [ModelName](#modelname)
   * PrimaryContainer **required** [ContainerDefinition](#containerdefinition)
   * Tags [TagList](#taglist)
+  * VpcConfig [VpcConfig](#vpcconfig)
 
 ### CreateModelOutput
 * CreateModelOutput `object`
@@ -701,13 +967,25 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 
 ### CreateNotebookInstanceInput
 * CreateNotebookInstanceInput `object`
+  * DirectInternetAccess [DirectInternetAccess](#directinternetaccess)
   * InstanceType **required** [InstanceType](#instancetype)
   * KmsKeyId [KmsKeyId](#kmskeyid)
+  * LifecycleConfigName [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
   * RoleArn **required** [RoleArn](#rolearn)
   * SecurityGroupIds [SecurityGroupIds](#securitygroupids)
   * SubnetId [SubnetId](#subnetid)
   * Tags [TagList](#taglist)
+
+### CreateNotebookInstanceLifecycleConfigInput
+* CreateNotebookInstanceLifecycleConfigInput `object`
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+  * OnCreate [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+  * OnStart [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+
+### CreateNotebookInstanceLifecycleConfigOutput
+* CreateNotebookInstanceLifecycleConfigOutput `object`
+  * NotebookInstanceLifecycleConfigArn [NotebookInstanceLifecycleConfigArn](#notebookinstancelifecycleconfigarn)
 
 ### CreateNotebookInstanceOutput
 * CreateNotebookInstanceOutput `object`
@@ -733,6 +1011,7 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * StoppingCondition **required** [StoppingCondition](#stoppingcondition)
   * Tags [TagList](#taglist)
   * TrainingJobName **required** [TrainingJobName](#trainingjobname)
+  * VpcConfig [VpcConfig](#vpcconfig)
 
 ### CreateTrainingJobResponse
 * CreateTrainingJobResponse `object`
@@ -760,6 +1039,10 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### DeleteNotebookInstanceInput
 * DeleteNotebookInstanceInput `object`
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
+
+### DeleteNotebookInstanceLifecycleConfigInput
+* DeleteNotebookInstanceLifecycleConfigInput `object`
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
 
 ### DeleteTagsInput
 * DeleteTagsInput `object`
@@ -796,6 +1079,25 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * LastModifiedTime **required** [Timestamp](#timestamp)
   * ProductionVariants [ProductionVariantSummaryList](#productionvariantsummarylist)
 
+### DescribeHyperParameterTuningJobRequest
+* DescribeHyperParameterTuningJobRequest `object`
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+
+### DescribeHyperParameterTuningJobResponse
+* DescribeHyperParameterTuningJobResponse `object`
+  * BestTrainingJob [HyperParameterTrainingJobSummary](#hyperparametertrainingjobsummary)
+  * CreationTime **required** [Timestamp](#timestamp)
+  * FailureReason [FailureReason](#failurereason)
+  * HyperParameterTuningEndTime [Timestamp](#timestamp)
+  * HyperParameterTuningJobArn **required** [HyperParameterTuningJobArn](#hyperparametertuningjobarn)
+  * HyperParameterTuningJobConfig **required** [HyperParameterTuningJobConfig](#hyperparametertuningjobconfig)
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+  * HyperParameterTuningJobStatus **required** [HyperParameterTuningJobStatus](#hyperparametertuningjobstatus)
+  * LastModifiedTime [Timestamp](#timestamp)
+  * ObjectiveStatusCounters **required** [ObjectiveStatusCounters](#objectivestatuscounters)
+  * TrainingJobDefinition **required** [HyperParameterTrainingJobDefinition](#hyperparametertrainingjobdefinition)
+  * TrainingJobStatusCounters **required** [TrainingJobStatusCounters](#trainingjobstatuscounters)
+
 ### DescribeModelInput
 * DescribeModelInput `object`
   * ModelName **required** [ModelName](#modelname)
@@ -807,20 +1109,36 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * ModelArn **required** [ModelArn](#modelarn)
   * ModelName **required** [ModelName](#modelname)
   * PrimaryContainer **required** [ContainerDefinition](#containerdefinition)
+  * VpcConfig [VpcConfig](#vpcconfig)
 
 ### DescribeNotebookInstanceInput
 * DescribeNotebookInstanceInput `object`
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
 
+### DescribeNotebookInstanceLifecycleConfigInput
+* DescribeNotebookInstanceLifecycleConfigInput `object`
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+
+### DescribeNotebookInstanceLifecycleConfigOutput
+* DescribeNotebookInstanceLifecycleConfigOutput `object`
+  * CreationTime [CreationTime](#creationtime)
+  * LastModifiedTime [LastModifiedTime](#lastmodifiedtime)
+  * NotebookInstanceLifecycleConfigArn [NotebookInstanceLifecycleConfigArn](#notebookinstancelifecycleconfigarn)
+  * NotebookInstanceLifecycleConfigName [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+  * OnCreate [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+  * OnStart [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+
 ### DescribeNotebookInstanceOutput
 * DescribeNotebookInstanceOutput `object`
   * CreationTime [CreationTime](#creationtime)
+  * DirectInternetAccess [DirectInternetAccess](#directinternetaccess)
   * FailureReason [FailureReason](#failurereason)
   * InstanceType [InstanceType](#instancetype)
   * KmsKeyId [KmsKeyId](#kmskeyid)
   * LastModifiedTime [LastModifiedTime](#lastmodifiedtime)
   * NetworkInterfaceId [NetworkInterfaceId](#networkinterfaceid)
   * NotebookInstanceArn [NotebookInstanceArn](#notebookinstancearn)
+  * NotebookInstanceLifecycleConfigName [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
   * NotebookInstanceName [NotebookInstanceName](#notebookinstancename)
   * NotebookInstanceStatus [NotebookInstanceStatus](#notebookinstancestatus)
   * RoleArn [RoleArn](#rolearn)
@@ -851,6 +1169,8 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * TrainingJobName **required** [TrainingJobName](#trainingjobname)
   * TrainingJobStatus **required** [TrainingJobStatus](#trainingjobstatus)
   * TrainingStartTime [Timestamp](#timestamp)
+  * TuningJobArn [HyperParameterTuningJobArn](#hyperparametertuningjobarn)
+  * VpcConfig [VpcConfig](#vpcconfig)
 
 ### DesiredWeightAndCapacity
 * DesiredWeightAndCapacity `object`: Specifies weight and capacity values for a production variant.
@@ -861,6 +1181,9 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### DesiredWeightAndCapacityList
 * DesiredWeightAndCapacityList `array`
   * items [DesiredWeightAndCapacity](#desiredweightandcapacity)
+
+### DirectInternetAccess
+* DirectInternetAccess `string` (values: Enabled, Disabled)
 
 ### EndpointArn
 * EndpointArn `string`
@@ -926,6 +1249,93 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### FailureReason
 * FailureReason `string`
 
+### FinalHyperParameterTuningJobObjectiveMetric
+* FinalHyperParameterTuningJobObjectiveMetric `object`: Shows the final value for the objective metric for a training job that was launched by a hyperparameter tuning job. You define the objective metric in the <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.
+  * MetricName **required** [MetricName](#metricname)
+  * Type [HyperParameterTuningJobObjectiveType](#hyperparametertuningjobobjectivetype)
+  * Value **required** [MetricValue](#metricvalue)
+
+### HyperParameterAlgorithmSpecification
+* HyperParameterAlgorithmSpecification `object`: Specifies which training algorithm to use for training jobs that a hyperparameter tuning job launches and the metrics to monitor.
+  * MetricDefinitions [MetricDefinitionList](#metricdefinitionlist)
+  * TrainingImage **required** [AlgorithmImage](#algorithmimage)
+  * TrainingInputMode **required** [TrainingInputMode](#traininginputmode)
+
+### HyperParameterTrainingJobDefinition
+* HyperParameterTrainingJobDefinition `object`: Defines the training jobs launched by a hyperparameter tuning job.
+  * AlgorithmSpecification **required** [HyperParameterAlgorithmSpecification](#hyperparameteralgorithmspecification)
+  * InputDataConfig **required** [InputDataConfig](#inputdataconfig)
+  * OutputDataConfig **required** [OutputDataConfig](#outputdataconfig)
+  * ResourceConfig **required** [ResourceConfig](#resourceconfig)
+  * RoleArn **required** [RoleArn](#rolearn)
+  * StaticHyperParameters [HyperParameters](#hyperparameters)
+  * StoppingCondition **required** [StoppingCondition](#stoppingcondition)
+  * VpcConfig [VpcConfig](#vpcconfig)
+
+### HyperParameterTrainingJobSummaries
+* HyperParameterTrainingJobSummaries `array`
+  * items [HyperParameterTrainingJobSummary](#hyperparametertrainingjobsummary)
+
+### HyperParameterTrainingJobSummary
+* HyperParameterTrainingJobSummary `object`: Specifies summary information about a training job.
+  * CreationTime **required** [Timestamp](#timestamp)
+  * FailureReason [FailureReason](#failurereason)
+  * FinalHyperParameterTuningJobObjectiveMetric [FinalHyperParameterTuningJobObjectiveMetric](#finalhyperparametertuningjobobjectivemetric)
+  * ObjectiveStatus [ObjectiveStatus](#objectivestatus)
+  * TrainingEndTime [Timestamp](#timestamp)
+  * TrainingJobArn **required** [TrainingJobArn](#trainingjobarn)
+  * TrainingJobName **required** [TrainingJobName](#trainingjobname)
+  * TrainingJobStatus **required** [TrainingJobStatus](#trainingjobstatus)
+  * TrainingStartTime [Timestamp](#timestamp)
+  * TunedHyperParameters **required** [HyperParameters](#hyperparameters)
+
+### HyperParameterTuningJobArn
+* HyperParameterTuningJobArn `string`
+
+### HyperParameterTuningJobConfig
+* HyperParameterTuningJobConfig `object`: Configures a hyperparameter tuning job.
+  * HyperParameterTuningJobObjective **required** [HyperParameterTuningJobObjective](#hyperparametertuningjobobjective)
+  * ParameterRanges **required** [ParameterRanges](#parameterranges)
+  * ResourceLimits **required** [ResourceLimits](#resourcelimits)
+  * Strategy **required** [HyperParameterTuningJobStrategyType](#hyperparametertuningjobstrategytype)
+
+### HyperParameterTuningJobName
+* HyperParameterTuningJobName `string`
+
+### HyperParameterTuningJobObjective
+* HyperParameterTuningJobObjective `object`: Defines the objective metric for a hyperparameter tuning job. Hyperparameter tuning uses the value of this metric to evaluate the training jobs it launches, and returns the training job that results in either the highest or lowest value for this metric, depending on the value you specify for the <code>Type</code> parameter.
+  * MetricName **required** [MetricName](#metricname)
+  * Type **required** [HyperParameterTuningJobObjectiveType](#hyperparametertuningjobobjectivetype)
+
+### HyperParameterTuningJobObjectiveType
+* HyperParameterTuningJobObjectiveType `string` (values: Maximize, Minimize)
+
+### HyperParameterTuningJobSortByOptions
+* HyperParameterTuningJobSortByOptions `string` (values: Name, Status, CreationTime)
+
+### HyperParameterTuningJobStatus
+* HyperParameterTuningJobStatus `string` (values: Completed, InProgress, Failed, Stopped, Stopping)
+
+### HyperParameterTuningJobStrategyType
+* HyperParameterTuningJobStrategyType `string` (values: Bayesian): The strategy hyperparameter tuning uses to find the best combination of hyperparameters for your model. Currently, the only supported value is <code>Bayesian</code>.
+
+### HyperParameterTuningJobSummaries
+* HyperParameterTuningJobSummaries `array`
+  * items [HyperParameterTuningJobSummary](#hyperparametertuningjobsummary)
+
+### HyperParameterTuningJobSummary
+* HyperParameterTuningJobSummary `object`: Provides summary information about a hyperparameter tuning job.
+  * CreationTime **required** [Timestamp](#timestamp)
+  * HyperParameterTuningEndTime [Timestamp](#timestamp)
+  * HyperParameterTuningJobArn **required** [HyperParameterTuningJobArn](#hyperparametertuningjobarn)
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+  * HyperParameterTuningJobStatus **required** [HyperParameterTuningJobStatus](#hyperparametertuningjobstatus)
+  * LastModifiedTime [Timestamp](#timestamp)
+  * ObjectiveStatusCounters **required** [ObjectiveStatusCounters](#objectivestatuscounters)
+  * ResourceLimits [ResourceLimits](#resourcelimits)
+  * Strategy **required** [HyperParameterTuningJobStrategyType](#hyperparametertuningjobstrategytype)
+  * TrainingJobStatusCounters **required** [TrainingJobStatusCounters](#trainingjobstatuscounters)
+
 ### HyperParameters
 * HyperParameters `array`
   * items `object`
@@ -940,7 +1350,17 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * items [Channel](#channel)
 
 ### InstanceType
-* InstanceType `string` (values: ml.t2.medium, ml.m4.xlarge, ml.p2.xlarge)
+* InstanceType `string` (values: ml.t2.medium, ml.t2.large, ml.t2.xlarge, ml.t2.2xlarge, ml.m4.xlarge, ml.m4.2xlarge, ml.m4.4xlarge, ml.m4.10xlarge, ml.m4.16xlarge, ml.p2.xlarge, ml.p2.8xlarge, ml.p2.16xlarge, ml.p3.2xlarge, ml.p3.8xlarge, ml.p3.16xlarge)
+
+### IntegerParameterRange
+* IntegerParameterRange `object`: For a hyperparameter of the integer type, specifies the range that a hyperparameter tuning job searches.
+  * MaxValue **required** [ParameterValue](#parametervalue)
+  * MinValue **required** [ParameterValue](#parametervalue)
+  * Name **required** [ParameterKey](#parameterkey)
+
+### IntegerParameterRanges
+* IntegerParameterRanges `array`
+  * items [IntegerParameterRange](#integerparameterrange)
 
 ### KmsKeyId
 * KmsKeyId `string`
@@ -981,6 +1401,24 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * Endpoints **required** [EndpointSummaryList](#endpointsummarylist)
   * NextToken [PaginationToken](#paginationtoken)
 
+### ListHyperParameterTuningJobsRequest
+* ListHyperParameterTuningJobsRequest `object`
+  * CreationTimeAfter [Timestamp](#timestamp)
+  * CreationTimeBefore [Timestamp](#timestamp)
+  * LastModifiedTimeAfter [Timestamp](#timestamp)
+  * LastModifiedTimeBefore [Timestamp](#timestamp)
+  * MaxResults [MaxResults](#maxresults)
+  * NameContains [NameContains](#namecontains)
+  * NextToken [NextToken](#nexttoken)
+  * SortBy [HyperParameterTuningJobSortByOptions](#hyperparametertuningjobsortbyoptions)
+  * SortOrder [SortOrder](#sortorder)
+  * StatusEquals [HyperParameterTuningJobStatus](#hyperparametertuningjobstatus)
+
+### ListHyperParameterTuningJobsResponse
+* ListHyperParameterTuningJobsResponse `object`
+  * HyperParameterTuningJobSummaries **required** [HyperParameterTuningJobSummaries](#hyperparametertuningjobsummaries)
+  * NextToken [NextToken](#nexttoken)
+
 ### ListModelsInput
 * ListModelsInput `object`
   * CreationTimeAfter [Timestamp](#timestamp)
@@ -996,6 +1434,23 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * Models **required** [ModelSummaryList](#modelsummarylist)
   * NextToken [PaginationToken](#paginationtoken)
 
+### ListNotebookInstanceLifecycleConfigsInput
+* ListNotebookInstanceLifecycleConfigsInput `object`
+  * CreationTimeAfter [CreationTime](#creationtime)
+  * CreationTimeBefore [CreationTime](#creationtime)
+  * LastModifiedTimeAfter [LastModifiedTime](#lastmodifiedtime)
+  * LastModifiedTimeBefore [LastModifiedTime](#lastmodifiedtime)
+  * MaxResults [MaxResults](#maxresults)
+  * NameContains [NotebookInstanceLifecycleConfigNameContains](#notebookinstancelifecycleconfignamecontains)
+  * NextToken [NextToken](#nexttoken)
+  * SortBy [NotebookInstanceLifecycleConfigSortKey](#notebookinstancelifecycleconfigsortkey)
+  * SortOrder [NotebookInstanceLifecycleConfigSortOrder](#notebookinstancelifecycleconfigsortorder)
+
+### ListNotebookInstanceLifecycleConfigsOutput
+* ListNotebookInstanceLifecycleConfigsOutput `object`
+  * NextToken [NextToken](#nexttoken)
+  * NotebookInstanceLifecycleConfigs [NotebookInstanceLifecycleConfigSummaryList](#notebookinstancelifecycleconfigsummarylist)
+
 ### ListNotebookInstancesInput
 * ListNotebookInstancesInput `object`
   * CreationTimeAfter [CreationTime](#creationtime)
@@ -1005,6 +1460,7 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * MaxResults [MaxResults](#maxresults)
   * NameContains [NotebookInstanceNameContains](#notebookinstancenamecontains)
   * NextToken [NextToken](#nexttoken)
+  * NotebookInstanceLifecycleConfigNameContains [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
   * SortBy [NotebookInstanceSortKey](#notebookinstancesortkey)
   * SortOrder [NotebookInstanceSortOrder](#notebookinstancesortorder)
   * StatusEquals [NotebookInstanceStatus](#notebookinstancestatus)
@@ -1028,6 +1484,20 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * NextToken [NextToken](#nexttoken)
   * Tags [TagList](#taglist)
 
+### ListTrainingJobsForHyperParameterTuningJobRequest
+* ListTrainingJobsForHyperParameterTuningJobRequest `object`
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * SortBy [TrainingJobSortByOptions](#trainingjobsortbyoptions)
+  * SortOrder [SortOrder](#sortorder)
+  * StatusEquals [TrainingJobStatus](#trainingjobstatus)
+
+### ListTrainingJobsForHyperParameterTuningJobResponse
+* ListTrainingJobsForHyperParameterTuningJobResponse `object`
+  * NextToken [NextToken](#nexttoken)
+  * TrainingJobSummaries **required** [HyperParameterTrainingJobSummaries](#hyperparametertrainingjobsummaries)
+
 ### ListTrainingJobsRequest
 * ListTrainingJobsRequest `object`
   * CreationTimeAfter [Timestamp](#timestamp)
@@ -1046,11 +1516,35 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * NextToken [NextToken](#nexttoken)
   * TrainingJobSummaries **required** [TrainingJobSummaries](#trainingjobsummaries)
 
+### MaxNumberOfTrainingJobs
+* MaxNumberOfTrainingJobs `integer`
+
+### MaxParallelTrainingJobs
+* MaxParallelTrainingJobs `integer`
+
 ### MaxResults
 * MaxResults `integer`
 
 ### MaxRuntimeInSeconds
 * MaxRuntimeInSeconds `integer`
+
+### MetricDefinition
+* MetricDefinition `object`: Specifies a metric that the training algorithm writes to <code>stderr</code> or <code>stdout</code>. Amazon SageMakerHyperparamter tuning captures all defined metrics. You specify one metric that a hyperparameter tuning job uses as its objective metric to choose the best training job.
+  * Name **required** [MetricName](#metricname)
+  * Regex **required** [MetricRegex](#metricregex)
+
+### MetricDefinitionList
+* MetricDefinitionList `array`
+  * items [MetricDefinition](#metricdefinition)
+
+### MetricName
+* MetricName `string`
+
+### MetricRegex
+* MetricRegex `string`
+
+### MetricValue
+* MetricValue `number`
 
 ### ModelArn
 * ModelArn `string`
@@ -1090,6 +1584,43 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### NotebookInstanceArn
 * NotebookInstanceArn `string`
 
+### NotebookInstanceLifecycleConfigArn
+* NotebookInstanceLifecycleConfigArn `string`
+
+### NotebookInstanceLifecycleConfigContent
+* NotebookInstanceLifecycleConfigContent `string`
+
+### NotebookInstanceLifecycleConfigList
+* NotebookInstanceLifecycleConfigList `array`
+  * items [NotebookInstanceLifecycleHook](#notebookinstancelifecyclehook)
+
+### NotebookInstanceLifecycleConfigName
+* NotebookInstanceLifecycleConfigName `string`
+
+### NotebookInstanceLifecycleConfigNameContains
+* NotebookInstanceLifecycleConfigNameContains `string`
+
+### NotebookInstanceLifecycleConfigSortKey
+* NotebookInstanceLifecycleConfigSortKey `string` (values: Name, CreationTime, LastModifiedTime)
+
+### NotebookInstanceLifecycleConfigSortOrder
+* NotebookInstanceLifecycleConfigSortOrder `string` (values: Ascending, Descending)
+
+### NotebookInstanceLifecycleConfigSummary
+* NotebookInstanceLifecycleConfigSummary `object`: Provides a summary of a notebook instance lifecycle configuration.
+  * CreationTime [CreationTime](#creationtime)
+  * LastModifiedTime [LastModifiedTime](#lastmodifiedtime)
+  * NotebookInstanceLifecycleConfigArn **required** [NotebookInstanceLifecycleConfigArn](#notebookinstancelifecycleconfigarn)
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+
+### NotebookInstanceLifecycleConfigSummaryList
+* NotebookInstanceLifecycleConfigSummaryList `array`
+  * items [NotebookInstanceLifecycleConfigSummary](#notebookinstancelifecycleconfigsummary)
+
+### NotebookInstanceLifecycleHook
+* NotebookInstanceLifecycleHook `object`: <p>Contains the notebook instance lifecycle configuration script.</p> <p>Each lifecycle configuration script has a limit of 16384 characters.</p> <p>The value of the <code>$PATH</code> environment variable that is available to both scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p> <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group <code>/aws/sagemaker/NotebookInstances</code> in log stream <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p> <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.</p> <p>For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.</p>
+  * Content [NotebookInstanceLifecycleConfigContent](#notebookinstancelifecycleconfigcontent)
+
 ### NotebookInstanceName
 * NotebookInstanceName `string`
 
@@ -1111,6 +1642,7 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * InstanceType [InstanceType](#instancetype)
   * LastModifiedTime [LastModifiedTime](#lastmodifiedtime)
   * NotebookInstanceArn **required** [NotebookInstanceArn](#notebookinstancearn)
+  * NotebookInstanceLifecycleConfigName [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
   * NotebookInstanceStatus [NotebookInstanceStatus](#notebookinstancestatus)
   * Url [NotebookInstanceUrl](#notebookinstanceurl)
@@ -1121,6 +1653,18 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 
 ### NotebookInstanceUrl
 * NotebookInstanceUrl `string`
+
+### ObjectiveStatus
+* ObjectiveStatus `string` (values: Succeeded, Pending, Failed)
+
+### ObjectiveStatusCounter
+* ObjectiveStatusCounter `integer`
+
+### ObjectiveStatusCounters
+* ObjectiveStatusCounters `object`: Specifies the number of training jobs that this hyperparameter tuning job launched, categorized by the status of their objective metric. The objective metric status shows whether the final objective metric for the training job has been evaluated by the tuning job and used in the hyperparameter tuning process.
+  * Failed [ObjectiveStatusCounter](#objectivestatuscounter)
+  * Pending [ObjectiveStatusCounter](#objectivestatuscounter)
+  * Succeeded [ObjectiveStatusCounter](#objectivestatuscounter)
 
 ### OrderKey
 * OrderKey `string` (values: Ascending, Descending)
@@ -1136,8 +1680,18 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### ParameterKey
 * ParameterKey `string`
 
+### ParameterRanges
+* ParameterRanges `object`: Specifies ranges of integer, continuous, and categorical hyperparameters that a hyperparameter tuning job searches.
+  * CategoricalParameterRanges [CategoricalParameterRanges](#categoricalparameterranges)
+  * ContinuousParameterRanges [ContinuousParameterRanges](#continuousparameterranges)
+  * IntegerParameterRanges [IntegerParameterRanges](#integerparameterranges)
+
 ### ParameterValue
 * ParameterValue `string`
+
+### ParameterValues
+* ParameterValues `array`
+  * items [ParameterValue](#parametervalue)
 
 ### ProductionVariant
 * ProductionVariant `object`: Identifies a model that you want to host and the resources to deploy for hosting it. If you are deploying multiple models, tell Amazon SageMaker how to distribute traffic among the models by specifying variant weights. 
@@ -1148,14 +1702,14 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * VariantName **required** [VariantName](#variantname)
 
 ### ProductionVariantInstanceType
-* ProductionVariantInstanceType `string` (values: ml.c4.2xlarge, ml.c4.8xlarge, ml.c4.xlarge, ml.c5.2xlarge, ml.c5.9xlarge, ml.c5.xlarge, ml.m4.xlarge, ml.p2.xlarge, ml.p3.2xlarge, ml.t2.medium)
+* ProductionVariantInstanceType `string` (values: ml.t2.medium, ml.t2.large, ml.t2.xlarge, ml.t2.2xlarge, ml.m4.xlarge, ml.m4.2xlarge, ml.m4.4xlarge, ml.m4.10xlarge, ml.m4.16xlarge, ml.m5.large, ml.m5.xlarge, ml.m5.2xlarge, ml.m5.4xlarge, ml.m5.12xlarge, ml.m5.24xlarge, ml.c4.large, ml.c4.xlarge, ml.c4.2xlarge, ml.c4.4xlarge, ml.c4.8xlarge, ml.p2.xlarge, ml.p2.8xlarge, ml.p2.16xlarge, ml.p3.2xlarge, ml.p3.8xlarge, ml.p3.16xlarge, ml.c5.large, ml.c5.xlarge, ml.c5.2xlarge, ml.c5.4xlarge, ml.c5.9xlarge, ml.c5.18xlarge)
 
 ### ProductionVariantList
 * ProductionVariantList `array`
   * items [ProductionVariant](#productionvariant)
 
 ### ProductionVariantSummary
-* ProductionVariantSummary `object`: Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateWeightAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. 
+* ProductionVariantSummary `object`: Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. 
   * CurrentInstanceCount [TaskCount](#taskcount)
   * CurrentWeight [VariantWeight](#variantweight)
   * DesiredInstanceCount [TaskCount](#taskcount)
@@ -1186,6 +1740,11 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### ResourceLimitExceeded
 * ResourceLimitExceeded `object`:  You have exceeded an Amazon SageMaker resource limit. For example, you might have too many training jobs created. 
   * Message [FailureReason](#failurereason)
+
+### ResourceLimits
+* ResourceLimits `object`: Specifies the maximum number of training jobs and parallel training jobs that a hyperparameter tuning job can launch.
+  * MaxNumberOfTrainingJobs **required** [MaxNumberOfTrainingJobs](#maxnumberoftrainingjobs)
+  * MaxParallelTrainingJobs **required** [MaxParallelTrainingJobs](#maxparalleltrainingjobs)
 
 ### ResourceNotFound
 * ResourceNotFound `object`: Resource being access is not found.
@@ -1232,6 +1791,10 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 * StartNotebookInstanceInput `object`
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
 
+### StopHyperParameterTuningJobRequest
+* StopHyperParameterTuningJobRequest `object`
+  * HyperParameterTuningJobName **required** [HyperParameterTuningJobName](#hyperparametertuningjobname)
+
 ### StopNotebookInstanceInput
 * StopNotebookInstanceInput `object`
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
@@ -1246,6 +1809,10 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 
 ### SubnetId
 * SubnetId `string`
+
+### Subnets
+* Subnets `array`
+  * items [SubnetId](#subnetid)
 
 ### Tag
 * Tag `object`: Describes a tag. 
@@ -1279,7 +1846,7 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 * TrainingInstanceCount `integer`
 
 ### TrainingInstanceType
-* TrainingInstanceType `string` (values: ml.m4.xlarge, ml.m4.4xlarge, ml.m4.10xlarge, ml.c4.xlarge, ml.c4.2xlarge, ml.c4.8xlarge, ml.p2.xlarge, ml.p2.8xlarge, ml.p2.16xlarge, ml.p3.2xlarge, ml.p3.8xlarge, ml.p3.16xlarge, ml.c5.xlarge, ml.c5.2xlarge, ml.c5.4xlarge, ml.c5.9xlarge, ml.c5.18xlarge)
+* TrainingInstanceType `string` (values: ml.m4.xlarge, ml.m4.2xlarge, ml.m4.4xlarge, ml.m4.10xlarge, ml.m4.16xlarge, ml.m5.large, ml.m5.xlarge, ml.m5.2xlarge, ml.m5.4xlarge, ml.m5.12xlarge, ml.m5.24xlarge, ml.c4.xlarge, ml.c4.2xlarge, ml.c4.4xlarge, ml.c4.8xlarge, ml.p2.xlarge, ml.p2.8xlarge, ml.p2.16xlarge, ml.p3.2xlarge, ml.p3.8xlarge, ml.p3.16xlarge, ml.c5.xlarge, ml.c5.2xlarge, ml.c5.4xlarge, ml.c5.9xlarge, ml.c5.18xlarge)
 
 ### TrainingJobArn
 * TrainingJobArn `string`
@@ -1287,8 +1854,22 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### TrainingJobName
 * TrainingJobName `string`
 
+### TrainingJobSortByOptions
+* TrainingJobSortByOptions `string` (values: Name, CreationTime, Status, FinalObjectiveMetricValue)
+
 ### TrainingJobStatus
 * TrainingJobStatus `string` (values: InProgress, Completed, Failed, Stopping, Stopped)
+
+### TrainingJobStatusCounter
+* TrainingJobStatusCounter `integer`
+
+### TrainingJobStatusCounters
+* TrainingJobStatusCounters `object`: The numbers of training jobs launched by a hyperparameter tuning job, categorized by status.
+  * Completed [TrainingJobStatusCounter](#trainingjobstatuscounter)
+  * InProgress [TrainingJobStatusCounter](#trainingjobstatuscounter)
+  * NonRetryableError [TrainingJobStatusCounter](#trainingjobstatuscounter)
+  * RetryableError [TrainingJobStatusCounter](#trainingjobstatuscounter)
+  * Stopped [TrainingJobStatusCounter](#trainingjobstatuscounter)
 
 ### TrainingJobSummaries
 * TrainingJobSummaries `array`
@@ -1327,6 +1908,15 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * NotebookInstanceName **required** [NotebookInstanceName](#notebookinstancename)
   * RoleArn [RoleArn](#rolearn)
 
+### UpdateNotebookInstanceLifecycleConfigInput
+* UpdateNotebookInstanceLifecycleConfigInput `object`
+  * NotebookInstanceLifecycleConfigName **required** [NotebookInstanceLifecycleConfigName](#notebookinstancelifecycleconfigname)
+  * OnCreate [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+  * OnStart [NotebookInstanceLifecycleConfigList](#notebookinstancelifecycleconfiglist)
+
+### UpdateNotebookInstanceLifecycleConfigOutput
+* UpdateNotebookInstanceLifecycleConfigOutput `object`
+
 ### UpdateNotebookInstanceOutput
 * UpdateNotebookInstanceOutput `object`
 
@@ -1341,5 +1931,14 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 
 ### VolumeSizeInGB
 * VolumeSizeInGB `integer`
+
+### VpcConfig
+* VpcConfig `object`: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see <a>host-vpc</a> and <a>train-vpc</a>.
+  * SecurityGroupIds **required** [VpcSecurityGroupIds](#vpcsecuritygroupids)
+  * Subnets **required** [Subnets](#subnets)
+
+### VpcSecurityGroupIds
+* VpcSecurityGroupIds `array`
+  * items [SecurityGroupId](#securitygroupid)
 
 

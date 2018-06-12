@@ -2364,7 +2364,7 @@
           "type": "string"
         },
         "TotalFederalPenalty": {
-          "description": "For civil judicial enforcement actions, this amount is the federal penalty assessed against the defendant(s)� as specified in the final entered Consent Decree or Court Order. For administrative enforcement actions, it is the penalty assessed in the Consent/Final Order. It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities. Interest payments associated with a penalty paid over time are not included in this amount.",
+          "description": "For civil judicial enforcement actions, this amount is the federal penalty assessed against the defendant(s)  as specified in the final entered Consent Decree or Court Order. For administrative enforcement actions, it is the penalty assessed in the Consent/Final Order. It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities. Interest payments associated with a penalty paid over time are not included in this amount.",
           "example": "$13,210",
           "title": "Total Federal Penalty",
           "type": "string"
@@ -2737,7 +2737,7 @@
       "description": "This section provides detailed facility and address information on all of the facilities associated with the civil enforcement case.",
       "properties": {
         "FRSNumber": {
-          "description": "The identification number assigned to a facility in the�Facility Registry Service (FRS)�to uniquely identify a facility site.",
+          "description": "The identification number assigned to a facility in the Facility Registry Service (FRS) to uniquely identify a facility site.",
           "example": "110007875353",
           "title": "FRS Number",
           "type": "string"
@@ -2773,7 +2773,7 @@
           "type": "string"
         },
         "NAICSCodes": {
-          "description": "A 6-digit code to classify industrial establishments. For detailed information about NAICS, please refer to the U.S. Census Bureau�NAICS�webpage.",
+          "description": "A 6-digit code to classify industrial establishments. For detailed information about NAICS, please refer to the U.S. Census Bureau NAICS webpage.",
           "title": "NAICS Codes",
           "type": "string"
         },
@@ -2965,7 +2965,7 @@
       "description": "Crosswalk between programs and facilities (identified by FRS ID).",
       "properties": {
         "FRSNumber": {
-          "description": "The identification number assigned to a facility in the�Facility Registry Service (FRS)�to uniquely identify a facility site.",
+          "description": "The identification number assigned to a facility in the Facility Registry Service (FRS) to uniquely identify a facility site.",
           "example": "110007875353",
           "title": "FRS Number",
           "type": "string"

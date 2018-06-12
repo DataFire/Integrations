@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/datacatalog/resource-manager/Microsoft.DataCatalog/stable/2016-03-30/datacatalog.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/datacatalog/resource-manager/Microsoft.DataCatalog/stable/2016-03-30/datacatalog.json",
         "version": "2.0"
       }
     ],
@@ -63,7 +63,8 @@
       "in": "path",
       "name": "catalogName",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "client"
     },
     "ResourceGroupNameParameter": {
       "description": "The name of the resource group within the user's subscription. The name is case insensitive.",
@@ -286,6 +287,7 @@
             },
             "responses": {
               "200": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 17:55:54 GMT",
                   "x-ms-correlation-request-id": "acdb3257-c6cb-44f1-8e14-afa3ebf471fa",
@@ -293,6 +295,7 @@
                 }
               },
               "202": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 17:55:54 GMT",
                   "x-ms-correlation-request-id": "acdb3257-c6cb-44f1-8e14-afa3ebf471fa",
@@ -300,6 +303,7 @@
                 }
               },
               "204": {
+                "body": null,
                 "headers": {
                   "Date": "Wed, 13 Sep 2017 17:55:54 GMT",
                   "x-ms-correlation-request-id": "acdb3257-c6cb-44f1-8e14-afa3ebf471fa",

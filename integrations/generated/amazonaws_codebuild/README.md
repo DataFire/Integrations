@@ -22,7 +22,7 @@ amazonaws_codebuild.BatchDeleteBuilds({
 
 ## Description
 
-<fullname>AWS CodeBuild</fullname> <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code, runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need to provision, manage, and scale your own build servers. It provides prepackaged build environments for the most popular programming languages and build tools, such as Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests, and you pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>AWS CodeBuild User Guide</i>.</p> <p>AWS CodeBuild supports these operations:</p> <ul> <li> <p> <code>BatchDeleteBuilds</code>: Deletes one or more builds.</p> </li> <li> <p> <code>BatchGetProjects</code>: Gets information about one or more build projects. A <i>build project</i> defines how AWS CodeBuild will run a build. This includes information such as where to get the source code to build, the build environment to use, the build commands to run, and where to store the build output. A <i>build environment</i> represents a combination of operating system, programming language runtime, and tools that AWS CodeBuild will use to run a build. Also, you can add tags to build projects to help manage your resources and costs.</p> </li> <li> <p> <code>CreateProject</code>: Creates a build project.</p> </li> <li> <p> <code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.</p> </li> <li> <p> <code>DeleteProject</code>: Deletes a build project.</p> </li> <li> <p> <code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, stops AWS CodeBuild from automatically rebuilding the source code every time a code change is pushed to the repository.</p> </li> <li> <p> <code>ListProjects</code>: Gets a list of build project names, with each build project name representing a single build project.</p> </li> <li> <p> <code>UpdateProject</code>: Changes the settings of an existing build project.</p> </li> <li> <p> <code>BatchGetBuilds</code>: Gets information about one or more builds.</p> </li> <li> <p> <code>ListBuilds</code>: Gets a list of build IDs, with each build ID representing a single build.</p> </li> <li> <p> <code>ListBuildsForProject</code>: Gets a list of build IDs for the specified build project, with each build ID representing a single build.</p> </li> <li> <p> <code>StartBuild</code>: Starts running a build.</p> </li> <li> <p> <code>StopBuild</code>: Attempts to stop running a build.</p> </li> <li> <p> <code>ListCuratedEnvironmentImages</code>: Gets information about Docker images that are managed by AWS CodeBuild.</p> </li> </ul>
+<fullname>AWS CodeBuild</fullname> <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code, runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need to provision, manage, and scale your own build servers. It provides prepackaged build environments for the most popular programming languages and build tools, such as Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests, and you pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>AWS CodeBuild User Guide</i>.</p> <p>AWS CodeBuild supports these operations:</p> <ul> <li> <p> <code>BatchDeleteBuilds</code>: Deletes one or more builds.</p> </li> <li> <p> <code>BatchGetProjects</code>: Gets information about one or more build projects. A <i>build project</i> defines how AWS CodeBuild will run a build. This includes information such as where to get the source code to build, the build environment to use, the build commands to run, and where to store the build output. A <i>build environment</i> represents a combination of operating system, programming language runtime, and tools that AWS CodeBuild will use to run a build. Also, you can add tags to build projects to help manage your resources and costs.</p> </li> <li> <p> <code>CreateProject</code>: Creates a build project.</p> </li> <li> <p> <code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.</p> </li> <li> <p> <code>UpdateWebhook</code>: Changes the settings of an existing webhook.</p> </li> <li> <p> <code>DeleteProject</code>: Deletes a build project.</p> </li> <li> <p> <code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, stops AWS CodeBuild from automatically rebuilding the source code every time a code change is pushed to the repository.</p> </li> <li> <p> <code>ListProjects</code>: Gets a list of build project names, with each build project name representing a single build project.</p> </li> <li> <p> <code>UpdateProject</code>: Changes the settings of an existing build project.</p> </li> <li> <p> <code>BatchGetBuilds</code>: Gets information about one or more builds.</p> </li> <li> <p> <code>ListBuilds</code>: Gets a list of build IDs, with each build ID representing a single build.</p> </li> <li> <p> <code>ListBuildsForProject</code>: Gets a list of build IDs for the specified build project, with each build ID representing a single build.</p> </li> <li> <p> <code>StartBuild</code>: Starts running a build.</p> </li> <li> <p> <code>StopBuild</code>: Attempts to stop running a build.</p> </li> <li> <p> <code>ListCuratedEnvironmentImages</code>: Gets information about Docker images that are managed by AWS CodeBuild.</p> </li> </ul>
 
 ## Actions
 
@@ -128,6 +128,7 @@ amazonaws_codebuild.CreateWebhook({
 
 #### Input
 * input `object`
+  * branchFilter [String](#string)
   * projectName **required** [ProjectName](#projectname)
 
 #### Output
@@ -264,9 +265,20 @@ amazonaws_codebuild.StartBuild({
 * input `object`
   * artifactsOverride [ProjectArtifacts](#projectartifacts)
   * buildspecOverride [String](#string)
+  * cacheOverride [ProjectCache](#projectcache)
+  * certificateOverride [String](#string)
+  * computeTypeOverride [ComputeType](#computetype)
+  * environmentTypeOverride [EnvironmentType](#environmenttype)
   * environmentVariablesOverride [EnvironmentVariables](#environmentvariables)
   * gitCloneDepthOverride [GitCloneDepth](#gitclonedepth)
+  * imageOverride [NonEmptyString](#nonemptystring)
+  * insecureSslOverride [WrapperBoolean](#wrapperboolean)
+  * privilegedModeOverride [WrapperBoolean](#wrapperboolean)
   * projectName **required** [NonEmptyString](#nonemptystring)
+  * serviceRoleOverride [NonEmptyString](#nonemptystring)
+  * sourceAuthOverride [SourceAuth](#sourceauth)
+  * sourceLocationOverride [String](#string)
+  * sourceTypeOverride [SourceType](#sourcetype)
   * sourceVersion [String](#string)
   * timeoutInMinutesOverride [TimeOut](#timeout)
 
@@ -317,6 +329,25 @@ amazonaws_codebuild.UpdateProject({
 
 #### Output
 * output [UpdateProjectOutput](#updateprojectoutput)
+
+### UpdateWebhook
+
+
+
+```js
+amazonaws_codebuild.UpdateWebhook({
+  "projectName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * branchFilter [String](#string)
+  * projectName **required** [ProjectName](#projectname)
+  * rotateSecret [Boolean](#boolean)
+
+#### Output
+* output [UpdateWebhookOutput](#updatewebhookoutput)
 
 
 
@@ -380,6 +411,7 @@ amazonaws_codebuild.UpdateProject({
   * networkInterface [NetworkInterface](#networkinterface)
   * phases [BuildPhases](#buildphases)
   * projectName [NonEmptyString](#nonemptystring)
+  * serviceRole [NonEmptyString](#nonemptystring)
   * source [ProjectSource](#projectsource)
   * sourceVersion [NonEmptyString](#nonemptystring)
   * startTime [Timestamp](#timestamp)
@@ -452,6 +484,7 @@ amazonaws_codebuild.UpdateProject({
 
 ### CreateWebhookInput
 * CreateWebhookInput `object`
+  * branchFilter [String](#string)
   * projectName **required** [ProjectName](#projectname)
 
 ### CreateWebhookOutput
@@ -501,7 +534,7 @@ amazonaws_codebuild.UpdateProject({
   * items [EnvironmentPlatform](#environmentplatform)
 
 ### EnvironmentType
-* EnvironmentType `string` (values: LINUX_CONTAINER)
+* EnvironmentType `string` (values: WINDOWS_CONTAINER, LINUX_CONTAINER)
 
 ### EnvironmentVariable
 * EnvironmentVariable `object`: Information about an environment variable for a build project or a build.
@@ -605,7 +638,7 @@ amazonaws_codebuild.UpdateProject({
   * items [PhaseContext](#phasecontext)
 
 ### PlatformType
-* PlatformType `string` (values: DEBIAN, AMAZON_LINUX, UBUNTU)
+* PlatformType `string` (values: DEBIAN, AMAZON_LINUX, UBUNTU, WINDOWS_SERVER)
 
 ### Project
 * Project `object`: Information about a build project.
@@ -708,9 +741,20 @@ amazonaws_codebuild.UpdateProject({
 * StartBuildInput `object`
   * artifactsOverride [ProjectArtifacts](#projectartifacts)
   * buildspecOverride [String](#string)
+  * cacheOverride [ProjectCache](#projectcache)
+  * certificateOverride [String](#string)
+  * computeTypeOverride [ComputeType](#computetype)
+  * environmentTypeOverride [EnvironmentType](#environmenttype)
   * environmentVariablesOverride [EnvironmentVariables](#environmentvariables)
   * gitCloneDepthOverride [GitCloneDepth](#gitclonedepth)
+  * imageOverride [NonEmptyString](#nonemptystring)
+  * insecureSslOverride [WrapperBoolean](#wrapperboolean)
+  * privilegedModeOverride [WrapperBoolean](#wrapperboolean)
   * projectName **required** [NonEmptyString](#nonemptystring)
+  * serviceRoleOverride [NonEmptyString](#nonemptystring)
+  * sourceAuthOverride [SourceAuth](#sourceauth)
+  * sourceLocationOverride [String](#string)
+  * sourceTypeOverride [SourceType](#sourcetype)
   * sourceVersion [String](#string)
   * timeoutInMinutesOverride [TimeOut](#timeout)
 
@@ -770,6 +814,16 @@ amazonaws_codebuild.UpdateProject({
 * UpdateProjectOutput `object`
   * project [Project](#project)
 
+### UpdateWebhookInput
+* UpdateWebhookInput `object`
+  * branchFilter [String](#string)
+  * projectName **required** [ProjectName](#projectname)
+  * rotateSecret [Boolean](#boolean)
+
+### UpdateWebhookOutput
+* UpdateWebhookOutput `object`
+  * webhook [Webhook](#webhook)
+
 ### ValueInput
 * ValueInput `string`
 
@@ -781,6 +835,8 @@ amazonaws_codebuild.UpdateProject({
 
 ### Webhook
 * Webhook `object`: Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+  * branchFilter [String](#string)
+  * lastModifiedSecret [Timestamp](#timestamp)
   * payloadUrl [NonEmptyString](#nonemptystring)
   * secret [NonEmptyString](#nonemptystring)
   * url [NonEmptyString](#nonemptystring)

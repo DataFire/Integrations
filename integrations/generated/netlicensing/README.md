@@ -61,10 +61,13 @@ netlicensing.createLicense({
   * name `string`: Name for the licensed item. Set from license template on creation, if not specified explicitly.
   * parentfeature `string`: Mandatory for 'TIMEVOLUME' license type and 'RENTAL' licensing model
   * timeVolume `string`: Mandatory for 'TIMEVOLUME' license type.
+  * timeVolumePeriod `string`: For 'TIMEVOLUME' license type.
   * startDate `string`: Mandatory for 'TIMEVOLUME' license type.
   * price `number`: Price for the license. If >0, it must always be accompanied by the currency specification. Read-only, set from license template on creation
   * currency `string`: Specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation
   * hidden `boolean`: If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly
+  * quantity `string`: Mandatory for 'Pay-per-Use' license model.
+  * usedQuantity `string`: Mandatory for 'Pay-per-Use' license model.
 
 #### Output
 * output [netlicensing](#netlicensing)
@@ -121,10 +124,13 @@ netlicensing.updateLicense({
   * name `string`: Name for the licensed item. Set from license template on creation, if not specified explicitly.
   * startDate `string`: for TIMEVOLUME licenseType
   * parentfeature `string`
-  * timeVolume `string`
+  * timeVolume `string`: Mandatory for 'TIMEVOLUME' license type.
+  * timeVolumePeriod `string`: For 'TIMEVOLUME' license type.
   * price `number`: Price for the license. If > 0, it must always be accompanied by the currency specification. Read-only, set from license template on creation
   * currency `string`: Specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation
   * hidden `boolean`: If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly
+  * quantity `string`: Mandatory for 'Pay-per-Use' license model.
+  * usedQuantity `string`: Mandatory for 'Pay-per-Use' license model.
 
 #### Output
 * output [netlicensing](#netlicensing)
@@ -288,7 +294,7 @@ netlicensing.createLicenseTemplate({
   "number": "",
   "name": "",
   "active": true,
-  "licenseType": []
+  "licenseType": ""
 }, context)
 ```
 
@@ -298,14 +304,16 @@ netlicensing.createLicenseTemplate({
   * number **required** `string`: lUnique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template.
   * name **required** `string`: license template name to сreate license template object
   * active **required** `boolean`: If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template.
-  * licenseType **required** `array`: type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME
+  * licenseType **required** `string`: type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING, QUANTITY
   * timeVolume `string`: Mandatory for 'TIMEVOLUME' license type.
+  * timeVolumePeriod `string`: For 'TIMEVOLUME' license type.
   * maxSessions `string`: Mandatory for 'FLOATING' license type.
   * price `number`: price for the license. If >0, it must always be accompanied by the currency specification.
   * currency `string`: specifies currency for the license price. Check data types to discover which currencies are supported.
   * automatic `boolean`: If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0.
   * hidden `boolean`: If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase.
   * hideLicenses `boolean`: If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation.
+  * quantity `string`: Mandatory for 'Pay-per-Use' license model.
 
 #### Output
 * output [netlicensing](#netlicensing)
@@ -361,14 +369,16 @@ netlicensing.updateLicenseTemplate({
   * number `string`: New license template number (update).
   * name `string`: Name for the licensed item
   * active `boolean`: If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template.
-  * licenseType `array`: type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING
+  * licenseType `string`: type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING, QUANTITY
   * timeVolume `string`: Mandatory for 'TIMEVOLUME' license type.
+  * timeVolumePeriod `string`: For 'TIMEVOLUME' license type.
   * maxSessions `string`: Mandatory for 'FLOATING' license type.
   * price `number`: Price for the license. If >0, it must always be accompanied by the currency specification.
   * currency `string`: Specifies currency for the license price. Check data types to discover which currencies are supported.
   * automatic `boolean`: If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0.
   * hidden `boolean`: If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase.
   * hideLicenses `boolean`: If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation.
+  * quantity `string`: Mandatory for 'Pay-per-Use' license model.
 
 #### Output
 * output [netlicensing](#netlicensing)
@@ -551,7 +561,7 @@ netlicensing.createProductModule({
   "productNumber": "",
   "active": true,
   "name": "",
-  "licensingModel": []
+  "licensingModel": ""
 }, context)
 ```
 
@@ -561,7 +571,7 @@ netlicensing.createProductModule({
   * number `string`: Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product.
   * active **required** `boolean`: If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module.
   * name **required** `string`: Product module name that is visible to the end customers in NetLicensing Shop.
-  * licensingModel **required** `array`: Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.
+  * licensingModel **required** `string`: Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.
   * maxCheckoutValidity `integer`: Maximum checkout validity (days). Mandatory for 'Floating' licensing model.
   * yellowThreshold `integer`: Remaining time volume for yellow level. Mandatory for 'Rental' licensing model.
   * redThreshold `integer`: Remaining time volume for red level. Mandatory for 'Rental' licensing model.
@@ -621,7 +631,7 @@ netlicensing.updateProductModule({
   * number `string`: New product module number (update).
   * active `boolean`: If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module.
   * name `string`: Product module name that is visible to the end customers in NetLicensing Shop.
-  * licensingModel `array`: Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.
+  * licensingModel `string`: Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.
   * maxCheckoutValidity `integer`: Maximum checkout validity (days). Mandatory for 'Floating' licensing model.
   * yellowThreshold `integer`: Remaining time volume for yellow level. Mandatory for 'Rental' licensing model.
   * redThreshold `integer`: Remaining time volume for red level. Mandatory for 'Rental' licensing model.

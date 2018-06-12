@@ -164,6 +164,7 @@ azure_commerce.UsageAggregates_List({
   * meterName `string`: Friendly name of the resource being consumed.
   * meterRegion `string`: Region of the meterId used for billing purposes
   * meterSubCategory `string`: Sub-category of the consumed resource.
+  * quantity `number`: The amount of the resource consumption that occurred in this time frame.
   * subscriptionId `string`: The subscription identifier for the Azure user.
   * unit `string`: The unit in which the usage for this resource is being counted, e.g. Hours, GB.
   * usageEndTime `string`: UTC end time for the usage bucket to which this usage aggregate belongs.

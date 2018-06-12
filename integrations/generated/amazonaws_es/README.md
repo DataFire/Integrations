@@ -52,6 +52,7 @@ amazonaws_es.CreateElasticsearchDomain({
 * input `object`
   * AccessPolicies [PolicyDocument](#policydocument)
   * AdvancedOptions [AdvancedOptions](#advancedoptions)
+  * CognitoOptions [CognitoOptions](#cognitooptions)
   * DomainName **required** [DomainName](#domainname)
   * EBSOptions [EBSOptions](#ebsoptions)
   * ElasticsearchClusterConfig [ElasticsearchClusterConfig](#elasticsearchclusterconfig)
@@ -147,6 +148,7 @@ amazonaws_es.UpdateElasticsearchDomainConfig({
   * DomainName **required** `string`
   * AccessPolicies [PolicyDocument](#policydocument)
   * AdvancedOptions [AdvancedOptions](#advancedoptions)
+  * CognitoOptions [CognitoOptions](#cognitooptions)
   * EBSOptions [EBSOptions](#ebsoptions)
   * ElasticsearchClusterConfig [ElasticsearchClusterConfig](#elasticsearchclusterconfig)
   * LogPublishingOptions [LogPublishingOptions](#logpublishingoptions)
@@ -193,6 +195,58 @@ amazonaws_es.ListElasticsearchInstanceTypes({
 
 #### Output
 * output [ListElasticsearchInstanceTypesResponse](#listelasticsearchinstancetypesresponse)
+
+### PurchaseReservedElasticsearchInstanceOffering
+
+
+
+```js
+amazonaws_es.PurchaseReservedElasticsearchInstanceOffering({
+  "ReservedElasticsearchInstanceOfferingId": "",
+  "ReservationName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * InstanceCount [InstanceCount](#instancecount)
+  * ReservationName **required** [ReservationToken](#reservationtoken)
+  * ReservedElasticsearchInstanceOfferingId **required** [GUID](#guid)
+
+#### Output
+* output [PurchaseReservedElasticsearchInstanceOfferingResponse](#purchasereservedelasticsearchinstanceofferingresponse)
+
+### DescribeReservedElasticsearchInstanceOfferings
+
+
+
+```js
+amazonaws_es.DescribeReservedElasticsearchInstanceOfferings({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+
+#### Output
+* output [DescribeReservedElasticsearchInstanceOfferingsResponse](#describereservedelasticsearchinstanceofferingsresponse)
+
+### DescribeReservedElasticsearchInstances
+
+
+
+```js
+amazonaws_es.DescribeReservedElasticsearchInstances({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+
+#### Output
+* output [DescribeReservedElasticsearchInstancesResponse](#describereservedelasticsearchinstancesresponse)
 
 ### DeleteElasticsearchServiceRole
 
@@ -323,10 +377,23 @@ amazonaws_es.ListTags({}, context)
 ### CloudWatchLogsLogGroupArn
 * CloudWatchLogsLogGroupArn `string`: ARN of the Cloudwatch log group to which log needs to be published.
 
+### CognitoOptions
+* CognitoOptions `object`: Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.
+  * Enabled [Boolean](#boolean)
+  * IdentityPoolId [IdentityPoolId](#identitypoolid)
+  * RoleArn [RoleArn](#rolearn)
+  * UserPoolId [UserPoolId](#userpoolid)
+
+### CognitoOptionsStatus
+* CognitoOptionsStatus `object`: Status of the Cognito options for the specified Elasticsearch domain.
+  * Options **required** [CognitoOptions](#cognitooptions)
+  * Status **required** [OptionStatus](#optionstatus)
+
 ### CreateElasticsearchDomainRequest
 * CreateElasticsearchDomainRequest `object`
   * AccessPolicies [PolicyDocument](#policydocument)
   * AdvancedOptions [AdvancedOptions](#advancedoptions)
+  * CognitoOptions [CognitoOptions](#cognitooptions)
   * DomainName **required** [DomainName](#domainname)
   * EBSOptions [EBSOptions](#ebsoptions)
   * ElasticsearchClusterConfig [ElasticsearchClusterConfig](#elasticsearchclusterconfig)
@@ -376,6 +443,22 @@ amazonaws_es.ListTags({}, context)
 * DescribeElasticsearchInstanceTypeLimitsResponse `object`:  Container for the parameters received from <code> <a>DescribeElasticsearchInstanceTypeLimits</a> </code> operation. 
   * LimitsByRole [LimitsByRole](#limitsbyrole)
 
+### DescribeReservedElasticsearchInstanceOfferingsRequest
+* DescribeReservedElasticsearchInstanceOfferingsRequest `object`: Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code>
+
+### DescribeReservedElasticsearchInstanceOfferingsResponse
+* DescribeReservedElasticsearchInstanceOfferingsResponse `object`: Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code>
+  * NextToken [NextToken](#nexttoken)
+  * ReservedElasticsearchInstanceOfferings [ReservedElasticsearchInstanceOfferingList](#reservedelasticsearchinstanceofferinglist)
+
+### DescribeReservedElasticsearchInstancesRequest
+* DescribeReservedElasticsearchInstancesRequest `object`: Container for parameters to <code>DescribeReservedElasticsearchInstances</code>
+
+### DescribeReservedElasticsearchInstancesResponse
+* DescribeReservedElasticsearchInstancesResponse `object`: Container for results from <code>DescribeReservedElasticsearchInstances</code>
+  * NextToken [String](#string)
+  * ReservedElasticsearchInstances [ReservedElasticsearchInstanceList](#reservedelasticsearchinstancelist)
+
 ### DisabledOperationException
 * DisabledOperationException `object`: An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
 
@@ -396,6 +479,9 @@ amazonaws_es.ListTags({}, context)
 ### DomainNameList
 * DomainNameList `array`: A list of Elasticsearch domain names.
   * items [DomainName](#domainname)
+
+### Double
+* Double `number`
 
 ### EBSOptions
 * EBSOptions `object`: Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.
@@ -430,6 +516,7 @@ amazonaws_es.ListTags({}, context)
 * ElasticsearchDomainConfig `object`: The configuration of an Elasticsearch domain.
   * AccessPolicies [AccessPoliciesStatus](#accesspoliciesstatus)
   * AdvancedOptions [AdvancedOptionsStatus](#advancedoptionsstatus)
+  * CognitoOptions [CognitoOptionsStatus](#cognitooptionsstatus)
   * EBSOptions [EBSOptionsStatus](#ebsoptionsstatus)
   * ElasticsearchClusterConfig [ElasticsearchClusterConfigStatus](#elasticsearchclusterconfigstatus)
   * ElasticsearchVersion [ElasticsearchVersionStatus](#elasticsearchversionstatus)
@@ -443,6 +530,7 @@ amazonaws_es.ListTags({}, context)
   * ARN **required** [ARN](#arn)
   * AccessPolicies [PolicyDocument](#policydocument)
   * AdvancedOptions [AdvancedOptions](#advancedoptions)
+  * CognitoOptions [CognitoOptions](#cognitooptions)
   * Created [Boolean](#boolean)
   * Deleted [Boolean](#boolean)
   * DomainId **required** [DomainId](#domainid)
@@ -497,6 +585,15 @@ amazonaws_es.ListTags({}, context)
 ### ErrorMessage
 * ErrorMessage `string`
 
+### GUID
+* GUID `string`
+
+### IdentityPoolId
+* IdentityPoolId `string`
+
+### InstanceCount
+* InstanceCount `integer`: Specifies the number of EC2 instances in the Elasticsearch domain.
+
 ### InstanceCountLimits
 * InstanceCountLimits `object`:  InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType. 
   * MaximumInstanceCount [MaximumInstanceCount](#maximuminstancecount)
@@ -508,6 +605,9 @@ amazonaws_es.ListTags({}, context)
 
 ### InstanceRole
 * InstanceRole `string`
+
+### Integer
+* Integer `integer`
 
 ### IntegerClass
 * IntegerClass `integer`
@@ -618,16 +718,80 @@ amazonaws_es.ListTags({}, context)
 ### PolicyDocument
 * PolicyDocument `string`: Access policy rules for an Elasticsearch domain service endpoints. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies" target="_blank">Configuring Access Policies</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>. The maximum size of a policy document is 100 KB.
 
+### PurchaseReservedElasticsearchInstanceOfferingRequest
+* PurchaseReservedElasticsearchInstanceOfferingRequest `object`: Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code>
+  * InstanceCount [InstanceCount](#instancecount)
+  * ReservationName **required** [ReservationToken](#reservationtoken)
+  * ReservedElasticsearchInstanceOfferingId **required** [GUID](#guid)
+
+### PurchaseReservedElasticsearchInstanceOfferingResponse
+* PurchaseReservedElasticsearchInstanceOfferingResponse `object`: Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.
+  * ReservationName [ReservationToken](#reservationtoken)
+  * ReservedElasticsearchInstanceId [GUID](#guid)
+
+### RecurringCharge
+* RecurringCharge `object`: Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.
+  * RecurringChargeAmount [Double](#double)
+  * RecurringChargeFrequency [String](#string)
+
+### RecurringChargeList
+* RecurringChargeList `array`
+  * items [RecurringCharge](#recurringcharge)
+
 ### RemoveTagsRequest
 * RemoveTagsRequest `object`: Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.
   * ARN **required** [ARN](#arn)
   * TagKeys **required** [StringList](#stringlist)
+
+### ReservationToken
+* ReservationToken `string`
+
+### ReservedElasticsearchInstance
+* ReservedElasticsearchInstance `object`: Details of a reserved Elasticsearch instance.
+  * CurrencyCode [String](#string)
+  * Duration [Integer](#integer)
+  * ElasticsearchInstanceCount [Integer](#integer)
+  * ElasticsearchInstanceType [ESPartitionInstanceType](#espartitioninstancetype)
+  * FixedPrice [Double](#double)
+  * PaymentOption [ReservedElasticsearchInstancePaymentOption](#reservedelasticsearchinstancepaymentoption)
+  * RecurringCharges [RecurringChargeList](#recurringchargelist)
+  * ReservationName [ReservationToken](#reservationtoken)
+  * ReservedElasticsearchInstanceId [GUID](#guid)
+  * ReservedElasticsearchInstanceOfferingId [String](#string)
+  * StartTime [UpdateTimestamp](#updatetimestamp)
+  * State [String](#string)
+  * UsagePrice [Double](#double)
+
+### ReservedElasticsearchInstanceList
+* ReservedElasticsearchInstanceList `array`
+  * items [ReservedElasticsearchInstance](#reservedelasticsearchinstance)
+
+### ReservedElasticsearchInstanceOffering
+* ReservedElasticsearchInstanceOffering `object`: Details of a reserved Elasticsearch instance offering.
+  * CurrencyCode [String](#string)
+  * Duration [Integer](#integer)
+  * ElasticsearchInstanceType [ESPartitionInstanceType](#espartitioninstancetype)
+  * FixedPrice [Double](#double)
+  * PaymentOption [ReservedElasticsearchInstancePaymentOption](#reservedelasticsearchinstancepaymentoption)
+  * RecurringCharges [RecurringChargeList](#recurringchargelist)
+  * ReservedElasticsearchInstanceOfferingId [GUID](#guid)
+  * UsagePrice [Double](#double)
+
+### ReservedElasticsearchInstanceOfferingList
+* ReservedElasticsearchInstanceOfferingList `array`
+  * items [ReservedElasticsearchInstanceOffering](#reservedelasticsearchinstanceoffering)
+
+### ReservedElasticsearchInstancePaymentOption
+* ReservedElasticsearchInstancePaymentOption `string` (values: ALL_UPFRONT, PARTIAL_UPFRONT, NO_UPFRONT)
 
 ### ResourceAlreadyExistsException
 * ResourceAlreadyExistsException `object`: An exception for creating a resource that already exists. Gives http status code of 400.
 
 ### ResourceNotFoundException
 * ResourceNotFoundException `object`: An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.
+
+### RoleArn
+* RoleArn `string`
 
 ### ServiceUrl
 * ServiceUrl `string`: The endpoint to which service requests are submitted. For example, <code>search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.es.amazonaws.com</code> or <code>doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.es.amazonaws.com</code>.
@@ -695,6 +859,7 @@ amazonaws_es.ListTags({}, context)
 * UpdateElasticsearchDomainConfigRequest `object`: Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.
   * AccessPolicies [PolicyDocument](#policydocument)
   * AdvancedOptions [AdvancedOptions](#advancedoptions)
+  * CognitoOptions [CognitoOptions](#cognitooptions)
   * EBSOptions [EBSOptions](#ebsoptions)
   * ElasticsearchClusterConfig [ElasticsearchClusterConfig](#elasticsearchclusterconfig)
   * LogPublishingOptions [LogPublishingOptions](#logpublishingoptions)
@@ -707,6 +872,9 @@ amazonaws_es.ListTags({}, context)
 
 ### UpdateTimestamp
 * UpdateTimestamp `string`
+
+### UserPoolId
+* UserPoolId `string`
 
 ### VPCDerivedInfo
 * VPCDerivedInfo `object`: Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.

@@ -634,6 +634,8 @@ azure_timeseriesinsights.ReferenceDataSets_CreateOrUpdate({
 ### EnvironmentCreationProperties
 * EnvironmentCreationProperties `object`: Properties used to create an environment.
   * dataRetentionTime **required** `string`: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+  * partitionKeyProperties `array`: The list of partition keys according to which the data in the environment will be ordered.
+    * items [PartitionKeyProperty](#partitionkeyproperty)
   * storageLimitExceededBehavior `string` (values: PurgeOldData, PauseIngress): The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 
 ### EnvironmentListResponse
@@ -644,6 +646,8 @@ azure_timeseriesinsights.ReferenceDataSets_CreateOrUpdate({
 ### EnvironmentMutableProperties
 * EnvironmentMutableProperties `object`: An object that represents a set of mutable environment resource properties.
   * dataRetentionTime `string`: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+  * partitionKeyProperties `array`: The list of event properties which will be used to partition data in the environment.
+    * items [PartitionKeyProperty](#partitionkeyproperty)
   * storageLimitExceededBehavior `string` (values: PurgeOldData, PauseIngress): The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 
 ### EnvironmentResource
@@ -662,6 +666,8 @@ azure_timeseriesinsights.ReferenceDataSets_CreateOrUpdate({
   * dataAccessId `string`: An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
   * status [EnvironmentStatus](#environmentstatus)
   * dataRetentionTime **required** `string`: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+  * partitionKeyProperties `array`: The list of partition keys according to which the data in the environment will be ordered.
+    * items [PartitionKeyProperty](#partitionkeyproperty)
   * storageLimitExceededBehavior `string` (values: PurgeOldData, PauseIngress): The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
   * creationTime `string`: The time the resource was created.
   * provisioningState [ProvisioningState](#provisioningstate)
@@ -863,6 +869,11 @@ azure_timeseriesinsights.ReferenceDataSets_CreateOrUpdate({
   * value `array`: List of Time Series Insights operations supported by the Microsoft.TimeSeriesInsights resource provider.
     * items [Operation](#operation)
 
+### PartitionKeyProperty
+* PartitionKeyProperty `object`: The structure of the property that a partition key can have. An environment can have multiple such properties.
+  * name `string`: The name of the property.
+  * type `string` (values: String): The type of the property.
+
 ### ProvisioningState
 * ProvisioningState `string` (values: Accepted, Creating, Updating, Succeeded, Failed, Deleting): Provisioning state of the resource.
 
@@ -874,6 +885,7 @@ azure_timeseriesinsights.ReferenceDataSets_CreateOrUpdate({
 
 ### ReferenceDataSetCreationProperties
 * ReferenceDataSetCreationProperties `object`: Properties used to create a reference data set.
+  * dataStringComparisonBehavior `string` (values: Ordinal, OrdinalIgnoreCase): The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
   * keyProperties **required** `array`: The list of key properties for the reference data set.
     * items [ReferenceDataSetKeyProperty](#referencedatasetkeyproperty)
 
@@ -898,6 +910,7 @@ azure_timeseriesinsights.ReferenceDataSets_CreateOrUpdate({
 
 ### ReferenceDataSetResourceProperties
 * ReferenceDataSetResourceProperties: Properties of the reference data set.
+  * dataStringComparisonBehavior `string` (values: Ordinal, OrdinalIgnoreCase): The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
   * keyProperties **required** `array`: The list of key properties for the reference data set.
     * items [ReferenceDataSetKeyProperty](#referencedatasetkeyproperty)
   * creationTime `string`: The time the resource was created.

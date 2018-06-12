@@ -113,24 +113,4 @@ azure_sql_databasesecurityalertpolicies.DatabaseThreatDetectionPolicies_CreateOr
   * storageEndpoint `string`: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
   * useServerDefault `string` (values: Enabled, Disabled): Specifies whether to use the default server policy.
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### TrackedResource
-* TrackedResource `object`: ARM tracked top level resource.
-  * location **required** `string`: Resource location.
-  * tags `object`: Resource tags.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

@@ -135,18 +135,6 @@ azure_sql_serverazureadadministrators.ServerAzureADAdministrators_CreateOrUpdate
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### ServerAdministratorListResult
 * ServerAdministratorListResult `object`: The response to a list Active Directory Administrators request.
   * value `array`: The list of server Active Directory Administrators for the server.

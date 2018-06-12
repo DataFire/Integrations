@@ -53,7 +53,10 @@ Checks whether the container registry name is available for use. The name must c
 azure_containerregistry.Registries_CheckNameAvailability({
   "api-version": "",
   "subscriptionId": "",
-  "registryNameCheckRequest": null
+  "registryNameCheckRequest": {
+    "name": "",
+    "type": ""
+  }
 }, context)
 ```
 
@@ -162,7 +165,7 @@ azure_containerregistry.Registries_Update({
   "subscriptionId": "",
   "resourceGroupName": "",
   "registryName": "",
-  "registryUpdateParameters": null
+  "registryUpdateParameters": {}
 }, context)
 ```
 
@@ -187,7 +190,11 @@ azure_containerregistry.Registries_Create({
   "subscriptionId": "",
   "resourceGroupName": "",
   "registryName": "",
-  "registry": null
+  "registry": {
+    "sku": {
+      "name": ""
+    }
+  }
 }, context)
 ```
 
@@ -201,6 +208,36 @@ azure_containerregistry.Registries_Create({
 
 #### Output
 * output [Registry](#registry)
+
+### Registries_ImportImage
+Copies an image to this container registry from the specified container registry.
+
+
+```js
+azure_containerregistry.Registries_ImportImage({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "registryName": "",
+  "parameters": {
+    "source": {
+      "resourceId": "",
+      "sourceImage": ""
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The client API version.
+  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
+  * registryName **required** `string`: The name of the container registry.
+  * parameters **required** [ImportImageParameters](#importimageparameters)
+
+#### Output
+*Output schema unknown*
 
 ### Registries_ListCredentials
 Lists the login credentials for the specified container registry.
@@ -258,7 +295,9 @@ azure_containerregistry.Registries_RegenerateCredential({
   "subscriptionId": "",
   "resourceGroupName": "",
   "registryName": "",
-  "regenerateCredentialParameters": null
+  "regenerateCredentialParameters": {
+    "name": ""
+  }
 }, context)
 ```
 
@@ -357,7 +396,7 @@ azure_containerregistry.Replications_Update({
   "resourceGroupName": "",
   "registryName": "",
   "replicationName": "",
-  "replicationUpdateParameters": null
+  "replicationUpdateParameters": {}
 }, context)
 ```
 
@@ -384,7 +423,7 @@ azure_containerregistry.Replications_Create({
   "resourceGroupName": "",
   "registryName": "",
   "replicationName": "",
-  "replication": null
+  "replication": {}
 }, context)
 ```
 
@@ -484,7 +523,7 @@ azure_containerregistry.Webhooks_Update({
   "resourceGroupName": "",
   "registryName": "",
   "webhookName": "",
-  "webhookUpdateParameters": null
+  "webhookUpdateParameters": {}
 }, context)
 ```
 
@@ -511,7 +550,9 @@ azure_containerregistry.Webhooks_Create({
   "resourceGroupName": "",
   "registryName": "",
   "webhookName": "",
-  "webhookCreateParameters": null
+  "webhookCreateParameters": {
+    "location": ""
+  }
 }, context)
 ```
 
@@ -656,6 +697,20 @@ azure_containerregistry.Webhooks_Ping({
   * reasonPhrase `string`: The reason phrase of the event response message.
   * statusCode `string`: The status code of the event response message.
   * version `string`: The HTTP message version.
+
+### ImportImageParameters
+* ImportImageParameters `object`
+  * mode `string` (values: NoForce, Force): When Force, any existing target tags will be overwritten. When NoForce, any existing target tags will fail the operation before any copying begins.
+  * source **required** [ImportSource](#importsource)
+  * targetTags `array`: List of strings of the form repo[:tag]. When tag is omitted the source will be used (or 'latest' if source tag is also omitted).
+    * items `string`
+  * untaggedTargetRepositories `array`: List of strings of repository names to do a manifest only copy. No tag will be created.
+    * items `string`
+
+### ImportSource
+* ImportSource `object`
+  * resourceId **required** `string`: The resource identifier of the target Azure Container Registry.
+  * sourceImage **required** `string`: Repository name of the source image.
 
 ### OperationDefinition
 * OperationDefinition `object`: The definition of a container registry operation.

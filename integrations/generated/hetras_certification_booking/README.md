@@ -98,15 +98,16 @@ hetras_certification_booking.Availability_Get({
 #### Output
 * output [AvailabilityResponse](#availabilityresponse)
 
-### Blocks_GetBlocks
+### Blocks_GetBlocksAsync
 With this endpoint you can request a list of blocks for the hotel chain. Currently we only support to optionally
             filter by the group code linked to the block. Additional filters will be available soon.
 
 
 ```js
-hetras_certification_booking.Blocks_GetBlocks({
+hetras_certification_booking.Blocks_GetBlocksAsync({
   "App-Id": "",
-  "App-Key": ""
+  "App-Key": "",
+  "token": {}
 }, context)
 ```
 
@@ -114,27 +115,30 @@ hetras_certification_booking.Blocks_GetBlocks({
 * input `object`
   * App-Id **required** `string`: Application identifier
   * App-Key **required** `string`: Application key.
+  * token **required** [CancellationToken](#cancellationtoken)
   * hotelId `integer`: Only return blocks for this specific hotel.
   * groupCode `string`: Filter the blocks by the specified group code
   * from `string`: Return all blocks where the block's last_departure is greater than specified date.
   * to `string`: Return all blocks where the block's last_departure is less than specified date.
   * status `string` (values: Cancelled, Tentative, Definite): Return all blocks where the block status is one of the specified values.
   * ratePlanCodes `array`: Return all blocks that have related the specified comma-separated rate plans.
+  * countDetails `boolean`: If true it will include also details of block count per each room type.
   * skip `integer`: Amount of items to skip.
   * top `integer`: Amount of items to select.
   * inlinecount `string` (values: None, AllPages): Return total number of items for a given filter criteria.
 
 #### Output
-* output [BlocksResponse](#blocksresponse)
+* output [Object](#object)
 
-### Blocks_GetBlocksCount
+### Blocks_GetBlocksCountAsync
 Get total blocks count that match the given filter criteria.
 
 
 ```js
-hetras_certification_booking.Blocks_GetBlocksCount({
+hetras_certification_booking.Blocks_GetBlocksCountAsync({
   "App-Id": "",
-  "App-Key": ""
+  "App-Key": "",
+  "token": {}
 }, context)
 ```
 
@@ -142,25 +146,28 @@ hetras_certification_booking.Blocks_GetBlocksCount({
 * input `object`
   * App-Id **required** `string`: Application identifier
   * App-Key **required** `string`: Application key.
+  * token **required** [CancellationToken](#cancellationtoken)
   * hotelId `integer`: Only return blocks for this specific hotel.
   * groupCode `string`: Filter the blocks by the specified group code
   * from `string`: Return all blocks where the block's last_departure is greater than specified date.
   * to `string`: Return all blocks where the block's last_departure is less than specified date.
   * status `string` (values: Cancelled, Tentative, Definite): Return all blocks where the block status is one of the specified values.
   * ratePlanCodes `array`: Return all blocks that have related the specified comma-separated rate plans.
+  * countDetails `boolean`: If true it will include also details of block count per each room type.
 
 #### Output
 * output [TotalCountResponse](#totalcountresponse)
 
-### Blocks_GetSingleBlock
+### Blocks_GetSingleBlockAsync
 Read all informationen about a block including the numbers of blocked rooms per room type and business day.
 
 
 ```js
-hetras_certification_booking.Blocks_GetSingleBlock({
+hetras_certification_booking.Blocks_GetSingleBlockAsync({
   "App-Id": "",
   "App-Key": "",
-  "blockCode": ""
+  "blockCode": "",
+  "token": {}
 }, context)
 ```
 
@@ -169,9 +176,10 @@ hetras_certification_booking.Blocks_GetSingleBlock({
   * App-Id **required** `string`: Application identifier
   * App-Key **required** `string`: Application key.
   * blockCode **required** `string`: Specifies the block code. The block code is composed of the hotel code, a dash and the block code 
+  * token **required** [CancellationToken](#cancellationtoken)
 
 #### Output
-* output [BlockResponse](#blockresponse)
+* output [Object](#object)
 
 ### Bookings_GetBookings
 Here you can easily find bookings matching various criteria. The booking you are looking for has to fullfill all the specified criteria
@@ -439,6 +447,7 @@ hetras_certification_booking.Bookings_CancelReservation({
   * App-Key **required** `string`: Application key.
   * confirmationId **required** `string`: The confirmation id for the booking the reservation was made.
   * reservationNumber **required** `integer`: Specifies the reservation number for the reservation to cancel.
+  * sendConfirmation `boolean`: Whether to send a confirmation email to the primary guest
 
 #### Output
 * output [CancellationResponse](#cancellationresponse)
@@ -492,6 +501,35 @@ hetras_certification_booking.Bookings_CheckOut({
   * App-Key **required** `string`: Application key.
   * confirmationId **required** `string`: The confirmation id for the booking the reservation was made.
   * reservationNumber **required** `integer`: Specifies the reservation number for the reservation to be checked out.
+
+#### Output
+* output [BaseResponse](#baseresponse)
+
+### Bookings_PaymentToken
+TBD.<br />
+            For more details on how the API responds to errors please check our documentation on 
+            <a href="https://developer.hetras.com/docs/errors/" onfocus="this.blur()">Error Handling</a>.
+
+
+```js
+hetras_certification_booking.Bookings_PaymentToken({
+  "App-Id": "",
+  "App-Key": "",
+  "confirmationId": "",
+  "reservationNumber": 0,
+  "authorizationRequest": {
+    "payment_token": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * App-Id **required** `string`: Application identifier
+  * App-Key **required** `string`: Application key.
+  * confirmationId **required** `string`: The confirmation id for the booking the reservation was made.
+  * reservationNumber **required** `integer`: Specifies the reservation number for the reservation to be checked in.
+  * authorizationRequest **required** [AuthorizationRequest](#authorizationrequest)
 
 #### Output
 * output [BaseResponse](#baseresponse)
@@ -651,6 +689,7 @@ hetras_certification_booking.Rates_Get({
 ### AuthorizationRequest
 * AuthorizationRequest `object`
   * authorization [AuthorizationDetails](#authorizationdetails)
+  * no_authorization_required `boolean`: Whether hetras should skip authorization using the provided token when no authorization details are supplied.
   * payment_token **required** `string`: The token you get from the payment service provider
 
 ### AvailabilityDetail
@@ -679,24 +718,6 @@ hetras_certification_booking.Rates_Get({
   * _warnings `array`: Warnings that came up when your request was processed. Your request will still be processed successfull when
     * items `string`
 
-### Block
-* Block `object`
-  * _links `object`: Collection of links to related resources
-  * average_daily_rate `number`: Average daily rate for this block. You can multiply by the count of blocked room nights and get a forecast value for this block
-  * code `string`: The code of a block. The code is composed of the hotel code a dash and the block code shown in the hetras UI. 
-  * count `integer`: Total number of room nights blocked across all room types and days
-  * created `string`: Timestamp the block was created
-  * first_arrival `string`: (Earliest) arrival date for reservations split from this block
-  * group [GroupMaster](#groupmaster)
-  * hotel [HotelSummary](#hotelsummary)
-  * last_departure `string`: (Latest) departure date for reservations split from this block
-  * name `string`: The name of the block
-  * picked `integer`: Total number of room nights picked up accross all room types and days
-  * rate_plans `array`: The rateplans linked to this block
-    * items [BlockRatePlan](#blockrateplan)
-  * status `string` (values: Physical, Cancelled, Tentative, Definite): The current status of the block
-  * updated `string`: Timestamp of when the block was changed the last time
-
 ### BlockInfo
 * BlockInfo `object`
   * _links `object`: Collection of links to related resources
@@ -705,6 +726,7 @@ hetras_certification_booking.Rates_Get({
 
 ### BlockListRequest
 * BlockListRequest `object`
+  * countDetails `boolean`: If true it will include also details of block count per each room type.
   * from `string`: Return all blocks where the block's last_departure is greater than specified date.
   * groupCode `string`: Filter the blocks by the specified group code
   * hotelId `integer`: Only return blocks for this specific hotel.
@@ -713,51 +735,11 @@ hetras_certification_booking.Rates_Get({
   * status `string` (values: Cancelled, Tentative, Definite): Return all blocks where the block status is one of the specified values.
   * to `string`: Return all blocks where the block's last_departure is less than specified date.
 
-### BlockRatePlan
-* BlockRatePlan `object`
-  * code `string`: Code of the rate plan
-  * description `string`: Description of the rate plan suitable for being displayed to customers
-  * forecast `boolean`: Speficies if this is the rateplan that should be used for calculating the forecast
-  * name `string`: Name of the rate plan
-
-### BlockResponse
-* BlockResponse `object`
-  * _links `object`: Collection of links to related resources
-  * average_daily_rate `number`: Average daily rate for this block. You can multiply by the count of blocked room nights and get a forecast value for this block
-  * code `string`: The code of a block. The code is composed of the hotel code a dash and the block code shown in the hetras UI. 
-  * count `integer`: Total number of room nights blocked across all room types and days
-  * created `string`: Timestamp the block was created
-  * first_arrival `string`: (Earliest) arrival date for reservations split from this block
-  * group [GroupMaster](#groupmaster)
-  * hotel [HotelSummary](#hotelsummary)
-  * last_departure `string`: (Latest) departure date for reservations split from this block
-  * name `string`: The name of the block
-  * picked `integer`: Total number of room nights picked up accross all room types and days
-  * rate_plans `array`: The rateplans linked to this block
-    * items [BlockRatePlan](#blockrateplan)
-  * room_type_counts `array`: Number of blocked and picked up rooms per room type and day.
-    * items [RoomTypeCount](#roomtypecount)
-  * status `string` (values: Physical, Cancelled, Tentative, Definite): The current status of the block
-  * updated `string`: Timestamp of when the block was changed the last time
-
-### BlockRoomType
-* BlockRoomType `object`
-  * _links `object`: Collection of links to related resources
-  * code `string`: Code of the room type
-  * name `string`: Name of the room type
-
 ### Blocked
 * Blocked `object`
   * definite `integer`: Number of rooms blocked defintely
   * remaining `integer`: Number of definitely blocked rooms not picked up
   * tentative `integer`: Number of rooms blocked tentatively
-
-### BlocksResponse
-* BlocksResponse `object`
-  * _count `integer`: The number of items matching your request in total for all pages.
-  * _links `object`: Collection of links to related resources
-  * blocks `array`: List of all blocks matching the given filter criteria.
-    * items [Block](#block)
 
 ### BookingListItem
 * BookingListItem `object`
@@ -803,8 +785,6 @@ hetras_certification_booking.Rates_Get({
 ### BookingListReservationItem
 * BookingListReservationItem `object`
   * _links `object`: Collection of links to related resources
-  * addon_services `array`: A list of addon service codes that are currently booked on the reservation. Services which are charged
-    * items `string`
   * adults `integer`: The number of adults per room
   * arrival_date `string`: The arrival date of the guests
   * balance `number`: The balance for all folios of this reservartion. It is calculated by all already charged room and service rates plus manual charges 
@@ -825,8 +805,6 @@ hetras_certification_booking.Rates_Get({
   * reservation_status `string` (values: Tentative, Waitlisted, OnRequest, NonGuaranteed, Guaranteed, InHouse, CheckedOut, NoShow, Denied, Cancelled, Released, Walked, Expired, WalkIn, Registered): The current status of this reservation
   * room [RoomInfo](#roominfo)
   * rooms `integer`: The number of rooms this reservation is valid for. After a multi-room booking is done there will be 
-  * services `array`: A list of details for all services included and addon service booked on this reservation
-    * items [Service](#service)
   * subchannel_code `string`: The code of the subchannel that was used when the booking has been created. Possible values can be 
   * updated `string`: Timestamp of when the reservation was changed the last time
 
@@ -850,6 +828,12 @@ hetras_certification_booking.Rates_Get({
   * balance `number`: The current balance on the reservations folio without the cancellation fee
   * cancellation_fee `number`: The fee that might be charged to the folio of the reservation. The cancelled reservation will
   * cancellation_id `string`: The id of the successful cancellation. With this id the hotel staff will be able to find the reservation
+
+### CancellationToken
+* CancellationToken `object`
+  * CanBeCanceled `boolean`
+  * IsCancellationRequested `boolean`
+  * WaitHandle [WaitHandle](#waithandle)
 
 ### Card
 * Card `object`
@@ -876,25 +860,6 @@ hetras_certification_booking.Rates_Get({
 * ContactResponse `object`
   * _links `object`: Collection of links to related resources
   * customer_id `string`: The id of a customer profile. The id is build out of the Supplier Code a dash and the profile id
-
-### CreateReservationRequest
-* CreateReservationRequest `object`
-  * sendConfirmation `boolean`: Whether to send a confirmation email to the primary guest
-
-### CreditCard
-* CreditCard `object`
-  * card_holder_name `string`: name of the card holder
-  * card_number `string`: Credit card number
-  * card_type `string`: One of the allowed values for a credit card type. If omitted it will be set to Others
-  * cvv_code `string`: credit card verification value
-  * expiration_month `integer`: month of expiration
-  * expiration_year `integer`: year of expiration
-
-### CreditCardGuarantee
-* CreditCardGuarantee `object`
-  * credit_card [CreditCard](#creditcard)
-  * guarantee_type `string` (values: PM4Hold, PM6Hold, GuaranteeToCreditCard, GuaranteeToGuestAccount, GuaranteeByTravelAgent, GuaranteeByCompany, Deposit, Voucher, Prepayment, NonGuaranteed, Tentative, Waitlist): One of the accepted guarantee types from the offer you selected out of the rates response
-  * token [Token](#token)
 
 ### Customer
 * Customer `object`
@@ -950,8 +915,8 @@ hetras_certification_booking.Rates_Get({
   * excluded_tax `number`: The amount of extra taxes also calculated for all rooms and all persons per room.
   * included_services `array`: List of codes for all services already included in the gross rate
     * items `string`
-  * included_tax `number`: The amount of taxes already included in the gross rate also calculated for all rooms and
-  * rate `number`: The gross rate. It is the price calculated for all rooms and all persons per room.
+  * included_tax `number`: The amount of taxes already included in the gross nightly rate also calculated for all rooms and
+  * rate `number`: The gross room rate. It is the price calculated for all rooms and all persons per room.
   * room_type `string`: Code of the room type which is booked for that day
 
 ### DailyRateCancellationPolicy
@@ -1082,11 +1047,6 @@ hetras_certification_booking.Rates_Get({
     * items `string`
   * to **required** `string`: Define the last business day you would like to get rates for (inclusive). The maximum time span between <i>'From'</i> and <i>'To'</i>
 
-### GroupMaster
-* GroupMaster `object`
-  * code `string`: Code of the linked group master template
-  * name `string`: Name of the linked group master template
-
 ### Guarantee
 * Guarantee `object`
   * guarantee_type `string` (values: PM4Hold, PM6Hold, GuaranteeToCreditCard, GuaranteeToGuestAccount, GuaranteeByTravelAgent, GuaranteeByCompany, Deposit, Voucher, Prepayment, NonGuaranteed, Tentative, Waitlist): One of the accepted guarantee types from the offer you selected out of the rates response
@@ -1107,13 +1067,6 @@ hetras_certification_booking.Rates_Get({
 * HotelInfo `object`
   * code `string`: Hotel Code which is also called property or component code
   * id `integer`: Hotel Identifier
-
-### HotelSummary
-* HotelSummary `object`
-  * _links `object`: Collection of links to related resources
-  * code `string`: Hotel code
-  * id `integer`: Hotel Identity
-  * name `string`: Hotel name
 
 ### JsonPatchDocument[ReservationPatchableModel]
 * JsonPatchDocument[ReservationPatchableModel] `array`
@@ -1206,8 +1159,8 @@ hetras_certification_booking.Rates_Get({
   * excluded_tax `number`: The amount of extra taxes also calculated for all rooms and all persons per room.
   * included_services `array`: List of codes for all services already included in the gross rate
     * items `string`
-  * included_tax `number`: The amount of taxes already included in the gross rate also calculated for all rooms and
-  * rate `number`: The gross rate. It is the price calculated for all rooms and all persons per room.
+  * included_tax `number`: The amount of taxes already included in the gross nightly rate also calculated for all rooms and
+  * rate `number`: The gross room rate. It is the price calculated for all rooms and all persons per room.
 
 ### RatePlan
 * RatePlan `object`
@@ -1287,7 +1240,7 @@ hetras_certification_booking.Rates_Get({
   * departure_date `string`: The departure date of the guests
   * external_id `string`: The external id for this reservation. You can put here your own id used by you or the external system
   * group_code `string`: The group code based on which the reservation will be created.
-  * guarantee [CreditCardGuarantee](#creditcardguarantee)
+  * guarantee [Guarantee](#guarantee)
   * guests `array`: A list of guests with some basic guest details
     * items [Customer](#customer)
   * hotel_id **required** `integer`: The id of the hotel this reservation is valid for
@@ -1297,6 +1250,10 @@ hetras_certification_booking.Rates_Get({
     * items [RoomRate](#roomrate)
   * rooms `integer`: The number of rooms this reservation is for. After a multi-room booking is done there will be 
   * travel_agent [Company](#company)
+
+### ReservationRequestParameters
+* ReservationRequestParameters `object`
+  * sendConfirmation `boolean`: Whether to send a confirmation email to the primary guest
 
 ### ReservationResponse
 * ReservationResponse `object`
@@ -1387,12 +1344,6 @@ hetras_certification_booking.Rates_Get({
   * number `string`: Number of the room if one is assigned already
   * room_type [RoomTypeInfo](#roomtypeinfo)
 
-### RoomNightCount
-* RoomNightCount `object`
-  * count `integer`: Number of rooms blocked
-  * date `string`: Business day rooms are blocked for
-  * picked `integer`: Number of rooms picked up
-
 ### RoomOffer
 * RoomOffer `object`
   * offers `array`: A list of rate offers for the appropriate room type ordered by amount ascending
@@ -1419,16 +1370,15 @@ hetras_certification_booking.Rates_Get({
   * code `string`
   * name `string`
 
-### RoomTypeCount
-* RoomTypeCount `object`
-  * counts `array`: Number of rooms blocked or picked up for this room type per day
-    * items [RoomNightCount](#roomnightcount)
-  * room_type [BlockRoomType](#blockroomtype)
-
 ### RoomTypeInfo
 * RoomTypeInfo `object`
   * code `string`: Code of the room type
   * name `string`: Name of the room type
+
+### SafeWaitHandle
+* SafeWaitHandle `object`
+  * IsClosed `boolean`
+  * IsInvalid `boolean`
 
 ### Service
 * Service `object`
@@ -1458,5 +1408,10 @@ hetras_certification_booking.Rates_Get({
 ### TotalCountResponse
 * TotalCountResponse `object`
   * _count **required** `integer`: Returns the total count for all items matching the query parameters. If none is matching it will return 0.
+
+### WaitHandle
+* WaitHandle `object`
+  * Handle [Object](#object)
+  * SafeWaitHandle [SafeWaitHandle](#safewaithandle)
 
 

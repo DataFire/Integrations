@@ -16,7 +16,7 @@ google_androiddeviceprovisioning.customers.list({}).then(data => {
 
 ## Description
 
-Automates reseller integration into zero-touch enrollment by assigning devices to customers and creating device reports.
+Automates Android zero-touch enrollment for device resellers, customers, and EMMs.
 
 ## Actions
 
@@ -50,7 +50,7 @@ google_androiddeviceprovisioning.customers.list({}, context)
 * output [CustomerListCustomersResponse](#customerlistcustomersresponse)
 
 ### partners.devices.metadata
-Update the metadata.
+Updates reseller metadata associated with the device.
 
 
 ```js
@@ -63,8 +63,8 @@ google_androiddeviceprovisioning.partners.devices.metadata({
 #### Input
 * input `object`
   * body [UpdateDeviceMetadataRequest](#updatedevicemetadatarequest)
-  * deviceId **required** `string`: ID of the partner.
-  * metadataOwnerId **required** `string`: The owner of the newly set metadata. Set this to the partner ID.
+  * deviceId **required** `string`: Required. The ID of the reseller partner.
+  * metadataOwnerId **required** `string`: Required. The owner of the newly set metadata. Set this to the partner ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -96,7 +96,7 @@ google_androiddeviceprovisioning.partners.customers.list({
 
 #### Input
 * input `object`
-  * partnerId **required** `string`: The ID of the partner.
+  * partnerId **required** `string`: Required. The ID of the reseller partner.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -115,7 +115,8 @@ google_androiddeviceprovisioning.partners.customers.list({
 * output [ListCustomersResponse](#listcustomersresponse)
 
 ### partners.devices.claim
-Claim the device identified by device identifier.
+Claims a device for a customer and adds it to zero-touch enrollment. If the
+device is already claimed by another customer, the call returns an error.
 
 
 ```js
@@ -127,7 +128,7 @@ google_androiddeviceprovisioning.partners.devices.claim({
 #### Input
 * input `object`
   * body [ClaimDeviceRequest](#claimdevicerequest)
-  * partnerId **required** `string`: ID of the partner.
+  * partnerId **required** `string`: Required. The ID of the reseller partner.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -146,7 +147,9 @@ google_androiddeviceprovisioning.partners.devices.claim({
 * output [ClaimDeviceResponse](#claimdeviceresponse)
 
 ### partners.devices.claimAsync
-Claim devices asynchronously.
+Claims a batch of devices for a customer asynchronously. Adds the devices
+to zero-touch enrollment. To learn more, read [Long‑running batch
+operations](/zero-touch/guides/how-it-works#operations).
 
 
 ```js
@@ -158,7 +161,7 @@ google_androiddeviceprovisioning.partners.devices.claimAsync({
 #### Input
 * input `object`
   * body [ClaimDevicesRequest](#claimdevicesrequest)
-  * partnerId **required** `string`: Partner ID.
+  * partnerId **required** `string`: Required. The ID of the reseller partner.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -177,7 +180,7 @@ google_androiddeviceprovisioning.partners.devices.claimAsync({
 * output [Operation](#operation)
 
 ### partners.devices.findByIdentifier
-Find devices by device identifier.
+Finds devices by hardware identifiers, such as IMEI.
 
 
 ```js
@@ -189,7 +192,7 @@ google_androiddeviceprovisioning.partners.devices.findByIdentifier({
 #### Input
 * input `object`
   * body [FindDevicesByDeviceIdentifierRequest](#finddevicesbydeviceidentifierrequest)
-  * partnerId **required** `string`: ID of the partner.
+  * partnerId **required** `string`: Required. The ID of the reseller partner.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -208,7 +211,10 @@ google_androiddeviceprovisioning.partners.devices.findByIdentifier({
 * output [FindDevicesByDeviceIdentifierResponse](#finddevicesbydeviceidentifierresponse)
 
 ### partners.devices.findByOwner
-Find devices by ownership.
+Finds devices claimed for customers. The results only contain devices
+registered to the reseller that's identified by the `partnerId` argument.
+The customer's devices purchased from other resellers don't appear in the
+results.
 
 
 ```js
@@ -220,7 +226,7 @@ google_androiddeviceprovisioning.partners.devices.findByOwner({
 #### Input
 * input `object`
   * body [FindDevicesByOwnerRequest](#finddevicesbyownerrequest)
-  * partnerId **required** `string`: ID of the partner.
+  * partnerId **required** `string`: Required. The ID of the reseller partner.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -239,7 +245,8 @@ google_androiddeviceprovisioning.partners.devices.findByOwner({
 * output [FindDevicesByOwnerResponse](#finddevicesbyownerresponse)
 
 ### partners.devices.unclaim
-Unclaim the device identified by the `device_id` or the `deviceIdentifier`.
+Unclaims a device from a customer and removes it from zero-touch
+enrollment.
 
 
 ```js
@@ -251,7 +258,7 @@ google_androiddeviceprovisioning.partners.devices.unclaim({
 #### Input
 * input `object`
   * body [UnclaimDeviceRequest](#unclaimdevicerequest)
-  * partnerId **required** `string`: ID of the partner.
+  * partnerId **required** `string`: Required. The ID of the reseller partner.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -270,7 +277,9 @@ google_androiddeviceprovisioning.partners.devices.unclaim({
 * output [Empty](#empty)
 
 ### partners.devices.unclaimAsync
-Unclaim devices asynchronously.
+Unclaims a batch of devices for a customer asynchronously. Removes the
+devices from zero-touch enrollment. To learn more, read [Long‑running batch
+operations](/zero-touch/guides/how-it-works#operations).
 
 
 ```js
@@ -282,7 +291,7 @@ google_androiddeviceprovisioning.partners.devices.unclaimAsync({
 #### Input
 * input `object`
   * body [UnclaimDevicesRequest](#unclaimdevicesrequest)
-  * partnerId **required** `string`: Partner ID.
+  * partnerId **required** `string`: Required. The reseller partner ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -301,7 +310,10 @@ google_androiddeviceprovisioning.partners.devices.unclaimAsync({
 * output [Operation](#operation)
 
 ### partners.devices.updateMetadataAsync
-Set metadata in batch asynchronously.
+Updates the reseller metadata attached to a batch of devices. This method
+updates devices asynchronously and returns an `Operation` that can be used
+to track progress. Read [Long‑running batch
+operations](/zero-touch/guides/how-it-works#operations).
 
 
 ```js
@@ -313,7 +325,7 @@ google_androiddeviceprovisioning.partners.devices.updateMetadataAsync({
 #### Input
 * input `object`
   * body [UpdateDeviceMetadataInBatchRequest](#updatedevicemetadatainbatchrequest)
-  * partnerId **required** `string`: Partner ID.
+  * partnerId **required** `string`: Required. The reseller partner ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -362,19 +374,21 @@ google_androiddeviceprovisioning.customers.configurations.delete({
 #### Output
 * output [Empty](#empty)
 
-### partners.devices.get
-Get a device.
+### operations.get
+Gets the latest state of a long-running operation.  Clients can use this
+method to poll the operation result at intervals as recommended by the API
+service.
 
 
 ```js
-google_androiddeviceprovisioning.partners.devices.get({
+google_androiddeviceprovisioning.operations.get({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: Resource name in `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
+  * name **required** `string`: The name of the operation resource.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -390,7 +404,7 @@ google_androiddeviceprovisioning.partners.devices.get({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [Device](#device)
+* output [Operation](#operation)
 
 ### customers.configurations.patch
 Updates a configuration's field values.
@@ -688,9 +702,9 @@ google_androiddeviceprovisioning.customers.dpcs.list({
 
 ### ClaimDeviceRequest
 * ClaimDeviceRequest `object`: Request message to claim a device on behalf of a customer.
-  * customerId `string`: The customer to claim for.
+  * customerId `string`: Required. The ID of the customer for whom the device is being claimed.
   * deviceIdentifier [DeviceIdentifier](#deviceidentifier)
-  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): The section to claim.
+  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Required. The section type of the device's provisioning record.
 
 ### ClaimDeviceResponse
 * ClaimDeviceResponse `object`: Response message containing device id of the claim.
@@ -698,8 +712,8 @@ google_androiddeviceprovisioning.customers.dpcs.list({
   * deviceName `string`: The resource name of the device in the format
 
 ### ClaimDevicesRequest
-* ClaimDevicesRequest `object`: Request to claim devices asynchronously in batch.
-  * claims `array`: List of claims.
+* ClaimDevicesRequest `object`: Request to claim devices asynchronously in batch. Claiming a device adds the
+  * claims `array`: Required. A list of device claims.
     * items [PartnerClaim](#partnerclaim)
 
 ### Company
@@ -711,6 +725,7 @@ google_androiddeviceprovisioning.customers.dpcs.list({
   * name `string`: Output only. The API resource name of the company in the format
   * ownerEmails `array`: Input only. Email address of customer's users in the owner role. At least
     * items `string`
+  * termsStatus `string` (values: TERMS_STATUS_UNSPECIFIED, TERMS_STATUS_NOT_ACCEPTED, TERMS_STATUS_ACCEPTED, TERMS_STATUS_STALE): Output only. Whether any user from the company has accepted the latest
 
 ### Configuration
 * Configuration `object`: A configuration collects the provisioning options for Android devices. Each
@@ -796,19 +811,19 @@ google_androiddeviceprovisioning.customers.dpcs.list({
   * deviceIdentifier [DeviceIdentifier](#deviceidentifier)
 
 ### DevicesLongRunningOperationMetadata
-* DevicesLongRunningOperationMetadata `object`: Long running operation metadata.
-  * devicesCount `integer`: Number of devices parsed in your requests.
-  * processingStatus `string` (values: BATCH_PROCESS_STATUS_UNSPECIFIED, BATCH_PROCESS_PENDING, BATCH_PROCESS_IN_PROGRESS, BATCH_PROCESS_PROCESSED): The overall processing status.
-  * progress `integer`: Processing progress from 0 to 100.
+* DevicesLongRunningOperationMetadata `object`: Tracks the status of a long-running operation to asynchronously update a
+  * devicesCount `integer`: The number of metadata updates in the operation. This might be different
+  * processingStatus `string` (values: BATCH_PROCESS_STATUS_UNSPECIFIED, BATCH_PROCESS_PENDING, BATCH_PROCESS_IN_PROGRESS, BATCH_PROCESS_PROCESSED): The processing status of the operation.
+  * progress `integer`: The processing progress of the operation. Measured as a number from 0 to
 
 ### DevicesLongRunningOperationResponse
-* DevicesLongRunningOperationResponse `object`: Long running operation response.
-  * perDeviceStatus `array`: Processing status for each device.
+* DevicesLongRunningOperationResponse `object`: Tracks the status of a long-running operation to claim, unclaim, or attach
+  * perDeviceStatus `array`: The processing status for each device in the operation.
     * items [OperationPerDevice](#operationperdevice)
-  * successCount `integer`: Number of succeesfully processed ones.
+  * successCount `integer`: A summary of how many items in the operation the server processed
 
 ### Dpc
-* Dpc `object`: An EMM's DPC ([device policy controller](/android/work/dpc/build-dpc)).
+* Dpc `object`: An EMM's DPC ([device policy
   * dpcName `string`: Output only. The title of the DPC app in Google Play. For example, _Google
   * name `string`: Output only. The API resource name in the format
   * packageName `string`: Output only. The DPC's Android application ID that looks like a Java
@@ -819,32 +834,32 @@ google_androiddeviceprovisioning.customers.dpcs.list({
 ### FindDevicesByDeviceIdentifierRequest
 * FindDevicesByDeviceIdentifierRequest `object`: Request to find devices.
   * deviceIdentifier [DeviceIdentifier](#deviceidentifier)
-  * limit `string`: Number of devices to show.
-  * pageToken `string`: Page token.
+  * limit `string`: Required. The maximum number of devices to show in a page of results. Must
+  * pageToken `string`: A token specifying which result page to return.
 
 ### FindDevicesByDeviceIdentifierResponse
 * FindDevicesByDeviceIdentifierResponse `object`: Response containing found devices.
   * devices `array`: Found devices.
     * items [Device](#device)
-  * nextPageToken `string`: Page token of the next page.
+  * nextPageToken `string`: A token used to access the next page of results. Omitted if no further
 
 ### FindDevicesByOwnerRequest
 * FindDevicesByOwnerRequest `object`: Request to find devices by customers.
-  * customerId `array`: List of customer IDs to search for.
+  * customerId `array`: Required. The list of customer IDs to search for.
     * items `string`
-  * limit `string`: The number of devices to show in the result.
-  * pageToken `string`: Page token.
-  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): The section type.
+  * limit `string`: Required. The maximum number of devices to show in a page of results. Must
+  * pageToken `string`: A token specifying which result page to return.
+  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Required. The section type of the device's provisioning record.
 
 ### FindDevicesByOwnerResponse
 * FindDevicesByOwnerResponse `object`: Response containing found devices.
-  * devices `array`: Devices found.
+  * devices `array`: The customer's devices.
     * items [Device](#device)
-  * nextPageToken `string`: Page token of the next page.
+  * nextPageToken `string`: A token used to access the next page of results.
 
 ### ListCustomersResponse
 * ListCustomersResponse `object`: Response message of all customers related to this partner.
-  * customers `array`: List of customers related to this partner.
+  * customers `array`: List of customers related to this reseller partner.
     * items [Company](#company)
 
 ### Operation
@@ -856,7 +871,7 @@ google_androiddeviceprovisioning.customers.dpcs.list({
   * response `object`: This field will contain a `DevicesLongRunningOperationResponse` object if the operation is created by `claimAsync`, `unclaimAsync`, or `updateMetadataAsync`.
 
 ### OperationPerDevice
-* OperationPerDevice `object`: Operation the server received for every device.
+* OperationPerDevice `object`: A task for each device in the operation. Corresponds to each device
   * claim [PartnerClaim](#partnerclaim)
   * result [PerDeviceStatusInBatch](#perdevicestatusinbatch)
   * unclaim [PartnerUnclaim](#partnerunclaim)
@@ -864,23 +879,23 @@ google_androiddeviceprovisioning.customers.dpcs.list({
 
 ### PartnerClaim
 * PartnerClaim `object`: Identifies one claim request.
-  * customerId `string`: Customer ID to claim for.
+  * customerId `string`: Required. The ID of the customer for whom the device is being claimed.
   * deviceIdentifier [DeviceIdentifier](#deviceidentifier)
   * deviceMetadata [DeviceMetadata](#devicemetadata)
-  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Section type to claim.
+  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Required. The section type of the device's provisioning record.
 
 ### PartnerUnclaim
 * PartnerUnclaim `object`: Identifies one unclaim request.
   * deviceId `string`: Device ID of the device.
   * deviceIdentifier [DeviceIdentifier](#deviceidentifier)
-  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Section type to unclaim.
+  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Required. The section type of the device's provisioning record.
 
 ### PerDeviceStatusInBatch
-* PerDeviceStatusInBatch `object`: Stores the processing result for each device.
-  * deviceId `string`: Device ID of the device if process succeeds.
-  * errorIdentifier `string`: Error identifier.
-  * errorMessage `string`: Error message.
-  * status `string` (values: SINGLE_DEVICE_STATUS_UNSPECIFIED, SINGLE_DEVICE_STATUS_UNKNOWN_ERROR, SINGLE_DEVICE_STATUS_OTHER_ERROR, SINGLE_DEVICE_STATUS_SUCCESS, SINGLE_DEVICE_STATUS_PERMISSION_DENIED, SINGLE_DEVICE_STATUS_INVALID_DEVICE_IDENTIFIER, SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE, SINGLE_DEVICE_STATUS_SECTION_NOT_YOURS): Process result.
+* PerDeviceStatusInBatch `object`: Captures the processing status for each device in the operation.
+  * deviceId `string`: If processing succeeds, the device ID of the device.
+  * errorIdentifier `string`: If processing fails, the error type.
+  * errorMessage `string`: If processing fails, a developer message explaining what went wrong.
+  * status `string` (values: SINGLE_DEVICE_STATUS_UNSPECIFIED, SINGLE_DEVICE_STATUS_UNKNOWN_ERROR, SINGLE_DEVICE_STATUS_OTHER_ERROR, SINGLE_DEVICE_STATUS_SUCCESS, SINGLE_DEVICE_STATUS_PERMISSION_DENIED, SINGLE_DEVICE_STATUS_INVALID_DEVICE_IDENTIFIER, SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE, SINGLE_DEVICE_STATUS_SECTION_NOT_YOURS): The result status of the device after processing.
 
 ### Status
 * Status `object`: The `Status` type defines a logical error model that is suitable for different
@@ -893,16 +908,16 @@ google_androiddeviceprovisioning.customers.dpcs.list({
 * UnclaimDeviceRequest `object`: Request message to unclaim a device.
   * deviceId `string`: The device ID returned by `ClaimDevice`.
   * deviceIdentifier [DeviceIdentifier](#deviceidentifier)
-  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): The section type to unclaim for.
+  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Required. The section type of the device's provisioning record.
 
 ### UnclaimDevicesRequest
 * UnclaimDevicesRequest `object`: Request to unclaim devices asynchronously in batch.
-  * unclaims `array`: List of devices to unclaim.
+  * unclaims `array`: Required. The list of devices to unclaim.
     * items [PartnerUnclaim](#partnerunclaim)
 
 ### UpdateDeviceMetadataInBatchRequest
 * UpdateDeviceMetadataInBatchRequest `object`: Request to update device metadata in batch.
-  * updates `array`: List of metadata updates.
+  * updates `array`: Required. The list of metadata updates.
     * items [UpdateMetadataArguments](#updatemetadataarguments)
 
 ### UpdateDeviceMetadataRequest

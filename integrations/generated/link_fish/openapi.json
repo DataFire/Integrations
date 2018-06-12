@@ -137,7 +137,7 @@
           },
           {
             "lang": "Curl",
-            "source": "curl https://api.link.fish/Url/apps \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
+            "source": "curl https://api.link.fish/Urls/apps \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
           }
         ],
         "x-explorer-description": "Visits the URL and checks if there are mobile apps on them and returns the found ones.",
@@ -264,7 +264,7 @@
           },
           {
             "lang": "Curl",
-            "source": "curl https://api.link.fish/Url/browser-data \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
+            "source": "curl https://api.link.fish/Urls/browser-data \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
           }
         ],
         "operationId": "Urls.browser_data.get"
@@ -368,7 +368,7 @@
           },
           {
             "lang": "Curl",
-            "source": "curl https://api.link.fish/Url/browser-screenshot \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\" \\\n  > screenshot.png"
+            "source": "curl https://api.link.fish/Urls/browser-screenshot \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\" \\\n  > screenshot.png"
           }
         ],
         "operationId": "Urls.browser_screenshot.get"
@@ -469,7 +469,7 @@
           },
           {
             "lang": "Curl",
-            "source": "curl https://api.link.fish/Url/data \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
+            "source": "curl https://api.link.fish/Urls/data \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
           }
         ],
         "operationId": "Urls.data.get"
@@ -552,7 +552,7 @@
           },
           {
             "lang": "Curl",
-            "source": "curl https://api.link.fish/Url/geo-coordinates \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
+            "source": "curl https://api.link.fish/Urls/geo-coordinates \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
           }
         ],
         "x-explorer-description": "Visits the URL and checks if there are Geo Coordinates on them and returns the found ones.",
@@ -644,7 +644,7 @@
           },
           {
             "lang": "Curl",
-            "source": "curl https://api.link.fish/Url/social-media \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
+            "source": "curl https://api.link.fish/Urls/social-media \\\n  -X GET \\\n  -u \"{EMAIL}:{API-TOKEN}\" \\\n  -d url=\"https://example.com\""
           }
         ],
         "x-explorer-description": "l Visits the URL and checks if there are any social media accounts and returns the found ones.",

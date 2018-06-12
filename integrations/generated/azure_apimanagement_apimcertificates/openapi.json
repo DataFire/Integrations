@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on Certificate entity in your Azure API Management deployment. Certificates can be used to setup mutual authentication with your Backend in API Management. For more information refer to [How to secure backend using Mutual Auth Certificate](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).",
     "title": "ApiManagementClient",
-    "version": "2017-03-01",
+    "version": "2018-01-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/apimanagement/resource-manager/Microsoft.ApiManagement/stable/2017-03-01/apimcertificates.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimcertificates.json",
         "version": "2.0"
       }
     ],
@@ -61,10 +61,10 @@
     "CertificateIdParameter": {
       "description": "Identifier of the certificate entity. Must be unique in the current API Management service instance.",
       "in": "path",
-      "maxLength": 256,
+      "maxLength": 80,
       "minLength": 1,
       "name": "certificateId",
-      "pattern": "^[^*#&+:<>?]+$",
+      "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
@@ -147,36 +147,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -188,7 +193,7 @@
         "x-ms-examples": {
           "ApiManagementListCertificates": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -248,11 +253,12 @@
             "$ref": "#/parameters/CertificateIdParameter"
           },
           {
-            "description": "The entity state (Etag) version of the certificate to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation.",
+            "description": "ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.",
             "in": "header",
             "name": "If-Match",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -270,42 +276,50 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "The certificate was successfully deleted."
+          },
           "204": {
             "description": "The certificate was successfully deleted."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -318,13 +332,14 @@
           "ApiManagementDeleteCertificate": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "certificateId": "tempcert",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
             },
             "responses": {
+              "200": {},
               "204": {}
             }
           }
@@ -387,36 +402,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -428,7 +448,7 @@
         "x-ms-examples": {
           "ApiManagementGetCertificate": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "certificateId": "templateCert1",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -505,36 +525,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -546,7 +571,7 @@
         "x-ms-examples": {
           "ApiManagementHeadCertificate": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "certificateId": "templateCert1",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -602,11 +627,12 @@
             }
           },
           {
-            "description": "The entity state (Etag) version of the certificate to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation..",
+            "description": "ETag of the Entity. Not required when creating an entity, but required when updating an entity.",
             "in": "header",
             "name": "If-Match",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -639,36 +665,41 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "description": "Error Body contract.",
+              "description": "Error Response.",
               "properties": {
-                "code": {
-                  "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                  "type": "string"
-                },
-                "details": {
-                  "description": "The list of invalid fields send in request, in case of validation error.",
-                  "items": {
-                    "description": "Error Field contract.",
-                    "properties": {
-                      "code": {
-                        "description": "Property level error code.",
-                        "type": "string"
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
                       },
-                      "message": {
-                        "description": "Human-readable representation of property-level error.",
-                        "type": "string"
-                      },
-                      "target": {
-                        "description": "Property name.",
-                        "type": "string"
-                      }
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
                     }
-                  },
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Human-readable representation of the error.",
-                  "type": "string"
+                  }
                 }
               }
             }
@@ -680,7 +711,7 @@
         "x-ms-examples": {
           "ApiManagementCreateCertificate": {
             "parameters": {
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "certificateId": "tempcert",
               "parameters": {
                 "properties": {

@@ -472,6 +472,71 @@
         }
       }
     },
+    "/#BacktrackDBCluster": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p> <p>For more information on backtracking, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Managing.Backtrack.html\"> Backtracking an Aurora DB Cluster</a> in the <i>Amazon RDS User Guide.</i> </p>",
+        "operationId": "BacktrackDBCluster",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BacktrackDBClusterMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DBClusterBacktrack"
+            }
+          },
+          "480": {
+            "description": "DBClusterNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/DBClusterNotFoundFault"
+            }
+          },
+          "481": {
+            "description": "InvalidDBClusterStateFault",
+            "schema": {
+              "$ref": "#/definitions/InvalidDBClusterStateFault"
+            }
+          }
+        }
+      }
+    },
     "/#CopyDBClusterParameterGroup": {
       "parameters": [
         {
@@ -574,7 +639,7 @@
         }
       ],
       "post": {
-        "description": "<p>Copies a snapshot of a DB cluster.</p> <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p> <p>You can copy an encrypted DB cluster snapshot from another AWS Region. In that case, the AWS Region where you call the <code>CopyDBClusterSnapshot</code> action is the destination AWS Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another AWS Region, you must provide the following values:</p> <ul> <li> <p> <code>KmsKeyId</code> - The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region.</p> </li> <li> <p> <code>PreSignedUrl</code> - A URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> action to be called in the source AWS Region where the DB cluster snapshot is copied from. The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied.</p> <p>The pre-signed URL request must contain the following parameter values:</p> <ul> <li> <p> <code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code> action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p> </li> <li> <p> <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot will be created in.</p> </li> <li> <p> <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code> looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p> </li> </ul> <p>To learn how to generate a Signature Version 4 signed request, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\"> Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and <a href=\"http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\"> Signature Version 4 Signing Process</a>.</p> </li> <li> <p> <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region.</p> </li> <li> <p> <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the ARN format for the source AWS Region and is the same value as the <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL. </p> </li> </ul> <p>To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified by <code>TargetDBClusterSnapshotIdentifier</code> while that DB cluster snapshot is in \"copying\" status.</p> <p>For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBClusterSnapshot.CrossRegion\"> Copying a DB Cluster Snapshot in the Same Account, Either in the Same Region or Across Regions</a> in the Amazon RDS User Guide.</p> <p>For more information on Amazon Aurora, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html\">Aurora on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p>",
+        "description": "<p>Copies a snapshot of a DB cluster.</p> <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p> <p>You can copy an encrypted DB cluster snapshot from another AWS Region. In that case, the AWS Region where you call the <code>CopyDBClusterSnapshot</code> action is the destination AWS Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another AWS Region, you must provide the following values:</p> <ul> <li> <p> <code>KmsKeyId</code> - The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region.</p> </li> <li> <p> <code>PreSignedUrl</code> - A URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> action to be called in the source AWS Region where the DB cluster snapshot is copied from. The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied.</p> <p>The pre-signed URL request must contain the following parameter values:</p> <ul> <li> <p> <code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code> action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p> </li> <li> <p> <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot will be created in.</p> </li> <li> <p> <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code> looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p> </li> </ul> <p>To learn how to generate a Signature Version 4 signed request, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\"> Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and <a href=\"http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\"> Signature Version 4 Signing Process</a>.</p> </li> <li> <p> <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region.</p> </li> <li> <p> <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the ARN format for the source AWS Region and is the same value as the <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL. </p> </li> </ul> <p>To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified by <code>TargetDBClusterSnapshotIdentifier</code> while that DB cluster snapshot is in \"copying\" status.</p> <p>For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBClusterSnapshot.CrossRegion\"> Copying a DB Cluster Snapshot in the Same Account, Either in the Same Region or Across Regions</a> in the <i>Amazon RDS User Guide.</i> </p> <p>For more information on Amazon Aurora, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html\">Aurora on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p>",
         "operationId": "CopyDBClusterSnapshot",
         "parameters": [
           {
@@ -734,7 +799,7 @@
         }
       ],
       "post": {
-        "description": "<p>Copies the specified DB snapshot. The source DB snapshot must be in the \"available\" state.</p> <p>You can copy a snapshot from one AWS Region to another. In that case, the AWS Region where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region for the DB snapshot copy. </p> <p>You can't copy an encrypted, shared DB snapshot from one AWS Region to another.</p> <p>For more information about copying snapshots, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html\">Copying a DB Snapshot</a> in the Amazon RDS User Guide. </p>",
+        "description": "<p>Copies the specified DB snapshot. The source DB snapshot must be in the \"available\" state.</p> <p>You can copy a snapshot from one AWS Region to another. In that case, the AWS Region where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region for the DB snapshot copy. </p> <p>For more information about copying snapshots, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html\">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i> </p>",
         "operationId": "CopyDBSnapshot",
         "parameters": [
           {
@@ -1566,7 +1631,7 @@
         }
       ],
       "post": {
-        "description": "Creates a new DB security group. DB security groups control access to a DB instance.",
+        "description": "<p>Creates a new DB security group. DB security groups control access to a DB instance.</p> <note> <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p> </note>",
         "operationId": "CreateDBSecurityGroup",
         "parameters": [
           {
@@ -2710,6 +2775,71 @@
             "description": "CertificateNotFoundFault",
             "schema": {
               "$ref": "#/definitions/CertificateNotFoundFault"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeDBClusterBacktracks": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns information about backtracks for a DB cluster.</p> <p>For more information on Amazon Aurora, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html\">Aurora on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p>",
+        "operationId": "DescribeDBClusterBacktracks",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDBClusterBacktracksMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DBClusterBacktrackMessage"
+            }
+          },
+          "480": {
+            "description": "DBClusterNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/DBClusterNotFoundFault"
+            }
+          },
+          "481": {
+            "description": "DBClusterBacktrackNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/DBClusterBacktrackNotFoundFault"
             }
           }
         }
@@ -5752,7 +5882,7 @@
         }
       ],
       "post": {
-        "description": "<p>Promotes a Read Replica DB instance to a standalone DB instance.</p> <note> <ul> <li> <p>We recommend that you enable automated backups on your Read Replica before promoting the Read Replica. This ensures that no backup is taken during the promotion process. Once the instance is promoted to a primary instance, backups are taken based on your backup settings.</p> </li> <li> <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.</p> </li> </ul> </note>",
+        "description": "<p>Promotes a Read Replica DB instance to a standalone DB instance.</p> <note> <ul> <li> <p>Backup duration is a function of the amount of changes to the database since the previous backup. If you plan to promote a Read Replica to a standalone instance, we recommend that you enable backups and complete at least one backup prior to promotion. In addition, a Read Replica cannot be promoted to a standalone instance when it is in the <code>backing-up</code> status. If you have enabled backups on your Read Replica, configure the automated backup window so that daily backups do not interfere with Read Replica promotion.</p> </li> <li> <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.</p> </li> </ul> </note>",
         "operationId": "PromoteReadReplica",
         "parameters": [
           {
@@ -7094,7 +7224,7 @@
         }
       ],
       "post": {
-        "description": "<p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p> <p>The target database is created with most of the original configuration, but in a system-selected availability zone, with the default security group, the default subnet group, and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored deployment and not a single-AZ deployment.</p> <note> <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <a>RestoreDBClusterToPointInTime</a>.</p> </note>",
+        "description": "<p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p> <p>The target database is created with most of the original configuration, but in a system-selected Availability Zone, with the default security group, the default subnet group, and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored deployment and not a single-AZ deployment.</p> <note> <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <a>RestoreDBClusterToPointInTime</a>.</p> </note>",
         "operationId": "RestoreDBInstanceToPointInTime",
         "parameters": [
           {
@@ -7645,17 +7775,17 @@
       "type": "array"
     },
     "AuthorizationAlreadyExistsFault": {
-      "description": "The specified CIDRIP or EC2 security group is already authorized for the specified DB security group.",
+      "description": "The specified CIDRIP or Amazon EC2 security group is already authorized for the specified DB security group.",
       "properties": {},
       "type": "object"
     },
     "AuthorizationNotFoundFault": {
-      "description": "<p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p> <p>RDS may not also be authorized via IAM to perform necessary actions on your behalf.</p>",
+      "description": "<p>The specified CIDRIP or Amazon EC2 security group isn't authorized for the specified DB security group.</p> <p>RDS also may not be authorized by using IAM to perform necessary actions on your behalf.</p>",
       "properties": {},
       "type": "object"
     },
     "AuthorizationQuotaExceededFault": {
-      "description": "DB security group authorization quota has been reached.",
+      "description": "The DB security group authorization quota has been reached.",
       "properties": {},
       "type": "object"
     },
@@ -7701,7 +7831,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/String",
-          "description": "The name of the availability zone."
+          "description": "The name of the Availability Zone."
         }
       },
       "type": "object"
@@ -7717,6 +7847,56 @@
         "$ref": "#/definitions/String"
       },
       "type": "array"
+    },
+    "AvailableProcessorFeature": {
+      "description": "<p>Contains the available processor feature information for the DB instance class of a DB instance.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor\">Configuring the Processor of the DB Instance Class</a> in the <i>Amazon RDS User Guide. </i> </p>",
+      "properties": {
+        "AllowedValues": {
+          "$ref": "#/definitions/String",
+          "description": "The allowed values for the processor feature of the DB instance class."
+        },
+        "DefaultValue": {
+          "$ref": "#/definitions/String",
+          "description": "The default value for the processor feature of the DB instance class."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the processor feature. Valid names are <code>coreCount</code> and <code>threadsPerCore</code>."
+        }
+      },
+      "type": "object"
+    },
+    "AvailableProcessorFeatureList": {
+      "items": {
+        "$ref": "#/definitions/AvailableProcessorFeature"
+      },
+      "type": "array"
+    },
+    "BacktrackDBClusterMessage": {
+      "description": "<p/>",
+      "properties": {
+        "BacktrackTo": {
+          "$ref": "#/definitions/TStamp",
+          "description": "<p>The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO8601 Wikipedia page.</a> </p> <note> <p>If the specified time is not a consistent time for the DB cluster, Aurora automatically chooses the nearest possible consistent time for the DB cluster.</p> </note> <p>Constraints:</p> <ul> <li> <p>Must contain a valid ISO 8601 timestamp.</p> </li> <li> <p>Cannot contain a timestamp set in the future.</p> </li> </ul> <p>Example: <code>2017-07-08T18:00Z</code> </p>"
+        },
+        "DBClusterIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>my-cluster1</code> </p>"
+        },
+        "Force": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": "A value that, if specified, forces the DB cluster to backtrack when binary logging is enabled. Otherwise, an error occurs when binary logging is enabled."
+        },
+        "UseEarliestTimeOnPointInTimeUnavailable": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": "If <i>BacktrackTo</i> is set to a timestamp earlier than the earliest backtrack time, this value backtracks the DB cluster to the earliest possible backtrack time. Otherwise, an error occurs."
+        }
+      },
+      "required": [
+        "DBClusterIdentifier",
+        "BacktrackTo"
+      ],
+      "type": "object"
     },
     "Boolean": {
       "type": "boolean"
@@ -7775,7 +7955,7 @@
       "type": "object"
     },
     "CertificateNotFoundFault": {
-      "description": " <i>CertificateIdentifier</i> does not refer to an existing certificate. ",
+      "description": " <i>CertificateIdentifier</i> doesn't refer to an existing certificate. ",
       "properties": {},
       "type": "object"
     },
@@ -7849,7 +8029,7 @@
         },
         "KmsKeyId": {
           "$ref": "#/definitions/String",
-          "description": "<p>The AWS AWS KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p> <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, Amazon RDS encrypts the target DB cluster snapshot using the specified KMS encryption key. </p> <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. </p> <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for <code>KmsKeyId</code>. </p> <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region in another AWS Region.</p>"
+          "description": "<p>The AWS AWS KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p> <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. </p> <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for <code>KmsKeyId</code>. </p> <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region in another AWS Region.</p> <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, an error is returned.</p>"
         },
         "PreSignedUrl": {
           "$ref": "#/definitions/String",
@@ -8009,6 +8189,10 @@
           "$ref": "#/definitions/AvailabilityZones",
           "description": "A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on AWS Regions and Availability Zones, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html\">Regions and Availability Zones</a>. "
         },
+        "BacktrackWindow": {
+          "$ref": "#/definitions/LongOptional",
+          "description": "<p>The target backtrack window, in seconds. To disable backtracking, set this value to 0. </p> <p>Default: 0</p> <p>Constraints:</p> <ul> <li> <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p> </li> </ul>"
+        },
         "BackupRetentionPeriod": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "<p>The number of days for which automated backups are retained. You must specify a minimum value of 1.</p> <p>Default: 1</p> <p>Constraints:</p> <ul> <li> <p>Must be a value from 1 to 35</p> </li> </ul>"
@@ -8032,6 +8216,10 @@
         "DatabaseName": {
           "$ref": "#/definitions/String",
           "description": "The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon RDS will not create a database in the DB cluster you are creating."
+        },
+        "EnableCloudwatchLogsExports": {
+          "$ref": "#/definitions/LogTypeList",
+          "description": "The list of log types that need to be enabled for exporting to CloudWatch Logs."
         },
         "EnableIAMDatabaseAuthentication": {
           "$ref": "#/definitions/BooleanOptional",
@@ -8208,7 +8396,7 @@
         },
         "DBInstanceClass": {
           "$ref": "#/definitions/String",
-          "description": "The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the Amazon RDS User Guide. "
+          "description": "The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i> "
         },
         "DBInstanceIdentifier": {
           "$ref": "#/definitions/String",
@@ -8248,7 +8436,7 @@
         },
         "EnablePerformanceInsights": {
           "$ref": "#/definitions/BooleanOptional",
-          "description": "True to enable Performance Insights for the DB instance, and otherwise false. "
+          "description": "<p>True to enable Performance Insights for the DB instance, and otherwise false. </p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>. </p>"
         },
         "Engine": {
           "$ref": "#/definitions/String",
@@ -8256,7 +8444,7 @@
         },
         "EngineVersion": {
           "$ref": "#/definitions/String",
-          "description": "<p>The version number of the database engine to use.</p> <p>The following are the database engines and major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</p> <p> <b>MariaDB</b> </p> <ul> <li> <p> <code>10.2.11</code> (supported in all AWS Regions)</p> </li> </ul> <p/> <ul> <li> <p> <code>10.1.26</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>10.1.23</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>10.1.19</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>10.1.14</code> (supported in all AWS Regions except us-east-2)</p> </li> </ul> <p/> <ul> <li> <p> <code>10.0.32</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>10.0.31</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>10.0.28</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>10.0.24</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>10.0.17</code> (supported in all AWS Regions except us-east-2, ca-central-1, eu-west-2)</p> </li> </ul> <p> <b>Microsoft SQL Server 2017</b> </p> <ul> <li> <p> <code>14.00.1000.169.v1</code> (supported for all editions, and all AWS Regions)</p> </li> </ul> <p> <b>Microsoft SQL Server 2016</b> </p> <ul> <li> <p> <code>13.00.4451.0.v1</code> (supported for all editions, and all AWS Regions)</p> </li> <li> <p> <code>13.00.4422.0.v1</code> (supported for all editions, and all AWS Regions)</p> </li> <li> <p> <code>13.00.2164.0.v1</code> (supported for all editions, and all AWS Regions)</p> </li> </ul> <p> <b>Microsoft SQL Server 2014</b> </p> <ul> <li> <p> <code>12.00.5546.0.v1</code> (supported for all editions, and all AWS Regions)</p> </li> <li> <p> <code>12.00.5000.0.v1</code> (supported for all editions, and all AWS Regions)</p> </li> <li> <p> <code>12.00.4422.0.v1</code> (supported for all editions except Enterprise Edition, and all AWS Regions except ca-central-1 and eu-west-2)</p> </li> </ul> <p> <b>Microsoft SQL Server 2012</b> </p> <ul> <li> <p> <code>11.00.6594.0.v1</code> (supported for all editions, and all AWS Regions)</p> </li> <li> <p> <code>11.00.6020.0.v1</code> (supported for all editions, and all AWS Regions)</p> </li> <li> <p> <code>11.00.5058.0.v1</code> (supported for all editions, and all AWS Regions except us-east-2, ca-central-1, and eu-west-2)</p> </li> <li> <p> <code>11.00.2100.60.v1</code> (supported for all editions, and all AWS Regions except us-east-2, ca-central-1, and eu-west-2)</p> </li> </ul> <p> <b>Microsoft SQL Server 2008 R2</b> </p> <ul> <li> <p> <code>10.50.6529.0.v1</code> (supported for all editions, and all AWS Regions except us-east-2, ca-central-1, and eu-west-2)</p> </li> <li> <p> <code>10.50.6000.34.v1</code> (supported for all editions, and all AWS Regions except us-east-2, ca-central-1, and eu-west-2)</p> </li> <li> <p> <code>10.50.2789.0.v1</code> (supported for all editions, and all AWS Regions except us-east-2, ca-central-1, and eu-west-2)</p> </li> </ul> <p> <b>MySQL</b> </p> <ul> <li> <p> <code>5.7.19</code> (supported in all AWS regions)</p> </li> <li> <p> <code>5.7.17</code> (supported in all AWS regions)</p> </li> <li> <p> <code>5.7.16</code> (supported in all AWS regions)</p> </li> </ul> <p/> <ul> <li> <p> <code>5.6.37</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>5.6.35</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>5.6.34</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>5.6.29</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>5.6.27</code> (supported in all AWS Regions except us-east-2, ca-central-1, eu-west-2)</p> </li> </ul> <p/> <ul> <li> <p> <code>5.5.57</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>5.5.54</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>5.5.53</code> (supported in all AWS Regions)</p> </li> <li> <p> <code>5.5.46</code> (supported in all AWS Regions)</p> </li> </ul> <p> <b>Oracle 12c</b> </p> <ul> <li> <p> <code>12.1.0.2.v9</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> <li> <p> <code>12.1.0.2.v8</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> <li> <p> <code>12.1.0.2.v7</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> <li> <p> <code>12.1.0.2.v6</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> <li> <p> <code>12.1.0.2.v5</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> <li> <p> <code>12.1.0.2.v4</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> <li> <p> <code>12.1.0.2.v3</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> <li> <p> <code>12.1.0.2.v2</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> <li> <p> <code>12.1.0.2.v1</code> (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)</p> </li> </ul> <p> <b>Oracle 11g</b> </p> <ul> <li> <p> <code>11.2.0.4.v13</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v12</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v11</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v10</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v9</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v8</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v7</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v6</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v5</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v4</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v3</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> <li> <p> <code>11.2.0.4.v1</code> (supported for EE, SE1, and SE, in all AWS regions)</p> </li> </ul> <p> <b>PostgreSQL</b> </p> <ul> <li> <p> <b>Version 9.6.x:</b> <code> 9.6.5 | 9.6.3 | 9.6.2 | 9.6.1</code> </p> </li> <li> <p> <b>Version 9.5.x:</b> <code> 9.5.9 | 9.5.7 | 9.5.6 | 9.5.4 | 9.5.2</code> </p> </li> <li> <p> <b>Version 9.4.x:</b> <code> 9.4.14 | 9.4.12 | 9.4.11 | 9.4.9 | 9.4.7</code> </p> </li> <li> <p> <b>Version 9.3.x:</b> <code> 9.3.19 | 9.3.17 | 9.3.16 | 9.3.14 | 9.3.12</code> </p> </li> </ul>"
+          "description": "<p>The version number of the database engine to use.</p> <p>For a list of valid engine versions, call <a>DescribeDBEngineVersions</a>.</p> <p>The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</p> <p> <b>MariaDB</b> </p> <p>See <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt\">MariaDB on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>Microsoft SQL Server</b> </p> <p>See <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport\">Version and Feature Support on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>MySQL</b> </p> <p>See <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt\">MySQL on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>Oracle</b> </p> <p>See <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html\">Oracle Database Engine Release Notes</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>PostgreSQL</b> </p> <p>See <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions\">Supported PostgreSQL Database Versions</a> in the <i>Amazon RDS User Guide.</i> </p>"
         },
         "Iops": {
           "$ref": "#/definitions/IntegerOptional",
@@ -8309,6 +8497,10 @@
         "PreferredMaintenanceWindow": {
           "$ref": "#/definitions/String",
           "description": "<p>The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance\">Amazon RDS Maintenance Window</a>. </p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p>The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. </p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p> <p>Constraints: Minimum 30-minute window.</p>"
+        },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance."
         },
         "PromotionTier": {
           "$ref": "#/definitions/IntegerOptional",
@@ -8369,7 +8561,7 @@
         },
         "DBInstanceClass": {
           "$ref": "#/definitions/String",
-          "description": "<p>The compute and memory capacity of the Read Replica, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the Amazon RDS User Guide. </p> <p>Default: Inherits from the source DB instance.</p>"
+          "description": "<p>The compute and memory capacity of the Read Replica, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Default: Inherits from the source DB instance.</p>"
         },
         "DBInstanceIdentifier": {
           "$ref": "#/definitions/String",
@@ -8389,7 +8581,7 @@
         },
         "EnablePerformanceInsights": {
           "$ref": "#/definitions/BooleanOptional",
-          "description": "True to enable Performance Insights for the read replica, and otherwise false. "
+          "description": "<p>True to enable Performance Insights for the read replica, and otherwise false. </p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>. </p>"
         },
         "Iops": {
           "$ref": "#/definitions/IntegerOptional",
@@ -8409,7 +8601,7 @@
         },
         "MultiAZ": {
           "$ref": "#/definitions/BooleanOptional",
-          "description": "<p>Specifies whether the Read Replica is in a Multi-AZ deployment. </p> <p>You can create a Read Replica as a Multi-AZ DB instance. RDS creates a standby of your replica in another Availability Zone for failover support for the replica. Creating your Read Replica as a Multi-AZ DB instance is independent of whether the source database is a Multi-AZ DB instance. </p> <note> <p>Currently, you can't create PostgreSQL Read Replicas as Multi-AZ DB instances.</p> </note>"
+          "description": "<p>Specifies whether the Read Replica is in a Multi-AZ deployment. </p> <p>You can create a Read Replica as a Multi-AZ DB instance. RDS creates a standby of your replica in another Availability Zone for failover support for the replica. Creating your Read Replica as a Multi-AZ DB instance is independent of whether the source database is a Multi-AZ DB instance. </p>"
         },
         "OptionGroupName": {
           "$ref": "#/definitions/String",
@@ -8426,6 +8618,10 @@
         "PreSignedUrl": {
           "$ref": "#/definitions/String",
           "description": "<p>The URL that contains a Signature Version 4 signed request for the <code>CreateDBInstanceReadReplica</code> API action in the source AWS Region that contains the source DB instance. </p> <p>You must specify this parameter when you create an encrypted Read Replica from another AWS Region by using the Amazon RDS API. You can specify the <code>--source-region</code> option instead of this parameter when you create an encrypted Read Replica from another AWS Region by using the AWS CLI. </p> <p>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code> API action that can be executed in the source AWS Region that contains the encrypted source DB instance. The presigned URL request must contain the following parameter values: </p> <ul> <li> <p> <code>DestinationRegion</code> - The AWS Region that the encrypted Read Replica is created in. This AWS Region is the same one where the <code>CreateDBInstanceReadReplica</code> action is called that contains this presigned URL. </p> <p>For example, if you create an encrypted DB instance in the us-west-1 AWS Region, from a source DB instance in the us-east-2 AWS Region, then you call the <code>CreateDBInstanceReadReplica</code> action in the us-east-1 AWS Region and provide a presigned URL that contains a call to the <code>CreateDBInstanceReadReplica</code> action in the us-west-2 AWS Region. For this example, the <code>DestinationRegion</code> in the presigned URL must be set to the us-east-1 AWS Region. </p> </li> <li> <p> <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the Read Replica in the destination AWS Region. This is the same identifier for both the <code>CreateDBInstanceReadReplica</code> action that is called in the destination AWS Region, and the action contained in the presigned URL. </p> </li> <li> <p> <code>SourceDBInstanceIdentifier</code> - The DB instance identifier for the encrypted DB instance to be replicated. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are creating an encrypted Read Replica from a DB instance in the us-west-2 AWS Region, then your <code>SourceDBInstanceIdentifier</code> looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>. </p> </li> </ul> <p>To learn how to generate a Signature Version 4 signed request, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and <a href=\"http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing Process</a>. </p><note><p>If you supply a value for this operation's <code>SourceRegion</code> parameter, a pre-signed URL will be calculated on your behalf.</p></note>"
+        },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance."
         },
         "PubliclyAccessible": {
           "$ref": "#/definitions/BooleanOptional",
@@ -8445,6 +8641,10 @@
         },
         "Tags": {
           "$ref": "#/definitions/TagList"
+        },
+        "UseDefaultProcessorFeatures": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": "A value that specifies that the DB instance class of the DB instance uses its default processor features."
         }
       },
       "required": [
@@ -8694,6 +8894,14 @@
           "$ref": "#/definitions/AvailabilityZones",
           "description": "Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in."
         },
+        "BacktrackConsumedChangeRecords": {
+          "$ref": "#/definitions/LongOptional",
+          "description": "The number of change records stored for Backtrack."
+        },
+        "BacktrackWindow": {
+          "$ref": "#/definitions/LongOptional",
+          "description": "The target backtrack window, in seconds. If this value is set to 0, backtracking is disabled for the DB cluster. Otherwise, backtracking is enabled."
+        },
         "BackupRetentionPeriod": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "Specifies the number of days for which automatic DB snapshots are retained."
@@ -8742,9 +8950,17 @@
           "$ref": "#/definitions/String",
           "description": "The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed."
         },
+        "EarliestBacktrackTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The earliest time to which a DB cluster can be backtracked."
+        },
         "EarliestRestorableTime": {
           "$ref": "#/definitions/TStamp",
-          "description": "Specifies the earliest time to which a database can be restored with point-in-time restore."
+          "description": "The earliest time to which a database can be restored with point-in-time restore."
+        },
+        "EnabledCloudwatchLogsExports": {
+          "$ref": "#/definitions/LogTypeList",
+          "description": "A list of log types that this DB cluster is configured to export to CloudWatch Logs."
         },
         "Endpoint": {
           "$ref": "#/definitions/String",
@@ -8826,7 +9042,62 @@
       "type": "object"
     },
     "DBClusterAlreadyExistsFault": {
-      "description": "User already has a DB cluster with the given identifier.",
+      "description": "The user already has a DB cluster with the given identifier.",
+      "properties": {},
+      "type": "object"
+    },
+    "DBClusterBacktrack": {
+      "description": "This data type is used as a response element in the <a>DescribeDBClusterBacktracks</a> action.",
+      "properties": {
+        "BacktrackIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "Contains the backtrack identifier."
+        },
+        "BacktrackRequestCreationTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The timestamp of the time at which the backtrack was requested."
+        },
+        "BacktrackTo": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The timestamp of the time to which the DB cluster was backtracked."
+        },
+        "BacktrackedFrom": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The timestamp of the time from which the DB cluster was backtracked."
+        },
+        "DBClusterIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster."
+        },
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The status of the backtrack. This property returns one of the following values:</p> <ul> <li> <p> <code>applying</code> - The backtrack is currently being applied to or rolled back from the DB cluster.</p> </li> <li> <p> <code>completed</code> - The backtrack has successfully been applied to or rolled back from the DB cluster.</p> </li> <li> <p> <code>failed</code> - An error occurred while the backtrack was applied to or rolled back from the DB cluster.</p> </li> <li> <p> <code>pending</code> - The backtrack is currently pending application to or rollback from the DB cluster.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "DBClusterBacktrackList": {
+      "items": {
+        "$ref": "#/definitions/DBClusterBacktrack"
+      },
+      "type": "array"
+    },
+    "DBClusterBacktrackMessage": {
+      "description": "Contains the result of a successful invocation of the <a>DescribeDBClusterBacktracks</a> action.",
+      "properties": {
+        "DBClusterBacktracks": {
+          "$ref": "#/definitions/DBClusterBacktrackList",
+          "description": "Contains a list of backtracks for the user."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": "A pagination token that can be used in a subsequent <a>DescribeDBClusterBacktracks</a> request."
+        }
+      },
+      "type": "object"
+    },
+    "DBClusterBacktrackNotFoundFault": {
+      "description": " <i>BacktrackIdentifier</i> doesn't refer to an existing backtrack. ",
       "properties": {},
       "type": "object"
     },
@@ -8879,7 +9150,7 @@
       "type": "object"
     },
     "DBClusterNotFoundFault": {
-      "description": " <i>DBClusterIdentifier</i> does not refer to an existing DB cluster. ",
+      "description": " <i>DBClusterIdentifier</i> doesn't refer to an existing DB cluster. ",
       "properties": {},
       "type": "object"
     },
@@ -8956,7 +9227,7 @@
       "type": "object"
     },
     "DBClusterParameterGroupNotFoundFault": {
-      "description": " <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter group. ",
+      "description": " <i>DBClusterParameterGroupName</i> doesn't refer to an existing DB cluster parameter group. ",
       "properties": {},
       "type": "object"
     },
@@ -8975,7 +9246,7 @@
       "type": "object"
     },
     "DBClusterQuotaExceededFault": {
-      "description": "User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.",
+      "description": "The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.",
       "properties": {},
       "type": "object"
     },
@@ -8999,7 +9270,7 @@
       "type": "object"
     },
     "DBClusterRoleNotFoundFault": {
-      "description": "The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.",
+      "description": "The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified DB cluster.",
       "properties": {},
       "type": "object"
     },
@@ -9101,7 +9372,7 @@
       "type": "object"
     },
     "DBClusterSnapshotAlreadyExistsFault": {
-      "description": "User already has a DB cluster snapshot with the given identifier.",
+      "description": "The user already has a DB cluster snapshot with the given identifier.",
       "properties": {},
       "type": "object"
     },
@@ -9160,7 +9431,7 @@
       "type": "object"
     },
     "DBClusterSnapshotNotFoundFault": {
-      "description": " <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot. ",
+      "description": " <i>DBClusterSnapshotIdentifier</i> doesn't refer to an existing DB cluster snapshot. ",
       "properties": {},
       "type": "object"
     },
@@ -9206,6 +9477,10 @@
         "SupportsLogExportsToCloudwatchLogs": {
           "$ref": "#/definitions/Boolean",
           "description": "A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs."
+        },
+        "SupportsReadReplica": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the database engine version supports read replicas."
         },
         "ValidUpgradeTarget": {
           "$ref": "#/definitions/ValidUpgradeTargetList",
@@ -9397,6 +9672,10 @@
           "$ref": "#/definitions/String",
           "description": "Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC)."
         },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance."
+        },
         "PromotionTier": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance\"> Fault Tolerance for an Aurora DB Cluster</a>. "
@@ -9449,7 +9728,7 @@
       "type": "object"
     },
     "DBInstanceAlreadyExistsFault": {
-      "description": "User already has a DB instance with the given identifier.",
+      "description": "The user already has a DB instance with the given identifier.",
       "properties": {},
       "type": "object"
     },
@@ -9474,7 +9753,7 @@
       "type": "object"
     },
     "DBInstanceNotFoundFault": {
-      "description": " <i>DBInstanceIdentifier</i> does not refer to an existing DB instance. ",
+      "description": " <i>DBInstanceIdentifier</i> doesn't refer to an existing DB instance. ",
       "properties": {},
       "type": "object"
     },
@@ -9507,7 +9786,7 @@
       "type": "array"
     },
     "DBLogFileNotFoundFault": {
-      "description": " <i>LogFileName</i> does not refer to an existing DB log file.",
+      "description": " <i>LogFileName</i> doesn't refer to an existing DB log file.",
       "properties": {},
       "type": "object"
     },
@@ -9569,12 +9848,12 @@
       "type": "object"
     },
     "DBParameterGroupNotFoundFault": {
-      "description": " <i>DBParameterGroupName</i> does not refer to an existing DB parameter group. ",
+      "description": " <i>DBParameterGroupName</i> doesn't refer to an existing DB parameter group. ",
       "properties": {},
       "type": "object"
     },
     "DBParameterGroupQuotaExceededFault": {
-      "description": "Request would result in user exceeding the allowed number of DB parameter groups.",
+      "description": "The request would result in the user exceeding the allowed number of DB parameter groups.",
       "properties": {},
       "type": "object"
     },
@@ -9692,17 +9971,17 @@
       "type": "array"
     },
     "DBSecurityGroupNotFoundFault": {
-      "description": " <i>DBSecurityGroupName</i> does not refer to an existing DB security group. ",
+      "description": " <i>DBSecurityGroupName</i> doesn't refer to an existing DB security group. ",
       "properties": {},
       "type": "object"
     },
     "DBSecurityGroupNotSupportedFault": {
-      "description": "A DB security group is not allowed for this action.",
+      "description": "A DB security group isn't allowed for this action.",
       "properties": {},
       "type": "object"
     },
     "DBSecurityGroupQuotaExceededFault": {
-      "description": "Request would result in user exceeding the allowed number of DB security groups.",
+      "description": "The request would result in the user exceeding the allowed number of DB security groups.",
       "properties": {},
       "type": "object"
     },
@@ -9782,6 +10061,10 @@
         "Port": {
           "$ref": "#/definitions/Integer",
           "description": "Specifies the port that the database engine was listening on at the time of the snapshot."
+        },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance when the DB snapshot was created."
         },
         "SnapshotCreateTime": {
           "$ref": "#/definitions/TStamp",
@@ -9882,7 +10165,7 @@
       "type": "object"
     },
     "DBSnapshotNotFoundFault": {
-      "description": " <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot. ",
+      "description": " <i>DBSnapshotIdentifier</i> doesn't refer to an existing DB snapshot. ",
       "properties": {},
       "type": "object"
     },
@@ -9941,17 +10224,17 @@
       "type": "object"
     },
     "DBSubnetGroupNotAllowedFault": {
-      "description": "Indicates that the DBSubnetGroup should not be specified while creating read replicas that lie in the same region as the source instance.",
+      "description": "The DBSubnetGroup shouldn't be specified while creating read replicas that lie in the same region as the source instance.",
       "properties": {},
       "type": "object"
     },
     "DBSubnetGroupNotFoundFault": {
-      "description": " <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group. ",
+      "description": " <i>DBSubnetGroupName</i> doesn't refer to an existing DB subnet group. ",
       "properties": {},
       "type": "object"
     },
     "DBSubnetGroupQuotaExceededFault": {
-      "description": "Request would result in user exceeding the allowed number of DB subnet groups.",
+      "description": "The request would result in the user exceeding the allowed number of DB subnet groups.",
       "properties": {},
       "type": "object"
     },
@@ -9962,12 +10245,12 @@
       "type": "array"
     },
     "DBSubnetQuotaExceededFault": {
-      "description": "Request would result in user exceeding the allowed number of subnets in a DB subnet groups.",
+      "description": "The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.",
       "properties": {},
       "type": "object"
     },
     "DBUpgradeDependencyFailureFault": {
-      "description": "The DB upgrade failed because a resource the DB depends on could not be modified.",
+      "description": "The DB upgrade failed because a resource the DB depends on can't be modified.",
       "properties": {},
       "type": "object"
     },
@@ -10184,6 +10467,35 @@
       },
       "type": "object"
     },
+    "DescribeDBClusterBacktracksMessage": {
+      "description": "<p/>",
+      "properties": {
+        "BacktrackIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>If specified, this value is the backtrack identifier of the backtrack to be described.</p> <p>Constraints:</p> <ul> <li> <p>Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see <a href=\"http://www.ietf.org/rfc/rfc4122.txt\">A Universally Unique Identifier (UUID) URN Namespace</a>.</p> </li> </ul> <p>Example: <code>123e4567-e89b-12d3-a456-426655440000</code> </p>"
+        },
+        "DBClusterIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>my-cluster1</code> </p>"
+        },
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "<p>A filter that specifies one or more DB clusters to describe. Supported filters include the following:</p> <ul> <li> <p> <code>db-cluster-backtrack-id</code> - Accepts backtrack identifiers. The results list includes information about only the backtracks identified by these identifiers.</p> </li> <li> <p> <code>db-cluster-backtrack-status</code> - Accepts any of the following backtrack status values:</p> <ul> <li> <p> <code>applying</code> </p> </li> <li> <p> <code>completed</code> </p> </li> <li> <p> <code>failed</code> </p> </li> <li> <p> <code>pending</code> </p> </li> </ul> <p>The results list includes information about only the backtracks identified by these values. For more information about backtrack status values, see <a>DBClusterBacktrack</a>.</p> </li> </ul>"
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous <a>DescribeDBClusterBacktracks</a> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "required": [
+        "DBClusterIdentifier"
+      ],
+      "type": "object"
+    },
     "DescribeDBClusterParameterGroupsMessage": {
       "description": "<p/>",
       "properties": {
@@ -10336,7 +10648,7 @@
         },
         "Filters": {
           "$ref": "#/definitions/FilterList",
-          "description": "Not currently supported."
+          "description": "This parameter is not currently supported."
         },
         "ListSupportedCharacterSets": {
           "$ref": "#/definitions/BooleanOptional",
@@ -10649,7 +10961,7 @@
         },
         "Filters": {
           "$ref": "#/definitions/FilterList",
-          "description": "Not currently supported."
+          "description": "This parameter is not currently supported."
         },
         "Marker": {
           "$ref": "#/definitions/String",
@@ -10952,7 +11264,7 @@
         },
         "ProductDescription": {
           "$ref": "#/definitions/String",
-          "description": "Product description filter value. Specify this parameter to show only the available offerings matching the specified product description."
+          "description": "<p>Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.</p> <note> <p>The results show offerings that partially match the filter value.</p> </note>"
         },
         "ReservedDBInstancesOfferingId": {
           "$ref": "#/definitions/String",
@@ -11034,7 +11346,7 @@
       "type": "array"
     },
     "DomainNotFoundFault": {
-      "description": " <i>Domain</i> does not refer to an existing Active Directory Domain. ",
+      "description": " <i>Domain</i> doesn't refer to an existing Active Directory domain. ",
       "properties": {},
       "type": "object"
     },
@@ -11354,15 +11666,15 @@
       "type": "object"
     },
     "Filter": {
-      "description": "This type is not currently supported.",
+      "description": "<p>A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as IDs. The filters supported by a describe operation are documented with the describe operation.</p> <note> <p>Currently, wildcards are not supported in filters.</p> </note> <p>The following actions can be filtered:</p> <ul> <li> <p> <a>DescribeDBClusterBacktracks</a> </p> </li> <li> <p> <a>DescribeDBClusters</a> </p> </li> <li> <p> <a>DescribeDBInstances</a> </p> </li> <li> <p> <a>DescribePendingMaintenanceActions</a> </p> </li> </ul>",
       "properties": {
         "Name": {
           "$ref": "#/definitions/String",
-          "description": "This parameter is not currently supported."
+          "description": "The name of the filter. Filter names are case-sensitive."
         },
         "Values": {
           "$ref": "#/definitions/FilterValueList",
-          "description": "This parameter is not currently supported."
+          "description": "One or more filter values. Filter values are case-sensitive."
         }
       },
       "required": [
@@ -11404,22 +11716,22 @@
       "type": "array"
     },
     "InstanceQuotaExceededFault": {
-      "description": "Request would result in user exceeding the allowed number of DB instances.",
+      "description": "The request would result in the user exceeding the allowed number of DB instances.",
       "properties": {},
       "type": "object"
     },
     "InsufficientDBClusterCapacityFault": {
-      "description": "The DB cluster does not have enough capacity for the current operation.",
+      "description": "The DB cluster doesn't have enough capacity for the current operation.",
       "properties": {},
       "type": "object"
     },
     "InsufficientDBInstanceCapacityFault": {
-      "description": "Specified DB instance class is not available in the specified Availability Zone.",
+      "description": "The specified DB instance class isn't available in the specified Availability Zone.",
       "properties": {},
       "type": "object"
     },
     "InsufficientStorageClusterCapacityFault": {
-      "description": "There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.",
+      "description": "There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.",
       "properties": {},
       "type": "object"
     },
@@ -11430,47 +11742,47 @@
       "type": "integer"
     },
     "InvalidDBClusterSnapshotStateFault": {
-      "description": "The supplied value is not a valid DB cluster snapshot state.",
+      "description": "The supplied value isn't a valid DB cluster snapshot state.",
       "properties": {},
       "type": "object"
     },
     "InvalidDBClusterStateFault": {
-      "description": "The DB cluster is not in a valid state.",
+      "description": "The DB cluster isn't in a valid state.",
       "properties": {},
       "type": "object"
     },
     "InvalidDBInstanceStateFault": {
-      "description": " The specified DB instance is not in the <i>available</i> state. ",
+      "description": " The specified DB instance isn't in the <i>available</i> state. ",
       "properties": {},
       "type": "object"
     },
     "InvalidDBParameterGroupStateFault": {
-      "description": "The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.",
+      "description": "The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.",
       "properties": {},
       "type": "object"
     },
     "InvalidDBSecurityGroupStateFault": {
-      "description": "The state of the DB security group does not allow deletion.",
+      "description": "The state of the DB security group doesn't allow deletion.",
       "properties": {},
       "type": "object"
     },
     "InvalidDBSnapshotStateFault": {
-      "description": "The state of the DB snapshot does not allow deletion.",
+      "description": "The state of the DB snapshot doesn't allow deletion.",
       "properties": {},
       "type": "object"
     },
     "InvalidDBSubnetGroupFault": {
-      "description": "Indicates the DBSubnetGroup does not belong to the same VPC as that of an existing cross region read replica of the same source instance.",
+      "description": "The DBSubnetGroup doesn't belong to the same VPC as that of an existing cross-region read replica of the same source instance.",
       "properties": {},
       "type": "object"
     },
     "InvalidDBSubnetGroupStateFault": {
-      "description": "The DB subnet group cannot be deleted because it is in use.",
+      "description": "The DB subnet group cannot be deleted because it's in use.",
       "properties": {},
       "type": "object"
     },
     "InvalidDBSubnetStateFault": {
-      "description": " The DB subnet is not in the <i>available</i> state. ",
+      "description": " The DB subnet isn't in the <i>available</i> state. ",
       "properties": {},
       "type": "object"
     },
@@ -11480,17 +11792,17 @@
       "type": "object"
     },
     "InvalidOptionGroupStateFault": {
-      "description": " The option group is not in the <i>available</i> state. ",
+      "description": " The option group isn't in the <i>available</i> state. ",
       "properties": {},
       "type": "object"
     },
     "InvalidRestoreFault": {
-      "description": "Cannot restore from vpc backup to non-vpc DB instance.",
+      "description": "Cannot restore from VPC backup to non-VPC DB instance.",
       "properties": {},
       "type": "object"
     },
     "InvalidS3BucketFault": {
-      "description": "The specified Amazon S3 bucket name could not be found or Amazon RDS is not authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.",
+      "description": "The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.",
       "properties": {},
       "type": "object"
     },
@@ -11500,12 +11812,12 @@
       "type": "object"
     },
     "InvalidVPCNetworkStateFault": {
-      "description": "DB subnet group does not cover all Availability Zones after it is created because users' change.",
+      "description": "The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.",
       "properties": {},
       "type": "object"
     },
     "KMSKeyNotAccessibleFault": {
-      "description": "Error accessing KMS key.",
+      "description": "An error occurred accessing an AWS KMS key.",
       "properties": {},
       "type": "object"
     },
@@ -11541,6 +11853,9 @@
     "Long": {
       "type": "integer"
     },
+    "LongOptional": {
+      "type": "integer"
+    },
     "ModifyDBClusterMessage": {
       "description": "<p/>",
       "properties": {
@@ -11548,9 +11863,17 @@
           "$ref": "#/definitions/Boolean",
           "description": "<p>A value that specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code> setting for the DB cluster. If this parameter is set to <code>false</code>, changes to the DB cluster are applied during the next maintenance window.</p> <p>The <code>ApplyImmediately</code> parameter only affects the <code>NewDBClusterIdentifier</code> and <code>MasterUserPassword</code> values. If you set the <code>ApplyImmediately</code> parameter value to false, then changes to the <code>NewDBClusterIdentifier</code> and <code>MasterUserPassword</code> values are applied during the next maintenance window. All other changes are applied immediately, regardless of the value of the <code>ApplyImmediately</code> parameter.</p> <p>Default: <code>false</code> </p>"
         },
+        "BacktrackWindow": {
+          "$ref": "#/definitions/LongOptional",
+          "description": "<p>The target backtrack window, in seconds. To disable backtracking, set this value to 0.</p> <p>Default: 0</p> <p>Constraints:</p> <ul> <li> <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p> </li> </ul>"
+        },
         "BackupRetentionPeriod": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "<p>The number of days for which automated backups are retained. You must specify a minimum value of 1.</p> <p>Default: 1</p> <p>Constraints:</p> <ul> <li> <p>Must be a value from 1 to 35</p> </li> </ul>"
+        },
+        "CloudwatchLogsExportConfiguration": {
+          "$ref": "#/definitions/CloudwatchLogsExportConfiguration",
+          "description": "The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster."
         },
         "DBClusterIdentifier": {
           "$ref": "#/definitions/String",
@@ -11563,6 +11886,10 @@
         "EnableIAMDatabaseAuthentication": {
           "$ref": "#/definitions/BooleanOptional",
           "description": "<p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false.</p> <p>Default: <code>false</code> </p>"
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The version number of the database engine to which you want to upgrade. Changing this parameter results in an outage. The change is applied during the next maintenance window unless the ApplyImmediately parameter is set to true.</p> <p>For a list of valid engine versions, see <a>CreateDBCluster</a>, or call <a>DescribeDBEngineVersions</a>.</p>"
         },
         "MasterUserPassword": {
           "$ref": "#/definitions/String",
@@ -11687,7 +12014,7 @@
         },
         "CloudwatchLogsExportConfiguration": {
           "$ref": "#/definitions/CloudwatchLogsExportConfiguration",
-          "description": "The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster."
+          "description": "The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance."
         },
         "CopyTagsToSnapshot": {
           "$ref": "#/definitions/BooleanOptional",
@@ -11695,7 +12022,7 @@
         },
         "DBInstanceClass": {
           "$ref": "#/definitions/String",
-          "description": "<p>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the Amazon RDS User Guide. </p> <p>If you modify the DB instance class, an outage occurs during the change. The change is applied during the next maintenance window, unless <code>ApplyImmediately</code> is specified as <code>true</code> for this request. </p> <p>Default: Uses existing setting</p>"
+          "description": "<p>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>If you modify the DB instance class, an outage occurs during the change. The change is applied during the next maintenance window, unless <code>ApplyImmediately</code> is specified as <code>true</code> for this request. </p> <p>Default: Uses existing setting</p>"
         },
         "DBInstanceIdentifier": {
           "$ref": "#/definitions/String",
@@ -11731,11 +12058,11 @@
         },
         "EnablePerformanceInsights": {
           "$ref": "#/definitions/BooleanOptional",
-          "description": "True to enable Performance Insights for the DB instance, and otherwise false."
+          "description": "<p>True to enable Performance Insights for the DB instance, and otherwise false.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>. </p>"
         },
         "EngineVersion": {
           "$ref": "#/definitions/String",
-          "description": "<p> The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for this request. </p> <p>For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family.</p> <p>For a list of valid engine versions, see <a>CreateDBInstance</a>.</p>"
+          "description": "<p> The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for this request. </p> <p>For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family.</p> <p>For information about valid engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.</p>"
         },
         "Iops": {
           "$ref": "#/definitions/IntegerOptional",
@@ -11781,6 +12108,10 @@
           "$ref": "#/definitions/String",
           "description": "<p>The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter doesn't result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If there are pending actions that cause a reboot, and the maintenance window is changed to include the current time, then changing this parameter will cause a reboot of the DB instance. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.</p> <p>Default: Uses existing setting</p> <p>Format: ddd:hh24:mi-ddd:hh24:mi</p> <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Must be at least 30 minutes</p>"
         },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance."
+        },
         "PromotionTier": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "<p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance\"> Fault Tolerance for an Aurora DB Cluster</a>. </p> <p>Default: 1</p> <p>Valid Values: 0 - 15</p>"
@@ -11800,6 +12131,10 @@
         "TdeCredentialPassword": {
           "$ref": "#/definitions/String",
           "description": "The password for the given ARN from the key store in order to access the device."
+        },
+        "UseDefaultProcessorFeatures": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": "A value that specifies that the DB instance class of the DB instance uses its default processor features."
         },
         "VpcSecurityGroupIds": {
           "$ref": "#/definitions/VpcSecurityGroupIdList",
@@ -12404,6 +12739,10 @@
           "$ref": "#/definitions/AvailabilityZoneList",
           "description": "A list of Availability Zones for a DB instance."
         },
+        "AvailableProcessorFeatures": {
+          "$ref": "#/definitions/AvailableProcessorFeatureList",
+          "description": "A list of the available processor features for the DB instance class of a DB instance."
+        },
         "DBInstanceClass": {
           "$ref": "#/definitions/String",
           "description": "The DB instance class for a DB instance."
@@ -12679,6 +13018,10 @@
           "$ref": "#/definitions/IntegerOptional",
           "description": "Specifies the pending port for the DB instance."
         },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance."
+        },
         "StorageType": {
           "$ref": "#/definitions/String",
           "description": "Specifies the storage type to be associated with the DB instance."
@@ -12690,6 +13033,26 @@
       "description": " <i>SourceDBInstanceIdentifier</i> refers to a DB instance with <i>BackupRetentionPeriod</i> equal to 0. ",
       "properties": {},
       "type": "object"
+    },
+    "ProcessorFeature": {
+      "description": "<p>Contains the processor features of a DB instance class.</p> <p>To specify the number of CPU cores, use the <code>coreCount</code> feature name for the <code>Name</code> parameter. To specify the number of threads per core, use the <code>threadsPerCore</code> feature name for the <code>Name</code> parameter.</p> <p>You can set the processor features of the DB instance class for a DB instance when you call one of the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p> <a>RestoreDBInstanceFromDBSnapshot</a> </p> </li> <li> <p> <a>RestoreDBInstanceFromS3</a> </p> </li> <li> <p> <a>RestoreDBInstanceToPointInTime</a> </p> </li> </ul> <p>You can view the valid processor values for a particular instance class by calling the <a>DescribeOrderableDBInstanceOptions</a> action and specifying the instance class for the <code>DBInstanceClass</code> parameter.</p> <p>In addition, you can use the following actions for DB instance class processor information:</p> <ul> <li> <p> <a>DescribeDBInstances</a> </p> </li> <li> <p> <a>DescribeDBSnapshots</a> </p> </li> <li> <p> <a>DescribeValidDBInstanceModifications</a> </p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor\">Configuring the Processor of the DB Instance Class</a> in the <i>Amazon RDS User Guide. </i> </p>",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the processor feature. Valid names are <code>coreCount</code> and <code>threadsPerCore</code>."
+        },
+        "Value": {
+          "$ref": "#/definitions/String",
+          "description": "The value of a processor feature name."
+        }
+      },
+      "type": "object"
+    },
+    "ProcessorFeatureList": {
+      "items": {
+        "$ref": "#/definitions/ProcessorFeature"
+      },
+      "type": "array"
     },
     "PromoteReadReplicaDBClusterMessage": {
       "description": "<p/>",
@@ -13165,6 +13528,10 @@
           "$ref": "#/definitions/AvailabilityZones",
           "description": "A list of EC2 Availability Zones that instances in the restored DB cluster can be created in."
         },
+        "BacktrackWindow": {
+          "$ref": "#/definitions/LongOptional",
+          "description": "<p>The target backtrack window, in seconds. To disable backtracking, set this value to 0.</p> <p>Default: 0</p> <p>Constraints:</p> <ul> <li> <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p> </li> </ul>"
+        },
         "BackupRetentionPeriod": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "<p>The number of days for which automated backups of the restored DB cluster are retained. You must specify a minimum value of 1.</p> <p>Default: 1</p> <p>Constraints:</p> <ul> <li> <p>Must be a value from 1 to 35</p> </li> </ul>"
@@ -13188,6 +13555,10 @@
         "DatabaseName": {
           "$ref": "#/definitions/String",
           "description": "The database name for the restored DB cluster."
+        },
+        "EnableCloudwatchLogsExports": {
+          "$ref": "#/definitions/LogTypeList",
+          "description": "The list of logs that the restored DB cluster is to export to CloudWatch Logs."
         },
         "EnableIAMDatabaseAuthentication": {
           "$ref": "#/definitions/BooleanOptional",
@@ -13288,9 +13659,13 @@
           "$ref": "#/definitions/AvailabilityZones",
           "description": "Provides the list of EC2 Availability Zones that instances in the restored DB cluster can be created in."
         },
+        "BacktrackWindow": {
+          "$ref": "#/definitions/LongOptional",
+          "description": "<p>The target backtrack window, in seconds. To disable backtracking, set this value to 0.</p> <p>Default: 0</p> <p>Constraints:</p> <ul> <li> <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p> </li> </ul>"
+        },
         "DBClusterIdentifier": {
           "$ref": "#/definitions/String",
-          "description": "<p>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>"
+          "description": "<p>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>"
         },
         "DBSubnetGroupName": {
           "$ref": "#/definitions/String",
@@ -13299,6 +13674,10 @@
         "DatabaseName": {
           "$ref": "#/definitions/String",
           "description": "The database name for the restored DB cluster."
+        },
+        "EnableCloudwatchLogsExports": {
+          "$ref": "#/definitions/LogTypeList",
+          "description": "The list of logs that the restored DB cluster is to export to CloudWatch Logs."
         },
         "EnableIAMDatabaseAuthentication": {
           "$ref": "#/definitions/BooleanOptional",
@@ -13355,6 +13734,10 @@
     "RestoreDBClusterToPointInTimeMessage": {
       "description": "<p/>",
       "properties": {
+        "BacktrackWindow": {
+          "$ref": "#/definitions/LongOptional",
+          "description": "<p>The target backtrack window, in seconds. To disable backtracking, set this value to 0.</p> <p>Default: 0</p> <p>Constraints:</p> <ul> <li> <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p> </li> </ul>"
+        },
         "DBClusterIdentifier": {
           "$ref": "#/definitions/String",
           "description": "<p>The name of the new DB cluster to be created.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul>"
@@ -13362,6 +13745,10 @@
         "DBSubnetGroupName": {
           "$ref": "#/definitions/String",
           "description": "<p>The DB subnet group name to use for the new DB cluster.</p> <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example: <code>mySubnetgroup</code> </p>"
+        },
+        "EnableCloudwatchLogsExports": {
+          "$ref": "#/definitions/LogTypeList",
+          "description": "The list of logs that the restored DB cluster is to export to CloudWatch Logs."
         },
         "EnableIAMDatabaseAuthentication": {
           "$ref": "#/definitions/BooleanOptional",
@@ -13377,7 +13764,7 @@
         },
         "Port": {
           "$ref": "#/definitions/IntegerOptional",
-          "description": "<p>The port number on which the new DB cluster accepts connections.</p> <p>Constraints: Value must be <code>1150-65535</code> </p> <p>Default: The same port as the original DB cluster.</p>"
+          "description": "<p>The port number on which the new DB cluster accepts connections.</p> <p>Constraints: A value from <code>1150-65535</code>. </p> <p>Default: The default port for the engine.</p>"
         },
         "RestoreToTime": {
           "$ref": "#/definitions/TStamp",
@@ -13434,7 +13821,7 @@
         },
         "DBInstanceClass": {
           "$ref": "#/definitions/String",
-          "description": "<p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the Amazon RDS User Guide. </p> <p>Default: The same DBInstanceClass as the original DB instance.</p>"
+          "description": "<p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Default: The same DBInstanceClass as the original DB instance.</p>"
         },
         "DBInstanceIdentifier": {
           "$ref": "#/definitions/String",
@@ -13492,6 +13879,10 @@
           "$ref": "#/definitions/IntegerOptional",
           "description": "<p>The port number on which the database accepts connections.</p> <p>Default: The same port as the original DB instance</p> <p>Constraints: Value must be <code>1150-65535</code> </p>"
         },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance."
+        },
         "PubliclyAccessible": {
           "$ref": "#/definitions/BooleanOptional",
           "description": "<p>Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.</p> <p>Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.</p> <ul> <li> <p> <b>Default VPC:</b> true</p> </li> <li> <p> <b>VPC:</b> false</p> </li> </ul> <p>If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is private.</p>"
@@ -13510,6 +13901,10 @@
         "TdeCredentialPassword": {
           "$ref": "#/definitions/String",
           "description": "The password for the given ARN from the key store in order to access the device."
+        },
+        "UseDefaultProcessorFeatures": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": "A value that specifies that the DB instance class of the DB instance uses its default processor features."
         }
       },
       "required": [
@@ -13550,7 +13945,7 @@
         },
         "DBInstanceClass": {
           "$ref": "#/definitions/String",
-          "description": "<p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the Amazon RDS User Guide. </p> <p>Importing from Amazon S3 is not supported on the db.t2.micro DB instance class. </p>"
+          "description": "<p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from Amazon S3 is not supported on the db.t2.micro DB instance class. </p>"
         },
         "DBInstanceIdentifier": {
           "$ref": "#/definitions/String",
@@ -13582,7 +13977,7 @@
         },
         "EnablePerformanceInsights": {
           "$ref": "#/definitions/BooleanOptional",
-          "description": "True to enable Performance Insights for the DB instance, and otherwise false. "
+          "description": "<p>True to enable Performance Insights for the DB instance, and otherwise false. </p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>. </p>"
         },
         "Engine": {
           "$ref": "#/definitions/String",
@@ -13590,7 +13985,7 @@
         },
         "EngineVersion": {
           "$ref": "#/definitions/String",
-          "description": "The version number of the database engine to use. Choose the latest minor version of your database engine as specified in <a>CreateDBInstance</a>. "
+          "description": "The version number of the database engine to use. Choose the latest minor version of your database engine. For information about engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>. "
         },
         "Iops": {
           "$ref": "#/definitions/IntegerOptional",
@@ -13644,6 +14039,10 @@
           "$ref": "#/definitions/String",
           "description": "<p>The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance\">Amazon RDS Maintenance Window</a>. </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format <code>ddd:hh24:mi-ddd:hh24:mi</code>.</p> </li> <li> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be in Universal Coordinated Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred backup window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>"
         },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance."
+        },
         "PubliclyAccessible": {
           "$ref": "#/definitions/BooleanOptional",
           "description": "Specifies whether the DB instance is publicly accessible or not. For more information, see <a>CreateDBInstance</a>. "
@@ -13679,6 +14078,10 @@
         "Tags": {
           "$ref": "#/definitions/TagList",
           "description": "A list of tags to associate with this DB instance. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html\">Tagging Amazon RDS Resources</a>. "
+        },
+        "UseDefaultProcessorFeatures": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": "A value that specifies that the DB instance class of the DB instance uses its default processor features."
         },
         "VpcSecurityGroupIds": {
           "$ref": "#/definitions/VpcSecurityGroupIdList",
@@ -13721,7 +14124,7 @@
         },
         "DBInstanceClass": {
           "$ref": "#/definitions/String",
-          "description": "<p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the Amazon RDS User Guide. </p> <p>Default: The same DBInstanceClass as the original DB instance.</p>"
+          "description": "<p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Default: The same DBInstanceClass as the original DB instance.</p>"
         },
         "DBName": {
           "$ref": "#/definitions/String",
@@ -13771,6 +14174,10 @@
           "$ref": "#/definitions/IntegerOptional",
           "description": "<p>The port number on which the database accepts connections.</p> <p>Constraints: Value must be <code>1150-65535</code> </p> <p>Default: The same port as the original DB instance.</p>"
         },
+        "ProcessorFeatures": {
+          "$ref": "#/definitions/ProcessorFeatureList",
+          "description": "The number of CPU cores and the number of threads per core for the DB instance class of the DB instance."
+        },
         "PubliclyAccessible": {
           "$ref": "#/definitions/BooleanOptional",
           "description": "<p>Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.</p> <p>Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.</p> <ul> <li> <p> <b>Default VPC:</b>true</p> </li> <li> <p> <b>VPC:</b>false</p> </li> </ul> <p>If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is private.</p>"
@@ -13801,6 +14208,10 @@
         "TdeCredentialPassword": {
           "$ref": "#/definitions/String",
           "description": "The password for the given ARN from the key store in order to access the device."
+        },
+        "UseDefaultProcessorFeatures": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": "A value that specifies that the DB instance class of the DB instance uses its default processor features."
         },
         "UseLatestRestorableTime": {
           "$ref": "#/definitions/Boolean",
@@ -13879,7 +14290,7 @@
       "type": "object"
     },
     "SnapshotQuotaExceededFault": {
-      "description": "Request would result in user exceeding the allowed number of DB snapshots.",
+      "description": "The request would result in the user exceeding the allowed number of DB snapshots.",
       "properties": {},
       "type": "object"
     },
@@ -13988,12 +14399,12 @@
       "type": "object"
     },
     "StorageQuotaExceededFault": {
-      "description": "Request would result in user exceeding the allowed amount of storage available across all DB instances.",
+      "description": "The request would result in the user exceeding the allowed amount of storage available across all DB instances.",
       "properties": {},
       "type": "object"
     },
     "StorageTypeNotSupportedFault": {
-      "description": " <i>StorageType</i> specified cannot be associated with the DB Instance. ",
+      "description": "Storage of the <i>StorageType</i> specified can't be associated with the DB instance. ",
       "properties": {},
       "type": "object"
     },
@@ -14138,6 +14549,10 @@
         "Storage": {
           "$ref": "#/definitions/ValidStorageOptionsList",
           "description": "Valid storage options for your DB instance. "
+        },
+        "ValidProcessorFeatures": {
+          "$ref": "#/definitions/AvailableProcessorFeatureList",
+          "description": "Valid processor features for your DB instance. "
         }
       },
       "type": "object"

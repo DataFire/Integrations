@@ -127,16 +127,4 @@ azure_sql_backuplongtermretentionvaults.BackupLongTermRetentionVaults_CreateOrUp
 * BackupLongTermRetentionVaultProperties `object`: The properties of a backup long term retention vault.
   * recoveryServicesVaultResourceId **required** `string`: The azure recovery services vault resource id
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

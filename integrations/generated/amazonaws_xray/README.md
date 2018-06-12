@@ -13,10 +13,7 @@ let amazonaws_xray = require('@datafire/amazonaws_xray').create({
   region: ""
 });
 
-amazonaws_xray.GetServiceGraph({
-  "StartTime": "",
-  "EndTime": ""
-}).then(data => {
+amazonaws_xray.GetEncryptionConfig({}).then(data => {
   console.log(data);
 });
 ```
@@ -26,6 +23,38 @@ amazonaws_xray.GetServiceGraph({
 AWS X-Ray provides APIs for managing debug traces and retrieving service maps and other data created by processing those traces.
 
 ## Actions
+
+### GetEncryptionConfig
+
+
+
+```js
+amazonaws_xray.GetEncryptionConfig({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetEncryptionConfigResult](#getencryptionconfigresult)
+
+### PutEncryptionConfig
+
+
+
+```js
+amazonaws_xray.PutEncryptionConfig({
+  "Type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * KeyId [EncryptionKeyId](#encryptionkeyid)
+  * Type **required** [EncryptionType](#encryptiontype)
+
+#### Output
+* output [PutEncryptionConfigResult](#putencryptionconfigresult)
 
 ### GetServiceGraph
 
@@ -226,6 +255,21 @@ amazonaws_xray.BatchGetTraces({
   * TotalCount [NullableLong](#nullablelong)
   * TotalResponseTime [NullableDouble](#nullabledouble)
 
+### EncryptionConfig
+* EncryptionConfig `object`: A configuration document that specifies encryption configuration settings.
+  * KeyId [String](#string)
+  * Status [EncryptionStatus](#encryptionstatus)
+  * Type [EncryptionType](#encryptiontype)
+
+### EncryptionKeyId
+* EncryptionKeyId `string`
+
+### EncryptionStatus
+* EncryptionStatus `string` (values: UPDATING, ACTIVE)
+
+### EncryptionType
+* EncryptionType `string` (values: NONE, KMS)
+
 ### ErrorMessage
 * ErrorMessage `string`
 
@@ -242,6 +286,13 @@ amazonaws_xray.BatchGetTraces({
 
 ### FilterExpression
 * FilterExpression `string`
+
+### GetEncryptionConfigRequest
+* GetEncryptionConfigRequest `object`
+
+### GetEncryptionConfigResult
+* GetEncryptionConfigResult `object`
+  * EncryptionConfig [EncryptionConfig](#encryptionconfig)
 
 ### GetServiceGraphRequest
 * GetServiceGraphRequest `object`
@@ -320,6 +371,15 @@ amazonaws_xray.BatchGetTraces({
 ### NullableLong
 * NullableLong `integer`
 
+### PutEncryptionConfigRequest
+* PutEncryptionConfigRequest `object`
+  * KeyId [EncryptionKeyId](#encryptionkeyid)
+  * Type **required** [EncryptionType](#encryptiontype)
+
+### PutEncryptionConfigResult
+* PutEncryptionConfigResult `object`
+  * EncryptionConfig [EncryptionConfig](#encryptionconfig)
+
 ### PutTelemetryRecordsRequest
 * PutTelemetryRecordsRequest `object`
   * EC2InstanceId [EC2InstanceId](#ec2instanceid)
@@ -342,7 +402,7 @@ amazonaws_xray.BatchGetTraces({
 * ResourceARN `string`
 
 ### Segment
-* Segment `object`: A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with <a>PutTraceSegments</a>, or an <code>inferred</code> segment for a downstream service, generated from a subsegment sent by the service that called it.
+* Segment `object`: <p>A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with <a>PutTraceSegments</a>, or an <code>inferred</code> segment for a downstream service, generated from a subsegment sent by the service that called it.</p> <p>For the full segment document schema, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">AWS X-Ray Segment Documents</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
   * Document [SegmentDocument](#segmentdocument)
   * Id [SegmentId](#segmentid)
 

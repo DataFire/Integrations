@@ -366,7 +366,7 @@ beezup.CopyOptimisation({
   * request **required** [copyOptimisationRequest](#copyoptimisationrequest)
 
 #### Output
-*Output schema unknown*
+* output [copyOptimisationResponse](#copyoptimisationresponse)
 
 ### Optimise
 /!\ WARNING /!\ \
@@ -3962,8 +3962,8 @@ beezup.ChangeOrder({
   * channelId **required** [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * storeId **required** [BeezUP.Common.StoreId](#beezup.common.storeid)
 
-### additionalProductColumnFilters
-* additionalProductColumnFilters `object`: Describes a filter on a product's column.
+### additionalAnalyticsProductColumnFilters
+* additionalAnalyticsProductColumnFilters `object`: Describes a filter on a product's column.
 
 ### address
 * address `string`: Your address
@@ -3997,7 +3997,9 @@ beezup.ChangeOrder({
 
 ### analyticsIndexLovLinks
 * analyticsIndexLovLinks `object`
-  * numericProductColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * analyticsNumericalProductColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * analyticsProductColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * analyticsStringProductColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * performanceIndicatorFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * performanceIndicatorFormulaOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * performanceIndicatorFormulaParameterTypeLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
@@ -4005,9 +4007,22 @@ beezup.ChangeOrder({
   * performanceIndicatorTypeForReportsByChannelLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * performanceIndicatorTypeForReportsByProductLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * performanceIndicatorTypeLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
-  * productColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * storeOptimisationRuleExecutionStatusLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
-  * stringProductColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+
+### analyticsProductColumnFilter
+* analyticsProductColumnFilter `object`
+  * operatorName **required** [analyticsProductColumnFilterOperatorName](#analyticsproductcolumnfilteroperatorname)
+  * values `array`: Must be null if the operator is "IsNull" or "IsNotNull".
+    * items `string`
+
+### analyticsProductColumnFilterOperatorName
+* analyticsProductColumnFilterOperatorName `string`: Indicate the operator you want to apply on the columnId
+
+### analyticsProductColumnFilters
+* analyticsProductColumnFilters `object`
+  * additionalAnalyticsProductColumnFilters [additionalAnalyticsProductColumnFilters](#additionalanalyticsproductcolumnfilters)
+  * sku `string`: The product sku filter
+  * title `string`: The product title filter
 
 ### analyticsStoreIndex
 * analyticsStoreIndex `object`
@@ -5026,6 +5041,12 @@ beezup.ChangeOrder({
   * channelIdTarget **required** [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * keepExistingOptimisation **required** `boolean`: If true the existing optimisation will be kept
 
+### copyOptimisationResponse
+* copyOptimisationResponse `object`: Products optimisatisation copied
+  * catalogProductCount **required** `integer`: The catalog product count
+  * channel **required** [BeezUP.Common.ChannelBasicInfo](#beezup.common.channelbasicinfo)
+  * enabledProductCount **required** `integer`: The enabled product count
+
 ### costSettings
 * costSettings `object`: If this property is not indicated please force the user to configure the cost settings.
   * costType **required** [costType](#costtype)
@@ -5450,11 +5471,6 @@ beezup.ChangeOrder({
   * sku `string`: Search for products containing this SKU (merchant product dentifier).
   * title `string`: Search for products containing this title
   * withoutSubCategories `boolean`: Do not retrieve sub categories. By default, this value is set to false
-
-### globalPerformanceIndicatorByChannel
-* globalPerformanceIndicatorByChannel `object`
-  * channel **required** [BeezUP.Common.ChannelBasicInfo](#beezup.common.channelbasicinfo)
-  * globalPerformanceIndicator **required** `number`: Indicates the global performance indicator for this channel
 
 ### gravatarProfilePictureUrl
 * gravatarProfilePictureUrl `string`: Indicate the url of your picture profil based on gravatar
@@ -8096,7 +8112,7 @@ beezup.ChangeOrder({
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
   * orderBy [performanceIndicatorType](#performanceindicatortype)
   * orderByDirection [orderByDirection](#orderbydirection)
-  * productColumnFilters [productColumnFilters](#productcolumnfilters)
+  * analyticsProductColumnFilters [analyticsProductColumnFilters](#analyticsproductcolumnfilters)
   * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
   * productState [productStateFilter](#productstatefilter)
   * reportType **required** [reportType](#reporttype)
@@ -8113,7 +8129,7 @@ beezup.ChangeOrder({
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
   * orderBy [performanceIndicatorType](#performanceindicatortype)
   * orderByDirection [orderByDirection](#orderbydirection)
-  * productColumnFilters [productColumnFilters](#productcolumnfilters)
+  * analyticsProductColumnFilters [analyticsProductColumnFilters](#analyticsproductcolumnfilters)
   * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
   * productState [productStateFilter](#productstatefilter)
   * reportType **required** [reportType](#reporttype)
@@ -8472,7 +8488,7 @@ beezup.ChangeOrder({
   * value **required** `number`: Indicates the filter value to apply on this indicator
 
 ### performanceIndicatorFilterOperatorName
-* performanceIndicatorFilterOperatorName `string` (values: Equals, GreaterTo, LowerTo): Indicates the operator you want to apply on this indicator
+* performanceIndicatorFilterOperatorName `string`: Indicates the operator you want to apply on this indicator
 
 ### performanceIndicatorFormula
 * performanceIndicatorFormula `object`: The KPI formula
@@ -8523,21 +8539,6 @@ beezup.ChangeOrder({
   * exists **required** `boolean`: Indicates if the product exists in the current catalog
   * productId **required** [BeezUP.Common.ProductId](#beezup.common.productid)
   * values **required** [productValues](#productvalues)
-
-### productColumnFilter
-* productColumnFilter `object`
-  * operatorName **required** [productColumnFilterOperatorName](#productcolumnfilteroperatorname)
-  * values `array`: Must be null if the operator is "IsNull" or "IsNotNull".
-    * items `string`
-
-### productColumnFilterOperatorName
-* productColumnFilterOperatorName `string` (values: Equals, Contains, InList, IsNull, IsNotNull, NumericEquals, NumericGreaterTo, NumericLowerTo): Indicate the operator you want to apply on the columnId
-
-### productColumnFilters
-* productColumnFilters `object`
-  * additionalProductColumnFilters [additionalProductColumnFilters](#additionalproductcolumnfilters)
-  * sku `string`: The product sku filter
-  * title `string`: The product title filter
 
 ### productColumnsToDisplay
 * productColumnsToDisplay `array`
@@ -8747,18 +8748,18 @@ beezup.ChangeOrder({
 
 ### reportByChannel
 * reportByChannel `object`
-  * catalogProductCount **required** `integer`: The catalog product count for this channel
+  * catalogProductCount **required** `integer`: The catalog product count
   * channel **required** [BeezUP.Common.ChannelBasicInfo](#beezup.common.channelbasicinfo)
-  * clickCount **required** `integer`: The click count for this channel
-  * cost **required** `number`: The cost for this channel
-  * enabledProductCount **required** `integer`: The enabled product count for this channel
+  * clickCount **required** `integer`: The click count
+  * cost **required** `number`: The cost for
+  * enabledProductCount **required** `integer`: The enabled product count
   * links **required** [reportByChannelLinks](#reportbychannellinks)
-  * margin `number`: The margin for this channel
-  * orderCount **required** `integer`: The order count for this channel
-  * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request for this channel
-  * roi `number`: The Return On Investment for this channel
-  * soldProductCount **required** `integer`: The product sold count count for this channel
-  * totalSales **required** `number`: The total sales for this channel
+  * margin `number`: The margin
+  * orderCount **required** `integer`: The order count
+  * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request
+  * roi `number`: The Return On Investment
+  * soldProductCount **required** `integer`: The product sold count count
+  * totalSales **required** `number`: The total sales
 
 ### reportByChannelLinks
 * reportByChannelLinks `object`
@@ -8811,26 +8812,41 @@ beezup.ChangeOrder({
 
 ### reportByDayAllChannels
 * reportByDayAllChannels `object`
-  * clickCount **required** `integer`: The click count for this day and all channels
-  * cost **required** `number`: The cost for this day and all channels
-  * margin **required** `number`: The margin for this day and all channels
-  * orderCount **required** `integer`: The order count for this day and all channels
-  * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request for this day and all channels
-  * roi **required** `number`: The Return On Investment for this day and all channels
-  * soldProductCount **required** `integer`: The product sold count count for this day and all channels
-  * totalSales **required** `number`: The total sales for this day and all channels
+  * clickCount **required** `integer`: The click count
+  * cost **required** `number`: The cost
+  * margin **required** `number`: The margin
+  * orderCount **required** `integer`: The order count
+  * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request
+  * roi **required** `number`: The Return On Investment
+  * soldProductCount **required** `integer`: The product sold count count
+  * totalSales **required** `number`: The total sales
 
 ### reportByDayByChannel
-* reportByDayByChannel `object`
+* reportByDayByChannel
+  * clickCount **required** `integer`: The click count
+  * cost **required** `number`: The cost
+  * margin **required** `number`: The margin
+  * orderCount **required** `integer`: The order count
+  * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request
+  * roi **required** `number`: The Return On Investment
+  * soldProductCount **required** `integer`: The product sold count count
+  * totalSales **required** `number`: The total sales
   * channel **required** [BeezUP.Common.ChannelBasicInfo](#beezup.common.channelbasicinfo)
-  * clickCount **required** `integer`: The click count for this day and this channel
-  * cost **required** `number`: The cost for this day and this channel
-  * margin **required** `number`: The margin for this day and this channel
-  * orderCount **required** `integer`: The order count for this day and this channel
-  * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request for this day and this channel
-  * roi **required** `number`: The Return On Investment for this day and this channel
-  * soldProductCount **required** `integer`: The product sold count count for this day and this channel
-  * totalSales **required** `number`: The total sales for this day and this channel
+
+### reportByDayGlobal
+* reportByDayGlobal `object`
+  * allChannels **required** [reportByDayGlobalAllChannels](#reportbydayglobalallchannels)
+  * byChannels **required** `array`
+    * items [reportByDayGlobalByChannel](#reportbydayglobalbychannel)
+
+### reportByDayGlobalAllChannels
+* reportByDayGlobalAllChannels `object`
+  * performanceIndicator **required** `number`: Indicates the global performance indicator
+
+### reportByDayGlobalByChannel
+* reportByDayGlobalByChannel
+  * performanceIndicator **required** `number`: Indicates the global performance indicator
+  * channel **required** [BeezUP.Common.ChannelBasicInfo](#beezup.common.channelbasicinfo)
 
 ### reportByDayRequest
 * reportByDayRequest `object`
@@ -8847,8 +8863,7 @@ beezup.ChangeOrder({
   * currencyCode **required** [BeezUP.Common.CurrencyCode](#beezup.common.currencycode)
   * days **required** `array`
     * items [reportByDay](#reportbyday)
-  * globalPerformanceIndicators **required** `array`
-    * items [globalPerformanceIndicatorByChannel](#globalperformanceindicatorbychannel)
+  * global [reportByDayGlobal](#reportbydayglobal)
 
 ### reportByProduct
 * reportByProduct `object`
@@ -8895,7 +8910,7 @@ beezup.ChangeOrder({
   * orderByDirection [orderByDirection](#orderbydirection)
   * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
   * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
-  * productColumnFilters [productColumnFilters](#productcolumnfilters)
+  * analyticsProductColumnFilters [analyticsProductColumnFilters](#analyticsproductcolumnfilters)
   * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
   * productState **required** [productStateFilter](#productstatefilter)
 
@@ -8965,7 +8980,7 @@ beezup.ChangeOrder({
   * performanceIndicatorFilters `array`
     * items [performanceIndicatorFilter](#performanceindicatorfilter)
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
-  * productColumnFilters [productColumnFilters](#productcolumnfilters)
+  * analyticsProductColumnFilters [analyticsProductColumnFilters](#analyticsproductcolumnfilters)
   * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
   * productState [productStateFilter](#productstatefilter)
   * reportType **required** [reportType](#reporttype)

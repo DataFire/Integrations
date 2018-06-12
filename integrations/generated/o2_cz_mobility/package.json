@@ -1,6 +1,6 @@
 {
   "name": "@datafire/o2_cz_mobility",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Mobility",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/o2.cz/mobility/1.0-M6-SNAPSHOT/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/o2.cz/mobility/1.0/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

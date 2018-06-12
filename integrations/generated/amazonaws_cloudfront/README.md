@@ -292,6 +292,224 @@ amazonaws_cloudfront.ListDistributionsByWebACLId({
 #### Output
 * output [ListDistributionsByWebACLIdResult](#listdistributionsbywebaclidresult)
 
+### ListFieldLevelEncryptionConfigs
+
+
+
+```js
+amazonaws_cloudfront.ListFieldLevelEncryptionConfigs({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [ListFieldLevelEncryptionConfigsResult](#listfieldlevelencryptionconfigsresult)
+
+### CreateFieldLevelEncryptionConfig
+
+
+
+```js
+amazonaws_cloudfront.CreateFieldLevelEncryptionConfig({
+  "FieldLevelEncryptionConfig": {
+    "CallerReference": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+
+#### Output
+*Output schema unknown*
+
+### ListFieldLevelEncryptionProfiles
+
+
+
+```js
+amazonaws_cloudfront.ListFieldLevelEncryptionProfiles({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [ListFieldLevelEncryptionProfilesResult](#listfieldlevelencryptionprofilesresult)
+
+### CreateFieldLevelEncryptionProfile
+
+
+
+```js
+amazonaws_cloudfront.CreateFieldLevelEncryptionProfile({
+  "FieldLevelEncryptionProfileConfig": {
+    "Name": "",
+    "CallerReference": "",
+    "EncryptionEntities": {
+      "Quantity": 0
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+
+#### Output
+*Output schema unknown*
+
+### DeleteFieldLevelEncryptionProfile
+
+
+
+```js
+amazonaws_cloudfront.DeleteFieldLevelEncryptionProfile({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetFieldLevelEncryptionProfile
+
+
+
+```js
+amazonaws_cloudfront.GetFieldLevelEncryptionProfile({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetFieldLevelEncryptionProfileResult](#getfieldlevelencryptionprofileresult)
+
+### GetFieldLevelEncryptionProfileConfig
+
+
+
+```js
+amazonaws_cloudfront.GetFieldLevelEncryptionProfileConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetFieldLevelEncryptionProfileConfigResult](#getfieldlevelencryptionprofileconfigresult)
+
+### UpdateFieldLevelEncryptionProfile
+
+
+
+```js
+amazonaws_cloudfront.UpdateFieldLevelEncryptionProfile({
+  "Id": "",
+  "FieldLevelEncryptionProfileConfig": {
+    "Name": "",
+    "CallerReference": "",
+    "EncryptionEntities": {
+      "Quantity": 0
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+
+#### Output
+* output [UpdateFieldLevelEncryptionProfileResult](#updatefieldlevelencryptionprofileresult)
+
+### DeleteFieldLevelEncryptionConfig
+
+
+
+```js
+amazonaws_cloudfront.DeleteFieldLevelEncryptionConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetFieldLevelEncryption
+
+
+
+```js
+amazonaws_cloudfront.GetFieldLevelEncryption({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetFieldLevelEncryptionResult](#getfieldlevelencryptionresult)
+
+### GetFieldLevelEncryptionConfig
+
+
+
+```js
+amazonaws_cloudfront.GetFieldLevelEncryptionConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetFieldLevelEncryptionConfigResult](#getfieldlevelencryptionconfigresult)
+
+### UpdateFieldLevelEncryptionConfig
+
+
+
+```js
+amazonaws_cloudfront.UpdateFieldLevelEncryptionConfig({
+  "Id": "",
+  "FieldLevelEncryptionConfig": {
+    "CallerReference": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+
+#### Output
+* output [UpdateFieldLevelEncryptionConfigResult](#updatefieldlevelencryptionconfigresult)
+
 ### ListCloudFrontOriginAccessIdentities
 
 
@@ -400,6 +618,115 @@ amazonaws_cloudfront.UpdateCloudFrontOriginAccessIdentity({
 
 #### Output
 * output [UpdateCloudFrontOriginAccessIdentityResult](#updatecloudfrontoriginaccessidentityresult)
+
+### ListPublicKeys
+
+
+
+```js
+amazonaws_cloudfront.ListPublicKeys({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [ListPublicKeysResult](#listpublickeysresult)
+
+### CreatePublicKey
+
+
+
+```js
+amazonaws_cloudfront.CreatePublicKey({
+  "PublicKeyConfig": {
+    "CallerReference": "",
+    "Name": "",
+    "EncodedKey": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+
+#### Output
+*Output schema unknown*
+
+### DeletePublicKey
+
+
+
+```js
+amazonaws_cloudfront.DeletePublicKey({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetPublicKey
+
+
+
+```js
+amazonaws_cloudfront.GetPublicKey({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetPublicKeyResult](#getpublickeyresult)
+
+### GetPublicKeyConfig
+
+
+
+```js
+amazonaws_cloudfront.GetPublicKeyConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetPublicKeyConfigResult](#getpublickeyconfigresult)
+
+### UpdatePublicKey
+
+
+
+```js
+amazonaws_cloudfront.UpdatePublicKey({
+  "Id": "",
+  "PublicKeyConfig": {
+    "CallerReference": "",
+    "Name": "",
+    "EncodedKey": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+
+#### Output
+* output [UpdatePublicKeyResult](#updatepublickeyresult)
 
 ### DeleteServiceLinkedRole
 
@@ -671,6 +998,7 @@ amazonaws_cloudfront.UntagResource({
   * AllowedMethods [AllowedMethods](#allowedmethods)
   * Compress [boolean](#boolean)
   * DefaultTTL [long](#long)
+  * FieldLevelEncryptionId [string](#string)
   * ForwardedValues **required** [ForwardedValues](#forwardedvalues)
   * LambdaFunctionAssociations [LambdaFunctionAssociations](#lambdafunctionassociations)
   * MaxTTL [long](#long)
@@ -694,6 +1022,10 @@ amazonaws_cloudfront.UntagResource({
 * CachedMethods `object`: <p>A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:</p> <ul> <li> <p>CloudFront caches responses to <code>GET</code> and <code>HEAD</code> requests.</p> </li> <li> <p>CloudFront caches responses to <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code> requests.</p> </li> </ul> <p>If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly. </p>
   * Items **required** [MethodsList](#methodslist)
   * Quantity **required** [integer](#integer)
+
+### CannotChangeImmutablePublicKeyFields
+* CannotChangeImmutablePublicKeyFields `object`: You can't change the value of a public key.
+  * Message [string](#string)
 
 ### CertificateSource
 * CertificateSource `string` (values: cloudfront, iam, acm)
@@ -736,6 +1068,26 @@ amazonaws_cloudfront.UntagResource({
 * CloudFrontOriginAccessIdentitySummaryList `array`
   * items [CloudFrontOriginAccessIdentitySummary](#cloudfrontoriginaccessidentitysummary)
 
+### ContentTypeProfile
+* ContentTypeProfile `object`: A field-level encryption content type profile. 
+  * ContentType **required** [string](#string)
+  * Format **required** [Format](#format)
+  * ProfileId [string](#string)
+
+### ContentTypeProfileConfig
+* ContentTypeProfileConfig `object`: The configuration for a field-level encryption content type-profile mapping. 
+  * ContentTypeProfiles [ContentTypeProfiles](#contenttypeprofiles)
+  * ForwardWhenContentTypeIsUnknown **required** [boolean](#boolean)
+
+### ContentTypeProfileList
+* ContentTypeProfileList `array`
+  * items [ContentTypeProfile](#contenttypeprofile)
+
+### ContentTypeProfiles
+* ContentTypeProfiles `object`: Field-level encryption content type-profile. 
+  * Items [ContentTypeProfileList](#contenttypeprofilelist)
+  * Quantity **required** [integer](#integer)
+
 ### CookieNameList
 * CookieNameList `array`
   * items [string](#string)
@@ -774,6 +1126,22 @@ amazonaws_cloudfront.UntagResource({
 * CreateDistributionWithTagsResult `object`: The returned result of the corresponding request. 
   * Distribution [Distribution](#distribution)
 
+### CreateFieldLevelEncryptionConfigRequest
+* CreateFieldLevelEncryptionConfigRequest `object`
+  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+
+### CreateFieldLevelEncryptionConfigResult
+* CreateFieldLevelEncryptionConfigResult `object`
+  * FieldLevelEncryption [FieldLevelEncryption](#fieldlevelencryption)
+
+### CreateFieldLevelEncryptionProfileRequest
+* CreateFieldLevelEncryptionProfileRequest `object`
+  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+
+### CreateFieldLevelEncryptionProfileResult
+* CreateFieldLevelEncryptionProfileResult `object`
+  * FieldLevelEncryptionProfile [FieldLevelEncryptionProfile](#fieldlevelencryptionprofile)
+
 ### CreateInvalidationRequest
 * CreateInvalidationRequest `object`: The request to create an invalidation.
   * InvalidationBatch **required** [InvalidationBatch](#invalidationbatch)
@@ -781,6 +1149,14 @@ amazonaws_cloudfront.UntagResource({
 ### CreateInvalidationResult
 * CreateInvalidationResult `object`: The returned result of the corresponding request.
   * Invalidation [Invalidation](#invalidation)
+
+### CreatePublicKeyRequest
+* CreatePublicKeyRequest `object`
+  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+
+### CreatePublicKeyResult
+* CreatePublicKeyResult `object`
+  * PublicKey [PublicKey](#publickey)
 
 ### CreateStreamingDistributionRequest
 * CreateStreamingDistributionRequest `object`: The request to create a new streaming distribution.
@@ -833,6 +1209,7 @@ amazonaws_cloudfront.UntagResource({
   * AllowedMethods [AllowedMethods](#allowedmethods)
   * Compress [boolean](#boolean)
   * DefaultTTL [long](#long)
+  * FieldLevelEncryptionId [string](#string)
   * ForwardedValues **required** [ForwardedValues](#forwardedvalues)
   * LambdaFunctionAssociations [LambdaFunctionAssociations](#lambdafunctionassociations)
   * MaxTTL [long](#long)
@@ -847,6 +1224,15 @@ amazonaws_cloudfront.UntagResource({
 
 ### DeleteDistributionRequest
 * DeleteDistributionRequest `object`: <p>This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.</p> <p> <b>To delete a web distribution using the CloudFront API:</b> </p> <ol> <li> <p>Disable the web distribution </p> </li> <li> <p>Submit a <code>GET Distribution Config</code> request to get the current configuration and the <code>Etag</code> header for the distribution.</p> </li> <li> <p>Update the XML document that was returned in the response to your <code>GET Distribution Config</code> request to change the value of <code>Enabled</code> to <code>false</code>.</p> </li> <li> <p>Submit a <code>PUT Distribution Config</code> request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to the <code>PUT Distribution Config</code> request to confirm that the distribution was successfully disabled.</p> </li> <li> <p>Submit a <code>GET Distribution</code> request to confirm that your changes have propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p> </li> <li> <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 6.</p> </li> <li> <p>Review the response to your <code>DELETE Distribution</code> request to confirm that the distribution was successfully deleted.</p> </li> </ol> <p>For information about deleting a distribution using the CloudFront console, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+
+### DeleteFieldLevelEncryptionConfigRequest
+* DeleteFieldLevelEncryptionConfigRequest `object`
+
+### DeleteFieldLevelEncryptionProfileRequest
+* DeleteFieldLevelEncryptionProfileRequest `object`
+
+### DeletePublicKeyRequest
+* DeletePublicKeyRequest `object`
 
 ### DeleteServiceLinkedRoleRequest
 * DeleteServiceLinkedRoleRequest `object`
@@ -931,8 +1317,119 @@ amazonaws_cloudfront.UntagResource({
 * DistributionSummaryList `array`
   * items [DistributionSummary](#distributionsummary)
 
+### EncryptionEntities
+* EncryptionEntities `object`: Complex data type for field-level encryption profiles that includes all of the encryption entities. 
+  * Items [EncryptionEntityList](#encryptionentitylist)
+  * Quantity **required** [integer](#integer)
+
+### EncryptionEntity
+* EncryptionEntity `object`: Complex data type for field-level encryption profiles that includes the encryption key and field pattern specifications. 
+  * FieldPatterns **required** [FieldPatterns](#fieldpatterns)
+  * ProviderId **required** [string](#string)
+  * PublicKeyId **required** [string](#string)
+
+### EncryptionEntityList
+* EncryptionEntityList `array`
+  * items [EncryptionEntity](#encryptionentity)
+
 ### EventType
 * EventType `string` (values: viewer-request, viewer-response, origin-request, origin-response)
+
+### FieldLevelEncryption
+* FieldLevelEncryption `object`: A complex data type that includes the profile configurations and other options specified for field-level encryption. 
+  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+  * Id **required** [string](#string)
+  * LastModifiedTime **required** [timestamp](#timestamp)
+
+### FieldLevelEncryptionConfig
+* FieldLevelEncryptionConfig `object`: A complex data type that includes the profile configurations specified for field-level encryption. 
+  * CallerReference **required** [string](#string)
+  * Comment [string](#string)
+  * ContentTypeProfileConfig [ContentTypeProfileConfig](#contenttypeprofileconfig)
+  * QueryArgProfileConfig [QueryArgProfileConfig](#queryargprofileconfig)
+
+### FieldLevelEncryptionConfigAlreadyExists
+* FieldLevelEncryptionConfigAlreadyExists `object`: The specified configuration for field-level encryption already exists.
+  * Message [string](#string)
+
+### FieldLevelEncryptionConfigInUse
+* FieldLevelEncryptionConfigInUse `object`: The specified configuration for field-level encryption is in use.
+  * Message [string](#string)
+
+### FieldLevelEncryptionList
+* FieldLevelEncryptionList `object`: List of field-level encrpytion configurations.
+  * Items [FieldLevelEncryptionSummaryList](#fieldlevelencryptionsummarylist)
+  * MaxItems **required** [integer](#integer)
+  * NextMarker [string](#string)
+  * Quantity **required** [integer](#integer)
+
+### FieldLevelEncryptionProfile
+* FieldLevelEncryptionProfile `object`: A complex data type for field-level encryption profiles.
+  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+  * Id **required** [string](#string)
+  * LastModifiedTime **required** [timestamp](#timestamp)
+
+### FieldLevelEncryptionProfileAlreadyExists
+* FieldLevelEncryptionProfileAlreadyExists `object`: The specified profile for field-level encryption already exists.
+  * Message [string](#string)
+
+### FieldLevelEncryptionProfileConfig
+* FieldLevelEncryptionProfileConfig `object`: A complex data type of profiles for the field-level encryption.
+  * CallerReference **required** [string](#string)
+  * Comment [string](#string)
+  * EncryptionEntities **required** [EncryptionEntities](#encryptionentities)
+  * Name **required** [string](#string)
+
+### FieldLevelEncryptionProfileInUse
+* FieldLevelEncryptionProfileInUse `object`: The specified profile for field-level encryption is in use.
+  * Message [string](#string)
+
+### FieldLevelEncryptionProfileList
+* FieldLevelEncryptionProfileList `object`: List of field-level encryption profiles.
+  * Items [FieldLevelEncryptionProfileSummaryList](#fieldlevelencryptionprofilesummarylist)
+  * MaxItems **required** [integer](#integer)
+  * NextMarker [string](#string)
+  * Quantity **required** [integer](#integer)
+
+### FieldLevelEncryptionProfileSizeExceeded
+* FieldLevelEncryptionProfileSizeExceeded `object`: The maximum size of a profile for field-level encryption was exceeded.
+  * Message [string](#string)
+
+### FieldLevelEncryptionProfileSummary
+* FieldLevelEncryptionProfileSummary `object`: The field-level encryption profile summary.
+  * Comment [string](#string)
+  * EncryptionEntities **required** [EncryptionEntities](#encryptionentities)
+  * Id **required** [string](#string)
+  * LastModifiedTime **required** [timestamp](#timestamp)
+  * Name **required** [string](#string)
+
+### FieldLevelEncryptionProfileSummaryList
+* FieldLevelEncryptionProfileSummaryList `array`
+  * items [FieldLevelEncryptionProfileSummary](#fieldlevelencryptionprofilesummary)
+
+### FieldLevelEncryptionSummary
+* FieldLevelEncryptionSummary `object`: A summary of a field-level encryption item.
+  * Comment [string](#string)
+  * ContentTypeProfileConfig [ContentTypeProfileConfig](#contenttypeprofileconfig)
+  * Id **required** [string](#string)
+  * LastModifiedTime **required** [timestamp](#timestamp)
+  * QueryArgProfileConfig [QueryArgProfileConfig](#queryargprofileconfig)
+
+### FieldLevelEncryptionSummaryList
+* FieldLevelEncryptionSummaryList `array`
+  * items [FieldLevelEncryptionSummary](#fieldlevelencryptionsummary)
+
+### FieldPatternList
+* FieldPatternList `array`
+  * items [string](#string)
+
+### FieldPatterns
+* FieldPatterns `object`: A complex data type that includes the field patterns to match for field-level encryption.
+  * Items [FieldPatternList](#fieldpatternlist)
+  * Quantity **required** [integer](#integer)
+
+### Format
+* Format `string` (values: URLEncoded)
 
 ### ForwardedValues
 * ForwardedValues `object`: A complex type that specifies how CloudFront handles query strings and cookies.
@@ -978,12 +1475,54 @@ amazonaws_cloudfront.UntagResource({
 * GetDistributionResult `object`: The returned result of the corresponding request.
   * Distribution [Distribution](#distribution)
 
+### GetFieldLevelEncryptionConfigRequest
+* GetFieldLevelEncryptionConfigRequest `object`
+
+### GetFieldLevelEncryptionConfigResult
+* GetFieldLevelEncryptionConfigResult `object`
+  * FieldLevelEncryptionConfig [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+
+### GetFieldLevelEncryptionProfileConfigRequest
+* GetFieldLevelEncryptionProfileConfigRequest `object`
+
+### GetFieldLevelEncryptionProfileConfigResult
+* GetFieldLevelEncryptionProfileConfigResult `object`
+  * FieldLevelEncryptionProfileConfig [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+
+### GetFieldLevelEncryptionProfileRequest
+* GetFieldLevelEncryptionProfileRequest `object`
+
+### GetFieldLevelEncryptionProfileResult
+* GetFieldLevelEncryptionProfileResult `object`
+  * FieldLevelEncryptionProfile [FieldLevelEncryptionProfile](#fieldlevelencryptionprofile)
+
+### GetFieldLevelEncryptionRequest
+* GetFieldLevelEncryptionRequest `object`
+
+### GetFieldLevelEncryptionResult
+* GetFieldLevelEncryptionResult `object`
+  * FieldLevelEncryption [FieldLevelEncryption](#fieldlevelencryption)
+
 ### GetInvalidationRequest
 * GetInvalidationRequest `object`: The request to get an invalidation's information. 
 
 ### GetInvalidationResult
 * GetInvalidationResult `object`: The returned result of the corresponding request.
   * Invalidation [Invalidation](#invalidation)
+
+### GetPublicKeyConfigRequest
+* GetPublicKeyConfigRequest `object`
+
+### GetPublicKeyConfigResult
+* GetPublicKeyConfigResult `object`
+  * PublicKeyConfig [PublicKeyConfig](#publickeyconfig)
+
+### GetPublicKeyRequest
+* GetPublicKeyRequest `object`
+
+### GetPublicKeyResult
+* GetPublicKeyResult `object`
+  * PublicKey [PublicKey](#publickey)
 
 ### GetStreamingDistributionConfigRequest
 * GetStreamingDistributionConfigRequest `object`: To request to get a streaming distribution configuration.
@@ -1010,6 +1549,10 @@ amazonaws_cloudfront.UntagResource({
 
 ### HttpVersion
 * HttpVersion `string` (values: http1.1, http2)
+
+### IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
+* IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior `object`: The specified configuration for field-level encryption can't be associated with the specified cache behavior.
+  * Message [string](#string)
 
 ### IllegalUpdate
 * IllegalUpdate `object`: Origin and <code>CallerReference</code> cannot be updated. 
@@ -1154,10 +1697,13 @@ amazonaws_cloudfront.UntagResource({
   * Items [KeyPairIdList](#keypairidlist)
   * Quantity **required** [integer](#integer)
 
+### LambdaFunctionARN
+* LambdaFunctionARN `string`
+
 ### LambdaFunctionAssociation
 * LambdaFunctionAssociation `object`: A complex type that contains a Lambda function association.
-  * EventType [EventType](#eventtype)
-  * LambdaFunctionARN [string](#string)
+  * EventType **required** [EventType](#eventtype)
+  * LambdaFunctionARN **required** [LambdaFunctionARN](#lambdafunctionarn)
 
 ### LambdaFunctionAssociationList
 * LambdaFunctionAssociationList `array`
@@ -1189,12 +1735,33 @@ amazonaws_cloudfront.UntagResource({
 * ListDistributionsResult `object`: The returned result of the corresponding request. 
   * DistributionList [DistributionList](#distributionlist)
 
+### ListFieldLevelEncryptionConfigsRequest
+* ListFieldLevelEncryptionConfigsRequest `object`
+
+### ListFieldLevelEncryptionConfigsResult
+* ListFieldLevelEncryptionConfigsResult `object`
+  * FieldLevelEncryptionList [FieldLevelEncryptionList](#fieldlevelencryptionlist)
+
+### ListFieldLevelEncryptionProfilesRequest
+* ListFieldLevelEncryptionProfilesRequest `object`
+
+### ListFieldLevelEncryptionProfilesResult
+* ListFieldLevelEncryptionProfilesResult `object`
+  * FieldLevelEncryptionProfileList [FieldLevelEncryptionProfileList](#fieldlevelencryptionprofilelist)
+
 ### ListInvalidationsRequest
 * ListInvalidationsRequest `object`: The request to list invalidations. 
 
 ### ListInvalidationsResult
 * ListInvalidationsResult `object`: The returned result of the corresponding request. 
   * InvalidationList [InvalidationList](#invalidationlist)
+
+### ListPublicKeysRequest
+* ListPublicKeysRequest `object`
+
+### ListPublicKeysResult
+* ListPublicKeysResult `object`
+  * PublicKeyList [PublicKeyList](#publickeylist)
 
 ### ListStreamingDistributionsRequest
 * ListStreamingDistributionsRequest `object`: The request to list your streaming distributions. 
@@ -1243,12 +1810,24 @@ amazonaws_cloudfront.UntagResource({
 * NoSuchDistribution `object`: The specified distribution does not exist.
   * Message [string](#string)
 
+### NoSuchFieldLevelEncryptionConfig
+* NoSuchFieldLevelEncryptionConfig `object`: The specified configuration for field-level encryption doesn't exist.
+  * Message [string](#string)
+
+### NoSuchFieldLevelEncryptionProfile
+* NoSuchFieldLevelEncryptionProfile `object`: The specified profile for field-level encryption doesn't exist.
+  * Message [string](#string)
+
 ### NoSuchInvalidation
 * NoSuchInvalidation `object`: The specified invalidation does not exist.
   * Message [string](#string)
 
 ### NoSuchOrigin
 * NoSuchOrigin `object`: No origin exists with the specified <code>Origin Id</code>. 
+  * Message [string](#string)
+
+### NoSuchPublicKey
+* NoSuchPublicKey `object`: The specified public key doesn't exist.
   * Message [string](#string)
 
 ### NoSuchResource
@@ -1309,6 +1888,69 @@ amazonaws_cloudfront.UntagResource({
 
 ### PriceClass
 * PriceClass `string` (values: PriceClass_100, PriceClass_200, PriceClass_All)
+
+### PublicKey
+* PublicKey `object`: A complex data type of public keys you add to CloudFront to use with features like field-level encryption.
+  * CreatedTime **required** [timestamp](#timestamp)
+  * Id **required** [string](#string)
+  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+
+### PublicKeyAlreadyExists
+* PublicKeyAlreadyExists `object`: The specified public key already exists.
+  * Message [string](#string)
+
+### PublicKeyConfig
+* PublicKeyConfig `object`: Information about a public key you add to CloudFront to use with features like field-level encryption.
+  * CallerReference **required** [string](#string)
+  * Comment [string](#string)
+  * EncodedKey **required** [string](#string)
+  * Name **required** [string](#string)
+
+### PublicKeyInUse
+* PublicKeyInUse `object`: The specified public key is in use. 
+  * Message [string](#string)
+
+### PublicKeyList
+* PublicKeyList `object`: A list of public keys you've added to CloudFront to use with features like field-level encryption.
+  * Items [PublicKeySummaryList](#publickeysummarylist)
+  * MaxItems **required** [integer](#integer)
+  * NextMarker [string](#string)
+  * Quantity **required** [integer](#integer)
+
+### PublicKeySummary
+* PublicKeySummary `object`:  Public key information summary. 
+  * Comment [string](#string)
+  * CreatedTime **required** [timestamp](#timestamp)
+  * EncodedKey **required** [string](#string)
+  * Id **required** [string](#string)
+  * Name **required** [string](#string)
+
+### PublicKeySummaryList
+* PublicKeySummaryList `array`
+  * items [PublicKeySummary](#publickeysummary)
+
+### QueryArgProfile
+* QueryArgProfile `object`: Query argument-profile mapping for field-level encryption.
+  * ProfileId **required** [string](#string)
+  * QueryArg **required** [string](#string)
+
+### QueryArgProfileConfig
+* QueryArgProfileConfig `object`: Configuration for query argument-profile mapping for field-level encryption.
+  * ForwardWhenQueryArgProfileIsUnknown **required** [boolean](#boolean)
+  * QueryArgProfiles [QueryArgProfiles](#queryargprofiles)
+
+### QueryArgProfileEmpty
+* QueryArgProfileEmpty `object`: No profile specified for the field-level encryption query argument.
+  * Message [string](#string)
+
+### QueryArgProfileList
+* QueryArgProfileList `array`
+  * items [QueryArgProfile](#queryargprofile)
+
+### QueryArgProfiles
+* QueryArgProfiles `object`: Query argument-profile mapping for field-level encryption.
+  * Items [QueryArgProfileList](#queryargprofilelist)
+  * Quantity **required** [integer](#integer)
 
 ### QueryStringCacheKeys
 * QueryStringCacheKeys `object`
@@ -1480,8 +2122,36 @@ amazonaws_cloudfront.UntagResource({
 * TooManyDistributions `object`: Processing your request would cause you to exceed the maximum number of distributions allowed.
   * Message [string](#string)
 
+### TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+* TooManyDistributionsAssociatedToFieldLevelEncryptionConfig `object`: The maximum number of distributions have been associated with the specified configuration for field-level encryption.
+  * Message [string](#string)
+
 ### TooManyDistributionsWithLambdaAssociations
 * TooManyDistributionsWithLambdaAssociations `object`: Processing your request would cause the maximum number of distributions with Lambda function associations per owner to be exceeded.
+  * Message [string](#string)
+
+### TooManyFieldLevelEncryptionConfigs
+* TooManyFieldLevelEncryptionConfigs `object`: The maximum number of configurations for field-level encryption have been created.
+  * Message [string](#string)
+
+### TooManyFieldLevelEncryptionContentTypeProfiles
+* TooManyFieldLevelEncryptionContentTypeProfiles `object`: The maximum number of content type profiles for field-level encryption have been created.
+  * Message [string](#string)
+
+### TooManyFieldLevelEncryptionEncryptionEntities
+* TooManyFieldLevelEncryptionEncryptionEntities `object`: The maximum number of encryption entities for field-level encryption have been created.
+  * Message [string](#string)
+
+### TooManyFieldLevelEncryptionFieldPatterns
+* TooManyFieldLevelEncryptionFieldPatterns `object`: The maximum number of field patterns for field-level encryption have been created.
+  * Message [string](#string)
+
+### TooManyFieldLevelEncryptionProfiles
+* TooManyFieldLevelEncryptionProfiles `object`: The maximum number of profiles for field-level encryption have been created.
+  * Message [string](#string)
+
+### TooManyFieldLevelEncryptionQueryArgProfiles
+* TooManyFieldLevelEncryptionQueryArgProfiles `object`: The maximum number of query arg profiles for field-level encryption have been created.
   * Message [string](#string)
 
 ### TooManyHeadersInForwardedValues
@@ -1502,6 +2172,10 @@ amazonaws_cloudfront.UntagResource({
 
 ### TooManyOrigins
 * TooManyOrigins `object`: You cannot create more origins for the distribution.
+  * Message [string](#string)
+
+### TooManyPublicKeys
+* TooManyPublicKeys `object`: The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.
   * Message [string](#string)
 
 ### TooManyQueryStringParameters
@@ -1549,6 +2223,30 @@ amazonaws_cloudfront.UntagResource({
 ### UpdateDistributionResult
 * UpdateDistributionResult `object`: The returned result of the corresponding request.
   * Distribution [Distribution](#distribution)
+
+### UpdateFieldLevelEncryptionConfigRequest
+* UpdateFieldLevelEncryptionConfigRequest `object`
+  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+
+### UpdateFieldLevelEncryptionConfigResult
+* UpdateFieldLevelEncryptionConfigResult `object`
+  * FieldLevelEncryption [FieldLevelEncryption](#fieldlevelencryption)
+
+### UpdateFieldLevelEncryptionProfileRequest
+* UpdateFieldLevelEncryptionProfileRequest `object`
+  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+
+### UpdateFieldLevelEncryptionProfileResult
+* UpdateFieldLevelEncryptionProfileResult `object`
+  * FieldLevelEncryptionProfile [FieldLevelEncryptionProfile](#fieldlevelencryptionprofile)
+
+### UpdatePublicKeyRequest
+* UpdatePublicKeyRequest `object`
+  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+
+### UpdatePublicKeyResult
+* UpdatePublicKeyResult `object`
+  * PublicKey [PublicKey](#publickey)
 
 ### UpdateStreamingDistributionRequest
 * UpdateStreamingDistributionRequest `object`: The request to update a streaming distribution.

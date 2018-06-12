@@ -14,7 +14,7 @@
     "description": "The Flat API allows you to easily extend the abilities of the [Flat Platform](https://flat.io), with a wide range of use cases including the following:\n\n* Creating and importing new music scores using MusicXML or MIDI files\n* Browsing, updating, copying, exporting the user's scores (for example in MP3, WAV or MIDI)\n* Managing educational resources with Flat for Education: creating & updating the organization accounts, the classes, rosters and assignments.\n\nThe Flat API is built on HTTP. Our API is RESTful It has predictable resource URLs. It returns HTTP response codes to indicate errors. It also accepts and returns JSON in the HTTP body.\nThe [schema](/swagger.yaml) of this API follows the [OpenAPI Initiative (OAI) specification](https://www.openapis.org/), you can use and work with [compatible Swagger tools](http://swagger.io/open-source-integrations/).\nThis API features Cross-Origin Resource Sharing (CORS) implemented in compliance with [W3C spec](https://www.w3.org/TR/cors/).\n\nYou can use your favorite HTTP/REST library for your programming language to use Flat's API. This specification and reference is [available on Github](https://github.com/FlatIO/api-reference).\n\nGetting Started and learn more:\n\n* [API Overview and interoduction](https://flat.io/developers/docs/api/)\n* [Authentication (Personal Access Tokens or OAuth2)](https://flat.io/developers/docs/api/authentication.html)\n* [SDKs](https://flat.io/developers/docs/api/sdks.html)\n* [Rate Limits](https://flat.io/developers/docs/api/rate-limits.html)\n* [Changelog](https://flat.io/developers/docs/api/changelog.html)\n",
     "termsOfService": "https://flat.io/legal",
     "title": "Flat",
-    "version": "2.5.1",
+    "version": "2.6.0",
     "x-apisguru-categories": [
       "media",
       "collaboration"
@@ -50,6 +50,9 @@
       "scopes": {
         "account.education_profile": "Provides access to the basic person's education profile and public organization information.\n",
         "account.public_profile": "Provides access to the basic person's public profile. Education profiles may be anonymized with this scope, you can request the scope `education_profile` to access to the a basic education account profile.\n",
+        "collections": "Full, permissive scope to access all of a user's collections.",
+        "collections.add_scores": "Allow to add scores to a user's collections.",
+        "collections.readonly": "Allow read-only access to a user's collections.",
         "edu.admin": "Full, permissive scope to manage all the admin of an organization.",
         "edu.admin.lti": "Access and manage the LTI Credentials for an organization.",
         "edu.admin.lti.readonly": "Read-only access to the LTI Credentials of an organization.",
@@ -68,6 +71,13 @@
     }
   },
   "parameters": {
+    "collection": {
+      "description": "Unique identifier of the collection.\nThe following aliases are supported:\n- `root`: The root collection of the account\n- `sharedWithMe`: Automatically contains new resources that have been shared individually\n- `trash`: Automatically contains resources that have been deleted\n",
+      "in": "path",
+      "name": "collection",
+      "required": true,
+      "type": "string"
+    },
     "group": {
       "description": "Unique identifier of a Flat group\n",
       "in": "path",
@@ -80,6 +90,15 @@
       "description": "This is the maximum number of objects that may be returned",
       "in": "query",
       "maximum": 1000,
+      "minimum": 1,
+      "name": "limit",
+      "type": "integer"
+    },
+    "limitDefault25Max100": {
+      "default": 25,
+      "description": "This is the maximum number of objects that may be returned",
+      "in": "query",
+      "maximum": 100,
       "minimum": 1,
       "name": "limit",
       "type": "integer"
@@ -103,17 +122,17 @@
       "name": "previous",
       "type": "string"
     },
+    "resourceCollaborator": {
+      "description": "Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**\n",
+      "in": "path",
+      "name": "collaborator",
+      "required": true,
+      "type": "string"
+    },
     "score": {
       "description": "Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).\n",
       "in": "path",
       "name": "score",
-      "required": true,
-      "type": "string"
-    },
-    "scoreCollaborator": {
-      "description": "Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**\n",
-      "in": "path",
-      "name": "collaborator",
       "required": true,
       "type": "string"
     },
@@ -124,6 +143,12 @@
       "required": true,
       "type": "string"
     },
+    "scoreParts": {
+      "description": "An optional a set of parts to be exported. This parameter must be\nspecified with a list of integers. For example \"1,2,5\".\n",
+      "in": "query",
+      "name": "parts",
+      "type": "string"
+    },
     "scoreRevision": {
       "description": "Unique identifier of a score revision. You can use `last` to fetch the information related to the last version created.\n",
       "in": "path",
@@ -131,17 +156,27 @@
       "required": true,
       "type": "string"
     },
-    "scoreSharingKey": {
-      "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n",
-      "in": "query",
-      "name": "sharingKey",
-      "type": "string"
-    },
     "scoreTrack": {
       "description": "Unique identifier of a score audio track\n",
       "in": "path",
       "name": "track",
       "required": true,
+      "type": "string"
+    },
+    "sharingKey": {
+      "description": "This sharing key must be specified to access to a score or collection with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n",
+      "in": "query",
+      "name": "sharingKey",
+      "type": "string"
+    },
+    "sortDirection": {
+      "description": "Sort direction",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "in": "query",
+      "name": "direction",
       "type": "string"
     },
     "user": {
@@ -159,9 +194,14 @@
       "x-displayName": "Flat Account"
     },
     {
-      "description": "Sheet music is the main API object type available for all Flat account.\n\nHere is a typical lifecycle for a music score document on Flat:\n  - An end user can **create a music score** or **import a document** using our [web interface](https://flat.io) or a third-party website/app (e.g. Google Drive) using this API (see [`POST /v2/scores`](#operation/createScore). The creation and import of music scores can be done with this single API endpoint. This one currently supports the [MusicXML](http://www.musicxml.com/) (compressed or not) and [MIDI](https://www.midi.org/specifications).\n  - The scores from a single account can **be listed** with [`GET /users/{user}/scores`](#operation/getUserScores) as well of scores shared with a specific group with [`GET /groups/{group}/scores`](#operation/getGroupScores).\n  - The metadata of a single score can be retrieved with [`GET /scores/{score}`](#operation/getScore).\n  - Scores on Flat have **one or multiple revisions**: creating a new score will create a first revision. These **revisions can be listed** using [`GET /scores/{score}/revisions`](#operation/getScoreRevisions) and a specific **revision data can be downloaded** with [`GET /scores/{score}/revisions/{revision}/{format}`](#operation/getScoreRevisionData). New revisions can be created using our [sheet music editor](https://flat.io) or using [`POST /scores/{score}/revisions`](#operation/createScoreRevision) (this endpoint has similar parameters than during the score creation). The last revision of a document may not directly reflect the really last version of a music score: recent modifications can be made offline or not yet consolidated into a new revision. In average, a new revision is created every 100 modifications made with our editor.\n  - Scores can be **shared publicly** by changing the privacy option with [`POST /scores/{score}`](#operation/editScore), or **individually shared** using the different collaborators API endpoints (see [`POST /scores/{score}/collaborators`](#operation/addScoreCollaborator)).\n",
+      "description": "Sheet music is the main API object type available for all Flat account.\nHere is a typical lifecycle for a music score document on Flat:\n  - An end user can **create a music score** or **import a document** using our [web interface](https://flat.io) or a third-party website/app (e.g. Google Drive) using this API (see [`POST /v2/scores`](#operation/createScore). The creation and import of music scores can be done with this single API endpoint. This one currently supports the [MusicXML](http://www.musicxml.com/) (compressed or not) and [MIDI](https://www.midi.org/specifications).\n  - **List scores**:\n    - The **owned scores** can be listed using the [collections API methods](#tag/Collection), especially [`GET /collections/{collection}/scores`](#operation/listCollectionScores).\n    - The scores from a public account can be listed with [`GET /users/{user}/scores`](#operation/getUserScores).\n    - Scores shared with a specific group can be listed with [`GET /groups/{group}/scores`](#operation/getGroupScores).\n  - The metadata of a single score can be retrieved with [`GET /scores/{score}`](#operation/getScore).\n  - Scores on Flat have **one or multiple revisions**: creating a new score will create a first revision. These **revisions can be listed** using [`GET /scores/{score}/revisions`](#operation/getScoreRevisions) and a specific **revision data can be downloaded** with [`GET /scores/{score}/revisions/{revision}/{format}`](#operation/getScoreRevisionData). New revisions can be created using our [sheet music editor](https://flat.io) or using [`POST /scores/{score}/revisions`](#operation/createScoreRevision) (this endpoint has similar parameters than during the score creation). The last revision of a document may not directly reflect the really last version of a music score: recent modifications can be made offline or not yet consolidated into a new revision. In average, a new revision is created every 100 modifications made with our editor.\n  - Scores can be **shared publicly** by changing the privacy option with [`POST /scores/{score}`](#operation/editScore), or **individually shared** using the different collaborators API endpoints (see [`POST /scores/{score}/collaborators`](#operation/addScoreCollaborator)).\n",
       "name": "Score",
       "x-displayName": "Music scores"
+    },
+    {
+      "description": "Collections let you organize your content in a Flat account. They work like a regular _folder_ with some specificities:\n  - Our design goal here is to create a system similar to a _book_ or a _playlist of songs_.\n  - Collections can't have children collections (except the `trash` and `sharedWithMe` that are special collections).\n  - Any score can be added to one or multiple collections. For example, you can have a single private score in two or more collections, or add any public or shared scores to one of your collections.\n\nAll the collections don't have the same capabilities. Capabilities depend on the `type` of collection and the `rights` you have on a collection. They are available when [listing the collection](#operation/listCollections) or [retrieving the collection details](#operation/getCollection).\n\nAt this time, only `private` privacy mode is widely available. Privacy modes `public`, `organizationPublic` and `privateLink`, and 1:1 sharing will be available in an upcoming update later this year.\n",
+      "name": "Collection",
+      "x-displayName": "Collections of music scores"
     },
     {
       "description": "Flat users",
@@ -1027,6 +1067,479 @@
         ]
       }
     },
+    "/collections": {
+      "get": {
+        "description": "Use this method to list the user's collections contained in `parent` (by default in the `root` collection).\nIf no sort option is provided, the collections are sorted by `creationDate` `desc`.\n\nNote that this method will not include the `parent` collection in the listing.\nFor example, if you need the details of the `root` collection, you can use `GET /v2/collections/root`.\n",
+        "operationId": "listCollections",
+        "parameters": [
+          {
+            "default": "root",
+            "description": "List the collection contained in this `parent` collection.\n\nThis option doesn't provide a complete multi-level collection support.\nWhen sharing a collection with someone, this one will have as `parent` `sharedWithMe`.\n",
+            "enum": [
+              "root",
+              "sharedWithMe",
+              "trash"
+            ],
+            "in": "query",
+            "name": "parent",
+            "type": "string"
+          },
+          {
+            "description": "Sort",
+            "enum": [
+              "creationDate",
+              "title"
+            ],
+            "in": "query",
+            "name": "sort",
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/sortDirection"
+          },
+          {
+            "$ref": "#/parameters/limitDefault25Max100"
+          },
+          {
+            "$ref": "#/parameters/next"
+          },
+          {
+            "$ref": "#/parameters/previous"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of collections",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Collection"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections",
+              "collections.readonly"
+            ]
+          }
+        ],
+        "summary": "List the collections",
+        "tags": [
+          "Collection"
+        ]
+      },
+      "post": {
+        "description": "This method will create a new collection and add it to your `root` collection.\n",
+        "operationId": "createCollection",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CollectionCreation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection created",
+            "schema": {
+              "$ref": "#/definitions/Collection"
+            }
+          },
+          "400": {
+            "description": "Bad collection creation request",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections"
+            ]
+          }
+        ],
+        "summary": "Create a new collection",
+        "tags": [
+          "Collection"
+        ]
+      }
+    },
+    "/collections/{collection}": {
+      "delete": {
+        "description": "This method will schedule the deletion of the collection. Until deleted, the collection will be available in the `trash`.\n",
+        "operationId": "deleteCollection",
+        "parameters": [
+          {
+            "$ref": "#/parameters/collection"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Collection deleted"
+          },
+          "403": {
+            "description": "Not granted to access to this collection",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Collection not found",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections"
+            ]
+          }
+        ],
+        "summary": "Delete the collection",
+        "tags": [
+          "Collection"
+        ]
+      },
+      "get": {
+        "operationId": "getCollection",
+        "parameters": [
+          {
+            "$ref": "#/parameters/collection"
+          },
+          {
+            "$ref": "#/parameters/sharingKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection details",
+            "schema": {
+              "$ref": "#/definitions/Collection"
+            }
+          },
+          "403": {
+            "description": "Not granted to access to this collection",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Collection not found",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections",
+              "collections.readonly"
+            ]
+          }
+        ],
+        "summary": "Get collection details",
+        "tags": [
+          "Collection"
+        ]
+      },
+      "put": {
+        "operationId": "editCollection",
+        "parameters": [
+          {
+            "$ref": "#/parameters/collection"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CollectionModification"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection details",
+            "schema": {
+              "$ref": "#/definitions/Collection"
+            }
+          },
+          "403": {
+            "description": "Not granted to access to this collection",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Collection not found",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections"
+            ]
+          }
+        ],
+        "summary": "Update a collection's metadata",
+        "tags": [
+          "Collection"
+        ]
+      }
+    },
+    "/collections/{collection}/scores": {
+      "get": {
+        "description": "Use this method to list the scores contained in a collection.\nIf no sort option is provided, the scores are sorted by `modificationDate` `desc`.\n",
+        "operationId": "listCollectionScores",
+        "parameters": [
+          {
+            "$ref": "#/parameters/collection"
+          },
+          {
+            "$ref": "#/parameters/sharingKey"
+          },
+          {
+            "description": "Sort",
+            "enum": [
+              "creationDate",
+              "modificationDate",
+              "title"
+            ],
+            "in": "query",
+            "name": "sort",
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/sortDirection"
+          },
+          {
+            "$ref": "#/parameters/limitDefault25Max100"
+          },
+          {
+            "$ref": "#/parameters/next"
+          },
+          {
+            "$ref": "#/parameters/previous"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of scores",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ScoreDetails"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections"
+            ]
+          }
+        ],
+        "summary": "List the scores contained in a collection",
+        "tags": [
+          "Collection"
+        ]
+      }
+    },
+    "/collections/{collection}/scores/{score}": {
+      "delete": {
+        "description": "This method will delete a score from the collection. Unlike [`DELETE /scores/{score}`](#operation/deleteScore), this score will not remove the score from your account, but only from the collection.\nThis can be used to *move* a score from one collection to another, or simply remove a score from one collection when this one is contained in multiple collections.\n",
+        "operationId": "deleteScoreFromCollection",
+        "parameters": [
+          {
+            "$ref": "#/parameters/collection"
+          },
+          {
+            "$ref": "#/parameters/score"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Score removed from the collection"
+          },
+          "403": {
+            "description": "Not granted to access to this collection",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Collection not found",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections"
+            ]
+          }
+        ],
+        "summary": "Delete a score from the collection",
+        "tags": [
+          "Collection"
+        ]
+      },
+      "put": {
+        "description": "This operation will add a score to a collection. The default behavior will make the score available across multiple collections.\nYou must have the capability `canAddScores` on the provided `collection` to perform the action.\n",
+        "operationId": "addScoreToCollection",
+        "parameters": [
+          {
+            "$ref": "#/parameters/collection"
+          },
+          {
+            "$ref": "#/parameters/score"
+          },
+          {
+            "$ref": "#/parameters/sharingKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Score details",
+            "schema": {
+              "$ref": "#/definitions/ScoreDetails"
+            }
+          },
+          "403": {
+            "description": "Not granted to access to this collection or score",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Collection or score not found",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections",
+              "collections.add_scores"
+            ]
+          }
+        ],
+        "summary": "Add a score to the collection",
+        "tags": [
+          "Collection"
+        ]
+      }
+    },
+    "/collections/{collection}/untrash": {
+      "post": {
+        "description": "This method will restore the collection by removing it from the `trash` and add it back to the `root` collection.\n",
+        "operationId": "untrashCollection",
+        "parameters": [
+          {
+            "$ref": "#/parameters/collection"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The score has been untrashed"
+          },
+          "403": {
+            "description": "Not granted to manage this score",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Score not found",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "collections"
+            ]
+          }
+        ],
+        "summary": "Untrash a collection",
+        "tags": [
+          "Collection"
+        ]
+      }
+    },
     "/groups/{group}": {
       "get": {
         "operationId": "getGroupDetails",
@@ -1635,7 +2148,7 @@
     },
     "/scores": {
       "post": {
-        "description": "Use this API method to **create a new music score in the current User account**. You will need a MusicXML 3 (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`) or a MIDI (`audio/midi`) file to create the new Flat document.\n\nThis API call will automatically create the first revision of the document, the score can be modified by the using our web application or by uploading a new revision of this file (`POST /v2/scores/{score}/revisions/{revision}`).\n\nThe currently authenticated user will be granted owner of the file and will be able to add other collaborators (users and groups).\n",
+        "description": "Use this API method to **create a new music score in the current User account**. You will need a MusicXML 3 (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`) or a MIDI (`audio/midi`) file to create the new Flat document.\n\nThis API call will automatically create the first revision of the document, the score can be modified by the using our web application or by uploading a new revision of this file (`POST /v2/scores/{score}/revisions/{revision}`).\n\nThe currently authenticated user will be granted owner of the file and will be able to add other collaborators (users and groups).\n\nIf no `collection` is specified, the API will create the score in the most appropriate collection. This can be the `root` collection or a different collection based on the user's settings or API authentication method.\nIf a `collection` is specified and this one has more public privacy settings than the score (e.g. `public` vs `private` for the score), the privacy settings of the created score will be adjusted to the collection ones.\nYou can check the adjusted privacy settings in the returned score `privacy`, and optionally adjust these settings if needed using `PUT /scores/{score}`.\n",
         "operationId": "createScore",
         "parameters": [
           {
@@ -1688,7 +2201,7 @@
     },
     "/scores/{score}": {
       "delete": {
-        "description": "This API call will schedule the deletion of the score, its revisions, and whole history.\nThe user calling this API method must have the `aclAdmin` rights on this document to process this action.\nThe score won't be accessible anymore after calling this method and the user's quota will directly be updated.\n",
+        "description": "This method can be used by the owner/admin (`aclAdmin` rights) of a score as well as regular collaborators.\n\nWhen called by an owner/admin, it will schedule the deletion of the score, its revisions, and complete history.\nThe score won't be accessible anymore after calling this method and the user's quota will directly be updated.\n\nWhen called by a regular collaborator (`aclRead` / `aclWrite`), the score will be unshared (i.e. removed from the account & own collections).\n",
         "operationId": "deleteScore",
         "parameters": [
           {
@@ -1738,7 +2251,7 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -1787,7 +2300,7 @@
         ]
       },
       "put": {
-        "description": "This API method allows you to change the metadata of a score document (e.g. its `title` or `privacy`), all the properties are optional.\n\nTo edit the file itself, create a new revision using the appropriate method (`POST /v2/scores/{score}/revisions/{revision}`).\n",
+        "description": "This API method allows you to change the metadata of a score document (e.g. its `title` or `privacy`), all the properties are optional.\n\nTo edit the file itself, create a new revision using the appropriate method (`POST /v2/scores/{score}/revisions/{revision}`).\n\nWhen editing the `title` of the score, the API metadata are updated directly when calling this method, unlike the data itself.\nThe title in the score data will be \"lazy\" updated at the next score save with the editor or our internal save.\n",
         "operationId": "editScore",
         "parameters": [
           {
@@ -1855,7 +2368,7 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -1863,7 +2376,7 @@
             "description": "List of collaborators",
             "schema": {
               "items": {
-                "$ref": "#/definitions/ScoreCollaborator"
+                "$ref": "#/definitions/ResourceCollaborator"
               },
               "type": "array"
             }
@@ -1907,7 +2420,7 @@
         ]
       },
       "post": {
-        "description": "Share a score with a single user or a group. This API call allows to add, invite and update the collaborators of a document.\n- To add an existing Flat user to the document, specify its unique identifier in the `user` property.\n- To invite an external user to the document, specify its email in the `userEmail` property.\n- To add a Flat group to the document, specify its unique identifier in the `group` property.\n- To update an existing collaborator, process the same request with different rights.\n",
+        "description": "Share a score with a single user or a group. This API call allows to add, invite and update the collaborators of a resource.\n- To add an existing Flat user to the resource, specify its unique identifier in the `user` property.\n- To invite an external user to the resource, specify its email in the `userEmail` property.\n- To add a Flat group to the resource, specify its unique identifier in the `group` property.\n- To update an existing collaborator, process the same request with different rights.\n",
         "operationId": "addScoreCollaborator",
         "parameters": [
           {
@@ -1918,7 +2431,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ScoreCollaboratorCreation"
+              "$ref": "#/definitions/ResourceCollaboratorCreation"
             }
           }
         ],
@@ -1926,7 +2439,7 @@
           "200": {
             "description": "The newly added collaborator metadata",
             "schema": {
-              "$ref": "#/definitions/ScoreCollaborator"
+              "$ref": "#/definitions/ResourceCollaborator"
             }
           },
           "402": {
@@ -1976,7 +2489,7 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreCollaborator"
+            "$ref": "#/parameters/resourceCollaborator"
           }
         ],
         "responses": {
@@ -2022,17 +2535,17 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreCollaborator"
+            "$ref": "#/parameters/resourceCollaborator"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
           "200": {
             "description": "Collaborator information",
             "schema": {
-              "$ref": "#/definitions/ScoreCollaborator"
+              "$ref": "#/definitions/ResourceCollaborator"
             }
           },
           "402": {
@@ -2082,7 +2595,29 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
+          },
+          {
+            "description": "Filter the comments by type",
+            "enum": [
+              "document",
+              "inline"
+            ],
+            "in": "query",
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "description": "Sort",
+            "enum": [
+              "date"
+            ],
+            "in": "query",
+            "name": "sort",
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/sortDirection"
           }
         ],
         "responses": {
@@ -2142,7 +2677,7 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           },
           {
             "in": "body",
@@ -2210,7 +2745,7 @@
             "$ref": "#/parameters/scoreComment"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -2259,7 +2794,7 @@
             "$ref": "#/parameters/scoreComment"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           },
           {
             "in": "body",
@@ -2327,7 +2862,7 @@
             "$ref": "#/parameters/scoreComment"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -2373,7 +2908,7 @@
             "$ref": "#/parameters/scoreComment"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -2419,7 +2954,7 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           },
           {
             "in": "body",
@@ -2484,7 +3019,7 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -2608,7 +3143,7 @@
             "$ref": "#/parameters/scoreRevision"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -2669,7 +3204,10 @@
             "$ref": "#/parameters/scoreRevision"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
+          },
+          {
+            "$ref": "#/parameters/scoreParts"
           },
           {
             "description": "The format of the file you will retrieve",
@@ -2692,12 +3230,6 @@
             "in": "query",
             "name": "onlyCached",
             "type": "boolean"
-          },
-          {
-            "description": "An optional a set of parts to be exported. This parameter must be\nspecified with a list of integers. For example \"1,2,5\".\n",
-            "in": "query",
-            "name": "parts",
-            "type": "string"
           }
         ],
         "produces": [
@@ -2711,7 +3243,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Revision metadata",
+            "description": "Revision data",
             "schema": {
               "format": "binary",
               "type": "string"
@@ -2805,7 +3337,7 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -2958,10 +3490,10 @@
             "$ref": "#/parameters/score"
           },
           {
-            "$ref": "#/parameters/scoreSharingKey"
+            "$ref": "#/parameters/scoreTrack"
           },
           {
-            "$ref": "#/parameters/scoreTrack"
+            "$ref": "#/parameters/sharingKey"
           }
         ],
         "responses": {
@@ -3060,6 +3592,45 @@
         ]
       }
     },
+    "/scores/{score}/untrash": {
+      "post": {
+        "description": "This method will remove the score from the `trash` collection and from the deletion queue, and add it back to the original collections.\n",
+        "operationId": "untrashScore",
+        "parameters": [
+          {
+            "$ref": "#/parameters/score"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The score has been untrashed"
+          },
+          "403": {
+            "description": "Not granted to manage this score",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Score not found",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/FlatErrorResponse"
+            }
+          }
+        },
+        "security": [],
+        "summary": "Untrash a score",
+        "tags": [
+          "Score"
+        ]
+      }
+    },
     "/users/{user}": {
       "get": {
         "description": "Get a public profile of a Flat User.\n",
@@ -3148,7 +3719,7 @@
     },
     "/users/{user}/scores": {
       "get": {
-        "description": "Get the list of scores owned by the User\n",
+        "description": "Get the list of public scores owned by a User.\n\n**DEPRECATED**: Please note that the current behavior will be deprecrated on **2019-01-01**.\nThis method will no longer list private and shared scores, but only public scores of a Flat account.\nIf you want to access to private scores, please use the [Collections API](#tag/Collection) instead.\n",
         "operationId": "getUserScores",
         "parameters": [
           {
@@ -3781,6 +4352,125 @@
       },
       "type": "object"
     },
+    "Collection": {
+      "description": "Collection of scores",
+      "properties": {
+        "app": {
+          "description": "If this directory is dedicated to an app, the unique idenfier of this app",
+          "type": "string"
+        },
+        "capabilities": {
+          "description": "Capabilities the current user has on this collection. Each capability corresponds to a fine-grained action that a user may take.",
+          "properties": {
+            "canAddScores": {
+              "description": "Whether the current user can add scores to the collection\n\nIf this collection has the `type` `trash`, this property will be set to `false`. Use `DELETE /v2/scores/{score}` to trash a score.\n",
+              "type": "boolean"
+            },
+            "canDelete": {
+              "description": "Whether the current user can delete the collection\n",
+              "type": "boolean"
+            },
+            "canDeleteScores": {
+              "description": "Whether the current user can delete scores from the collection\n\nIf this collection has the `type` `trash`, this property will be set to `false`. Use `POST /v2/scores/{score}/untrash` to restore a score.\n",
+              "type": "boolean"
+            },
+            "canEdit": {
+              "description": "Whether the current user can modify the metadata for the collection\n",
+              "type": "boolean"
+            },
+            "canShare": {
+              "description": "Whether the current user can modify the sharing settings for the collection\n",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "collaborators": {
+          "description": "The list of the collaborators of the collection",
+          "items": {
+            "$ref": "#/definitions/ResourceCollaborator"
+          },
+          "type": "array"
+        },
+        "htmlUrl": {
+          "description": "The url where the collection can be viewed in a web browser",
+          "format": "url",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the collection",
+          "type": "string"
+        },
+        "privacy": {
+          "$ref": "#/definitions/CollectionPrivacy"
+        },
+        "rights": {
+          "$ref": "#/definitions/ResourceRights"
+        },
+        "sharingKey": {
+          "description": "The private sharing key of the collection (available when the `privacy` mode is set to `privateLink`)",
+          "type": "string"
+        },
+        "title": {
+          "$ref": "#/definitions/CollectionTitle"
+        },
+        "type": {
+          "$ref": "#/definitions/CollectionType"
+        },
+        "user": {
+          "$ref": "#/definitions/UserPublicSummary"
+        }
+      },
+      "type": "object"
+    },
+    "CollectionCreation": {
+      "example": {
+        "privacy": "private",
+        "title": "Jazz scores"
+      },
+      "properties": {
+        "title": {
+          "$ref": "#/definitions/CollectionTitle"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "type": "object"
+    },
+    "CollectionModification": {
+      "description": "Edit the collection metadata",
+      "properties": {
+        "title": {
+          "$ref": "#/definitions/CollectionTitle"
+        }
+      },
+      "type": "object"
+    },
+    "CollectionPrivacy": {
+      "description": "The collection main privacy mode.\n- `private`: The collection is private and can be only accessed, modified and administred by specified collaborators users.\n",
+      "enum": [
+        "private"
+      ],
+      "type": "string"
+    },
+    "CollectionTitle": {
+      "description": "The title of the collection",
+      "maxLength": 300,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CollectionType": {
+      "description": "Type of the collection.\nThe type will influence the capabilitied available on the collections and how this collection is/can be populated.\n",
+      "enum": [
+        "root",
+        "regular",
+        "sharedWithMe",
+        "sharedWithGroup",
+        "trash"
+      ],
+      "type": "string"
+    },
     "FlatErrorResponse": {
       "example": {
         "code": "CLIENT_ERROR",
@@ -4244,7 +4934,39 @@
       ],
       "type": "string"
     },
-    "ScoreCollaborator": {
+    "ResourceCollaborator": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceRights"
+        },
+        {
+          "properties": {
+            "collection": {
+              "description": "If this object is a permission of a collection, this property will contain the unique identifier of the collection",
+              "type": "string"
+            },
+            "group": {
+              "$ref": "#/definitions/Group"
+            },
+            "id": {
+              "description": "The unique identifier of the permission",
+              "type": "string"
+            },
+            "score": {
+              "description": "If this object is a permission of a score, this property will contain the unique identifier of the score",
+              "type": "string"
+            },
+            "user": {
+              "$ref": "#/definitions/UserPublic"
+            },
+            "userEmail": {
+              "description": "If the collaborator is not a user of Flat yet, this field will contain his email.\n",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "description": "A collaborator of a score. The `userEmail` and `group` are only available if the requesting user is a collaborator of the related score (in this case these permissions will eventualy not be listed and exposed publicly).\n",
       "example": {
         "aclAdmin": true,
@@ -4253,46 +4975,10 @@
         "id": "000000000000000000000031",
         "score": "000000000000000000000040",
         "userEmail": "user@example.com"
-      },
-      "properties": {
-        "aclAdmin": {
-          "default": false,
-          "description": "`True` if the related user can can manage the current document, i.e. changing the document permissions and deleting the document\n",
-          "type": "boolean"
-        },
-        "aclRead": {
-          "default": true,
-          "description": "`True` if the related user can read the score. (probably true if the user has a permission on the document).\n",
-          "type": "boolean"
-        },
-        "aclWrite": {
-          "default": false,
-          "description": "`True` if the related user can modify the score.\n",
-          "type": "boolean"
-        },
-        "group": {
-          "$ref": "#/definitions/Group"
-        },
-        "id": {
-          "description": "The unique identifier of the score permission",
-          "type": "string"
-        },
-        "score": {
-          "description": "The unique identifier of the score",
-          "type": "string"
-        },
-        "user": {
-          "$ref": "#/definitions/UserPublic"
-        },
-        "userEmail": {
-          "description": "If the collaborator is not a user of Flat yet, this field will contain his email.\n",
-          "type": "string"
-        }
-      },
-      "type": "object"
+      }
     },
-    "ScoreCollaboratorCreation": {
-      "description": "A collaborator of a score. The `userEmail` and `group` are only available if the requesting user is a collaborator of the related score (in this case these permissions will eventualy not be listed and exposed publicly).\n",
+    "ResourceCollaboratorCreation": {
+      "description": "Add a collaborator to a resource.",
       "example": {
         "aclAdmin": false,
         "aclRead": true,
@@ -4326,9 +5012,44 @@
         "userEmail": {
           "description": "Fill this field to invite an individual user by email.\n",
           "type": "string"
+        },
+        "userToken": {
+          "description": "Token received in an invitation to join the score.\n",
+          "type": "string"
         }
       },
       "type": "object"
+    },
+    "ResourceRights": {
+      "description": "The rights of the current user on a score or collection",
+      "example": {
+        "aclAdmin": true,
+        "aclRead": true,
+        "aclWrite": true
+      },
+      "properties": {
+        "aclAdmin": {
+          "default": false,
+          "description": "`True` if the current user can manage the current document (i.e. share, delete)\n\nIf this is a right of a Collection, the capabilities of the associated user can be lower than this permission, check out the `capabilities` property as the end-user to have the complete possibilities with the collection.\n",
+          "type": "boolean"
+        },
+        "aclRead": {
+          "default": false,
+          "description": "`True` if the current user can read the current document\n",
+          "type": "boolean"
+        },
+        "aclWrite": {
+          "default": false,
+          "description": "`True` if the current user can modify the current document.\n\nIf this is a right of a Collection, the capabilities of the associated user can be lower than this permission, check out the `capabilities` property as the end-user to have the complete possibilities with the collection.\n",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceSharingKey": {
+      "description": "When using the `privacy` mode `privateLink`, this property can be used to set a custom sharing key, otherwise a new key will be generated.",
+      "pattern": "^[a-f0-9]{128}$",
+      "type": "string"
     },
     "ScoreComment": {
       "description": "Comment added on a sheet music",
@@ -4631,6 +5352,10 @@
         "title": "My new score"
       },
       "properties": {
+        "collection": {
+          "description": "Unique identifier of a collection where the score will be created.\nIf no collection identifier is provided, the score will be stored in the `root` directory.\n",
+          "type": "string"
+        },
         "data": {
           "$ref": "#/definitions/ScoreData"
         },
@@ -4648,7 +5373,7 @@
           "$ref": "#/definitions/ScoreSource"
         },
         "title": {
-          "description": "The title of the new score.\n\nIf this title is not specified, the API will try to (in this order):\n  - Use the name of the file for files from a specified `source` (e.g. Google Drive)\n  - Use the title contained in the file (e.g. [`movement-title`](https://usermanuals.musicxml.com/MusicXML/Content/EL-MusicXML-movement-title.htm) or [`credit-words`](https://usermanuals.musicxml.com/MusicXML/Content/EL-MusicXML-credit-words.htm) for [MusicXML](http://www.musicxml.com/) files).\n  - Set a default title (e.g. \"New Music Score\")\n\nIf the title is already used, the API will append the creation date after the title. If the title is too long, the API may trim this one.\n",
+          "description": "The title of the new score. If the title is too long, the API may trim this one.\n\nIf this title is not specified, the API will try to (in this order):\n  - Use the name of the file for files from a specified `source` (e.g. Google Drive)\n  - Use the title contained in the file (e.g. [`movement-title`](https://usermanuals.musicxml.com/MusicXML/Content/EL-MusicXML-movement-title.htm) or [`credit-words`](https://usermanuals.musicxml.com/MusicXML/Content/EL-MusicXML-credit-words.htm) for [MusicXML](http://www.musicxml.com/) files).\n  - Set a default title (e.g. \"New Music Score\")\n",
           "type": "string"
         }
       },
@@ -4688,7 +5413,7 @@
             "collaborators": {
               "description": "The list of the collaborators of the score",
               "items": {
-                "$ref": "#/definitions/ScoreCollaborator"
+                "$ref": "#/definitions/ResourceCollaborator"
               },
               "type": "array"
             },
@@ -4767,7 +5492,7 @@
               "type": "string"
             },
             "rights": {
-              "$ref": "#/definitions/ScoreRights"
+              "$ref": "#/definitions/ResourceRights"
             },
             "subtitle": {
               "description": "Subtitle of the score",
@@ -4874,6 +5599,12 @@
     },
     "ScoreFork": {
       "description": "Options to fork the score",
+      "properties": {
+        "collection": {
+          "description": "Unique identifier of a collection where the score will be copied.\nIf no collection identifier is provided, the score will be stored in the `root` directory.\n",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "ScoreLicense": {
@@ -4916,8 +5647,7 @@
     "ScoreModification": {
       "description": "Edit the score metadata",
       "example": {
-        "privacy": "private",
-        "title": "Edited title"
+        "privacy": "private"
       },
       "properties": {
         "creationType": {
@@ -4935,9 +5665,7 @@
           "$ref": "#/definitions/ScorePrivacy"
         },
         "sharingKey": {
-          "description": "When using the `privacy` mode `privateLink`, this property can be used to set a custom sharing key, otherwise a new key will be generated.",
-          "pattern": "^[a-f0-9]{128}$",
-          "type": "string"
+          "$ref": "#/definitions/ResourceSharingKey"
         },
         "tags": {
           "description": "Tags describing the score",
@@ -4945,6 +5673,10 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "title": {
+          "description": "The title of the score",
+          "type": "string"
         }
       },
       "type": "object"
@@ -5059,30 +5791,6 @@
         "deletions": {
           "description": "The number of deletions operations in the last revision",
           "type": "number"
-        }
-      },
-      "type": "object"
-    },
-    "ScoreRights": {
-      "description": "The rights of the current user on a score",
-      "example": {
-        "aclAdmin": true,
-        "aclRead": true,
-        "aclWrite": true
-      },
-      "properties": {
-        "aclAdmin": {
-          "default": false,
-          "description": "`True` if the current user can manage the current document, i.e.\nchanging the document permissions and deleting the document\n",
-          "type": "boolean"
-        },
-        "aclRead": {
-          "description": "`True` if the current user can read the current document\n"
-        },
-        "aclWrite": {
-          "default": false,
-          "description": "`True` if the current user can modify the current document\n",
-          "type": "boolean"
         }
       },
       "type": "object"

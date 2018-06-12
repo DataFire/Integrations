@@ -1132,9 +1132,9 @@ azure_datalake_analytics_account.StorageAccounts_ListSasTokens({
   * dataLakeStoreAccounts `array`: The list of Data Lake Store accounts associated with this account.
     * items [UpdateDataLakeStoreWithAccountParameters](#updatedatalakestorewithaccountparameters)
   * firewallAllowAzureIps `string` (values: Enabled, Disabled): The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-  * firewallRules `array`: The list of firewall rules associated with this Data Lake Analytics account.
+  * firewallRules `array`: The list of firewall rules associated with this account.
     * items [UpdateFirewallRuleWithAccountParameters](#updatefirewallrulewithaccountparameters)
-  * firewallState `string` (values: Enabled, Disabled): The current state of the IP address firewall for this Data Lake Analytics account.
+  * firewallState `string` (values: Enabled, Disabled): The current state of the IP address firewall for this account. Disabling the firewall does not remove existing rules, they will just be ignored until the firewall is re-enabled.
   * maxDegreeOfParallelism `integer`: The maximum supported degree of parallelism for this account.
   * maxDegreeOfParallelismPerJob `integer`: The maximum supported degree of parallelism per job for this account.
   * maxJobCount `integer`: The maximum supported jobs running under the account at the same time.

@@ -77,7 +77,7 @@ azure_apimanagement_apimsubscriptions.Subscription_Delete({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * sid **required** `string`: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-  * If-Match **required** `string`: ETag of the Subscription Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -156,7 +156,8 @@ azure_apimanagement_apimsubscriptions.Subscription_Update({
   * serviceName **required** `string`: The name of the API Management service.
   * sid **required** `string`: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
   * parameters **required** [SubscriptionUpdateParameters](#subscriptionupdateparameters)
-  * If-Match **required** `string`: ETag of the Subscription Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+  * notify `boolean`: Notify change in Subscription State. 
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -184,6 +185,8 @@ azure_apimanagement_apimsubscriptions.Subscription_CreateOrUpdate({
   * serviceName **required** `string`: The name of the API Management service.
   * sid **required** `string`: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
   * parameters **required** [SubscriptionCreateParameters](#subscriptioncreateparameters)
+  * notify `boolean`: Notify change in Subscription State. 
+  * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 

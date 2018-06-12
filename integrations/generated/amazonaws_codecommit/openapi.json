@@ -3488,6 +3488,221 @@
         }
       }
     },
+    "/#PutFile": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Adds or updates a file in an AWS CodeCommit repository.",
+        "operationId": "PutFile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutFileInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutFileOutput"
+            }
+          },
+          "480": {
+            "description": "RepositoryNameRequiredException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNameRequiredException"
+            }
+          },
+          "481": {
+            "description": "InvalidRepositoryNameException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRepositoryNameException"
+            }
+          },
+          "482": {
+            "description": "RepositoryDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryDoesNotExistException"
+            }
+          },
+          "483": {
+            "description": "ParentCommitIdRequiredException",
+            "schema": {
+              "$ref": "#/definitions/ParentCommitIdRequiredException"
+            }
+          },
+          "484": {
+            "description": "InvalidParentCommitIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParentCommitIdException"
+            }
+          },
+          "485": {
+            "description": "ParentCommitDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/ParentCommitDoesNotExistException"
+            }
+          },
+          "486": {
+            "description": "ParentCommitIdOutdatedException",
+            "schema": {
+              "$ref": "#/definitions/ParentCommitIdOutdatedException"
+            }
+          },
+          "487": {
+            "description": "FileContentRequiredException",
+            "schema": {
+              "$ref": "#/definitions/FileContentRequiredException"
+            }
+          },
+          "488": {
+            "description": "FileContentSizeLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/FileContentSizeLimitExceededException"
+            }
+          },
+          "489": {
+            "description": "PathRequiredException",
+            "schema": {
+              "$ref": "#/definitions/PathRequiredException"
+            }
+          },
+          "490": {
+            "description": "InvalidPathException",
+            "schema": {
+              "$ref": "#/definitions/InvalidPathException"
+            }
+          },
+          "491": {
+            "description": "BranchNameRequiredException",
+            "schema": {
+              "$ref": "#/definitions/BranchNameRequiredException"
+            }
+          },
+          "492": {
+            "description": "InvalidBranchNameException",
+            "schema": {
+              "$ref": "#/definitions/InvalidBranchNameException"
+            }
+          },
+          "493": {
+            "description": "BranchDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/BranchDoesNotExistException"
+            }
+          },
+          "494": {
+            "description": "BranchNameIsTagNameException",
+            "schema": {
+              "$ref": "#/definitions/BranchNameIsTagNameException"
+            }
+          },
+          "495": {
+            "description": "InvalidFileModeException",
+            "schema": {
+              "$ref": "#/definitions/InvalidFileModeException"
+            }
+          },
+          "496": {
+            "description": "NameLengthExceededException",
+            "schema": {
+              "$ref": "#/definitions/NameLengthExceededException"
+            }
+          },
+          "497": {
+            "description": "InvalidEmailException",
+            "schema": {
+              "$ref": "#/definitions/InvalidEmailException"
+            }
+          },
+          "498": {
+            "description": "CommitMessageLengthExceededException",
+            "schema": {
+              "$ref": "#/definitions/CommitMessageLengthExceededException"
+            }
+          },
+          "499": {
+            "description": "EncryptionIntegrityChecksFailedException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionIntegrityChecksFailedException"
+            }
+          },
+          "500": {
+            "description": "EncryptionKeyAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionKeyAccessDeniedException"
+            }
+          },
+          "501": {
+            "description": "EncryptionKeyDisabledException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionKeyDisabledException"
+            }
+          },
+          "502": {
+            "description": "EncryptionKeyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionKeyNotFoundException"
+            }
+          },
+          "503": {
+            "description": "EncryptionKeyUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionKeyUnavailableException"
+            }
+          },
+          "504": {
+            "description": "SameFileContentException",
+            "schema": {
+              "$ref": "#/definitions/SameFileContentException"
+            }
+          },
+          "505": {
+            "description": "FileNameConflictsWithDirectoryNameException",
+            "schema": {
+              "$ref": "#/definitions/FileNameConflictsWithDirectoryNameException"
+            }
+          },
+          "506": {
+            "description": "DirectoryNameConflictsWithFileNameException",
+            "schema": {
+              "$ref": "#/definitions/DirectoryNameConflictsWithFileNameException"
+            }
+          }
+        }
+      }
+    },
     "/#PutRepositoryTriggers": {
       "parameters": [
         {
@@ -4636,6 +4851,11 @@
       "properties": {},
       "type": "object"
     },
+    "BranchNameIsTagNameException": {
+      "description": "The specified branch name is not valid because it is a tag name. Type the name of a current branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.",
+      "properties": {},
+      "type": "object"
+    },
     "BranchNameList": {
       "items": {
         "$ref": "#/definitions/BranchName"
@@ -4855,7 +5075,7 @@
         },
         "parents": {
           "$ref": "#/definitions/ParentList",
-          "description": "The parent list for the specified commit."
+          "description": "A list of parent commits for the specified commit. Each parent commit ID is the full commit ID."
         },
         "treeId": {
           "$ref": "#/definitions/ObjectId",
@@ -4879,6 +5099,11 @@
     },
     "CommitIdRequiredException": {
       "description": "A commit ID was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "CommitMessageLengthExceededException": {
+      "description": "The commit message is too long. Provide a shorter string. ",
       "properties": {},
       "type": "object"
     },
@@ -5136,6 +5361,11 @@
       },
       "type": "array"
     },
+    "DirectoryNameConflictsWithFileNameException": {
+      "description": "A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository. Either provide a different name for the file, or specify a different path for the file.",
+      "properties": {},
+      "type": "object"
+    },
     "Email": {
       "type": "string"
     },
@@ -5167,6 +5397,33 @@
     "EventDate": {
       "format": "date-time",
       "type": "string"
+    },
+    "FileContent": {
+      "maxLength": 6291456,
+      "type": "string"
+    },
+    "FileContentRequiredException": {
+      "description": "The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.",
+      "properties": {},
+      "type": "object"
+    },
+    "FileContentSizeLimitExceededException": {
+      "description": "The file cannot be added because it is too large. The maximum file size that can be added using PutFile is 6 MB. For files larger than 6 MB but smaller than 2 GB, add them using a Git client.",
+      "properties": {},
+      "type": "object"
+    },
+    "FileModeTypeEnum": {
+      "enum": [
+        "EXECUTABLE",
+        "NORMAL",
+        "SYMLINK"
+      ],
+      "type": "string"
+    },
+    "FileNameConflictsWithDirectoryNameException": {
+      "description": "A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide another name for the file, or add the file in a directory that does not match the file name.",
+      "properties": {},
+      "type": "object"
     },
     "FileTooLargeException": {
       "description": "The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see <a href=\"http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">AWS CodeCommit User Guide</a>.",
@@ -5600,8 +5857,18 @@
       "properties": {},
       "type": "object"
     },
+    "InvalidEmailException": {
+      "description": "The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.",
+      "properties": {},
+      "type": "object"
+    },
     "InvalidFileLocationException": {
       "description": "The location of the file is not valid. Make sure that you include the extension of the file as well as the file name.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidFileModeException": {
+      "description": "The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. ",
       "properties": {},
       "type": "object"
     },
@@ -5622,6 +5889,11 @@
     },
     "InvalidOrderException": {
       "description": "The specified sort order is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidParentCommitIdException": {
+      "description": "The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.",
       "properties": {},
       "type": "object"
     },
@@ -5963,6 +6235,11 @@
     "Name": {
       "type": "string"
     },
+    "NameLengthExceededException": {
+      "description": "The file name is not valid because it has exceeded the character limit for file names. File names, including the path to the file, cannot exceed the character limit. ",
+      "properties": {},
+      "type": "object"
+    },
     "NextToken": {
       "type": "string"
     },
@@ -5975,6 +6252,21 @@
         "descending"
       ],
       "type": "string"
+    },
+    "ParentCommitDoesNotExistException": {
+      "description": "The parent commit ID is not valid. The specified parent commit ID does not exist in the specified branch of the repository.",
+      "properties": {},
+      "type": "object"
+    },
+    "ParentCommitIdOutdatedException": {
+      "description": "The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use <a>GetBranch</a>.",
+      "properties": {},
+      "type": "object"
+    },
+    "ParentCommitIdRequiredException": {
+      "description": "A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command (for example, git pull or git log).",
+      "properties": {},
+      "type": "object"
     },
     "ParentList": {
       "items": {
@@ -6381,6 +6673,75 @@
       },
       "type": "array"
     },
+    "PutFileInput": {
+      "properties": {
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": "The name of the branch where you want to add or update the file."
+        },
+        "commitMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "A message about why this file was added or updated. While optional, adding a message is strongly encouraged in order to provide a more useful commit history for your repository."
+        },
+        "email": {
+          "$ref": "#/definitions/Email",
+          "description": "An email address for the person adding or updating the file."
+        },
+        "fileContent": {
+          "$ref": "#/definitions/FileContent",
+          "description": "The content of the file, in binary object format. "
+        },
+        "fileMode": {
+          "$ref": "#/definitions/FileModeTypeEnum",
+          "description": "The file mode permissions of the blob. Valid file mode permissions are listed below."
+        },
+        "filePath": {
+          "$ref": "#/definitions/Path",
+          "description": "<p>The name of the file you want to add or update, including the relative path to the file in the repository.</p> <note> <p>If the path does not currently exist in the repository, the path will be created as part of adding the file.</p> </note>"
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the person adding or updating the file. While optional, adding a name is strongly encouraged in order to provide a more useful commit history for your repository."
+        },
+        "parentCommitId": {
+          "$ref": "#/definitions/CommitId",
+          "description": "The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not be added or updated."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository where you want to add or update the file."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "branchName",
+        "fileContent",
+        "filePath"
+      ],
+      "type": "object"
+    },
+    "PutFileOutput": {
+      "properties": {
+        "blobId": {
+          "$ref": "#/definitions/ObjectId",
+          "description": "The ID of the blob, which is its SHA-1 pointer."
+        },
+        "commitId": {
+          "$ref": "#/definitions/ObjectId",
+          "description": "The full SHA of the commit that contains this file change."
+        },
+        "treeId": {
+          "$ref": "#/definitions/ObjectId",
+          "description": "Tree information for the commit that contains this file change."
+        }
+      },
+      "required": [
+        "commitId",
+        "blobId",
+        "treeId"
+      ],
+      "type": "object"
+    },
     "PutRepositoryTriggersInput": {
       "description": "Represents the input ofa put repository triggers operation.",
       "properties": {
@@ -6676,6 +7037,11 @@
       "properties": {},
       "type": "object"
     },
+    "SameFileContentException": {
+      "description": "The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch that you specified.",
+      "properties": {},
+      "type": "object"
+    },
     "SortByEnum": {
       "enum": [
         "repositoryName",
@@ -6948,7 +7314,7 @@
       "properties": {
         "date": {
           "$ref": "#/definitions/Date",
-          "description": "The date when the specified commit was pushed to the repository."
+          "description": "The date when the specified commit was commited, in timestamp format with GMT offset."
         },
         "email": {
           "$ref": "#/definitions/Email",

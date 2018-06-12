@@ -278,7 +278,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "With this endpoint you can request a list of blocks for the hotel chain. Currently we only support to optionally\r\n            filter by the group code linked to the block. Additional filters will be available soon.",
-        "operationId": "Blocks_GetBlocks",
+        "operationId": "Blocks_GetBlocksAsync",
         "parameters": [
           {
             "description": "Application identifier",
@@ -295,6 +295,14 @@
             "required": true,
             "type": "string",
             "x-data-threescale-name": "app_keys"
+          },
+          {
+            "in": "body",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancellationToken"
+            }
           },
           {
             "description": "Only return blocks for this specific hotel.",
@@ -351,6 +359,13 @@
             "type": "array"
           },
           {
+            "description": "If true it will include also details of block count per each room type.",
+            "in": "query",
+            "name": "countDetails",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "description": "Amount of items to skip.",
             "format": "int32",
             "in": "query",
@@ -382,7 +397,7 @@
           "200": {
             "description": "Returns a list of blocks matching the provided filter criteria.",
             "schema": {
-              "$ref": "#/definitions/BlocksResponse"
+              "$ref": "#/definitions/Object"
             }
           },
           "204": {
@@ -417,7 +432,7 @@
       "get": {
         "consumes": [],
         "deprecated": false,
-        "operationId": "Blocks_GetBlocksCount",
+        "operationId": "Blocks_GetBlocksCountAsync",
         "parameters": [
           {
             "description": "Application identifier",
@@ -434,6 +449,14 @@
             "required": true,
             "type": "string",
             "x-data-threescale-name": "app_keys"
+          },
+          {
+            "in": "body",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancellationToken"
+            }
           },
           {
             "description": "Only return blocks for this specific hotel.",
@@ -488,6 +511,13 @@
             "name": "ratePlanCodes",
             "required": false,
             "type": "array"
+          },
+          {
+            "description": "If true it will include also details of block count per each room type.",
+            "in": "query",
+            "name": "countDetails",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -521,7 +551,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "Read all informationen about a block including the numbers of blocked rooms per room type and business day.",
-        "operationId": "Blocks_GetSingleBlock",
+        "operationId": "Blocks_GetSingleBlockAsync",
         "parameters": [
           {
             "description": "Application identifier",
@@ -545,13 +575,22 @@
             "name": "blockCode",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "",
+            "in": "body",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancellationToken"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Returns you all details for the specific block.",
             "schema": {
-              "$ref": "#/definitions/BlockResponse"
+              "$ref": "#/definitions/Object"
             }
           },
           "400": {
@@ -1568,6 +1607,13 @@
             "name": "reservationNumber",
             "required": true,
             "type": "integer"
+          },
+          {
+            "description": "Whether to send a confirmation email to the primary guest",
+            "in": "query",
+            "name": "sendConfirmation",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1751,6 +1797,89 @@
           }
         },
         "summary": "Performs a check out operation for a reservation.",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/booking/v0/bookings/{confirmationId}/reservations/{reservationNumber}/payment_token": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "deprecated": false,
+        "description": "TBD.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+        "operationId": "Bookings_PaymentToken",
+        "parameters": [
+          {
+            "description": "Application identifier",
+            "in": "header",
+            "name": "App-Id",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "app_ids"
+          },
+          {
+            "description": "Application key.",
+            "in": "header",
+            "name": "App-Key",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "app_keys"
+          },
+          {
+            "description": "The confirmation id for the booking the reservation was made.",
+            "in": "path",
+            "name": "confirmationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the reservation number for the reservation to be checked in.",
+            "format": "int32",
+            "in": "path",
+            "name": "reservationNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "in": "body",
+            "name": "authorizationRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AuthorizationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The payment token was added successfully",
+            "schema": {
+              "$ref": "#/definitions/BaseResponse"
+            }
+          },
+          "401": {
+            "description": "You provided wrong credentials, or you reached your API limit."
+          },
+          "403": {
+            "description": "The application does not have access to the requested resource."
+          },
+          "404": {
+            "description": "Not Found. The server has not found anything matching the Request-URI."
+          },
+          "422": {
+            "description": "The request failed to validate. The reason could be wrong room or reservation status, wrong start date of reservation etc."
+          },
+          "500": {
+            "description": "We caught an unexpected error on our side. Please report with providing the Hetras-Tracking-Id from the response headers and we will check the logfiles."
+          },
+          "503": {
+            "description": "The server is currently unavailable. Please try later."
+          }
+        },
+        "summary": "Post a payment token for a reservation.",
         "tags": [
           "Bookings"
         ]
@@ -2345,6 +2474,10 @@
           "$ref": "#/definitions/AuthorizationDetails",
           "description": "Authorization Details"
         },
+        "no_authorization_required": {
+          "description": "Whether hetras should skip authorization using the provided token when no authorization details are supplied.\r\n            Optional flag, defaults to false.",
+          "type": "boolean"
+        },
         "payment_token": {
           "description": "The token you get from the payment service provider",
           "maxLength": 255,
@@ -2452,86 +2585,6 @@
       },
       "type": "object"
     },
-    "Block": {
-      "properties": {
-        "_links": {
-          "additionalProperties": {
-            "$ref": "#/definitions/LinkObject"
-          },
-          "description": "Collection of links to related resources",
-          "type": "object"
-        },
-        "average_daily_rate": {
-          "description": "Average daily rate for this block. You can multiply by the count of blocked room nights and get a forecast value for this block",
-          "format": "double",
-          "type": "number"
-        },
-        "code": {
-          "description": "The code of a block. The code is composed of the hotel code a dash and the block code shown in the hetras UI. \r\n            An example block code on the API for a block with code TRAVEL1 defined for the hotel with code ABC \r\n            would be ABC-TRAVEL1",
-          "type": "string"
-        },
-        "count": {
-          "description": "Total number of room nights blocked across all room types and days",
-          "format": "int32",
-          "type": "integer"
-        },
-        "created": {
-          "description": "Timestamp the block was created",
-          "format": "date-time",
-          "type": "string"
-        },
-        "first_arrival": {
-          "description": "(Earliest) arrival date for reservations split from this block",
-          "format": "date-time",
-          "type": "string"
-        },
-        "group": {
-          "$ref": "#/definitions/GroupMaster",
-          "description": "Group master template linked to this block"
-        },
-        "hotel": {
-          "$ref": "#/definitions/HotelSummary",
-          "description": "Hotel information for the hotel the rooms are blocked for"
-        },
-        "last_departure": {
-          "description": "(Latest) departure date for reservations split from this block",
-          "format": "date-time",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the block",
-          "type": "string"
-        },
-        "picked": {
-          "description": "Total number of room nights picked up accross all room types and days",
-          "format": "int32",
-          "type": "integer"
-        },
-        "rate_plans": {
-          "description": "The rateplans linked to this block",
-          "items": {
-            "$ref": "#/definitions/BlockRatePlan"
-          },
-          "type": "array"
-        },
-        "status": {
-          "description": "The current status of the block",
-          "enum": [
-            "Physical",
-            "Cancelled",
-            "Tentative",
-            "Definite"
-          ],
-          "type": "string"
-        },
-        "updated": {
-          "description": "Timestamp of when the block was changed the last time",
-          "format": "date-time",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "BlockInfo": {
       "properties": {
         "_links": {
@@ -2554,6 +2607,10 @@
     },
     "BlockListRequest": {
       "properties": {
+        "countDetails": {
+          "description": "If true it will include also details of block count per each room type.",
+          "type": "boolean"
+        },
         "from": {
           "description": "Return all blocks where the block's last_departure is greater than specified date.",
           "format": "date-time",
@@ -2592,134 +2649,6 @@
       },
       "type": "object"
     },
-    "BlockRatePlan": {
-      "properties": {
-        "code": {
-          "description": "Code of the rate plan",
-          "type": "string"
-        },
-        "description": {
-          "description": "Description of the rate plan suitable for being displayed to customers",
-          "type": "string"
-        },
-        "forecast": {
-          "description": "Speficies if this is the rateplan that should be used for calculating the forecast",
-          "type": "boolean"
-        },
-        "name": {
-          "description": "Name of the rate plan",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "BlockResponse": {
-      "properties": {
-        "_links": {
-          "additionalProperties": {
-            "$ref": "#/definitions/LinkObject"
-          },
-          "description": "Collection of links to related resources",
-          "type": "object"
-        },
-        "average_daily_rate": {
-          "description": "Average daily rate for this block. You can multiply by the count of blocked room nights and get a forecast value for this block",
-          "format": "double",
-          "type": "number"
-        },
-        "code": {
-          "description": "The code of a block. The code is composed of the hotel code a dash and the block code shown in the hetras UI. \r\n            An example block code on the API for a block with code TRAVEL1 defined for the hotel with code ABC \r\n            would be ABC-TRAVEL1",
-          "type": "string"
-        },
-        "count": {
-          "description": "Total number of room nights blocked across all room types and days",
-          "format": "int32",
-          "type": "integer"
-        },
-        "created": {
-          "description": "Timestamp the block was created",
-          "format": "date-time",
-          "type": "string"
-        },
-        "first_arrival": {
-          "description": "(Earliest) arrival date for reservations split from this block",
-          "format": "date-time",
-          "type": "string"
-        },
-        "group": {
-          "$ref": "#/definitions/GroupMaster",
-          "description": "Group master template linked to this block"
-        },
-        "hotel": {
-          "$ref": "#/definitions/HotelSummary",
-          "description": "Hotel information for the hotel the rooms are blocked for"
-        },
-        "last_departure": {
-          "description": "(Latest) departure date for reservations split from this block",
-          "format": "date-time",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the block",
-          "type": "string"
-        },
-        "picked": {
-          "description": "Total number of room nights picked up accross all room types and days",
-          "format": "int32",
-          "type": "integer"
-        },
-        "rate_plans": {
-          "description": "The rateplans linked to this block",
-          "items": {
-            "$ref": "#/definitions/BlockRatePlan"
-          },
-          "type": "array"
-        },
-        "room_type_counts": {
-          "description": "Number of blocked and picked up rooms per room type and day.",
-          "items": {
-            "$ref": "#/definitions/RoomTypeCount"
-          },
-          "type": "array"
-        },
-        "status": {
-          "description": "The current status of the block",
-          "enum": [
-            "Physical",
-            "Cancelled",
-            "Tentative",
-            "Definite"
-          ],
-          "type": "string"
-        },
-        "updated": {
-          "description": "Timestamp of when the block was changed the last time",
-          "format": "date-time",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "BlockRoomType": {
-      "properties": {
-        "_links": {
-          "additionalProperties": {
-            "$ref": "#/definitions/LinkObject"
-          },
-          "description": "Collection of links to related resources",
-          "type": "object"
-        },
-        "code": {
-          "description": "Code of the room type",
-          "type": "string"
-        },
-        "name": {
-          "description": "Name of the room type",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Blocked": {
       "properties": {
         "definite": {
@@ -2736,30 +2665,6 @@
           "description": "Number of rooms blocked tentatively",
           "format": "int32",
           "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "BlocksResponse": {
-      "properties": {
-        "_count": {
-          "description": "The number of items matching your request in total for all pages.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "_links": {
-          "additionalProperties": {
-            "$ref": "#/definitions/LinkObject"
-          },
-          "description": "Collection of links to related resources",
-          "type": "object"
-        },
-        "blocks": {
-          "description": "List of all blocks matching the given filter criteria.",
-          "items": {
-            "$ref": "#/definitions/Block"
-          },
-          "type": "array"
         }
       },
       "type": "object"
@@ -2948,13 +2853,6 @@
           "description": "Collection of links to related resources",
           "type": "object"
         },
-        "addon_services": {
-          "description": "A list of addon service codes that are currently booked on the reservation. Services which are charged\r\n            once per stay are only visible before and on the day they are booked for",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
         "adults": {
           "description": "The number of adults per room",
           "format": "int32",
@@ -3058,13 +2956,6 @@
           "format": "int32",
           "type": "integer"
         },
-        "services": {
-          "description": "A list of details for all services included and addon service booked on this reservation",
-          "items": {
-            "$ref": "#/definitions/Service"
-          },
-          "type": "array"
-        },
         "subchannel_code": {
           "description": "The code of the subchannel that was used when the booking has been created. Possible values can be \r\n            BOOKING, EXPEDIA or WALKIN, but it is configurable per hotel",
           "type": "string"
@@ -3147,6 +3038,23 @@
       },
       "type": "object"
     },
+    "CancellationToken": {
+      "properties": {
+        "CanBeCanceled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "IsCancellationRequested": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "WaitHandle": {
+          "$ref": "#/definitions/WaitHandle",
+          "readOnly": true
+        }
+      },
+      "type": "object"
+    },
     "Card": {
       "properties": {
         "id": {
@@ -3207,77 +3115,6 @@
         "customer_id": {
           "description": "The id of a customer profile. The id is build out of the Supplier Code a dash and the profile id\r\n            shown in the hetras UI. An example id on the API for a profile with id 12345 on the level of supplier ABC \r\n            would be ABC-12345",
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "CreateReservationRequest": {
-      "properties": {
-        "sendConfirmation": {
-          "description": "Whether to send a confirmation email to the primary guest",
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "CreditCard": {
-      "properties": {
-        "card_holder_name": {
-          "description": "name of the card holder",
-          "type": "string"
-        },
-        "card_number": {
-          "description": "Credit card number",
-          "type": "string"
-        },
-        "card_type": {
-          "description": "One of the allowed values for a credit card type. If omitted it will be set to Others",
-          "type": "string"
-        },
-        "cvv_code": {
-          "description": "credit card verification value",
-          "type": "string"
-        },
-        "expiration_month": {
-          "description": "month of expiration",
-          "format": "int32",
-          "type": "integer"
-        },
-        "expiration_year": {
-          "description": "year of expiration",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "CreditCardGuarantee": {
-      "properties": {
-        "credit_card": {
-          "$ref": "#/definitions/CreditCard",
-          "description": "The credit card to be used for capturing the reservations amount or to guarantee for the reservation"
-        },
-        "guarantee_type": {
-          "description": "One of the accepted guarantee types from the offer you selected out of the rates response",
-          "enum": [
-            "PM4Hold",
-            "PM6Hold",
-            "GuaranteeToCreditCard",
-            "GuaranteeToGuestAccount",
-            "GuaranteeByTravelAgent",
-            "GuaranteeByCompany",
-            "Deposit",
-            "Voucher",
-            "Prepayment",
-            "NonGuaranteed",
-            "Tentative",
-            "Waitlist"
-          ],
-          "type": "string"
-        },
-        "token": {
-          "$ref": "#/definitions/Token",
-          "description": "The token to be used for capturing the reservations amount or to guarantee for the reservation"
         }
       },
       "type": "object"
@@ -3468,12 +3305,12 @@
           "type": "array"
         },
         "included_tax": {
-          "description": "The amount of taxes already included in the gross rate also calculated for all rooms and\r\n            all persons per room.",
+          "description": "The amount of taxes already included in the gross nightly rate also calculated for all rooms and\r\n            all persons per room.",
           "format": "double",
           "type": "number"
         },
         "rate": {
-          "description": "The gross rate. It is the price calculated for all rooms and all persons per room.",
+          "description": "The gross room rate. It is the price calculated for all rooms and all persons per room.",
           "format": "double",
           "type": "number"
         },
@@ -3923,19 +3760,6 @@
       ],
       "type": "object"
     },
-    "GroupMaster": {
-      "properties": {
-        "code": {
-          "description": "Code of the linked group master template",
-          "type": "string"
-        },
-        "name": {
-          "description": "Name of the linked group master template",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Guarantee": {
       "properties": {
         "guarantee_type": {
@@ -4025,31 +3849,6 @@
           "description": "Hotel Identifier",
           "format": "int32",
           "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "HotelSummary": {
-      "properties": {
-        "_links": {
-          "additionalProperties": {
-            "$ref": "#/definitions/LinkObject"
-          },
-          "description": "Collection of links to related resources",
-          "type": "object"
-        },
-        "code": {
-          "description": "Hotel code",
-          "type": "string"
-        },
-        "id": {
-          "description": "Hotel Identity",
-          "format": "int32",
-          "type": "integer"
-        },
-        "name": {
-          "description": "Hotel name",
-          "type": "string"
         }
       },
       "type": "object"
@@ -4346,12 +4145,12 @@
           "type": "array"
         },
         "included_tax": {
-          "description": "The amount of taxes already included in the gross rate also calculated for all rooms and\r\n            all persons per room.",
+          "description": "The amount of taxes already included in the gross nightly rate also calculated for all rooms and\r\n            all persons per room.",
           "format": "double",
           "type": "number"
         },
         "rate": {
-          "description": "The gross rate. It is the price calculated for all rooms and all persons per room.",
+          "description": "The gross room rate. It is the price calculated for all rooms and all persons per room.",
           "format": "double",
           "type": "number"
         }
@@ -4669,7 +4468,7 @@
           "type": "string"
         },
         "guarantee": {
-          "$ref": "#/definitions/CreditCardGuarantee",
+          "$ref": "#/definitions/Guarantee",
           "description": "The guarantee for this reservation. See https://developer.hetras.com/docs/tutorials#payment for information about\r\n            how to fill out the guarantee object"
         },
         "guests": {
@@ -4726,6 +4525,15 @@
       "required": [
         "hotel_id"
       ],
+      "type": "object"
+    },
+    "ReservationRequestParameters": {
+      "properties": {
+        "sendConfirmation": {
+          "description": "Whether to send a confirmation email to the primary guest",
+          "type": "boolean"
+        }
+      },
       "type": "object"
     },
     "ReservationResponse": {
@@ -5083,26 +4891,6 @@
       },
       "type": "object"
     },
-    "RoomNightCount": {
-      "properties": {
-        "count": {
-          "description": "Number of rooms blocked",
-          "format": "int32",
-          "type": "integer"
-        },
-        "date": {
-          "description": "Business day rooms are blocked for",
-          "format": "date-time",
-          "type": "string"
-        },
-        "picked": {
-          "description": "Number of rooms picked up",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "RoomOffer": {
       "properties": {
         "offers": {
@@ -5185,22 +4973,6 @@
       },
       "type": "object"
     },
-    "RoomTypeCount": {
-      "properties": {
-        "counts": {
-          "description": "Number of rooms blocked or picked up for this room type per day",
-          "items": {
-            "$ref": "#/definitions/RoomNightCount"
-          },
-          "type": "array"
-        },
-        "room_type": {
-          "$ref": "#/definitions/BlockRoomType",
-          "description": "Room type for which rooms are blocked"
-        }
-      },
-      "type": "object"
-    },
     "RoomTypeInfo": {
       "properties": {
         "code": {
@@ -5210,6 +4982,19 @@
         "name": {
           "description": "Name of the room type",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SafeWaitHandle": {
+      "properties": {
+        "IsClosed": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "IsInvalid": {
+          "readOnly": true,
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -5316,6 +5101,17 @@
       "required": [
         "_count"
       ],
+      "type": "object"
+    },
+    "WaitHandle": {
+      "properties": {
+        "Handle": {
+          "$ref": "#/definitions/Object"
+        },
+        "SafeWaitHandle": {
+          "$ref": "#/definitions/SafeWaitHandle"
+        }
+      },
       "type": "object"
     }
   }

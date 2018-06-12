@@ -284,7 +284,7 @@ azure_datalake_store_account.FirewallRules_ListByAccount({
 * output [FirewallRuleListResult](#firewallrulelistresult)
 
 ### FirewallRules_Delete
-Deletes the specified firewall rule from the specified Data Lake Store account
+Deletes the specified firewall rule from the specified Data Lake Store account.
 
 
 ```js
@@ -512,6 +512,132 @@ azure_datalake_store_account.TrustedIdProviders_CreateOrUpdate({
 #### Output
 * output [TrustedIdProvider](#trustedidprovider)
 
+### VirtualNetworkRules_ListByAccount
+Lists the Data Lake Store virtual network rules within the specified Data Lake Store account.
+
+
+```js
+azure_datalake_store_account.VirtualNetworkRules_ListByAccount({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the Azure resource group.
+  * accountName **required** `string`: The name of the Data Lake Store account.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output [VirtualNetworkRuleListResult](#virtualnetworkrulelistresult)
+
+### VirtualNetworkRules_Delete
+Deletes the specified virtual network rule from the specified Data Lake Store account.
+
+
+```js
+azure_datalake_store_account.VirtualNetworkRules_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "virtualNetworkRuleName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the Azure resource group.
+  * accountName **required** `string`: The name of the Data Lake Store account.
+  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule to delete.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+*Output schema unknown*
+
+### VirtualNetworkRules_Get
+Gets the specified Data Lake Store virtual network rule.
+
+
+```js
+azure_datalake_store_account.VirtualNetworkRules_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "virtualNetworkRuleName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the Azure resource group.
+  * accountName **required** `string`: The name of the Data Lake Store account.
+  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule to retrieve.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output [VirtualNetworkRule](#virtualnetworkrule)
+
+### VirtualNetworkRules_Update
+Updates the specified virtual network rule.
+
+
+```js
+azure_datalake_store_account.VirtualNetworkRules_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "virtualNetworkRuleName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the Azure resource group.
+  * accountName **required** `string`: The name of the Data Lake Store account.
+  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule to update.
+  * parameters [UpdateVirtualNetworkRuleParameters](#updatevirtualnetworkruleparameters)
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output [VirtualNetworkRule](#virtualnetworkrule)
+
+### VirtualNetworkRules_CreateOrUpdate
+Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+
+
+```js
+azure_datalake_store_account.VirtualNetworkRules_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "virtualNetworkRuleName": "",
+  "parameters": null,
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the Azure resource group.
+  * accountName **required** `string`: The name of the Data Lake Store account.
+  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule to create or update.
+  * parameters **required** [CreateOrUpdateVirtualNetworkRuleParameters](#createorupdatevirtualnetworkruleparameters)
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output [VirtualNetworkRule](#virtualnetworkrule)
+
 
 
 ## Definitions
@@ -549,6 +675,8 @@ azure_datalake_store_account.TrustedIdProviders_CreateOrUpdate({
   * trustedIdProviderState `string` (values: Enabled, Disabled): The current state of the trusted identity provider feature for this Data Lake Store account.
   * trustedIdProviders `array`: The list of trusted identity providers associated with this Data Lake Store account.
     * items [CreateTrustedIdProviderWithAccountParameters](#createtrustedidproviderwithaccountparameters)
+  * virtualNetworkRules `array`: The list of virtual network rules associated with this Data Lake Store account.
+    * items [CreateVirtualNetworkRuleWithAccountParameters](#createvirtualnetworkrulewithaccountparameters)
 
 ### CreateFirewallRuleWithAccountParameters
 * CreateFirewallRuleWithAccountParameters `object`: The parameters used to create a new firewall rule while creating a new Data Lake Store account.
@@ -572,10 +700,23 @@ azure_datalake_store_account.TrustedIdProviders_CreateOrUpdate({
 * CreateOrUpdateTrustedIdProviderProperties `object`: The trusted identity provider properties to use when creating a new trusted identity provider.
   * idProvider **required** `string`: The URL of this trusted identity provider.
 
+### CreateOrUpdateVirtualNetworkRuleParameters
+* CreateOrUpdateVirtualNetworkRuleParameters `object`: The parameters used to create a new virtual network rule.
+  * properties **required** [CreateOrUpdateVirtualNetworkRuleProperties](#createorupdatevirtualnetworkruleproperties)
+
+### CreateOrUpdateVirtualNetworkRuleProperties
+* CreateOrUpdateVirtualNetworkRuleProperties `object`: The virtual network rule properties to use when creating a new virtual network rule.
+  * subnetId **required** `string`: The resource identifier for the subnet.
+
 ### CreateTrustedIdProviderWithAccountParameters
 * CreateTrustedIdProviderWithAccountParameters `object`: The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
   * name **required** `string`: The unique name of the trusted identity provider to create.
   * properties **required** [CreateOrUpdateTrustedIdProviderProperties](#createorupdatetrustedidproviderproperties)
+
+### CreateVirtualNetworkRuleWithAccountParameters
+* CreateVirtualNetworkRuleWithAccountParameters `object`: The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
+  * name **required** `string`: The unique name of the virtual network rule to create.
+  * properties **required** [CreateOrUpdateVirtualNetworkRuleProperties](#createorupdatevirtualnetworkruleproperties)
 
 ### DataLakeStoreAccount
 * DataLakeStoreAccount `object`: Data Lake Store account information.
@@ -617,6 +758,8 @@ azure_datalake_store_account.TrustedIdProviders_CreateOrUpdate({
   * trustedIdProviderState `string` (values: Enabled, Disabled): The current state of the trusted identity provider feature for this Data Lake Store account.
   * trustedIdProviders `array`: The list of trusted identity providers associated with this Data Lake Store account.
     * items [TrustedIdProvider](#trustedidprovider)
+  * virtualNetworkRules `array`: The list of virtual network rules associated with this Data Lake Store account.
+    * items [VirtualNetworkRule](#virtualnetworkrule)
   * accountId `string`: The unique identifier associated with this Data Lake Store account.
   * creationTime `string`: The account creation time.
   * endpoint `string`: The full CName endpoint for this account.
@@ -741,6 +884,8 @@ azure_datalake_store_account.TrustedIdProviders_CreateOrUpdate({
   * trustedIdProviderState `string` (values: Enabled, Disabled): The current state of the trusted identity provider feature for this Data Lake Store account. Disabling trusted identity provider functionality does not remove the providers, they will just be ignored until this feature is re-enabled.
   * trustedIdProviders `array`: The list of trusted identity providers associated with this Data Lake Store account.
     * items [UpdateTrustedIdProviderWithAccountParameters](#updatetrustedidproviderwithaccountparameters)
+  * virtualNetworkRules `array`: The list of virtual network rules associated with this Data Lake Store account.
+    * items [UpdateVirtualNetworkRuleWithAccountParameters](#updatevirtualnetworkrulewithaccountparameters)
 
 ### UpdateEncryptionConfig
 * UpdateEncryptionConfig `object`: The encryption configuration used to update a user managed Key Vault key.
@@ -776,5 +921,35 @@ azure_datalake_store_account.TrustedIdProviders_CreateOrUpdate({
 * UpdateTrustedIdProviderWithAccountParameters `object`: The parameters used to update a trusted identity provider while updating a Data Lake Store account.
   * name **required** `string`: The unique name of the trusted identity provider to update.
   * properties [UpdateTrustedIdProviderProperties](#updatetrustedidproviderproperties)
+
+### UpdateVirtualNetworkRuleParameters
+* UpdateVirtualNetworkRuleParameters `object`: The parameters used to update a virtual network rule.
+  * properties [UpdateVirtualNetworkRuleProperties](#updatevirtualnetworkruleproperties)
+
+### UpdateVirtualNetworkRuleProperties
+* UpdateVirtualNetworkRuleProperties `object`: The virtual network rule properties to use when updating a virtual network rule.
+  * subnetId `string`: The resource identifier for the subnet.
+
+### UpdateVirtualNetworkRuleWithAccountParameters
+* UpdateVirtualNetworkRuleWithAccountParameters `object`: The parameters used to update a virtual network rule while updating a Data Lake Store account.
+  * name **required** `string`: The unique name of the virtual network rule to update.
+  * properties [UpdateVirtualNetworkRuleProperties](#updatevirtualnetworkruleproperties)
+
+### VirtualNetworkRule
+* VirtualNetworkRule `object`: Data Lake Store virtual network rule information.
+  * properties [VirtualNetworkRuleProperties](#virtualnetworkruleproperties)
+  * id `string`: The resource identifier.
+  * name `string`: The resource name.
+  * type `string`: The resource type.
+
+### VirtualNetworkRuleListResult
+* VirtualNetworkRuleListResult `object`: Data Lake Store virtual network rule list information.
+  * nextLink `string`: The link (url) to the next page of results.
+  * value `array`: The results of the list operation.
+    * items [VirtualNetworkRule](#virtualnetworkrule)
+
+### VirtualNetworkRuleProperties
+* VirtualNetworkRuleProperties `object`: The virtual network rule properties.
+  * subnetId `string`: The resource identifier for the subnet.
 
 

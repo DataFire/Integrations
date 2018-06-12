@@ -1,6 +1,6 @@
 {
   "name": "@datafire/magick_nu",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Tradeworks",
   "repository": {

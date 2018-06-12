@@ -397,6 +397,300 @@
         }
       }
     },
+    "/detector/{detectorId}/filter": {
+      "get": {
+        "description": "Returns a paginated list of the current filters.",
+        "operationId": "ListFilters",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListFiltersRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListFiltersResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a filter using the specified finding criteria.",
+        "operationId": "CreateFilter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFilterRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFilterResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/detector/{detectorId}/filter/{filterName}": {
+      "delete": {
+        "description": "Deletes the filter specified by the filter name.",
+        "operationId": "DeleteFilter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFilterRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "filterName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteFilterResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns the details of the filter specified by the filter name.",
+        "operationId": "GetFilter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFilterRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "filterName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFilterResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates the filter specified by the filter name.",
+        "operationId": "UpdateFilter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFilterRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "filterName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFilterResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
+    },
     "/detector/{detectorId}/findings": {
       "parameters": [
         {
@@ -1895,7 +2189,7 @@
         }
       ],
       "post": {
-        "description": "Disables GuardDuty from monitoring findings of the member accounts specified by the account IDs. After running this command, a master GuardDuty account can run StartMonitoringMembers to re-enable GuardDuty to monitor these members' findings.",
+        "description": "Disables GuardDuty from monitoring findings of the member accounts specified by the account IDs. After running this command, a master GuardDuty account can run StartMonitoringMembers to re-enable GuardDuty to monitor these members’ findings.",
         "operationId": "StopMonitoringMembers",
         "parameters": [
           {
@@ -2557,6 +2851,10 @@
           "description": "Member account's email address."
         }
       },
+      "required": [
+        "Email",
+        "AccountId"
+      ],
       "type": "object"
     },
     "AccountDetails": {
@@ -2742,6 +3040,45 @@
       },
       "type": "object"
     },
+    "CreateFilterRequest": {
+      "description": "CreateFilterRequest request body.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/FilterAction",
+          "description": "Specifies the action that is to be applied to the findings that match the filter."
+        },
+        "ClientToken": {
+          "$ref": "#/definitions/__stringMin0Max64",
+          "description": "The idempotency token for the create request."
+        },
+        "Description": {
+          "$ref": "#/definitions/FilterDescription",
+          "description": "The description of the filter."
+        },
+        "FindingCriteria": {
+          "$ref": "#/definitions/FindingCriteria",
+          "description": "Represents the criteria to be used in the filter for querying findings."
+        },
+        "Name": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The name of the filter."
+        },
+        "Rank": {
+          "$ref": "#/definitions/FilterRank",
+          "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings."
+        }
+      },
+      "type": "object"
+    },
+    "CreateFilterResponse": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The name of the successfully created filter."
+        }
+      },
+      "type": "object"
+    },
     "CreateIPSetRequest": {
       "description": "CreateIPSet request body.",
       "properties": {
@@ -2863,6 +3200,14 @@
       "type": "object"
     },
     "DeleteDetectorResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFilterRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFilterResponse": {
       "properties": {},
       "type": "object"
     },
@@ -3022,6 +3367,33 @@
       ],
       "type": "string"
     },
+    "FilterAction": {
+      "description": "The action associated with a filter.",
+      "enum": [
+        "NOOP",
+        "ARCHIVE"
+      ],
+      "type": "string"
+    },
+    "FilterDescription": {
+      "description": "The filter description",
+      "type": "string"
+    },
+    "FilterName": {
+      "description": "The unique identifier for a filter",
+      "type": "string"
+    },
+    "FilterNames": {
+      "description": "A list of filter names",
+      "items": {
+        "$ref": "#/definitions/FilterName"
+      },
+      "type": "array"
+    },
+    "FilterRank": {
+      "description": "Relative position of filter among list of exisiting filters.",
+      "type": "integer"
+    },
     "Finding": {
       "description": "Representation of a abnormal or suspicious activity.",
       "properties": {
@@ -3086,13 +3458,25 @@
           "description": "The time stamp at which a finding was last updated."
         }
       },
+      "required": [
+        "AccountId",
+        "SchemaVersion",
+        "CreatedAt",
+        "Resource",
+        "Severity",
+        "UpdatedAt",
+        "Type",
+        "Region",
+        "Id",
+        "Arn"
+      ],
       "type": "object"
     },
     "FindingCriteria": {
       "description": "Represents the criteria used for querying findings.",
       "properties": {
         "Criterion": {
-          "$ref": "#/definitions/MapOfCondition",
+          "$ref": "#/definitions/__mapOfCondition",
           "description": "Represents a map of finding properties that match specified conditions and values when querying findings."
         }
       },
@@ -3127,7 +3511,7 @@
       "description": "Finding statistics object.",
       "properties": {
         "CountBySeverity": {
-          "$ref": "#/definitions/MapOfCountBySeverityFindingStatistic",
+          "$ref": "#/definitions/__mapOfCountBySeverityFindingStatistic",
           "description": "Represents a map of severity to count statistic for a set of findings"
         }
       },
@@ -3182,6 +3566,35 @@
         },
         "UpdatedAt": {
           "$ref": "#/definitions/UpdatedAt"
+        }
+      },
+      "type": "object"
+    },
+    "GetFilterRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetFilterResponse": {
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/FilterAction",
+          "description": "Specifies the action that is to be applied to the findings that match the filter."
+        },
+        "Description": {
+          "$ref": "#/definitions/FilterDescription",
+          "description": "The description of the filter."
+        },
+        "FindingCriteria": {
+          "$ref": "#/definitions/FindingCriteria",
+          "description": "Represents the criteria to be used in the filter for querying findings."
+        },
+        "Name": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The name of the filter."
+        },
+        "Rank": {
+          "$ref": "#/definitions/FilterRank",
+          "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings."
         }
       },
       "type": "object"
@@ -3352,6 +3765,10 @@
         "IamInstanceProfile": {
           "$ref": "#/definitions/IamInstanceProfile"
         },
+        "ImageDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "The image description of the EC2 instance."
+        },
         "ImageId": {
           "$ref": "#/definitions/__string",
           "description": "The image ID of the EC2 instance."
@@ -3445,9 +3862,13 @@
           "$ref": "#/definitions/AccountIds",
           "description": "A list of account IDs of the accounts that you want to invite to GuardDuty as members."
         },
+        "DisableEmailNotification": {
+          "$ref": "#/definitions/__boolean",
+          "description": "A boolean value that specifies whether you want to disable email notification to the accounts that you’re inviting to GuardDuty as members."
+        },
         "Message": {
           "$ref": "#/definitions/Message",
-          "description": "The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members."
+          "description": "The invitation message that you want to send to the accounts that you’re inviting to GuardDuty as members."
         }
       },
       "type": "object"
@@ -3520,6 +3941,21 @@
       "properties": {
         "DetectorIds": {
           "$ref": "#/definitions/DetectorIds"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object"
+    },
+    "ListFiltersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListFiltersResponse": {
+      "properties": {
+        "FilterNames": {
+          "$ref": "#/definitions/FilterNames"
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken"
@@ -3605,12 +4041,6 @@
       },
       "type": "object"
     },
-    "ListOfPortProbeDetail": {
-      "items": {
-        "$ref": "#/definitions/PortProbeDetail"
-      },
-      "type": "array"
-    },
     "ListThreatIntelSetsRequest": {
       "properties": {},
       "type": "object"
@@ -3643,34 +4073,6 @@
     "Location": {
       "description": "The location of the S3 bucket where the list resides. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)",
       "type": "string"
-    },
-    "MapOfCondition": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/__string"
-          },
-          "value": {
-            "$ref": "#/definitions/Condition"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "MapOfCountBySeverityFindingStatistic": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/__string"
-          },
-          "value": {
-            "$ref": "#/definitions/CountBySeverityFindingStatistic"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
     },
     "Master": {
       "description": "Contains details about the master account.",
@@ -3731,6 +4133,13 @@
           "$ref": "#/definitions/UpdatedAt"
         }
       },
+      "required": [
+        "Email",
+        "AccountId",
+        "MasterId",
+        "UpdatedAt",
+        "RelationshipStatus"
+      ],
       "type": "object"
     },
     "Members": {
@@ -3741,7 +4150,7 @@
       "type": "array"
     },
     "Message": {
-      "description": "The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.",
+      "description": "The invitation message that you want to send to the accounts that you’re inviting to GuardDuty as members.",
       "type": "string"
     },
     "Name": {
@@ -3792,6 +4201,10 @@
           "$ref": "#/definitions/Ipv6Addresses",
           "description": "A list of EC2 instance IPv6 address information."
         },
+        "NetworkInterfaceId": {
+          "$ref": "#/definitions/NetworkInterfaceId",
+          "description": "The ID of the network interface"
+        },
         "PrivateDnsName": {
           "$ref": "#/definitions/PrivateDnsName",
           "description": "Private DNS name of the EC2 instance."
@@ -3826,6 +4239,10 @@
         }
       },
       "type": "object"
+    },
+    "NetworkInterfaceId": {
+      "description": "The ID of the network interface.",
+      "type": "string"
     },
     "NetworkInterfaces": {
       "description": "The network interface information of the EC2 instance.",
@@ -3875,7 +4292,7 @@
           "description": "Port probe blocked information."
         },
         "PortProbeDetails": {
-          "$ref": "#/definitions/ListOfPortProbeDetail",
+          "$ref": "#/definitions/__listOfPortProbeDetail",
           "description": "A list of port probe details objects."
         }
       },
@@ -4203,6 +4620,10 @@
           "description": "A reason why the account hasn't been processed."
         }
       },
+      "required": [
+        "AccountId",
+        "Result"
+      ],
       "type": "object"
     },
     "UnprocessedAccounts": {
@@ -4224,6 +4645,37 @@
     },
     "UpdateDetectorResponse": {
       "properties": {},
+      "type": "object"
+    },
+    "UpdateFilterRequest": {
+      "description": "UpdateFilterRequest request body.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/FilterAction",
+          "description": "Specifies the action that is to be applied to the findings that match the filter."
+        },
+        "Description": {
+          "$ref": "#/definitions/FilterDescription",
+          "description": "The description of the filter."
+        },
+        "FindingCriteria": {
+          "$ref": "#/definitions/FindingCriteria",
+          "description": "Represents the criteria to be used in the filter for querying findings."
+        },
+        "Rank": {
+          "$ref": "#/definitions/FilterRank",
+          "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFilterResponse": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The name of the filter."
+        }
+      },
       "type": "object"
     },
     "UpdateFindingsFeedbackRequest": {
@@ -4306,7 +4758,49 @@
     "__integer": {
       "type": "integer"
     },
+    "__listOfPortProbeDetail": {
+      "items": {
+        "$ref": "#/definitions/PortProbeDetail"
+      },
+      "type": "array"
+    },
+    "__long": {
+      "type": "integer"
+    },
+    "__mapOfCondition": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/Condition"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "__mapOfCountBySeverityFindingStatistic": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/CountBySeverityFindingStatistic"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
     "__string": {
+      "type": "string"
+    },
+    "__stringMin0Max64": {
+      "maxLength": 64,
+      "minLength": 0,
       "type": "string"
     },
     "__timestamp": {

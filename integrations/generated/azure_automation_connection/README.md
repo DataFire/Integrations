@@ -46,7 +46,7 @@ azure_automation_connection.Connection_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -56,8 +56,6 @@ azure_automation_connection.Connection_ListByAutomationAccount({
   * nextLink `string`: Gets or sets the next link.
   * value `array`: Gets or sets a list of connection.
     * items `object`: Definition of the connection.
-      * id `string`: Gets the id of the resource.
-      * name `string`: Gets the name of the connection.
       * properties `object`: Definition of the connection properties.
         * connectionType `object`: The connection type property associated with the entity.
           * name `string`: Gets or sets the name of the connection type.
@@ -65,6 +63,9 @@ azure_automation_connection.Connection_ListByAutomationAccount({
         * description `string`: Gets or sets the description.
         * fieldDefinitionValues `object`: Gets the field definition values of the connection.
         * lastModifiedTime `string`: Gets the last modified time.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### Connection_Delete
 Delete the connection.
@@ -82,7 +83,7 @@ azure_automation_connection.Connection_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * connectionName **required** `string`: The name of connection.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -90,8 +91,6 @@ azure_automation_connection.Connection_Delete({
 
 #### Output
 * output `object`: Definition of the connection.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the connection.
   * properties `object`: Definition of the connection properties.
     * connectionType `object`: The connection type property associated with the entity.
       * name `string`: Gets or sets the name of the connection type.
@@ -99,6 +98,9 @@ azure_automation_connection.Connection_Delete({
     * description `string`: Gets or sets the description.
     * fieldDefinitionValues `object`: Gets the field definition values of the connection.
     * lastModifiedTime `string`: Gets the last modified time.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Connection_Get
 Retrieve the connection identified by connection name.
@@ -116,7 +118,7 @@ azure_automation_connection.Connection_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * connectionName **required** `string`: The name of connection.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -124,8 +126,6 @@ azure_automation_connection.Connection_Get({
 
 #### Output
 * output `object`: Definition of the connection.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the connection.
   * properties `object`: Definition of the connection properties.
     * connectionType `object`: The connection type property associated with the entity.
       * name `string`: Gets or sets the name of the connection type.
@@ -133,6 +133,9 @@ azure_automation_connection.Connection_Get({
     * description `string`: Gets or sets the description.
     * fieldDefinitionValues `object`: Gets the field definition values of the connection.
     * lastModifiedTime `string`: Gets the last modified time.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Connection_Update
 Update a connection.
@@ -151,12 +154,12 @@ azure_automation_connection.Connection_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * connectionName **required** `string`: The parameters supplied to the update a connection operation.
   * parameters **required** `object`: The parameters supplied to the update connection operation.
     * name `string`: Gets or sets the name of the connection.
-    * properties **required** `object`: The properties of the update connection operation.
+    * properties `object`: The properties of the update connection operation.
       * description `string`: Gets or sets the description of the connection.
       * fieldDefinitionValues `object`: Gets or sets the field definition values of the connection.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -164,8 +167,6 @@ azure_automation_connection.Connection_Update({
 
 #### Output
 * output `object`: Definition of the connection.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the connection.
   * properties `object`: Definition of the connection properties.
     * connectionType `object`: The connection type property associated with the entity.
       * name `string`: Gets or sets the name of the connection type.
@@ -173,6 +174,9 @@ azure_automation_connection.Connection_Update({
     * description `string`: Gets or sets the description.
     * fieldDefinitionValues `object`: Gets the field definition values of the connection.
     * lastModifiedTime `string`: Gets the last modified time.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Connection_CreateOrUpdate
 Create or update a connection.
@@ -191,7 +195,7 @@ azure_automation_connection.Connection_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * connectionName **required** `string`: The parameters supplied to the create or update connection operation.
   * parameters **required** `object`: The parameters supplied to the create or update connection operation.
@@ -206,8 +210,6 @@ azure_automation_connection.Connection_CreateOrUpdate({
 
 #### Output
 * output `object`: Definition of the connection.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the connection.
   * properties `object`: Definition of the connection properties.
     * connectionType `object`: The connection type property associated with the entity.
       * name `string`: Gets or sets the name of the connection type.
@@ -215,6 +217,9 @@ azure_automation_connection.Connection_CreateOrUpdate({
     * description `string`: Gets or sets the description.
     * fieldDefinitionValues `object`: Gets the field definition values of the connection.
     * lastModifiedTime `string`: Gets the last modified time.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 
 

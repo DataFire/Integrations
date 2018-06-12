@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/advisor/resource-manager/Microsoft.Advisor/stable/2017-04-19/advisor.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/advisor/resource-manager/Microsoft.Advisor/stable/2017-04-19/advisor.json",
         "version": "2.0"
       }
     ],
@@ -151,6 +151,9 @@
               }
             }
           }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
         }
       },
       "put": {
@@ -532,7 +535,8 @@
               }
             }
           }
-        }
+        },
+        "x-ms-pageable": {}
       },
       "put": {
         "deprecated": false,

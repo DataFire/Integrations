@@ -250,19 +250,22 @@ google_spanner.projects.instances.databases.sessions.create({
 #### Output
 * output [Session](#session)
 
-### projects.instances.databases.sessions.delete
-Ends a session, releasing server resources associated with it.
+### projects.instances.operations.delete
+Deletes a long-running operation. This method indicates that the client is
+no longer interested in the operation result. It does not cancel the
+operation. If the server doesn't support this method, it returns
+`google.rpc.Code.UNIMPLEMENTED`.
 
 
 ```js
-google_spanner.projects.instances.databases.sessions.delete({
+google_spanner.projects.instances.operations.delete({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: Required. The name of the session to delete.
+  * name **required** `string`: The name of the operation resource to be deleted.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -380,7 +383,7 @@ google_spanner.projects.instances.patch({
 #### Output
 * output [Operation](#operation)
 
-### projects.instances.databases.operations.cancel
+### projects.instances.operations.cancel
 Starts asynchronous cancellation on a long-running operation.  The server
 makes a best effort to cancel the operation, but success is not
 guaranteed.  If the server doesn't support this method, it returns
@@ -394,7 +397,7 @@ corresponding to `Code.CANCELLED`.
 
 
 ```js
-google_spanner.projects.instances.databases.operations.cancel({
+google_spanner.projects.instances.operations.cancel({
   "name": ""
 }, context)
 ```
@@ -797,12 +800,12 @@ google_spanner.projects.instances.databases.sessions.commit({
 * output [CommitResponse](#commitresponse)
 
 ### projects.instances.databases.sessions.executeSql
-Executes an SQL query, returning all rows in a single reply. This
+Executes an SQL statement, returning all results in a single reply. This
 method cannot be used to return a result set larger than 10 MiB;
 if the query yields more data than that, the query fails with
 a `FAILED_PRECONDITION` error.
 
-Queries inside read-write transactions might return `ABORTED`. If
+Operations inside read-write transactions might return `ABORTED`. If
 this occurs, the application should restart the transaction from
 the beginning. See Transaction for more details.
 
@@ -871,6 +874,82 @@ google_spanner.projects.instances.databases.sessions.executeStreamingSql({
 
 #### Output
 * output [PartialResultSet](#partialresultset)
+
+### projects.instances.databases.sessions.partitionQuery
+Creates a set of partition tokens that can be used to execute a query
+operation in parallel.  Each of the returned partition tokens can be used
+by ExecuteStreamingSql to specify a subset
+of the query result to read.  The same session and read-only transaction
+must be used by the PartitionQueryRequest used to create the
+partition tokens and the ExecuteSqlRequests that use the partition tokens.
+Partition tokens become invalid when the session used to create them
+is deleted or begins a new transaction.
+
+
+```js
+google_spanner.projects.instances.databases.sessions.partitionQuery({
+  "session": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [PartitionQueryRequest](#partitionqueryrequest)
+  * session **required** `string`: Required. The session used to create the partitions.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [PartitionResponse](#partitionresponse)
+
+### projects.instances.databases.sessions.partitionRead
+Creates a set of partition tokens that can be used to execute a read
+operation in parallel.  Each of the returned partition tokens can be used
+by StreamingRead to specify a subset of the read
+result to read.  The same session and read-only transaction must be used by
+the PartitionReadRequest used to create the partition tokens and the
+ReadRequests that use the partition tokens.
+Partition tokens become invalid when the session used to create them
+is deleted or begins a new transaction.
+
+
+```js
+google_spanner.projects.instances.databases.sessions.partitionRead({
+  "session": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [PartitionReadRequest](#partitionreadrequest)
+  * session **required** `string`: Required. The session used to create the partitions.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [PartitionResponse](#partitionresponse)
 
 ### projects.instances.databases.sessions.read
 Reads rows from the database using key lookups and scans, as a
@@ -1061,10 +1140,11 @@ google_spanner.projects.instances.databases.sessions.streamingRead({
 ### ExecuteSqlRequest
 * ExecuteSqlRequest `object`: The request for ExecuteSql and
   * paramTypes `object`: It is not always possible for Cloud Spanner to infer the right SQL type
-  * params `object`: The SQL query string can contain parameter placeholders. A parameter
+  * params `object`: The SQL string can contain parameter placeholders. A parameter
+  * partitionToken `string`: If present, results will be restricted to the specified partition
   * queryMode `string` (values: NORMAL, PLAN, PROFILE): Used to control the amount of debugging information returned in
-  * resumeToken `string`: If this request is resuming a previously interrupted SQL query
-  * sql `string`: Required. The SQL query string.
+  * resumeToken `string`: If this request is resuming a previously interrupted SQL statement
+  * sql `string`: Required. The SQL string.
   * transaction [TransactionSelector](#transactionselector)
 
 ### Field
@@ -1169,6 +1249,39 @@ google_spanner.projects.instances.databases.sessions.streamingRead({
   * values `array`: A streamed result set consists of a stream of values, which might
 
 
+### Partition
+* Partition `object`: Information returned for each partition returned in a
+  * partitionToken `string`: This token can be passed to Read, StreamingRead, ExecuteSql, or
+
+### PartitionOptions
+* PartitionOptions `object`: Options for a PartitionQueryRequest and
+  * maxPartitions `string`: **Note:** This hint is currently ignored by PartitionQuery and
+  * partitionSizeBytes `string`: **Note:** This hint is currently ignored by PartitionQuery and
+
+### PartitionQueryRequest
+* PartitionQueryRequest `object`: The request for PartitionQuery
+  * paramTypes `object`: It is not always possible for Cloud Spanner to infer the right SQL type
+  * params `object`: The SQL query string can contain parameter placeholders. A parameter
+  * partitionOptions [PartitionOptions](#partitionoptions)
+  * sql `string`: The query request to generate partitions for. The request will fail if
+  * transaction [TransactionSelector](#transactionselector)
+
+### PartitionReadRequest
+* PartitionReadRequest `object`: The request for PartitionRead
+  * columns `array`: The columns of table to be returned for each row matching
+    * items `string`
+  * index `string`: If non-empty, the name of an index on table. This index is
+  * keySet [KeySet](#keyset)
+  * partitionOptions [PartitionOptions](#partitionoptions)
+  * table `string`: Required. The name of the table in the database to be read.
+  * transaction [TransactionSelector](#transactionselector)
+
+### PartitionResponse
+* PartitionResponse `object`: The response for PartitionQuery
+  * partitions `array`: Partitions created by this request.
+    * items [Partition](#partition)
+  * transaction [Transaction](#transaction)
+
 ### PlanNode
 * PlanNode `object`: Node information for nodes appearing in a QueryPlan.plan_nodes.
   * childLinks `array`: List of child node `index`es and their relationship to this parent.
@@ -1185,7 +1298,7 @@ google_spanner.projects.instances.databases.sessions.streamingRead({
   * bindings `array`: Associates a list of `members` to a `role`.
     * items [Binding](#binding)
   * etag `string`: `etag` is used for optimistic concurrency control as a way to help
-  * version `integer`: Version of the `Policy`. The default version is 0.
+  * version `integer`: Deprecated.
 
 ### QueryPlan
 * QueryPlan `object`: Contains an ordered list of nodes appearing in the query plan.
@@ -1208,6 +1321,7 @@ google_spanner.projects.instances.databases.sessions.streamingRead({
   * index `string`: If non-empty, the name of an index on table. This index is
   * keySet [KeySet](#keyset)
   * limit `string`: If greater than zero, only the first `limit` rows are yielded. If `limit`
+  * partitionToken `string`: If present, results will be restricted to the specified partition
   * resumeToken `string`: If this request is resuming a previously interrupted read,
   * table `string`: Required. The name of the table in the database to be read.
   * transaction [TransactionSelector](#transactionselector)

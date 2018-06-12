@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/hybridRunbookWorkerGroup.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/hybridRunbookWorkerGroup.json",
         "version": "2.0"
       }
     ],
@@ -67,18 +67,28 @@
         "operationId": "HybridRunbookWorkerGroup_ListByAutomationAccount",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The filter to apply on the operation.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
             "type": "string"
           },
           {
@@ -129,6 +139,12 @@
                               "description": "Gets or sets the assigned machine IP address.",
                               "type": "string"
                             },
+                            "lastSeenDateTime": {
+                              "description": "Last Heartbeat from the Worker",
+                              "format": "date-time",
+                              "type": "string",
+                              "x-nullable": false
+                            },
                             "name": {
                               "description": "Gets or sets the worker machine name.",
                               "type": "string"
@@ -136,7 +152,8 @@
                             "registrationTime": {
                               "description": "Gets or sets the registration time of the worker machine.",
                               "format": "date-time",
-                              "type": "string"
+                              "type": "string",
+                              "x-nullable": false
                             }
                           }
                         },
@@ -212,6 +229,7 @@
             }
           }
         },
+        "x-ms-odata": "./definitions.json#/definitions/HybridRunbookWorkerGroup",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -226,12 +244,15 @@
         "operationId": "HybridRunbookWorkerGroup_Delete",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Automation account name.",
@@ -310,12 +331,15 @@
         "operationId": "HybridRunbookWorkerGroup_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -370,6 +394,12 @@
                         "description": "Gets or sets the assigned machine IP address.",
                         "type": "string"
                       },
+                      "lastSeenDateTime": {
+                        "description": "Last Heartbeat from the Worker",
+                        "format": "date-time",
+                        "type": "string",
+                        "x-nullable": false
+                      },
                       "name": {
                         "description": "Gets or sets the worker machine name.",
                         "type": "string"
@@ -377,7 +407,8 @@
                       "registrationTime": {
                         "description": "Gets or sets the registration time of the worker machine.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": "string",
+                        "x-nullable": false
                       }
                     }
                   },
@@ -454,12 +485,15 @@
         "operationId": "HybridRunbookWorkerGroup_Update",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -534,6 +568,12 @@
                         "description": "Gets or sets the assigned machine IP address.",
                         "type": "string"
                       },
+                      "lastSeenDateTime": {
+                        "description": "Last Heartbeat from the Worker",
+                        "format": "date-time",
+                        "type": "string",
+                        "x-nullable": false
+                      },
                       "name": {
                         "description": "Gets or sets the worker machine name.",
                         "type": "string"
@@ -541,7 +581,8 @@
                       "registrationTime": {
                         "description": "Gets or sets the registration time of the worker machine.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": "string",
+                        "x-nullable": false
                       }
                     }
                   },
@@ -578,7 +619,42 @@
         },
         "tags": [
           "HybridRunbookWorkerGroup"
-        ]
+        ],
+        "x-ms-examples": {
+          "Update hybrid worker group": {
+            "parameters": {
+              "api-version": "2015-10-31",
+              "automationAccountName": "testaccount",
+              "hybridRunbookWorkerGroupName": "TestHybridGroup",
+              "parameters": {
+                "credential": {
+                  "name": "myRunAsCredentialName"
+                }
+              },
+              "resourceGroupName": "rg",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "credential": {
+                    "name": "myRunAsCredentialName"
+                  },
+                  "hybridRunbookWorkers": [
+                    {
+                      "ip": "100.1.1.1",
+                      "name": "TestHybridWorker",
+                      "registrationTime": "2017-03-24T12:43:45.0146578-07:00"
+                    }
+                  ],
+                  "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/testaccount/hybridRunbookWorkerGroups/TestHybridGroup",
+                  "name": "TestHybridGroup"
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     }
   },

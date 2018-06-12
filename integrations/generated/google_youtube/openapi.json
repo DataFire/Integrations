@@ -12,11 +12,6 @@
       "x-twitter": "youtube"
     },
     "description": "Supports core YouTube features, such as uploading videos, creating and managing playlists, searching for content, and much more.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "YouTube Data",
     "version": "v3",
     "x-apiClientRegistration": {
@@ -32,7 +27,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest",
@@ -53,7 +48,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/youtube": "Manage your YouTube account",
@@ -63,21 +58,6 @@
         "https://www.googleapis.com/auth/youtubepartner": "View and manage your assets and associated content on YouTube",
         "https://www.googleapis.com/auth/youtubepartner-channel-audit": "View private information of your YouTube channel relevant during the audit process with a YouTube partner"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/youtube": "Manage your YouTube account",
-        "https://www.googleapis.com/auth/youtube.force-ssl": "Manage your YouTube account",
-        "https://www.googleapis.com/auth/youtube.readonly": "View your YouTube account",
-        "https://www.googleapis.com/auth/youtube.upload": "Manage your YouTube videos",
-        "https://www.googleapis.com/auth/youtubepartner": "View and manage your assets and associated content on YouTube",
-        "https://www.googleapis.com/auth/youtubepartner-channel-audit": "View private information of your YouTube channel relevant during the audit process with a YouTube partner"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -133,13 +113,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -166,9 +146,6 @@
     },
     {
       "name": "comments"
-    },
-    {
-      "name": "fanFundingEvents"
     },
     {
       "name": "guideCategories"
@@ -305,24 +282,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           }
@@ -385,16 +353,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -438,16 +400,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -505,16 +461,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -599,16 +549,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -670,16 +614,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -742,16 +680,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -849,24 +781,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.upload"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.upload"
             ]
           }
@@ -904,24 +827,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -984,32 +898,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -1084,24 +986,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -1147,24 +1040,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -1262,40 +1146,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtubepartner"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner-channel-audit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner-channel-audit"
             ]
           }
@@ -1364,24 +1233,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -1494,9 +1354,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
         ],
@@ -1558,9 +1415,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
         ],
@@ -1599,9 +1453,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
         ],
@@ -1631,9 +1482,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -1704,9 +1552,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
         ],
@@ -1768,9 +1613,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
         ],
@@ -1808,9 +1650,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -1864,9 +1703,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -1940,9 +1776,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
         ],
@@ -1950,102 +1783,6 @@
           "comments"
         ]
       }
-    },
-    "/fanFundingEvents": {
-      "get": {
-        "description": "Lists fan funding events for a channel.",
-        "operationId": "fanFundingEvents.list",
-        "parameters": [
-          {
-            "description": "The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the i18nLanguages.list method.\n\nIf localized resource details are available in that language, the resource's snippet.localized object will contain the localized values. However, if localized details are not available, the snippet.localized object will contain resource details in the resource's default language.",
-            "in": "query",
-            "name": "hl",
-            "type": "string"
-          },
-          {
-            "default": 5,
-            "description": "The maxResults parameter specifies the maximum number of items that should be returned in the result set.",
-            "in": "query",
-            "maximum": 50,
-            "minimum": 0,
-            "name": "maxResults",
-            "type": "integer"
-          },
-          {
-            "description": "The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
-            "description": "The part parameter specifies the fanFundingEvent resource parts that the API response will include. Supported values are id and snippet.",
-            "in": "query",
-            "name": "part",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/FanFundingEventListResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ]
-          }
-        ],
-        "tags": [
-          "fanFundingEvents"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
     },
     "/guideCategories": {
       "get": {
@@ -2091,32 +1828,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -2181,32 +1906,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -2271,32 +1984,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -2363,16 +2064,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -2468,24 +2163,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           }
@@ -2560,16 +2246,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -2621,16 +2301,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -2713,16 +2387,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -2817,16 +2485,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -2915,16 +2577,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -2956,16 +2612,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3028,16 +2678,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3069,16 +2713,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3147,24 +2785,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           }
@@ -3227,16 +2856,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3268,16 +2891,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3332,24 +2949,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           }
@@ -3412,16 +3020,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3465,16 +3067,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3546,24 +3142,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           }
@@ -3638,16 +3225,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3699,16 +3280,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           }
@@ -3746,24 +3321,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -3835,32 +3401,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -3929,24 +3483,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -3992,24 +3537,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -4047,24 +3583,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -4148,32 +3675,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -4248,24 +3763,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -4311,24 +3817,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -4609,32 +4106,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -4718,24 +4203,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           }
@@ -4790,24 +4266,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -4915,32 +4382,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -5003,24 +4458,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -5076,24 +4522,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           }
@@ -5185,32 +4622,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.upload"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.upload"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -5252,24 +4677,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.readonly"
             ]
           }
@@ -5346,32 +4762,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -5432,24 +4836,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -5569,32 +4964,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -5669,7 +5052,6 @@
           "video/rtp-enc-aescm128",
           "video/rtploopback",
           "video/rtx",
-          "video/smpte291",
           "video/smpte292m",
           "video/ulpfec",
           "video/vc1",
@@ -5697,7 +5079,6 @@
           "video/vnd.mpegurl",
           "video/vnd.ms-playready.media.pyv",
           "video/vnd.nokia.interleaved-multimedia",
-          "video/vnd.nokia.mp4vr",
           "video/vnd.nokia.videovoip",
           "video/vnd.objectvideo",
           "video/vnd.radgamettools.bink",
@@ -5787,32 +5168,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.upload"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.upload"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -5858,24 +5227,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -5916,24 +5276,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -6023,24 +5374,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -6101,24 +5443,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -6191,32 +5524,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.upload"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.upload"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -6277,24 +5598,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/youtube.force-ssl"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/youtube.force-ssl"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/youtubepartner"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/youtubepartner"
             ]
           }
@@ -7499,7 +6811,8 @@
           "enum": [
             "private",
             "public",
-            "unlisted"
+            "unlisted",
+            "unlisted_new"
           ],
           "type": "string"
         }
@@ -8243,6 +7556,7 @@
           "description": "The video's rating in Israel.",
           "enum": [
             "ilfilm12",
+            "ilfilm14",
             "ilfilm16",
             "ilfilm18",
             "ilfilmAa",
@@ -8684,103 +7998,6 @@
             "ytAgeRestricted"
           ],
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "FanFundingEvent": {
-      "description": "A fanFundingEvent resource represents a fan funding event on a YouTube channel. Fan funding events occur when a user gives one-time monetary support to the channel owner.",
-      "properties": {
-        "etag": {
-          "description": "Etag of this resource.",
-          "type": "string"
-        },
-        "id": {
-          "description": "The ID that YouTube assigns to uniquely identify the fan funding event.",
-          "type": "string"
-        },
-        "kind": {
-          "default": "youtube#fanFundingEvent",
-          "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#fanFundingEvent\".",
-          "type": "string"
-        },
-        "snippet": {
-          "$ref": "#/definitions/FanFundingEventSnippet",
-          "description": "The snippet object contains basic details about the fan funding event."
-        }
-      },
-      "type": "object"
-    },
-    "FanFundingEventListResponse": {
-      "properties": {
-        "etag": {
-          "description": "Etag of this resource.",
-          "type": "string"
-        },
-        "eventId": {
-          "description": "Serialized EventId of the request which produced this response.",
-          "type": "string"
-        },
-        "items": {
-          "description": "A list of fan funding events that match the request criteria.",
-          "items": {
-            "$ref": "#/definitions/FanFundingEvent"
-          },
-          "type": "array"
-        },
-        "kind": {
-          "default": "youtube#fanFundingEventListResponse",
-          "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#fanFundingEventListResponse\".",
-          "type": "string"
-        },
-        "nextPageToken": {
-          "description": "The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.",
-          "type": "string"
-        },
-        "pageInfo": {
-          "$ref": "#/definitions/PageInfo"
-        },
-        "tokenPagination": {
-          "$ref": "#/definitions/TokenPagination"
-        },
-        "visitorId": {
-          "description": "The visitorId identifies the visitor.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "FanFundingEventSnippet": {
-      "properties": {
-        "amountMicros": {
-          "description": "The amount of funding in micros of fund_currency. e.g., 1 is represented",
-          "format": "uint64",
-          "type": "string"
-        },
-        "channelId": {
-          "description": "Channel id where the funding event occurred.",
-          "type": "string"
-        },
-        "commentText": {
-          "description": "The text contents of the comment left by the user.",
-          "type": "string"
-        },
-        "createdAt": {
-          "description": "The date and time when the funding occurred. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "currency": {
-          "description": "The currency in which the fund was made. ISO 4217.",
-          "type": "string"
-        },
-        "displayString": {
-          "description": "A rendered string that displays the fund amount and currency (e.g., \"$1.00\"). The string is rendered for the given language.",
-          "type": "string"
-        },
-        "supporterDetails": {
-          "$ref": "#/definitions/ChannelProfileDetails",
-          "description": "Details about the supporter. Only filled if the event was made public by the user."
         }
       },
       "type": "object"
@@ -9343,6 +8560,14 @@
         "startWithSlate": {
           "description": "This setting indicates whether the broadcast should automatically begin with an in-stream slate when you update the broadcast's status to live. After updating the status, you then need to send a liveCuepoints.insert request that sets the cuepoint's eventState to end to remove the in-stream slate and make your broadcast stream visible to viewers.",
           "type": "boolean"
+        },
+        "stereoLayout": {
+          "enum": [
+            "left_right",
+            "mono",
+            "top_bottom"
+          ],
+          "type": "string"
         }
       },
       "type": "object"
@@ -9492,7 +8717,8 @@
           "enum": [
             "private",
             "public",
-            "unlisted"
+            "unlisted",
+            "unlisted_new"
           ],
           "type": "string"
         },
@@ -10266,6 +9492,28 @@
       },
       "type": "object"
     },
+    "Nonprofit": {
+      "description": "Nonprofit information.",
+      "properties": {
+        "nonprofitId": {
+          "$ref": "#/definitions/NonprofitId",
+          "description": "Id of the nonprofit."
+        },
+        "nonprofitLegalName": {
+          "description": "Legal name of the nonprofit.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NonprofitId": {
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "PageInfo": {
       "description": "Paging details for lists of resources, including total number of items available and number of resources returned in a single page.",
       "properties": {
@@ -10487,7 +9735,8 @@
           "enum": [
             "private",
             "public",
-            "unlisted"
+            "unlisted",
+            "unlisted_new"
           ],
           "type": "string"
         }
@@ -10613,7 +9862,8 @@
           "enum": [
             "private",
             "public",
-            "unlisted"
+            "unlisted",
+            "unlisted_new"
           ],
           "type": "string"
         }
@@ -10821,10 +10071,6 @@
           "description": "Etag of this resource.",
           "type": "string"
         },
-        "id": {
-          "description": "The ID that YouTube assigns to uniquely identify the sponsor.",
-          "type": "string"
-        },
         "kind": {
           "default": "youtube#sponsor",
           "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#sponsor\".",
@@ -10881,6 +10127,11 @@
         "channelId": {
           "description": "The id of the channel being sponsored.",
           "type": "string"
+        },
+        "cumulativeDurationMonths": {
+          "description": "The cumulative time a user has been a sponsor in months.",
+          "format": "int32",
+          "type": "integer"
         },
         "sponsorDetails": {
           "$ref": "#/definitions/ChannelProfileDetails",
@@ -11139,10 +10390,18 @@
           "description": "A rendered string that displays the purchase amount and currency (e.g., \"$1.00\"). The string is rendered for the given language.",
           "type": "string"
         },
+        "isSuperChatForGood": {
+          "description": "True if this event is a Super Chat for Good purchase.",
+          "type": "boolean"
+        },
         "messageType": {
           "description": "The tier for the paid message, which is based on the amount of money spent to purchase the message.",
           "format": "uint32",
           "type": "integer"
+        },
+        "nonprofit": {
+          "$ref": "#/definitions/Nonprofit",
+          "description": "If this event is a Super Chat for Good purchase, this field will contain information about the charity the purchase is donated to."
         },
         "supporterDetails": {
           "$ref": "#/definitions/ChannelProfileDetails",
@@ -12135,7 +11394,8 @@
           "enum": [
             "private",
             "public",
-            "unlisted"
+            "unlisted",
+            "unlisted_new"
           ],
           "type": "string"
         },

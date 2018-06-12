@@ -488,6 +488,7 @@ zoomconnect.messages.all.get({}, context)
   * dataField `string`: search by data field
   * deleted `boolean`: return only deleted / not deleted messages
   * read `boolean`: return only read / unread messages (inbox messages only)
+  * repliesToMessageId `string`: return only inbox messages which are a reply to the message with the given message id
 
 #### Output
 * output [WebServiceMessages](#webservicemessages)
@@ -971,8 +972,15 @@ zoomconnect.voice.messageId.get({
   * messageType `string`
   * numberOfMessages `integer`
   * read `boolean`
+  * repliedToMessage [WebServiceMessageLink](#webservicemessagelink)
   * toNumber `string`
   * userDataField `string`
+
+### WebServiceMessageLink
+* WebServiceMessageLink `object`: WebServiceMessageLink
+  * links `array`
+    * items [Link](#link)
+  * messageId `string`
 
 ### WebServiceMessages
 * WebServiceMessages `object`: WebServiceMessages

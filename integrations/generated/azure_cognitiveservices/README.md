@@ -87,6 +87,25 @@ azure_cognitiveservices.CheckSkuAvailability_List({
 #### Output
 * output [CheckSkuAvailabilityResultList](#checkskuavailabilityresultlist)
 
+### ResourceSkus_List
+Gets the list of Microsoft.CognitiveServices SKUs available for your Subscription.
+
+
+```js
+azure_cognitiveservices.ResourceSkus_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Version of the API to be used with the client request. Current version is 2017-04-18
+  * subscriptionId **required** `string`: Azure Subscription ID.
+
+#### Output
+* output [ResourceSkusResult](#resourceskusresult)
+
 ### Accounts_ListByResourceGroup
 Returns all the resources of a particular type belonging to a resource group
 
@@ -275,6 +294,30 @@ azure_cognitiveservices.Accounts_ListSkus({
 #### Output
 * output [CognitiveServicesAccountEnumerateSkusResult](#cognitiveservicesaccountenumerateskusresult)
 
+### Accounts_GetUsages
+Get usages for the requested Cognitive Services account
+
+
+```js
+azure_cognitiveservices.Accounts_GetUsages({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group within the user's subscription.
+  * accountName **required** `string`: The name of Cognitive Services account.
+  * api-version **required** `string`: Version of the API to be used with the client request. Current version is 2017-04-18
+  * subscriptionId **required** `string`: Azure Subscription ID.
+  * $filter `string`: An OData filter expression that describes a subset of usages to return. The supported parameter is name.value (name of the metric, can have an or of multiple names).
+
+#### Output
+* output [UsagesResult](#usagesresult)
+
 
 
 ## Definitions
@@ -331,7 +374,7 @@ azure_cognitiveservices.Accounts_ListSkus({
   * key2 `string`: Gets the value of key 2.
 
 ### CognitiveServicesAccountKind
-* CognitiveServicesAccountKind `string` (values: Academic, Bing.Autosuggest, Bing.Autosuggest.v7, Bing.CustomSearch, Bing.Search, Bing.Search.v7, Bing.Speech, Bing.SpellCheck, Bing.SpellCheck.v7, ComputerVision, ContentModerator, CustomSpeech, Emotion, Face, LUIS, Recommendations, SpeakerRecognition, Speech, SpeechTranslation, TextAnalytics, TextTranslation, WebLM): Required. Indicates the type of cognitive service account.
+* CognitiveServicesAccountKind `string` (values: Bing.Autosuggest.v7, Bing.CustomSearch, Bing.Search.v7, Bing.Speech, Bing.SpellCheck.v7, ComputerVision, ContentModerator, CustomSpeech, CustomVision.Prediction, CustomVision.Training, Emotion, Face, LUIS, QnAMaker, SpeakerRecognition, SpeechTranslation, TextAnalytics, TextTranslation, WebLM): Required. Indicates the type of cognitive service account.
 
 ### CognitiveServicesAccountListResult
 * CognitiveServicesAccountListResult `object`: The list of cognitive services accounts operation response.
@@ -364,6 +407,11 @@ azure_cognitiveservices.Accounts_ListSkus({
   * code **required** `string`: error code
   * message **required** `string`: error message
 
+### MetricName
+* MetricName `object`: A metric name.
+  * localizedValue `string`: The friendly name of the metric.
+  * value `string`: The name of the metric.
+
 ### OperationDisplayInfo
 * OperationDisplayInfo `object`: The operation supported by Cognitive Services.
   * description `string`: The description of the operation.
@@ -388,6 +436,38 @@ azure_cognitiveservices.Accounts_ListSkus({
 * RegenerateKeyParameters `object`: Regenerate key parameters.
   * keyName **required** `string` (values: Key1, Key2): key name to generate (Key1|Key2)
 
+### ResourceSku
+* ResourceSku `object`: Describes an available Cognitive Services SKU.
+  * kind `string`: The Kind of resources that are supported in this SKU.
+  * locations `array`: The set of locations that the SKU is available.
+    * items `string`
+  * name `string`: The name of SKU.
+  * resourceType `string`: The type of resource the SKU applies to.
+  * restrictions `array`: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+    * items [ResourceSkuRestrictions](#resourceskurestrictions)
+  * tier `string`: Specifies the tier of Cognitive Services account.
+
+### ResourceSkuRestrictionInfo
+* ResourceSkuRestrictionInfo `object`
+  * locations `array`: Locations where the SKU is restricted
+    * items `string`
+  * zones `array`: List of availability zones where the SKU is restricted.
+    * items `string`
+
+### ResourceSkuRestrictions
+* ResourceSkuRestrictions `object`: Describes restrictions of a SKU.
+  * reasonCode `string` (values: QuotaId, NotAvailableForSubscription): The reason for restriction.
+  * restrictionInfo [ResourceSkuRestrictionInfo](#resourceskurestrictioninfo)
+  * type `string` (values: Location, Zone): The type of restrictions.
+  * values `array`: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
+    * items `string`
+
+### ResourceSkusResult
+* ResourceSkusResult `object`: The Get Skus operation response.
+  * nextLink `string`: The uri to fetch the next page of Skus.
+  * value **required** `array`: The list of skus available for the subscription.
+    * items [ResourceSku](#resourcesku)
+
 ### Sku
 * Sku `object`: The SKU of the cognitive services account.
   * name **required** [SkuName](#skuname)
@@ -395,5 +475,23 @@ azure_cognitiveservices.Accounts_ListSkus({
 
 ### SkuName
 * SkuName `string` (values: F0, P0, P1, P2, S0, S1, S2, S3, S4, S5, S6): The name of SKU.
+
+### UnitType
+* UnitType `string` (values: Count, Bytes, Seconds, Percent, CountPerSecond, BytesPerSecond, Milliseconds): The unit of the metric.
+
+### Usage
+* Usage `object`: The usage data for a usage request.
+  * currentValue `number`: Current value for this metric.
+  * limit `number`: Maximum value for this metric.
+  * name [MetricName](#metricname)
+  * nextResetTime `string`: Next reset time for current quota.
+  * quotaPeriod `string`: The quota period used to summarize the usage values.
+  * status `string` (values: Included, Blocked, InOverage, Unknown): Cognitive Services account quota usage status.
+  * unit [UnitType](#unittype)
+
+### UsagesResult
+* UsagesResult `object`: The response to a list usage request.
+  * value `array`: The list of usages for Cognitive Service account.
+    * items [Usage](#usage)
 
 

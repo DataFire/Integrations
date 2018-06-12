@@ -244,6 +244,23 @@ amazonaws_dynamodb.DescribeGlobalTable({
 #### Output
 * output [DescribeGlobalTableOutput](#describeglobaltableoutput)
 
+### DescribeGlobalTableSettings
+
+
+
+```js
+amazonaws_dynamodb.DescribeGlobalTableSettings({
+  "GlobalTableName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GlobalTableName **required** [TableName](#tablename)
+
+#### Output
+* output [DescribeGlobalTableSettingsOutput](#describeglobaltablesettingsoutput)
+
 ### DescribeLimits
 
 
@@ -469,6 +486,27 @@ amazonaws_dynamodb.RestoreTableFromBackup({
 #### Output
 * output [RestoreTableFromBackupOutput](#restoretablefrombackupoutput)
 
+### RestoreTableToPointInTime
+
+
+
+```js
+amazonaws_dynamodb.RestoreTableToPointInTime({
+  "SourceTableName": "",
+  "TargetTableName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * RestoreDateTime [Date](#date)
+  * SourceTableName **required** [TableName](#tablename)
+  * TargetTableName **required** [TableName](#tablename)
+  * UseLatestRestorableTime [BooleanObject](#booleanobject)
+
+#### Output
+* output [RestoreTableToPointInTimeOutput](#restoretabletopointintimeoutput)
+
 ### Scan
 
 
@@ -541,6 +579,27 @@ amazonaws_dynamodb.UntagResource({
 #### Output
 *Output schema unknown*
 
+### UpdateContinuousBackups
+
+
+
+```js
+amazonaws_dynamodb.UpdateContinuousBackups({
+  "TableName": "",
+  "PointInTimeRecoverySpecification": {
+    "PointInTimeRecoveryEnabled": true
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * PointInTimeRecoverySpecification **required** [PointInTimeRecoverySpecification](#pointintimerecoveryspecification)
+  * TableName **required** [TableName](#tablename)
+
+#### Output
+* output [UpdateContinuousBackupsOutput](#updatecontinuousbackupsoutput)
+
 ### UpdateGlobalTable
 
 
@@ -559,6 +618,26 @@ amazonaws_dynamodb.UpdateGlobalTable({
 
 #### Output
 * output [UpdateGlobalTableOutput](#updateglobaltableoutput)
+
+### UpdateGlobalTableSettings
+
+
+
+```js
+amazonaws_dynamodb.UpdateGlobalTableSettings({
+  "GlobalTableName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GlobalTableGlobalSecondaryIndexSettingsUpdate [GlobalTableGlobalSecondaryIndexSettingsUpdateList](#globaltableglobalsecondaryindexsettingsupdatelist)
+  * GlobalTableName **required** [TableName](#tablename)
+  * GlobalTableProvisionedWriteCapacityUnits [PositiveLongObject](#positivelongobject)
+  * ReplicaSettingsUpdate [ReplicaSettingsUpdateList](#replicasettingsupdatelist)
+
+#### Output
+* output [UpdateGlobalTableSettingsOutput](#updateglobaltablesettingsoutput)
 
 ### UpdateItem
 
@@ -842,8 +921,9 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * ConsumedCapacityUnits `number`
 
 ### ContinuousBackupsDescription
-* ContinuousBackupsDescription `object`: Represents the backup and restore settings on the table when the backup was created.
+* ContinuousBackupsDescription `object`: Represents the continuous backups and point in time recovery settings on the table.
   * ContinuousBackupsStatus **required** [ContinuousBackupsStatus](#continuousbackupsstatus)
+  * PointInTimeRecoveryDescription [PointInTimeRecoveryDescription](#pointintimerecoverydescription)
 
 ### ContinuousBackupsStatus
 * ContinuousBackupsStatus `string` (values: ENABLED, DISABLED)
@@ -969,6 +1049,15 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### DescribeGlobalTableOutput
 * DescribeGlobalTableOutput `object`
   * GlobalTableDescription [GlobalTableDescription](#globaltabledescription)
+
+### DescribeGlobalTableSettingsInput
+* DescribeGlobalTableSettingsInput `object`
+  * GlobalTableName **required** [TableName](#tablename)
+
+### DescribeGlobalTableSettingsOutput
+* DescribeGlobalTableSettingsOutput `object`
+  * GlobalTableName [TableName](#tablename)
+  * ReplicaSettings [ReplicaSettingsDescriptionList](#replicasettingsdescriptionlist)
 
 ### DescribeLimitsInput
 * DescribeLimitsInput `object`: Represents the input of a <code>DescribeLimits</code> operation. Has no content.
@@ -1119,6 +1208,15 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * GlobalTableStatus [GlobalTableStatus](#globaltablestatus)
   * ReplicationGroup [ReplicaDescriptionList](#replicadescriptionlist)
 
+### GlobalTableGlobalSecondaryIndexSettingsUpdate
+* GlobalTableGlobalSecondaryIndexSettingsUpdate `object`: Represents the settings of a global secondary index for a global table that will be modified.
+  * IndexName **required** [IndexName](#indexname)
+  * ProvisionedWriteCapacityUnits [PositiveLongObject](#positivelongobject)
+
+### GlobalTableGlobalSecondaryIndexSettingsUpdateList
+* GlobalTableGlobalSecondaryIndexSettingsUpdateList `array`
+  * items [GlobalTableGlobalSecondaryIndexSettingsUpdate](#globaltableglobalsecondaryindexsettingsupdate)
+
 ### GlobalTableList
 * GlobalTableList `array`
   * items [GlobalTable](#globaltable)
@@ -1133,6 +1231,10 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### IndexName
 * IndexName `string`
 
+### IndexNotFoundException
+* IndexNotFoundException `object`: The operation tried to access a nonexistent index.
+  * message [ErrorMessage](#errormessage)
+
 ### IndexStatus
 * IndexStatus `string` (values: CREATING, UPDATING, DELETING, ACTIVE)
 
@@ -1141,6 +1243,10 @@ amazonaws_dynamodb.UpdateTimeToLive({
 
 ### InternalServerError
 * InternalServerError `object`: An error occurred on the server side.
+  * message [ErrorMessage](#errormessage)
+
+### InvalidRestoreTimeException
+* InvalidRestoreTimeException `object`: An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime and LatestRestorableDateTime.
   * message [ErrorMessage](#errormessage)
 
 ### ItemCollectionKeyAttributeMap
@@ -1225,7 +1331,7 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * ProjectionExpression [ProjectionExpression](#projectionexpression)
 
 ### LimitExceededException
-* LimitExceededException `object`: <p>Up to 50 <code>CreateBackup</code> operations are allowed per second, per account. There is no limit to the number of daily on-demand backups that can be taken. </p> <p>Up to 10 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, and <code>RestoreTableFromBackup</code>. </p> <p>For tables with secondary indexes, only one of those tables can be in the <code>CREATING</code> state at any point in time. Do not attempt to create more than one such table simultaneously.</p> <p>The total limit of tables in the <code>ACTIVE</code> state is 250.</p> <p>For tables with secondary indexes, only one of those tables can be in the <code>CREATING</code> state at any point in time. Do not attempt to create more than one such table simultaneously.</p> <p>The total limit of tables in the <code>ACTIVE</code> state is 250.</p>
+* LimitExceededException `object`: <p>Up to 50 <code>CreateBackup</code> operations are allowed per second, per account. There is no limit to the number of daily on-demand backups that can be taken. </p> <p>Up to 10 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p> <p>For tables with secondary indexes, only one of those tables can be in the <code>CREATING</code> state at any point in time. Do not attempt to create more than one such table simultaneously.</p> <p>The total limit of tables in the <code>ACTIVE</code> state is 250.</p>
   * message [ErrorMessage](#errormessage)
 
 ### ListAttributeValue
@@ -1341,6 +1447,23 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * NumberSetAttributeValue `array`
   * items [NumberAttributeValue](#numberattributevalue)
 
+### PointInTimeRecoveryDescription
+* PointInTimeRecoveryDescription `object`: The description of the point in time settings applied to the table.
+  * EarliestRestorableDateTime [Date](#date)
+  * LatestRestorableDateTime [Date](#date)
+  * PointInTimeRecoveryStatus [PointInTimeRecoveryStatus](#pointintimerecoverystatus)
+
+### PointInTimeRecoverySpecification
+* PointInTimeRecoverySpecification `object`: Represents the settings used to enable point in time recovery.
+  * PointInTimeRecoveryEnabled **required** [BooleanObject](#booleanobject)
+
+### PointInTimeRecoveryStatus
+* PointInTimeRecoveryStatus `string` (values: ENABLED, DISABLED)
+
+### PointInTimeRecoveryUnavailableException
+* PointInTimeRecoveryUnavailableException `object`: Point in time recovery has not yet been enabled for this source table.
+  * message [ErrorMessage](#errormessage)
+
 ### PositiveIntegerObject
 * PositiveIntegerObject `integer`
 
@@ -1451,6 +1574,26 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * ReplicaDescriptionList `array`
   * items [ReplicaDescription](#replicadescription)
 
+### ReplicaGlobalSecondaryIndexSettingsDescription
+* ReplicaGlobalSecondaryIndexSettingsDescription `object`: Represents the properties of a global secondary index.
+  * IndexName **required** [IndexName](#indexname)
+  * IndexStatus [IndexStatus](#indexstatus)
+  * ProvisionedReadCapacityUnits [PositiveLongObject](#positivelongobject)
+  * ProvisionedWriteCapacityUnits [PositiveLongObject](#positivelongobject)
+
+### ReplicaGlobalSecondaryIndexSettingsDescriptionList
+* ReplicaGlobalSecondaryIndexSettingsDescriptionList `array`
+  * items [ReplicaGlobalSecondaryIndexSettingsDescription](#replicaglobalsecondaryindexsettingsdescription)
+
+### ReplicaGlobalSecondaryIndexSettingsUpdate
+* ReplicaGlobalSecondaryIndexSettingsUpdate `object`: Represents the settings of a global secondary index for a global table that will be modified.
+  * IndexName **required** [IndexName](#indexname)
+  * ProvisionedReadCapacityUnits [PositiveLongObject](#positivelongobject)
+
+### ReplicaGlobalSecondaryIndexSettingsUpdateList
+* ReplicaGlobalSecondaryIndexSettingsUpdateList `array`
+  * items [ReplicaGlobalSecondaryIndexSettingsUpdate](#replicaglobalsecondaryindexsettingsupdate)
+
 ### ReplicaList
 * ReplicaList `array`
   * items [Replica](#replica)
@@ -1458,6 +1601,31 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### ReplicaNotFoundException
 * ReplicaNotFoundException `object`: The specified replica is no longer part of the global table.
   * message [ErrorMessage](#errormessage)
+
+### ReplicaSettingsDescription
+* ReplicaSettingsDescription `object`: Represents the properties of a replica.
+  * RegionName **required** [RegionName](#regionname)
+  * ReplicaGlobalSecondaryIndexSettings [ReplicaGlobalSecondaryIndexSettingsDescriptionList](#replicaglobalsecondaryindexsettingsdescriptionlist)
+  * ReplicaProvisionedReadCapacityUnits [PositiveLongObject](#positivelongobject)
+  * ReplicaProvisionedWriteCapacityUnits [PositiveLongObject](#positivelongobject)
+  * ReplicaStatus [ReplicaStatus](#replicastatus)
+
+### ReplicaSettingsDescriptionList
+* ReplicaSettingsDescriptionList `array`
+  * items [ReplicaSettingsDescription](#replicasettingsdescription)
+
+### ReplicaSettingsUpdate
+* ReplicaSettingsUpdate `object`: Represents the settings for a global table in a region that will be modified.
+  * RegionName **required** [RegionName](#regionname)
+  * ReplicaGlobalSecondaryIndexSettingsUpdate [ReplicaGlobalSecondaryIndexSettingsUpdateList](#replicaglobalsecondaryindexsettingsupdatelist)
+  * ReplicaProvisionedReadCapacityUnits [PositiveLongObject](#positivelongobject)
+
+### ReplicaSettingsUpdateList
+* ReplicaSettingsUpdateList `array`
+  * items [ReplicaSettingsUpdate](#replicasettingsupdate)
+
+### ReplicaStatus
+* ReplicaStatus `string` (values: CREATING, UPDATING, DELETING, ACTIVE)
 
 ### ReplicaUpdate
 * ReplicaUpdate `object`: <p>Represents one of the following:</p> <ul> <li> <p>A new replica to be added to an existing global table.</p> </li> <li> <p>New parameters for an existing replica.</p> </li> <li> <p>An existing replica to be removed from an existing global table.</p> </li> </ul>
@@ -1479,15 +1647,12 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * ResourceNotFoundException `object`: The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.
   * message [ErrorMessage](#errormessage)
 
-### RestoreDateTime
-* RestoreDateTime `string`
-
 ### RestoreInProgress
 * RestoreInProgress `boolean`
 
 ### RestoreSummary
 * RestoreSummary `object`: Contains details for the restore.
-  * RestoreDateTime **required** [RestoreDateTime](#restoredatetime)
+  * RestoreDateTime **required** [Date](#date)
   * RestoreInProgress **required** [RestoreInProgress](#restoreinprogress)
   * SourceBackupArn [BackupArn](#backuparn)
   * SourceTableArn [TableArn](#tablearn)
@@ -1499,6 +1664,17 @@ amazonaws_dynamodb.UpdateTimeToLive({
 
 ### RestoreTableFromBackupOutput
 * RestoreTableFromBackupOutput `object`
+  * TableDescription [TableDescription](#tabledescription)
+
+### RestoreTableToPointInTimeInput
+* RestoreTableToPointInTimeInput `object`
+  * RestoreDateTime [Date](#date)
+  * SourceTableName **required** [TableName](#tablename)
+  * TargetTableName **required** [TableName](#tablename)
+  * UseLatestRestorableTime [BooleanObject](#booleanobject)
+
+### RestoreTableToPointInTimeOutput
+* RestoreTableToPointInTimeOutput `object`
   * TableDescription [TableDescription](#tabledescription)
 
 ### ReturnConsumedCapacity
@@ -1613,7 +1789,7 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * items [StringAttributeValue](#stringattributevalue)
 
 ### TableAlreadyExistsException
-* TableAlreadyExistsException `object`: A table with the name already exists. 
+* TableAlreadyExistsException `object`: A target table with the specified name already exists. 
   * message [ErrorMessage](#errormessage)
 
 ### TableArn
@@ -1646,7 +1822,7 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * TableId `string`
 
 ### TableInUseException
-* TableInUseException `object`: A table by that name is either being created or deleted. 
+* TableInUseException `object`: A target table with the specified name is either being created or deleted. 
   * message [ErrorMessage](#errormessage)
 
 ### TableName
@@ -1657,7 +1833,7 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * items [TableName](#tablename)
 
 ### TableNotFoundException
-* TableNotFoundException `object`: A table with the name <code>TableName</code> does not currently exist within the subscriber's account.
+* TableNotFoundException `object`: A source table with the name <code>TableName</code> does not currently exist within the subscriber's account.
   * message [ErrorMessage](#errormessage)
 
 ### TableStatus
@@ -1717,6 +1893,15 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * ResourceArn **required** [ResourceArnString](#resourcearnstring)
   * TagKeys **required** [TagKeyList](#tagkeylist)
 
+### UpdateContinuousBackupsInput
+* UpdateContinuousBackupsInput `object`
+  * PointInTimeRecoverySpecification **required** [PointInTimeRecoverySpecification](#pointintimerecoveryspecification)
+  * TableName **required** [TableName](#tablename)
+
+### UpdateContinuousBackupsOutput
+* UpdateContinuousBackupsOutput `object`
+  * ContinuousBackupsDescription [ContinuousBackupsDescription](#continuousbackupsdescription)
+
 ### UpdateExpression
 * UpdateExpression `string`
 
@@ -1733,6 +1918,18 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### UpdateGlobalTableOutput
 * UpdateGlobalTableOutput `object`
   * GlobalTableDescription [GlobalTableDescription](#globaltabledescription)
+
+### UpdateGlobalTableSettingsInput
+* UpdateGlobalTableSettingsInput `object`
+  * GlobalTableGlobalSecondaryIndexSettingsUpdate [GlobalTableGlobalSecondaryIndexSettingsUpdateList](#globaltableglobalsecondaryindexsettingsupdatelist)
+  * GlobalTableName **required** [TableName](#tablename)
+  * GlobalTableProvisionedWriteCapacityUnits [PositiveLongObject](#positivelongobject)
+  * ReplicaSettingsUpdate [ReplicaSettingsUpdateList](#replicasettingsupdatelist)
+
+### UpdateGlobalTableSettingsOutput
+* UpdateGlobalTableSettingsOutput `object`
+  * GlobalTableName [TableName](#tablename)
+  * ReplicaSettings [ReplicaSettingsDescriptionList](#replicasettingsdescriptionlist)
 
 ### UpdateItemInput
 * UpdateItemInput `object`: Represents the input of an <code>UpdateItem</code> operation.

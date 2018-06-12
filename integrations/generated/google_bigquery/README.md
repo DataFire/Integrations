@@ -84,8 +84,8 @@ google_bigquery.projects.list({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProjectList](#projectlist)
@@ -112,8 +112,8 @@ google_bigquery.datasets.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DatasetList](#datasetlist)
@@ -137,8 +137,8 @@ google_bigquery.datasets.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Dataset](#dataset)
@@ -164,8 +164,8 @@ google_bigquery.datasets.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -190,8 +190,8 @@ google_bigquery.datasets.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Dataset](#dataset)
@@ -217,8 +217,8 @@ google_bigquery.datasets.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Dataset](#dataset)
@@ -244,8 +244,8 @@ google_bigquery.datasets.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Dataset](#dataset)
@@ -272,8 +272,8 @@ google_bigquery.tables.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TableList](#tablelist)
@@ -299,8 +299,8 @@ google_bigquery.tables.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Table](#table)
@@ -327,8 +327,8 @@ google_bigquery.tables.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -356,8 +356,8 @@ google_bigquery.tables.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Table](#table)
@@ -385,8 +385,8 @@ google_bigquery.tables.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Table](#table)
@@ -414,8 +414,8 @@ google_bigquery.tables.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Table](#table)
@@ -446,8 +446,8 @@ google_bigquery.tabledata.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TableDataList](#tabledatalist)
@@ -475,8 +475,8 @@ google_bigquery.tabledata.insertAll({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TableDataInsertAllResponse](#tabledatainsertallresponse)
@@ -494,7 +494,9 @@ google_bigquery.jobs.list({
 #### Input
 * input `object`
   * allUsers `boolean`: Whether to display jobs owned by all users in the project. Default false
+  * maxCreationTime `string`: Max value for job creation time, in milliseconds since the POSIX epoch. If set, only jobs created before or at this timestamp are returned
   * maxResults `integer`: Maximum number of results to return
+  * minCreationTime `string`: Min value for job creation time, in milliseconds since the POSIX epoch. If set, only jobs created after or at this timestamp are returned
   * pageToken `string`: Page token, returned by a previous call, to request the next page of results
   * projectId **required** `string`: Project ID of the jobs to list
   * projection `string` (values: full, minimal): Restrict information returned to a set of selected fields
@@ -504,8 +506,8 @@ google_bigquery.jobs.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [JobList](#joblist)
@@ -529,8 +531,8 @@ google_bigquery.jobs.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Job](#job)
@@ -549,15 +551,15 @@ google_bigquery.jobs.get({
 #### Input
 * input `object`
   * jobId **required** `string`: [Required] Job ID of the requested job
-  * location `string`: [Experimental] The geographic location of the job. Required except for US and EU.
+  * location `string`: [Experimental] The geographic location of the job. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
   * projectId **required** `string`: [Required] Project ID of the requested job
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Job](#job)
@@ -576,15 +578,15 @@ google_bigquery.jobs.cancel({
 #### Input
 * input `object`
   * jobId **required** `string`: [Required] Job ID of the job to cancel
-  * location `string`: [Experimental] The geographic location of the job. Required except for US and EU.
+  * location `string`: [Experimental] The geographic location of the job. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
   * projectId **required** `string`: [Required] Project ID of the job to cancel
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [JobCancelResponse](#jobcancelresponse)
@@ -608,8 +610,8 @@ google_bigquery.jobs.query({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [QueryResponse](#queryresponse)
@@ -628,7 +630,7 @@ google_bigquery.jobs.getQueryResults({
 #### Input
 * input `object`
   * jobId **required** `string`: [Required] Job ID of the query job
-  * location `string`: [Experimental] The geographic location where the job should run. Required except for US and EU.
+  * location `string`: [Experimental] The geographic location where the job should run. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
   * maxResults `integer`: Maximum number of results to read
   * pageToken `string`: Page token, returned by a previous call, to request the next page of results
   * projectId **required** `string`: [Required] Project ID of the query job
@@ -639,8 +641,8 @@ google_bigquery.jobs.getQueryResults({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [GetQueryResultsResponse](#getqueryresultsresponse)
@@ -663,8 +665,8 @@ google_bigquery.projects.getServiceAccount({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [GetServiceAccountResponse](#getserviceaccountresponse)
@@ -698,6 +700,11 @@ google_bigquery.projects.getServiceAccount({
   * ignoreUnspecifiedColumnFamilies `boolean`: [Optional] If field is true, then the column families that are not specified in columnFamilies list are not exposed in the table schema. Otherwise, they are read with BYTES type values. The default value is false.
   * readRowkeyAsString `boolean`: [Optional] If field is true, then the rowkey column families will be read and converted to string. Otherwise they are read with BYTES type values and users need to manually cast them with CAST if necessary. The default value is false.
 
+### Clustering
+* Clustering `object`
+  * fields `array`: [Repeated] One or more fields on which data should be clustered. Only top-level, non-repeated, simple-type fields are supported. The order of the fields will determine how clusters will be generated, so it is important.
+    * items `string`
+
 ### CsvOptions
 * CsvOptions `object`
   * allowJaggedRows `boolean`: [Optional] Indicates if BigQuery should accept rows that are missing trailing optional columns. If true, BigQuery treats missing trailing columns as null values. If false, records with missing trailing columns are treated as bad records, and if there are too many bad records, an invalid error is returned in the job result. The default value is false.
@@ -727,7 +734,7 @@ google_bigquery.projects.getServiceAccount({
   * kind `string`: [Output-only] The resource type.
   * labels `object`: The labels associated with this dataset. You can use these to organize and group your datasets. You can set this property when inserting or updating a dataset. See Labeling Datasets for more information.
   * lastModifiedTime `string`: [Output-only] The date when this dataset or any of its tables was last modified, in milliseconds since the epoch.
-  * location `string`: The geographic location where the dataset should reside. Possible values include EU and US. The default value is US.
+  * location `string`: The geographic location where the dataset should reside. The default value is US. See details at https://cloud.google.com/bigquery/docs/dataset-locations.
   * selfLink `string`: [Output-only] A URL that can be used to access the resource again. You can use this URL in Get or Update requests to the resource.
 
 ### DatasetList
@@ -749,6 +756,11 @@ google_bigquery.projects.getServiceAccount({
   * datasetId `string`: [Required] A unique ID for this dataset, without the project name. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 1,024 characters.
   * projectId `string`: [Optional] The ID of the project containing this dataset.
 
+### DestinationTableProperties
+* DestinationTableProperties `object`
+  * description `string`: [Optional] The description for the destination table. This will only be used if the destination table is newly created. If the table already exists and a value different than the current description is provided, the job will fail.
+  * friendlyName `string`: [Optional] The friendly name for the destination table. This will only be used if the destination table is newly created. If the table already exists and a value different than the current friendly name is provided, the job will fail.
+
 ### EncryptionConfiguration
 * EncryptionConfiguration `object`
   * kmsKeyName `string`: [Optional] Describes the Cloud KMS encryption key that will be used to protect destination BigQuery table. The BigQuery Service Account associated with your project requires access to this encryption key.
@@ -767,7 +779,10 @@ google_bigquery.projects.getServiceAccount({
   * computeMsMax `string`: Milliseconds the slowest shard spent on CPU-bound tasks.
   * computeRatioAvg `number`: Relative amount of time the average shard spent on CPU-bound tasks.
   * computeRatioMax `number`: Relative amount of time the slowest shard spent on CPU-bound tasks.
+  * endMs `string`: Stage end time represented as milliseconds since epoch.
   * id `string`: Unique ID for stage within plan.
+  * inputStages `array`: IDs for stages that are inputs to this stage.
+    * items `string`
   * name `string`: Human-readable name for stage.
   * parallelInputs `string`: Number of parallel input segments to be processed.
   * readMsAvg `string`: Milliseconds the average shard spent reading input.
@@ -778,6 +793,7 @@ google_bigquery.projects.getServiceAccount({
   * recordsWritten `string`: Number of records written by the stage.
   * shuffleOutputBytes `string`: Total number of bytes written to shuffle.
   * shuffleOutputBytesSpilled `string`: Total number of bytes written to shuffle and spilled to disk.
+  * startMs `string`: Stage start time represented as milliseconds since epoch.
   * status `string`: Current status for the stage.
   * steps `array`: List of operations within the stage in dependency order (approximately chronological).
     * items [ExplainQueryStep](#explainquerystep)
@@ -834,6 +850,7 @@ google_bigquery.projects.getServiceAccount({
 
 ### GoogleSheetsOptions
 * GoogleSheetsOptions `object`
+  * range `string`: [Experimental] [Optional] Range of a sheet to query from. Only used when non-empty. Typical format: !:
   * skipLeadingRows `string`: [Optional] The number of rows at the top of a sheet that BigQuery will skip when reading the data. The default value is 0. This property is useful if you have header rows that should be skipped. When autodetect is on, behavior is the following: * skipLeadingRows unspecified - Autodetect tries to detect headers in the first row. If they are not detected, the row is read as data. Otherwise data is read starting from the second row. * skipLeadingRows is 0 - Instructs autodetect that there are no headers and data should be read starting from the first row. * skipLeadingRows = N > 0 - Autodetect skips N-1 rows and tries to detect headers in row N. If headers are not detected, row N is just skipped. Otherwise row N is used to extract column names for the detected schema.
 
 ### Job
@@ -865,7 +882,7 @@ google_bigquery.projects.getServiceAccount({
 
 ### JobConfigurationExtract
 * JobConfigurationExtract `object`
-  * compression `string`: [Optional] The compression type to use for exported files. Possible values include GZIP and NONE. The default value is NONE.
+  * compression `string`: [Optional] The compression type to use for exported files. Possible values include GZIP, DEFLATE, SNAPPY, and NONE. The default value is NONE. DEFLATE and SNAPPY are only supported for Avro.
   * destinationFormat `string`: [Optional] The exported file format. Possible values include CSV, NEWLINE_DELIMITED_JSON and AVRO. The default value is CSV. Tables with nested or repeated fields cannot be exported as CSV.
   * destinationUri `string`: [Pick one] DEPRECATED: Use destinationUris instead, passing only one URI as necessary. The fully-qualified Google Cloud Storage URI where the extracted table should be written.
   * destinationUris `array`: [Pick one] A list of fully-qualified Google Cloud Storage URIs where the extracted table should be written.
@@ -878,10 +895,12 @@ google_bigquery.projects.getServiceAccount({
 * JobConfigurationLoad `object`
   * allowJaggedRows `boolean`: [Optional] Accept rows that are missing trailing optional columns. The missing values are treated as nulls. If false, records with missing trailing columns are treated as bad records, and if there are too many bad records, an invalid error is returned in the job result. The default value is false. Only applicable to CSV, ignored for other formats.
   * allowQuotedNewlines `boolean`: Indicates if BigQuery should allow quoted data sections that contain newline characters in a CSV file. The default value is false.
-  * autodetect `boolean`: Indicates if we should automatically infer the options and schema for CSV and JSON sources.
+  * autodetect `boolean`: [Optional] Indicates if we should automatically infer the options and schema for CSV and JSON sources.
+  * clustering [Clustering](#clustering)
   * createDisposition `string`: [Optional] Specifies whether the job is allowed to create new tables. The following values are supported: CREATE_IF_NEEDED: If the table does not exist, BigQuery creates the table. CREATE_NEVER: The table must already exist. If it does not, a 'notFound' error is returned in the job result. The default value is CREATE_IF_NEEDED. Creation, truncation and append actions occur as one atomic update upon job completion.
   * destinationEncryptionConfiguration [EncryptionConfiguration](#encryptionconfiguration)
   * destinationTable [TableReference](#tablereference)
+  * destinationTableProperties [DestinationTableProperties](#destinationtableproperties)
   * encoding `string`: [Optional] The character encoding of the data. The supported values are UTF-8 or ISO-8859-1. The default value is UTF-8. BigQuery decodes the data after the raw, binary data has been split using the values of the quote and fieldDelimiter properties.
   * fieldDelimiter `string`: [Optional] The separator for fields in a CSV file. The separator can be any ISO-8859-1 single-byte character. To use a character in the range 128-255, you must encode the character as UTF8. BigQuery converts the string to ISO-8859-1 encoding, and then uses the first byte of the encoded string to split the data in its raw, binary state. BigQuery also supports the escape sequence "\t" to specify a tab separator. The default value is a comma (',').
   * ignoreUnknownValues `boolean`: [Optional] Indicates if BigQuery should allow extra values that are not represented in the table schema. If true, the extra values are ignored. If false, records with extra columns are treated as bad records, and if there are too many bad records, an invalid error is returned in the job result. The default value is false. The sourceFormat property determines what BigQuery treats as an extra value: CSV: Trailing columns JSON: Named values that don't match any column names
@@ -896,7 +915,7 @@ google_bigquery.projects.getServiceAccount({
   * schemaUpdateOptions `array`: Allows the schema of the destination table to be updated as a side effect of the load job if a schema is autodetected or supplied in the job configuration. Schema update options are supported in two cases: when writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE and the destination table is a partition of a table, specified by partition decorators. For normal tables, WRITE_TRUNCATE will always overwrite the schema. One or more of the following values are specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original schema to nullable.
     * items `string`
   * skipLeadingRows `integer`: [Optional] The number of rows at the top of a CSV file that BigQuery will skip when loading the data. The default value is 0. This property is useful if you have header rows in the file that should be skipped.
-  * sourceFormat `string`: [Optional] The format of the data files. For CSV files, specify "CSV". For datastore backups, specify "DATASTORE_BACKUP". For newline-delimited JSON, specify "NEWLINE_DELIMITED_JSON". For Avro, specify "AVRO". The default value is CSV.
+  * sourceFormat `string`: [Optional] The format of the data files. For CSV files, specify "CSV". For datastore backups, specify "DATASTORE_BACKUP". For newline-delimited JSON, specify "NEWLINE_DELIMITED_JSON". For Avro, specify "AVRO". For parquet, specify "PARQUET". For orc, specify "ORC". The default value is CSV.
   * sourceUris `array`: [Required] The fully-qualified URIs that point to your data in Google Cloud. For Google Cloud Storage URIs: Each URI can contain one '*' wildcard character and it must come after the 'bucket' name. Size limits related to load jobs apply to external data sources. For Google Cloud Bigtable URIs: Exactly one URI can be specified and it has be a fully specified and valid HTTPS URL for a Google Cloud Bigtable table. For Google Cloud Datastore backups: Exactly one URI can be specified. Also, the '*' wildcard character is not allowed.
     * items `string`
   * timePartitioning [TimePartitioning](#timepartitioning)
@@ -905,6 +924,7 @@ google_bigquery.projects.getServiceAccount({
 ### JobConfigurationQuery
 * JobConfigurationQuery `object`
   * allowLargeResults `boolean`: [Optional] If true and query uses legacy SQL dialect, allows the query to produce arbitrarily large result tables at a slight cost in performance. Requires destinationTable to be set. For standard SQL queries, this flag is ignored and large results are always allowed. However, you must still set destinationTable when result size exceeds the allowed maximum response size.
+  * clustering [Clustering](#clustering)
   * createDisposition `string`: [Optional] Specifies whether the job is allowed to create new tables. The following values are supported: CREATE_IF_NEEDED: If the table does not exist, BigQuery creates the table. CREATE_NEVER: The table must already exist. If it does not, a 'notFound' error is returned in the job result. The default value is CREATE_IF_NEEDED. Creation, truncation and append actions occur as one atomic update upon job completion.
   * defaultDataset [DatasetReference](#datasetreference)
   * destinationEncryptionConfiguration [EncryptionConfiguration](#encryptionconfiguration)
@@ -958,7 +978,7 @@ google_bigquery.projects.getServiceAccount({
 ### JobReference
 * JobReference `object`
   * jobId `string`: [Required] The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.
-  * location [Location](#location)
+  * location `string`: [Experimental] The geographic location of the job. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
   * projectId `string`: [Required] The ID of the project containing this job.
 
 ### JobStatistics
@@ -984,12 +1004,17 @@ google_bigquery.projects.getServiceAccount({
     * items [ExplainQueryStage](#explainquerystage)
   * referencedTables `array`: [Output-only] Referenced tables for the job. Queries that reference more than 50 tables will not have a complete list.
     * items [TableReference](#tablereference)
+  * reservationUsage `array`: [Output-only] Job resource usage breakdown by reservation.
+    * items `object`
+      * name `string`: [Output-only] Reservation name or "unreserved" for on-demand resources usage.
+      * slotMs `string`: [Output-only] Slot-milliseconds the job spent in the given reservation.
   * schema [TableSchema](#tableschema)
   * statementType `string`: [Output-only, Experimental] The type of query statement, if valid. Possible values (new values might be added in the future): "SELECT": SELECT query. "INSERT": INSERT query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language "UPDATE": UPDATE query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language "DELETE": DELETE query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language "CREATE_TABLE": CREATE [OR REPLACE] TABLE without AS SELECT. "CREATE_TABLE_AS_SELECT": CREATE [OR REPLACE] TABLE ... AS SELECT ... "DROP_TABLE": DROP TABLE query. "CREATE_VIEW": CREATE [OR REPLACE] VIEW ... AS SELECT ... "DROP_VIEW": DROP VIEW query.
-  * timeline `array`: [Output-only] Describes a timeline of job execution.
+  * timeline `array`: [Output-only] [Experimental] Describes a timeline of job execution.
     * items [QueryTimelineSample](#querytimelinesample)
   * totalBytesBilled `string`: [Output-only] Total bytes billed for the job.
   * totalBytesProcessed `string`: [Output-only] Total bytes processed for the job.
+  * totalPartitionsProcessed `string`: [Output-only] Total number of partitions processed from all partitioned tables referenced in the job.
   * totalSlotMs `string`: [Output-only] Slot-milliseconds for the job.
   * undeclaredQueryParameters `array`: [Output-only, Experimental] Standard SQL only: list of undeclared query parameters detected during a dry run validation.
     * items [QueryParameter](#queryparameter)
@@ -1019,9 +1044,6 @@ google_bigquery.projects.getServiceAccount({
 
 ### JsonValue
 
-
-### Location
-* Location `string`
 
 ### ProjectList
 * ProjectList `object`
@@ -1069,7 +1091,7 @@ google_bigquery.projects.getServiceAccount({
   * defaultDataset [DatasetReference](#datasetreference)
   * dryRun `boolean`: [Optional] If set to true, BigQuery doesn't run the job. Instead, if the query is valid, BigQuery returns statistics about the job such as how many bytes would be processed. If the query is invalid, an error returns. The default value is false.
   * kind `string`: The resource type of the request.
-  * location [Location](#location)
+  * location `string`: [Experimental] The geographic location where the job should run. Required except for US and EU.
   * maxResults `integer`: [Optional] The maximum number of rows of data to return per page of results. Setting this flag to a small value such as 1000 and then paging through results might improve reliability when the query result set is large. In addition to this limit, responses are also limited to 10 MB. By default, there is no maximum row count, and only the byte limit applies.
   * parameterMode `string`: Standard SQL only. Set to POSITIONAL to use positional (?) query parameters or to NAMED to use named (@myparam) query parameters in this query.
   * preserveNulls `boolean`: [Deprecated] This property is deprecated.
@@ -1098,10 +1120,10 @@ google_bigquery.projects.getServiceAccount({
 
 ### QueryTimelineSample
 * QueryTimelineSample `object`
-  * activeInputs `integer`: Total number of active workers. This does not correspond directly to slot usage. This is the largest value observed since the last sample.
-  * completedInputs `integer`: Total parallel units of work completed by this query.
+  * activeUnits `string`: Total number of units currently being processed by workers. This does not correspond directly to slot usage. This is the largest value observed since the last sample.
+  * completedUnits `string`: Total parallel units of work completed by this query.
   * elapsedMs `string`: Milliseconds elapsed since the start of query execution.
-  * pendingInputs `string`: Total parallel units of work remaining for the active stages.
+  * pendingUnits `string`: Total parallel units of work remaining for the active stages.
   * totalSlotMs `string`: Cumulative slot-ms consumed by the query.
 
 ### Streamingbuffer
@@ -1112,6 +1134,7 @@ google_bigquery.projects.getServiceAccount({
 
 ### Table
 * Table `object`
+  * clustering [Clustering](#clustering)
   * creationTime `string`: [Output-only] The time when this table was created, in milliseconds since the epoch.
   * description `string`: [Optional] A user-friendly description of this table.
   * encryptionConfiguration [EncryptionConfiguration](#encryptionconfiguration)
@@ -1183,6 +1206,7 @@ google_bigquery.projects.getServiceAccount({
   * nextPageToken `string`: A token to request the next page of results.
   * tables `array`: Tables in the requested dataset.
     * items `object`
+      * clustering [Clustering](#clustering)
       * creationTime `string`: The time when this table was created, in milliseconds since the epoch.
       * expirationTime `string`: [Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed.
       * friendlyName `string`: The user-friendly name for this table.
@@ -1214,8 +1238,9 @@ google_bigquery.projects.getServiceAccount({
 
 ### TimePartitioning
 * TimePartitioning `object`
-  * expirationMs `string`: [Optional] Number of milliseconds for which to keep the storage for a partition.
-  * field `string`: [Experimental] [Optional] If not set, the table is partitioned by pseudo column '_PARTITIONTIME'; if set, the table is partitioned by this field. The field must be a top-level TIMESTAMP or DATE field. Its mode must be NULLABLE or REQUIRED.
+  * expirationMs `string`: [Optional] Number of milliseconds for which to keep the storage for partitions in the table. The storage in a partition will have an expiration time of its partition time plus this value.
+  * field `string`: [Experimental] [Optional] If not set, the table is partitioned by pseudo column, referenced via either '_PARTITIONTIME' as TIMESTAMP type, or '_PARTITIONDATE' as DATE type. If field is specified, the table is instead partitioned by this field. The field must be a top-level TIMESTAMP or DATE field. Its mode must be NULLABLE or REQUIRED.
+  * requirePartitionFilter `boolean`: [Experimental] [Optional] If set to true, queries over this table require a partition filter that can be used for partition elimination to be specified.
   * type `string`: [Required] The only type supported is DAY, which will generate one partition per day.
 
 ### UserDefinedFunctionResource

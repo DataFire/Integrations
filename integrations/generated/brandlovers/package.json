@@ -1,6 +1,6 @@
 {
   "name": "@datafire/brandlovers",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for BrandLovers Marketplace API V1",
   "repository": {

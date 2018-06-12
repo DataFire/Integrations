@@ -12,7 +12,7 @@ let haloapi_metadata = require('@datafire/haloapi_metadata').create({
   apiKeyQuery: ""
 });
 
-haloapi_metadata.hw2.techs.get({}).then(data => {
+haloapi_metadata.58ace18c2109180bdcacc444({}).then(data => {
   console.log(data);
 });
 ```
@@ -23,7 +23,7 @@ API that provides Metadata information.
 
 ## Actions
 
-### h5.metadata.campaign_missions.get
+### 58ace18c2109180bdcacc421
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -38,7 +38,7 @@ API that provides Metadata information.
 
 
 ```js
-haloapi_metadata.h5.metadata.campaign_missions.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc421({}, context)
 ```
 
 #### Input
@@ -48,7 +48,7 @@ haloapi_metadata.h5.metadata.campaign_missions.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.commendations.get
+### 58ace18c2109180bdcacc422
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -63,7 +63,7 @@ haloapi_metadata.h5.metadata.campaign_missions.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.commendations.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc422({}, context)
 ```
 
 #### Input
@@ -73,7 +73,7 @@ haloapi_metadata.h5.metadata.commendations.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.csr_designations.get
+### 58ace18c2109180bdcacc423
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -88,7 +88,7 @@ haloapi_metadata.h5.metadata.commendations.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.csr_designations.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc423({}, context)
 ```
 
 #### Input
@@ -98,7 +98,7 @@ haloapi_metadata.h5.metadata.csr_designations.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.enemies.get
+### 58ace18c2109180bdcacc424
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -119,7 +119,7 @@ haloapi_metadata.h5.metadata.csr_designations.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.enemies.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc424({}, context)
 ```
 
 #### Input
@@ -129,7 +129,7 @@ haloapi_metadata.h5.metadata.enemies.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.flexible_stats.get
+### 58ace18c2109180bdcacc425
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -144,7 +144,7 @@ haloapi_metadata.h5.metadata.enemies.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.flexible_stats.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc425({}, context)
 ```
 
 #### Input
@@ -154,7 +154,7 @@ haloapi_metadata.h5.metadata.flexible_stats.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.game_base_variants.get
+### 58ace18c2109180bdcacc426
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -169,7 +169,7 @@ haloapi_metadata.h5.metadata.flexible_stats.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.game_base_variants.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc426({}, context)
 ```
 
 #### Input
@@ -179,7 +179,7 @@ haloapi_metadata.h5.metadata.game_base_variants.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.game_variants.id.get
+### 58ace18c2109180bdcacc427
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -194,7 +194,7 @@ haloapi_metadata.h5.metadata.game_base_variants.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.game_variants.id.get({
+haloapi_metadata.58ace18c2109180bdcacc427({
   "id": ""
 }, context)
 ```
@@ -207,7 +207,7 @@ haloapi_metadata.h5.metadata.game_variants.id.get({
 #### Output
 *Output schema unknown*
 
-### h5.metadata.impulses.get
+### 58ace18c2109180bdcacc428
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -222,7 +222,7 @@ haloapi_metadata.h5.metadata.game_variants.id.get({
 
 
 ```js
-haloapi_metadata.h5.metadata.impulses.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc428({}, context)
 ```
 
 #### Input
@@ -232,7 +232,7 @@ haloapi_metadata.h5.metadata.impulses.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.map_variants.id.get
+### 58ace18c2109180bdcacc429
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -247,7 +247,7 @@ haloapi_metadata.h5.metadata.impulses.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.map_variants.id.get({
+haloapi_metadata.58ace18c2109180bdcacc429({
   "id": ""
 }, context)
 ```
@@ -260,7 +260,7 @@ haloapi_metadata.h5.metadata.map_variants.id.get({
 #### Output
 *Output schema unknown*
 
-### h5.metadata.maps.get
+### 58ace18c2109180bdcacc42a
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -275,7 +275,7 @@ haloapi_metadata.h5.metadata.map_variants.id.get({
 
 
 ```js
-haloapi_metadata.h5.metadata.maps.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc42a({}, context)
 ```
 
 #### Input
@@ -285,7 +285,7 @@ haloapi_metadata.h5.metadata.maps.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.medals.get
+### 58ace18c2109180bdcacc42b
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -300,7 +300,7 @@ haloapi_metadata.h5.metadata.maps.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.medals.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc42b({}, context)
 ```
 
 #### Input
@@ -310,7 +310,7 @@ haloapi_metadata.h5.metadata.medals.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.playlists.get
+### 58ace18c2109180bdcacc42c
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -325,7 +325,7 @@ haloapi_metadata.h5.metadata.medals.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.playlists.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc42c({}, context)
 ```
 
 #### Input
@@ -335,7 +335,7 @@ haloapi_metadata.h5.metadata.playlists.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.requisition_packs.id.get
+### 58ace18c2109180bdcacc42e
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -350,7 +350,7 @@ haloapi_metadata.h5.metadata.playlists.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.requisition_packs.id.get({
+haloapi_metadata.58ace18c2109180bdcacc42e({
   "id": ""
 }, context)
 ```
@@ -363,7 +363,7 @@ haloapi_metadata.h5.metadata.requisition_packs.id.get({
 #### Output
 *Output schema unknown*
 
-### h5.metadata.requisitions.id.get
+### 58ace18c2109180bdcacc42d
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -378,7 +378,7 @@ haloapi_metadata.h5.metadata.requisition_packs.id.get({
 
 
 ```js
-haloapi_metadata.h5.metadata.requisitions.id.get({
+haloapi_metadata.58ace18c2109180bdcacc42d({
   "id": ""
 }, context)
 ```
@@ -391,7 +391,7 @@ haloapi_metadata.h5.metadata.requisitions.id.get({
 #### Output
 *Output schema unknown*
 
-### h5.metadata.seasons.get
+### 58ace18c2109180bdcacc42f
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -406,7 +406,7 @@ haloapi_metadata.h5.metadata.requisitions.id.get({
 
 
 ```js
-haloapi_metadata.h5.metadata.seasons.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc42f({}, context)
 ```
 
 #### Input
@@ -416,7 +416,7 @@ haloapi_metadata.h5.metadata.seasons.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.skulls.get
+### 58ace18c2109180bdcacc430
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -431,7 +431,7 @@ haloapi_metadata.h5.metadata.seasons.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.skulls.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc430({}, context)
 ```
 
 #### Input
@@ -441,7 +441,7 @@ haloapi_metadata.h5.metadata.skulls.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.spartan_ranks.get
+### 58ace18c2109180bdcacc431
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -456,7 +456,7 @@ haloapi_metadata.h5.metadata.skulls.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.spartan_ranks.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc431({}, context)
 ```
 
 #### Input
@@ -466,7 +466,7 @@ haloapi_metadata.h5.metadata.spartan_ranks.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.team_colors.get
+### 58ace18c2109180bdcacc432
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -481,7 +481,7 @@ haloapi_metadata.h5.metadata.spartan_ranks.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.team_colors.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc432({}, context)
 ```
 
 #### Input
@@ -491,7 +491,7 @@ haloapi_metadata.h5.metadata.team_colors.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.vehicles.get
+### 58ace18c2109180bdcacc433
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -506,7 +506,7 @@ haloapi_metadata.h5.metadata.team_colors.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.vehicles.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc433({}, context)
 ```
 
 #### Input
@@ -516,7 +516,7 @@ haloapi_metadata.h5.metadata.vehicles.get({}, context)
 #### Output
 *Output schema unknown*
 
-### h5.metadata.weapons.get
+### 58ace18c2109180bdcacc434
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -537,7 +537,7 @@ haloapi_metadata.h5.metadata.vehicles.get({}, context)
 
 
 ```js
-haloapi_metadata.h5.metadata.weapons.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc434({}, context)
 ```
 
 #### Input
@@ -547,7 +547,7 @@ haloapi_metadata.h5.metadata.weapons.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.campaign_levels.get
+### 58ace18c2109180bdcacc435
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -560,7 +560,7 @@ haloapi_metadata.h5.metadata.weapons.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.campaign_levels.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc435({}, context)
 ```
 
 #### Input
@@ -571,7 +571,7 @@ haloapi_metadata.hw2.campaign_levels.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.campaign_logs.get
+### 58ace18c2109180bdcacc436
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -584,7 +584,7 @@ haloapi_metadata.hw2.campaign_levels.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.campaign_logs.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc436({}, context)
 ```
 
 #### Input
@@ -594,7 +594,7 @@ haloapi_metadata.hw2.campaign_logs.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.card_keywords.get
+### 58ae45962109180bdcacc4eb
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -607,7 +607,7 @@ haloapi_metadata.hw2.campaign_logs.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.card_keywords.get({}, context)
+haloapi_metadata.58ae45962109180bdcacc4eb({}, context)
 ```
 
 #### Input
@@ -618,7 +618,7 @@ haloapi_metadata.hw2.card_keywords.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.cards.get
+### 58ace18c2109180bdcacc438
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -631,7 +631,7 @@ haloapi_metadata.hw2.card_keywords.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.cards.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc438({}, context)
 ```
 
 #### Input
@@ -642,7 +642,7 @@ haloapi_metadata.hw2.cards.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.csr_designations.get
+### 58ae45962109180bdcacc4ec
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -655,7 +655,7 @@ haloapi_metadata.hw2.cards.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.csr_designations.get({}, context)
+haloapi_metadata.58ae45962109180bdcacc4ec({}, context)
 ```
 
 #### Input
@@ -666,7 +666,7 @@ haloapi_metadata.hw2.csr_designations.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.difficulties.get
+### 58ace18c2109180bdcacc43a
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -679,7 +679,7 @@ haloapi_metadata.hw2.csr_designations.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.difficulties.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc43a({}, context)
 ```
 
 #### Input
@@ -690,7 +690,7 @@ haloapi_metadata.hw2.difficulties.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.game_object_categories.get
+### 58ace18c2109180bdcacc43b
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -703,7 +703,7 @@ haloapi_metadata.hw2.difficulties.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.game_object_categories.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc43b({}, context)
 ```
 
 #### Input
@@ -713,7 +713,7 @@ haloapi_metadata.hw2.game_object_categories.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.game_objects.get
+### 58ace18c2109180bdcacc43c
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -726,7 +726,7 @@ haloapi_metadata.hw2.game_object_categories.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.game_objects.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc43c({}, context)
 ```
 
 #### Input
@@ -737,7 +737,7 @@ haloapi_metadata.hw2.game_objects.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.leader_powers.get
+### 58ace18c2109180bdcacc43d
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -750,7 +750,7 @@ haloapi_metadata.hw2.game_objects.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.leader_powers.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc43d({}, context)
 ```
 
 #### Input
@@ -761,7 +761,7 @@ haloapi_metadata.hw2.leader_powers.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.leaders.get
+### 58ace18c2109180bdcacc43e
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -774,7 +774,7 @@ haloapi_metadata.hw2.leader_powers.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.leaders.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc43e({}, context)
 ```
 
 #### Input
@@ -785,7 +785,7 @@ haloapi_metadata.hw2.leaders.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.maps.get
+### 58ace18c2109180bdcacc43f
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -798,7 +798,7 @@ haloapi_metadata.hw2.leaders.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.maps.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc43f({}, context)
 ```
 
 #### Input
@@ -809,7 +809,7 @@ haloapi_metadata.hw2.maps.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.packs.get
+### 58ace18c2109180bdcacc440
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -822,7 +822,7 @@ haloapi_metadata.hw2.maps.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.packs.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc440({}, context)
 ```
 
 #### Input
@@ -833,7 +833,7 @@ haloapi_metadata.hw2.packs.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.playlists.get
+### 58ace18c2109180bdcacc441
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -846,7 +846,7 @@ haloapi_metadata.hw2.packs.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.playlists.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc441({}, context)
 ```
 
 #### Input
@@ -857,7 +857,7 @@ haloapi_metadata.hw2.playlists.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.seasons.get
+### 58ace18c2109180bdcacc442
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -870,7 +870,7 @@ haloapi_metadata.hw2.playlists.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.seasons.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc442({}, context)
 ```
 
 #### Input
@@ -881,7 +881,7 @@ haloapi_metadata.hw2.seasons.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.spartan_ranks.get
+### 58ace18c2109180bdcacc443
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -900,7 +900,7 @@ haloapi_metadata.hw2.seasons.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.spartan_ranks.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc443({}, context)
 ```
 
 #### Input
@@ -911,7 +911,7 @@ haloapi_metadata.hw2.spartan_ranks.get({}, context)
 #### Output
 *Output schema unknown*
 
-### hw2.techs.get
+### 58ace18c2109180bdcacc444
 <br />
 <h4>Changelog</h4>
 <div class="panel-body">
@@ -924,7 +924,7 @@ haloapi_metadata.hw2.spartan_ranks.get({}, context)
 
 
 ```js
-haloapi_metadata.hw2.techs.get({}, context)
+haloapi_metadata.58ace18c2109180bdcacc444({}, context)
 ```
 
 #### Input

@@ -1504,6 +1504,123 @@ illumidesk.notification_update({
 #### Output
 * output [Notification](#notification)
 
+### oauth_applications_list
+Retrieve oauth applications
+
+
+```js
+illumidesk.oauth_applications_list({
+  "namespace": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * namespace **required** `string`: User or team name.
+  * limit `string`: Set limit when retrieving items.
+  * offset `string`: Offset when retrieving items.
+  * ordering `string`: Set order when retrieving items.
+
+#### Output
+* output `array`
+  * items [Application](#application)
+
+### oauth_application_create
+Create a new OAuth2 application
+
+
+```js
+illumidesk.oauth_application_create({
+  "namespace": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * namespace **required** `string`: User or team name.
+  * application_data [ApplicationData](#applicationdata)
+
+#### Output
+* output [Application](#application)
+
+### oauth_application_delete
+Delete an application by id
+
+
+```js
+illumidesk.oauth_application_delete({
+  "namespace": "",
+  "application": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * namespace **required** `string`: User or team name.
+  * application **required** `string`: Application unique identifier expressed as UUID or name.
+
+#### Output
+*Output schema unknown*
+
+### oauth_application_read
+Get an application by id
+
+
+```js
+illumidesk.oauth_application_read({
+  "namespace": "",
+  "application": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * namespace **required** `string`: User or team name.
+  * application **required** `string`: Application unique identifier expressed as UUID or name.
+
+#### Output
+* output [Application](#application)
+
+### oauth_application_update
+Update an application by id
+
+
+```js
+illumidesk.oauth_application_update({
+  "namespace": "",
+  "application": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * namespace **required** `string`: User or team name.
+  * application **required** `string`: Application unique identifier expressed as UUID or name.
+  * application_data [ApplicationData](#applicationdata)
+
+#### Output
+* output [Application](#application)
+
+### oauth_application_replace
+Replace an application by id
+
+
+```js
+illumidesk.oauth_application_replace({
+  "namespace": "",
+  "application": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * namespace **required** `string`: User or team name.
+  * application **required** `string`: Application unique identifier expressed as UUID or name.
+  * oauth_application_data [ApplicationData](#applicationdata)
+
+#### Output
+* output [Application](#application)
+
 ### projects_list
 Get available projects
 
@@ -2840,6 +2957,36 @@ illumidesk.search({
   * state **required** `string`: Action state.
   * user `string`: User that action is assigned to.
   * user_agent **required** `string`: User agent that action is related to.
+
+### Application
+* Application `object`
+  * authorization_grant_type `string` (values: authorization-code, implicit, password, client-credentials): OAuth2 authorization grant type
+  * client_id `string`: OAuth2 client id
+  * client_secret `string`: OAuth2 client secret
+  * client_type `string` (values: confidential, public): OAuth2 client type
+  * id `string`: Application unique identifier, expressed as UUID.
+  * name `string`: Application name
+  * redirect_uris `string`: Uris to redirect auth request
+
+### ApplicationData
+* ApplicationData `object`
+  * authorization_grant_type **required** `string` (values: authorization-code, implicit, password, client-credentials): OAuth2 authorization grant type
+  * client_type **required** `string` (values: confidential, public): OAuth2 client type
+  * name **required** `string`: Application name
+  * redirect_uris `string`: Uris to redirect auth request
+
+### ApplicationError
+* ApplicationError `object`
+  * authorization_grant_type `array`: Authorization grant type field errors.
+    * items `string`
+  * client_type `array`: Client type field errors.
+    * items `string`
+  * name `array`: Name field errors.
+    * items `string`
+  * non_field_errors `array`: Errors not connected to any field.
+    * items `string`
+  * redirect_uris `array`: Redirect uris field errors.
+    * items `string`
 
 ### AuthToken
 * AuthToken `object`

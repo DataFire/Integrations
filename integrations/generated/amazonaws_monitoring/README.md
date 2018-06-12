@@ -179,6 +179,30 @@ amazonaws_monitoring.GetDashboard({
 #### Output
 * output [GetDashboardOutput](#getdashboardoutput)
 
+### GetMetricData
+
+
+
+```js
+amazonaws_monitoring.GetMetricData({
+  "MetricDataQueries": [],
+  "StartTime": "",
+  "EndTime": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EndTime **required** [Timestamp](#timestamp)
+  * MaxDatapoints [GetMetricDataMaxDatapoints](#getmetricdatamaxdatapoints)
+  * MetricDataQueries **required** [MetricDataQueries](#metricdataqueries)
+  * NextToken [NextToken](#nexttoken)
+  * ScanBy [ScanBy](#scanby)
+  * StartTime **required** [Timestamp](#timestamp)
+
+#### Output
+* output [GetMetricDataOutput](#getmetricdataoutput)
+
 ### GetMetricStatistics
 
 
@@ -459,6 +483,10 @@ amazonaws_monitoring.SetAlarmState({
     * key [ExtendedStatistic](#extendedstatistic)
     * value [DatapointValue](#datapointvalue)
 
+### DatapointValues
+* DatapointValues `array`
+  * items [DatapointValue](#datapointvalue)
+
 ### Datapoints
 * Datapoints `array`
   * items [Datapoint](#datapoint)
@@ -580,6 +608,23 @@ amazonaws_monitoring.SetAlarmState({
   * DashboardBody [DashboardBody](#dashboardbody)
   * DashboardName [DashboardName](#dashboardname)
 
+### GetMetricDataInput
+* GetMetricDataInput `object`
+  * EndTime **required** [Timestamp](#timestamp)
+  * MaxDatapoints [GetMetricDataMaxDatapoints](#getmetricdatamaxdatapoints)
+  * MetricDataQueries **required** [MetricDataQueries](#metricdataqueries)
+  * NextToken [NextToken](#nexttoken)
+  * ScanBy [ScanBy](#scanby)
+  * StartTime **required** [Timestamp](#timestamp)
+
+### GetMetricDataMaxDatapoints
+* GetMetricDataMaxDatapoints `integer`
+
+### GetMetricDataOutput
+* GetMetricDataOutput `object`
+  * MetricDataResults [MetricDataResults](#metricdataresults)
+  * NextToken [NextToken](#nexttoken)
+
 ### GetMetricStatisticsInput
 * GetMetricStatisticsInput `object`
   * Dimensions [Dimensions](#dimensions)
@@ -661,6 +706,17 @@ amazonaws_monitoring.SetAlarmState({
 ### Message
 * Message `string`
 
+### MessageData
+* MessageData `object`: A message returned by the <code>GetMetricData</code>API, including a code and a description.
+  * Code [MessageDataCode](#messagedatacode)
+  * Value [MessageDataValue](#messagedatavalue)
+
+### MessageDataCode
+* MessageDataCode `string`
+
+### MessageDataValue
+* MessageDataValue `string`
+
 ### Metric
 * Metric `object`: Represents a specific metric.
   * Dimensions [Dimensions](#dimensions)
@@ -703,6 +759,35 @@ amazonaws_monitoring.SetAlarmState({
 * MetricData `array`
   * items [MetricDatum](#metricdatum)
 
+### MetricDataQueries
+* MetricDataQueries `array`
+  * items [MetricDataQuery](#metricdataquery)
+
+### MetricDataQuery
+* MetricDataQuery `object`: This structure indicates the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. A single <code>GetMetricData</code> call can include up to 100 <code>MetricDataQuery</code> structures.
+  * Expression [MetricExpression](#metricexpression)
+  * Id **required** [MetricId](#metricid)
+  * Label [MetricLabel](#metriclabel)
+  * MetricStat [MetricStat](#metricstat)
+  * ReturnData [ReturnData](#returndata)
+
+### MetricDataResult
+* MetricDataResult `object`: A <code>GetMetricData</code> call returns an array of <code>MetricDataResult</code> structures. Each of these structures includes the data points for that metric, along with the time stamps of those data points and other identifying information.
+  * Id [MetricId](#metricid)
+  * Label [MetricLabel](#metriclabel)
+  * Messages [MetricDataResultMessages](#metricdataresultmessages)
+  * StatusCode [StatusCode](#statuscode)
+  * Timestamps [Timestamps](#timestamps)
+  * Values [DatapointValues](#datapointvalues)
+
+### MetricDataResultMessages
+* MetricDataResultMessages `array`
+  * items [MessageData](#messagedata)
+
+### MetricDataResults
+* MetricDataResults `array`
+  * items [MetricDataResult](#metricdataresult)
+
 ### MetricDatum
 * MetricDatum `object`: Encapsulates the information sent to either create a metric or add new values to be aggregated into an existing metric.
   * Dimensions [Dimensions](#dimensions)
@@ -713,11 +798,24 @@ amazonaws_monitoring.SetAlarmState({
   * Unit [StandardUnit](#standardunit)
   * Value [DatapointValue](#datapointvalue)
 
+### MetricExpression
+* MetricExpression `string`
+
+### MetricId
+* MetricId `string`
+
 ### MetricLabel
 * MetricLabel `string`
 
 ### MetricName
 * MetricName `string`
+
+### MetricStat
+* MetricStat `object`: This structure defines the metric to be returned, along with the statistics, period, and units.
+  * Metric **required** [Metric](#metric)
+  * Period **required** [Period](#period)
+  * Stat **required** [Stat](#stat)
+  * Unit [StandardUnit](#standardunit)
 
 ### Metrics
 * Metrics `array`
@@ -783,6 +881,12 @@ amazonaws_monitoring.SetAlarmState({
 * ResourceNotFound `object`: The named resource does not exist.
   * message [ErrorMessage](#errormessage)
 
+### ReturnData
+* ReturnData `boolean`
+
+### ScanBy
+* ScanBy `string` (values: TimestampDescending, TimestampAscending)
+
 ### SetAlarmStateInput
 * SetAlarmStateInput `object`
   * AlarmName **required** [AlarmName](#alarmname)
@@ -795,6 +899,9 @@ amazonaws_monitoring.SetAlarmState({
 
 ### StandardUnit
 * StandardUnit `string` (values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, None)
+
+### Stat
+* Stat `string`
 
 ### StateReason
 * StateReason `string`
@@ -819,6 +926,9 @@ amazonaws_monitoring.SetAlarmState({
 * Statistics `array`
   * items [Statistic](#statistic)
 
+### StatusCode
+* StatusCode `string` (values: Complete, InternalError, PartialData)
+
 ### StorageResolution
 * StorageResolution `integer`
 
@@ -827,6 +937,10 @@ amazonaws_monitoring.SetAlarmState({
 
 ### Timestamp
 * Timestamp `string`
+
+### Timestamps
+* Timestamps `array`
+  * items [Timestamp](#timestamp)
 
 ### TreatMissingData
 * TreatMissingData `string`

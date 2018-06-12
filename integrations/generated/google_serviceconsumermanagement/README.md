@@ -15,7 +15,7 @@ let google_serviceconsumermanagement = require('@datafire/google_serviceconsumer
   redirect_uri: ""
 });
 
-google_serviceconsumermanagement.operations.delete({
+google_serviceconsumermanagement.services.tenancyUnits.delete({
   "name": ""
 }).then(data => {
   console.log(data);
@@ -69,22 +69,21 @@ google_serviceconsumermanagement.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### operations.delete
-Deletes a long-running operation. This method indicates that the client is
-no longer interested in the operation result. It does not cancel the
-operation. If the server doesn't support this method, it returns
-`google.rpc.Code.UNIMPLEMENTED`.
+### services.tenancyUnits.delete
+Delete a tenancy unit.  Before the tenancy unit is deleted, there should be
+no tenant resources in it.
+Operation<response: Empty>.
 
 
 ```js
-google_serviceconsumermanagement.operations.delete({
+google_serviceconsumermanagement.services.tenancyUnits.delete({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: The name of the operation resource to be deleted.
+  * name **required** `string`: Name of the tenancy unit to be deleted.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -100,7 +99,7 @@ google_serviceconsumermanagement.operations.delete({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [Empty](#empty)
+* output [Operation](#operation)
 
 ### operations.get
 Gets the latest state of a long-running operation.  Clients can use this
@@ -210,10 +209,10 @@ google_serviceconsumermanagement.services.tenancyUnits.removeProject({
 * output [Operation](#operation)
 
 ### services.tenancyUnits.list
-Find tenancy unit for a service and consumer.
-This method should not be used in producers' runtime path, e.g. finding
-the tenant project number when creating VMs. Producers should persist
-the tenant project information after the project is created.
+Find the tenancy unit for a service and consumer.
+This method should not be used in producers' runtime path, for example
+finding the tenant project number when creating VMs. Producers should
+persist the tenant project information after the project is created.
 
 
 ```js
@@ -278,10 +277,10 @@ google_serviceconsumermanagement.services.tenancyUnits.create({
 
 ### services.tenancyUnits.addProject
 Add a new tenant project to the tenancy unit.
-There can be at most 512 tenant projects in a tenancy units.
-If there are previously failed AddTenantProject calls, you might need to
-call RemoveTenantProject first to clean them before you can make another
-AddTenantProject with the same tag.
+There can be at most 512 tenant projects in a tenancy unit.
+If there are previously failed `AddTenantProject` calls, you might need to
+call `RemoveTenantProject` first to clean them before you can make another
+`AddTenantProject` with the same tag.
 Operation<response: Empty>.
 
 
@@ -350,7 +349,7 @@ google_serviceconsumermanagement.services.search({
 ## Definitions
 
 ### AddTenantProjectRequest
-* AddTenantProjectRequest `object`: Request to add a newly created and configured tenant project to tenancy
+* AddTenantProjectRequest `object`: Request to add a newly created and configured tenant project to a tenancy
   * projectConfig [TenantProjectConfig](#tenantprojectconfig)
   * tag `string`: Tag of the added project. Must be less than 128 characters. Required.
 
@@ -389,8 +388,7 @@ google_serviceconsumermanagement.services.search({
 
 ### AuthenticationRule
 * AuthenticationRule `object`: Authentication rules for the service.
-  * allowWithoutCredential `boolean`: Whether to allow requests without a credential. The credential can be
-  * customAuth [CustomAuthRequirements](#customauthrequirements)
+  * allowWithoutCredential `boolean`: If true, the service accepts API keys without any other credential.
   * oauth [OAuthRequirements](#oauthrequirements)
   * requirements `array`: Requirements for additional authentication providers.
     * items [AuthRequirement](#authrequirement)
@@ -423,7 +421,7 @@ google_serviceconsumermanagement.services.search({
     * items [BillingDestination](#billingdestination)
 
 ### BillingConfig
-* BillingConfig `object`: Describes billing configuration for new a Tenant Project
+* BillingConfig `object`: Describes billing configuration for a new tenant project.
   * billingAccount `string`: Name of the billing account.
 
 ### BillingDestination
@@ -442,6 +440,10 @@ google_serviceconsumermanagement.services.search({
 
 ### ContextRule
 * ContextRule `object`: A context rule provides information about the context for an individual API
+  * allowedRequestExtensions `array`: A list of full type names or extension IDs of extensions allowed in grpc
+    * items `string`
+  * allowedResponseExtensions `array`: A list of full type names or extension IDs of extensions allowed in grpc
+    * items `string`
   * provided `array`: A list of full type names of provided contexts.
     * items `string`
   * requested `array`: A list of full type names of requested contexts.
@@ -454,11 +456,7 @@ google_serviceconsumermanagement.services.search({
 
 ### CreateTenancyUnitRequest
 * CreateTenancyUnitRequest `object`: Request to create a tenancy unit for a consumer of a service.
-  * tenancyUnitId `string`: Optional producer provided identifier of the tenancy unit
-
-### CustomAuthRequirements
-* CustomAuthRequirements `object`: Configuration for a custom authentication provider.
-  * provider `string`: A configuration string containing connection information for the
+  * tenancyUnitId `string`: Optional producer provided identifier of the tenancy unit.
 
 ### CustomError
 * CustomError `object`: Customize service error responses.  For example, list any service
@@ -581,7 +579,7 @@ google_serviceconsumermanagement.services.search({
 ### ListTenancyUnitsResponse
 * ListTenancyUnitsResponse `object`: Response for the list request.
   * nextPageToken `string`: Pagination token for large results.
-  * tenancyUnits `array`: Tenancy Units matching the request.
+  * tenancyUnits `array`: Tenancy units matching the request.
     * items [TenancyUnit](#tenancyunit)
 
 ### LogDescriptor
@@ -779,12 +777,11 @@ google_serviceconsumermanagement.services.search({
   * types `array`: A list of all proto message types included in this API service.
     * items [Type](#type)
   * usage [Usage](#usage)
-  * visibility [Visibility](#visibility)
 
 ### ServiceAccountConfig
 * ServiceAccountConfig `object`: Describes service account configuration for the tenant project.
   * accountId `string`: ID of the IAM service account to be created in tenant project.
-  * tenantProjectRoles `array`: Roles for the service account above on tenant project.
+  * tenantProjectRoles `array`: Roles for the associated service account for the tenant project.
     * items `string`
 
 ### SourceContext
@@ -822,7 +819,7 @@ google_serviceconsumermanagement.services.search({
 
 ### TenancyUnit
 * TenancyUnit `object`: Representation of a tenancy unit.
-  * consumer `string`: @OutputOnly Cloud resource One Platform Name of the consumer of this
+  * consumer `string`: @OutputOnly Cloud resource name of the consumer of this service.
   * createTime `string`: @OutputOnly The time this tenancy unit was created.
   * name `string`: Globally unique identifier of this tenancy unit
   * service `string`: @OutputOnly Google Cloud API name of the service owning this tenancy unit.
@@ -841,7 +838,7 @@ google_serviceconsumermanagement.services.search({
 
 ### TenantProjectPolicy
 * TenantProjectPolicy `object`: Describes policy settings that need to be applied to a newly
-  * policyBindings `array`: Additional policy bindings to be applied on the tenant
+  * policyBindings `array`: Policy bindings to be applied to the tenant project, in addition to the
     * items [PolicyBinding](#policybinding)
 
 ### TenantResource
@@ -875,15 +872,5 @@ google_serviceconsumermanagement.services.search({
   * allowUnregisteredCalls `boolean`: If true, the selected method allows unregistered calls, e.g. calls
   * selector `string`: Selects the methods to which this rule applies. Use '*' to indicate all
   * skipServiceControl `boolean`: If true, the selected method should skip service control and the control
-
-### Visibility
-* Visibility `object`: `Visibility` defines restrictions for the visibility of service
-  * rules `array`: A list of visibility rules that apply to individual API elements.
-    * items [VisibilityRule](#visibilityrule)
-
-### VisibilityRule
-* VisibilityRule `object`: A visibility rule provides visibility configuration for an individual API
-  * restriction `string`: A comma-separated list of visibility labels that apply to the `selector`.
-  * selector `string`: Selects methods, messages, fields, enums, etc. to which this rule applies.
 
 

@@ -151,15 +151,18 @@ For the `authorization_code` grant type, you are **required** to pass in the `co
 
 For the `client_credentials` grant type, you do not need to pass in any additional parameters beyond the basic requirements. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
 
-For the `device_code` grant type, you are **required** to pass in the `code` parameter. `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
+For the `device_code` grant type, you are **required** to pass in the `code` parameter. If you are a third-party developer, you are also required to provide the `scope` parameter; see the documentation for `GET /authorization/v2/authorize` for possible values. `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
 
-For the `password` grant type, you are **required** to pass in the `username` and `password` parameters. If you are logging in via a social service, you should also pass in the `service` parameter. (In this case, the access token you receive from the social service will serve as both your username and password.) The `code` and `redirect_uri` parameters are ignored.
+For the `password` grant type, you are **required** to pass in the `username` and `password` parameters. The `code` and `redirect_uri` parameters are ignored.
 Third-party developers do not have access to this grant type.
 
 For the `refresh_token` grant type, you are **required** to pass in the `refresh_token` parameter. The `scope` parameter can optionally be used to request a different set of scopes than were used in the original request, but it **cannot** contain any scopes that were not previously requested. If not specified, then `scope` will be set to whichever scopes were used for the original access token request. If trading in an old non-expiring access token for a refresh-enabled token, set the value of `refresh_token` to the access token value and `token_type_hint` must be set to `access_token`. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
 
 The `temporary_user` and `anonymous_user` grant types are custom grant types created by NPR to suit our needs for functionality such as our &quot;try-before-you-buy&quot; experience. If you are a third-party developer, you will not have access to these grant types unless we have explicitly given you permission within our system.
-For these grant types, you do not need to pass in any additional parameters beyond the basic requirements. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
+For these grant types, if you are a third-party developer, you are required to provide the `scope` parameter; see the documentation for `GET /authorization/v2/authorize` for possible values. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
+
+The `third_party` grant type is another custom grant type created by NPR to handle login via third-party providers such as Facebook and Google. If you are a third-party developer, you will not have access to this grant types unless we have explicitly given you permission within our system.
+For this grant type, you are **required** to pass in the `service` and `token` parameters. If you are a third-party developer, you are also required to provide the `scope` parameter; see the documentation for `GET /authorization/v2/authorize` for possible values. The `code` and `redirect_uri` parameters are ignored.
 
 If you are unsure of which grant type to select, assume that `authorization_code` is the one you want.
 
@@ -176,16 +179,16 @@ npr.createToken({
 
 #### Input
 * input `object`
-  * grant_type **required** `string` (values: authorization_code, client_credentials, device_code, password, refresh_token, temporary_user, anonymous_user): The type of grant the client is requesting
+  * grant_type **required** `string` (values: authorization_code, client_credentials, device_code, password, refresh_token, temporary_user, anonymous_user, third_party): The type of grant the client is requesting
   * client_id **required** `string`: The client's ID, required for all grant types.
   * client_secret **required** `string`: The client's secret, required for all grant types.
   * code `string`: Required for `authorization_code` and `device_code` grant types. The authorization code from a successful call to `/authorization/v2/authorize`, or a device code from a successful call to `/authorization/v2/device`.
   * redirect_uri `string`: Required for `authorization_code` grant type. The requested redirect_uri.
   * username `string`: Required for `password` grant type. The email address of an NPR user.
   * password `string`: Required for `password` grant type. The password that matches the user specified with the username parameter.
-  * service `string` (values: facebook, google, microsoft, janrain): If logging in via a social service, this parameter should be set. Only used for the `password` grant type.
+  * service `string` (values: facebook, google, microsoft, janrain, comcast): Required for `third_party` grant type. The name of the third-party login provider.
   * refresh_token `string`: Required for `refresh_token` grant type. A valid refresh token from a previous successful call to `POST /authorization/v2/token`.
-  * scope `string`: Optionally used by the `refresh_token` grant type only. A space-separated list of scope(s) requested by the application.
+  * scope `string`: Required for third-party developers using the `device_code`, `temporary_user`, and `third_party` grant types. Optionally used by the `refresh_token` grant type. A space-separated list of scope(s) requested by the application.
   * token_type_hint `string` (values: access_token, refresh_token): A hint about the type of the token submitted for a new access and refresh token. If unspecified, the default value is assumed to be `refresh_token`.
 
 #### Output
@@ -738,6 +741,8 @@ npr.getStationById({
     * items [ImageLink](#imagelink)
   * onramps `array`: One or more shareable links for the item
     * items [OtherLink](#otherlink)
+  * ratings `array`: This is an alternate URL to use to POST the ratings JSON. Difference between this and 'recommendations' is that 'ratings' will NOT return back recommendations of audio to play next.
+    * items [OtherLink](#otherlink)
   * recommendations `array`: This is the URL that should be POSTed with the ratings JSON when this audio starts to play
     * items [OtherLink](#otherlink)
   * up `array`: One or more links to more details about the program or podcast with which this item is associated
@@ -794,7 +799,7 @@ npr.getStationById({
   * emptyText `string`: Text for clients to display when the channel contains no recommendations
   * fullName **required** `string`: A short description of what this channel focuses on
   * id **required** `string`: The actual value that should be sent
-  * refreshRule `integer`: In the explore view of a client, this field indicates how this channel should be refreshed.  This is an experimental field and subject to change, but for now zero indicates the client should refresh this channel every time a START rating is sent for a type=audio recommendation, while a 1 would indicate it can be refreshed much less often, such as on a 30 minute timer.   We are still experimenting on the number of rules necessary and the best implementation for each type of rule. 
+  * refreshRule `integer`: In the explore view of a client, this field indicates how this channel should be refreshed.  This is an experimental field and subject to change, but for now zero indicates the client should refresh this channel every time a START rating is sent for a type=audio recommendation, while a 1 would indicate it can be refreshed much less often, such as on a 30 minute timer. 2 would indicate even less time to update, say every hour. We are still experimenting on the number of rules necessary and the best implementation for each type of rule. 
 
 ### ChannelDocument
 * ChannelDocument

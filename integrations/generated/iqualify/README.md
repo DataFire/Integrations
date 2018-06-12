@@ -235,6 +235,26 @@ iqualify.courses.contentId.metadata.topic.put({
 #### Output
 * output [CourseMetaResponse](#coursemetaresponse)
 
+### courses.contentId.permissions.post
+Update course access
+
+
+```js
+iqualify.courses.contentId.permissions.post({
+  "contentId": "",
+  "users": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * contentId **required** `string`: The content Id
+  * users **required** `array`
+    * items [CourseUser](#courseuser)
+
+#### Output
+* output [CourseUser](#courseuser)
+
 ### offerings.get
 Responds with all offerings for your organisation.
 
@@ -387,6 +407,26 @@ iqualify.offerings.offeringId.analytics.channels.channelId.posts.get({
 #### Output
 * output `array`
   * items [Post](#post)
+
+### offerings.offeringId.analytics.channels.channelId.replies.get
+Responds with a list of all replies in any of the posts for a channel in a offering
+
+
+```js
+iqualify.offerings.offeringId.analytics.channels.channelId.replies.get({
+  "offeringId": "",
+  "channelId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+  * channelId **required** `string`: channel's id
+
+#### Output
+* output `array`
+  * items [Comment](#comment)
 
 ### offerings.offeringId.analytics.learners_progress.get
 Responds with learners progress.
@@ -898,20 +938,21 @@ iqualify.offerings.offeringId.users.get({
   * items [OfferingUserResponse](#offeringuserresponse)
 
 ### offerings.offeringId.users.post
-Adds user to the offering.
+Adds one or more users to the offering.
 
 
 ```js
 iqualify.offerings.offeringId.users.post({
   "offeringId": "",
-  "user": null
+  "users": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * user **required** [OfferingUser](#offeringuser)
+  * users **required** `array`
+    * items [OfferingUser](#offeringuser)
 
 #### Output
 * output [OfferingUser](#offeringuser)
@@ -1106,6 +1147,23 @@ iqualify.offerings.offeringId.users.userEmail.submissions.open_response.get({
 * output `array`
   * items [Assignments](#assignments)
 
+### users.post
+Adds new user
+
+
+```js
+iqualify.users.post({
+  "user": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * user **required** [User](#user)
+
+#### Output
+* output [UserResponse](#userresponse)
+
 ### users.all.progress.get
 Returns offering progress for each learner
 
@@ -1181,6 +1239,25 @@ iqualify.users.userEmail.offerings.get({
 #### Output
 * output `array`
   * items [OfferingResponse](#offeringresponse)
+
+### users.userEmail.permissions.permissionName.post
+Adds permission to user
+
+
+```js
+iqualify.users.userEmail.permissions.permissionName.post({
+  "userEmail": "",
+  "permissionName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * userEmail **required** `string`: user's email
+  * permissionName **required** `string` (values: builder, manager): permission name
+
+#### Output
+* output [UserResponse](#userresponse)
 
 
 
@@ -1280,6 +1357,7 @@ iqualify.users.userEmail.offerings.get({
   * id `string`
   * isFacilitatorPost `boolean`
   * moderation [Moderation](#moderation)
+  * parentCommentId `string`
   * postId `string`
 
 ### CourseMetaResponse
@@ -1287,6 +1365,8 @@ iqualify.users.userEmail.offerings.get({
   * coverImageUrl `string`
   * createdAt `string`
   * id `string`
+  * learning_outcomes `array`
+    * items [LearningOutcomes](#learningoutcomes)
   * metadata [PortfolioMetadata](#portfoliometadata)
   * name `string`
 
@@ -1295,7 +1375,20 @@ iqualify.users.userEmail.offerings.get({
   * coverImageUrl `string`
   * createdAt `string`
   * id `string`
+  * learning_outcomes `array`
+    * items [LearningOutcomes](#learningoutcomes)
   * name `string`
+
+### CourseUser
+* CourseUser `object`
+  * isBuilder `boolean`
+  * isReviewer `boolean`
+  * profile [UserProfile](#userprofile)
+  * email `string`
+  * firstName `string`
+  * lastName `string`
+  * metadata [UserMetadata](#usermetadata)
+  * personId `string`
 
 ### Criteria
 * Criteria `object`
@@ -1338,6 +1431,11 @@ iqualify.users.userEmail.offerings.get({
     * items [OfferingProgressRow](#offeringprogressrow)
   * personId `string`
 
+### LearningOutcomes
+* LearningOutcomes `object`
+  * description `string`
+  * id `string`
+
 ### Mark
 * Mark `object`
   * createdAt `string`
@@ -1376,7 +1474,12 @@ iqualify.users.userEmail.offerings.get({
   * earlyCloseOffDate `string`
   * end `string`
   * isReadonly `boolean`
-  * metadata [PortfolioMetadata](#portfoliometadata)
+  * metadata `object`
+    * category `string`
+    * level `string`
+    * tags `array`
+      * items `string`
+    * topic `string`
   * name `string`
   * start `string`
   * trailerVideoUrl `string`
@@ -1386,13 +1489,16 @@ iqualify.users.userEmail.offerings.get({
 * OfferingMetadataResponse `object`
   * contentId `string`
   * coverImageUrl `string`
+  * currency `string`
   * description `string`
   * earlyCloseOffDate `string`
   * end `string`
+  * enrollmentLimit `number`
   * id `string`
   * isReadonly `boolean`
   * metadata [PortfolioMetadata](#portfoliometadata)
   * name `string`
+  * price `number`
   * start `string`
   * trailerVideoUrl `string`
   * version `string`
@@ -1409,7 +1515,12 @@ iqualify.users.userEmail.offerings.get({
   * earlyCloseOffDate `string`
   * end `string`
   * isReadonly `boolean`
-  * metadata [PortfolioMetadata](#portfoliometadata)
+  * metadata `object`
+    * category `string`
+    * level `string`
+    * tags `array`
+      * items `string`
+    * topic `string`
   * name `string`
   * start `string`
   * trailerVideoUrl `string`
@@ -1419,23 +1530,26 @@ iqualify.users.userEmail.offerings.get({
 * OfferingResponse `object`
   * contentId `string`
   * coverImageUrl `string`
+  * currency `string`
   * description `string`
   * earlyCloseOffDate `string`
   * end `string`
+  * enrollmentLimit `number`
   * id `string`
   * isReadonly `boolean`
   * name `string`
+  * price `number`
   * start `string`
   * trailerVideoUrl `string`
   * version `string`
 
 ### OfferingUser
 * OfferingUser `object`
-  * email **required** `string`
   * isFacilitator `boolean`
   * isMarker `boolean`
   * isReadonly `boolean`
   * profile [UserProfile](#userprofile)
+  * email `string`
   * firstName `string`
   * lastName `string`
   * metadata [UserMetadata](#usermetadata)
@@ -1532,6 +1646,7 @@ iqualify.users.userEmail.offerings.get({
 
 ### User
 * User `object`
+  * email `string`
   * firstName `string`
   * lastName `string`
   * metadata [UserMetadata](#usermetadata)

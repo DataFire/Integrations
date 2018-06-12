@@ -7372,7 +7372,7 @@
     },
     "/tags/{resource_arn}": {
       "delete": {
-        "description": "Removes Tags from a given resource.",
+        "description": "Removes a tag from a given resource.",
         "operationId": "UntagResource",
         "parameters": [
           {
@@ -7427,7 +7427,7 @@
         }
       },
       "get": {
-        "description": "Gets the Tags collection for a given resource.",
+        "description": "Gets the <a>Tags</a> collection for a given resource.",
         "operationId": "GetTags",
         "parameters": [
           {
@@ -7514,7 +7514,7 @@
         }
       ],
       "put": {
-        "description": "Adds or updates Tags on a gievn resource.",
+        "description": "Adds or updates a tag on a given resource.",
         "operationId": "TagResource",
         "parameters": [
           {
@@ -8898,11 +8898,11 @@
         },
         "identitySource": {
           "$ref": "#/definitions/String",
-          "description": "The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>. These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li><li>For a <code>COGNITO_USER_POOLS</code> authorizer, this property is not used.</li></ul>"
+          "description": "The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>. These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul>"
         },
         "identityValidationExpression": {
           "$ref": "#/definitions/String",
-          "description": "A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. API Gateway will match the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer."
+          "description": "A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer."
         },
         "name": {
           "$ref": "#/definitions/String",
@@ -8914,13 +8914,13 @@
         },
         "type": {
           "$ref": "#/definitions/AuthorizerType",
-          "description": "[Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool."
+          "description": "The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool."
         }
       },
       "type": "object"
     },
     "AuthorizerType": {
-      "description": "[Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.",
+      "description": "The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.",
       "enum": [
         "TOKEN",
         "REQUEST",
@@ -9151,11 +9151,11 @@
         },
         "identitySource": {
           "$ref": "#/definitions/String",
-          "description": "The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>. These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li><li>For a <code>COGNITO_USER_POOLS</code> authorizer, this property is not used.</li></ul>"
+          "description": "The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>. These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul>"
         },
         "identityValidationExpression": {
           "$ref": "#/definitions/String",
-          "description": "A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. API Gateway will match the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer."
+          "description": "A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer."
         },
         "name": {
           "$ref": "#/definitions/String",
@@ -9185,7 +9185,7 @@
         },
         "restApiId": {
           "$ref": "#/definitions/String",
-          "description": "The string identifier of the associated <a>RestApi</a>."
+          "description": "[Required] The string identifier of the associated <a>RestApi</a>."
         },
         "stage": {
           "$ref": "#/definitions/String",
@@ -9295,7 +9295,7 @@
         },
         "domainName": {
           "$ref": "#/definitions/String",
-          "description": "(Required) The name of the <a>DomainName</a> resource."
+          "description": "[Required] The name of the <a>DomainName</a> resource."
         },
         "endpointConfiguration": {
           "$ref": "#/definitions/EndpointConfiguration",
@@ -9320,7 +9320,7 @@
       "properties": {
         "contentType": {
           "$ref": "#/definitions/String",
-          "description": "The content-type for the model."
+          "description": "[Required] The content-type for the model."
         },
         "description": {
           "$ref": "#/definitions/String",
@@ -9328,11 +9328,11 @@
         },
         "name": {
           "$ref": "#/definitions/String",
-          "description": "The name of the model. Must be alphanumeric."
+          "description": "[Required] The name of the model. Must be alphanumeric."
         },
         "schema": {
           "$ref": "#/definitions/String",
-          "description": "The schema for the model. For <code>application/json</code> models, this should be <a href=\"http://json-schema.org/documentation.html\" target=\"_blank\">JSON-schema draft v4</a> model."
+          "description": "The schema for the model. For <code>application/json</code> models, this should be <a href=\"https://tools.ietf.org/html/draft-zyp-json-schema-04\" target=\"_blank\">JSON schema draft 4</a> model."
         }
       },
       "required": [
@@ -9377,7 +9377,7 @@
       "properties": {
         "apiKeySource": {
           "$ref": "#/definitions/ApiKeySourceType",
-          "description": "The source of the API key for metring requests according to a usage plan. Valid values are <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> "
+          "description": "The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> "
         },
         "binaryMediaTypes": {
           "$ref": "#/definitions/ListOfString",
@@ -9397,11 +9397,15 @@
         },
         "minimumCompressionSize": {
           "$ref": "#/definitions/NullableInteger",
-          "description": "A nullable integer used to enable (non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable (null) compression on an API. When compression is enabled, compression or decompression are not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size."
+          "description": "A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size."
         },
         "name": {
           "$ref": "#/definitions/String",
-          "description": "The name of the <a>RestApi</a>."
+          "description": "[Required] The name of the <a>RestApi</a>."
+        },
+        "policy": {
+          "$ref": "#/definitions/String",
+          "description": "A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration."
         },
         "version": {
           "$ref": "#/definitions/String",
@@ -9446,7 +9450,7 @@
         },
         "tags": {
           "$ref": "#/definitions/MapOfStringToString",
-          "description": "Key/Value map of strings. Valid character set is [a-zA-Z+-=._:/]. Tag key can be up to 128 characters and must not start with \"aws:\". Tag value can be up to 256 characters."
+          "description": "The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters."
         },
         "variables": {
           "$ref": "#/definitions/MapOfStringToString",
@@ -9464,11 +9468,11 @@
       "properties": {
         "keyId": {
           "$ref": "#/definitions/String",
-          "description": "The identifier of a <a>UsagePlanKey</a> resource for a plan customer."
+          "description": "[Required] The identifier of a <a>UsagePlanKey</a> resource for a plan customer."
         },
         "keyType": {
           "$ref": "#/definitions/String",
-          "description": "The type of a <a>UsagePlanKey</a> resource for a plan customer."
+          "description": "[Required] The type of a <a>UsagePlanKey</a> resource for a plan customer."
         }
       },
       "required": [
@@ -9490,7 +9494,7 @@
         },
         "name": {
           "$ref": "#/definitions/String",
-          "description": "The name of the usage plan."
+          "description": "[Required] The name of the usage plan."
         },
         "quota": {
           "$ref": "#/definitions/QuotaSettings",
@@ -9739,7 +9743,7 @@
         },
         "type": {
           "$ref": "#/definitions/DocumentationPartType",
-          "description": "The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHORIZER</code>, <code>METHOD</code>, <code>MODEL</code>, <code>REQUEST_BODY</code>, or <code>RESOURCE</code> type."
+          "description": "[Required] The type of API entity to which the documentation content applies. Valid values are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHORIZER</code>, <code>METHOD</code>, <code>MODEL</code>, <code>REQUEST_BODY</code>, or <code>RESOURCE</code> type."
         }
       },
       "required": [
@@ -9837,7 +9841,7 @@
         },
         "domainName": {
           "$ref": "#/definitions/String",
-          "description": "The name of the <a>DomainName</a> resource."
+          "description": "The custom domain name as an API host name, for example, <code>my-api.example.com</code>."
         },
         "endpointConfiguration": {
           "$ref": "#/definitions/EndpointConfiguration",
@@ -9934,7 +9938,7 @@
         },
         "responseType": {
           "$ref": "#/definitions/GatewayResponseType",
-          "description": "The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPES</li></ul> "
+          "description": "The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> "
         },
         "statusCode": {
           "$ref": "#/definitions/StatusCode",
@@ -10182,7 +10186,7 @@
       "type": "object"
     },
     "GetTagsRequest": {
-      "description": "Gets the Tags collection for a given resource.",
+      "description": "Gets the <a>Tags</a> collection for a given resource.",
       "properties": {},
       "type": "object"
     },
@@ -10252,7 +10256,7 @@
       "properties": {
         "body": {
           "$ref": "#/definitions/Blob",
-          "description": "The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB."
+          "description": "[Required] The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB."
         }
       },
       "required": [
@@ -10693,7 +10697,7 @@
         },
         "authorizationScopes": {
           "$ref": "#/definitions/ListOfString",
-          "description": "A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOL</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes."
+          "description": "A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes."
         },
         "authorizationType": {
           "$ref": "#/definitions/String",
@@ -10833,7 +10837,7 @@
         },
         "schema": {
           "$ref": "#/definitions/String",
-          "description": "The schema for the model. For <code>application/json</code> models, this should be <a href=\"http://json-schema.org/documentation.html\" target=\"_blank\">JSON-schema draft v4</a> model. Do not include \"\\*/\" characters in the description of any properties because such \"\\*/\" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail."
+          "description": "The schema for the model. For <code>application/json</code> models, this should be <a href=\"https://tools.ietf.org/html/draft-zyp-json-schema-04\" target=\"_blank\">JSON schema draft 4</a> model. Do not include \"\\*/\" characters in the description of any properties because such \"\\*/\" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail."
         }
       },
       "type": "object"
@@ -10983,7 +10987,7 @@
         },
         "type": {
           "$ref": "#/definitions/IntegrationType",
-          "description": "Specifies a put integration input's type."
+          "description": "[Required] Specifies a put integration input's type."
         },
         "uri": {
           "$ref": "#/definitions/String",
@@ -11026,15 +11030,15 @@
         },
         "authorizationScopes": {
           "$ref": "#/definitions/ListOfString",
-          "description": "A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOL</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes."
+          "description": "A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes."
         },
         "authorizationType": {
           "$ref": "#/definitions/String",
-          "description": "The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool."
+          "description": "[Required] The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool."
         },
         "authorizerId": {
           "$ref": "#/definitions/String",
-          "description": "Specifies the identifier of an <a>Authorizer</a> to use on this Method, if the type is CUSTOM."
+          "description": "Specifies the identifier of an <a>Authorizer</a> to use on this Method, if the type is CUSTOM or COGNITO_USER_POOLS. The authorizer identifier is generated by API Gateway when you created the authorizer."
         },
         "operationName": {
           "$ref": "#/definitions/String",
@@ -11084,7 +11088,7 @@
       "properties": {
         "body": {
           "$ref": "#/definitions/Blob",
-          "description": "The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB."
+          "description": "[Required] The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB."
         }
       },
       "required": [
@@ -11197,7 +11201,7 @@
       "properties": {
         "apiKeySource": {
           "$ref": "#/definitions/ApiKeySourceType",
-          "description": "The source of the API key for metring requests according to a usage plan. Valid values are <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> "
+          "description": "The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> "
         },
         "binaryMediaTypes": {
           "$ref": "#/definitions/ListOfString",
@@ -11221,11 +11225,15 @@
         },
         "minimumCompressionSize": {
           "$ref": "#/definitions/NullableInteger",
-          "description": "A nullable integer used to enable (non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable (null) compression on an API. When compression is enabled, compression or decompression are not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size."
+          "description": "A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size."
         },
         "name": {
           "$ref": "#/definitions/String",
           "description": "The API's name."
+        },
+        "policy": {
+          "$ref": "#/definitions/String",
+          "description": "A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration."
         },
         "version": {
           "$ref": "#/definitions/String",
@@ -11388,7 +11396,7 @@
         },
         "tags": {
           "$ref": "#/definitions/MapOfStringToString",
-          "description": "A collection of Tags associated with a given resource."
+          "description": "The collection of tags. Each tag element is associated with a given resource."
         },
         "variables": {
           "$ref": "#/definitions/MapOfStringToString",
@@ -11430,11 +11438,11 @@
       "type": "string"
     },
     "TagResourceRequest": {
-      "description": "Adds or updates Tags on a gievn resource.",
+      "description": "Adds or updates a tag on a given resource.",
       "properties": {
         "tags": {
           "$ref": "#/definitions/MapOfStringToString",
-          "description": "[Required] Key/Value map of strings. Valid character set is [a-zA-Z+-=._:/]. Tag key can be up to 128 characters and must not start with \"aws:\". Tag value can be up to 256 characters."
+          "description": "[Required] The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters."
         }
       },
       "required": [
@@ -11443,11 +11451,11 @@
       "type": "object"
     },
     "Tags": {
-      "description": "A collection of Tags associated with a given resource.",
+      "description": "The collection of tags. Each tag element is associated with a given resource.",
       "properties": {
         "tags": {
           "$ref": "#/definitions/MapOfStringToString",
-          "description": "A collection of Tags associated with a given resource."
+          "description": "The collection of tags. Each tag element is associated with a given resource."
         }
       },
       "type": "object"
@@ -11618,7 +11626,7 @@
       "type": "object"
     },
     "UntagResourceRequest": {
-      "description": "Removes Tags from a given resource.",
+      "description": "Removes a tag from a given resource.",
       "properties": {},
       "type": "object"
     },

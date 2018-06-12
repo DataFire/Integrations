@@ -86,6 +86,20 @@ reverb.articles.get({}, context)
 #### Output
 *Output schema unknown*
 
+### articles.categories.get
+List of all article categories
+
+
+```js
+reverb.articles.categories.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
 ### categories.get
 List of supported product categories
 
@@ -265,6 +279,7 @@ reverb.conversations.conversation_id.offer.post({
   * conversation_id **required** `string`
   * body `object`
     * country_code `string`
+    * layaway_terms_slug `string`
     * message `string`: Message to include with counter offer
     * offer_items `array`
       * items `object`
@@ -274,6 +289,7 @@ reverb.conversations.conversation_id.offer.post({
     * price `object`
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
       * currency **required** `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency the money will be expressed in
+    * quantity `string`
     * region_code `string`
     * shipping_price `object`: Shipping price (sellers only)
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
@@ -535,7 +551,7 @@ reverb.listings.post({}, context)
     * condition `object`: Condition
       * uuid **required** `string` (values: fbf35668-96a0-4baa-bcde-ab18d6b1b329, 6a9dfcad-600b-46c8-9e08-ce6e5057921e, 98777886-76d0-44c8-865e-bb40e669e934, f7a3f48c-972a-44c6-b01a-0cd27488d3f6, ae4d9114-1bd7-4ec5-a4ba-6653af5ac84d, df268ad1-c462-4ba6-b6db-e007e23922ea, ac5b9c1e-dc78-466d-b0b3-7cf712967a48, 6db7df88-293b-4017-a1c1-cdb5e599fa1a, 9225283f-60c2-4413-ad18-1f5eba7a856f, 7c3f45de-2ae0-4c81-8400-fdb6b1d74890): Condition UUID
     * description `string`: Product description. Please keep formatting to a minimum.
-    * exclusive_channel `string` (values: seller_site): Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'
+    * exclusive_channel `string` (values: seller_site, reverb, none): Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'
     * finish `string`: Finish, e.g. 'Sunburst'
     * has_inventory `boolean`: Set true if selling more than one
     * inventory `integer`: Number of items available for sale. Reverb will increment and decrement automatically.
@@ -860,7 +876,7 @@ reverb.listings.slug.put({
     * condition `object`: Condition
       * uuid **required** `string` (values: fbf35668-96a0-4baa-bcde-ab18d6b1b329, 6a9dfcad-600b-46c8-9e08-ce6e5057921e, 98777886-76d0-44c8-865e-bb40e669e934, f7a3f48c-972a-44c6-b01a-0cd27488d3f6, ae4d9114-1bd7-4ec5-a4ba-6653af5ac84d, df268ad1-c462-4ba6-b6db-e007e23922ea, ac5b9c1e-dc78-466d-b0b3-7cf712967a48, 6db7df88-293b-4017-a1c1-cdb5e599fa1a, 9225283f-60c2-4413-ad18-1f5eba7a856f, 7c3f45de-2ae0-4c81-8400-fdb6b1d74890): Condition UUID
     * description `string`: Product description. Please keep formatting to a minimum.
-    * exclusive_channel `string` (values: seller_site): Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'
+    * exclusive_channel `string` (values: seller_site, reverb, none): Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'
     * finish `string`: Finish, e.g. 'Sunburst'
     * has_inventory `boolean`: Set true if selling more than one
     * inventory `integer`: Number of items available for sale. Reverb will increment and decrement automatically.
@@ -1978,6 +1994,7 @@ reverb.my.negotiations.id.counter.post({
   * id **required** `string`
   * body `object`
     * country_code `string`
+    * layaway_terms_slug `string`
     * message `string`: Message to include with counter offer
     * offer_items `array`
       * items `object`
@@ -1987,6 +2004,7 @@ reverb.my.negotiations.id.counter.post({
     * price `object`
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
       * currency **required** `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency the money will be expressed in
+    * quantity `string`
     * region_code `string`
     * shipping_price `object`: Shipping price (sellers only)
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
@@ -2036,6 +2054,23 @@ reverb.my.orders.buying.all.get(null, context)
 
 #### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
+### my.orders.buying.by_uuid.uuid.get
+
+
+
+```js
+reverb.my.orders.buying.by_uuid.uuid.get({
+  "uuid": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * uuid **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -2093,39 +2128,25 @@ Get all seller orders, newest first.
 
 
 ```js
-reverb.my.orders.selling.all.get({}, context)
+reverb.my.orders.selling.all.get(null, context)
 ```
 
 #### Input
-* input `object`
-  * created_start_date `string`: Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * created_end_date `string`: Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * updated_start_date `string`: Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * updated_end_date `string`: Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * page `integer`
-  * per_page `integer`
-  * offset `integer`
+*This action has no parameters*
 
 #### Output
 *Output schema unknown*
 
 ### my.orders.selling.awaiting_shipment.get
-Get seller orders awaiting shipment, newest first.
+Get unpaid seller orders, newest first.
 
 
 ```js
-reverb.my.orders.selling.awaiting_shipment.get({}, context)
+reverb.my.orders.selling.awaiting_shipment.get(null, context)
 ```
 
 #### Input
-* input `object`
-  * created_start_date `string`: Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * created_end_date `string`: Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * updated_start_date `string`: Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * updated_end_date `string`: Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * page `integer`
-  * per_page `integer`
-  * offset `integer`
+*This action has no parameters*
 
 #### Output
 *Output schema unknown*
@@ -2147,23 +2168,33 @@ reverb.my.orders.selling.buyer_history.buyer_id.get({
 #### Output
 *Output schema unknown*
 
+### my.orders.selling.by_uuid.uuid.get
+
+
+
+```js
+reverb.my.orders.selling.by_uuid.uuid.get({
+  "uuid": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * uuid **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### my.orders.selling.unpaid.get
 Get unpaid seller orders, newest first.
 
 
 ```js
-reverb.my.orders.selling.unpaid.get({}, context)
+reverb.my.orders.selling.unpaid.get(null, context)
 ```
 
 #### Input
-* input `object`
-  * created_start_date `string`: Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * created_end_date `string`: Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * updated_start_date `string`: Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * updated_end_date `string`: Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
-  * page `integer`
-  * per_page `integer`
-  * offset `integer`
+*This action has no parameters*
 
 #### Output
 *Output schema unknown*
@@ -2487,56 +2518,6 @@ reverb.payment_methods.get(null, context)
 #### Output
 *Output schema unknown*
 
-### priceguide.get
-Search the Price Guide
-
-
-```js
-reverb.priceguide.get({}, context)
-```
-
-#### Input
-* input `object`
-  * query `string`: Search query.
-
-#### Output
-*Output schema unknown*
-
-### priceguide.id.get
-Retrieve a Price Guide
-
-
-```js
-reverb.priceguide.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`
-
-#### Output
-*Output schema unknown*
-
-### priceguide.id.transactions.get
-Get a list of paginated transactions for a price guide.
-
-
-```js
-reverb.priceguide.id.transactions.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`
-  * condition `string`
-
-#### Output
-*Output schema unknown*
-
 ### priceguide.id.transactions.summary.get
 Get a summary of transactions for a given price guide
 
@@ -2777,6 +2758,7 @@ reverb.shop.put({}, context)
     * payment_policy `string`
     * return_policy `string`
     * shipping_policy `string`
+    * shop_type `string` (values: individual, business)
     * website `string`
 
 #### Output

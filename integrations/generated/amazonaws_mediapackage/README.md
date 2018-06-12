@@ -157,6 +157,7 @@ amazonaws_mediapackage.CreateOriginEndpoint({
 #### Input
 * input `object`
   * ChannelId **required** [__string](#__string)
+  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -165,7 +166,7 @@ amazonaws_mediapackage.CreateOriginEndpoint({
   * MssPackage [MssPackage](#msspackage)
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 #### Output
 * output [CreateOriginEndpointResponse](#createoriginendpointresponse)
@@ -217,6 +218,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 #### Input
 * input `object`
   * id **required** `string`
+  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -224,7 +226,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
   * MssPackage [MssPackage](#msspackage)
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 #### Output
 * output [UpdateOriginEndpointResponse](#updateoriginendpointresponse)
@@ -246,16 +248,37 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 ### ChannelCreateParameters
 * ChannelCreateParameters `object`: Configuration parameters for a new Channel.
   * Description [__string](#__string)
-  * Id [__string](#__string)
+  * Id **required** [__string](#__string)
 
 ### ChannelList
 * ChannelList `object`: A collection of Channel records.
-  * Channels [ListOfChannel](#listofchannel)
+  * Channels [__listOfChannel](#__listofchannel)
   * NextToken [__string](#__string)
 
 ### ChannelUpdateParameters
 * ChannelUpdateParameters `object`: Configuration parameters for updating an existing Channel.
   * Description [__string](#__string)
+
+### CmafEncryption
+* CmafEncryption `object`: A Common Media Application Format (CMAF) encryption configuration.
+  * KeyRotationIntervalSeconds [__integer](#__integer)
+  * SpekeKeyProvider **required** [SpekeKeyProvider](#spekekeyprovider)
+
+### CmafPackage
+* CmafPackage `object`: A Common Media Application Format (CMAF) packaging configuration.
+  * Encryption [CmafEncryption](#cmafencryption)
+  * HlsManifests [__listOfHlsManifest](#__listofhlsmanifest)
+  * SegmentDurationSeconds [__integer](#__integer)
+  * SegmentPrefix [__string](#__string)
+  * StreamSelection [StreamSelection](#streamselection)
+
+### CmafPackageCreateOrUpdateParameters
+* CmafPackageCreateOrUpdateParameters `object`: A Common Media Application Format (CMAF) packaging configuration.
+  * Encryption [CmafEncryption](#cmafencryption)
+  * HlsManifests [__listOfHlsManifestCreateOrUpdateParameters](#__listofhlsmanifestcreateorupdateparameters)
+  * SegmentDurationSeconds [__integer](#__integer)
+  * SegmentPrefix [__string](#__string)
+  * StreamSelection [StreamSelection](#streamselection)
 
 ### CreateChannelRequest
 * CreateChannelRequest `object`: A new Channel configuration.
@@ -272,6 +295,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 ### CreateOriginEndpointRequest
 * CreateOriginEndpointRequest `object`: Configuration parameters used to create a new OriginEndpoint.
   * ChannelId **required** [__string](#__string)
+  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -280,12 +304,13 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
   * MssPackage [MssPackage](#msspackage)
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 ### CreateOriginEndpointResponse
 * CreateOriginEndpointResponse `object`
   * Arn [__string](#__string)
   * ChannelId [__string](#__string)
+  * CmafPackage [CmafPackage](#cmafpackage)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -295,7 +320,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
   * Url [__string](#__string)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 ### DashEncryption
 * DashEncryption `object`: A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
@@ -342,6 +367,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 * DescribeOriginEndpointResponse `object`
   * Arn [__string](#__string)
   * ChannelId [__string](#__string)
+  * CmafPackage [CmafPackage](#cmafpackage)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -351,7 +377,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
   * Url [__string](#__string)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 ### EncryptionMethod
 * EncryptionMethod `string` (values: AES_128, SAMPLE_AES)
@@ -370,7 +396,28 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 
 ### HlsIngest
 * HlsIngest `object`: An HTTP Live Streaming (HLS) ingest resource configuration.
-  * IngestEndpoints [ListOfIngestEndpoint](#listofingestendpoint)
+  * IngestEndpoints [__listOfIngestEndpoint](#__listofingestendpoint)
+
+### HlsManifest
+* HlsManifest `object`: A HTTP Live Streaming (HLS) manifest configuration.
+  * AdMarkers [AdMarkers](#admarkers)
+  * Id **required** [__string](#__string)
+  * IncludeIframeOnlyStream [__boolean](#__boolean)
+  * ManifestName [__string](#__string)
+  * PlaylistType [PlaylistType](#playlisttype)
+  * PlaylistWindowSeconds [__integer](#__integer)
+  * ProgramDateTimeIntervalSeconds [__integer](#__integer)
+  * Url [__string](#__string)
+
+### HlsManifestCreateOrUpdateParameters
+* HlsManifestCreateOrUpdateParameters `object`: A HTTP Live Streaming (HLS) manifest configuration.
+  * AdMarkers [AdMarkers](#admarkers)
+  * Id **required** [__string](#__string)
+  * IncludeIframeOnlyStream [__boolean](#__boolean)
+  * ManifestName [__string](#__string)
+  * PlaylistType [PlaylistType](#playlisttype)
+  * PlaylistWindowSeconds [__integer](#__integer)
+  * ProgramDateTimeIntervalSeconds [__integer](#__integer)
 
 ### HlsPackage
 * HlsPackage `object`: An HTTP Live Streaming (HLS) packaging configuration.
@@ -399,24 +446,8 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 
 ### ListChannelsResponse
 * ListChannelsResponse `object`
-  * Channels [ListOfChannel](#listofchannel)
+  * Channels [__listOfChannel](#__listofchannel)
   * NextToken [__string](#__string)
-
-### ListOfChannel
-* ListOfChannel `array`
-  * items [Channel](#channel)
-
-### ListOfIngestEndpoint
-* ListOfIngestEndpoint `array`
-  * items [IngestEndpoint](#ingestendpoint)
-
-### ListOfOriginEndpoint
-* ListOfOriginEndpoint `array`
-  * items [OriginEndpoint](#originendpoint)
-
-### ListOf__string
-* ListOf__string `array`
-  * items [__string](#__string)
 
 ### ListOriginEndpointsRequest
 * ListOriginEndpointsRequest `object`
@@ -424,7 +455,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 ### ListOriginEndpointsResponse
 * ListOriginEndpointsResponse `object`
   * NextToken [__string](#__string)
-  * OriginEndpoints [ListOfOriginEndpoint](#listoforiginendpoint)
+  * OriginEndpoints [__listOfOriginEndpoint](#__listoforiginendpoint)
 
 ### MaxResults
 * MaxResults `integer`
@@ -448,6 +479,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 * OriginEndpoint `object`: An OriginEndpoint resource configuration.
   * Arn [__string](#__string)
   * ChannelId [__string](#__string)
+  * CmafPackage [CmafPackage](#cmafpackage)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -457,28 +489,30 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
   * Url [__string](#__string)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 ### OriginEndpointCreateParameters
 * OriginEndpointCreateParameters `object`: Configuration parameters for a new OriginEndpoint.
-  * ChannelId [__string](#__string)
+  * ChannelId **required** [__string](#__string)
+  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
-  * Id [__string](#__string)
+  * Id **required** [__string](#__string)
   * ManifestName [__string](#__string)
   * MssPackage [MssPackage](#msspackage)
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 ### OriginEndpointList
 * OriginEndpointList `object`: A collection of OriginEndpoint records.
   * NextToken [__string](#__string)
-  * OriginEndpoints [ListOfOriginEndpoint](#listoforiginendpoint)
+  * OriginEndpoints [__listOfOriginEndpoint](#__listoforiginendpoint)
 
 ### OriginEndpointUpdateParameters
 * OriginEndpointUpdateParameters `object`: Configuration parameters for updating an existing OriginEndpoint.
+  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -486,7 +520,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
   * MssPackage [MssPackage](#msspackage)
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 ### PlaylistType
 * PlaylistType `string` (values: NONE, EVENT, VOD)
@@ -512,7 +546,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 * SpekeKeyProvider `object`: A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
   * ResourceId **required** [__string](#__string)
   * RoleArn **required** [__string](#__string)
-  * SystemIds **required** [ListOf__string](#listof__string)
+  * SystemIds **required** [__listOf__string](#__listof__string)
   * Url **required** [__string](#__string)
 
 ### StreamOrder
@@ -545,6 +579,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 
 ### UpdateOriginEndpointRequest
 * UpdateOriginEndpointRequest `object`: Configuration parameters used to update an existing OriginEndpoint.
+  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -552,12 +587,13 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
   * MssPackage [MssPackage](#msspackage)
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 ### UpdateOriginEndpointResponse
 * UpdateOriginEndpointResponse `object`
   * Arn [__string](#__string)
   * ChannelId [__string](#__string)
+  * CmafPackage [CmafPackage](#cmafpackage)
   * DashPackage [DashPackage](#dashpackage)
   * Description [__string](#__string)
   * HlsPackage [HlsPackage](#hlspackage)
@@ -567,7 +603,7 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
   * StartoverWindowSeconds [__integer](#__integer)
   * TimeDelaySeconds [__integer](#__integer)
   * Url [__string](#__string)
-  * Whitelist [ListOf__string](#listof__string)
+  * Whitelist [__listOf__string](#__listof__string)
 
 ### __boolean
 * __boolean `boolean`
@@ -578,10 +614,34 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 ### __integer
 * __integer `integer`
 
+### __listOfChannel
+* __listOfChannel `array`
+  * items [Channel](#channel)
+
+### __listOfHlsManifest
+* __listOfHlsManifest `array`
+  * items [HlsManifest](#hlsmanifest)
+
+### __listOfHlsManifestCreateOrUpdateParameters
+* __listOfHlsManifestCreateOrUpdateParameters `array`
+  * items [HlsManifestCreateOrUpdateParameters](#hlsmanifestcreateorupdateparameters)
+
+### __listOfIngestEndpoint
+* __listOfIngestEndpoint `array`
+  * items [IngestEndpoint](#ingestendpoint)
+
+### __listOfOriginEndpoint
+* __listOfOriginEndpoint `array`
+  * items [OriginEndpoint](#originendpoint)
+
+### __listOf__string
+* __listOf__string `array`
+  * items [__string](#__string)
+
+### __long
+* __long `integer`
+
 ### __string
 * __string `string`
-
-### __timestamp
-* __timestamp `string`
 
 

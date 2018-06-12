@@ -196,16 +196,4 @@ azure_sql_datamasking.DataMaskingRules_CreateOrUpdate({
   * suffixSize `string`: If maskingFunction is set to Text, the number of characters to show unmasked at the end of the string. Otherwise, this parameter will be ignored.
   * tableName **required** `string`: The table name on which the data masking rule is applied.
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

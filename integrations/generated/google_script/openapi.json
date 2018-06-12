@@ -10,13 +10,8 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "An API for managing and executing Google Apps Script projects.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Apps Script",
+    "description": "An API for managing and executing Google Apps Script projects. <aside class=\"note\"><b>Note</b>: In order to use this API in your apps, you must <a href=\"/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app\"> enable it for use</a>. To allow other apps to manage your scripts, you must <a href=\"/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects\"> grant them access</a>.</aside>\n",
+    "title": "Apps Script",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://script.googleapis.com/$discovery/rest?version=v1",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://mail.google.com/": "Read, send, delete, and manage your email",
@@ -67,26 +62,6 @@
         "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
         "https://www.googleapis.com/auth/userinfo.email": "View your email address"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://mail.google.com/": "Read, send, delete, and manage your email",
-        "https://www.google.com/calendar/feeds": "Manage your calendars",
-        "https://www.google.com/m8/feeds": "Manage your contacts",
-        "https://www.googleapis.com/auth/admin.directory.group": "View and manage the provisioning of groups on your domain",
-        "https://www.googleapis.com/auth/admin.directory.user": "View and manage the provisioning of users on your domain",
-        "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
-        "https://www.googleapis.com/auth/forms": "View and manage your forms in Google Drive",
-        "https://www.googleapis.com/auth/forms.currentonly": "View and manage forms that this application has been installed in",
-        "https://www.googleapis.com/auth/groups": "View and manage your Google Groups",
-        "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
-        "https://www.googleapis.com/auth/userinfo.email": "View your email address"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -250,7 +225,7 @@
             "type": "string"
           },
           {
-            "description": "Optional field used to limit returned processes to those originating from\nprojects with a specific project name.",
+            "description": "Optional field used to limit returned processes to those originating from\nprojects with project names containing a specific string.",
             "in": "query",
             "name": "userProcessFilter.projectName",
             "type": "string"
@@ -280,7 +255,8 @@
                 "CANCELED",
                 "FAILED",
                 "TIMED_OUT",
-                "UNKNOWN"
+                "UNKNOWN",
+                "DELAYED"
               ],
               "type": "string"
             },
@@ -299,7 +275,9 @@
                 "TIME_DRIVEN",
                 "TRIGGER",
                 "WEBAPP",
-                "EDITOR"
+                "EDITOR",
+                "SIMPLE_TRIGGER",
+                "MENU"
               ],
               "type": "string"
             },
@@ -438,7 +416,8 @@
                 "CANCELED",
                 "FAILED",
                 "TIMED_OUT",
-                "UNKNOWN"
+                "UNKNOWN",
+                "DELAYED"
               ],
               "type": "string"
             },
@@ -457,7 +436,9 @@
                 "TIME_DRIVEN",
                 "TRIGGER",
                 "WEBAPP",
-                "EDITOR"
+                "EDITOR",
+                "SIMPLE_TRIGGER",
+                "MENU"
               ],
               "type": "string"
             },
@@ -1368,88 +1349,55 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
-            ],
-            "Oauth2c": [
-              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
-              "https://www.google.com/calendar/feeds"
-            ],
-            "Oauth2c": [
               "https://www.google.com/calendar/feeds"
             ]
           },
           {
             "Oauth2": [
               "https://www.google.com/m8/feeds"
-            ],
-            "Oauth2c": [
-              "https://www.google.com/m8/feeds"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/admin.directory.group"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/admin.directory.group"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/admin.directory.user"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/admin.directory.user"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/forms"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/forms"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/forms.currentonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/forms.currentonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/groups"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/groups"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/spreadsheets"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/spreadsheets"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userinfo.email"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1788,7 +1736,8 @@
             "CANCELED",
             "FAILED",
             "TIMED_OUT",
-            "UNKNOWN"
+            "UNKNOWN",
+            "DELAYED"
           ],
           "type": "string"
         },
@@ -1801,7 +1750,9 @@
             "TIME_DRIVEN",
             "TRIGGER",
             "WEBAPP",
-            "EDITOR"
+            "EDITOR",
+            "SIMPLE_TRIGGER",
+            "MENU"
           ],
           "type": "string"
         },
@@ -2114,7 +2065,7 @@
       "description": "If a `run` call succeeds but the script function (or Apps Script itself) throws an exception, the response body's error field contains this `Status` object.",
       "properties": {
         "code": {
-          "description": "The status code. For this API, this value either: <ul> <li> 3, indicating an `INVALID_ARGUMENT` error, or</li> <li> 1, indicating a `CANCELLED` execution.</li> </ul>",
+          "description": "The status code. For this API, this value either: <ul> <li> 10, indicating a `SCRIPT_TIMEOUT` error,</li> <li> 3, indicating an `INVALID_ARGUMENT` error, or</li> <li> 1, indicating a `CANCELLED` execution.</li> </ul>",
           "format": "int32",
           "type": "integer"
         },

@@ -165,9 +165,11 @@ amazonaws_cloudformation.CreateStackSet({
 
 #### Input
 * input `object`
+  * AdministrationRoleARN [RoleARN](#rolearn)
   * Capabilities [Capabilities](#capabilities)
   * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
   * Description [Description](#description)
+  * ExecutionRoleName [ExecutionRoleName](#executionrolename)
   * Parameters [Parameters](#parameters)
   * StackSetName **required** [StackSetName](#stacksetname)
   * Tags [Tags](#tags)
@@ -785,7 +787,7 @@ amazonaws_cloudformation.UpdateStackInstances({
   * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
   * ParameterOverrides [Parameters](#parameters)
   * Regions **required** [RegionList](#regionlist)
-  * StackSetName **required** [StackSetName](#stacksetname)
+  * StackSetName **required** [StackSetNameOrId](#stacksetnameorid)
 
 #### Output
 * output [UpdateStackInstancesOutput](#updatestackinstancesoutput)
@@ -802,11 +804,15 @@ amazonaws_cloudformation.UpdateStackSet({
 
 #### Input
 * input `object`
+  * Accounts [AccountList](#accountlist)
+  * AdministrationRoleARN [RoleARN](#rolearn)
   * Capabilities [Capabilities](#capabilities)
   * Description [Description](#description)
+  * ExecutionRoleName [ExecutionRoleName](#executionrolename)
   * OperationId [ClientRequestToken](#clientrequesttoken)
   * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
   * Parameters [Parameters](#parameters)
+  * Regions [RegionList](#regionlist)
   * StackSetName **required** [StackSetName](#stacksetname)
   * Tags [Tags](#tags)
   * TemplateBody [TemplateBody](#templatebody)
@@ -1046,9 +1052,11 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
 
 ### CreateStackSetInput
 * CreateStackSetInput `object`
+  * AdministrationRoleARN [RoleARN](#rolearn)
   * Capabilities [Capabilities](#capabilities)
   * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
   * Description [Description](#description)
+  * ExecutionRoleName [ExecutionRoleName](#executionrolename)
   * Parameters [Parameters](#parameters)
   * StackSetName **required** [StackSetName](#stacksetname)
   * Tags [Tags](#tags)
@@ -1236,6 +1244,9 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
 
 ### ExecuteChangeSetOutput
 * ExecuteChangeSetOutput `object`: The output for the <a>ExecuteChangeSet</a> action.
+
+### ExecutionRoleName
+* ExecutionRoleName `string`
 
 ### ExecutionStatus
 * ExecutionStatus `string` (values: UNAVAILABLE, AVAILABLE, EXECUTE_IN_PROGRESS, EXECUTE_COMPLETE, EXECUTE_FAILED, OBSOLETE)
@@ -1615,12 +1626,12 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
 * RoleARN `string`
 
 ### RollbackConfiguration
-* RollbackConfiguration `object`: <p>Structure containing the rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.</p> <p>Rollback triggers enable you to have AWS CloudFormation monitor the state of your application during stack creation and updating, and to roll back that operation if the application breaches the threshold of any of the alarms you've specified. For each rollback trigger you create, you specify the Cloudwatch alarm that CloudFormation should monitor. CloudFormation monitors the specified alarms during the stack create or update operation, and for the specified amount of time after all resources have been deployed. If any of the alarms goes to ALERT state during the stack operation or the monitoring period, CloudFormation rolls back the entire stack operation. If the monitoring period expires without any alarms going to ALERT state, CloudFormation proceeds to dispose of old resources as usual.</p> <p>By default, CloudFormation only rolls back stack operations if an alarm goes to ALERT state, not INSUFFICIENT_DATA state. To have CloudFormation roll back the stack operation if an alarm goes to INSUFFICIENT_DATA state as well, edit the CloudWatch alarm to treat missing data as <code>breaching</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html">Configuring How CloudWatch Alarms Treats Missing Data</a>.</p> <p>AWS CloudFormation does not monitor rollback triggers when it rolls back a stack during an update operation.</p>
+* RollbackConfiguration `object`: <p>Structure containing the rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.</p> <p>Rollback triggers enable you to have AWS CloudFormation monitor the state of your application during stack creation and updating, and to roll back that operation if the application breaches the threshold of any of the alarms you've specified. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html">Monitor and Roll Back Stack Operations</a>.</p>
   * MonitoringTimeInMinutes [MonitoringTimeInMinutes](#monitoringtimeinminutes)
   * RollbackTriggers [RollbackTriggers](#rollbacktriggers)
 
 ### RollbackTrigger
-* RollbackTrigger `object`: A rollback trigger AWS CloudFormation monitors during creation and updating of stacks. If any of the alarms you specify goes to ALERT state during the stack operation or within the specified monitoring period afterwards, CloudFormation rolls back the entire stack operation. 
+* RollbackTrigger `object`: A rollback trigger AWS CloudFormation monitors during creation and updating of stacks. If any of the alarms you specify goes to ALARM state during the stack operation or within the specified monitoring period afterwards, CloudFormation rolls back the entire stack operation. 
   * Arn **required** [Arn](#arn)
   * Type **required** [Type](#type)
 
@@ -1781,14 +1792,20 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
 
 ### StackSet
 * StackSet `object`: A structure that contains information about a stack set. A stack set enables you to provision stacks into AWS accounts and across regions by using a single CloudFormation template. In the stack set, you specify the template to use, as well as any parameters and capabilities that the template requires. 
+  * AdministrationRoleARN [RoleARN](#rolearn)
   * Capabilities [Capabilities](#capabilities)
   * Description [Description](#description)
+  * ExecutionRoleName [ExecutionRoleName](#executionrolename)
   * Parameters [Parameters](#parameters)
+  * StackSetARN [StackSetARN](#stacksetarn)
   * StackSetId [StackSetId](#stacksetid)
   * StackSetName [StackSetName](#stacksetname)
   * Status [StackSetStatus](#stacksetstatus)
   * Tags [Tags](#tags)
   * TemplateBody [TemplateBody](#templatebody)
+
+### StackSetARN
+* StackSetARN `string`
 
 ### StackSetId
 * StackSetId `string`
@@ -1808,8 +1825,10 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
 ### StackSetOperation
 * StackSetOperation `object`: The structure that contains information about a stack set operation. 
   * Action [StackSetOperationAction](#stacksetoperationaction)
+  * AdministrationRoleARN [RoleARN](#rolearn)
   * CreationTimestamp [Timestamp](#timestamp)
   * EndTimestamp [Timestamp](#timestamp)
+  * ExecutionRoleName [ExecutionRoleName](#executionrolename)
   * OperationId [ClientRequestToken](#clientrequesttoken)
   * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
   * RetainStacks [RetainStacksNullable](#retainstacksnullable)
@@ -2000,7 +2019,7 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
   * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
   * ParameterOverrides [Parameters](#parameters)
   * Regions **required** [RegionList](#regionlist)
-  * StackSetName **required** [StackSetName](#stacksetname)
+  * StackSetName **required** [StackSetNameOrId](#stacksetnameorid)
 
 ### UpdateStackInstancesOutput
 * UpdateStackInstancesOutput `object`
@@ -2012,11 +2031,15 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
 
 ### UpdateStackSetInput
 * UpdateStackSetInput `object`
+  * Accounts [AccountList](#accountlist)
+  * AdministrationRoleARN [RoleARN](#rolearn)
   * Capabilities [Capabilities](#capabilities)
   * Description [Description](#description)
+  * ExecutionRoleName [ExecutionRoleName](#executionrolename)
   * OperationId [ClientRequestToken](#clientrequesttoken)
   * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
   * Parameters [Parameters](#parameters)
+  * Regions [RegionList](#regionlist)
   * StackSetName **required** [StackSetName](#stacksetname)
   * Tags [Tags](#tags)
   * TemplateBody [TemplateBody](#templatebody)

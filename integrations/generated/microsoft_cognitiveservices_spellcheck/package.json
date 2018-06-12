@@ -1,6 +1,6 @@
 {
   "name": "@datafire/microsoft_cognitiveservices_spellcheck",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for Spell Check",
   "repository": {

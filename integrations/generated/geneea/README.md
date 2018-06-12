@@ -115,7 +115,7 @@ geneea.getInfo(null, context)
 *This action has no parameters*
 
 #### Output
-* output [Information_about_a_user_account.](#information_about_a_user_account.)
+* output [Information%20about%20a%20user%20account.](#information%20about%20a%20user%20account.)
 
 ### correctionGet
 <br/><strong>Possible options:</strong><p class="markdown">An optional parameter <code>diacritize</code> with values <code>yes</code>, <code>no</code> or <code>auto</code> indicate whether the text diacritization will be performed. The default value is <code>auto</code>.</p>
@@ -127,6 +127,7 @@ geneea.correctionGet({}, context)
 
 #### Input
 * input `object`
+  * id `string`: document ID
   * text `string`: raw document text
   * url `string`: document URL
   * extractor `string` (values: default, article, keep-everything): document extractor
@@ -134,7 +135,7 @@ geneea.correctionGet({}, context)
   * returnTextInfo `boolean`
 
 #### Output
-* output [Response_for_the_text_correction](#response_for_the_text_correction)
+* output [Response%20for%20the%20text%20correction](#response%20for%20the%20text%20correction)
 
 ### correctionPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre><br/><strong>Possible options:</strong><p class="markdown">An optional parameter <code>diacritize</code> with values <code>yes</code>, <code>no</code> or <code>auto</code> indicate whether the text diacritization will be performed. The default value is <code>auto</code>.</p>
@@ -149,7 +150,7 @@ geneea.correctionPost({}, context)
   * body [Request](#request)
 
 #### Output
-* output [Response_for_the_text_correction](#response_for_the_text_correction)
+* output [Response%20for%20the%20text%20correction](#response%20for%20the%20text%20correction)
 
 ### entitiesGet
 entitiesGet
@@ -161,6 +162,7 @@ geneea.entitiesGet({}, context)
 
 #### Input
 * input `object`
+  * id `string`: document ID
   * text `string`: raw document text
   * url `string`: document URL
   * extractor `string` (values: default, article, keep-everything): document extractor
@@ -195,6 +197,7 @@ geneea.lemmatizeGet({}, context)
 
 #### Input
 * input `object`
+  * id `string`: document ID
   * text `string`: raw document text
   * url `string`: document URL
   * extractor `string` (values: default, article, keep-everything): document extractor
@@ -229,6 +232,7 @@ geneea.sentimentGet({}, context)
 
 #### Input
 * input `object`
+  * id `string`: document ID
   * text `string`: raw document text
   * url `string`: document URL
   * extractor `string` (values: default, article, keep-everything): document extractor
@@ -263,6 +267,7 @@ geneea.topicGet({}, context)
 
 #### Input
 * input `object`
+  * id `string`: document ID
   * text `string`: raw document text
   * url `string`: document URL
   * extractor `string` (values: default, article, keep-everything): document extractor
@@ -287,6 +292,20 @@ geneea.topicPost({}, context)
 #### Output
 * output [TopicResponse](#topicresponse)
 
+### status
+status
+
+
+```js
+geneea.status(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `string`
+
 
 
 ## Definitions
@@ -295,6 +314,7 @@ geneea.topicPost({}, context)
 * EntitiesResponse `object`: Response for the named-entity recognition
   * entities **required** `array`: Found named entities in the document
     * items [Entity](#entity)
+  * id `string`: Unique identifier of the document
   * language **required** `string`: The used language of the document
   * text `string`: The raw text of the document which has been analysed
 
@@ -310,8 +330,14 @@ geneea.topicPost({}, context)
 * Entry«string,long» `object`
   * key `integer`
 
-### Information_about_a_user_account.
+### Information about a user account.
 
+
+### Information_about_a_user_account.
+* Information_about_a_user_account. `object`
+  * remainingQuotas `array`: Remaining quotas for the user account.
+    * items [Entry«string,long»](#entry«string,long»)
+  * type `string`: Type (plan) of the user account.
 
 ### Label
 * Label `object`: The topic label
@@ -320,6 +346,7 @@ geneea.topicPost({}, context)
 
 ### LemmatizeResponse
 * LemmatizeResponse `object`: Response for the lemmatization
+  * id `string`: Unique identifier of the document
   * language **required** `string`: The used language of the document
   * lemmatizedText **required** `string`: Lemmatized text of the document, individual tokens are separated by a space and sentences are separated by a new-line character
   * text `string`: The raw text of the document which has been analysed
@@ -327,17 +354,28 @@ geneea.topicPost({}, context)
 ### Request
 * Request `object`: Request encapsulation for simple API version 1
   * extractor `string` (values: default, article, keep-everything): [optional] Text extractor to be used when analyzing HTML document
+  * id `string`: Unique identifier of the document, it's optional
   * language `string`: [optional] The language of the document, auto-detection will be used if omitted
   * options `object`: [optional] Additional options for the internal modules (key-value pairs)
   * returnTextInfo `boolean`: [optional] Indicates whether to return the source text within the response object
   * text `string`: The raw text to be analyzed, mutually exclusive with the 'url' parameter
   * url `string`: URL of a document to be analysed, mutually exclusive with the 'text' parameter
 
-### Response_for_the_text_correction
+### Response for the text correction
 
+
+### Response_for_the_text_correction
+* Response_for_the_text_correction `object`
+  * corrected `boolean`
+  * correctedText **required** `string`: Corrected text of the document
+  * diacritized `boolean`
+  * id `string`: Unique identifier of the document
+  * language **required** `string`: The used language of the document
+  * text `string`: The raw text of the document which has been analysed
 
 ### SentimentResponse
 * SentimentResponse `object`: Response for the sentiment analysis
+  * id `string`: Unique identifier of the document
   * language **required** `string`: The used language of the document
   * sentiment **required** `number`: Detected sentiment of the document (value from -1.0 to 1.0)
   * text `string`: The raw text of the document which has been analysed
@@ -345,6 +383,7 @@ geneea.topicPost({}, context)
 ### TopicResponse
 * TopicResponse `object`: Response for the topic detection
   * confidence **required** `number`: Confidence for the detected topic
+  * id `string`: Unique identifier of the document
   * labels **required** `array`: Probabilistic distribution over possible topic labels
     * items [Label](#label)
   * language **required** `string`: The used language of the document

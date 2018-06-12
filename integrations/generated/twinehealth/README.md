@@ -33,6 +33,26 @@ Authentication for the Twine API is based on the [OAuth 2.0 Authorization Framew
 See [POST /oauth/token](#operation/createToken) for details on the request and response formats.
 <!-- ReDoc-Inject: <security-definitions> -->
 
+# Paging
+The Twine API supports two different pagination strategies for GET collection endpoints. 
+
+#### Skip-based paging
+
+Skip-based paging uses the query parameters `page[size]` and `page[number]` to specify the max number of resources returned and the page number. We default to skip-based paging if there are no page parameters. The response will include a `links` object containing links to the first, last, prev, and next pages of data.
+
+If the contents of the collection change while you are iterating through the collection, you will see duplicate or missing documents. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=1`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=2`, the first entry in the second response will be a duplicate of the last entry in the first response.
+
+#### Cursor-based paging
+Cursor-based paging uses the query parameters `page[limit]` and `page[after]` to specify the max number of entries returned and identify where to begin the next page. Add `page[limit]` to the parameters to use cursor-based paging. The response will include a `links` object containing a link to the next page of data, if the next page exists. 
+
+Cursor-based paging is not subject to duplication if new resources are added to the collection. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[limit]=50`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, you will not see a duplicate entry when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[limit]=50&page[after]=<cursor>`. 
+
+We encourage the use of cursor-based paging for performance reasons. 
+
+In either form of paging, you can determine whether any resources were missed by comparing the number of fetched resources against `meta.count`. Set `page[size]` or `page[limit]` to 0 to get only the count.
+
+It is not valid to mix the two strategies.
+
 
 ## Actions
 
@@ -185,6 +205,8 @@ twinehealth.fetchCalendarEvents({}, context)
   * filter[updated_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events updated in November 2017 (America/New_York): `filter[updated_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
+  * page[limit] `integer`: Page limit
+  * page[cursor] `string`: Page cursor
   * include `string` (values: owner): List of related resources to include in the response
 
 #### Output
@@ -248,7 +270,7 @@ twinehealth.fetchCalendarEvent({
 * output [FetchCalendarEventResponse](#fetchcalendareventresponse)
 
 ### updateCalendarEvent
-Update a calendar event for a patient. Attribute `all_day` must be true and `end_at` cannot be specified for `plan-check-in` event type. To mark a calendar event as 'completed', set `completed_at` and `completed_by` to desired values.  To mark a completed calendar event as 'not completed', set `completed_at` and `completed_by` to `null`.
+Update a calendar event for a patient. Attribute `all_day` must be true and `end_at` cannot be specified for `plan-check-in` event type. To mark a calendar event as 'completed', set `completed_at` and `completed_by` to desired values.  To mark a completed calendar event as 'not completed', set `completed_at` and `completed_by` to `null`. Attendees can be added or removed, but response status cannot be updated. Use the calendar event response api for response status updates instead.
 
 
 ```js
@@ -265,6 +287,29 @@ twinehealth.updateCalendarEvent({
 
 #### Output
 * output [UpdateCalendarEventResponse](#updatecalendareventresponse)
+
+### createCalendarEventResponse
+Create a calendar event response for an attendee of a calendar event, the attendee can be a coach or patient.  Calendar event responses cannot be fetched, updated nor deleted.  Use calendar event api to fetch the response status for attendees.
+
+
+```js
+twinehealth.createCalendarEventResponse({
+  "body": {
+    "data": {
+      "type": "",
+      "attributes": null,
+      "relationships": {}
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [CreateCalendarEventResponseRequest](#createcalendareventresponserequest)
+
+#### Output
+* output [CreateCalendarEventResponseRequest](#createcalendareventresponserequest)
 
 ### fetchCoach
 Get a coach record by id.
@@ -393,6 +438,8 @@ twinehealth.fetchHealthProfiles({}, context)
   * filter[organization] `string`: Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
+  * page[limit] `integer`: Page limit
+  * page[cursor] `string`: Page cursor
   * include `string` (values: patient, questions): List of related resources to include in the response
 
 #### Output
@@ -431,6 +478,8 @@ twinehealth.fetchHealthProfileAnswers({}, context)
   * filter[organization] `string`: Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
+  * page[limit] `integer`: Page limit
+  * page[cursor] `string`: Page cursor
   * include `string` (values: patient): List of related resources to include in the response
 
 #### Output
@@ -611,6 +660,8 @@ twinehealth.fetchPatients({}, context)
   * filter[updated_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for patients updated in November 2017 (America/New_York): `filter[updated_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
+  * page[limit] `integer`: Page limit
+  * page[cursor] `string`: Page cursor
 
 #### Output
 * output [FetchPatientsResponse](#fetchpatientsresponse)
@@ -757,6 +808,8 @@ twinehealth.fetchPatientHealthMetrics({
   * filter[patient] **required** `string`: Filter the patient health metrics for a specified patient
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
+  * page[limit] `integer`: Page limit
+  * page[cursor] `string`: Page cursor
 
 #### Output
 * output [FetchPatientHealthMetricResponse](#fetchpatienthealthmetricresponse)
@@ -1326,6 +1379,29 @@ twinehealth.fetchRewardProgramActivation({
         * related `string`
   * type `string` (values: calendar_event)
 
+### CalendarEventResponseResource
+* CalendarEventResponseResource `object`
+  * attributes `object`
+    * attendee `object`: The attendee in the attendees list of the calendar event.
+    * response_status `string` (values: accepted, declined, tentative): The response status for the attendee.
+  * id `string`
+  * links `object`
+    * self `string`
+  * relationships `object`
+    * calendar_event `object`: The calendar_event is the calendar event for which the calendar event response is created specificially for
+      * data **required** `object`
+        * id `string`
+        * type `string`
+      * links `object`
+        * related `string`
+    * user `object`: The user is the coach or patient for whom the calendar event response is created specificially for
+      * data **required** `object`
+        * id `string`
+        * type `string`
+      * links `object`
+        * related `string`
+  * type `string` (values: calendar_event_response)
+
 ### CoachResource
 * CoachResource `object`
   * attributes **required** `object`
@@ -1388,6 +1464,19 @@ twinehealth.fetchRewardProgramActivation({
 * CreateCalendarEventResponse `object`
   * data [CalendarEventResource](#calendareventresource)
   * meta [CreateOrUpdateMetaResponse](#createorupdatemetaresponse)
+
+### CreateCalendarEventResponseRequest
+* CreateCalendarEventResponseRequest `object`
+  * data **required** `object`
+    * attributes **required**
+      * attendee `object`: The attendee in the attendees list of the calendar event.
+      * response_status `string` (values: accepted, declined, tentative): The response status for the attendee.
+    * relationships **required** `object`
+      * calendar_event `object`
+        * data **required** [CalendarEventResponseResource/properties/relationships/properties/calendar_event/properties/data](#calendareventresponseresource/properties/relationships/properties/calendar_event/properties/data)
+      * user `object`
+        * data **required** [CalendarEventResponseResource/properties/relationships/properties/user/properties/data](#calendareventresponseresource/properties/relationships/properties/user/properties/data)
+    * type **required** [CalendarEventResponseResource/properties/type](#calendareventresponseresource/properties/type)
 
 ### CreateGroupRequest
 * CreateGroupRequest `object`
@@ -1749,7 +1838,8 @@ twinehealth.fetchRewardProgramActivation({
 ### GroupResource
 * GroupResource `object`
   * attributes **required** `object`
-    * name **required** `string`
+    * bio `string`: A description of the group
+    * name **required** `string`: The name of the group
   * id **required** `string`
   * links `object`
     * self **required** `string`
@@ -1944,7 +2034,7 @@ twinehealth.fetchRewardProgramActivation({
     * diastolic `number`
     * occurred_at `string`
     * systolic `number`
-    * type `string` (values: blood_pressure_systolic, blood_pressure_diastolic, hemoglobin_a1c, hdl_cholesterol, ldl_cholesterol, total_cholesterol, triglycerides, blood_urea_nitrogen, creatinine, hemoglobin, hematocrit, total_serum_iron, thyroid_stimulating_hormone, free_thyroxine, free_triiodothyronine, total_triiodothyronine, cd4_cell_count, hiv_viral_load, inr, free_testosterone, total_testosterone, c_reactive_protein, prostate_specific_antigen, cotinine, c_peptide, blood_pressure, blood_glucose, weight, heart_rate, body_fat_percentage, body_mass_index, body_temperature, forced_expiratory_volume1, forced_vital_capacity, lean_body_mass, nausea_level, oxygen_saturation, pain_level, peak_expiratory_flow_rate, peripheral_perfusion_index, respiratory_rate, sleep_analysis_asleep, sleep_analysis_in_bed, inhaler_usage)
+    * type `string` (values: blood_pressure_systolic, blood_pressure_diastolic, hemoglobin_a1c, hdl_cholesterol, ldl_cholesterol, total_cholesterol, triglycerides, blood_urea_nitrogen, creatinine, hemoglobin, hematocrit, total_serum_iron, thyroid_stimulating_hormone, free_thyroxine, free_triiodothyronine, total_triiodothyronine, cd4_cell_count, hiv_viral_load, inr, free_testosterone, total_testosterone, c_reactive_protein, prostate_specific_antigen, cotinine, c_peptide, blood_pressure, blood_glucose, weight, heart_rate, body_fat_percentage, body_mass_index, body_temperature, forced_expiratory_volume1, forced_vital_capacity, lean_body_mass, nausea_level, oxygen_saturation, pain_level, peak_expiratory_flow_rate, peripheral_perfusion_index, respiratory_rate, inhaler_usage)
     * unit `string`
     * value `number`
   * id **required** `string`
@@ -1973,7 +2063,7 @@ twinehealth.fetchRewardProgramActivation({
     * diastolic `number`
     * occurred_at `string`
     * systolic `number`
-    * type `string` (values: blood_pressure_systolic, blood_pressure_diastolic, hemoglobin_a1c, hdl_cholesterol, ldl_cholesterol, total_cholesterol, triglycerides, blood_urea_nitrogen, creatinine, hemoglobin, hematocrit, total_serum_iron, thyroid_stimulating_hormone, free_thyroxine, free_triiodothyronine, total_triiodothyronine, cd4_cell_count, hiv_viral_load, inr, free_testosterone, total_testosterone, c_reactive_protein, prostate_specific_antigen, cotinine, c_peptide, blood_pressure, blood_glucose, weight, heart_rate, body_fat_percentage, body_mass_index, body_temperature, forced_expiratory_volume1, forced_vital_capacity, lean_body_mass, nausea_level, oxygen_saturation, pain_level, peak_expiratory_flow_rate, peripheral_perfusion_index, respiratory_rate, sleep_analysis_asleep, sleep_analysis_in_bed, inhaler_usage)
+    * type `string` (values: blood_pressure_systolic, blood_pressure_diastolic, hemoglobin_a1c, hdl_cholesterol, ldl_cholesterol, total_cholesterol, triglycerides, blood_urea_nitrogen, creatinine, hemoglobin, hematocrit, total_serum_iron, thyroid_stimulating_hormone, free_thyroxine, free_triiodothyronine, total_triiodothyronine, cd4_cell_count, hiv_viral_load, inr, free_testosterone, total_testosterone, c_reactive_protein, prostate_specific_antigen, cotinine, c_peptide, blood_pressure, blood_glucose, weight, heart_rate, body_fat_percentage, body_mass_index, body_temperature, forced_expiratory_volume1, forced_vital_capacity, lean_body_mass, nausea_level, oxygen_saturation, pain_level, peak_expiratory_flow_rate, peripheral_perfusion_index, respiratory_rate, inhaler_usage)
     * unit `string`
     * value `number`
   * id **required** `string`

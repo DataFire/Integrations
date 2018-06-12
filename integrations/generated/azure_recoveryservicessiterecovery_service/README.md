@@ -815,6 +815,7 @@ azure_recoveryservicessiterecovery_service.ReplicationProtectableItems_ListByRep
   * subscriptionId **required** `string`: The subscription Id.
   * fabricName **required** `string`: Fabric name.
   * protectionContainerName **required** `string`: Protection container name.
+  * $filter `string`: OData filter options.
 
 #### Output
 * output [ProtectableItemCollection](#protectableitemcollection)
@@ -1237,6 +1238,35 @@ azure_recoveryservicessiterecovery_service.ReplicationProtectedItems_RepairRepli
 #### Output
 * output [ReplicationProtectedItem](#replicationprotecteditem)
 
+### TargetComputeSizes_ListByReplicationProtectedItems
+Lists the available target compute sizes for a replication protected item.
+
+
+```js
+azure_recoveryservicessiterecovery_service.TargetComputeSizes_ListByReplicationProtectedItems({
+  "api-version": "",
+  "resourceName": "",
+  "resourceGroupName": "",
+  "subscriptionId": "",
+  "fabricName": "",
+  "protectionContainerName": "",
+  "replicatedProtectedItemName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * resourceName **required** `string`: The name of the recovery services vault.
+  * resourceGroupName **required** `string`: The name of the resource group where the recovery services vault is present.
+  * subscriptionId **required** `string`: The subscription Id.
+  * fabricName **required** `string`: Fabric name.
+  * protectionContainerName **required** `string`: protection container name.
+  * replicatedProtectedItemName **required** `string`: Replication protected item name.
+
+#### Output
+* output [TargetComputeSizeCollection](#targetcomputesizecollection)
+
 ### ReplicationProtectedItems_TestFailover
 Operation to perform a test failover of the replication protected item.
 
@@ -1444,6 +1474,37 @@ azure_recoveryservicessiterecovery_service.ReplicationProtectionContainerMapping
   * fabricName **required** `string`: Fabric name.
   * protectionContainerName **required** `string`: Protection container name.
   * mappingName **required** `string`: Protection Container mapping name.
+
+#### Output
+* output [ProtectionContainerMapping](#protectioncontainermapping)
+
+### ReplicationProtectionContainerMappings_Update
+The operation to update protection container mapping.
+
+
+```js
+azure_recoveryservicessiterecovery_service.ReplicationProtectionContainerMappings_Update({
+  "api-version": "",
+  "resourceName": "",
+  "resourceGroupName": "",
+  "subscriptionId": "",
+  "fabricName": "",
+  "protectionContainerName": "",
+  "mappingName": "",
+  "updateInput": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * resourceName **required** `string`: The name of the recovery services vault.
+  * resourceGroupName **required** `string`: The name of the resource group where the recovery services vault is present.
+  * subscriptionId **required** `string`: The subscription Id.
+  * fabricName **required** `string`: Fabric name.
+  * protectionContainerName **required** `string`: Protection container name.
+  * mappingName **required** `string`: Protection container mapping name.
+  * updateInput **required** [UpdateProtectionContainerMappingInput](#updateprotectioncontainermappinginput)
 
 #### Output
 * output [ProtectionContainerMapping](#protectioncontainermapping)
@@ -2268,7 +2329,7 @@ azure_recoveryservicessiterecovery_service.ReplicationPolicies_Update({
   * resourceName **required** `string`: The name of the recovery services vault.
   * resourceGroupName **required** `string`: The name of the resource group where the recovery services vault is present.
   * subscriptionId **required** `string`: The subscription Id.
-  * policyName **required** `string`: Protection profile Id.
+  * policyName **required** `string`: Policy Id.
   * input **required** [UpdatePolicyInput](#updatepolicyinput)
 
 #### Output
@@ -2771,6 +2832,29 @@ azure_recoveryservicessiterecovery_service.ReplicationVaultHealth_Get({
 #### Output
 * output [VaultHealthDetails](#vaulthealthdetails)
 
+### ReplicationVaultHealth_Refresh
+Refreshes health summary of the vault.
+
+
+```js
+azure_recoveryservicessiterecovery_service.ReplicationVaultHealth_Refresh({
+  "api-version": "",
+  "resourceName": "",
+  "resourceGroupName": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * resourceName **required** `string`: The name of the recovery services vault.
+  * resourceGroupName **required** `string`: The name of the resource group where the recovery services vault is present.
+  * subscriptionId **required** `string`: The subscription Id.
+
+#### Output
+* output [VaultHealthDetails](#vaulthealthdetails)
+
 ### ReplicationvCenters_List
 Lists the vCenter servers registered in the vault.
 
@@ -2806,10 +2890,18 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 * A2AContainerCreationInput `object`: A2A cloud creation input.
   * instanceType `string`: The class type.
 
+### A2AContainerMappingInput
+* A2AContainerMappingInput `object`: A2A container mapping input.
+  * agentAutoUpdateStatus `string` (values: Disabled, Enabled): A value indicating whether the auto update is enabled.
+  * automationAccountArmId `string`: The automation account arm id.
+  * instanceType `string`: The class type.
+
 ### A2AEnableProtectionInput
 * A2AEnableProtectionInput `object`: A2A enable protection input.
   * fabricObjectId `string`: The fabric specific object Id of the virtual machine.
+  * multiVmGroupName `string`: The multi vm group name.
   * recoveryAvailabilitySetId `string`: The recovery availability set Id.
+  * recoveryBootDiagStorageAccountId `string`: The boot diagnostic storage account.
   * recoveryCloudServiceId `string`: The recovery cloud service Id. Valid for V1 scenarios.
   * recoveryContainerId `string`: The recovery container Id.
   * recoveryResourceGroupId `string`: The recovery resource group Id. Valid for V2 scenarios.
@@ -2879,9 +2971,25 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * monitoringJobType `string`: The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
   * monitoringPercentageCompletion `integer`: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
   * primaryStagingAzureStorageAccountId `string`: The primary staging storage account.
-  * recoveryAzureResourceGroupId `string`: The recovery disk resource group Arm Id.
-  * recoveryDiskId `string`: Recovery disk Arm Id.
+  * recoveryReplicaDiskAccountType `string`: The replica disk type. Its an optional value and will be same as source disk type if not user provided.
+  * recoveryReplicaDiskId `string`: Recovery replica disk Arm Id.
+  * recoveryResourceGroupId `string`: The recovery disk resource group Arm Id.
+  * recoveryTargetDiskAccountType `string`: The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
+  * recoveryTargetDiskId `string`: Recovery target disk Arm Id.
   * resyncRequired `boolean`: A value indicating whether resync is required for this disk.
+
+### A2AProtectionContainerMappingDetails
+* A2AProtectionContainerMappingDetails `object`: A2A provider specific settings.
+  * agentAutoUpdateStatus `string` (values: Disabled, Enabled): A value indicating whether the auto update is enabled.
+  * automationAccountArmId `string`: The automation account arm id.
+  * jobScheduleName `string`: The job schedule arm name.
+  * scheduleName `string`: The schedule arm name.
+  * instanceType `string`: Gets the class type. Overriden in derived classes.
+
+### A2ARecoveryPointDetails
+* A2ARecoveryPointDetails `object`: A2A provider specific recovery point details.
+  * recoveryPointSyncType `string` (values: MultiVmSyncRecoveryPoint, PerVmRecoveryPoint): A value indicating whether the recovery point is multi VM consistent.
+  * instanceType `string`: Gets the provider type.
 
 ### A2AReplicationDetails
 * A2AReplicationDetails `object`: A2A provider specific settings.
@@ -2894,6 +3002,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * managementId `string`: The management Id.
   * monitoringJobType `string`: The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
   * monitoringPercentageCompletion `integer`: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+  * multiVmGroupCreateOption `string` (values: AutoCreated, UserSpecified): Whether Multi VM group is auto created or specified by user.
   * multiVmGroupId `string`: The multi vm group Id.
   * multiVmGroupName `string`: The multi vm group name.
   * osType `string`: The type of operating system.
@@ -2906,6 +3015,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * recoveryAzureResourceGroupId `string`: The recovery resource group.
   * recoveryAzureVMName `string`: The name of recovery virtual machine.
   * recoveryAzureVMSize `string`: The size of recovery virtual machine.
+  * recoveryBootDiagStorageAccountId `string`: The recovery boot diagnostic storage account Arm Id.
   * recoveryCloudService `string`: The recovery cloud service.
   * recoveryFabricLocation `string`: The recovery fabric location.
   * recoveryFabricObjectId `string`: The recovery fabric object Id.
@@ -2934,6 +3044,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 * A2ASwitchProtectionInput `object`: A2A specific switch protection input.
   * policyId `string`: The Policy Id.
   * recoveryAvailabilitySetId `string`: The recovery availability set.
+  * recoveryBootDiagStorageAccountId `string`: The boot diagnostic storage account.
   * recoveryCloudServiceId `string`: The recovery cloud service Id. Valid for V1 scenarios.
   * recoveryContainerId `string`: The recovery container Id.
   * recoveryResourceGroupId `string`: The recovery resource group Id. Valid for V2 scenarios.
@@ -2943,8 +3054,17 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
     * items [A2AVmManagedDiskInputDetails](#a2avmmanageddiskinputdetails)
   * instanceType `string`: Gets the Instance type.
 
+### A2AUpdateContainerMappingInput
+* A2AUpdateContainerMappingInput `object`: A2A update protection container mapping.
+  * agentAutoUpdateStatus `string` (values: Disabled, Enabled): A value indicating whether the auto update is enabled.
+  * automationAccountArmId `string`: The automation account arm id.
+  * instanceType `string`: The class type.
+
 ### A2AUpdateReplicationProtectedItemInput
 * A2AUpdateReplicationProtectedItemInput `object`: InMage Azure V2 input to update replication protected item.
+  * managedDiskUpdateDetails `array`: Managed disk update details.
+    * items [A2AVmManagedDiskUpdateDetails](#a2avmmanageddiskupdatedetails)
+  * recoveryBootDiagStorageAccountId `string`: The boot diagnostic storage account.
   * recoveryCloudServiceId `string`: The target cloud service ARM Id (for V1).
   * recoveryResourceGroupId `string`: The target resource group ARM Id (for V2).
   * instanceType `string`: The class type.
@@ -2959,44 +3079,15 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 * A2AVmManagedDiskInputDetails `object`: Azure VM managed disk input details.
   * diskId `string`: The disk Id.
   * primaryStagingAzureStorageAccountId `string`: The primary staging storage account Arm Id.
+  * recoveryReplicaDiskAccountType `string`: The replica disk type. Its an optional value and will be same as source disk type if not user provided.
   * recoveryResourceGroupId `string`: The target resource group Arm Id.
+  * recoveryTargetDiskAccountType `string`: The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
 
-### ARMException
-* ARMException `object`: ARM inner exception class.
-  * code `string`: Gets HTTP status code for the error.
-  * details `array`: Gets service based error details.
-    * items [ARMExceptionDetails](#armexceptiondetails)
-  * innererror [ARMInnerError](#arminnererror)
-  * message `string`: Gets exception message.
-  * target `string`: Gets exception target.
-
-### ARMExceptionDetails
-* ARMExceptionDetails `object`: Service based exception details.
-  * activityId `string`: Gets the activity Id for the session.
-  * clientRequestId `string`: Gets the client request Id for the session.
-  * code `string`: Gets service error code.
-  * message `string`: Gets error message.
-  * possibleCauses `string`: Gets possible cause for error.
-  * recommendedAction `string`: Gets recommended action for the error.
-  * target `string`: Gets exception target.
-
-### ARMInnerError
-* ARMInnerError `object`: ARM internal error class for providing additional debug data.
-  * cloudId `string`: Gets cloud Id in exception.
-  * containerId `string`: Gets container Id of the caller.
-  * fabricId `string`: Gets Fabric Id.
-  * hVClusterId `string`: Gets hyperV cluster Id.
-  * hVHostId `string`: Gets hyperV host ID.
-  * liveId `string`: Gets Live Id of the caller.
-  * methodStatus [MethodCallStatus](#methodcallstatus)
-  * networkId `string`: Gets network Id.
-  * resourceId `string`: Gets resource id used in the call.
-  * resourceName `string`: Gets caller resource name.
-  * serializedSRSLogContext `string`: Gets serialized SRS log context.
-  * source `string`: Gets exception source.
-  * subscriptionId `string`: Gets subscription Id.
-  * trace `string`: Gets complete stack trace of the exception.
-  * vmId `string`: Gets Vm Id.
+### A2AVmManagedDiskUpdateDetails
+* A2AVmManagedDiskUpdateDetails `object`: Azure VM managed disk update input details.
+  * diskId `string`: The disk Id.
+  * recoveryReplicaDiskAccountType `string`: The replica disk type before failover.
+  * recoveryTargetDiskAccountType `string`: The target disk type before failover.
 
 ### ASRTask
 * ASRTask `object`: Task of the Job.
@@ -3089,7 +3180,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * containerIds `array`: The container Ids for the Azure fabric.
     * items `string`
   * location `string`: The Location for the Azure fabric.
-  * instanceType `string`: Gets the class type. Overriden in derived classes.
+  * instanceType `string`: Gets the class type. Overridden in derived classes.
 
 ### AzureToAzureCreateNetworkMappingInput
 * AzureToAzureCreateNetworkMappingInput `object`: Create network mappings input properties/behaviour specific to Azure to Azure Network mapping.
@@ -3125,6 +3216,11 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * vhdName `string`: VHD name.
   * vhdType `string`: VHD type.
 
+### ComputeSizeErrorDetails
+* ComputeSizeErrorDetails `object`: Represents the error used to indicate why the target compute size is not applicable.
+  * message `string`: The error message.
+  * severity `string`: The severity of the error.
+
 ### ConfigurationSettings
 * ConfigurationSettings `object`: Replication provider specific settings.
   * instanceType `string`: Gets the class type. Overriden in derived classes.
@@ -3157,7 +3253,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * recoveryNetworkId `string`: Recovery network Id.
 
 ### CreatePolicyInput
-* CreatePolicyInput `object`: Protection profile input.
+* CreatePolicyInput `object`: Protection Policy input.
   * properties [CreatePolicyInputProperties](#createpolicyinputproperties)
 
 ### CreatePolicyInputProperties
@@ -3179,7 +3275,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### CreateProtectionContainerMappingInputProperties
 * CreateProtectionContainerMappingInputProperties `object`: Configure pairing input properties.
-  * PolicyId `string`: Applicable policy.
+  * policyId `string`: Applicable policy.
   * providerSpecificInput [ReplicationProviderSpecificContainerMappingInput](#replicationproviderspecificcontainermappinginput)
   * targetProtectionContainerId `string`: The target unique protection container name.
 
@@ -3305,13 +3401,13 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### EventQueryParameter
 * EventQueryParameter `object`: Implements the event query parameter.
-  * AffectedObjectFriendlyName `string`: The affected object name of the events to be queried.
-  * EndTime `string`: The end time of the time range within which the events are to be queried.
-  * EventCode `string`: The source id of the events to be queried.
-  * EventType `string`: The type of the events to be queried.
-  * FabricName `string`: The affected object server id of the events to be queried.
-  * Severity `string`: The severity of the events to be queried.
-  * StartTime `string`: The start time of the time range within which the events are to be queried.
+  * affectedObjectFriendlyName `string`: The affected object name of the events to be queried.
+  * endTime `string`: The end time of the time range within which the events are to be queried.
+  * eventCode `string`: The source id of the events to be queried.
+  * eventType `string`: The type of the events to be queried.
+  * fabricName `string`: The affected object server id of the events to be queried.
+  * severity `string`: The severity of the events to be queried.
+  * startTime `string`: The start time of the time range within which the events are to be queried.
 
 ### EventSpecificDetails
 * EventSpecificDetails `object`: Model class for event specific details for an event.
@@ -3375,7 +3471,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### FabricSpecificDetails
 * FabricSpecificDetails `object`: Fabric specific details.
-  * instanceType `string`: Gets the class type. Overriden in derived classes.
+  * instanceType `string`: Gets the class type. Overridden in derived classes.
 
 ### FabricSpecificUpdateNetworkMappingInput
 * FabricSpecificUpdateNetworkMappingInput `object`: Input details specific to fabrics during Network Mapping.
@@ -3421,18 +3517,20 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### HealthError
 * HealthError `object`: Health Error
-  * childErrors `array`: The child health errors.
-    * items [HealthError](#healtherror)
   * creationTimeUtc `string`: Error creation time (UTC)
   * entityId `string`: ID of the entity.
+  * errorCategory `string`: Category of error.
   * errorCode `string`: Error code.
   * errorLevel `string`: Level of error.
   * errorMessage `string`: Error message.
   * errorSource `string`: Source of error.
   * errorType `string`: Type of error.
+  * innerHealthErrors `array`: The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+    * items [InnerHealthError](#innerhealtherror)
   * possibleCauses `string`: Possible causes of error.
   * recommendedAction `string`: Recommended action to resolve error.
   * recoveryProviderErrorMessage `string`: DRA error message.
+  * summaryMessage `string`: Summary message of the entity.
 
 ### HealthErrorSummary
 * HealthErrorSummary `object`: class to define the summary of the health error details.
@@ -3440,7 +3538,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
     * items `string`
   * affectedResourceSubtype `string`: The sub type of any subcomponent within the ARM resource that this might be applicable. Value remains null if not applicable.
   * affectedResourceType `string`: The type of affected ARM resource.
-  * category `string` (values: Replication, TestFailover, Configuration): The category of the health error.
+  * category `string` (values: None, Replication, TestFailover, Configuration, FabricInfrastructure, VersionExpiry, AgentAutoUpdate): The category of the health error.
   * severity `string` (values: NONE, Warning, Error, Info): Severity of error.
   * summaryCode `string`: The code of the health error.
   * summaryMessage `string`: The summary message of the health error.
@@ -3472,7 +3570,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 * HyperVReplicaAzureEnableProtectionInput `object`: Azure specific enable protection input.
   * disksToInclude `array`: The list of VHD IDs of disks to be protected.
     * items `string`
-  * enableRDPOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+  * enableRdpOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
   * hvHostVmId `string`: The Hyper-V host Vm Id.
   * logStorageAccountId `string`: The storage account to be used for logging during replication.
   * osType `string`: The OS type associated with vm.
@@ -3522,7 +3620,6 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 ### HyperVReplicaAzurePolicyInput
 * HyperVReplicaAzurePolicyInput `object`: Hyper-V Replica Azure specific input for creating a protection profile.
   * applicationConsistentSnapshotFrequencyInHours `integer`: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
-  * encryption `string`: A value indicating whether encryption needs to be enabled for Vms in this cloud.
   * onlineReplicationStartTime `string`: The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
   * recoveryPointHistoryDuration `integer`: The duration (in hours) to which point the recovery history needs to be maintained.
   * replicationInterval `integer`: The replication interval.
@@ -3532,23 +3629,26 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### HyperVReplicaAzureReplicationDetails
 * HyperVReplicaAzureReplicationDetails `object`: Hyper V Replica Azure provider specific settings.
-  * azureVMDiskDetails `array`: Azure VM Disk details.
+  * azureVmDiskDetails `array`: Azure VM Disk details.
     * items [AzureVmDiskDetails](#azurevmdiskdetails)
-  * enableRDPOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+  * enableRdpOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
   * encryption `string`: The encryption info.
   * initialReplicationDetails [InitialReplicationDetails](#initialreplicationdetails)
   * lastReplicatedTime `string`: The Last replication time.
+  * lastRpoCalculatedTime `string`: The last RPO calculated time.
   * licenseType `string`: License Type of the VM to be used.
   * oSDetails [OSDetails](#osdetails)
   * recoveryAvailabilitySetId `string`: The recovery availability set Id.
   * recoveryAzureLogStorageAccountId `string`: The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
   * recoveryAzureResourceGroupId `string`: The target resource group Id.
   * recoveryAzureStorageAccount `string`: The recovery Azure storage account.
-  * recoveryAzureVMName `string`: Recovery Azure given name.
   * recoveryAzureVMSize `string`: The Recovery Azure VM size.
+  * recoveryAzureVmName `string`: Recovery Azure given name.
+  * rpoInSeconds `integer`: Last RPO value.
   * selectedRecoveryAzureNetworkId `string`: The selected recovery azure network Id.
-  * sourceVmCPUCount `integer`: The CPU count of the VM on the primary side.
-  * sourceVmRAMSizeInMB `integer`: The RAM size of the VM on the primary side.
+  * selectedSourceNicId `string`: The selected source nic Id which will be used as the primary nic during failover.
+  * sourceVmCpuCount `integer`: The CPU count of the VM on the primary side.
+  * sourceVmRamSizeInMB `integer`: The RAM size of the VM on the primary side.
   * useManagedDisks `string`: A value indicating whether managed disks should be used during failover.
   * vmId `string`: The virtual machine Id.
   * vmNics `array`: The PE Network details.
@@ -3667,7 +3767,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * instanceType `string`: Gets the class type. Overridden in derived classes.
 
 ### HyperVReplicaPolicyInput
-* HyperVReplicaPolicyInput `object`: Hyper-V Replica specific protection profile Input.
+* HyperVReplicaPolicyInput `object`: Hyper-V Replica specific policy Input.
   * allowedAuthenticationType `integer`: A value indicating the authentication type.
   * applicationConsistentSnapshotFrequencyInHours `integer`: A value indicating the application consistent frequency.
   * compression `string`: A value indicating whether compression has to be enabled.
@@ -3695,13 +3795,16 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### HyperVSiteDetails
 * HyperVSiteDetails `object`: HyperVSite fabric specific details.
-  * instanceType `string`: Gets the class type. Overriden in derived classes.
+  * instanceType `string`: Gets the class type. Overridden in derived classes.
 
 ### HyperVVirtualMachineDetails
-* HyperVVirtualMachineDetails `object`: Hyper V replica provider specific settings
+* HyperVVirtualMachineDetails `object`: Single Host fabric provider specific VM settings.
   * diskDetails `array`: The Last successful failover time.
     * items [DiskDetails](#diskdetails)
   * generation `string`: The id of the object in fabric.
+  * hasFibreChannelAdapter `string` (values: Unknown, Present, NotPresent): A value indicating whether the VM has a fibre channel adapter attached. String value of {SrsDataContract.PresenceStatus} enum.
+  * hasPhysicalDisk `string` (values: Unknown, Present, NotPresent): A value indicating whether the VM has a physical disk attached. String value of {SrsDataContract.PresenceStatus} enum.
+  * hasSharedVhd `string` (values: Unknown, Present, NotPresent): A value indicating whether the VM has a shared VHD attached. String value of {SrsDataContract.PresenceStatus} enum.
   * osDetails [OSDetails](#osdetails)
   * sourceItemId `string`: The source id of the object.
   * instanceType `string`: Gets the class type. Overriden in derived classes.
@@ -3712,15 +3815,23 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * applicationId `string`: The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
   * audience `string`: The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
   * certificateThumbprint `string`: The certificate thumbprint. Applicable only if IdentityProviderType is RecoveryServicesActiveDirectory.
-  * identityProviderType `string` (values: RecoveryServicesActiveDirectory, CustomerActiveDirectory): The identity provider type. Value is the ToString() of a IdentityProviderType value.
+  * identityProviderType `string` (values: RecoveryServicesActiveDirectory): The identity provider type. Value is the ToString() of a IdentityProviderType value.
   * objectId `string`: The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
   * tenantId `string`: The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 
 ### InMageAgentDetails
 * InMageAgentDetails `object`: The details of the InMage agent.
+  * agentExpiryDate `string`: Agent expiry date.
   * agentUpdateStatus `string`: A value indicating whether installed agent needs to be updated.
   * agentVersion `string`: The agent version.
   * postUpdateRebootStatus `string`: A value indicating whether reboot is required after update is applied.
+
+### InMageAgentVersionDetails
+* InMageAgentVersionDetails `object`: InMage agent version details.
+  * expiryDate `string`: Version expiry date.
+  * postUpdateRebootStatus `string`: A value indicating whether reboot is required after update is applied.
+  * status `string` (values: Supported, NotSupported, Deprecated, UpdateRequired, SecurityUpdateRequired): A value indicating whether security update required.
+  * version `string`: The agent version.
 
 ### InMageAzureV2ApplyRecoveryPointInput
 * InMageAzureV2ApplyRecoveryPointInput `object`: ApplyRecoveryPoint input specific to InMageAzureV2 provider.
@@ -3731,7 +3842,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 * InMageAzureV2EnableProtectionInput `object`: VMware Azure specific enable protection input.
   * disksToInclude `array`: The disks to include list.
     * items `string`
-  * enableRDPOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+  * enableRdpOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
   * logStorageAccountId `string`: The storage account to be used for logging during replication.
   * masterTargetId `string`: The Master target Id.
   * multiVmGroupId `string`: The multi vm group Id.
@@ -3774,7 +3885,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * instanceType `string`: Gets the class type. Overridden in derived classes.
 
 ### InMageAzureV2PolicyInput
-* InMageAzureV2PolicyInput `object`: VMWare Azure specific protection profile Input.
+* InMageAzureV2PolicyInput `object`: VMWare Azure specific policy Input.
   * appConsistentFrequencyInMinutes `integer`: The app consistent snapshot frequency (in minutes).
   * crashConsistentFrequencyInMinutes `integer`: The crash consistent snapshot frequency (in minutes).
   * multiVmSyncStatus **required** `string` (values: Enable, Disable): A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
@@ -3802,12 +3913,12 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### InMageAzureV2RecoveryPointDetails
 * InMageAzureV2RecoveryPointDetails `object`: InMage Azure V2 provider specific recovery point details.
-  * instanceType `string`: Gets the instance type.
   * isMultiVmSyncPoint `string`: A value indicating whether the recovery point is multi VM consistent.
-  * Type `string`: Gets the provider type.
+  * instanceType `string`: Gets the provider type.
 
 ### InMageAzureV2ReplicationDetails
 * InMageAzureV2ReplicationDetails `object`: InMageAzureV2 provider specific settings
+  * agentExpiryDate `string`: Agent expiry date.
   * agentVersion `string`: The agent version.
   * azureVMDiskDetails `array`: Azure VM Disk details.
     * items [AzureVmDiskDetails](#azurevmdiskdetails)
@@ -3816,7 +3927,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
     * items `string`
   * discoveryType `string`: A value indicating the discovery type of the machine. Value can be vCenter or physical.
   * diskResized `string`: A value indicating whether any disk is resized for this VM.
-  * enableRDPOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+  * enableRdpOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
   * infrastructureVmId `string`: The infrastructure VM Id.
   * ipAddress `string`: The source IP address.
   * isAgentUpdateRequired `string`: A value indicating whether installed agent needs to be updated.
@@ -3846,8 +3957,9 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * resyncProgressPercentage `integer`: The resync progress percentage.
   * rpoInSeconds `integer`: The RPO in seconds.
   * selectedRecoveryAzureNetworkId `string`: The selected recovery azure network Id.
-  * sourceVmCPUCount `integer`: The CPU count of the VM on the primary side.
-  * sourceVmRAMSizeInMB `integer`: The RAM size of the VM on the primary side.
+  * selectedSourceNicId `string`: The selected source nic Id which will be used as the primary nic during failover.
+  * sourceVmCpuCount `integer`: The CPU count of the VM on the primary side.
+  * sourceVmRamSizeInMB `integer`: The RAM size of the VM on the primary side.
   * targetVmId `string`: The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
   * uncompressedDataRateInMB `number`: The uncompressed data change rate in MB.
   * useManagedDisks `string`: A value indicating whether managed disks should be used during failover.
@@ -4002,8 +4114,8 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * retentionWindowEnd `string`: The retention window end time.
   * retentionWindowStart `string`: The retention window start time.
   * rpoInSeconds `integer`: The RPO in seconds.
-  * sourceVmCPUCount `integer`: The CPU count of the VM on the primary side.
-  * sourceVmRAMSizeInMB `integer`: The RAM size of the VM on the primary side.
+  * sourceVmCpuCount `integer`: The CPU count of the VM on the primary side.
+  * sourceVmRamSizeInMB `integer`: The RAM size of the VM on the primary side.
   * uncompressedDataRateInMB `number`: The uncompressed data change rate in MB.
   * vCenterInfrastructureId `string`: The vCenter infrastructure Id.
   * validationErrors `array`: The validation errors of the on-premise machine Value can be list of validation errors
@@ -4030,7 +4142,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### InMageVolumeExclusionOptions
 * InMageVolumeExclusionOptions `object`: Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
-  * OnlyExcludeIfSingleVolume `string`: The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
+  * onlyExcludeIfSingleVolume `string`: The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
   * volumeLabel `string`: The volume label. The disk having any volume with this label will be excluded from replication.
 
 ### InconsistentVmDetails
@@ -4055,6 +4167,21 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
     * items [ASRTask](#asrtask)
   * instanceType `string`: The type of task details.
 
+### InnerHealthError
+* InnerHealthError `object`: Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+  * creationTimeUtc `string`: Error creation time (UTC)
+  * entityId `string`: ID of the entity.
+  * errorCategory `string`: Category of error.
+  * errorCode `string`: Error code.
+  * errorLevel `string`: Level of error.
+  * errorMessage `string`: Error message.
+  * errorSource `string`: Source of error.
+  * errorType `string`: Type of error.
+  * possibleCauses `string`: Possible causes of error.
+  * recommendedAction `string`: Recommended action to resolve error.
+  * recoveryProviderErrorMessage `string`: DRA error message.
+  * summaryMessage `string`: Summary message of the entity.
+
 ### InputEndpoint
 * InputEndpoint `object`: Azure VM input endpoint details.
   * endpointName `string`: The input endpoint name.
@@ -4064,11 +4191,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### Job
 * Job `object`: Job details.
-  * endTime `string`: The start time.
-  * error [ARMException](#armexception)
   * properties [JobProperties](#jobproperties)
-  * startTime `string`: The start time.
-  * status `string`: The status of the Job. ARM expects the terminal status to be one of (1) Succeeded, (2) Failed or (3) Canceled. All other values imply that the operation is still running / being applied.
   * id `string`: Resource Id
   * location `string`: Resource Location
   * name `string`: Resource Name
@@ -4124,12 +4247,10 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### JobQueryParameter
 * JobQueryParameter `object`: Query parameter to enumerate jobs.
-  * affectedObjectTypes `array`: The type of objects.
-    * items `string`
+  * affectedObjectTypes `string`: The type of objects.
   * endTime `string`: Date time to get jobs upto.
   * fabricId `string`: The Id of the fabric to search jobs under.
-  * jobStatus `array`: The states of the job to be filtered can be in.
-    * items `string`
+  * jobStatus `string`: The states of the job to be filtered can be in.
   * startTime `string`: Date time to get jobs from.
 
 ### JobStatusEventDetails
@@ -4175,13 +4296,20 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### MasterTargetServer
 * MasterTargetServer `object`: Details of a Master Target Server.
+  * agentExpiryDate `string`: Agent expiry date.
   * agentVersion `string`: The version of the scout component on the server.
+  * agentVersionDetails [VersionDetails](#versiondetails)
   * dataStores `array`: The list of data stores in the fabric.
     * items [DataStore](#datastore)
   * diskCount `integer`: Disk count of the master target.
+  * healthErrors `array`: Health errors.
+    * items [HealthError](#healtherror)
   * id `string`: The server Id.
   * ipAddress `string`: The IP address of the server.
   * lastHeartbeat `string`: The last heartbeat received from the server.
+  * marsAgentExpiryDate `string`: MARS agent expiry date.
+  * marsAgentVersion `string`: MARS agent version.
+  * marsAgentVersionDetails [VersionDetails](#versiondetails)
   * name `string`: The server name.
   * osType `string`: The OS type of the server.
   * osVersion `string`: OS Version of the master target.
@@ -4190,13 +4318,6 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * validationErrors `array`: Validation errors.
     * items [HealthError](#healtherror)
   * versionStatus `string`: Version status
-
-### MethodCallStatus
-* MethodCallStatus `object`: Reports method status where exception was raised.
-  * containsGenericParameters `string`: Gets a value indicating whether method container generic params.
-  * isVirtual `string`: Gets a value indicating whether called method was virtual
-  * parameters `array`: Gets parameter list passed to method.
-    * items `string`
 
 ### MobilityServiceUpdate
 * MobilityServiceUpdate `object`: The Mobility Service update details.
@@ -4328,12 +4449,16 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### ProcessServer
 * ProcessServer `object`: Details of the Process Server.
+  * agentExpiryDate `string`: Agent expiry date.
   * agentVersion `string`: The version of the scout component on the server.
+  * agentVersionDetails [VersionDetails](#versiondetails)
   * availableMemoryInBytes `integer`: The available memory.
   * availableSpaceInBytes `integer`: The available space.
   * cpuLoad `string`: The percentage of the CPU load.
   * cpuLoadStatus `string`: The CPU load status.
   * friendlyName `string`: The Process Server's friendly name.
+  * healthErrors `array`: Health errors.
+    * items [HealthError](#healtherror)
   * hostId `string`: The agent generated Id.
   * id `string`: The Process Server Id.
   * ipAddress `string`: The IP address of the server.
@@ -4381,8 +4506,14 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * supportedReplicationProviders `array`: The list of replication providers supported for the protectable item.
     * items `string`
 
+### ProtectableItemQueryParameter
+* ProtectableItemQueryParameter `object`: Query parameter to enumerate Protectable items.
+  * state `string`: State of the Protectable item query filter.
+
 ### ProtectedItemsQueryParameter
 * ProtectedItemsQueryParameter `object`: Query parameter to enumerate protected items.
+  * instanceType `string`: The replication provider type.
+  * multiVmGroupCreateOption `string` (values: AutoCreated, UserSpecified): Whether Multi VM group is auto created or specified by user.
   * recoveryPlanName `string`: The recovery plan filter.
   * sourceFabricName `string`: The source fabric name filter.
   * vCenterName `string`: The vCenter name filter.
@@ -4462,7 +4593,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### ProviderSpecificRecoveryPointDetails
 * ProviderSpecificRecoveryPointDetails `object`: Replication provider specific recovery point details.
-  * Type `string`: Gets the provider type.
+  * instanceType `string`: Gets the provider type.
 
 ### RcmAzureMigrationPolicyDetails
 * RcmAzureMigrationPolicyDetails `object`: RCM based Azure migration specific policy details.
@@ -4484,6 +4615,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 ### RecoveryPlanA2AFailoverInput
 * RecoveryPlanA2AFailoverInput `object`: Recovery plan A2A failover input.
   * cloudServiceCreationOption `string`: A value indicating whether to use recovery cloud service for TFO or not.
+  * multiVmSyncPointOption `string` (values: UseMultiVmSyncRecoveryPoint, UsePerVmRecoveryPoint): A value indicating whether multi VM sync enabled VMs should use multi VM sync points for failover.
   * recoveryPointType **required** `string` (values: Latest, LatestApplicationConsistent, LatestCrashConsistent, LatestProcessed): The recovery point type.
   * instanceType `string`: The class type.
 
@@ -4700,7 +4832,8 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * lastHeartBeat `string`: Time when last heartbeat was sent by the DRA.
   * protectedItemCount `integer`: Number of protected VMs currently managed by the DRA.
   * providerVersion `string`: The provider version.
-  * providerVersionExpiryDate `string`: Expiry date if the version is deprecated.
+  * providerVersionDetails [VersionDetails](#versiondetails)
+  * providerVersionExpiryDate `string`: Expiry date of the version.
   * providerVersionState `string`: DRA version status.
   * serverVersion `string`: The fabric provider.
 
@@ -4745,15 +4878,16 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
     * items `string`
   * currentScenario [CurrentScenarioDetails](#currentscenariodetails)
   * failoverHealth `string`: The consolidated failover health for the VM.
-  * failoverHealthErrors `array`: List of failover health errors.
-    * items [HealthError](#healtherror)
   * failoverRecoveryPointId `string`: The recovery point ARM Id to which the Vm was failed over.
   * friendlyName `string`: The name.
+  * healthErrors `array`: List of health errors.
+    * items [HealthError](#healtherror)
   * lastSuccessfulFailoverTime `string`: The Last successful failover time.
   * lastSuccessfulTestFailoverTime `string`: The Last successful test failover time.
   * policyFriendlyName `string`: The name of Policy governing this PE.
   * policyId `string`: The ID of Policy governing this PE.
   * primaryFabricFriendlyName `string`: The friendly name of the primary fabric.
+  * primaryFabricProvider `string`: The fabric provider of the primary fabric.
   * primaryProtectionContainerFriendlyName `string`: The name of primary protection container friendly name.
   * protectableItemId `string`: The protected item ARM Id.
   * protectedItemType `string`: The type of protected item type.
@@ -4766,8 +4900,6 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * recoveryProtectionContainerFriendlyName `string`: The name of recovery container friendly name.
   * recoveryServicesProviderId `string`: The recovery provider ARM Id.
   * replicationHealth `string`: The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
-  * replicationHealthErrors `array`: List of replication health errors.
-    * items [HealthError](#healtherror)
   * testFailoverState `string`: The Test failover state.
   * testFailoverStateDescription `string`: The Test failover state description.
 
@@ -4786,6 +4918,10 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 ### ReplicationProviderSpecificSettings
 * ReplicationProviderSpecificSettings `object`: Replication provider specific settings.
   * instanceType `string`: Gets the Instance type.
+
+### ReplicationProviderSpecificUpdateContainerMappingInput
+* ReplicationProviderSpecificUpdateContainerMappingInput `object`: Provider specific input for update pairing operations.
+  * instanceType `string`: The class type.
 
 ### Resource
 * Resource `object`: Azure resource.
@@ -4931,6 +5067,31 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 * SwitchProtectionProviderSpecificInput `object`: Provider specific switch protection input.
   * instanceType `string`: Gets the Instance type.
 
+### TargetComputeSize
+* TargetComputeSize `object`: Represents applicable recovery vm sizes.
+  * id `string`: The Id.
+  * name `string`: The name.
+  * properties [TargetComputeSizeProperties](#targetcomputesizeproperties)
+  * type `string`: The Type of the object.
+
+### TargetComputeSizeCollection
+* TargetComputeSizeCollection `object`: Target compute size collection.
+  * nextLink `string`: The value of next link.
+  * value `array`: The list of target compute sizes.
+    * items [TargetComputeSize](#targetcomputesize)
+
+### TargetComputeSizeProperties
+* TargetComputeSizeProperties `object`: Represents applicable recovery vm sizes properties.
+  * cpuCoresCount `integer`: The maximum cpu cores count supported by target compute size.
+  * errors `array`: The reasons why the target compute size is not applicable for the protected item.
+    * items [ComputeSizeErrorDetails](#computesizeerrordetails)
+  * friendlyName `string`: Target compute size display name.
+  * highIopsSupported `string`: The value indicating whether the target compute size supports high Iops.
+  * maxDataDiskCount `integer`: The maximum data disks count supported by target compute size.
+  * maxNicsCount `integer`: The maximum Nics count supported by target compute size.
+  * memoryInGB `number`: The maximum memory in GB supported by target compute size.
+  * name `string`: Target compute size name.
+
 ### TaskTypeDetails
 * TaskTypeDetails `object`: Task details based on specific task type.
   * instanceType `string`: The type of task details.
@@ -4996,12 +5157,20 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * recoveryNetworkId `string`: Recovery network Id.
 
 ### UpdatePolicyInput
-* UpdatePolicyInput `object`: Update protection profile input.
+* UpdatePolicyInput `object`: Update policy input.
   * properties [UpdatePolicyInputProperties](#updatepolicyinputproperties)
 
 ### UpdatePolicyInputProperties
 * UpdatePolicyInputProperties `object`: Policy update properties.
   * replicationProviderSettings [PolicyProviderSpecificInput](#policyproviderspecificinput)
+
+### UpdateProtectionContainerMappingInput
+* UpdateProtectionContainerMappingInput `object`: Container pairing update input.
+  * properties [UpdateProtectionContainerMappingInputProperties](#updateprotectioncontainermappinginputproperties)
+
+### UpdateProtectionContainerMappingInputProperties
+* UpdateProtectionContainerMappingInputProperties `object`: Container pairing update input.
+  * providerSpecificInput [ReplicationProviderSpecificUpdateContainerMappingInput](#replicationproviderspecificupdatecontainermappinginput)
 
 ### UpdateRecoveryPlanInput
 * UpdateRecoveryPlanInput `object`: Update recovery plan input class.
@@ -5018,13 +5187,14 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### UpdateReplicationProtectedItemInputProperties
 * UpdateReplicationProtectedItemInputProperties `object`: Update protected item input properties.
-  * enableRDPOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+  * enableRdpOnTargetOption `string`: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
   * licenseType `string` (values: NotSpecified, NoLicenseType, WindowsServer): License type.
   * providerSpecificDetails [UpdateReplicationProtectedItemProviderInput](#updatereplicationprotecteditemproviderinput)
   * recoveryAvailabilitySetId `string`: The target availability set id.
   * recoveryAzureVMName `string`: Target azure VM name given by the user.
   * recoveryAzureVMSize `string`: Target Azure Vm size.
   * selectedRecoveryAzureNetworkId `string`: Target Azure Network Id.
+  * selectedSourceNicId `string`: The selected source nic Id which will be used as the primary nic during failover.
   * vmNics `array`: The list of vm nic details.
     * items [VMNicInputDetails](#vmnicinputdetails)
 
@@ -5063,6 +5233,8 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * discoveryStatus `string`: The VCenter discovery status.
   * fabricArmResourceName `string`: The ARM resource name of the fabric containing this VCenter.
   * friendlyName `string`: Friendly name of the vCenter.
+  * healthErrors `array`: The health errors for this VCenter.
+    * items [HealthError](#healtherror)
   * infrastructureId `string`: The infrastructure Id of vCenter.
   * internalId `string`: VCenter internal ID.
   * ipAddress `string`: The IP address of the vCenter.
@@ -5103,7 +5275,9 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 ### VMwareDetails
 * VMwareDetails `object`: Store the fabric details specific to the VMware fabric.
   * agentCount `string`: The number of source and target servers configured to talk to this CS.
+  * agentExpiryDate `string`: Agent expiry date.
   * agentVersion `string`: The agent Version.
+  * agentVersionDetails [VersionDetails](#versiondetails)
   * availableMemoryInBytes `integer`: The available memory.
   * availableSpaceInBytes `integer`: The available space.
   * cpuLoad `string`: The percentage of the CPU load.
@@ -5135,17 +5309,21 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
   * versionStatus `string`: Version status
   * webLoad `string`: The web load.
   * webLoadStatus `string`: The web load status.
-  * instanceType `string`: Gets the class type. Overriden in derived classes.
+  * instanceType `string`: Gets the class type. Overridden in derived classes.
 
 ### VMwareV2FabricCreationInput
 * VMwareV2FabricCreationInput `object`: Fabric provider specific settings.
+  * keyVaultResourceArmId `string`: The Key Vault ARM Id.
+  * keyVaultUrl `string`: The Key Vault URL.
   * instanceType `string`: Gets the class type.
 
 ### VMwareV2FabricSpecificDetails
 * VMwareV2FabricSpecificDetails `object`: VMwareV2 fabric Specific Details.
+  * keyVaultResourceArmId `string`: The Key Vault ARM Id.
+  * keyVaultUrl `string`: The Key Vault URL.
   * rcmServiceEndpoint `string`: The endpoint for making requests to the RCM Service.
   * srsServiceEndpoint `string`: The endpoint for making requests to the SRS Service.
-  * instanceType `string`: Gets the class type. Overriden in derived classes.
+  * instanceType `string`: Gets the class type. Overridden in derived classes.
 
 ### VMwareVirtualMachineDetails
 * VMwareVirtualMachineDetails `object`: VMware provider specific settings
@@ -5173,10 +5351,17 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### VaultHealthProperties
 * VaultHealthProperties `object`: class to define the health summary of the Vault.
+  * containersHealth [ResourceHealthSummary](#resourcehealthsummary)
   * fabricsHealth [ResourceHealthSummary](#resourcehealthsummary)
   * protectedItemsHealth [ResourceHealthSummary](#resourcehealthsummary)
   * vaultErrors `array`: The list of errors on the vault.
     * items [HealthError](#healtherror)
+
+### VersionDetails
+* VersionDetails `object`: Version related details.
+  * expiryDate `string`: Version expiry date.
+  * status `string` (values: Supported, NotSupported, Deprecated, UpdateRequired, SecurityUpdateRequired): A value indicating whether security update required.
+  * version `string`: The agent version.
 
 ### VirtualMachineTaskDetails
 * VirtualMachineTaskDetails `object`: This class represents the virtual machine task details.
@@ -5194,7 +5379,7 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 
 ### VmmDetails
 * VmmDetails `object`: VMM fabric specific details.
-  * instanceType `string`: Gets the class type. Overriden in derived classes.
+  * instanceType `string`: Gets the class type. Overridden in derived classes.
 
 ### VmmToAzureCreateNetworkMappingInput
 * VmmToAzureCreateNetworkMappingInput `object`: Create network mappings input properties/behaviour specific to Vmm to Azure Network mapping.
@@ -5219,6 +5404,18 @@ azure_recoveryservicessiterecovery_service.ReplicationvCenters_List({
 ### VmmToVmmUpdateNetworkMappingInput
 * VmmToVmmUpdateNetworkMappingInput `object`: Update network mappings input properties/behaviour specific to vmm to vmm.
   * instanceType `string`: The instance type.
+
+### VmmVirtualMachineDetails
+* VmmVirtualMachineDetails `object`: VMM fabric provider specific VM settings.
+  * diskDetails `array`: The Last successful failover time.
+    * items [DiskDetails](#diskdetails)
+  * generation `string`: The id of the object in fabric.
+  * hasFibreChannelAdapter `string` (values: Unknown, Present, NotPresent): A value indicating whether the VM has a fibre channel adapter attached. String value of {SrsDataContract.PresenceStatus} enum.
+  * hasPhysicalDisk `string` (values: Unknown, Present, NotPresent): A value indicating whether the VM has a physical disk attached. String value of {SrsDataContract.PresenceStatus} enum.
+  * hasSharedVhd `string` (values: Unknown, Present, NotPresent): A value indicating whether the VM has a shared VHD attached. String value of {SrsDataContract.PresenceStatus} enum.
+  * osDetails [OSDetails](#osdetails)
+  * sourceItemId `string`: The source id of the object.
+  * instanceType `string`: Gets the class type. Overriden in derived classes.
 
 ### VmwareCbtPolicyDetails
 * VmwareCbtPolicyDetails `object`: VMware Cbt specific policy details.

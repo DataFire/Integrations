@@ -185,18 +185,6 @@ azure_sql_syncagents.SyncAgents_ListLinkedDatabases({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### SyncAgent
 * SyncAgent `object`: An Azure SQL Database sync agent.
   * properties [SyncAgentProperties](#syncagentproperties)

@@ -95,6 +95,46 @@ google_firebasedynamiclinks.installAttribution({}, context)
 #### Output
 * output [GetIosPostInstallAttributionResponse](#getiospostinstallattributionresponse)
 
+### managedShortLinks.create
+Creates a managed short Dynamic Link given either a valid long Dynamic Link
+or details such as Dynamic Link domain, Android and iOS app information.
+The created short Dynamic Link will not expire.
+
+This differs from CreateShortDynamicLink in the following ways:
+  - The request will also contain a name for the link (non unique name
+    for the front end).
+  - The response must be authenticated with an auth token (generated with
+    the admin service account).
+  - The link will appear in the FDL list of links in the console front end.
+
+The Dynamic Link domain in the request must be owned by requester's
+Firebase project.
+
+
+```js
+google_firebasedynamiclinks.managedShortLinks.create({}, context)
+```
+
+#### Input
+* input `object`
+  * body [CreateManagedShortLinkRequest](#createmanagedshortlinkrequest)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [CreateManagedShortLinkResponse](#createmanagedshortlinkresponse)
+
 ### shortLinks.create
 Creates a short Dynamic Link given either a valid long Dynamic Link or
 details such as Dynamic Link domain, Android and iOS app information.
@@ -180,6 +220,20 @@ google_firebasedynamiclinks.getLinkStats({
   * androidMinPackageVersionCode `string`: Minimum version code for the Android app. If the installed app’s version
   * androidPackageName `string`: Android package name of the app.
 
+### CreateManagedShortLinkRequest
+* CreateManagedShortLinkRequest `object`: Request to create a managed Short Dynamic Link.
+  * dynamicLinkInfo [DynamicLinkInfo](#dynamiclinkinfo)
+  * longDynamicLink `string`: Full long Dynamic Link URL with desired query parameters specified.
+  * name `string`: Link name to associate with the link. It's used for marketer to identify
+  * suffix [Suffix](#suffix)
+
+### CreateManagedShortLinkResponse
+* CreateManagedShortLinkResponse `object`: Response to create a short Dynamic Link.
+  * managedShortLink [ManagedShortLink](#managedshortlink)
+  * previewLink `string`: Preview link to show the link flow chart. (debug info.)
+  * warning `array`: Information about potential warnings on link creation.
+    * items [DynamicLinkWarning](#dynamiclinkwarning)
+
 ### CreateShortDynamicLinkRequest
 * CreateShortDynamicLinkRequest `object`: Request to create a short Dynamic Link.
   * dynamicLinkInfo [DynamicLinkInfo](#dynamiclinkinfo)
@@ -188,7 +242,7 @@ google_firebasedynamiclinks.getLinkStats({
 
 ### CreateShortDynamicLinkResponse
 * CreateShortDynamicLinkResponse `object`: Response to create a short Dynamic Link.
-  * previewLink `string`: Preivew link to show the link flow chart.
+  * previewLink `string`: Preview link to show the link flow chart. (debug info.)
   * shortLink `string`: Short Dynamic Link value. e.g. https://abcd.app.goo.gl/wxyz
   * warning `array`: Information about potential warnings on link creation.
     * items [DynamicLinkWarning](#dynamiclinkwarning)
@@ -211,13 +265,14 @@ google_firebasedynamiclinks.getLinkStats({
 * DynamicLinkEventStat `object`: Dynamic Link event stat.
   * count `string`: The number of times this event occurred.
   * event `string` (values: DYNAMIC_LINK_EVENT_UNSPECIFIED, CLICK, REDIRECT, APP_INSTALL, APP_FIRST_OPEN, APP_RE_OPEN): Link event.
-  * platform `string` (values: DYNAMIC_LINK_PLATFORM_UNSPECIFIED, ANDROID, IOS, DESKTOP): Requested platform.
+  * platform `string` (values: DYNAMIC_LINK_PLATFORM_UNSPECIFIED, ANDROID, IOS, DESKTOP, OTHER): Requested platform.
 
 ### DynamicLinkInfo
 * DynamicLinkInfo `object`: Information about a Dynamic Link.
   * analyticsInfo [AnalyticsInfo](#analyticsinfo)
   * androidInfo [AndroidInfo](#androidinfo)
   * desktopInfo [DesktopInfo](#desktopinfo)
+  * domainUriPrefix `string`: E.g. https://maps.app.goo.gl, https://maps.page.link, https://g.co/maps
   * dynamicLinkDomain `string`: Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl
   * iosInfo [IosInfo](#iosinfo)
   * link `string`: The link your app will open, You can specify any URL your app can handle.
@@ -256,6 +311,7 @@ google_firebasedynamiclinks.getLinkStats({
   * invitationId `string`: Invitation ID attributed post-install via one of several techniques
   * isStrongMatchExecutable `boolean`: Instruction for iSDK to attemmpt to perform strong match. For instance,
   * matchMessage `string`: Describes why match failed, ie: "discarded due to low confidence".
+  * requestIpVersion `string` (values: UNKNOWN_IP_VERSION, IP_V4, IP_V6): Which IP version the request was made from.
   * requestedLink `string`: Entire FDL (short or long) attributed post-install via one of several
   * resolvedLink `string`: The entire FDL, expanded from a short link. It is the same as the
   * utmCampaign `string`: Scion campaign value to be propagated by iSDK to Scion at post-install.
@@ -287,6 +343,16 @@ google_firebasedynamiclinks.getLinkStats({
   * iosIpadBundleId `string`: iPad bundle ID of the app.
   * iosIpadFallbackLink `string`: If specified, this overrides the ios_fallback_link value on iPads.
 
+### ManagedShortLink
+* ManagedShortLink `object`: Managed Short Link.
+  * creationTime `string`: Creation timestamp of the short link.
+  * flaggedAttribute `array`: Attributes that have been flagged about this short url.
+    * items `string` (values: UNSPECIFIED_ATTRIBUTE, SPAM)
+  * info [DynamicLinkInfo](#dynamiclinkinfo)
+  * link `string`: Short durable link url, for example, "https://sample.app.goo.gl/xyz123".
+  * linkName `string`: Link name defined by the creator.
+  * visibility `string` (values: UNSPECIFIED_VISIBILITY, UNARCHIVED, ARCHIVED, NEVER_SHOWN): Visibility status of link.
+
 ### NavigationInfo
 * NavigationInfo `object`: Information of navigation behavior.
   * enableForcedRedirect `boolean`: If this option is on, FDL click will be forced to redirect rather than
@@ -299,6 +365,7 @@ google_firebasedynamiclinks.getLinkStats({
 
 ### Suffix
 * Suffix `object`: Short Dynamic Link suffix.
-  * option `string` (values: OPTION_UNSPECIFIED, UNGUESSABLE, SHORT): Suffix option.
+  * customSuffix `string`: Only applies to Option.CUSTOM.
+  * option `string` (values: OPTION_UNSPECIFIED, UNGUESSABLE, SHORT, CUSTOM): Suffix option.
 
 

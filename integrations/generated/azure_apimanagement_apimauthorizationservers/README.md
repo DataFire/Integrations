@@ -77,7 +77,7 @@ azure_apimanagement_apimauthorizationservers.AuthorizationServer_Delete({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * authsid **required** `string`: Identifier of the authorization server.
-  * If-Match **required** `string`: The entity state (Etag) version of the authentication server to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -156,7 +156,7 @@ azure_apimanagement_apimauthorizationservers.AuthorizationServer_Update({
   * serviceName **required** `string`: The name of the API Management service.
   * authsid **required** `string`: Identifier of the authorization server.
   * parameters **required** [AuthorizationServerUpdateContract](#authorizationserverupdatecontract)
-  * If-Match **required** `string`: The entity state (Etag) version of the authorization server to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -184,6 +184,7 @@ azure_apimanagement_apimauthorizationservers.AuthorizationServer_CreateOrUpdate(
   * serviceName **required** `string`: The name of the API Management service.
   * authsid **required** `string`: Identifier of the authorization server.
   * parameters **required** [AuthorizationServerContract](#authorizationservercontract)
+  * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 

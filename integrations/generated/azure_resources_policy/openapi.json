@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/resources/resource-manager/Microsoft.Authorization/stable/2016-04-01/policy.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Authorization/stable/2016-04-01/policy.json",
         "version": "2.0"
       }
     ],
@@ -649,6 +649,7 @@
       "properties": {
         "id": {
           "description": "The ID of the policy definition.",
+          "readOnly": true,
           "type": "string"
         },
         "name": {

@@ -85,6 +85,27 @@ azure_eventhub_eventhub.Namespaces_List({
 #### Output
 * output [EHNamespaceListResult](#ehnamespacelistresult)
 
+### Regions_ListBySku
+Gets the available Regions for a given sku
+
+
+```js
+azure_eventhub_eventhub.Regions_ListBySku({
+  "api-version": "",
+  "subscriptionId": "",
+  "sku": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API Version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * sku **required** `string`: The sku type.
+
+#### Output
+* output [MessagingRegionsListResult](#messagingregionslistresult)
+
 ### Namespaces_ListByResourceGroup
 Lists the available Namespaces within a resource group.
 
@@ -627,6 +648,8 @@ azure_eventhub_eventhub.EventHubs_ListByNamespace({
   * namespaceName **required** `string`: The Namespace name
   * api-version **required** `string`: Client API Version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * $skip `integer`: Skip is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skip parameter that specifies a starting point to use for subsequent calls.
+  * $top `integer`: May be used to limit the number of results to the most recent N usageDetails.
 
 #### Output
 * output [EventHubListResult](#eventhublistresult)
@@ -893,6 +916,8 @@ azure_eventhub_eventhub.ConsumerGroups_ListByEventHub({
   * eventHubName **required** `string`: The Event Hub name
   * api-version **required** `string`: Client API Version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * $skip `integer`: Skip is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skip parameter that specifies a starting point to use for subsequent calls.
+  * $top `integer`: May be used to limit the number of results to the most recent N usageDetails.
 
 #### Output
 * output [ConsumerGroupListResult](#consumergrouplistresult)
@@ -979,6 +1004,29 @@ azure_eventhub_eventhub.ConsumerGroups_CreateOrUpdate({
 
 #### Output
 * output [ConsumerGroup](#consumergroup)
+
+### Namespaces_GetMessagingPlan
+Gets messaging plan for specified namespace.
+
+
+```js
+azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group within the azure subscription.
+  * namespaceName **required** `string`: The Namespace name
+  * api-version **required** `string`: Client API Version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [MessagingPlan](#messagingplan)
 
 
 
@@ -1116,6 +1164,36 @@ azure_eventhub_eventhub.ConsumerGroups_CreateOrUpdate({
   * id `string`: Resource Id
   * name `string`: Resource name
   * type `string`: Resource type
+
+### MessagingPlan
+* MessagingPlan `object`: Messaging Plan for the namespace
+  * properties `object`
+    * revision `integer`: revision number
+    * selectedEventHubUnit `integer`: Selected event hub unit
+    * sku `integer`: Sku type
+    * updatedAt `string`: The exact time the messaging plan was updated.
+  * location `string`: Resource location
+  * tags `object`: Resource tags
+  * id `string`: Resource Id
+  * name `string`: Resource name
+  * type `string`: Resource type
+
+### MessagingRegions
+* MessagingRegions `object`: Messaging Region
+  * properties `object`
+    * code `string`: Region code
+    * fullName `string`: Full name of the region
+  * location `string`: Resource location
+  * tags `object`: Resource tags
+  * id `string`: Resource Id
+  * name `string`: Resource name
+  * type `string`: Resource type
+
+### MessagingRegionsListResult
+* MessagingRegionsListResult `object`: The response of the List MessagingRegions operation.
+  * nextLink `string`: Link to the next set of results. Not empty if Value contains incomplete list of MessagingRegions.
+  * value `array`: Result of the List MessagingRegions type.
+    * items [MessagingRegions](#messagingregions)
 
 ### Operation
 * Operation `object`: A Event Hub REST API operation

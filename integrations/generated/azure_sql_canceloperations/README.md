@@ -104,9 +104,12 @@ azure_sql_canceloperations.DatabaseOperations_Cancel({
 ### DatabaseOperationProperties
 * DatabaseOperationProperties `object`: The properties of a database operation.
   * databaseName `string`: The name of the database the operation is being performed on.
+  * description `string`: The operation description.
   * errorCode `integer`: The operation error code.
   * errorDescription `string`: The operation error description.
   * errorSeverity `integer`: The operation error severity.
+  * estimatedCompletionTime `string`: The estimated completion time of the operation.
+  * isCancellable `boolean`: Whether the operation can be cancelled.
   * isUserError `boolean`: Whether or not the error is a user error.
   * operation `string`: The name of operation.
   * operationFriendlyName `string`: The friendly name of operation.
@@ -114,17 +117,5 @@ azure_sql_canceloperations.DatabaseOperations_Cancel({
   * serverName `string`: The name of the server.
   * startTime `string`: The operation start time.
   * state `string` (values: Pending, InProgress, Succeeded, Failed, CancelInProgress, Cancelled): The operation state.
-
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
 
 

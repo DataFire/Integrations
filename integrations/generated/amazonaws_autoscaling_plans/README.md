@@ -24,7 +24,7 @@ amazonaws_autoscaling_plans.CreateScalingPlan({
 
 ## Description
 
-<p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling for your scalable resources.</p> <p>To get started, create a scaling plan with a set of instructions used to configure dynamic scaling for the scalable resources in your application. AWS Auto Scaling creates target tracking scaling policies for the scalable resources in your scaling plan. Target tracking scaling policies adjust the capacity of your scalable resource as required to maintain resource utilization at the target value that you specified.</p>
+<fullname>AWS Auto Scaling</fullname> <p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling for your scalable resources.</p> <p>To get started, create a scaling plan with a set of instructions used to configure dynamic scaling for the scalable resources in your application. AWS Auto Scaling creates target tracking scaling policies for the scalable resources in your scaling plan. Target tracking scaling policies adjust the capacity of your scalable resource as required to maintain resource utilization at the target value that you specified.</p>
 
 ## Actions
 
@@ -108,6 +108,27 @@ amazonaws_autoscaling_plans.DescribeScalingPlans({}, context)
 #### Output
 * output [DescribeScalingPlansResponse](#describescalingplansresponse)
 
+### UpdateScalingPlan
+
+
+
+```js
+amazonaws_autoscaling_plans.UpdateScalingPlan({
+  "ScalingPlanName": "",
+  "ScalingPlanVersion": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * ApplicationSource [ApplicationSource](#applicationsource)
+  * ScalingInstructions [ScalingInstructions](#scalinginstructions)
+  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
+  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+
+#### Output
+* output [UpdateScalingPlanResponse](#updatescalingplanresponse)
+
 
 
 ## Definitions
@@ -115,6 +136,7 @@ amazonaws_autoscaling_plans.DescribeScalingPlans({}, context)
 ### ApplicationSource
 * ApplicationSource `object`: Represents an application source.
   * CloudFormationStackARN [XmlString](#xmlstring)
+  * TagFilters [TagFilters](#tagfilters)
 
 ### ApplicationSources
 * ApplicationSources `array`
@@ -284,6 +306,7 @@ amazonaws_autoscaling_plans.DescribeScalingPlans({}, context)
   * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
   * StatusCode **required** [ScalingPlanStatusCode](#scalingplanstatuscode)
   * StatusMessage [XmlString](#xmlstring)
+  * StatusStartTime [TimestampType](#timestamptype)
 
 ### ScalingPlanName
 * ScalingPlanName `string`
@@ -308,7 +331,7 @@ amazonaws_autoscaling_plans.DescribeScalingPlans({}, context)
   * items [ScalingPlanResource](#scalingplanresource)
 
 ### ScalingPlanStatusCode
-* ScalingPlanStatusCode `string` (values: Active, ActiveWithProblems, CreationInProgress, CreationFailed, DeletionInProgress, DeletionFailed)
+* ScalingPlanStatusCode `string` (values: Active, ActiveWithProblems, CreationInProgress, CreationFailed, DeletionInProgress, DeletionFailed, UpdateInProgress, UpdateFailed)
 
 ### ScalingPlanVersion
 * ScalingPlanVersion `integer`
@@ -333,6 +356,19 @@ amazonaws_autoscaling_plans.DescribeScalingPlans({}, context)
 ### ServiceNamespace
 * ServiceNamespace `string` (values: autoscaling, ecs, ec2, rds, dynamodb)
 
+### TagFilter
+* TagFilter `object`: Represents a tag.
+  * Key [XmlStringMaxLen128](#xmlstringmaxlen128)
+  * Values [TagValues](#tagvalues)
+
+### TagFilters
+* TagFilters `array`
+  * items [TagFilter](#tagfilter)
+
+### TagValues
+* TagValues `array`
+  * items [XmlStringMaxLen256](#xmlstringmaxlen256)
+
 ### TargetTrackingConfiguration
 * TargetTrackingConfiguration `object`: Represents a target tracking scaling policy.
   * CustomizedScalingMetricSpecification [CustomizedScalingMetricSpecification](#customizedscalingmetricspecification)
@@ -350,11 +386,27 @@ amazonaws_autoscaling_plans.DescribeScalingPlans({}, context)
 ### TimestampType
 * TimestampType `string`
 
+### UpdateScalingPlanRequest
+* UpdateScalingPlanRequest `object`
+  * ApplicationSource [ApplicationSource](#applicationsource)
+  * ScalingInstructions [ScalingInstructions](#scalinginstructions)
+  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
+  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+
+### UpdateScalingPlanResponse
+* UpdateScalingPlanResponse `object`
+
 ### ValidationException
 * ValidationException `object`: An exception was thrown for a validation issue. Review the parameters provided.
   * Message [ErrorMessage](#errormessage)
 
 ### XmlString
 * XmlString `string`
+
+### XmlStringMaxLen128
+* XmlStringMaxLen128 `string`
+
+### XmlStringMaxLen256
+* XmlStringMaxLen256 `string`
 
 

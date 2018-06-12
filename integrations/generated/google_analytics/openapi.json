@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Views and manages your Google Analytics data.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Analytics",
     "version": "v3",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/analytics/v3/rest",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/analytics": "View and manage your Google Analytics data",
@@ -60,23 +55,9 @@
         "https://www.googleapis.com/auth/analytics.manage.users": "Manage Google Analytics Account users by email address",
         "https://www.googleapis.com/auth/analytics.manage.users.readonly": "View Google Analytics user permissions",
         "https://www.googleapis.com/auth/analytics.provision": "Create a new Google Analytics account along with its default property and view",
-        "https://www.googleapis.com/auth/analytics.readonly": "View your Google Analytics data"
+        "https://www.googleapis.com/auth/analytics.readonly": "View your Google Analytics data",
+        "https://www.googleapis.com/auth/analytics.user.deletion": "Manage Google Analytics user deletion requests"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/analytics": "View and manage your Google Analytics data",
-        "https://www.googleapis.com/auth/analytics.edit": "Edit Google Analytics management entities",
-        "https://www.googleapis.com/auth/analytics.manage.users": "Manage Google Analytics Account users by email address",
-        "https://www.googleapis.com/auth/analytics.manage.users.readonly": "View Google Analytics user permissions",
-        "https://www.googleapis.com/auth/analytics.provision": "Create a new Google Analytics account along with its default property and view",
-        "https://www.googleapis.com/auth/analytics.readonly": "View your Google Analytics data"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -88,7 +69,8 @@
         "https://www.googleapis.com/auth/analytics.manage.users": "Manage Google Analytics Account users by email address",
         "https://www.googleapis.com/auth/analytics.manage.users.readonly": "View Google Analytics user permissions",
         "https://www.googleapis.com/auth/analytics.provision": "Create a new Google Analytics account along with its default property and view",
-        "https://www.googleapis.com/auth/analytics.readonly": "View your Google Analytics data"
+        "https://www.googleapis.com/auth/analytics.readonly": "View your Google Analytics data",
+        "https://www.googleapis.com/auth/analytics.user.deletion": "Manage Google Analytics user deletion requests"
       },
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
       "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
@@ -132,13 +114,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -156,6 +138,9 @@
     },
     {
       "name": "provisioning"
+    },
+    {
+      "name": "userDeletion"
     }
   ],
   "paths": {
@@ -269,16 +254,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -399,16 +378,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -497,16 +470,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -570,16 +537,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -643,24 +604,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -731,16 +683,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.manage.users.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.manage.users.readonly"
             ]
           }
@@ -803,9 +749,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
         ],
@@ -842,9 +785,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
@@ -914,9 +854,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
         ],
@@ -963,16 +900,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -1035,9 +966,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -1078,9 +1006,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -1119,16 +1044,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -1198,9 +1117,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -1245,9 +1161,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -1295,24 +1208,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -1375,9 +1279,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -1418,16 +1319,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -1497,9 +1392,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -1544,9 +1436,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -1602,24 +1491,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -1718,16 +1598,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -1790,24 +1664,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -1880,16 +1745,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -1945,24 +1804,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -2040,16 +1890,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -2119,9 +1963,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -2169,16 +2010,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -2262,9 +2097,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -2324,9 +2156,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -2380,16 +2209,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -2459,9 +2282,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -2509,16 +2329,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -2602,9 +2416,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -2664,9 +2475,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -2720,16 +2528,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -2799,9 +2601,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -2845,9 +2644,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -2894,16 +2690,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -2980,9 +2770,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -3034,9 +2821,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -3091,16 +2875,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.manage.users.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.manage.users.readonly"
             ]
           }
@@ -3170,9 +2948,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
         ],
@@ -3216,9 +2991,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
@@ -3295,9 +3067,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
         ],
@@ -3351,24 +3120,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -3438,9 +3198,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -3484,9 +3241,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -3533,16 +3287,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -3619,9 +3367,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -3673,9 +3418,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -3737,16 +3479,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.manage.users.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.manage.users.readonly"
             ]
           }
@@ -3823,9 +3559,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
         ],
@@ -3876,9 +3609,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
@@ -3962,9 +3692,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.manage.users"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.manage.users"
             ]
           }
         ],
@@ -4025,24 +3752,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -4119,16 +3837,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -4181,16 +3893,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -4244,24 +3950,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -4345,16 +4042,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -4415,16 +4106,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -4486,24 +4171,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -4580,9 +4256,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -4637,16 +4310,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -4730,9 +4397,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -4791,9 +4455,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -4855,16 +4516,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -4941,9 +4596,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -4994,9 +4646,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -5050,16 +4699,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -5143,9 +4786,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -5204,9 +4844,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -5268,24 +4905,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -5362,16 +4990,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -5423,9 +5045,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -5479,24 +5098,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -5580,16 +5190,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -5659,9 +5263,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -5705,9 +5306,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
@@ -5754,16 +5352,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -5840,9 +5432,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -5895,9 +5484,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           }
         ],
@@ -5937,24 +5523,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -6012,24 +5589,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.edit"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.edit"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/analytics.readonly"
             ]
           }
@@ -6061,65 +5629,6 @@
           "$ref": "#/parameters/userIp"
         }
       ]
-    },
-    "/provisioning/createAccount": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "post": {
-        "description": "Provision account.",
-        "operationId": "provisioning.createAccountTree",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AccountTreeRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/AccountTreeResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/analytics.provision"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/analytics.provision"
-            ]
-          }
-        ],
-        "tags": [
-          "provisioning"
-        ]
-      }
     },
     "/provisioning/createAccountTicket": {
       "parameters": [
@@ -6169,14 +5678,123 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/analytics.provision"
-            ],
-            "Oauth2c": [
+            ]
+          }
+        ],
+        "tags": [
+          "provisioning"
+        ]
+      }
+    },
+    "/provisioning/createAccountTree": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Provision account.",
+        "operationId": "provisioning.createAccountTree",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AccountTreeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/AccountTreeResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/analytics.provision"
             ]
           }
         ],
         "tags": [
           "provisioning"
+        ]
+      }
+    },
+    "/userDeletion/userDeletionRequests:upsert": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Insert or update a user deletion requests.",
+        "operationId": "userDeletion.userDeletionRequest.upsert",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserDeletionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/UserDeletionRequest"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/analytics.user.deletion"
+            ]
+          }
+        ],
+        "tags": [
+          "userDeletion"
         ]
       }
     }
@@ -6385,22 +6003,16 @@
         },
         "accountSettings": {
           "properties": {
-            "admobReporting": {
+            "shareAnonymouslyWithOthers": {
               "type": "boolean"
             },
-            "sharingWithGoogleAnySales": {
+            "shareWithGoogleProducts": {
               "type": "boolean"
             },
-            "sharingWithGoogleProducts": {
+            "shareWithSpecialists": {
               "type": "boolean"
             },
-            "sharingWithGoogleSales": {
-              "type": "boolean"
-            },
-            "sharingWithGoogleSupport": {
-              "type": "boolean"
-            },
-            "sharingWithOthers": {
+            "shareWithSupport": {
               "type": "boolean"
             }
           },
@@ -6435,22 +6047,16 @@
         },
         "accountSettings": {
           "properties": {
-            "admobReporting": {
+            "shareAnonymouslyWithOthers": {
               "type": "boolean"
             },
-            "sharingWithGoogleAnySales": {
+            "shareWithGoogleProducts": {
               "type": "boolean"
             },
-            "sharingWithGoogleProducts": {
+            "shareWithSpecialists": {
               "type": "boolean"
             },
-            "sharingWithGoogleSales": {
-              "type": "boolean"
-            },
-            "sharingWithGoogleSupport": {
-              "type": "boolean"
-            },
-            "sharingWithOthers": {
+            "shareWithSupport": {
               "type": "boolean"
             }
           },
@@ -9367,6 +8973,44 @@
       },
       "type": "object"
     },
+    "UserDeletionRequest": {
+      "description": "JSON template for a user deletion request resource.",
+      "properties": {
+        "deletionRequestTime": {
+          "description": "This marks the point in time for which all user data before should be deleted",
+          "format": "date-time",
+          "type": "string"
+        },
+        "firebaseProjectId": {
+          "description": "Firebase Project Id",
+          "type": "string"
+        },
+        "id": {
+          "description": "User ID.",
+          "properties": {
+            "type": {
+              "description": "Type of user",
+              "type": "string"
+            },
+            "userId": {
+              "description": "The User's id",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "kind": {
+          "default": "analytics#userDeletionRequest",
+          "description": "Value is \"analytics#userDeletionRequest\".",
+          "type": "string"
+        },
+        "webPropertyId": {
+          "description": "Web property ID of the form UA-XXXXX-YY.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "UserRef": {
       "description": "JSON template for a user reference.",
       "properties": {
@@ -9529,6 +9173,14 @@
           "description": "Time this web property was created.",
           "format": "date-time",
           "readOnly": true,
+          "type": "string"
+        },
+        "dataRetentionResetOnNewActivity": {
+          "description": "Set to true to reset the retention period of the user identifier with each new event from that user (thus setting the expiration date to current time plus retention period).\nSet to false to delete data associated with the user identifer automatically after the rentention period.\nThis property cannot be set on insert.",
+          "type": "boolean"
+        },
+        "dataRetentionTtl": {
+          "description": "The length of time for which user and event data is retained.\nThis property cannot be set on insert.",
           "type": "string"
         },
         "defaultProfileId": {

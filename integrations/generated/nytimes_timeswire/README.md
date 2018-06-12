@@ -46,12 +46,12 @@ nytimes_timeswire.content.json.get({
     * items [Article](#article)
   * status `string`
 
-### source.section.json.get
+### content.source.section.json.get
 
 
 
 ```js
-nytimes_timeswire.source.section.json.get({
+nytimes_timeswire.content.source.section.json.get({
   "source": "",
   "section": ""
 }, context)
@@ -72,12 +72,12 @@ nytimes_timeswire.source.section.json.get({
     * items [Article](#article)
   * status `string`
 
-### source.section.time_period.json.get
+### content.source.section.time_period.json.get
 
 
 
 ```js
-nytimes_timeswire.source.section.time_period.json.get({
+nytimes_timeswire.content.source.section.time_period.json.get({
   "source": "",
   "section": "",
   "time-period": 0

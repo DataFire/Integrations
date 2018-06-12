@@ -47,7 +47,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_List({
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The name of the automation account.
   * api-version **required** `string`: Client Api Version.
   * clientRequestId `string`: Identifies this specific client request.
@@ -88,7 +88,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_Delete
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The name of the automation account.
   * softwareUpdateConfigurationName **required** `string`: The name of the software update configuration to be created.
   * api-version **required** `string`: Client Api Version.
@@ -114,7 +114,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_GetByN
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The name of the automation account.
   * softwareUpdateConfigurationName **required** `string`: The name of the software update configuration to be created.
   * api-version **required** `string`: Client Api Version.
@@ -139,7 +139,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_GetByN
           * items `integer`
         * monthlyOccurrences `array`: Occurrences of days within a month.
           * items `object`: The properties of the create advanced schedule monthly occurrence.
-            * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.
+            * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
             * occurrence `integer`: Occurrence of the week within the month. Must be between 1 and 5
         * weekDays `array`: Days of the week that the job should execute on.
           * items `string`
@@ -148,6 +148,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_GetByN
       * expiryTime `string`: Gets or sets the end time of the schedule.
       * expiryTimeOffsetMinutes `number`: Gets or sets the expiry time's offset in minutes.
       * frequency `string` (values: OneTime, Day, Hour, Week, Month): Gets or sets the frequency of the schedule.
+      * interval `integer`: Gets or sets the interval of the schedule.
       * isEnabled `boolean`: Gets or sets a value indicating whether this schedule is enabled.
       * lastModifiedTime `string`: Gets or sets the last modified time.
       * nextRun `string`: Gets or sets the next run time of the schedule.
@@ -163,13 +164,19 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_GetByN
         * excludedPackageNameMasks `array`: packages excluded from the software update configuration.
           * items `string`
         * includedPackageClassifications `string` (values: Unclassified, Critical, Security, Other): Update classifications included in the software update configuration.
+        * includedPackageNameMasks `array`: packages included from the software update configuration.
+          * items `string`
+        * rebootSetting `string`: Reboot setting for the software update configuration.
       * nonAzureComputerNames `array`: List of names of non-azure machines targeted by the software update configuration.
         * items `string`: Name of Non-Azure OMS Computer.
       * operatingSystem **required** `string` (values: Windows, Linux): Target operating system for the software update configuration.
       * windows `object`: Windows specific update configuration.
         * excludedKbNumbers `array`: KB numbers excluded from the software update configuration.
           * items `string`
+        * includedKbNumbers `array`: KB numbers included from the software update configuration.
+          * items `string`
         * includedUpdateClassifications `string` (values: Unclassified, Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates): Update classification included in the software update configuration. A comma separated string with required values
+        * rebootSetting `string`: Reboot setting for the software update configuration.
   * type `string`: Resource type
 
 ### SoftwareUpdateConfigurations_Create
@@ -192,7 +199,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_Create
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The name of the automation account.
   * softwareUpdateConfigurationName **required** `string`: The name of the software update configuration to be created.
   * api-version **required** `string`: Client Api Version.
@@ -215,7 +222,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_Create
             * items `integer`
           * monthlyOccurrences `array`: Occurrences of days within a month.
             * items `object`: The properties of the create advanced schedule monthly occurrence.
-              * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.
+              * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
               * occurrence `integer`: Occurrence of the week within the month. Must be between 1 and 5
           * weekDays `array`: Days of the week that the job should execute on.
             * items `string`
@@ -224,6 +231,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_Create
         * expiryTime `string`: Gets or sets the end time of the schedule.
         * expiryTimeOffsetMinutes `number`: Gets or sets the expiry time's offset in minutes.
         * frequency `string` (values: OneTime, Day, Hour, Week, Month): Gets or sets the frequency of the schedule.
+        * interval `integer`: Gets or sets the interval of the schedule.
         * isEnabled `boolean`: Gets or sets a value indicating whether this schedule is enabled.
         * lastModifiedTime `string`: Gets or sets the last modified time.
         * nextRun `string`: Gets or sets the next run time of the schedule.
@@ -239,13 +247,19 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_Create
           * excludedPackageNameMasks `array`: packages excluded from the software update configuration.
             * items `string`
           * includedPackageClassifications `string` (values: Unclassified, Critical, Security, Other): Update classifications included in the software update configuration.
+          * includedPackageNameMasks `array`: packages included from the software update configuration.
+            * items `string`
+          * rebootSetting `string`: Reboot setting for the software update configuration.
         * nonAzureComputerNames `array`: List of names of non-azure machines targeted by the software update configuration.
           * items `string`: Name of Non-Azure OMS Computer.
         * operatingSystem **required** `string` (values: Windows, Linux): Target operating system for the software update configuration.
         * windows `object`: Windows specific update configuration.
           * excludedKbNumbers `array`: KB numbers excluded from the software update configuration.
             * items `string`
+          * includedKbNumbers `array`: KB numbers included from the software update configuration.
+            * items `string`
           * includedUpdateClassifications `string` (values: Unclassified, Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates): Update classification included in the software update configuration. A comma separated string with required values
+          * rebootSetting `string`: Reboot setting for the software update configuration.
     * type `string`: Resource type
 
 #### Output
@@ -267,7 +281,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_Create
           * items `integer`
         * monthlyOccurrences `array`: Occurrences of days within a month.
           * items `object`: The properties of the create advanced schedule monthly occurrence.
-            * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.
+            * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
             * occurrence `integer`: Occurrence of the week within the month. Must be between 1 and 5
         * weekDays `array`: Days of the week that the job should execute on.
           * items `string`
@@ -276,6 +290,7 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_Create
       * expiryTime `string`: Gets or sets the end time of the schedule.
       * expiryTimeOffsetMinutes `number`: Gets or sets the expiry time's offset in minutes.
       * frequency `string` (values: OneTime, Day, Hour, Week, Month): Gets or sets the frequency of the schedule.
+      * interval `integer`: Gets or sets the interval of the schedule.
       * isEnabled `boolean`: Gets or sets a value indicating whether this schedule is enabled.
       * lastModifiedTime `string`: Gets or sets the last modified time.
       * nextRun `string`: Gets or sets the next run time of the schedule.
@@ -291,13 +306,19 @@ azure_automation_softwareupdateconfiguration.SoftwareUpdateConfigurations_Create
         * excludedPackageNameMasks `array`: packages excluded from the software update configuration.
           * items `string`
         * includedPackageClassifications `string` (values: Unclassified, Critical, Security, Other): Update classifications included in the software update configuration.
+        * includedPackageNameMasks `array`: packages included from the software update configuration.
+          * items `string`
+        * rebootSetting `string`: Reboot setting for the software update configuration.
       * nonAzureComputerNames `array`: List of names of non-azure machines targeted by the software update configuration.
         * items `string`: Name of Non-Azure OMS Computer.
       * operatingSystem **required** `string` (values: Windows, Linux): Target operating system for the software update configuration.
       * windows `object`: Windows specific update configuration.
         * excludedKbNumbers `array`: KB numbers excluded from the software update configuration.
           * items `string`
+        * includedKbNumbers `array`: KB numbers included from the software update configuration.
+          * items `string`
         * includedUpdateClassifications `string` (values: Unclassified, Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates): Update classification included in the software update configuration. A comma separated string with required values
+        * rebootSetting `string`: Reboot setting for the software update configuration.
   * type `string`: Resource type
 
 

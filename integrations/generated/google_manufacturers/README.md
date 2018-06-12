@@ -81,6 +81,7 @@ google_manufacturers.accounts.products.list({
 
 #### Input
 * input `object`
+  * include `array`: The information to be included in the response. Only sections listed here
   * pageSize `integer`: Maximum number of product statuses to return in the response, used for
   * pageToken `string`: The token returned by the previous request.
   * parent **required** `string`: Parent ID in the format `accounts/{account_id}`.
@@ -152,6 +153,7 @@ google_manufacturers.accounts.products.get({
 
 #### Input
 * input `object`
+  * include `array`: The information to be included in the response. Only sections listed here
   * name **required** `string`: Name in the format `{target_country}:{content_language}:{product_id}`.
   * parent **required** `string`: Parent ID in the format `accounts/{account_id}`.
   * $.xgafv `string` (values: 1, 2): V1 error format.
@@ -172,18 +174,21 @@ google_manufacturers.accounts.products.get({
 * output [Product](#product)
 
 ### accounts.products.update
-Inserts or updates the product in a Manufacturer Center account.
+Inserts or updates the attributes of the product in a Manufacturer Center
+account.
 
-The checks at upload time are minimal. All required attributes need to be
-present for a product to be valid. Issues may show up later
-after the API has accepted an update for a product and it is possible to
-overwrite an existing valid product with an invalid product. To detect
-this, you should retrieve the product and check it for issues once the
-updated version is available.
+Creates a product with the provided attributes. If the product already
+exists, then all attributes are replaced with the new ones. The checks at
+upload time are minimal. All required attributes need to be present for a
+product to be valid. Issues may show up later after the API has accepted a
+new upload for a product and it is possible to overwrite an existing valid
+product with an invalid product. To detect this, you should retrieve the
+product and check it for issues once the new version is available.
 
-Inserted or updated products first need to be processed before they can be
+Uploaded attributes first need to be processed before they can be
 retrieved. Until then, new products will be unavailable, and retrieval
-of updated products will return the original state of the product.
+of previously uploaded products will return the original state of the
+product.
 
 
 ```js
@@ -195,7 +200,7 @@ google_manufacturers.accounts.products.update({
 
 #### Input
 * input `object`
-  * body [Product](#product)
+  * body [Attributes](#attributes)
   * name **required** `string`: Name in the format `{target_country}:{content_language}:{product_id}`.
   * parent **required** `string`: Parent ID in the format `accounts/{account_id}`.
   * $.xgafv `string` (values: 1, 2): V1 error format.
@@ -213,7 +218,7 @@ google_manufacturers.accounts.products.update({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [Product](#product)
+* output [Empty](#empty)
 
 
 
@@ -230,6 +235,8 @@ google_manufacturers.accounts.products.update({
   * count [Count](#count)
   * description `string`: The description of the product. For more information, see
   * disclosureDate `string`: The disclosure date of the product. For more information, see
+  * excludedDestination `array`: A list of excluded destinations.
+    * items `string`
   * featureDescription `array`: The rich format description of the product. For more information, see
     * items [FeatureDescription](#featuredescription)
   * flavor `string`: The flavor of the product. For more information, see
@@ -238,6 +245,8 @@ google_manufacturers.accounts.products.update({
   * gtin `array`: The Global Trade Item Number (GTIN) of the product. For more information,
     * items `string`
   * imageLink [Image](#image)
+  * includedDestination `array`: A list of included destinations.
+    * items `string`
   * itemGroupId `string`: The item group id of the product. For more information, see
   * material `string`: The material of the product. For more information, see
   * mpn `string`: The Manufacturer Part Number (MPN) of the product. For more information,
@@ -271,6 +280,11 @@ google_manufacturers.accounts.products.update({
   * unit `string`: The unit in which these products are counted.
   * value `string`: The numeric value of the number of products in a package.
 
+### DestinationStatus
+* DestinationStatus `object`: The destination status.
+  * destination `string`: The name of the destination.
+  * status `string` (values: UNKNOWN, ACTIVE, PENDING, DISAPPROVED): The status of the destination.
+
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
 
@@ -289,9 +303,12 @@ google_manufacturers.accounts.products.update({
 ### Issue
 * Issue `object`: Product issue.
   * attribute `string`: If present, the attribute that triggered the issue. For more information
-  * description `string`: Description of the issue.
+  * description `string`: Longer description of the issue focused on how to resolve it.
+  * destination `string`: The destination this issue applies to.
+  * resolution `string` (values: RESOLUTION_UNSPECIFIED, USER_ACTION, PENDING_PROCESSING): What needs to happen to resolve the issue.
   * severity `string` (values: SEVERITY_UNSPECIFIED, ERROR, WARNING, INFO): The severity of the issue.
   * timestamp `string`: The timestamp when this issue appeared.
+  * title `string`: Short title describing the nature of the issue.
   * type `string`: The server-generated type of the issue, for example,
 
 ### ListProductsResponse
@@ -307,7 +324,10 @@ google_manufacturers.accounts.products.update({
 
 ### Product
 * Product `object`: Product data.
+  * attributes [Attributes](#attributes)
   * contentLanguage `string`: The content language of the product as a two-letter ISO 639-1 language code
+  * destinationStatuses `array`: The status of the destinations.
+    * items [DestinationStatus](#destinationstatus)
   * finalAttributes [Attributes](#attributes)
   * issues `array`: A server-generated list of issues associated with the product.
     * items [Issue](#issue)

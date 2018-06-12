@@ -1123,6 +1123,9 @@ amazonaws_mturk_requester.UpdateQualificationType({
   * Reward [CurrencyAmount](#currencyamount)
   * Title [String](#string)
 
+### HITAccessActions
+* HITAccessActions `string` (values: Accept, PreviewAndAccept, DiscoverPreviewAndAccept)
+
 ### HITLayoutParameter
 * HITLayoutParameter `object`:  The HITLayoutParameter data structure defines parameter values used with a HITLayout. A HITLayout is a reusable Amazon Mechanical Turk project template used to provide Human Intelligence Task (HIT) question data for CreateHIT. 
   * Name **required** [String](#string)
@@ -1376,7 +1379,8 @@ amazonaws_mturk_requester.UpdateQualificationType({
   * items [QualificationRequest](#qualificationrequest)
 
 ### QualificationRequirement
-* QualificationRequirement `object`:  The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT. 
+* QualificationRequirement `object`:  The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or see the HIT in search results. 
+  * ActionsGuarded [HITAccessActions](#hitaccessactions)
   * Comparator **required** [Comparator](#comparator)
   * IntegerValues [IntegerList](#integerlist)
   * LocaleValues [LocaleList](#localelist)

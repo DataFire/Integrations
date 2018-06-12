@@ -78,7 +78,8 @@ azure_apimanagement_apimusers.User_Delete({
   * serviceName **required** `string`: The name of the API Management service.
   * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * deleteSubscriptions `boolean`: Whether to delete user's subscription or not.
-  * If-Match **required** `string`: The entity state (Etag) version of the user to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * notify `boolean`: Send an Account Closed Email notification to the User.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -157,7 +158,7 @@ azure_apimanagement_apimusers.User_Update({
   * serviceName **required** `string`: The name of the API Management service.
   * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * parameters **required** [UserUpdateParameters](#userupdateparameters)
-  * If-Match **required** `string`: The entity state (Etag) version of the user to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -185,6 +186,7 @@ azure_apimanagement_apimusers.User_CreateOrUpdate({
   * serviceName **required** `string`: The name of the API Management service.
   * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * parameters **required** [UserCreateParameters](#usercreateparameters)
+  * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -246,7 +248,7 @@ azure_apimanagement_apimusers.UserGroup_List({
   * nextLink `string`: Next page link if any.
   * value `array`: Page values.
     * items `object`: Contract details.
-      * properties `object`: Developer group.
+      * properties `object`: Group contract Properties.
         * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
         * description `string`: Group description. Can contain HTML formatting tags.
         * displayName **required** `string`: Group name.
@@ -381,16 +383,12 @@ azure_apimanagement_apimusers.User_GetSharedAccessToken({
   * email `string`: Email address.
   * firstName `string`: First name.
   * groups `array`: Collection of groups user is part of.
-    * items `object`: Contract details.
-      * properties `object`: Developer group.
-        * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-        * description `string`: Group description. Can contain HTML formatting tags.
-        * displayName **required** `string`: Group name.
-        * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-        * type `string` (values: custom, system, external): Group type.
-      * id `string`: Resource ID.
-      * name `string`: Resource name.
-      * type `string`: Resource type for API Management resource.
+    * items `object`: Group contract Properties.
+      * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+      * description `string`: Group description. Can contain HTML formatting tags.
+      * displayName **required** `string`: Group name.
+      * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
+      * type `string` (values: custom, system, external): Group type.
   * lastName `string`: Last name.
   * registrationDate `string`: Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
   * identities `array`: Collection of user identities.

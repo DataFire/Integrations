@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
-    "http"
+    "https"
   ],
   "host": "vocadb.net",
   "info": {
@@ -557,6 +557,158 @@
           }
         },
         "summary": "Gets a list of album names. Ideal for autocomplete boxes.",
+        "tags": [
+          "AlbumApi"
+        ]
+      }
+    },
+    "/api/albums/new": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "description": "Output is cached for 1 hour.",
+        "operationId": "AlbumApi_GetNewAlbums",
+        "parameters": [
+          {
+            "enum": [
+              "Default",
+              "Japanese",
+              "Romaji",
+              "English"
+            ],
+            "in": "query",
+            "name": "languagePreference",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "None",
+              "AdditionalNames",
+              "Artists",
+              "Description",
+              "Discs",
+              "Identifiers",
+              "MainPicture",
+              "Names",
+              "PVs",
+              "ReleaseEvent",
+              "Tags",
+              "Tracks",
+              "WebLinks"
+            ],
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/AlbumForApiContract"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Gets list of upcoming or recent albums, same as front page.",
+        "tags": [
+          "AlbumApi"
+        ]
+      }
+    },
+    "/api/albums/top": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "description": "Output is cached for 1 hour.",
+        "operationId": "AlbumApi_GetTopAlbums",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ignoreIds",
+            "required": true,
+            "schema": {
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "enum": [
+              "Default",
+              "Japanese",
+              "Romaji",
+              "English"
+            ],
+            "in": "query",
+            "name": "languagePreference",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "None",
+              "AdditionalNames",
+              "Artists",
+              "Description",
+              "Discs",
+              "Identifiers",
+              "MainPicture",
+              "Names",
+              "PVs",
+              "ReleaseEvent",
+              "Tags",
+              "Tracks",
+              "WebLinks"
+            ],
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/AlbumForApiContract"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Gets list of top rated albums, same as front page.",
         "tags": [
           "AlbumApi"
         ]
@@ -2580,6 +2732,13 @@
             "name": "notes",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "If true, the entry is hard deleted. Hard deleted entries cannot be restored normally, but they will be moved to trash.\r\n            If false, the entry is soft deleted, meaning it can still be restored.",
+            "in": "query",
+            "name": "hardDelete",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "produces": [],
@@ -4289,6 +4448,72 @@
         ]
       }
     },
+    "/api/songs/highlighted": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "description": "Output is cached for 1 hour.",
+        "operationId": "SongApi_GetHighlightedSongs",
+        "parameters": [
+          {
+            "enum": [
+              "Default",
+              "Japanese",
+              "Romaji",
+              "English"
+            ],
+            "in": "query",
+            "name": "languagePreference",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "None",
+              "AdditionalNames",
+              "Albums",
+              "Artists",
+              "Lyrics",
+              "MainPicture",
+              "Names",
+              "PVs",
+              "ReleaseEvent",
+              "Tags",
+              "ThumbUrl",
+              "WebLinks"
+            ],
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/SongForApiContract"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Gets list of highlighted songs, same as front page.",
+        "tags": [
+          "SongApi"
+        ]
+      }
+    },
     "/api/songs/lyrics/{lyricsId}": {
       "get": {
         "consumes": [],
@@ -5410,6 +5635,14 @@
             "name": "categoryName",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Maximum number of tags to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
           },
           {
             "description": "Content language preference (optional).",
@@ -6760,7 +6993,9 @@
               "OtherGroup",
               "OtherIndividual",
               "Utaite",
-              "Band"
+              "Band",
+              "Vocalist",
+              "Character"
             ],
             "in": "query",
             "name": "artistType",
@@ -7792,6 +8027,9 @@
           ],
           "type": "string"
         },
+        "deleted": {
+          "type": "boolean"
+        },
         "description": {
           "type": "string"
         },
@@ -7999,7 +8237,9 @@
             "OtherGroup",
             "OtherIndividual",
             "Utaite",
-            "Band"
+            "Band",
+            "Vocalist",
+            "Character"
           ],
           "type": "string"
         },
@@ -8051,7 +8291,8 @@
             "Circle",
             "Other",
             "Band",
-            "Illustrator"
+            "Illustrator",
+            "Subject"
           ],
           "type": "string"
         },
@@ -8142,7 +8383,9 @@
             "OtherGroup",
             "OtherIndividual",
             "Utaite",
-            "Band"
+            "Band",
+            "Vocalist",
+            "Character"
           ],
           "type": "string"
         },
@@ -8306,7 +8549,8 @@
             "Circle",
             "Other",
             "Band",
-            "Illustrator"
+            "Illustrator",
+            "Subject"
           ],
           "type": "string"
         },
@@ -8335,6 +8579,9 @@
         "id": {
           "format": "int32",
           "type": "integer"
+        },
+        "isCustomName": {
+          "type": "boolean"
         },
         "isSupport": {
           "type": "boolean"
@@ -8379,7 +8626,7 @@
       "properties": {
         "latestAlbums": {
           "items": {
-            "$ref": "#/definitions/AlbumContract"
+            "$ref": "#/definitions/AlbumForApiContract"
           },
           "type": "array"
         },
@@ -8397,7 +8644,7 @@
         },
         "popularAlbums": {
           "items": {
-            "$ref": "#/definitions/AlbumContract"
+            "$ref": "#/definitions/AlbumForApiContract"
           },
           "type": "array"
         },
@@ -8543,7 +8790,9 @@
             "OtherGroup",
             "OtherIndividual",
             "Utaite",
-            "Band"
+            "Band",
+            "Vocalist",
+            "Character"
           ],
           "type": "string"
         },
@@ -8654,6 +8903,7 @@
             "Remaster",
             "Remix",
             "Cover",
+            "Arrangement",
             "Instrumental",
             "Mashup",
             "MusicPV",
@@ -8757,6 +9007,9 @@
     },
     "EntryThumbForApiContract": {
       "properties": {
+        "mime": {
+          "type": "string"
+        },
         "urlSmallThumb": {
           "type": "string"
         },
@@ -9599,6 +9852,7 @@
             "Remaster",
             "Remix",
             "Cover",
+            "Arrangement",
             "Instrumental",
             "Mashup",
             "MusicPV",
@@ -9741,6 +9995,7 @@
             "Remaster",
             "Remix",
             "Cover",
+            "Arrangement",
             "Instrumental",
             "Mashup",
             "MusicPV",

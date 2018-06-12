@@ -20,21 +20,21 @@ core_ac_uk.getArticleByCoreIdBatch({
 
 ## Description
 
-<p style="text-align: justify;">You can use the CORE API to access the
+<p style="text-align: justify;">You can use the CORE API to access the 
     resources harvested and enriched by CORE. If you encounter any problems with the API, please <a href="/contact">report them to us</a>.</p>
 
 <h2>Overview</h2>
-<p style="text-align: justify;">The API is organised by resource type. The resources are <b>articles</b>,
-    <b>journals</b> and <b>repositories</b> and are represented using JSON data format. Furthermore,
+<p style="text-align: justify;">The API is organised by resource type. The resources are <b>articles</b>, 
+    <b>journals</b> and <b>repositories</b> and are represented using JSON data format. Furthermore, 
     each resource has a list of methods. The API also provides two global methods for accessing all resources at once.</p>
 
 <h2>Response format</h2>
 <p style="text-align: justify;">Response for each query contains two fields: <b>status</b> and <b>data</b>.
     In case of an error status, the data field is empty. The data field contains a single object
-    in case the request is for a specific identifier (e.g. CORE ID, CORE repository ID, etc.), or
+    in case the request is for a specific identifier (e.g. CORE ID, CORE repository ID, etc.), or  
     contains a list of objects, for example for search queries. In case of batch requests, the response
     is an array of objects, each of which contains its own <b>status</b> and <b>data</b> fields.
-    For search queries the response contains an additional field <b>totalHits</b>, which is the
+    For search queries the response contains an additional field <b>totalHits</b>, which is the 
     total number of items which match the search criteria.</p>
 
 <h2>Search query syntax</h2>
@@ -42,9 +42,9 @@ core_ac_uk.getArticleByCoreIdBatch({
 <p style="text-align: justify">Complex search queries can be used in all of the API search methods.
     The query can be a simple string or it can be built using terms and operators described in Elasticsearch
     <a href="http://www.elastic.co/guide/en/elasticsearch/reference/1.4/query-dsl-query-string-query.html#query-string-syntax">documentation</a>.
-    The usable field names are <strong>title</strong>, <strong>description</strong>, <strong>fullText</strong>,
-    <strong>authorsString</strong>, <strong>publisher</strong>, <strong>repositories.id</strong>, <strong>repositories.name</strong>,
-    <strong>doi</strong>, <strong>oai</strong>, <strong>identifiers</strong> (which is a list of article identifiers including OAI, URL, etc.), <strong>language.name</strong>
+    The usable field names are <strong>title</strong>, <strong>description</strong>, <strong>fullText</strong>, 
+    <strong>authorsString</strong>, <strong>publisher</strong>, <strong>repositories.id</strong>, <strong>repositories.name</strong>, 
+    <strong>doi</strong>, <strong>oai</strong>, <strong>identifiers</strong> (which is a list of article identifiers including OAI, URL, etc.), <strong>language.name</strong> 
     and <strong>year</strong>. Some example queries:
 </p>
 
@@ -55,14 +55,24 @@ core_ac_uk.getArticleByCoreIdBatch({
     <li><p>doi:"10.1186/1471-2458-6-309"</p></li>
 </ul>
 
+<h3>Retrieving the latest Articles</h3>
+<p style="text-align: justify">
+    You can retrieve the harvested items since specific dates using the following queries:
+</p>
+
+<ul style="margin-left: 30px;">
+    <li><p>repositoryDocument.metadataUpdated:>2017-02-10</p></li>
+    <li><p>repositoryDocument.metadataUpdated:>2017-03-01 AND repositoryDocument.metadataUpdated:<2017-03-31</p></li>    
+</ul>
+
 <h2>Sort order</h2>
 
-<p style="text-align: justify;">For search queries, the results are ordered by relevance score. For batch
+<p style="text-align: justify;">For search queries, the results are ordered by relevance score. For batch 
     requests, the results are retrieved in the order of the requests.</p>
 
 <h2>Parameters</h2>
-<p style="text-align: justify;">The API methods allow different parameters to be passed. Additionally, there is an API key parameter which is common to all API methods. For all API methods
-    the API key can be provided either as a query parameter or in the request header. If the API key
+<p style="text-align: justify;">The API methods allow different parameters to be passed. Additionally, there is an API key parameter which is common to all API methods. For all API methods 
+    the API key can be provided either as a query parameter or in the request header. If the API key 
     is not provided, the API will return HTTP 401 error. You can register for an API key <a href="/services#api">here</a>.</p>
 
 <h2>API methods</h2>
@@ -320,6 +330,7 @@ core_ac_uk.getRepositoryByIdBatch({
 * input `object`
   * body **required** `array`
     * items `integer`
+  * stats `boolean`: Whether to retrieve statistics about the repository. The default value is false
 
 #### Output
 * output `array`
@@ -338,6 +349,7 @@ core_ac_uk.getRepositoryById({
 #### Input
 * input `object`
   * repositoryId **required** `integer`: CORE repository ID of the article that needs to be fetched.
+  * stats `boolean`: Whether to retrieve statistics about the repository. The default value is false
 
 #### Output
 * output [RepositoryResponse](#repositoryresponse)
@@ -356,6 +368,7 @@ core_ac_uk.repositories.search.post({
 * input `object`
   * body **required** `array`
     * items [SearchRequest](#searchrequest)
+  * stats `boolean`: Whether to retrieve statistics about the repository. The default value is false
 
 #### Output
 * output [RepositorySearchResponse](#repositorysearchresponse)
@@ -375,6 +388,7 @@ core_ac_uk.repositories.search.query.get({
   * query **required** `string`: The search query
   * page `integer`: Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
   * pageSize `integer`: The number of results to return per page. Can be any number between 10 and 100, default is 10.
+  * stats `boolean`: Whether to retrieve statistics about the repository. The default value is false
 
 #### Output
 * output [RepositorySearchResponse](#repositorysearchresponse)
@@ -432,6 +446,7 @@ core_ac_uk.search.query.get({
   * datePublished `string`: Date article published
   * description `string`: The abstract
   * doi `string`: The DOI of the article
+  * downloadUrl `string`: The download PDF URL which is displayed on our /display/[ArticleID] page
   * fulltext `string`: Article full text
   * fulltextIdentifier `string`: The URL to the fulltext
   * fulltextUrls `array`: URLs of the fulltext version of this article
@@ -536,21 +551,9 @@ core_ac_uk.search.query.get({
 * Repository `object`
   * id `integer`: CORE repository ID
   * name `string`: Repository name
-  * openDoarId `integer`: ID of the repository in Open DOAR
-  * repositoryLocation [RepositoryLocation](#repositorylocation)
-  * uri `string`: Repository URI
 
 ### RepositoryDocument
 
-
-### RepositoryLocation
-* RepositoryLocation `object`
-  * country `string`: Country name
-  * countryCode `string`: Two letter country code
-  * id `integer`: CORE repository ID
-  * latitude `integer`
-  * longitude `integer`
-  * repositoryName `string`: Repository name
 
 ### RepositoryResponse
 * RepositoryResponse `object`

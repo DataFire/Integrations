@@ -151,6 +151,26 @@ azure_web_resourceprovider.UpdateSourceControl({
 #### Output
 * output [SourceControl](#sourcecontrol)
 
+### BillingMeters_List
+Gets a list of meters for a given location.
+
+
+```js
+azure_web_resourceprovider.BillingMeters_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * billingLocation `string`: Azure Location of billable resource
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [BillingMeterCollection](#billingmetercollection)
+
 ### CheckNameAvailability
 Check if a resource name is available.
 
@@ -382,6 +402,25 @@ azure_web_resourceprovider.ValidateMove({
 
 
 ## Definitions
+
+### BillingMeter
+* BillingMeter `object`: App Service billing entity that contains information about meter which the Azure billing system utilizes to charge users for services.
+  * properties `object`: BillingMeter resource specific properties
+    * billingLocation `string`: Azure Location of billable resource
+    * friendlyName `string`: Friendly name of the meter
+    * meterId `string`: Meter GUID onboarded in Commerce
+    * resourceType `string`: App Service resource type meter used for
+    * shortName `string`: Short Name from App Service Azure pricing Page
+  * id `string`: Resource Id.
+  * kind `string`: Kind of resource.
+  * name `string`: Resource Name.
+  * type `string`: Resource type.
+
+### BillingMeterCollection
+* BillingMeterCollection `object`: Collection of Billing Meters
+  * nextLink `string`: Link to next page of resources.
+  * value **required** `array`: Collection of Billing Meters.
+    * items [BillingMeter](#billingmeter)
 
 ### CsmMoveResourceEnvelope
 * CsmMoveResourceEnvelope `object`: Object with a list of the resources that need to be moved and the resource group they should be moved to.

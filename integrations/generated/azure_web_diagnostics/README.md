@@ -15,9 +15,9 @@ let azure_web_diagnostics = require('@datafire/azure_web_diagnostics').create({
   redirect_uri: ""
 });
 
-azure_web_diagnostics.Diagnostics_ListSiteDiagnosticCategories({
+azure_web_diagnostics.Diagnostics_ListHostingEnvironmentDetectorResponses({
   "resourceGroupName": "",
-  "siteName": "",
+  "name": "",
   "subscriptionId": "",
   "api-version": ""
 }).then(data => {
@@ -30,6 +30,108 @@ azure_web_diagnostics.Diagnostics_ListSiteDiagnosticCategories({
 
 
 ## Actions
+
+### Diagnostics_ListHostingEnvironmentDetectorResponses
+List Hosting Environment Detector Responses
+
+
+```js
+azure_web_diagnostics.Diagnostics_ListHostingEnvironmentDetectorResponses({
+  "resourceGroupName": "",
+  "name": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * name **required** `string`: Site Name
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [DetectorResponseCollection](#detectorresponsecollection)
+
+### Diagnostics_GetHostingEnvironmentDetectorResponse
+Get Hosting Environment Detector Response
+
+
+```js
+azure_web_diagnostics.Diagnostics_GetHostingEnvironmentDetectorResponse({
+  "resourceGroupName": "",
+  "name": "",
+  "detectorName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * name **required** `string`: App Service Environment Name
+  * detectorName **required** `string`: Detector Resource Name
+  * startTime `string`: Start Time
+  * endTime `string`: End Time
+  * timeGrain `string`: Time Grain
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [DetectorResponse](#detectorresponse)
+
+### Diagnostics_ListSiteDetectorResponses
+List Site Detector Responses
+
+
+```js
+azure_web_diagnostics.Diagnostics_ListSiteDetectorResponses({
+  "resourceGroupName": "",
+  "siteName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * siteName **required** `string`: Site Name
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [DetectorResponseCollection](#detectorresponsecollection)
+
+### Diagnostics_GetSiteDetectorResponse
+Get site detector response
+
+
+```js
+azure_web_diagnostics.Diagnostics_GetSiteDetectorResponse({
+  "resourceGroupName": "",
+  "siteName": "",
+  "detectorName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * siteName **required** `string`: Site Name
+  * detectorName **required** `string`: Detector Resource Name
+  * startTime `string`: Start Time
+  * endTime `string`: End Time
+  * timeGrain `string`: Time Grain
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [DetectorResponse](#detectorresponse)
 
 ### Diagnostics_ListSiteDiagnosticCategories
 Get Diagnostics Categories
@@ -242,6 +344,61 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetector({
 
 #### Output
 * output [DiagnosticDetectorResponse](#diagnosticdetectorresponse)
+
+### Diagnostics_ListSiteDetectorResponsesSlot
+List Site Detector Responses
+
+
+```js
+azure_web_diagnostics.Diagnostics_ListSiteDetectorResponsesSlot({
+  "resourceGroupName": "",
+  "siteName": "",
+  "slot": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * siteName **required** `string`: Site Name
+  * slot **required** `string`: Slot Name
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [DetectorResponseCollection](#detectorresponsecollection)
+
+### Diagnostics_GetSiteDetectorResponseSlot
+Get site detector response
+
+
+```js
+azure_web_diagnostics.Diagnostics_GetSiteDetectorResponseSlot({
+  "resourceGroupName": "",
+  "siteName": "",
+  "detectorName": "",
+  "slot": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * siteName **required** `string`: Site Name
+  * detectorName **required** `string`: Detector Resource Name
+  * slot **required** `string`: Slot Name
+  * startTime `string`: Start Time
+  * endTime `string`: End Time
+  * timeGrain `string`: Time Grain
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [DetectorResponse](#detectorresponse)
 
 ### Diagnostics_ListSiteDiagnosticCategoriesSlot
 Get Diagnostics Categories
@@ -515,6 +672,21 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
   * instructions `array`: Instrunctions if any for the data source
     * items `string`
 
+### DataTableResponseColumn
+* DataTableResponseColumn `object`: Column definition
+  * columnName `string`: Name of the column
+  * columnType `string`: Column Type
+  * dataType `string`: Data type which looks like 'String' or 'Int32'.
+
+### DataTableResponseObject
+* DataTableResponseObject `object`: Data Table which defines columns and raw row values
+  * columns `array`: List of columns with data types
+    * items [DataTableResponseColumn](#datatableresponsecolumn)
+  * rows `array`: Raw row values
+    * items `array`
+      * items `string`
+  * tableName `string`: Name of the table
+
 ### DetectorAbnormalTimePeriod
 * DetectorAbnormalTimePeriod `object`: Class representing Abnormal Time Period detected.
   * endTime `string`: End time of the corelated event
@@ -542,6 +714,30 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
   * kind `string`: Kind of resource.
   * name `string`: Resource Name.
   * type `string`: Resource type.
+
+### DetectorInfo
+* DetectorInfo `object`: Definition of Detector
+  * category `string`: Support Category
+  * description `string`: Short description of the detector and its purpose
+  * subCategory `string`: Support Sub Category
+  * supportTopicId `string`: Support Topic Id
+
+### DetectorResponse
+* DetectorResponse `object`: Class representing Response from Detector
+  * properties `object`: DetectorResponse resource specific properties
+    * dataset `array`: Data Set
+      * items [DiagnosticData](#diagnosticdata)
+    * metadata [DetectorInfo](#detectorinfo)
+  * id `string`: Resource Id.
+  * kind `string`: Kind of resource.
+  * name `string`: Resource Name.
+  * type `string`: Resource type.
+
+### DetectorResponseCollection
+* DetectorResponseCollection `object`: Collection of detector responses
+  * nextLink `string`: Link to next page of resources.
+  * value **required** `array`: Collection of resources.
+    * items [DetectorResponse](#detectorresponse)
 
 ### DiagnosticAnalysis
 * DiagnosticAnalysis `object`: Class representing a diagnostic analysis done on an application
@@ -579,6 +775,11 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
   * nextLink `string`: Link to next page of resources.
   * value **required** `array`: Collection of resources.
     * items [DiagnosticCategory](#diagnosticcategory)
+
+### DiagnosticData
+* DiagnosticData `object`: Set of data with rendering instructions
+  * renderingProperties [Rendering](#rendering)
+  * table [DataTableResponseObject](#datatableresponseobject)
 
 ### DiagnosticDetectorCollection
 * DiagnosticDetectorCollection `object`: Collection of Diagnostic Detectors
@@ -626,6 +827,12 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
   * unit `string`: Metric's unit
   * values `array`: Collection of metric values for the selected period based on the {Microsoft.Web.Hosting.Administration.DiagnosticMetricSet.TimeGrain}
     * items [DiagnosticMetricSample](#diagnosticmetricsample)
+
+### Rendering
+* Rendering `object`: Instructions for rendering the data
+  * description `string`: Description of the data that will help it be interpreted
+  * renderingType `string` (values: NoGraph, Table, TimeSeries, TimeSeriesPerInstance): Rendering Type
+  * title `string`: Title of data
 
 ### ResponseMetaData
 * ResponseMetaData `object`

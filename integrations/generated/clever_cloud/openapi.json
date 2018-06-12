@@ -132,7 +132,7 @@
           "200": {
             "description": "startGithub",
             "schema": {
-              "$ref": "#/definitions/Transaction_Id"
+              "$ref": "#/definitions/Transaction%20Id"
             }
           }
         },
@@ -5084,7 +5084,7 @@
             "description": "getAvailablePaymentProviders",
             "schema": {
               "items": {
-                "$ref": "#/definitions/Payment_Provider"
+                "$ref": "#/definitions/Payment%20Provider"
               },
               "type": "array"
             }
@@ -7001,7 +7001,7 @@
           "200": {
             "description": "changeUserPassword",
             "schema": {
-              "$ref": "#/definitions/Change_Password"
+              "$ref": "#/definitions/Change%20Password"
             }
           }
         },
@@ -8447,7 +8447,22 @@
       ],
       "type": "object"
     },
-    "Change_Password": {},
+    "Change Password": {},
+    "Change_Password": {
+      "properties": {
+        "newPassword": {
+          "type": "string"
+        },
+        "oldPassword": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "newPassword",
+        "oldPassword"
+      ],
+      "type": "object"
+    },
     "Conso": {
       "properties": {
         "appId": {
@@ -8981,6 +8996,7 @@
       ],
       "type": "object"
     },
+    "Payment Provider": {},
     "PaymentData": {
       "properties": {
         "deviceData": {
@@ -9003,7 +9019,30 @@
       ],
       "type": "object"
     },
-    "Payment_Provider": {},
+    "Payment_Provider": {
+      "properties": {
+        "comingSoon": {
+          "default": false,
+          "type": "boolean"
+        },
+        "imgUrl": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "comingSoon",
+        "imgUrl",
+        "name",
+        "title"
+      ],
+      "type": "object"
+    },
     "Plan": {
       "properties": {
         "features": {
@@ -9427,7 +9466,20 @@
       ],
       "type": "object"
     },
-    "Transaction_Id": {},
+    "Transaction Id": {},
+    "Transaction_Id": {
+      "description": "A simple transaction id",
+      "properties": {
+        "transactionId": {
+          "description": "The transaction Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "transactionId"
+      ],
+      "type": "object"
+    },
     "URL": {
       "description": "Must be a valid HTTP URL",
       "properties": {

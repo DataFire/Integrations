@@ -125,6 +125,21 @@
         "operationId": "articles.get"
       }
     },
+    "/articles/categories": {
+      "get": {
+        "description": "List of all article categories",
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "summary": "List of all article categories",
+        "tags": [
+          "articles"
+        ],
+        "operationId": "articles.categories.get"
+      }
+    },
     "/categories": {
       "get": {
         "description": "List of supported product categories",
@@ -379,6 +394,9 @@
                 "country_code": {
                   "type": "string"
                 },
+                "layaway_terms_slug": {
+                  "type": "string"
+                },
                 "message": {
                   "description": "Message to include with counter offer",
                   "type": "string"
@@ -431,6 +449,9 @@
                     "currency"
                   ],
                   "type": "object"
+                },
+                "quantity": {
+                  "type": "string"
                 },
                 "region_code": {
                   "type": "string"
@@ -1250,7 +1271,9 @@
                 "exclusive_channel": {
                   "description": "Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'",
                   "enum": [
-                    "seller_site"
+                    "seller_site",
+                    "reverb",
+                    "none"
                   ],
                   "type": "string"
                 },
@@ -2177,7 +2200,9 @@
                 "exclusive_channel": {
                   "description": "Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'",
                   "enum": [
-                    "seller_site"
+                    "seller_site",
+                    "reverb",
+                    "none"
                   ],
                   "type": "string"
                 },
@@ -4779,6 +4804,9 @@
                 "country_code": {
                   "type": "string"
                 },
+                "layaway_terms_slug": {
+                  "type": "string"
+                },
                 "message": {
                   "description": "Message to include with counter offer",
                   "type": "string"
@@ -4831,6 +4859,9 @@
                     "currency"
                   ],
                   "type": "object"
+                },
+                "quantity": {
+                  "type": "string"
                 },
                 "region_code": {
                   "type": "string"
@@ -4961,6 +4992,27 @@
         "operationId": "my.orders.buying.all.get"
       }
     },
+    "/my/orders/buying/by_uuid/{uuid}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "tags": [
+          "my"
+        ],
+        "operationId": "my.orders.buying.by_uuid.uuid.get"
+      }
+    },
     "/my/orders/buying/unpaid": {
       "get": {
         "description": "Returns unpaid orders, newest first.",
@@ -5046,56 +5098,6 @@
     "/my/orders/selling/all": {
       "get": {
         "description": "Get all seller orders, newest first.",
-        "parameters": [
-          {
-            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "created_start_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "created_end_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "updated_start_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "updated_end_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "default": 1,
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "default": 24,
-            "in": "query",
-            "name": "per_page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "type": "integer"
-          }
-        ],
         "responses": {
           "default": {
             "description": "Unexpected error"
@@ -5117,57 +5119,7 @@
     },
     "/my/orders/selling/awaiting_shipment": {
       "get": {
-        "description": "Get seller orders awaiting shipment, newest first.",
-        "parameters": [
-          {
-            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "created_start_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "created_end_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "updated_start_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "updated_end_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "default": 1,
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "default": 24,
-            "in": "query",
-            "name": "per_page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "type": "integer"
-          }
-        ],
+        "description": "Get unpaid seller orders, newest first.",
         "responses": {
           "default": {
             "description": "Unexpected error"
@@ -5180,7 +5132,7 @@
             ]
           }
         ],
-        "summary": "Get seller orders awaiting shipment, newest first.",
+        "summary": "Get unpaid seller orders, newest first.",
         "tags": [
           "my"
         ],
@@ -5217,59 +5169,30 @@
         "operationId": "my.orders.selling.buyer_history.buyer_id.get"
       }
     },
+    "/my/orders/selling/by_uuid/{uuid}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "tags": [
+          "my"
+        ],
+        "operationId": "my.orders.selling.by_uuid.uuid.get"
+      }
+    },
     "/my/orders/selling/unpaid": {
       "get": {
         "description": "Get unpaid seller orders, newest first.",
-        "parameters": [
-          {
-            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "created_start_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "created_end_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "updated_start_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00",
-            "in": "query",
-            "name": "updated_end_date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "default": 1,
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "default": 24,
-            "in": "query",
-            "name": "per_page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "type": "integer"
-          }
-        ],
         "responses": {
           "default": {
             "description": "Unexpected error"
@@ -5880,83 +5803,6 @@
           "payment_methods"
         ],
         "operationId": "payment_methods.get"
-      }
-    },
-    "/priceguide": {
-      "get": {
-        "description": "Search the Price Guide",
-        "parameters": [
-          {
-            "description": "Search query.",
-            "in": "query",
-            "name": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "Unexpected error"
-          }
-        },
-        "summary": "Search the Price Guide",
-        "tags": [
-          "priceguide"
-        ],
-        "operationId": "priceguide.get"
-      }
-    },
-    "/priceguide/{id}": {
-      "get": {
-        "description": "Retrieve a Price Guide",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "Unexpected error"
-          }
-        },
-        "summary": "Retrieve a Price Guide",
-        "tags": [
-          "priceguide"
-        ],
-        "operationId": "priceguide.id.get"
-      }
-    },
-    "/priceguide/{id}/transactions": {
-      "get": {
-        "description": "Get a list of paginated transactions for a price guide.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": "used",
-            "in": "query",
-            "name": "condition",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "Unexpected error"
-          }
-        },
-        "summary": "Get a list of paginated transactions for a price guide.",
-        "tags": [
-          "priceguide"
-        ],
-        "operationId": "priceguide.id.transactions.get"
       }
     },
     "/priceguide/{id}/transactions/summary": {
@@ -6614,6 +6460,13 @@
                   "type": "string"
                 },
                 "shipping_policy": {
+                  "type": "string"
+                },
+                "shop_type": {
+                  "enum": [
+                    "individual",
+                    "business"
+                  ],
                   "type": "string"
                 },
                 "website": {

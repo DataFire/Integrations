@@ -1,0 +1,2717 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Brex",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "financial"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_brex.io_img_logo_brex_small.png"
+    },
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.6.2"
+        },
+        "format": "openapi",
+        "url": "https://api.brex.io/docs/",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "brex.io",
+    "x-datafire": {
+      "name": "brex",
+      "type": "openapi"
+    }
+  },
+  "host": "api.brex.io",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/v1/company/announcement/{id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "announcement hex ID",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of announcements",
+            "schema": {
+              "items": {
+                "properties": {
+                  "countryCode": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "registrationNumber": {
+                    "type": "string"
+                  },
+                  "structured": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "time": {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Search announcements by id"
+      }
+    },
+    "/api/v1/company/deepsearch/name/{country}/{name}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company name",
+            "format": "string",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of companies",
+            "schema": {
+              "items": {
+                "properties": {
+                  "address": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "dateOfIncorporation": {
+                    "type": "string"
+                  },
+                  "extraData": {
+                    "type": "object"
+                  },
+                  "formattedAddress": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "legalForm": {
+                    "type": "string"
+                  },
+                  "managingDirectors": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "registrationNumber": {
+                    "type": "string"
+                  },
+                  "requestTime": {
+                    "type": "integer"
+                  },
+                  "secretaries": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "sicNaceCodes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Deep Search (Search on register) by country and name"
+      }
+    },
+    "/api/v1/company/deepsearch/number/{country}/{number}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company registration number",
+            "format": "string",
+            "in": "path",
+            "name": "number",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of companies",
+            "schema": {
+              "items": {
+                "properties": {
+                  "address": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "dateOfIncorporation": {
+                    "type": "string"
+                  },
+                  "extraData": {
+                    "type": "object"
+                  },
+                  "formattedAddress": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "legalForm": {
+                    "type": "string"
+                  },
+                  "managingDirectors": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "registrationNumber": {
+                    "type": "string"
+                  },
+                  "requestTime": {
+                    "type": "integer"
+                  },
+                  "secretaries": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "sicNaceCodes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Deep Search (Search on register) by country and register number."
+      }
+    },
+    "/api/v1/company/search/name/{country}/{name}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company name",
+            "format": "string",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "number of search results",
+            "format": "int64",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Search by country and name"
+      }
+    },
+    "/api/v1/company/search/number/{country}/{number}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company registration number",
+            "format": "string",
+            "in": "path",
+            "name": "number",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "number of search results",
+            "format": "int64",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of companies",
+            "schema": {
+              "items": {
+                "properties": {
+                  "address": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "dateOfIncorporation": {
+                    "type": "string"
+                  },
+                  "extraData": {
+                    "type": "object"
+                  },
+                  "formattedAddress": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "legalForm": {
+                    "type": "string"
+                  },
+                  "managingDirectors": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "registrationNumber": {
+                    "type": "string"
+                  },
+                  "requestTime": {
+                    "type": "integer"
+                  },
+                  "secretaries": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "sicNaceCodes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Search by country and registration number"
+      }
+    },
+    "/api/v1/company/search/{country}": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Company address (or address partial)",
+            "in": "formData",
+            "name": "address",
+            "type": "string"
+          },
+          {
+            "description": "Company name",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "Company registration number",
+            "in": "formData",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "description": "Company contact phone number",
+            "in": "formData",
+            "name": "phone",
+            "type": "string"
+          },
+          {
+            "description": "Company url",
+            "in": "formData",
+            "name": "url",
+            "type": "string"
+          },
+          {
+            "description": "Company VAT number",
+            "in": "formData",
+            "name": "vat",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of companies",
+            "schema": {
+              "items": {
+                "properties": {
+                  "address": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "dateOfIncorporation": {
+                    "type": "string"
+                  },
+                  "extraData": {
+                    "type": "object"
+                  },
+                  "formattedAddress": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "legalForm": {
+                    "type": "string"
+                  },
+                  "managingDirectors": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "registrationNumber": {
+                    "type": "string"
+                  },
+                  "requestTime": {
+                    "type": "integer"
+                  },
+                  "secretaries": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "sicNaceCodes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Search by country and mixed parameters. This function requires a country code then a mixture of name, number, url, phone, and vat. 0 or 1 of each parameter can be supplied. These are applied in a progressive filter mechanism in the order they are supplied (when properly implemented). This means it is possible to return empty sets when a later match returns an empty set."
+      }
+    },
+    "/api/v1/company/{id}/announcements": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "company hex ID",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of announcements",
+            "schema": {
+              "items": {
+                "properties": {
+                  "countryCode": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "registrationNumber": {
+                    "type": "string"
+                  },
+                  "structured": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "time": {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Search announcements by company id"
+      },
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "company hex ID",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "include announcement text and structured data",
+            "in": "formData",
+            "name": "data",
+            "type": "boolean"
+          },
+          {
+            "description": "maximum amount of announcements that should include text",
+            "format": "int32",
+            "in": "formData",
+            "name": "data-max-announcements",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The details of announcement",
+            "schema": {
+              "properties": {
+                "countryCode": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "registrationNumber": {
+                  "type": "string"
+                },
+                "structured": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "time": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "countryCode",
+                "id",
+                "registrationNumber",
+                "time",
+                "type"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Search announcements by company id"
+      }
+    },
+    "/api/v1/company/{id}/super/{country}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "company superdata by id",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of companies",
+            "schema": {
+              "items": {
+                "properties": {
+                  "address": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "dateOfIncorporation": {
+                    "type": "string"
+                  },
+                  "extraData": {
+                    "type": "object"
+                  },
+                  "formattedAddress": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "legalForm": {
+                    "type": "string"
+                  },
+                  "managingDirectors": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "registrationNumber": {
+                    "type": "string"
+                  },
+                  "requestTime": {
+                    "type": "integer"
+                  },
+                  "secretaries": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "sicNaceCodes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Search for company superdata by id from previous call"
+      }
+    },
+    "/api/v1/company/{id}/{dataset}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "company master data by id",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company master data by id",
+            "enum": [
+              "",
+              "mini",
+              "master",
+              "full",
+              "refresh"
+            ],
+            "format": "string",
+            "in": "path",
+            "name": "dataset",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of companies",
+            "schema": {
+              "items": {
+                "properties": {
+                  "address": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "dateOfIncorporation": {
+                    "type": "string"
+                  },
+                  "extraData": {
+                    "type": "object"
+                  },
+                  "formattedAddress": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "legalForm": {
+                    "type": "string"
+                  },
+                  "managingDirectors": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "registrationNumber": {
+                    "type": "string"
+                  },
+                  "requestTime": {
+                    "type": "integer"
+                  },
+                  "secretaries": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "sicNaceCodes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-company"
+        ],
+        "description": "Search for company by id from previous call"
+      }
+    },
+    "/api/v1/nif-verification/basic-check/{country}": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company address lines",
+            "in": "formData",
+            "name": "companyAddress",
+            "type": "string"
+          },
+          {
+            "description": "Company name",
+            "in": "formData",
+            "name": "companyName",
+            "type": "string"
+          },
+          {
+            "description": "NIF number to validate",
+            "in": "formData",
+            "name": "nifNumber",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Result of a basic NIF verification",
+            "schema": {
+              "properties": {
+                "companyName": {
+                  "type": "string"
+                },
+                "confidenceScore": {
+                  "type": "number"
+                },
+                "nifNumber": {
+                  "type": "number"
+                },
+                "validationStatus": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "nifNumber",
+                "confidenceScore",
+                "validationStatus"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-nif-verification"
+        ],
+        "description": "Basic verification of given portuguese NIF number against NIF.com. Optional parameters may help to build a better confidence score."
+      }
+    },
+    "/api/v1/nif-verification/comprehensive-check/{country}": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company address lines",
+            "in": "formData",
+            "name": "companyAddress",
+            "type": "string"
+          },
+          {
+            "description": "Company name",
+            "in": "formData",
+            "name": "companyName",
+            "type": "string"
+          },
+          {
+            "description": "NIF number to validate",
+            "in": "formData",
+            "name": "nifNumber",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Result of a comprehensive NIF verification",
+            "schema": {
+              "properties": {
+                "activity": {
+                  "type": "object"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "capital": {
+                  "type": "number"
+                },
+                "companyName": {
+                  "type": "string"
+                },
+                "confidenceScore": {
+                  "type": "number"
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "fax": {
+                  "type": "string"
+                },
+                "geo": {
+                  "type": "string"
+                },
+                "legalType": {
+                  "type": "string"
+                },
+                "nifNumber": {
+                  "type": "number"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "object"
+                },
+                "validationStatus": {
+                  "type": "boolean"
+                },
+                "website": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "nifNumber",
+                "confidenceScore",
+                "validationStatus"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-nif-verification"
+        ],
+        "description": "Comprehensive verification of given portuguese NIF number against NIF.com. Optional parameters may help to build a better confidence score."
+      }
+    },
+    "/api/v1/pepsanction/order/{type}/{search}": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Type (Business or Person) of the requested Pep Sanction Check",
+            "enum": [
+              "",
+              "B",
+              "P"
+            ],
+            "format": "string",
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Search string for the Pep Sanction Check",
+            "format": "string",
+            "in": "path",
+            "name": "search",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional parameter for declaring alias names when doing a person search (seperated by commas)",
+            "in": "formData",
+            "name": "Aliases",
+            "type": "string"
+          },
+          {
+            "description": "Optional parameter for date of birth name when doing a person search",
+            "in": "formData",
+            "name": "DOB",
+            "type": "string"
+          },
+          {
+            "description": "Optional parameter for last name when doing a person search",
+            "in": "formData",
+            "name": "FamilyName",
+            "type": "string"
+          },
+          {
+            "description": "Optional parameter for restricting search when doing a person search (seperated by commas)",
+            "in": "formData",
+            "name": "Filters",
+            "type": "string"
+          },
+          {
+            "description": "Optional parameter for first name when doing a person search",
+            "in": "formData",
+            "name": "GivenName",
+            "type": "string"
+          },
+          {
+            "description": "Optional parameter for middle name when doing a person search",
+            "in": "formData",
+            "name": "MiddleName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product details",
+            "schema": {
+              "properties": {
+                "availability": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "countryCode": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "hasOptions": {
+                  "type": "boolean"
+                },
+                "options": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "price": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "availability",
+                "category",
+                "countryCode",
+                "description",
+                "hasOptions",
+                "options",
+                "price",
+                "provider",
+                "sku",
+                "type"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-pepsanction"
+        ],
+        "description": "Order a new Pep Sanction Check"
+      }
+    },
+    "/api/v1/pepsanction/retrieve/{id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "application/json",
+            "description": "The type (pdf or json) in which the check should be returned",
+            "enum": [
+              "application/json",
+              "application/pdf"
+            ],
+            "format": "string",
+            "in": "header",
+            "name": "accept",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The id of the ordered Pep Sanction Check (id as returned by orderPepSanction call)",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Result of a PEP and sanctions list check",
+            "schema": {
+              "properties": {
+                "listsChecked": {
+                  "type": "string"
+                },
+                "results": {
+                  "properties": {
+                    "Excerpts": {
+                      "type": "string"
+                    },
+                    "ResultsURL": {
+                      "type": "string"
+                    },
+                    "SearchType": {
+                      "type": "string"
+                    },
+                    "SourceAgency": {
+                      "type": "string"
+                    },
+                    "SourceEntity": {
+                      "type": "string"
+                    },
+                    "SourceID": {
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "SourceName": {
+                      "type": "string"
+                    },
+                    "SourceType": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "search": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "listsChecked",
+                "search",
+                "status",
+                "timestamp",
+                "type"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-pepsanction"
+        ],
+        "description": "Retrieve a delivered Pep Sanction check structured or in pdf"
+      }
+    },
+    "/api/v1/product/availability/{sku}/{subjectId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "SKU - 9 character value from a Product object",
+            "format": "string",
+            "in": "path",
+            "name": "sku",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subject (e.g. Company) ID - 32 character hex value",
+            "format": "string",
+            "in": "path",
+            "name": "subjectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product details",
+            "schema": {
+              "properties": {
+                "availability": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "countryCode": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "hasOptions": {
+                  "type": "boolean"
+                },
+                "options": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "price": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "availability",
+                "category",
+                "countryCode",
+                "description",
+                "hasOptions",
+                "options",
+                "price",
+                "provider",
+                "sku",
+                "type"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-product"
+        ],
+        "description": "Check availabilty and valid options for a particular product for a particular subject"
+      }
+    },
+    "/api/v1/product/notifier/{notifierId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the ProductOrderNotifier as returned from a /notifier POST call - 32 character hex value",
+            "format": "string",
+            "in": "path",
+            "name": "notifierId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of configured product order notification",
+            "schema": {
+              "properties": {
+                "callback": {
+                  "type": "string"
+                },
+                "identity": {
+                  "type": "string"
+                },
+                "lastCallTime": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "lastResponseCode": {
+                  "type": "integer"
+                },
+                "notifierType": {
+                  "type": "string"
+                },
+                "productOrderIdentity": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "callback",
+                "lastCallTime",
+                "lastResponseCode",
+                "notifierType",
+                "productOrderIdentity"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-product"
+        ],
+        "description": "Return the current status of an existing notifier"
+      }
+    },
+    "/api/v1/product/order/{sku}/{option}/{subjectId}": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "SKU - 9 character value from a Product object",
+            "format": "string",
+            "in": "path",
+            "name": "sku",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Product option (e.g. Accounts year) from a previous Availability call",
+            "format": "string",
+            "in": "path",
+            "name": "option",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subject (e.g. Company) ID - 32 character hex value",
+            "format": "string",
+            "in": "path",
+            "name": "subjectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product order details",
+            "schema": {
+              "properties": {
+                "identity": {
+                  "type": "string"
+                },
+                "option": {
+                  "type": "string"
+                },
+                "ordered": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "string"
+                },
+                "price": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "subjectId": {
+                  "type": "string"
+                },
+                "subjectValue": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "identity",
+                "option",
+                "ordered",
+                "owner",
+                "price",
+                "sku",
+                "status",
+                "subjectId",
+                "subjectValue"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-product"
+        ],
+        "description": "Place an order for a particular product for a particular subject"
+      }
+    },
+    "/api/v1/product/order/{sku}/{subjectId}": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "SKU - 9 character value from a Product object",
+            "format": "string",
+            "in": "path",
+            "name": "sku",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subject (e.g. Company) ID - 32 character hex value",
+            "format": "string",
+            "in": "path",
+            "name": "subjectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product order details",
+            "schema": {
+              "properties": {
+                "identity": {
+                  "type": "string"
+                },
+                "option": {
+                  "type": "string"
+                },
+                "ordered": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "string"
+                },
+                "price": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "subjectId": {
+                  "type": "string"
+                },
+                "subjectValue": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "identity",
+                "option",
+                "ordered",
+                "owner",
+                "price",
+                "sku",
+                "status",
+                "subjectId",
+                "subjectValue"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-product"
+        ],
+        "description": "Place an order for a particular product for a particular subject"
+      }
+    },
+    "/api/v1/product/search/{subjectId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Subject (e.g. Company) ID - 32 character hex value",
+            "format": "string",
+            "in": "path",
+            "name": "subjectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of products",
+            "schema": {
+              "items": {
+                "properties": {
+                  "availability": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "countryCode": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "hasOptions": {
+                    "type": "boolean"
+                  },
+                  "options": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "price": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "sku": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-product"
+        ],
+        "description": "Search for possible products for a particular subject"
+      }
+    },
+    "/api/v1/product/status/{orderId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the ProductOrder as returned from a /product/buy call - 32 character hex value",
+            "format": "string",
+            "in": "path",
+            "name": "orderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product order details",
+            "schema": {
+              "properties": {
+                "identity": {
+                  "type": "string"
+                },
+                "option": {
+                  "type": "string"
+                },
+                "ordered": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "string"
+                },
+                "price": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "subjectId": {
+                  "type": "string"
+                },
+                "subjectValue": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "identity",
+                "option",
+                "ordered",
+                "owner",
+                "price",
+                "sku",
+                "status",
+                "subjectId",
+                "subjectValue"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-product"
+        ],
+        "description": "Get the status of an ongoing order"
+      }
+    },
+    "/api/v1/product/{orderId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the ProductOrder as returned from a /product/buy call - 32 character hex value",
+            "format": "string",
+            "in": "path",
+            "name": "orderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details for retrieval of a delivered product",
+            "schema": {
+              "properties": {
+                "mimeType": {
+                  "type": "string"
+                },
+                "productOrderId": {
+                  "type": "string"
+                },
+                "uri": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "mimeType",
+                "productOrderId",
+                "uri"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-product"
+        ],
+        "description": "Retrieves the document associated with a completed order"
+      }
+    },
+    "/api/v1/system/countries": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of countries",
+            "schema": {
+              "items": {
+                "properties": {
+                  "country_code": {
+                    "type": "string"
+                  },
+                  "country_name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-system"
+        ],
+        "description": "Search for possible products for a particular subject"
+      }
+    },
+    "/api/v1/system/pricelist": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of pricing rules",
+            "schema": {
+              "items": {
+                "properties": {
+                  "cost_per_unit": {
+                    "type": "string"
+                  },
+                  "max": {
+                    "type": "string"
+                  },
+                  "metric_id": {
+                    "type": "string"
+                  },
+                  "min": {
+                    "type": "string"
+                  },
+                  "sku": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-system"
+        ],
+        "description": "Retrieve pricing rules for your subscription plan"
+      }
+    },
+    "/api/v1/vat-verification/basic-check/{country}": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company address lines",
+            "in": "formData",
+            "name": "companyAddress",
+            "type": "string"
+          },
+          {
+            "description": "Company name",
+            "in": "formData",
+            "name": "companyName",
+            "type": "string"
+          },
+          {
+            "description": "official company number",
+            "in": "formData",
+            "name": "companyNumber",
+            "type": "string"
+          },
+          {
+            "description": "VAT number to validate",
+            "in": "formData",
+            "name": "vatNumber",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Denotes validity of checked VAT",
+            "schema": {
+              "properties": {
+                "company": {
+                  "properties": {
+                    "address": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "dateOfIncorporation": {
+                      "type": "string"
+                    },
+                    "extraData": {
+                      "type": "object"
+                    },
+                    "formattedAddress": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "legalForm": {
+                      "type": "string"
+                    },
+                    "managingDirectors": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "registrationNumber": {
+                      "type": "string"
+                    },
+                    "requestTime": {
+                      "type": "integer"
+                    },
+                    "secretaries": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "sicNaceCodes": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "country",
+                    "id",
+                    "name",
+                    "registrationNumber"
+                  ]
+                },
+                "confidenceScore": {
+                  "type": "number"
+                },
+                "validationStatus": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "confidenceScore",
+                "validationStatus"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-vat-verification"
+        ],
+        "description": "Basic verification of given VAT number against VIES. Optional parameters may help to build a better confidence score."
+      }
+    },
+    "/api/v1/vat-verification/comprehensive-check/{country}": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ISO_3166-1_alpha-2 representation of a country name - 2 chars",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "company address lines",
+            "in": "formData",
+            "name": "companyAddress",
+            "type": "string"
+          },
+          {
+            "description": "Company name",
+            "in": "formData",
+            "name": "companyName",
+            "type": "string"
+          },
+          {
+            "description": "official company number",
+            "in": "formData",
+            "name": "companyNumber",
+            "type": "string"
+          },
+          {
+            "description": "VAT number to validate",
+            "in": "formData",
+            "name": "vatNumber",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Denotes validity of checked VAT",
+            "schema": {
+              "properties": {
+                "company": {
+                  "properties": {
+                    "address": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "dateOfIncorporation": {
+                      "type": "string"
+                    },
+                    "extraData": {
+                      "type": "object"
+                    },
+                    "formattedAddress": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "legalForm": {
+                      "type": "string"
+                    },
+                    "managingDirectors": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "registrationNumber": {
+                      "type": "string"
+                    },
+                    "requestTime": {
+                      "type": "integer"
+                    },
+                    "secretaries": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "sicNaceCodes": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "country",
+                    "id",
+                    "name",
+                    "registrationNumber"
+                  ]
+                },
+                "confidenceScore": {
+                  "type": "number"
+                },
+                "validationStatus": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "confidenceScore",
+                "validationStatus"
+              ]
+            }
+          },
+          "default": {
+            "description": "Detailed information about the error",
+            "schema": {
+              "properties": {
+                "code": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ],
+        "tags": [
+          "v1-vat-verification"
+        ],
+        "description": "Extended verification of given VAT number against VIES and register. Optional parameters may help to build a better confidence score."
+      }
+    }
+  },
+  "securityDefinitions": {
+    "user_key": {
+      "in": "header",
+      "name": "user_key",
+      "type": "apiKey"
+    }
+  },
+  "tags": [
+    {
+      "description": "System operations",
+      "name": "v1-system"
+    },
+    {
+      "description": "Company Search operations",
+      "name": "v1-company"
+    },
+    {
+      "description": "Product Search, Order and Retrieve operations",
+      "name": "v1-product"
+    },
+    {
+      "description": "Pep Sanction Check operations",
+      "name": "v1-pepsanction"
+    },
+    {
+      "description": "VAT-Verification methods",
+      "name": "v1-vat-verification"
+    },
+    {
+      "description": "NIF-Verification methods",
+      "name": "v1-nif-verification"
+    }
+  ],
+  "x-components": {}
+}

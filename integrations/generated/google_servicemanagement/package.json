@@ -1,8 +1,8 @@
 {
   "name": "@datafire/google_servicemanagement",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Google Service Management",
+  "description": "DataFire integration for Service Management",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

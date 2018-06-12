@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/graphrbac/data-plane/stable/1.6/graphrbac.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/graphrbac/data-plane/stable/1.6/graphrbac.json",
         "version": "2.0"
       }
     ],
@@ -68,7 +68,8 @@
       "in": "path",
       "name": "tenantID",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "client"
     }
   },
   "paths": {
@@ -2240,6 +2241,11 @@
       },
       "description": "Active Directory Key Credential information.",
       "properties": {
+        "customKeyIdentifier": {
+          "description": "Custom Key Identifier",
+          "format": "byte",
+          "type": "string"
+        },
         "endDate": {
           "description": "End date.",
           "format": "date-time",

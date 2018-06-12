@@ -46,7 +46,7 @@ azure_automation_module.Module_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -75,11 +75,11 @@ azure_automation_module.Module_ListByAutomationAccount({
         * provisioningState `string` (values: Created, Creating, StartingImportModuleRunbook, RunningImportModuleRunbook, ContentRetrieved, ContentDownloaded, ContentValidated, ConnectionTypeImported, ContentStored, ModuleDataStored, ActivitiesStored, ModuleImportRunbookComplete, Succeeded, Failed, Cancelled, Updating): Gets or sets the provisioning state of the module.
         * sizeInBytes `integer`: Gets or sets the size in bytes of the module.
         * version `string`: Gets or sets the version of the module.
-      * id `string`: Resource Id
-      * location **required** `string`: Resource location
-      * name `string`: Resource name
-      * tags `object`: Resource tags
-      * type `string`: Resource type
+      * location `string`: The Azure Region where the resource lives
+      * tags `object`: Resource tags.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### Module_Delete
 Delete the module by name.
@@ -97,7 +97,7 @@ azure_automation_module.Module_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * moduleName **required** `string`: The module name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -122,7 +122,7 @@ azure_automation_module.Module_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * moduleName **required** `string`: The module name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -149,11 +149,11 @@ azure_automation_module.Module_Get({
     * provisioningState `string` (values: Created, Creating, StartingImportModuleRunbook, RunningImportModuleRunbook, ContentRetrieved, ContentDownloaded, ContentValidated, ConnectionTypeImported, ContentStored, ModuleDataStored, ActivitiesStored, ModuleImportRunbookComplete, Succeeded, Failed, Cancelled, Updating): Gets or sets the provisioning state of the module.
     * sizeInBytes `integer`: Gets or sets the size in bytes of the module.
     * version `string`: Gets or sets the version of the module.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Module_Update
 Update the module identified by module name.
@@ -172,7 +172,7 @@ azure_automation_module.Module_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * moduleName **required** `string`: The name of module.
   * parameters **required** `object`: The parameters supplied to the update module operation.
@@ -210,11 +210,11 @@ azure_automation_module.Module_Update({
     * provisioningState `string` (values: Created, Creating, StartingImportModuleRunbook, RunningImportModuleRunbook, ContentRetrieved, ContentDownloaded, ContentValidated, ConnectionTypeImported, ContentStored, ModuleDataStored, ActivitiesStored, ModuleImportRunbookComplete, Succeeded, Failed, Cancelled, Updating): Gets or sets the provisioning state of the module.
     * sizeInBytes `integer`: Gets or sets the size in bytes of the module.
     * version `string`: Gets or sets the version of the module.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Module_CreateOrUpdate
 Create or Update the module identified by module name.
@@ -233,7 +233,7 @@ azure_automation_module.Module_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * moduleName **required** `string`: The name of module.
   * parameters **required** `object`: The parameters supplied to the create or update module operation.
@@ -271,11 +271,11 @@ azure_automation_module.Module_CreateOrUpdate({
     * provisioningState `string` (values: Created, Creating, StartingImportModuleRunbook, RunningImportModuleRunbook, ContentRetrieved, ContentDownloaded, ContentValidated, ConnectionTypeImported, ContentStored, ModuleDataStored, ActivitiesStored, ModuleImportRunbookComplete, Succeeded, Failed, Cancelled, Updating): Gets or sets the provisioning state of the module.
     * sizeInBytes `integer`: Gets or sets the size in bytes of the module.
     * version `string`: Gets or sets the version of the module.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Activity_ListByModule
 Retrieve a list of activities in the module identified by module name.
@@ -293,7 +293,7 @@ azure_automation_module.Activity_ListByModule({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * moduleName **required** `string`: The name of module.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -346,7 +346,7 @@ azure_automation_module.Activity_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * moduleName **required** `string`: The name of module.
   * activityName **required** `string`: The name of activity.
@@ -397,7 +397,7 @@ azure_automation_module.ObjectDataTypes_ListFieldsByModuleAndType({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * moduleName **required** `string`: The name of module.
   * typeName **required** `string`: The name of type.
@@ -428,7 +428,7 @@ azure_automation_module.Fields_ListByType({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * moduleName **required** `string`: The name of module.
   * typeName **required** `string`: The name of type.
@@ -458,7 +458,7 @@ azure_automation_module.ObjectDataTypes_ListFieldsByType({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * typeName **required** `string`: The name of type.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.

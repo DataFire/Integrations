@@ -85,12 +85,10 @@ google_tpu.projects.locations.nodes.delete({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -115,12 +113,10 @@ google_tpu.projects.locations.nodes.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -148,12 +144,10 @@ google_tpu.projects.locations.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -190,12 +184,10 @@ google_tpu.projects.locations.operations.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -229,12 +221,10 @@ google_tpu.projects.locations.operations.cancel({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -260,12 +250,10 @@ google_tpu.projects.locations.nodes.reimage({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -291,12 +279,10 @@ google_tpu.projects.locations.nodes.reset({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -322,12 +308,10 @@ google_tpu.projects.locations.nodes.start({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -353,12 +337,10 @@ google_tpu.projects.locations.nodes.stop({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -366,6 +348,38 @@ google_tpu.projects.locations.nodes.stop({
 
 #### Output
 * output [Operation](#operation)
+
+### projects.locations.acceleratorTypes.list
+Lists accelerator types supported by this API.
+
+
+```js
+google_tpu.projects.locations.acceleratorTypes.list({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: List filter.
+  * orderBy `string`: Sort results.
+  * pageSize `integer`: The maximum number of items to return.
+  * pageToken `string`: The next_page_token value returned from a previous List request, if any.
+  * parent **required** `string`: The parent resource name.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListAcceleratorTypesResponse](#listacceleratortypesresponse)
 
 ### projects.locations.nodes.list
 Lists nodes.
@@ -385,12 +399,10 @@ google_tpu.projects.locations.nodes.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -417,12 +429,10 @@ google_tpu.projects.locations.nodes.create({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -451,12 +461,10 @@ google_tpu.projects.locations.tensorflowVersions.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
@@ -469,8 +477,19 @@ google_tpu.projects.locations.tensorflowVersions.list({
 
 ## Definitions
 
+### AcceleratorType
+* AcceleratorType `object`: A accelerator type that a Node can be configured with.
+  * name `string`: The resource name.
+  * type `string`: the accelerator type.
+
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
+
+### ListAcceleratorTypesResponse
+* ListAcceleratorTypesResponse `object`: Response for ListAcceleratorTypes.
+  * acceleratorTypes `array`: The listed nodes.
+    * items [AcceleratorType](#acceleratortype)
+  * nextPageToken `string`: The next page token or empty if none.
 
 ### ListLocationsResponse
 * ListLocationsResponse `object`: The response message for Locations.ListLocations.
@@ -498,6 +517,7 @@ google_tpu.projects.locations.tensorflowVersions.list({
 
 ### Location
 * Location `object`: A resource that represents Google Cloud Platform location.
+  * displayName `string`: The friendly name for this location, typically a nearby city name.
   * labels `object`: Cross-service attributes for the location. For example
   * locationId `string`: The canonical id for this location. For example: `"us-east1"`.
   * metadata `object`: Service-specific metadata. For example the available capacity at the given
@@ -524,7 +544,7 @@ google_tpu.projects.locations.tensorflowVersions.list({
     * items [NetworkEndpoint](#networkendpoint)
   * port `string`: Output only.
   * serviceAccount `string`: Output only.
-  * state `string` (values: STATE_UNSPECIFIED, CREATING, READY, RESTARTING, REIMAGING, DELETING, REPAIRING, STOPPED): Output only.
+  * state `string` (values: STATE_UNSPECIFIED, CREATING, READY, RESTARTING, REIMAGING, DELETING, REPAIRING, STOPPED, STOPPING, STARTING): Output only.
   * tensorflowVersion `string`: The version of Tensorflow running in the Node.
 
 ### Operation

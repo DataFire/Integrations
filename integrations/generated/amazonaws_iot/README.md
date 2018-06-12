@@ -22,7 +22,7 @@ amazonaws_iot.AcceptCertificateTransfer({
 
 ## Description
 
-<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each thing (Thing Registry), configure logging, and create and manage policies and credentials to authenticate things.</p> <p>For more information about how AWS IoT works, see the <a href="http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p>
+<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>For more information about how AWS IoT works, see the <a href="http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p>
 
 ## Actions
 
@@ -608,6 +608,23 @@ amazonaws_iot.ListJobs({}, context)
 
 #### Output
 * output [ListJobsResponse](#listjobsresponse)
+
+### DeleteJob
+
+
+
+```js
+amazonaws_iot.DeleteJob({
+  "jobId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * jobId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### DescribeJob
 
@@ -1977,6 +1994,48 @@ amazonaws_iot.DescribeJobExecution({
 #### Output
 * output [DescribeJobExecutionResponse](#describejobexecutionresponse)
 
+### CancelJobExecution
+
+
+
+```js
+amazonaws_iot.CancelJobExecution({
+  "jobId": "",
+  "thingName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * jobId **required** `string`
+  * thingName **required** `string`
+  * expectedVersion [ExpectedVersion](#expectedversion)
+  * statusDetails [DetailsMap](#detailsmap)
+
+#### Output
+*Output schema unknown*
+
+### DeleteJobExecution
+
+
+
+```js
+amazonaws_iot.DeleteJobExecution({
+  "jobId": "",
+  "thingName": "",
+  "executionNumber": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * jobId **required** `string`
+  * thingName **required** `string`
+  * executionNumber **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### DetachThingPrincipal
 
 
@@ -2158,6 +2217,7 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
   * dynamoDBv2 [DynamoDBv2Action](#dynamodbv2action)
   * elasticsearch [ElasticsearchAction](#elasticsearchaction)
   * firehose [FirehoseAction](#firehoseaction)
+  * iotAnalytics [IotAnalyticsAction](#iotanalyticsaction)
   * kinesis [KinesisAction](#kinesisaction)
   * lambda [LambdaAction](#lambdaaction)
   * republish [RepublishAction](#republishaction)
@@ -2343,6 +2403,9 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
   * certificateId [CertificateId](#certificateid)
   * certificatePem [CertificatePem](#certificatepem)
   * creationDate [DateType](#datetype)
+  * customerVersion [CustomerVersion](#customerversion)
+  * generationId [GenerationId](#generationid)
+  * lastModifiedDate [DateType](#datetype)
   * ownedBy [AwsAccountId](#awsaccountid)
   * status [CACertificateStatus](#cacertificatestatus)
 
@@ -2355,6 +2418,11 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 
 ### CancelCertificateTransferRequest
 * CancelCertificateTransferRequest `object`: The input for the CancelCertificateTransfer operation.
+
+### CancelJobExecutionRequest
+* CancelJobExecutionRequest `object`
+  * expectedVersion [ExpectedVersion](#expectedversion)
+  * statusDetails [DetailsMap](#detailsmap)
 
 ### CancelJobRequest
 * CancelJobRequest `object`
@@ -2393,6 +2461,8 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
   * certificateId [CertificateId](#certificateid)
   * certificatePem [CertificatePem](#certificatepem)
   * creationDate [DateType](#datetype)
+  * customerVersion [CustomerVersion](#customerversion)
+  * generationId [GenerationId](#generationid)
   * lastModifiedDate [DateType](#datetype)
   * ownedBy [AwsAccountId](#awsaccountid)
   * previousOwnedBy [AwsAccountId](#awsaccountid)
@@ -2425,6 +2495,9 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 ### Certificates
 * Certificates `array`
   * items [Certificate](#certificate)
+
+### ChannelName
+* ChannelName `string`
 
 ### ClearDefaultAuthorizerRequest
 * ClearDefaultAuthorizerRequest `object`
@@ -2650,6 +2723,9 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
   * signature [CodeSigningSignature](#codesigningsignature)
   * signatureAlgorithm [SignatureAlgorithm](#signaturealgorithm)
 
+### CustomerVersion
+* CustomerVersion `integer`
+
 ### DateType
 * DateType `string`
 
@@ -2671,6 +2747,12 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 ### DeleteConflictException
 * DeleteConflictException `object`: You can't delete the resource because it is attached to one or more resources.
   * message [errorMessage](#errormessage)
+
+### DeleteJobExecutionRequest
+* DeleteJobExecutionRequest `object`
+
+### DeleteJobRequest
+* DeleteJobRequest `object`
 
 ### DeleteOTAUpdateRequest
 * DeleteOTAUpdateRequest `object`
@@ -3001,6 +3083,9 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 ### ExecutionNumber
 * ExecutionNumber `integer`
 
+### ExpectedVersion
+* ExpectedVersion `integer`
+
 ### ExpiresInSec
 * ExpiresInSec `integer`
 
@@ -3032,11 +3117,20 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 ### ForceDelete
 * ForceDelete `boolean`
 
+### ForceFlag
+* ForceFlag `boolean`
+
+### Forced
+* Forced `boolean`
+
 ### FunctionArn
 * FunctionArn `string`
 
 ### GEMaxResults
 * GEMaxResults `integer`
+
+### GenerationId
+* GenerationId `string`
 
 ### GetEffectivePoliciesRequest
 * GetEffectivePoliciesRequest `object`
@@ -3081,7 +3175,10 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 
 ### GetPolicyResponse
 * GetPolicyResponse `object`: The output from the GetPolicy operation.
+  * creationDate [DateType](#datetype)
   * defaultVersionId [PolicyVersionId](#policyversionid)
+  * generationId [GenerationId](#generationid)
+  * lastModifiedDate [DateType](#datetype)
   * policyArn [PolicyArn](#policyarn)
   * policyDocument [PolicyDocument](#policydocument)
   * policyName [PolicyName](#policyname)
@@ -3091,7 +3188,10 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 
 ### GetPolicyVersionResponse
 * GetPolicyVersionResponse `object`: The output from the GetPolicyVersion operation.
+  * creationDate [DateType](#datetype)
+  * generationId [GenerationId](#generationid)
   * isDefaultVersion [IsDefaultVersion](#isdefaultversion)
+  * lastModifiedDate [DateType](#datetype)
   * policyArn [PolicyArn](#policyarn)
   * policyDocument [PolicyDocument](#policydocument)
   * policyName [PolicyName](#policyname)
@@ -3182,6 +3282,16 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 * InvalidResponseException `object`: The response is invalid.
   * message [errorMessage](#errormessage)
 
+### InvalidStateTransitionException
+* InvalidStateTransitionException `object`: An attempt was made to change to an invalid state, for example by deleting a job or a job execution which is "IN_PROGRESS" without setting the <code>force</code> parameter.
+  * message [errorMessage](#errormessage)
+
+### IotAnalyticsAction
+* IotAnalyticsAction `object`: Sends messge data to an AWS IoT Analytics channel.
+  * channelArn [AwsArn](#awsarn)
+  * channelName [ChannelName](#channelname)
+  * roleArn [AwsArn](#awsarn)
+
 ### IsAuthenticated
 * IsAuthenticated `boolean`
 
@@ -3198,6 +3308,7 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
   * createdAt [DateType](#datetype)
   * description [JobDescription](#jobdescription)
   * documentParameters [JobDocumentParameters](#jobdocumentparameters)
+  * forceCanceled [Forced](#forced)
   * jobArn [JobArn](#jobarn)
   * jobExecutionsRolloutConfig [JobExecutionsRolloutConfig](#jobexecutionsrolloutconfig)
   * jobId [JobId](#jobid)
@@ -3229,6 +3340,7 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 ### JobExecution
 * JobExecution `object`: The job execution object represents the execution of a job on a particular device.
   * executionNumber [ExecutionNumber](#executionnumber)
+  * forceCanceled [Forced](#forced)
   * jobId [JobId](#jobid)
   * lastUpdatedAt [DateType](#datetype)
   * queuedAt [DateType](#datetype)
@@ -3236,6 +3348,7 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
   * status [JobExecutionStatus](#jobexecutionstatus)
   * statusDetails [JobExecutionStatusDetails](#jobexecutionstatusdetails)
   * thingArn [ThingArn](#thingarn)
+  * versionNumber [VersionNumber](#versionnumber)
 
 ### JobExecutionStatus
 * JobExecutionStatus `string` (values: QUEUED, IN_PROGRESS, SUCCEEDED, FAILED, REJECTED, REMOVED, CANCELED)
@@ -3289,7 +3402,7 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
   * processingTargets [ProcessingTargetNameList](#processingtargetnamelist)
 
 ### JobStatus
-* JobStatus `string` (values: IN_PROGRESS, CANCELED, COMPLETED)
+* JobStatus `string` (values: IN_PROGRESS, CANCELED, COMPLETED, DELETION_IN_PROGRESS)
 
 ### JobSummary
 * JobSummary `object`: The job summary.
@@ -3344,7 +3457,7 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 * LastModifiedDate `string`
 
 ### LimitExceededException
-* LimitExceededException `object`: The number of attached entities exceeds the limit.
+* LimitExceededException `object`: A limit has been exceeded.
   * message [errorMessage](#errormessage)
 
 ### ListAttachedPoliciesRequest
@@ -4004,6 +4117,7 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
   * lastModifiedDate [DateType](#datetype)
   * owner [AwsAccountId](#awsaccountid)
   * roleAlias [RoleAlias](#rolealias)
+  * roleAliasArn [RoleAliasArn](#rolealiasarn)
   * roleArn [RoleArn](#rolearn)
 
 ### RoleAliases
@@ -4571,8 +4685,11 @@ amazonaws_iot.SetV2LoggingOptions({}, context)
 * Version `integer`
 
 ### VersionConflictException
-* VersionConflictException `object`: An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter.
+* VersionConflictException `object`: An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.
   * message [errorMessage](#errormessage)
+
+### VersionNumber
+* VersionNumber `integer`
 
 ### VersionsLimitExceededException
 * VersionsLimitExceededException `object`: The number of policy versions exceeds the limit.

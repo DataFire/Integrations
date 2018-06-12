@@ -190,27 +190,122 @@
             }
           },
           "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "484": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
+            }
+          },
+          "485": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CopyImage": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.",
+        "operationId": "CopyImage",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CopyImageRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CopyImageResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "481": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
           "482": {
-            "description": "ConcurrentModificationException",
+            "description": "ResourceNotAvailableException",
             "schema": {
-              "$ref": "#/definitions/ConcurrentModificationException"
+              "$ref": "#/definitions/ResourceNotAvailableException"
             }
           },
           "483": {
-            "description": "IncompatibleImageException",
+            "description": "LimitExceededException",
             "schema": {
-              "$ref": "#/definitions/IncompatibleImageException"
+              "$ref": "#/definitions/LimitExceededException"
             }
           },
           "484": {
-            "description": "OperationNotPermittedException",
+            "description": "InvalidAccountStatusException",
             "schema": {
-              "$ref": "#/definitions/OperationNotPermittedException"
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "485": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
             }
           }
         }
@@ -276,6 +371,12 @@
             "description": "LimitExceededException",
             "schema": {
               "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
             }
           }
         }
@@ -356,24 +457,30 @@
             }
           },
           "484": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "485": {
             "description": "InvalidRoleException",
             "schema": {
               "$ref": "#/definitions/InvalidRoleException"
             }
           },
-          "485": {
+          "486": {
             "description": "ConcurrentModificationException",
             "schema": {
               "$ref": "#/definitions/ConcurrentModificationException"
             }
           },
-          "486": {
+          "487": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           },
-          "487": {
+          "488": {
             "description": "IncompatibleImageException",
             "schema": {
               "$ref": "#/definitions/IncompatibleImageException"
@@ -439,42 +546,48 @@
             }
           },
           "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
             "description": "ResourceAlreadyExistsException",
             "schema": {
               "$ref": "#/definitions/ResourceAlreadyExistsException"
             }
           },
-          "482": {
+          "483": {
             "description": "ResourceNotAvailableException",
             "schema": {
               "$ref": "#/definitions/ResourceNotAvailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "484": {
+          "485": {
             "description": "InvalidRoleException",
             "schema": {
               "$ref": "#/definitions/InvalidRoleException"
             }
           },
-          "485": {
+          "486": {
             "description": "ConcurrentModificationException",
             "schema": {
               "$ref": "#/definitions/ConcurrentModificationException"
             }
           },
-          "486": {
+          "487": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           },
-          "487": {
+          "488": {
             "description": "IncompatibleImageException",
             "schema": {
               "$ref": "#/definitions/IncompatibleImageException"
@@ -605,30 +718,36 @@
             }
           },
           "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
             "description": "ResourceAlreadyExistsException",
             "schema": {
               "$ref": "#/definitions/ResourceAlreadyExistsException"
             }
           },
-          "482": {
+          "483": {
             "description": "ConcurrentModificationException",
             "schema": {
               "$ref": "#/definitions/ConcurrentModificationException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidRoleException",
             "schema": {
               "$ref": "#/definitions/InvalidRoleException"
             }
           },
-          "484": {
+          "485": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
@@ -1833,6 +1952,12 @@
             }
           },
           "483": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "484": {
             "description": "ConcurrentModificationException",
             "schema": {
               "$ref": "#/definitions/ConcurrentModificationException"
@@ -1910,6 +2035,12 @@
             }
           },
           "483": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "484": {
             "description": "IncompatibleImageException",
             "schema": {
               "$ref": "#/definitions/IncompatibleImageException"
@@ -2111,6 +2242,12 @@
             }
           },
           "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
@@ -2312,42 +2449,48 @@
             }
           },
           "482": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "483": {
             "description": "InvalidRoleException",
             "schema": {
               "$ref": "#/definitions/InvalidRoleException"
             }
           },
-          "483": {
+          "484": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           },
-          "484": {
+          "485": {
             "description": "ResourceNotAvailableException",
             "schema": {
               "$ref": "#/definitions/ResourceNotAvailableException"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           },
-          "486": {
+          "487": {
             "description": "ConcurrentModificationException",
             "schema": {
               "$ref": "#/definitions/ConcurrentModificationException"
             }
           },
-          "487": {
+          "488": {
             "description": "IncompatibleImageException",
             "schema": {
               "$ref": "#/definitions/IncompatibleImageException"
             }
           },
-          "488": {
+          "489": {
             "description": "OperationNotPermittedException",
             "schema": {
               "$ref": "#/definitions/OperationNotPermittedException"
@@ -2437,6 +2580,12 @@
             }
           },
           "485": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "486": {
             "description": "IncompatibleImageException",
             "schema": {
               "$ref": "#/definitions/IncompatibleImageException"
@@ -2456,6 +2605,16 @@
       "format": "password",
       "maxLength": 127,
       "minLength": 1,
+      "type": "string"
+    },
+    "Action": {
+      "enum": [
+        "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+        "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+        "FILE_UPLOAD",
+        "FILE_DOWNLOAD",
+        "PRINTING_TO_LOCAL_DEVICE"
+      ],
       "type": "string"
     },
     "Application": {
@@ -2511,7 +2670,7 @@
       "properties": {
         "FleetName": {
           "$ref": "#/definitions/String",
-          "description": "The name of the fleet."
+          "description": "The name of the fleet. "
         },
         "StackName": {
           "$ref": "#/definitions/String",
@@ -2585,6 +2744,41 @@
       "properties": {
         "Message": {
           "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "CopyImageRequest": {
+      "properties": {
+        "DestinationImageDescription": {
+          "$ref": "#/definitions/Description",
+          "description": "The description that the image will have when it is copied to the destination."
+        },
+        "DestinationImageName": {
+          "$ref": "#/definitions/Name",
+          "description": "The name that the image will have when it is copied to the destination."
+        },
+        "DestinationRegion": {
+          "$ref": "#/definitions/RegionName",
+          "description": "The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region."
+        },
+        "SourceImageName": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the image to copy."
+        }
+      },
+      "required": [
+        "SourceImageName",
+        "DestinationImageName",
+        "DestinationRegion"
+      ],
+      "type": "object"
+    },
+    "CopyImageResponse": {
+      "properties": {
+        "DestinationImageName": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the destination image."
         }
       },
       "type": "object"
@@ -2782,17 +2976,25 @@
           "$ref": "#/definitions/DisplayName",
           "description": "The stack name for display."
         },
+        "FeedbackURL": {
+          "$ref": "#/definitions/FeedbackURL",
+          "description": "The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed."
+        },
         "Name": {
           "$ref": "#/definitions/String",
           "description": "The name of the stack."
         },
         "RedirectURL": {
           "$ref": "#/definitions/RedirectURL",
-          "description": "The URL the user is redirected to after the streaming session ends."
+          "description": "The URL that users are redirected to after their streaming session ends."
         },
         "StorageConnectors": {
           "$ref": "#/definitions/StorageConnectorList",
           "description": "The storage connectors to enable."
+        },
+        "UserSettings": {
+          "$ref": "#/definitions/UserSettingList",
+          "description": "The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. "
         }
       },
       "required": [
@@ -3058,7 +3260,7 @@
         },
         "FleetName": {
           "$ref": "#/definitions/String",
-          "description": "The name of the fleet."
+          "description": "The name of the fleet. This value is case-sensitive."
         },
         "Limit": {
           "$ref": "#/definitions/Integer",
@@ -3070,7 +3272,7 @@
         },
         "StackName": {
           "$ref": "#/definitions/String",
-          "description": "The name of the stack."
+          "description": "The name of the stack. This value is case-sensitive."
         },
         "UserId": {
           "$ref": "#/definitions/UserId",
@@ -3191,6 +3393,11 @@
       "maxLength": 100,
       "type": "string"
     },
+    "Domain": {
+      "description": "GSuite domain for GDrive integration.",
+      "maxLength": 64,
+      "type": "string"
+    },
     "DomainJoinInfo": {
       "description": "Contains the information needed to join a Microsoft Active Directory domain.",
       "properties": {
@@ -3204,6 +3411,13 @@
         }
       },
       "type": "object"
+    },
+    "DomainList": {
+      "items": {
+        "$ref": "#/definitions/Domain"
+      },
+      "maxItems": 10,
+      "type": "array"
     },
     "ErrorMessage": {
       "description": "The error message in the exception.",
@@ -3224,6 +3438,10 @@
     "ExpireSessionResult": {
       "properties": {},
       "type": "object"
+    },
+    "FeedbackURL": {
+      "maxLength": 1000,
+      "type": "string"
     },
     "Fleet": {
       "description": "Contains the parameters for a fleet.",
@@ -3579,6 +3797,7 @@
         "PENDING",
         "AVAILABLE",
         "FAILED",
+        "COPYING",
         "DELETING"
       ],
       "type": "string"
@@ -3600,7 +3819,8 @@
     "ImageStateChangeReasonCode": {
       "enum": [
         "INTERNAL_ERROR",
-        "IMAGE_BUILDER_NOT_AVAILABLE"
+        "IMAGE_BUILDER_NOT_AVAILABLE",
+        "IMAGE_COPY_FAILURE"
       ],
       "type": "string"
     },
@@ -3615,6 +3835,15 @@
     },
     "Integer": {
       "type": "integer"
+    },
+    "InvalidAccountStatusException": {
+      "description": "The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
     },
     "InvalidParameterCombinationException": {
       "description": "Indicates an incorrect combination of parameters, or a missing parameter.",
@@ -3762,6 +3991,13 @@
       },
       "type": "array"
     },
+    "Permission": {
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string"
+    },
     "PlatformType": {
       "enum": [
         "WINDOWS"
@@ -3770,6 +4006,11 @@
     },
     "RedirectURL": {
       "maxLength": 1000,
+      "type": "string"
+    },
+    "RegionName": {
+      "maxLength": 32,
+      "minLength": 1,
       "type": "string"
     },
     "ResourceAlreadyExistsException": {
@@ -3935,13 +4176,17 @@
           "$ref": "#/definitions/String",
           "description": "The stack name for display."
         },
+        "FeedbackURL": {
+          "$ref": "#/definitions/FeedbackURL",
+          "description": "The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed."
+        },
         "Name": {
           "$ref": "#/definitions/String",
           "description": "The name of the stack."
         },
         "RedirectURL": {
           "$ref": "#/definitions/RedirectURL",
-          "description": "The URL the user is redirected to after the streaming session ends."
+          "description": "The URL that users are redirected to after their streaming session ends."
         },
         "StackErrors": {
           "$ref": "#/definitions/StackErrors",
@@ -3950,6 +4195,10 @@
         "StorageConnectors": {
           "$ref": "#/definitions/StorageConnectorList",
           "description": "The storage connectors to enable."
+        },
+        "UserSettings": {
+          "$ref": "#/definitions/UserSettingList",
+          "description": "The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled."
         }
       },
       "required": [
@@ -3960,7 +4209,12 @@
     "StackAttribute": {
       "enum": [
         "STORAGE_CONNECTORS",
-        "REDIRECT_URL"
+        "STORAGE_CONNECTOR_HOMEFOLDERS",
+        "STORAGE_CONNECTOR_GOOGLE_DRIVE",
+        "REDIRECT_URL",
+        "FEEDBACK_URL",
+        "THEME_NAME",
+        "USER_SETTINGS"
       ],
       "type": "string"
     },
@@ -4084,11 +4338,15 @@
       "type": "object"
     },
     "StorageConnector": {
-      "description": "Describes a storage connector.",
+      "description": "Describes a connector to enable persistent storage for users.",
       "properties": {
         "ConnectorType": {
           "$ref": "#/definitions/StorageConnectorType",
           "description": "The type of storage connector."
+        },
+        "Domains": {
+          "$ref": "#/definitions/DomainList",
+          "description": "The names of the domains for the G Suite account."
         },
         "ResourceIdentifier": {
           "$ref": "#/definitions/ResourceIdentifier",
@@ -4110,7 +4368,8 @@
     "StorageConnectorType": {
       "description": "The type of storage connector.",
       "enum": [
-        "HOMEFOLDERS"
+        "HOMEFOLDERS",
+        "GOOGLE_DRIVE"
       ],
       "type": "string"
     },
@@ -4335,17 +4594,25 @@
           "$ref": "#/definitions/DisplayName",
           "description": "The stack name for display."
         },
+        "FeedbackURL": {
+          "$ref": "#/definitions/FeedbackURL",
+          "description": "The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed."
+        },
         "Name": {
           "$ref": "#/definitions/String",
           "description": "The name of the stack."
         },
         "RedirectURL": {
           "$ref": "#/definitions/RedirectURL",
-          "description": "The URL the user is redirected to after the streaming session ends."
+          "description": "The URL that users are redirected to after their streaming session ends."
         },
         "StorageConnectors": {
           "$ref": "#/definitions/StorageConnectorList",
           "description": "The storage connectors to enable."
+        },
+        "UserSettings": {
+          "$ref": "#/definitions/UserSettingList",
+          "description": "The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled."
         }
       },
       "required": [
@@ -4366,6 +4633,31 @@
       "maxLength": 32,
       "minLength": 2,
       "type": "string"
+    },
+    "UserSetting": {
+      "description": "Describes an action and whether the action is enabled or disabled for users during their streaming sessions.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that is enabled or disabled."
+        },
+        "Permission": {
+          "$ref": "#/definitions/Permission",
+          "description": "Indicates whether the action is enabled or disabled."
+        }
+      },
+      "required": [
+        "Action",
+        "Permission"
+      ],
+      "type": "object"
+    },
+    "UserSettingList": {
+      "items": {
+        "$ref": "#/definitions/UserSetting"
+      },
+      "minItems": 1,
+      "type": "array"
     },
     "VisibilityType": {
       "enum": [

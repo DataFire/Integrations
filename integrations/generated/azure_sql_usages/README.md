@@ -78,18 +78,6 @@ azure_sql_usages.SubscriptionUsages_Get({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### SubscriptionUsage
 * SubscriptionUsage `object`: Usage Metric of a Subscription in a Location.
   * properties [SubscriptionUsageProperties](#subscriptionusageproperties)

@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/connectionType.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/connectionType.json",
         "version": "2.0"
       }
     ],
@@ -67,12 +67,15 @@
         "operationId": "ConnectionType_ListByAutomationAccount",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -128,7 +131,8 @@
                             "description": "Gets the creation time.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "description": {
                             "description": "Gets or sets the description.",
@@ -166,9 +170,15 @@
                           "lastModifiedTime": {
                             "description": "Gets or sets the last modified time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           }
                         }
+                      },
+                      "type": {
+                        "description": "Resource type",
+                        "readOnly": true,
+                        "type": "string"
                       }
                     }
                   },
@@ -4929,12 +4939,15 @@
         "operationId": "ConnectionType_Delete",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -5017,12 +5030,15 @@
         "operationId": "ConnectionType_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -5076,7 +5092,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -5114,9 +5131,15 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     }
                   }
+                },
+                "type": {
+                  "description": "Resource type",
+                  "readOnly": true,
+                  "type": "string"
                 }
               }
             }
@@ -5193,12 +5216,15 @@
         "operationId": "ConnectionType_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -5307,7 +5333,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -5345,9 +5372,15 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     }
                   }
+                },
+                "type": {
+                  "description": "Resource type",
+                  "readOnly": true,
+                  "type": "string"
                 }
               }
             }
@@ -5374,7 +5407,8 @@
                       "description": "Gets the creation time.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -5412,9 +5446,15 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     }
                   }
+                },
+                "type": {
+                  "description": "Resource type",
+                  "readOnly": true,
+                  "type": "string"
                 }
               }
             }

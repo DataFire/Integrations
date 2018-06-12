@@ -584,7 +584,7 @@ oxforddictionaries.search.source_search_language.translations_target_search_lang
 * output [Wordlist](#wordlist)
 
 ### stats.frequency.ngrams.source_lang.corpus.ngram_size.get
-This endpoint returns frequencies of ngrams of size 1-4. That is the number of times a word (ngram size = 1) or words (ngram size > 1) appear in the corpus. Ngrams are case sensitive ("I AM" and "I am" will have different frequency) and frequencies are calculated per word (true case) so "the book" and "the books" are two different ngrams. The results can be filtered based on query parameters. <br> <br> Parameters can be provided in PATH, GET or POST (form or json). The parameters in PATH are overriden by parameters in GET, POST and json (in that order). In PATH, individual options are separated by semicolon and values are separated by commas (where multiple values can be used). <br> <br> Example for bigrams (ngram of size 2):
+This endpoint returns frequencies of ngrams of size 1-4. That is the number of times a word (ngram size = 1) or words (ngram size > 1) appear in the corpus. Ngrams are case sensitive ("I AM" and "I am" will have different frequency) and frequencies are calculated per word (true case) so "the book" and "the books" are two different ngrams. The results can be filtered based on query parameters. <br> <br> Parameters can be provided in PATH, GET or POST (form or json). The parameters in PATH are overridden by parameters in GET, POST and json (in that order). In PATH, individual options are separated by semicolon and values are separated by commas (where multiple values can be used). <br> <br> Example for bigrams (ngram of size 2):
 * PATH: /tokens=a word,another word
 * GET: /?tokens=a word&tokens=another word
 * POST (json):
@@ -594,6 +594,16 @@ This endpoint returns frequencies of ngrams of size 1-4. That is the number of t
         "tokens": ["a word", "another word"]
     }
   ```
+
+Either "tokens" or "contains" has to be provided. <br> <br> Some queries with "contains" or "sort" can exceed the 30s timeout, in which case the API will return an error message with status code 503. You mitigate this by providing additional restrictions such as "minFrequency" and "maxFrequency". <br> <br> You can use the parameters "offset" and "limit" to paginate through large result sets. For convenience, the HTTP header "Link" is set on the response to provide links to "first", "self", "next", "prev" and "last" pages of results (depending on the context). For example, if the result set contains 50 results and the parameter "limit" is set to 25, the Links header will contain an URL for the first 25 results and the next 25 results. <br> <br> Some libraries such as python's `requests` can parse the header automatically and offer a convenient way of iterating through the results. For example:
+```python def get_all_results(url):
+    while url:
+        r = requests.get(url)
+        r.raise_for_status()
+        for item in r.json()['results']:
+          yield item
+        url = r.links.get('next', {}).get('url')
+```
 
 
 
@@ -620,6 +630,8 @@ oxforddictionaries.stats.frequency.ngrams.source_lang.corpus.ngram_size.get({
   * maxFrequency `integer`: Restrict the query to entries with frequency of at most `maxFrequency`
   * minDocumentFrequency `integer`: Restrict the query to entries that appear in at least `minDocumentFrequency` documents
   * maxDocumentFrequency `integer`: Restrict the query to entries that appera in at most `maxDocumentFrequency` documents
+  * collate `string`: collate the results by wordform, trueCase, lemma, lexicalCategory. Multiple values can be separated by commas (e.g., collate=trueCase,lemma,lexicalCategory).
+  * sort `string`: sort the resulting list by wordform, trueCase, lemma, lexicalCategory, frequency, normalizedFrequency. Descending order is achieved by prepending the value with the minus sign ('-'). Multiple values can be separated by commas (e.g., sort=lexicalCategory,-frequency)
   * offset `integer`: pagination - results offset
   * limit `integer`: pagination - results limit
   * app_id **required** `string`: App ID Authentication Parameter
@@ -668,7 +680,7 @@ oxforddictionaries.stats.frequency.word.source_lang.get({
 * output [StatsWordResult](#statswordresult)
 
 ### stats.frequency.words.source_lang.get
-This endpoint provides a list of frequencies for a given word or words. Unlike the /word/ endpoint, the results are split into the smallest units. <br> <br> To exclude a specific value, prepend it with the minus sign ('-'). For example, to get frequencies of the lemma 'happy' but exclude superlative forms (i.e., happiest) you could use options 'lemma=happy;grammaticalFeatures=-degreeType:superlative'. <br> <br> Parameters can be provided in PATH, GET or POST (form or json). The parameters in PATH are overriden by parameters in GET, POST and json (in that order). In PATH, individual options are separated by semicolon and values are separated by commas (where multiple values can be used). <br> <br> The parameters wordform/trueCase/lemma/lexicalCategory also exist in a plural form, taking a lists of items. Examples:
+This endpoint provides a list of frequencies for a given word or words. Unlike the /word/ endpoint, the results are split into the smallest units. <br> <br> To exclude a specific value, prepend it with the minus sign ('-'). For example, to get frequencies of the lemma 'happy' but exclude superlative forms (i.e., happiest) you could use options 'lemma=happy;grammaticalFeatures=-degreeType:superlative'. <br> <br> Parameters can be provided in PATH, GET or POST (form or json). The parameters in PATH are overridden by parameters in GET, POST and json (in that order). In PATH, individual options are separated by semicolon and values are separated by commas (where multiple values can be used). <br> <br> The parameters wordform/trueCase/lemma/lexicalCategory also exist in a plural form, taking a lists of items. Examples:
 * PATH: /wordforms=happy,happier,happiest
 * GET: /?wordforms=happy&wordforms=happier&wordforms=happiest
 * POST (json):
@@ -677,30 +689,25 @@ This endpoint provides a list of frequencies for a given word or words. Unlike t
     "wordforms": ["happy", "happier", "happiest"]
   }
 ```
-<br> Aside from individual frequency requests, users can also post a list of items for which they would like to get frequencies. The list has to be uploaded in json and the required fields are "items" and "collate". <br> <br> The field "items" is a list of items for which you want the frequencies. The content of the items depends on the option for "collate". The value of "collate" should be a list of "columns" that the items contain. The list is limited to combinations of "wordform", "lemma", "trueCase" and "lexicalCategory". The fields that are listed in the "collate" options have to be present in each item. Here are some examples of queries:
-* ### Get frequencies of provided wordforms:
-```javascript
+A mor complex example of retrieving frequencies of multiple lemmas:
+```
   {
-      "collate": ["wordform"],
-      "items": [{"wordform": "test"}, {"wordform": "Test"}]
+      "lemmas": ["happy", "content", "cheerful", "cheery", "merry", "joyful", "ecstatic"],
+      "grammaticalFeatures": {
+          "adjectiveFunctionType": "predicative"
+      },
+      "lexicalCategory": "adjective",
+      "sort": ["lemma", "-frequency"]
   }
 ```
-* ### Get frequencies of provided lemmas:
-```javascript
-  {
-      "collate": ["lemma"],
-      "items": [{"lemma": "test"}, {"lemma": "Test"}]
-  }
-```
-* ### Get frequencies of provided lemmas per lexical category:
-```javascript
-  {
-      "collate": ["lemma", "lexicalCategory"],
-      "items": [
-          {"lemma": "test", "lexicalCategory": "verb"},
-          {"lemma": "test", "lexicalCategory": "noun"}
-      ]
-  }
+Some queries with "collate" or "sort" can exceed the 30s timeout, in which case the API will return an error message with status code 503. You mitigate this by providing additional restrictions such as "minFrequency" and "maxFrequency". <br> <br> You can use the parameters "offset" and "limit" to paginate through large result sets. For convenience, the HTTP header "Link" is set on the response to provide links to "first", "self", "next", "prev" and "last" pages of results (depending on the context). For example, if the result set contains 50 results and the parameter "limit" is set to 25, the Links header will contain an URL for the first 25 results and the next 25 results. <br> <br> Some libraries such as python's `requests` can parse the header automatically and offer a convenient way of iterating through the results. For example:
+```python def get_all_results(url):
+    while url:
+        r = requests.get(url)
+        r.raise_for_status()
+        for item in r.json()['results']:
+          yield item
+        url = r.links.get('next', {}).get('url')
 ```
 
 
@@ -723,6 +730,7 @@ oxforddictionaries.stats.frequency.words.source_lang.get({
   * lexicalCategory `string`: The lexical category of the word(s) to look up (e.g., adjective or noun)
   * grammaticalFeatures `string`: The grammatical features of the word(s) to look up entered as a list of k:v (e.g., degree_type:comparative)
   * sort `string`: sort the resulting list by wordform, trueCase, lemma, lexicalCategory, frequency, normalizedFrequency. Descending order is achieved by prepending the value with the minus sign ('-'). Multiple values can be separated by commas (e.g., sort=lexicalCategory,-frequency)
+  * collate `string`: collate the results by wordform, trueCase, lemma, lexicalCategory. Multiple values can be separated by commas (e.g., collate=trueCase,lemma,lexicalCategory).
   * minFrequency `integer`: Restrict the query to entries with frequency of at least `minFrequency`
   * maxFrequency `integer`: Restrict the query to entries with frequency of at most `maxFrequency`
   * minNormalizedFrequency `number`: Restrict the query to entries with frequency of at least `minNormalizedFrequency`
@@ -932,8 +940,7 @@ oxforddictionaries.wordlist.source_lang.filters_basic.get({
   * metadata `object`: Additional Information provided by OUP
   * results `array`: A list of found ngrams along with their frequencies
     * items `object`: Ngrams matching the given options
-      * documentFrequency **required** `integer`: The document frequency (number of documents containing the ngram) of the ngram in the given corpus
-      * frequency **required** `integer`: The frequency of the ngram in the given corpus
+      * frequency **required** `integer`: The number of times the ngram (a sequence of n words) appears in the corpus
       * tokens **required** `array`: A list of tokens
         * items `string`
 
@@ -969,8 +976,11 @@ oxforddictionaries.wordlist.source_lang.filters_basic.get({
   * pronunciations [PronunciationsList](#pronunciationslist)
   * regions [arrayofstrings](#arrayofstrings)
   * registers [arrayofstrings](#arrayofstrings)
+  * short_definitions [arrayofstrings](#arrayofstrings)
   * subsenses `array`: Ordered list of subsenses of a sense
     * items [Sense](#sense)
+  * thesaurusLinks `array`: Ordered list of links to the Thesaurus Dictionary
+    * items [thesaurusLink](#thesauruslink)
   * translations [TranslationsList](#translationslist)
   * variantForms [VariantFormsList](#variantformslist)
 
@@ -998,26 +1008,26 @@ oxforddictionaries.wordlist.source_lang.filters_basic.get({
     * items [SentencesEntry](#sentencesentry)
 
 ### StatsWordResult
-* StatsWordResult `object`: Schema for LexiStats results for a word/trueCase/lemma/lexicalCategory returned as a frequency
+* StatsWordResult `object`: Schema for lexi-stats results for a word/trueCase/lemma/lexicalCategory returned as a frequency
   * metadata `object`: Additional Information provided by OUP
   * result `object`: Frequency information for a given entity
-    * frequency **required** `integer`: The frequency of the word calculated from a corpus ("sample_corpus" used by default)
-    * lemma `string`: A lemma of the word (e.g., wordforms "lay", "laid" and "laying" have all lemma "lay").
+    * frequency **required** `integer`: The number of times a word appears in the entire corpus
+    * lemma `string`: A lemma of the word (e.g., wordforms "lay", "laid" and "laying" have all lemma "lay")
     * lexicalCategory `string`: A lexical category such as 'verb' or 'noun'
     * matchCount **required** `integer`: The number of database records that matched the query params (stated frequency is the sum of the individual frequencies)
-    * normalizedFrequency **required** `integer`: The frequency of the word per million calculated from a corpus ("sample_corpus" used by default)
+    * normalizedFrequency **required** `integer`: The number of times a word appears on average in 1 million words
     * trueCase `string`: A given written realisation of a an entry (e.g., "lay") usually lower case
     * wordform `string`: A given written realisation of a an entry (e.g., "Lay") preserving case
 
 ### StatsWordResultList
-* StatsWordResultList `object`: Schema for LexiStats results for a word/trueCase/lemma/lexicalCategory returned as a list of frequencies per wordform-trueCase-lemma-lexicalCategory entry.
+* StatsWordResultList `object`: Schema for lexi-stats results for a word/trueCase/lemma/lexicalCategory returned as a list of frequencies per wordform-trueCase-lemma-lexicalCategory entry.
   * metadata `object`: Additional Information provided by OUP
   * results `array`: A list of found words along with their frequencies
     * items `object`: Statistical information about a word
-      * frequency **required** `integer`: The frequency of the word calculated from a corpus ("sample_corpus" used by default)
+      * frequency **required** `integer`: The number of times a word appears in the entire corpus
       * lemma **required** `string`: A lemma of the word.
       * lexicalCategory **required** `string`: A lexical category such as 'verb' or 'noun'
-      * normalizedFrequency **required** `integer`: The frequency of the word per million calculated from a corpus ("sample_corpus" used by default)
+      * normalizedFrequency **required** `integer`: The number of times a word appears on average in 1 million words
       * trueCase **required** `string`: A given written realisation of a an entry (e.g., "lay") usually lower case
       * wordform **required** `string`: A given written realisation of a an entry (e.g., "lay") preserving case
 
@@ -1115,5 +1125,10 @@ oxforddictionaries.wordlist.source_lang.filters_basic.get({
   * pronunciations [PronunciationsList](#pronunciationslist)
   * text **required** `string`: A given written or spoken realisation of a an entry.
   * variantForms [VariantFormsList](#variantformslist)
+
+### thesaurusLink
+* thesaurusLink `object`: Link to a sense of a specific entry in the thesaurus Dictionary
+  * entry_id **required** `string`: identifier of a word
+  * sense_id **required** `string`: identifier of a sense
 
 

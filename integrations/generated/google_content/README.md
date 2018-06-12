@@ -82,8 +82,8 @@ google_content.accounts.authinfo({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountsAuthInfoResponse](#accountsauthinforesponse)
@@ -105,8 +105,8 @@ google_content.accounts.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountsCustomBatchResponse](#accountscustombatchresponse)
@@ -127,8 +127,8 @@ google_content.accountstatuses.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountstatusesCustomBatchResponse](#accountstatusescustombatchresponse)
@@ -150,8 +150,8 @@ google_content.accounttax.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccounttaxCustomBatchResponse](#accounttaxcustombatchresponse)
@@ -173,8 +173,8 @@ google_content.datafeeds.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DatafeedsCustomBatchResponse](#datafeedscustombatchresponse)
@@ -195,8 +195,8 @@ google_content.datafeedstatuses.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DatafeedstatusesCustomBatchResponse](#datafeedstatusescustombatchresponse)
@@ -218,11 +218,34 @@ google_content.inventory.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InventoryCustomBatchResponse](#inventorycustombatchresponse)
+
+### liasettings.custombatch
+Retrieves and/or updates the LIA settings of multiple accounts in a single request.
+
+
+```js
+google_content.liasettings.custombatch({}, context)
+```
+
+#### Input
+* input `object`
+  * body [LiasettingsCustomBatchRequest](#liasettingscustombatchrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiasettingsCustomBatchResponse](#liasettingscustombatchresponse)
 
 ### orders.custombatch
 Retrieves or modifies multiple orders in a single request.
@@ -240,11 +263,34 @@ google_content.orders.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersCustomBatchResponse](#orderscustombatchresponse)
+
+### pos.custombatch
+Batches multiple POS-related calls in a single request.
+
+
+```js
+google_content.pos.custombatch({}, context)
+```
+
+#### Input
+* input `object`
+  * body [PosCustomBatchRequest](#poscustombatchrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [PosCustomBatchResponse](#poscustombatchresponse)
 
 ### products.custombatch
 Retrieves, inserts, and deletes multiple products in a single request.
@@ -263,8 +309,8 @@ google_content.products.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProductsCustomBatchResponse](#productscustombatchresponse)
@@ -286,8 +332,8 @@ google_content.productstatuses.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProductstatusesCustomBatchResponse](#productstatusescustombatchresponse)
@@ -309,8 +355,8 @@ google_content.shippingsettings.custombatch({}, context)
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ShippingsettingsCustomBatchResponse](#shippingsettingscustombatchresponse)
@@ -335,8 +381,8 @@ google_content.accounts.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountsListResponse](#accountslistresponse)
@@ -361,8 +407,8 @@ google_content.accounts.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Account](#account)
@@ -389,8 +435,8 @@ google_content.accounts.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -415,8 +461,8 @@ google_content.accounts.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Account](#account)
@@ -443,8 +489,8 @@ google_content.accounts.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Account](#account)
@@ -471,8 +517,8 @@ google_content.accounts.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Account](#account)
@@ -498,8 +544,8 @@ google_content.accounts.claimwebsite({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountsClaimWebsiteResponse](#accountsclaimwebsiteresponse)
@@ -516,6 +562,7 @@ google_content.accountstatuses.list({
 
 #### Input
 * input `object`
+  * destinations `array`: If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.
   * maxResults `integer`: The maximum number of account statuses to return in the response, used for paging.
   * merchantId **required** `string`: The ID of the managing account. This must be a multi-client account.
   * pageToken `string`: The token returned by the previous request.
@@ -524,8 +571,8 @@ google_content.accountstatuses.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountstatusesListResponse](#accountstatuseslistresponse)
@@ -544,14 +591,15 @@ google_content.accountstatuses.get({
 #### Input
 * input `object`
   * accountId **required** `string`: The ID of the account.
+  * destinations `array`: If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.
   * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountStatus](#accountstatus)
@@ -576,8 +624,8 @@ google_content.accounttax.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccounttaxListResponse](#accounttaxlistresponse)
@@ -602,8 +650,8 @@ google_content.accounttax.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountTax](#accounttax)
@@ -630,8 +678,8 @@ google_content.accounttax.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountTax](#accounttax)
@@ -658,8 +706,8 @@ google_content.accounttax.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AccountTax](#accounttax)
@@ -684,8 +732,8 @@ google_content.datafeeds.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DatafeedsListResponse](#datafeedslistresponse)
@@ -710,8 +758,8 @@ google_content.datafeeds.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Datafeed](#datafeed)
@@ -737,8 +785,8 @@ google_content.datafeeds.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -763,8 +811,8 @@ google_content.datafeeds.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Datafeed](#datafeed)
@@ -791,8 +839,8 @@ google_content.datafeeds.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Datafeed](#datafeed)
@@ -819,11 +867,38 @@ google_content.datafeeds.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Datafeed](#datafeed)
+
+### datafeeds.fetchnow
+Invokes a fetch for the datafeed in your Merchant Center account.
+
+
+```js
+google_content.datafeeds.fetchnow({
+  "datafeedId": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * datafeedId **required** `string`: The ID of the datafeed to be fetched.
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * merchantId **required** `string`: The ID of the account that manages the datafeed. This account cannot be a multi-client account.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [DatafeedsFetchNowResponse](#datafeedsfetchnowresponse)
 
 ### datafeedstatuses.list
 Lists the statuses of the datafeeds in your Merchant Center account.
@@ -845,8 +920,8 @@ google_content.datafeedstatuses.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DatafeedstatusesListResponse](#datafeedstatuseslistresponse)
@@ -873,8 +948,8 @@ google_content.datafeedstatuses.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DatafeedStatus](#datafeedstatus)
@@ -903,11 +978,230 @@ google_content.inventory.set({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InventorySetResponse](#inventorysetresponse)
+
+### liasettings.list
+Lists the LIA settings of the sub-accounts in your Merchant Center account.
+
+
+```js
+google_content.liasettings.list({
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `integer`: The maximum number of LIA settings to return in the response, used for paging.
+  * merchantId **required** `string`: The ID of the managing account. This must be a multi-client account.
+  * pageToken `string`: The token returned by the previous request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiasettingsListResponse](#liasettingslistresponse)
+
+### liasettings.get
+Retrieves the LIA settings of the account.
+
+
+```js
+google_content.liasettings.get({
+  "accountId": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: The ID of the account for which to get or update LIA settings.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiaSettings](#liasettings)
+
+### liasettings.patch
+Updates the LIA settings of the account. This method supports patch semantics.
+
+
+```js
+google_content.liasettings.patch({
+  "accountId": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: The ID of the account for which to get or update LIA settings.
+  * body [LiaSettings](#liasettings)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiaSettings](#liasettings)
+
+### liasettings.update
+Updates the LIA settings of the account.
+
+
+```js
+google_content.liasettings.update({
+  "accountId": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: The ID of the account for which to get or update LIA settings.
+  * body [LiaSettings](#liasettings)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiaSettings](#liasettings)
+
+### liasettings.getaccessiblegmbaccounts
+Retrieves the list of accessible Google My Business accounts.
+
+
+```js
+google_content.liasettings.getaccessiblegmbaccounts({
+  "accountId": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: The ID of the account for which to retrieve accessible Google My Business accounts.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiasettingsGetAccessibleGmbAccountsResponse](#liasettingsgetaccessiblegmbaccountsresponse)
+
+### liasettings.requestgmbaccess
+Requests access to a specified Google My Business account.
+
+
+```js
+google_content.liasettings.requestgmbaccess({
+  "accountId": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: The ID of the account for which GMB access is requested.
+  * gmbEmail `string`: The email of the Google My Business account.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiasettingsRequestGmbAccessResponse](#liasettingsrequestgmbaccessresponse)
+
+### liasettings.requestinventoryverification
+Requests inventory validation for the specified country.
+
+
+```js
+google_content.liasettings.requestinventoryverification({
+  "accountId": "",
+  "country": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: The ID of the account that manages the order. This cannot be a multi-client account.
+  * country **required** `string`: The country for which inventory validation is requested.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiasettingsRequestInventoryVerificationResponse](#liasettingsrequestinventoryverificationresponse)
+
+### liasettings.setinventoryverificationcontact
+Sets the inventory verification contract for the specified country.
+
+
+```js
+google_content.liasettings.setinventoryverificationcontact({
+  "accountId": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: The ID of the account that manages the order. This cannot be a multi-client account.
+  * contactEmail `string`: The email of the inventory verification contact.
+  * contactName `string`: The name of the inventory verification contact.
+  * country `string`: The country for which inventory verification is requested.
+  * language `string`: The language for which inventory verification is requested.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LiasettingsSetInventoryVerificationContactResponse](#liasettingssetinventoryverificationcontactresponse)
 
 ### orders.list
 Lists the orders in your Merchant Center account.
@@ -934,8 +1228,8 @@ google_content.orders.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersListResponse](#orderslistresponse)
@@ -960,8 +1254,8 @@ google_content.orders.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Order](#order)
@@ -987,8 +1281,8 @@ google_content.orders.acknowledge({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersAcknowledgeResponse](#ordersacknowledgeresponse)
@@ -1014,8 +1308,8 @@ google_content.orders.cancel({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersCancelResponse](#orderscancelresponse)
@@ -1041,8 +1335,8 @@ google_content.orders.cancellineitem({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersCancelLineItemResponse](#orderscancellineitemresponse)
@@ -1068,8 +1362,8 @@ google_content.orders.instorerefundlineitem({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersInStoreRefundLineItemResponse](#ordersinstorerefundlineitemresponse)
@@ -1095,8 +1389,8 @@ google_content.orders.refund({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersRefundResponse](#ordersrefundresponse)
@@ -1122,8 +1416,8 @@ google_content.orders.rejectreturnlineitem({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersRejectReturnLineItemResponse](#ordersrejectreturnlineitemresponse)
@@ -1149,8 +1443,8 @@ google_content.orders.returnlineitem({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersReturnLineItemResponse](#ordersreturnlineitemresponse)
@@ -1176,8 +1470,8 @@ google_content.orders.returnrefundlineitem({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersReturnRefundLineItemResponse](#ordersreturnrefundlineitemresponse)
@@ -1203,8 +1497,8 @@ google_content.orders.setlineitemmetadata({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersSetLineItemMetadataResponse](#orderssetlineitemmetadataresponse)
@@ -1230,8 +1524,8 @@ google_content.orders.shiplineitems({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersShipLineItemsResponse](#ordersshiplineitemsresponse)
@@ -1257,8 +1551,8 @@ google_content.orders.updatelineitemshippingdetails({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersUpdateLineItemShippingDetailsResponse](#ordersupdatelineitemshippingdetailsresponse)
@@ -1284,8 +1578,8 @@ google_content.orders.updatemerchantorderid({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersUpdateMerchantOrderIdResponse](#ordersupdatemerchantorderidresponse)
@@ -1311,8 +1605,8 @@ google_content.orders.updateshipment({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersUpdateShipmentResponse](#ordersupdateshipmentresponse)
@@ -1337,11 +1631,178 @@ google_content.orders.getbymerchantorderid({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersGetByMerchantOrderIdResponse](#ordersgetbymerchantorderidresponse)
+
+### pos.inventory
+Submit inventory for the given merchant.
+
+
+```js
+google_content.pos.inventory({
+  "merchantId": "",
+  "targetMerchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [PosInventoryRequest](#posinventoryrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * merchantId **required** `string`: The ID of the POS or inventory data provider.
+  * targetMerchantId **required** `string`: The ID of the target merchant.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [PosInventoryResponse](#posinventoryresponse)
+
+### pos.sale
+Submit a sale event for the given merchant.
+
+
+```js
+google_content.pos.sale({
+  "merchantId": "",
+  "targetMerchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [PosSaleRequest](#possalerequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * merchantId **required** `string`: The ID of the POS or inventory data provider.
+  * targetMerchantId **required** `string`: The ID of the target merchant.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [PosSaleResponse](#possaleresponse)
+
+### pos.list
+Lists the stores of the target merchant.
+
+
+```js
+google_content.pos.list({
+  "merchantId": "",
+  "targetMerchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * merchantId **required** `string`: The ID of the POS or inventory data provider.
+  * targetMerchantId **required** `string`: The ID of the target merchant.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [PosListResponse](#poslistresponse)
+
+### pos.insert
+Creates a store for the given merchant.
+
+
+```js
+google_content.pos.insert({
+  "merchantId": "",
+  "targetMerchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [PosStore](#posstore)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * merchantId **required** `string`: The ID of the POS or inventory data provider.
+  * targetMerchantId **required** `string`: The ID of the target merchant.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [PosStore](#posstore)
+
+### pos.delete
+Deletes a store for the given merchant.
+
+
+```js
+google_content.pos.delete({
+  "merchantId": "",
+  "storeCode": "",
+  "targetMerchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
+  * merchantId **required** `string`: The ID of the POS or inventory data provider.
+  * storeCode **required** `string`: A store code that is unique per merchant.
+  * targetMerchantId **required** `string`: The ID of the target merchant.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+*Output schema unknown*
+
+### pos.get
+Retrieves information about the given store.
+
+
+```js
+google_content.pos.get({
+  "merchantId": "",
+  "storeCode": "",
+  "targetMerchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * merchantId **required** `string`: The ID of the POS or inventory data provider.
+  * storeCode **required** `string`: A store code that is unique per merchant.
+  * targetMerchantId **required** `string`: The ID of the target merchant.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [PosStore](#posstore)
 
 ### products.list
 Lists the products in your Merchant Center account.
@@ -1364,8 +1825,8 @@ google_content.products.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProductsListResponse](#productslistresponse)
@@ -1390,8 +1851,8 @@ google_content.products.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Product](#product)
@@ -1417,8 +1878,8 @@ google_content.products.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -1443,8 +1904,8 @@ google_content.products.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Product](#product)
@@ -1461,6 +1922,7 @@ google_content.productstatuses.list({
 
 #### Input
 * input `object`
+  * destinations `array`: If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.
   * includeAttributes `boolean`: Flag to include full product data in the results of the list request. The default value is false.
   * includeInvalidInsertedItems `boolean`: Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false).
   * maxResults `integer`: The maximum number of product statuses to return in the response, used for paging.
@@ -1471,8 +1933,8 @@ google_content.productstatuses.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProductstatusesListResponse](#productstatuseslistresponse)
@@ -1490,6 +1952,7 @@ google_content.productstatuses.get({
 
 #### Input
 * input `object`
+  * destinations `array`: If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.
   * includeAttributes `boolean`: Flag to include full product data in the result of this get request. The default value is false.
   * merchantId **required** `string`: The ID of the account that contains the product. This account cannot be a multi-client account.
   * productId **required** `string`: The REST id of the product.
@@ -1498,8 +1961,8 @@ google_content.productstatuses.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProductStatus](#productstatus)
@@ -1524,8 +1987,8 @@ google_content.shippingsettings.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ShippingsettingsListResponse](#shippingsettingslistresponse)
@@ -1550,8 +2013,8 @@ google_content.shippingsettings.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ShippingSettings](#shippingsettings)
@@ -1578,8 +2041,8 @@ google_content.shippingsettings.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ShippingSettings](#shippingsettings)
@@ -1606,8 +2069,8 @@ google_content.shippingsettings.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ShippingSettings](#shippingsettings)
@@ -1630,8 +2093,8 @@ google_content.shippingsettings.getsupportedcarriers({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ShippingsettingsGetSupportedCarriersResponse](#shippingsettingsgetsupportedcarriersresponse)
@@ -1654,8 +2117,8 @@ google_content.shippingsettings.getsupportedholidays({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ShippingsettingsGetSupportedHolidaysResponse](#shippingsettingsgetsupportedholidaysresponse)
@@ -1679,8 +2142,8 @@ google_content.orders.createtestorder({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersCreateTestOrderResponse](#orderscreatetestorderresponse)
@@ -1705,8 +2168,8 @@ google_content.orders.advancetestorder({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersAdvanceTestOrderResponse](#ordersadvancetestorderresponse)
@@ -1731,8 +2194,8 @@ google_content.orders.gettestordertemplate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OrdersGetTestOrderTemplateResponse](#ordersgettestordertemplateresponse)
@@ -1750,7 +2213,7 @@ google_content.orders.gettestordertemplate({
   * id `string`: Merchant Center account ID.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#account".
   * name `string`: Display name for the account.
-  * reviewsUrl `string`: URL for individual seller reviews, i.e., reviews for each child account.
+  * reviewsUrl `string`: [DEPRECATED] This field is never returned and will be ignored if provided.
   * sellerId `string`: Client-specific, locally-unique, internal ID for the child account.
   * users `array`: Users with access to the account. Every account (except for subaccounts) must have at least one admin user.
     * items [AccountUser](#accountuser)
@@ -1765,7 +2228,7 @@ google_content.orders.gettestordertemplate({
 
 ### AccountGoogleMyBusinessLink
 * AccountGoogleMyBusinessLink `object`
-  * gmbEmail `string`: The GMB email address.
+  * gmbEmail `string`: The GMB email address of which a specific account within a GMB account. A sample account within a GMB account could be a business account with set of locations, managed under the GMB account.
   * status `string`: Status of the link between this Merchant Center account and the GMB account.
 
 ### AccountIdentifier
@@ -1786,6 +2249,7 @@ google_content.orders.gettestordertemplate({
 ### AccountStatusAccountLevelIssue
 * AccountStatusAccountLevelIssue `object`
   * country `string`: Country for which this issue is reported.
+  * destination `string`: The destination the issue applies to.
   * detail `string`: Additional details about the issue.
   * id `string`: Issue identifier.
   * severity `string`: Severity of the issue.
@@ -1794,6 +2258,7 @@ google_content.orders.gettestordertemplate({
 ### AccountStatusDataQualityIssue
 * AccountStatusDataQualityIssue `object`
   * country `string`: Country for which this issue is reported.
+  * destination `string`: The destination the issue applies to.
   * detail `string`: A more detailed description of the issue.
   * displayedValue `string`: Actual value displayed on the landing page.
   * exampleItems `array`: Example items featuring the issue.
@@ -1892,6 +2357,8 @@ google_content.orders.gettestordertemplate({
 * AccountstatusesCustomBatchRequestEntry `object`: A batch entry encoding a single non-batch accountstatuses request.
   * accountId `string`: The ID of the (sub-)account whose status to get.
   * batchId `integer`: An entry ID, unique within the batch request.
+  * destinations `array`: If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.
+    * items `string`
   * merchantId `string`: The ID of the managing account.
   * method `string`: The method (get).
 
@@ -2045,7 +2512,7 @@ google_content.orders.gettestordertemplate({
 * DatafeedsCustomBatchRequestEntry `object`: A batch entry encoding a single non-batch datafeeds request.
   * batchId `integer`: An entry ID, unique within the batch request.
   * datafeed [Datafeed](#datafeed)
-  * datafeedId `string`: The ID of the data feed to get or delete.
+  * datafeedId `string`: The ID of the data feed to get, delete or fetch.
   * merchantId `string`: The ID of the managing account.
   * method `string`
 
@@ -2060,6 +2527,10 @@ google_content.orders.gettestordertemplate({
   * batchId `integer`: The ID of the request entry this entry responds to.
   * datafeed [Datafeed](#datafeed)
   * errors [Errors](#errors)
+
+### DatafeedsFetchNowResponse
+* DatafeedsFetchNowResponse `object`
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#datafeedsFetchNowResponse".
 
 ### DatafeedsListResponse
 * DatafeedsListResponse `object`
@@ -2120,6 +2591,19 @@ google_content.orders.gettestordertemplate({
   * errors `array`: A list of errors.
     * items [Error](#error)
   * message `string`: The message of the first error in errors.
+
+### GmbAccounts
+* GmbAccounts `object`
+  * accountId `string`: The ID of the account.
+  * gmbAccounts `array`: A list of GMB accounts which are available to the merchant.
+    * items [GmbAccountsGmbAccount](#gmbaccountsgmbaccount)
+
+### GmbAccountsGmbAccount
+* GmbAccountsGmbAccount `object`
+  * email `string`: The email which identifies the GMB account.
+  * listingCount `string`: Number of listings under this account.
+  * name `string`: The name of the GMB account.
+  * type `string`: The type of the GMB account (User or Business).
 
 ### Headers
 * Headers `object`: A non-empty list of row or column headers for a table. Exactly one of prices, weights, numItems, postalCodeGroupNames, or locations must be set.
@@ -2215,6 +2699,100 @@ google_content.orders.gettestordertemplate({
 * InventorySetResponse `object`
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#inventorySetResponse".
 
+### LiaAboutPageSettings
+* LiaAboutPageSettings `object`
+  * status `string`: The status of the verification process for the About page.
+  * url `string`: The URL for the About page.
+
+### LiaCountrySettings
+* LiaCountrySettings `object`
+  * about [LiaAboutPageSettings](#liaaboutpagesettings)
+  * country `string`: CLDR country code (e.g. "US").
+  * hostedLocalStorefrontActive `boolean`: The status of the "Merchant hosted local storefront" feature.
+  * inventory [LiaInventorySettings](#liainventorysettings)
+  * onDisplayToOrder [LiaOnDisplayToOrderSettings](#liaondisplaytoordersettings)
+  * storePickupActive `boolean`: The status of the "Store pickup" feature.
+
+### LiaInventorySettings
+* LiaInventorySettings `object`
+  * inventoryVerificationContactEmail `string`: The email of the contact for the inventory verification process.
+  * inventoryVerificationContactName `string`: The name of the contact for the inventory verification process.
+  * inventoryVerificationContactStatus `string`: The status of the verification contact.
+  * status `string`: The status of the inventory verification process.
+
+### LiaOnDisplayToOrderSettings
+* LiaOnDisplayToOrderSettings `object`
+  * shippingCostPolicyUrl `string`: Shipping cost and policy URL.
+  * status `string`: The status of the ?On display to order? feature.
+
+### LiaSettings
+* LiaSettings `object`
+  * accountId `string`: The ID of the account to which these LIA settings belong. Ignored upon update, always present in get request responses.
+  * countrySettings `array`: The LIA settings for each country.
+    * items [LiaCountrySettings](#liacountrysettings)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#liaSettings".
+
+### LiasettingsCustomBatchRequest
+* LiasettingsCustomBatchRequest `object`
+  * entries `array`: The request entries to be processed in the batch.
+    * items [LiasettingsCustomBatchRequestEntry](#liasettingscustombatchrequestentry)
+
+### LiasettingsCustomBatchRequestEntry
+* LiasettingsCustomBatchRequestEntry `object`
+  * accountId `string`: The ID of the account for which to get/update account shipping settings.
+  * batchId `integer`: An entry ID, unique within the batch request.
+  * contactEmail `string`: Inventory validation contact email. Required only for SetInventoryValidationContact.
+  * contactName `string`: Inventory validation contact name. Required only for SetInventoryValidationContact.
+  * country `string`: The country code. Required only for RequestInventoryVerification.
+  * gmbEmail `string`: The GMB account. Required only for RequestGmbAccess.
+  * liaSettings [LiaSettings](#liasettings)
+  * merchantId `string`: The ID of the managing account.
+  * method `string`
+  * posExternalAccountId `string`: The account ID by which this merchant is known to the POS provider.
+  * posProviderId `string`: The ID of POS provider. Required only for SetPosProvider.
+
+### LiasettingsCustomBatchResponse
+* LiasettingsCustomBatchResponse `object`
+  * entries `array`: The result of the execution of the batch requests.
+    * items [LiasettingsCustomBatchResponseEntry](#liasettingscustombatchresponseentry)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#liasettingsCustomBatchResponse".
+
+### LiasettingsCustomBatchResponseEntry
+* LiasettingsCustomBatchResponseEntry `object`
+  * batchId `integer`: The ID of the request entry to which this entry responds.
+  * errors [Errors](#errors)
+  * gmbAccounts [GmbAccounts](#gmbaccounts)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#liasettingsCustomBatchResponseEntry".
+  * liaSettings [LiaSettings](#liasettings)
+  * posProviders `array`: The list of POS providers.
+    * items [PosProviders](#posproviders)
+
+### LiasettingsGetAccessibleGmbAccountsResponse
+* LiasettingsGetAccessibleGmbAccountsResponse `object`
+  * accountId `string`: The ID of the account.
+  * gmbAccounts `array`: A list of GMB accounts which are available to the merchant.
+    * items [GmbAccountsGmbAccount](#gmbaccountsgmbaccount)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#liasettingsGetAccessibleGmbAccountsResponse".
+
+### LiasettingsListResponse
+* LiasettingsListResponse `object`
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#liasettingsListResponse".
+  * nextPageToken `string`: The token for the retrieval of the next page of LIA settings.
+  * resources `array`
+    * items [LiaSettings](#liasettings)
+
+### LiasettingsRequestGmbAccessResponse
+* LiasettingsRequestGmbAccessResponse `object`
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#liasettingsRequestGmbAccessResponse".
+
+### LiasettingsRequestInventoryVerificationResponse
+* LiasettingsRequestInventoryVerificationResponse `object`
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#liasettingsRequestInventoryVerificationResponse".
+
+### LiasettingsSetInventoryVerificationContactResponse
+* LiasettingsSetInventoryVerificationContactResponse `object`
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#liasettingsSetInventoryVerificationContactResponse".
+
 ### LocationIdSet
 * LocationIdSet `object`
   * locationIds `array`: A non-empty list of location IDs. They must all be of the same location type (e.g., state).
@@ -2271,14 +2849,21 @@ google_content.orders.gettestordertemplate({
   * actor `string`: The actor that created the cancellation.
   * creationDate `string`: Date on which the cancellation has been created, in ISO 8601 format.
   * quantity `integer`: The quantity that was canceled.
-  * reason `string`: The reason for the cancellation. Orders that are cancelled with a noInventory reason will lead to the removal of the product from POG until you make an update to that product. This will not affect your Shopping ads.
+  * reason `string`: The reason for the cancellation. Orders that are cancelled with a noInventory reason will lead to the removal of the product from Shopping Actions until you make an update to that product. This will not affect your Shopping ads.
   * reasonText `string`: The explanation of the reason.
 
 ### OrderCustomer
 * OrderCustomer `object`
-  * email `string`: Email address of the customer.
-  * explicitMarketingPreference `boolean`: If set, this indicates the user explicitly chose to opt in or out of providing marketing rights to the merchant. If unset, this indicates the user has already made this choice in a previous purchase, and was thus not shown the marketing right opt in/out checkbox during the checkout flow.
+  * email `string`: Email address that should be used for order related communications. In certain cases this might not be a real users email, but a proxy email.
+  * explicitMarketingPreference `boolean`: Deprecated. Please use marketingRightsInfo instead.
   * fullName `string`: Full name of the customer.
+  * marketingRightsInfo [OrderCustomerMarketingRightsInfo](#ordercustomermarketingrightsinfo)
+
+### OrderCustomerMarketingRightsInfo
+* OrderCustomerMarketingRightsInfo `object`
+  * explicitMarketingPreference `string`: Last known user selection regarding marketing preferences. In certain cases this selection might not be known, so this field would be empty.
+  * lastUpdatedTimestamp `string`: Timestamp when last time marketing preference was updated. Could be empty, if user wasn't offered a selection yet.
+  * marketingEmailAddress `string`: Email address that can be used for marketing purposes. This field is only filled when explicitMarketingPreference is equal to 'granted'.
 
 ### OrderDeliveryDetails
 * OrderDeliveryDetails `object`
@@ -2759,6 +3344,134 @@ google_content.orders.gettestordertemplate({
   * executionStatus `string`: The status of the execution.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersUpdateShipmentResponse".
 
+### PosCustomBatchRequest
+* PosCustomBatchRequest `object`
+  * entries `array`: The request entries to be processed in the batch.
+    * items [PosCustomBatchRequestEntry](#poscustombatchrequestentry)
+
+### PosCustomBatchRequestEntry
+* PosCustomBatchRequestEntry `object`
+  * batchId `integer`: An entry ID, unique within the batch request.
+  * inventory [PosInventory](#posinventory)
+  * merchantId `string`: The ID of the POS provider.
+  * method `string`
+  * sale [PosSale](#possale)
+  * store [PosStore](#posstore)
+  * storeCode `string`: The store code. Set this only if the method is delete or get.
+  * targetMerchantId `string`: The ID of the account for which to get/submit data.
+
+### PosCustomBatchResponse
+* PosCustomBatchResponse `object`
+  * entries `array`: The result of the execution of the batch requests.
+    * items [PosCustomBatchResponseEntry](#poscustombatchresponseentry)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#posCustomBatchResponse".
+
+### PosCustomBatchResponseEntry
+* PosCustomBatchResponseEntry `object`
+  * batchId `integer`: The ID of the request entry to which this entry responds.
+  * errors [Errors](#errors)
+  * inventory [PosInventory](#posinventory)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#posCustomBatchResponseEntry".
+  * sale [PosSale](#possale)
+  * store [PosStore](#posstore)
+
+### PosInventory
+* PosInventory `object`: The absolute quantity of an item available at the given store.
+  * contentLanguage `string`: The two-letter ISO 639-1 language code for the item.
+  * gtin `string`: Global Trade Item Number.
+  * itemId `string`: A unique identifier for the item.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#posInventory".
+  * price [Price](#price)
+  * quantity `string`: The available quantity of the item.
+  * storeCode `string`: The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.
+  * targetCountry `string`: The CLDR territory code for the item.
+  * timestamp `string`: The inventory timestamp, in ISO 8601 format.
+
+### PosInventoryRequest
+* PosInventoryRequest `object`
+  * contentLanguage `string`: The two-letter ISO 639-1 language code for the item.
+  * gtin `string`: Global Trade Item Number.
+  * itemId `string`: A unique identifier for the item.
+  * price [Price](#price)
+  * quantity `string`: The available quantity of the item.
+  * storeCode `string`: The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.
+  * targetCountry `string`: The CLDR territory code for the item.
+  * timestamp `string`: The inventory timestamp, in ISO 8601 format.
+
+### PosInventoryResponse
+* PosInventoryResponse `object`
+  * contentLanguage `string`: The two-letter ISO 639-1 language code for the item.
+  * gtin `string`: Global Trade Item Number.
+  * itemId `string`: A unique identifier for the item.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#posInventoryResponse".
+  * price [Price](#price)
+  * quantity `string`: The available quantity of the item.
+  * storeCode `string`: The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.
+  * targetCountry `string`: The CLDR territory code for the item.
+  * timestamp `string`: The inventory timestamp, in ISO 8601 format.
+
+### PosListResponse
+* PosListResponse `object`
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#posListResponse".
+  * resources `array`
+    * items [PosStore](#posstore)
+
+### PosProviders
+* PosProviders `object`
+  * country `string`: Country code.
+  * posProviders `array`: A list of POS providers.
+    * items [PosProvidersPosProvider](#posprovidersposprovider)
+
+### PosProvidersPosProvider
+* PosProvidersPosProvider `object`
+  * displayName `string`: The display name of Pos Provider.
+  * fullName `string`: The full name of this POS Provider.
+  * providerId `string`: The ID of the account.
+
+### PosSale
+* PosSale `object`: The change of the available quantity of an item at the given store.
+  * contentLanguage `string`: The two-letter ISO 639-1 language code for the item.
+  * gtin `string`: Global Trade Item Number.
+  * itemId `string`: A unique identifier for the item.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#posSale".
+  * price [Price](#price)
+  * quantity `string`: The relative change of the available quantity. Negative for items sold.
+  * saleId `string`: A unique ID to group items from the same sale event.
+  * storeCode `string`: The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.
+  * targetCountry `string`: The CLDR territory code for the item.
+  * timestamp `string`: The inventory timestamp, in ISO 8601 format.
+
+### PosSaleRequest
+* PosSaleRequest `object`
+  * contentLanguage `string`: The two-letter ISO 639-1 language code for the item.
+  * gtin `string`: Global Trade Item Number.
+  * itemId `string`: A unique identifier for the item.
+  * price [Price](#price)
+  * quantity `string`: The relative change of the available quantity. Negative for items sold.
+  * saleId `string`: A unique ID to group items from the same sale event.
+  * storeCode `string`: The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.
+  * targetCountry `string`: The CLDR territory code for the item.
+  * timestamp `string`: The inventory timestamp, in ISO 8601 format.
+
+### PosSaleResponse
+* PosSaleResponse `object`
+  * contentLanguage `string`: The two-letter ISO 639-1 language code for the item.
+  * gtin `string`: Global Trade Item Number.
+  * itemId `string`: A unique identifier for the item.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#posSaleResponse".
+  * price [Price](#price)
+  * quantity `string`: The relative change of the available quantity. Negative for items sold.
+  * saleId `string`: A unique ID to group items from the same sale event.
+  * storeCode `string`: The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.
+  * targetCountry `string`: The CLDR territory code for the item.
+  * timestamp `string`: The inventory timestamp, in ISO 8601 format.
+
+### PosStore
+* PosStore `object`: Store resource.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#posStore".
+  * storeAddress `string`: The street address of the store.
+  * storeCode `string`: A store identifier that is unique for the given merchant.
+
 ### PostalCodeGroup
 * PostalCodeGroup `object`
   * country `string`: The CLDR territory code of the country the postal code group applies to. Required.
@@ -2930,6 +3643,7 @@ google_content.orders.gettestordertemplate({
 
 ### ProductStatusDataQualityIssue
 * ProductStatusDataQualityIssue `object`
+  * destination `string`: The destination the issue applies to.
   * detail `string`: A more detailed error string.
   * fetchStatus `string`: The fetch status for landing_page_errors.
   * id `string`: The id of the data quality issue.
@@ -2950,7 +3664,10 @@ google_content.orders.gettestordertemplate({
 * ProductStatusItemLevelIssue `object`
   * attributeName `string`: The attribute's name, if the issue is caused by a single attribute.
   * code `string`: The error code of the issue.
+  * description `string`: A short issue description in English.
   * destination `string`: The destination the issue applies to.
+  * detail `string`: A detailed issue description in English.
+  * documentation `string`: The URL of a web page to help with resolving this issue.
   * resolution `string`: Whether the issue can be resolved by the merchant.
   * servability `string`: How this issue affects serving of the offer.
 
@@ -3014,6 +3731,8 @@ google_content.orders.gettestordertemplate({
 ### ProductstatusesCustomBatchRequestEntry
 * ProductstatusesCustomBatchRequestEntry `object`: A batch entry encoding a single non-batch productstatuses request.
   * batchId `integer`: An entry ID, unique within the batch request.
+  * destinations `array`: If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.
+    * items `string`
   * includeAttributes `boolean`
   * merchantId `string`: The ID of the managing account.
   * method `string`
@@ -3061,6 +3780,7 @@ google_content.orders.gettestordertemplate({
   * currency `string`: The CLDR code of the currency to which this service applies. Must match that of the prices in rate groups.
   * deliveryCountry `string`: The CLDR territory code of the country to which the service applies. Required.
   * deliveryTime [DeliveryTime](#deliverytime)
+  * eligibility `string`: Eligibility for this service.
   * minimumOrderValue [Price](#price)
   * name `string`: Free-form name of the service. Must be unique within target account. Required.
   * rateGroups `array`: Shipping rate group definitions. Only the last one is allowed to have an empty applicableShippingLabels, which means "everything else". The other applicableShippingLabels must not overlap.
@@ -3145,8 +3865,14 @@ google_content.orders.gettestordertemplate({
 ### TestOrderCustomer
 * TestOrderCustomer `object`
   * email `string`: Email address of the customer.
-  * explicitMarketingPreference `boolean`: If set, this indicates the user explicitly chose to opt in or out of providing marketing rights to the merchant. If unset, this indicates the user has already made this choice in a previous purchase, and was thus not shown the marketing right opt in/out checkbox during the checkout flow. Optional.
+  * explicitMarketingPreference `boolean`: Deprecated. Please use marketingRightsInfo instead.
   * fullName `string`: Full name of the customer.
+  * marketingRightsInfo [TestOrderCustomerMarketingRightsInfo](#testordercustomermarketingrightsinfo)
+
+### TestOrderCustomerMarketingRightsInfo
+* TestOrderCustomerMarketingRightsInfo `object`
+  * explicitMarketingPreference `string`: Last know user use selection regards marketing preferences. In certain cases selection might not be known, so this field would be empty.
+  * lastUpdatedTimestamp `string`: Timestamp when last time marketing preference was updated. Could be empty, if user wasn't offered a selection yet.
 
 ### TestOrderLineItem
 * TestOrderLineItem `object`

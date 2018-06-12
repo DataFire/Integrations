@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Ad Exchange Buyer",
     "version": "v1.4",
     "x-apiClientRegistration": {
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/adexchangebuyer/v1.4/rest",
@@ -49,21 +44,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -114,13 +99,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -181,9 +166,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -239,9 +221,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -310,9 +289,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -357,9 +333,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -383,9 +356,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -442,9 +412,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -508,9 +475,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -580,9 +544,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -627,9 +588,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -715,9 +673,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -772,9 +727,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -814,9 +766,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -908,9 +857,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -950,9 +896,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1044,9 +987,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1108,9 +1048,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1166,9 +1103,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1231,9 +1165,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1270,9 +1201,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1311,9 +1239,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1383,9 +1308,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1430,9 +1352,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1493,9 +1412,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1527,9 +1443,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1586,9 +1499,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1669,9 +1579,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1703,9 +1610,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1762,9 +1666,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1827,9 +1728,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1917,9 +1815,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1982,9 +1877,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -2049,9 +1941,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -2090,9 +1979,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -2180,9 +2066,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -2235,9 +2118,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -2324,9 +2204,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -2387,9 +2264,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -2422,9 +2296,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -2462,6 +2333,10 @@
     "Account": {
       "description": "Configuration data for an Ad Exchange buyer account.",
       "properties": {
+        "applyPretargetingToNonGuaranteedDeals": {
+          "description": "When this is false, bid requests that include a deal ID for a private auction or preferred deal are always sent to your bidder. When true, all active pretargeting configs will be applied to private auctions and preferred deals. Programmatic Guaranteed deals (when enabled) are always sent to your bidder.",
+          "type": "boolean"
+        },
         "bidderLocation": {
           "description": "Your bidder locations that have distinct URLs.",
           "items": {
@@ -2736,7 +2611,7 @@
       "description": "A creative and its classification data.",
       "properties": {
         "HTMLSnippet": {
-          "description": "The HTML snippet that displays the ad when inserted in the web page. If set, videoURL should not be set.",
+          "description": "The HTML snippet that displays the ad when inserted in the web page. If set, videoURL, videoVastXML, and nativeAd should not be set.",
           "type": "string"
         },
         "accountId": {
@@ -2909,7 +2784,7 @@
           "type": "array"
         },
         "nativeAd": {
-          "description": "If nativeAd is set, HTMLSnippet and the videoURL outside of nativeAd should not be set. (The videoURL inside nativeAd can be set.)",
+          "description": "If nativeAd is set, HTMLSnippet, videoVastXML, and the videoURL outside of nativeAd should not be set. (The videoURL inside nativeAd can be set.)",
           "properties": {
             "advertiser": {
               "type": "string"
@@ -3122,7 +2997,11 @@
           "type": "integer"
         },
         "videoURL": {
-          "description": "The URL to fetch a video ad. If set, HTMLSnippet and the nativeAd should not be set. Note, this is different from resource.native_ad.video_url above.",
+          "description": "The URL to fetch a video ad. If set, HTMLSnippet, videoVastXML, and nativeAd should not be set. Note, this is different from resource.native_ad.video_url above.",
+          "type": "string"
+        },
+        "videoVastXML": {
+          "description": "The contents of a VAST document for a video ad. This document should conform to the VAST 2.0 or 3.0 standard. If set, HTMLSnippet, videoURL, and nativeAd and should not be set.",
           "type": "string"
         },
         "width": {
@@ -4621,6 +4500,12 @@
           "$ref": "#/definitions/TargetingValueDayPartTargeting",
           "description": "The daypart targeting to include / exclude. Filled in when the key is GOOG_DAYPART_TARGETING."
         },
+        "demogAgeCriteriaValue": {
+          "$ref": "#/definitions/TargetingValueDemogAgeCriteria"
+        },
+        "demogGenderCriteriaValue": {
+          "$ref": "#/definitions/TargetingValueDemogGenderCriteria"
+        },
         "longValue": {
           "description": "The long value to exclude/include.",
           "format": "int64",
@@ -4634,7 +4519,15 @@
       "type": "object"
     },
     "TargetingValueCreativeSize": {
+      "description": "Next Id: 7",
       "properties": {
+        "allowedFormats": {
+          "description": "The formats allowed by the publisher.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "companionSizes": {
           "description": "For video size type, the list of companion sizes.",
           "items": {
@@ -4695,6 +4588,28 @@
         "startMinute": {
           "format": "int32",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "TargetingValueDemogAgeCriteria": {
+      "properties": {
+        "demogAgeCriteriaIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "TargetingValueDemogGenderCriteria": {
+      "properties": {
+        "demogGenderCriteriaIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"

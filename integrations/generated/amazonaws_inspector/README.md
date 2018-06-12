@@ -52,15 +52,14 @@ amazonaws_inspector.AddAttributesToFindings({
 
 ```js
 amazonaws_inspector.CreateAssessmentTarget({
-  "assessmentTargetName": "",
-  "resourceGroupArn": ""
+  "assessmentTargetName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * assessmentTargetName **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn **required** [Arn](#arn)
+  * resourceGroupArn [Arn](#arn)
 
 #### Output
 * output [CreateAssessmentTargetResponse](#createassessmenttargetresponse)
@@ -628,8 +627,7 @@ amazonaws_inspector.UnsubscribeFromEvent({
 ```js
 amazonaws_inspector.UpdateAssessmentTarget({
   "assessmentTargetArn": "",
-  "assessmentTargetName": "",
-  "resourceGroupArn": ""
+  "assessmentTargetName": ""
 }, context)
 ```
 
@@ -637,7 +635,7 @@ amazonaws_inspector.UpdateAssessmentTarget({
 * input `object`
   * assessmentTargetArn **required** [Arn](#arn)
   * assessmentTargetName **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn **required** [Arn](#arn)
+  * resourceGroupArn [Arn](#arn)
 
 #### Output
 *Output schema unknown*
@@ -847,7 +845,7 @@ amazonaws_inspector.UpdateAssessmentTarget({
   * arn **required** [Arn](#arn)
   * createdAt **required** [Timestamp](#timestamp)
   * name **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn **required** [Arn](#arn)
+  * resourceGroupArn [Arn](#arn)
   * updatedAt **required** [Timestamp](#timestamp)
 
 ### AssessmentTargetFilter
@@ -934,7 +932,7 @@ amazonaws_inspector.UpdateAssessmentTarget({
 ### CreateAssessmentTargetRequest
 * CreateAssessmentTargetRequest `object`
   * assessmentTargetName **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn **required** [Arn](#arn)
+  * resourceGroupArn [Arn](#arn)
 
 ### CreateAssessmentTargetResponse
 * CreateAssessmentTargetResponse `object`
@@ -1504,7 +1502,7 @@ amazonaws_inspector.UpdateAssessmentTarget({
 * UpdateAssessmentTargetRequest `object`
   * assessmentTargetArn **required** [Arn](#arn)
   * assessmentTargetName **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn **required** [Arn](#arn)
+  * resourceGroupArn [Arn](#arn)
 
 ### Url
 * Url `string`

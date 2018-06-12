@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs to get the analytics reports associated with your Azure API Management deployment.",
     "title": "ApiManagementClient",
-    "version": "2017-03-01",
+    "version": "2018-01-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/apimanagement/resource-manager/Microsoft.ApiManagement/stable/2017-03-01/apimreports.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimreports.json",
         "version": "2.0"
       }
     ],
@@ -140,7 +140,7 @@
           "ApiManagementGetReportsByApi": {
             "parameters": {
               "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -280,7 +280,7 @@
           "ApiManagementGetReportsByGeo": {
             "parameters": {
               "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -403,7 +403,7 @@
           "ApiManagementGetReportsByOperation": {
             "parameters": {
               "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -564,7 +564,7 @@
           "ApiManagementGetReportsByProduct": {
             "parameters": {
               "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -704,7 +704,7 @@
           "ApiManagementGetReportsByRequest": {
             "parameters": {
               "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -843,7 +843,7 @@
           "ApiManagementGetReportsBySubscription": {
             "parameters": {
               "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -1015,7 +1015,7 @@
           "ApiManagementGetReportsByTime": {
             "parameters": {
               "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "interval": "PT15M",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -1156,7 +1156,7 @@
           "ApiManagementGetReportsByUser": {
             "parameters": {
               "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-              "api-version": "2017-03-01",
+              "api-version": "2018-01-01",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"

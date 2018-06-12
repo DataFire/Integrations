@@ -74,6 +74,17 @@
       "required": true,
       "type": "string"
     },
+    "permissionName": {
+      "description": "permission name",
+      "enum": [
+        "builder",
+        "manager"
+      ],
+      "in": "path",
+      "name": "permissionName",
+      "required": true,
+      "type": "string"
+    },
     "userEmail": {
       "description": "user's email",
       "format": "email",
@@ -448,6 +459,47 @@
         "operationId": "courses.contentId.metadata.topic.put"
       }
     },
+    "/courses/{contentId}/permissions": {
+      "post": {
+        "parameters": [
+          {
+            "description": "The content Id",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "users",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CourseUser"
+              },
+              "title": "users to be added to the offering.",
+              "type": "array"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "user successfully added to the course with the specified permission.",
+            "schema": {
+              "$ref": "#/definitions/CourseUser"
+            }
+          }
+        },
+        "summary": "Update course access",
+        "tags": [
+          "courses"
+        ],
+        "operationId": "courses.contentId.permissions.post"
+      }
+    },
     "/offerings": {
       "get": {
         "description": "Responds with all offerings for your organisation.",
@@ -693,6 +745,36 @@
           "analytics"
         ],
         "operationId": "offerings.offeringId.analytics.channels.channelId.posts.get"
+      }
+    },
+    "/offerings/{offeringId}/analytics/channels/{channelId}/replies": {
+      "get": {
+        "description": "Responds with a list of all replies in any of the posts for a channel in a offering",
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          },
+          {
+            "$ref": "#/parameters/channelId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Comment"
+              },
+              "title": "Comments",
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Find replies",
+        "tags": [
+          "analytics"
+        ],
+        "operationId": "offerings.offeringId.analytics.channels.channelId.replies.get"
       }
     },
     "/offerings/{offeringId}/analytics/learners-progress": {
@@ -1628,17 +1710,21 @@
         "operationId": "offerings.offeringId.users.get"
       },
       "post": {
-        "description": "Adds user to the offering.",
+        "description": "Adds one or more users to the offering.",
         "parameters": [
           {
             "$ref": "#/parameters/offeringId"
           },
           {
             "in": "body",
-            "name": "user",
+            "name": "users",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/OfferingUser"
+              "items": {
+                "$ref": "#/definitions/OfferingUser"
+              },
+              "title": "users to be added to the offering.",
+              "type": "array"
             }
           }
         ],
@@ -2007,6 +2093,37 @@
         "operationId": "offerings.offeringId.users.userEmail.submissions.open_response.get"
       }
     },
+    "/users": {
+      "post": {
+        "description": "Adds new user",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "user added",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          }
+        },
+        "summary": "Add new user",
+        "tags": [
+          "users"
+        ],
+        "operationId": "users.post"
+      }
+    },
     "/users/all/progress": {
       "get": {
         "description": "Returns offering progress for each learner",
@@ -2163,6 +2280,35 @@
           "users"
         ],
         "operationId": "users.userEmail.offerings.get"
+      }
+    },
+    "/users/{userEmail}/permissions/{permissionName}": {
+      "post": {
+        "description": "Adds permission to user",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userEmail"
+          },
+          {
+            "$ref": "#/parameters/permissionName"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "permission successfully added to user",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          }
+        },
+        "summary": "Add permission to user",
+        "tags": [
+          "users"
+        ],
+        "operationId": "users.userEmail.permissions.permissionName.post"
       }
     }
   },
@@ -2434,6 +2580,9 @@
         "moderation": {
           "$ref": "#/definitions/Moderation"
         },
+        "parentCommentId": {
+          "type": "string"
+        },
         "postId": {
           "type": "string"
         }
@@ -2450,6 +2599,12 @@
         },
         "id": {
           "type": "string"
+        },
+        "learning_outcomes": {
+          "items": {
+            "$ref": "#/definitions/LearningOutcomes"
+          },
+          "type": "array"
         },
         "metadata": {
           "$ref": "#/definitions/PortfolioMetadata"
@@ -2472,11 +2627,40 @@
         "id": {
           "type": "string"
         },
+        "learning_outcomes": {
+          "items": {
+            "$ref": "#/definitions/LearningOutcomes"
+          },
+          "type": "array"
+        },
         "name": {
           "type": "string"
         }
       },
       "title": "Course"
+    },
+    "CourseUser": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/User"
+        }
+      ],
+      "properties": {
+        "isBuilder": {
+          "default": false,
+          "type": "boolean"
+        },
+        "isReviewer": {
+          "default": false,
+          "type": "boolean"
+        },
+        "profile": {
+          "$ref": "#/definitions/UserProfile"
+        }
+      },
+      "required": [
+        "email"
+      ]
     },
     "Criteria": {
       "properties": {
@@ -2583,6 +2767,16 @@
         }
       }
     },
+    "LearningOutcomes": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
     "Mark": {
       "properties": {
         "createdAt": {
@@ -2680,7 +2874,25 @@
           "type": "boolean"
         },
         "metadata": {
-          "$ref": "#/definitions/PortfolioMetadata"
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string"
+            },
+            "level": {
+              "type": "string"
+            },
+            "tags": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "topic": {
+              "type": "string"
+            }
+          },
+          "type": "object"
         },
         "name": {
           "minLength": 1,
@@ -2711,6 +2923,9 @@
           "minLength": 1,
           "type": "string"
         },
+        "currency": {
+          "type": "string"
+        },
         "description": {
           "minLength": 1,
           "type": "string"
@@ -2722,6 +2937,9 @@
         "end": {
           "format": "date-time",
           "type": "string"
+        },
+        "enrollmentLimit": {
+          "type": "number"
         },
         "id": {
           "type": "string"
@@ -2735,6 +2953,9 @@
         "name": {
           "minLength": 1,
           "type": "string"
+        },
+        "price": {
+          "type": "number"
         },
         "start": {
           "format": "date-time",
@@ -2782,6 +3003,9 @@
           "minLength": 1,
           "type": "string"
         },
+        "currency": {
+          "type": "string"
+        },
         "description": {
           "minLength": 1,
           "type": "string"
@@ -2794,6 +3018,9 @@
           "format": "date-time",
           "type": "string"
         },
+        "enrollmentLimit": {
+          "type": "number"
+        },
         "id": {
           "type": "string"
         },
@@ -2803,6 +3030,9 @@
         "name": {
           "minLength": 1,
           "type": "string"
+        },
+        "price": {
+          "type": "number"
         },
         "start": {
           "format": "date-time",
@@ -2825,11 +3055,6 @@
         }
       ],
       "properties": {
-        "email": {
-          "format": "email",
-          "minLength": 1,
-          "type": "string"
-        },
         "isFacilitator": {
           "default": false,
           "type": "boolean"
@@ -3095,6 +3320,10 @@
     },
     "User": {
       "properties": {
+        "email": {
+          "minLength": 1,
+          "type": "string"
+        },
         "firstName": {
           "minLength": 1,
           "type": "string"

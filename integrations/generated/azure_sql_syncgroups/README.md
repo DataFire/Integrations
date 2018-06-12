@@ -334,18 +334,6 @@ azure_sql_syncgroups.SyncGroups_TriggerSync({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### SyncDatabaseIdListResult
 * SyncDatabaseIdListResult `object`: A list of sync database ID properties.
   * nextLink `string`: Link to retrieve next page of results.

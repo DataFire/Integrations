@@ -108,16 +108,4 @@ azure_sql_databaseautomatictuning.DatabaseAutomaticTuning_Update({
   * desiredState `string` (values: Inherit, Custom, Auto, Unspecified): Automatic tuning desired state.
   * options `object`: Automatic tuning options definition.
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

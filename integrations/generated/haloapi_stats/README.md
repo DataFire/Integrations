@@ -12,7 +12,7 @@ let haloapi_stats = require('@datafire/haloapi_stats').create({
   apiKeyQuery: ""
 });
 
-haloapi_stats.h5.arena.matches.matchId.get({
+haloapi_stats.58acdf28e2f7f70db4854b37({
   "matchId": ""
 }).then(data => {
   console.log(data);
@@ -25,7 +25,7 @@ API that provides statistical data about Players and Matches.
 
 ## Actions
 
-### h5.arena.matches.matchId.get
+### 58acdf28e2f7f70db4854b37
 <p>Retrieves detailed statistics for a Match with the Arena Game Mode.</p>
 <br />
 <h4>Changelog</h4>
@@ -61,7 +61,7 @@ API that provides statistical data about Players and Matches.
 
 
 ```js
-haloapi_stats.h5.arena.matches.matchId.get({
+haloapi_stats.58acdf28e2f7f70db4854b37({
   "matchId": ""
 }, context)
 ```
@@ -73,7 +73,7 @@ haloapi_stats.h5.arena.matches.matchId.get({
 #### Output
 *Output schema unknown*
 
-### h5.campaign.matches.matchId.get
+### 58acdf28e2f7f70db4854b38
 <p>Retrieves detailed statistics for a Match with the Campaign Game Mode.</p>
 <p>Every time a player plays a portion of a Campaign Mission, a Match will be generated whether the player finishes the Mission or not. If the "Match" ends because the Mission was completed, this will be indicated in the response.</p>
 <br />
@@ -107,7 +107,7 @@ haloapi_stats.h5.arena.matches.matchId.get({
 
 
 ```js
-haloapi_stats.h5.campaign.matches.matchId.get({
+haloapi_stats.58acdf28e2f7f70db4854b38({
   "matchId": ""
 }, context)
 ```
@@ -119,7 +119,7 @@ haloapi_stats.h5.campaign.matches.matchId.get({
 #### Output
 *Output schema unknown*
 
-### h5.companies.companyId.get
+### 596968ade2f7f7051870d29f
 <p>Retrieves information about the Company. The response will contain the Company's name, status, and members.</p>
 <br />
 <h4>Changelog</h4>
@@ -133,7 +133,7 @@ haloapi_stats.h5.campaign.matches.matchId.get({
 
 
 ```js
-haloapi_stats.h5.companies.companyId.get({
+haloapi_stats.596968ade2f7f7051870d29f({
   "companyId": ""
 }, context)
 ```
@@ -145,7 +145,7 @@ haloapi_stats.h5.companies.companyId.get({
 #### Output
 *Output schema unknown*
 
-### h5.companies.companyId.commendations.get
+### 596968ade2f7f7051870d2a0
 <p>Retrieves the commendation state for a Company.</p>
 <br />
 <h4>Changelog</h4>
@@ -159,7 +159,7 @@ haloapi_stats.h5.companies.companyId.get({
 
 
 ```js
-haloapi_stats.h5.companies.companyId.commendations.get({
+haloapi_stats.596968ade2f7f7051870d2a0({
   "companyId": ""
 }, context)
 ```
@@ -171,7 +171,7 @@ haloapi_stats.h5.companies.companyId.commendations.get({
 #### Output
 *Output schema unknown*
 
-### h5.custom.matches.matchId.get
+### 58acdf28e2f7f70db4854b39
 <p>Retrieves detailed statistics for a Match with the Custom Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the "Halo 5 - Match Result - Custom Local" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
@@ -207,7 +207,7 @@ haloapi_stats.h5.companies.companyId.commendations.get({
 
 
 ```js
-haloapi_stats.h5.custom.matches.matchId.get({
+haloapi_stats.58acdf28e2f7f70db4854b39({
   "matchId": ""
 }, context)
 ```
@@ -219,7 +219,7 @@ haloapi_stats.h5.custom.matches.matchId.get({
 #### Output
 *Output schema unknown*
 
-### h5.customlocal.matches.matchId.get
+### 5a3d9a2e51059d1090806fe8
 <p>Retrieves detailed statistics for a Match with the Custom Local Game Mode. Games with the Custom Local Game Mode are played on Local Servers. For games played on Xbox Live Servers, use the "Halo 5 - Match Result - Custom" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
@@ -233,7 +233,7 @@ haloapi_stats.h5.custom.matches.matchId.get({
 
 
 ```js
-haloapi_stats.h5.customlocal.matches.matchId.get({
+haloapi_stats.5a3d9a2e51059d1090806fe8({
   "matchId": ""
 }, context)
 ```
@@ -245,7 +245,7 @@ haloapi_stats.h5.customlocal.matches.matchId.get({
 #### Output
 *Output schema unknown*
 
-### h5.matches.matchId.events.get
+### 58acdf28e2f7f70db4854b36
 <p>Retrieves a set of Events related to the Match specified. Events are only available once the Match has completed.</p>
 <p>The set of Events may grow over time as data becomes available.</p>
 <p>This Endpoint does not have the accuracy guarantees of other Endpoints have, so please use with caution. This endpoint may not return Matches before December 1, 2015.</p>
@@ -281,7 +281,7 @@ haloapi_stats.h5.customlocal.matches.matchId.get({
 
 
 ```js
-haloapi_stats.h5.matches.matchId.events.get({
+haloapi_stats.58acdf28e2f7f70db4854b36({
   "matchId": ""
 }, context)
 ```
@@ -293,10 +293,16 @@ haloapi_stats.h5.matches.matchId.events.get({
 #### Output
 *Output schema unknown*
 
-### h5.player_leaderboards.csr.seasonId.playlistId.get
+### 58acdf28e2f7f70db4854b35
 <p>Retrieves the Leaderboard for Player CSRs. The Leaderboard consists of the top Players with a CSR of 1800 or above for a given Playlist in a Season.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>March 6, 2018:</strong></p>
+    <ul>
+        <li>Fixed documentation typos for the names of the "Player" and "Gamertag" properties.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>July 31, 2017:</strong></p>
     <ul>
@@ -320,7 +326,7 @@ haloapi_stats.h5.matches.matchId.events.get({
 
 
 ```js
-haloapi_stats.h5.player_leaderboards.csr.seasonId.playlistId.get({
+haloapi_stats.58acdf28e2f7f70db4854b35({
   "seasonId": "",
   "playlistId": ""
 }, context)
@@ -335,7 +341,7 @@ haloapi_stats.h5.player_leaderboards.csr.seasonId.playlistId.get({
 #### Output
 *Output schema unknown*
 
-### h5.players.player.commendations.get
+### 596968ade2f7f7051870d2a1
 <p>Retrieves the commendation state for a Player.</p>
 <br />
 <h4>Changelog</h4>
@@ -349,7 +355,7 @@ haloapi_stats.h5.player_leaderboards.csr.seasonId.playlistId.get({
 
 
 ```js
-haloapi_stats.h5.players.player.commendations.get({
+haloapi_stats.596968ade2f7f7051870d2a1({
   "player": ""
 }, context)
 ```
@@ -361,7 +367,7 @@ haloapi_stats.h5.players.player.commendations.get({
 #### Output
 *Output schema unknown*
 
-### h5.players.player.matches.get
+### 58acdf28e2f7f70db4854b3b
 <p>Retrieves a list of Matches that the Player has participated in and which have completed processing. If the Player is currently in a match, it is not returned in this API.</p>
 <p>This endpoint will include games played on Local Servers with the Custom Local Game Mode for games that occurred or after December 22, 2017.</p>
 <br />
@@ -390,7 +396,7 @@ haloapi_stats.h5.players.player.commendations.get({
 
 
 ```js
-haloapi_stats.h5.players.player.matches.get({
+haloapi_stats.58acdf28e2f7f70db4854b3b({
   "player": ""
 }, context)
 ```
@@ -405,7 +411,7 @@ haloapi_stats.h5.players.player.matches.get({
 #### Output
 *Output schema unknown*
 
-### h5.servicerecords.arena.get
+### 58acdf28e2f7f70db4854b3c
 <p>Retrieves Service Records for the Arena Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
 <br />
 <h4>Changelog</h4>
@@ -432,7 +438,7 @@ haloapi_stats.h5.players.player.matches.get({
 
 
 ```js
-haloapi_stats.h5.servicerecords.arena.get({
+haloapi_stats.58acdf28e2f7f70db4854b3c({
   "players": ""
 }, context)
 ```
@@ -445,7 +451,7 @@ haloapi_stats.h5.servicerecords.arena.get({
 #### Output
 *Output schema unknown*
 
-### h5.servicerecords.campaign.get
+### 58acdf28e2f7f70db4854b3d
 <p>Retrieves Service Records for the Campaign Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
 <br />
 <h4>Changelog</h4>
@@ -466,7 +472,7 @@ haloapi_stats.h5.servicerecords.arena.get({
 
 
 ```js
-haloapi_stats.h5.servicerecords.campaign.get({
+haloapi_stats.58acdf28e2f7f70db4854b3d({
   "players": ""
 }, context)
 ```
@@ -478,7 +484,7 @@ haloapi_stats.h5.servicerecords.campaign.get({
 #### Output
 *Output schema unknown*
 
-### h5.servicerecords.custom.get
+### 58acdf28e2f7f70db4854b3e
 <p>Retrieves Service Records for the Custom Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the "Halo 5 - Player Service Records - Custom Local" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
@@ -499,7 +505,7 @@ haloapi_stats.h5.servicerecords.campaign.get({
 
 
 ```js
-haloapi_stats.h5.servicerecords.custom.get({
+haloapi_stats.58acdf28e2f7f70db4854b3e({
   "players": ""
 }, context)
 ```
@@ -511,7 +517,7 @@ haloapi_stats.h5.servicerecords.custom.get({
 #### Output
 *Output schema unknown*
 
-### h5.servicerecords.customlocal.get
+### 5a3d9a2e51059d1090806fe9
 <p>Retrieves Service Records for the Custom Local Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Local Game Mode are played on Local Servers. For games played on Xbox Live Servers, use the "Halo 5 - Player Service Records - Custom" Endpoint. A player's Custom Local Service Record summarizes games played on or after December 22, 2017.</p>
 <br />
 <h4>Changelog</h4>
@@ -525,7 +531,7 @@ haloapi_stats.h5.servicerecords.custom.get({
 
 
 ```js
-haloapi_stats.h5.servicerecords.customlocal.get({
+haloapi_stats.5a3d9a2e51059d1090806fe9({
   "players": ""
 }, context)
 ```
@@ -537,7 +543,7 @@ haloapi_stats.h5.servicerecords.customlocal.get({
 #### Output
 *Output schema unknown*
 
-### h5.servicerecords.warzone.get
+### 58acdf28e2f7f70db4854b3f
 <p>Retrieves Service Records for the Warzone Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
 <br />
 <h4>Changelog</h4>
@@ -558,7 +564,7 @@ haloapi_stats.h5.servicerecords.customlocal.get({
 
 
 ```js
-haloapi_stats.h5.servicerecords.warzone.get({
+haloapi_stats.58acdf28e2f7f70db4854b3f({
   "players": ""
 }, context)
 ```
@@ -570,7 +576,7 @@ haloapi_stats.h5.servicerecords.warzone.get({
 #### Output
 *Output schema unknown*
 
-### h5.warzone.matches.matchId.get
+### 58acdf28e2f7f70db4854b3a
 <p>Retrieves detailed statistics for a Match with the Warzone Game Mode.</p>
 <br />
 <h4>Changelog</h4>
@@ -606,7 +612,7 @@ haloapi_stats.h5.servicerecords.warzone.get({
 
 
 ```js
-haloapi_stats.h5.warzone.matches.matchId.get({
+haloapi_stats.58acdf28e2f7f70db4854b3a({
   "matchId": ""
 }, context)
 ```
@@ -618,7 +624,7 @@ haloapi_stats.h5.warzone.matches.matchId.get({
 #### Output
 *Output schema unknown*
 
-### h5pc.custom.matches.matchId.get
+### 58acdf28e2f7f70db4854b40
 <p>Retrieves detailed statistics for a Match with the Custom Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the "Halo 5 - Match Result - Custom Local" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
@@ -654,7 +660,7 @@ haloapi_stats.h5.warzone.matches.matchId.get({
 
 
 ```js
-haloapi_stats.h5pc.custom.matches.matchId.get({
+haloapi_stats.58acdf28e2f7f70db4854b40({
   "matchId": ""
 }, context)
 ```
@@ -666,7 +672,7 @@ haloapi_stats.h5pc.custom.matches.matchId.get({
 #### Output
 *Output schema unknown*
 
-### h5pc.players.player.matches.get
+### 58acdf28e2f7f70db4854b41
 <p>Retrieves a list of Matches that the Player has participated in and which have completed processing. If the Player is currently in a match, it is not returned in this API.</p>
 <p>This endpoint will include games played on Local Servers with the Custom Local Game Mode for games that occurred or after December 22, 2017.</p>
 <br />
@@ -695,7 +701,7 @@ haloapi_stats.h5pc.custom.matches.matchId.get({
 
 
 ```js
-haloapi_stats.h5pc.players.player.matches.get({
+haloapi_stats.58acdf28e2f7f70db4854b41({
   "player": ""
 }, context)
 ```
@@ -710,7 +716,7 @@ haloapi_stats.h5pc.players.player.matches.get({
 #### Output
 *Output schema unknown*
 
-### h5pc.servicerecords.custom.get
+### 58acdf28e2f7f70db4854b42
 <p>Retrieves Service Records for the Custom Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the "Halo 5 - Player Service Records - Custom Local" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
@@ -731,7 +737,7 @@ haloapi_stats.h5pc.players.player.matches.get({
 
 
 ```js
-haloapi_stats.h5pc.servicerecords.custom.get({
+haloapi_stats.58acdf28e2f7f70db4854b42({
   "players": ""
 }, context)
 ```
@@ -743,7 +749,7 @@ haloapi_stats.h5pc.servicerecords.custom.get({
 #### Output
 *Output schema unknown*
 
-### hw2.matches.matchId.get
+### 58acdf28e2f7f70db4854b44
 <p>Retrieves detailed statistics for a Match. Matches can be retrieved before they are completed; however, the data for in-progress Matches is only updated every few minutes.</p>
 <br />
 <h4>Changelog</h4>
@@ -763,7 +769,7 @@ haloapi_stats.h5pc.servicerecords.custom.get({
 
 
 ```js
-haloapi_stats.hw2.matches.matchId.get({
+haloapi_stats.58acdf28e2f7f70db4854b44({
   "matchId": ""
 }, context)
 ```
@@ -775,7 +781,7 @@ haloapi_stats.hw2.matches.matchId.get({
 #### Output
 *Output schema unknown*
 
-### hw2.matches.matchId.events.get
+### 58acdf28e2f7f70db4854b43
 <p>Retrieves a set of Events related to the Match specified. Events are only available once the Match has completed. Events are not available for Matches played with the Custom Match Type.</p>
 <p>The set of Events may grow over time as data becomes available.</p>
 <br />
@@ -796,7 +802,7 @@ haloapi_stats.hw2.matches.matchId.get({
 
 
 ```js
-haloapi_stats.hw2.matches.matchId.events.get({
+haloapi_stats.58acdf28e2f7f70db4854b43({
   "matchId": ""
 }, context)
 ```
@@ -808,10 +814,16 @@ haloapi_stats.hw2.matches.matchId.events.get({
 #### Output
 *Output schema unknown*
 
-### hw2.player_leaderboards.csr.seasonId.playlistId.get
+### 596968ade2f7f7051870d2a2
 <p>Retrieves the Leaderboard for Player CSRs. The Leaderboard consists of the top Players with a CSR of 1800 or above for a given Playlist in a Season.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>March 6, 2018:</strong></p>
+    <ul>
+        <li>Fixed documentation typos for the names of the "Player" and "Gamertag" properties.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>July 31, 2017:</strong></p>
     <ul>
@@ -828,7 +840,7 @@ haloapi_stats.hw2.matches.matchId.events.get({
 
 
 ```js
-haloapi_stats.hw2.player_leaderboards.csr.seasonId.playlistId.get({
+haloapi_stats.596968ade2f7f7051870d2a2({
   "seasonId": "",
   "playlistId": ""
 }, context)
@@ -843,7 +855,7 @@ haloapi_stats.hw2.player_leaderboards.csr.seasonId.playlistId.get({
 #### Output
 *Output schema unknown*
 
-### hw2.players.player.campaign_progress.get
+### 58acdf28e2f7f70db4854b45
 <p>Retrieves the Campaign Progress state for a Player.</p>
 <br />
 <h4>Changelog</h4>
@@ -857,7 +869,7 @@ haloapi_stats.hw2.player_leaderboards.csr.seasonId.playlistId.get({
 
 
 ```js
-haloapi_stats.hw2.players.player.campaign_progress.get({
+haloapi_stats.58acdf28e2f7f70db4854b45({
   "player": ""
 }, context)
 ```
@@ -869,7 +881,7 @@ haloapi_stats.hw2.players.player.campaign_progress.get({
 #### Output
 *Output schema unknown*
 
-### hw2.players.player.matches.get
+### 58acdf28e2f7f70db4854b46
 <p>Retrieves a list of Matches that the Player has participated in. If the Player is currently in a Match, it is not returned in this API.</p>
 <br />
 <h4>Changelog</h4>
@@ -889,7 +901,7 @@ haloapi_stats.hw2.players.player.campaign_progress.get({
 
 
 ```js
-haloapi_stats.hw2.players.player.matches.get({
+haloapi_stats.58acdf28e2f7f70db4854b46({
   "player": ""
 }, context)
 ```
@@ -904,7 +916,7 @@ haloapi_stats.hw2.players.player.matches.get({
 #### Output
 *Output schema unknown*
 
-### hw2.players.player.stats.get
+### 58acdf28e2f7f70db4854b49
 <p>Retrieves high-level aggregations across the lifetime of a Player.</p>
 <br />
 <h4>Changelog</h4>
@@ -925,7 +937,7 @@ haloapi_stats.hw2.players.player.matches.get({
 
 
 ```js
-haloapi_stats.hw2.players.player.stats.get({
+haloapi_stats.58acdf28e2f7f70db4854b49({
   "player": ""
 }, context)
 ```
@@ -937,7 +949,7 @@ haloapi_stats.hw2.players.player.stats.get({
 #### Output
 *Output schema unknown*
 
-### hw2.players.player.stats.seasons.seasonId.get
+### 58acdf28e2f7f70db4854b48
 <p>Retrieves high-level aggregations across a Season for a Player.</p>
 <br />
 <h4>Changelog</h4>
@@ -959,7 +971,7 @@ haloapi_stats.hw2.players.player.stats.get({
 
 
 ```js
-haloapi_stats.hw2.players.player.stats.seasons.seasonId.get({
+haloapi_stats.58acdf28e2f7f70db4854b48({
   "player": "",
   "seasonId": ""
 }, context)
@@ -973,7 +985,7 @@ haloapi_stats.hw2.players.player.stats.seasons.seasonId.get({
 #### Output
 *Output schema unknown*
 
-### hw2.playlist.playlistId.rating.get
+### 58acdf28e2f7f70db4854b47
 <p>Retrieves Playlist Ratings in the current season for one or more Players.</p>
 <br />
 <h4>Changelog</h4>
@@ -987,7 +999,7 @@ haloapi_stats.hw2.players.player.stats.seasons.seasonId.get({
 
 
 ```js
-haloapi_stats.hw2.playlist.playlistId.rating.get({
+haloapi_stats.58acdf28e2f7f70db4854b47({
   "playlistId": "",
   "players": ""
 }, context)
@@ -1001,7 +1013,7 @@ haloapi_stats.hw2.playlist.playlistId.rating.get({
 #### Output
 *Output schema unknown*
 
-### hw2.xp.get
+### 58acdf28e2f7f70db4854b4a
 <p>Retrieves XP and Rank information for one or more players.</p>
 <br />
 <h4>Changelog</h4>
@@ -1015,7 +1027,7 @@ haloapi_stats.hw2.playlist.playlistId.rating.get({
 
 
 ```js
-haloapi_stats.hw2.xp.get({
+haloapi_stats.58acdf28e2f7f70db4854b4a({
   "players": ""
 }, context)
 ```

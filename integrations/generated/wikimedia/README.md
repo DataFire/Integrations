@@ -124,7 +124,7 @@ name-bot, user) and page-type (all-page-types, content, non-content). You can ch
 between daily and monthly granularity as well.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -160,7 +160,7 @@ user) and page-type (all-page-types, content or non-content). You can choose bet
 daily and monthly granularity as well.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -197,7 +197,7 @@ page-type (all-page-types, content or non-content) or activity-level (1..4-edits
 granularity as well.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -238,7 +238,7 @@ The new pages value is computed as follow:
 for the chosen filters.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -274,7 +274,7 @@ group-bot, name-bot, user) or page-type (all-page-types, content or non-content)
 choose between daily and monthly granularity as well.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -310,7 +310,7 @@ name-bot, user) or page-type (all-page-types, content or non-content). You can c
 between daily and monthly granularity as well.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -346,7 +346,7 @@ group-bot, name-bot, user) or page-type (all-page-types, content or non-content)
 choose between daily and monthly granularity as well.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -383,7 +383,7 @@ page-type (all-page-types, content or non-content) or activity-level (1..4-edits
 granularity as well.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -422,7 +422,7 @@ choose between daily and monthly granularity as well. The user_id returned is ei
 mediawiki user_id if user is registered, or his/her IP if the user is anonymous.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -459,7 +459,7 @@ between daily and monthly granularity as well. The user_id returned is either th
 mediawiki user_id if user is registered, or his/her IP if the user is anonymous.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -496,7 +496,7 @@ between daily and monthly granularity as well. The user_id returned is either th
 user_id if user is registered, or his/her IP if the user is anonymous.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -532,7 +532,7 @@ page-type (all-page-types, content or non-content). You can choose between daily
 monthly granularity as well.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -733,7 +733,7 @@ users counts. You can choose between daily and monthly granularity. The newly re
 users value is computed with self-created users only, not auto-login created ones.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
-- Rate limit: 100 req/s
+- Rate limit: 25 req/s
 - License: Data accessible via this endpoint is available under the
   [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -898,6 +898,52 @@ wikimedia.transform.list.tool.tool.get({
 #### Input
 * input `object`
   * tool **required** `string` (values: mt, dictionary): The tool category to list tools and language pairs for
+
+#### Output
+* output [cx_list_pairs_for_tool](#cx_list_pairs_for_tool)
+
+### transform.list.tool.tool.from.get
+Fetches the list of tools and all of the language pairs it can translate
+
+Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+
+
+
+```js
+wikimedia.transform.list.tool.tool.from.get({
+  "tool": "",
+  "from": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * tool **required** `string` (values: mt, dictionary): The tool category to list tools and language pairs for
+  * from **required** `string`: The source language code
+
+#### Output
+* output [cx_list_pairs_for_tool](#cx_list_pairs_for_tool)
+
+### transform.list.tool.tool.from.to.get
+Fetches the list of tools and all of the language pairs it can translate
+
+Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+
+
+
+```js
+wikimedia.transform.list.tool.tool.from.to.get({
+  "tool": "",
+  "from": "",
+  "to": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * tool **required** `string` (values: mt, dictionary): The tool category to list tools and language pairs for
+  * from **required** `string`: The source language code
+  * to **required** `string`: The target language code
 
 #### Output
 * output [cx_list_pairs_for_tool](#cx_list_pairs_for_tool)

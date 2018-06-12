@@ -12,12 +12,7 @@
       "url": "https://google.com"
     },
     "description": "Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Storage Transfer",
+    "title": "Storage Transfer",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -32,7 +27,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://storagetransfer.googleapis.com/$discovery/rest?version=v1",
@@ -53,21 +48,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -210,9 +195,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -298,9 +280,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -373,9 +352,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -415,9 +391,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -499,9 +472,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -536,9 +506,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -547,50 +514,29 @@
         ]
       },
       "get": {
-        "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
-        "operationId": "transferOperations.list",
+        "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+        "operationId": "transferOperations.get",
         "parameters": [
           {
-            "description": "A list of query parameters specified as JSON text in the form of {\\\"project_id\\\" : \\\"my_project_id\\\", \\\"job_names\\\" : [\\\"jobid1\\\", \\\"jobid2\\\",...], \\\"operation_names\\\" : [\\\"opid1\\\", \\\"opid2\\\",...], \\\"transfer_statuses\\\":[\\\"status1\\\", \\\"status2\\\",...]}. Since `job_names`, `operation_names`, and `transfer_statuses` support multiple values, they must be specified with array notation. `job_names`, `operation_names`, and `transfer_statuses` are optional.",
-            "in": "query",
-            "name": "filter",
-            "type": "string"
-          },
-          {
-            "description": "The value `transferOperations`.",
+            "description": "The name of the operation resource.",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "description": "The list page size. The max allowed value is 256.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
-          },
-          {
-            "description": "The list page token.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/ListOperationsResponse"
+              "$ref": "#/definitions/Operation"
             }
           }
         },
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -708,9 +654,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -792,9 +735,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -878,9 +818,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -906,7 +843,7 @@
       "type": "object"
     },
     "AwsS3Data": {
-      "description": "An AwsS3Data can be a data source, but not a data sink.\nIn an AwsS3Data, an object's name is the S3 object's key name.",
+      "description": "An AwsS3Data resource can be a data source, but not a data sink.\nIn an AwsS3Data resource, an object's name is the S3 object's key name.",
       "properties": {
         "awsAccessKey": {
           "$ref": "#/definitions/AwsAccessKey",
@@ -928,7 +865,7 @@
           "type": "integer"
         },
         "month": {
-          "description": "Month of year. Must be from 1 to 12.",
+          "description": "Month of year. Must be from 1 to 12, or 0 if specifying a date without a\nmonth.",
           "format": "int32",
           "type": "integer"
         },
@@ -1004,10 +941,10 @@
       "type": "object"
     },
     "GcsData": {
-      "description": "In a GcsData, an object's name is the Google Cloud Storage object's name and\nits `lastModificationTime` refers to the object's updated time, which changes\nwhen the content or the metadata of the object is updated.",
+      "description": "In a GcsData resource, an object's name is the Google Cloud Storage object's\nname and its `lastModificationTime` refers to the object's updated time,\nwhich changes when the content or the metadata of the object is updated.",
       "properties": {
         "bucketName": {
-          "description": "Google Cloud Storage bucket name (see\n[Bucket Name Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).\nRequired.",
+          "description": "Google Cloud Storage bucket name (see\n[Bucket Name\nRequirements](https://cloud.google.com/storage/docs/naming#requirements)).\nRequired.",
           "type": "string"
         }
       },
@@ -1024,7 +961,7 @@
       "type": "object"
     },
     "HttpData": {
-      "description": "An HttpData specifies a list of objects on the web to be transferred over\nHTTP.  The information of the objects to be transferred is contained in a\nfile referenced by a URL. The first line in the file must be\n\"TsvHttpData-1.0\", which specifies the format of the file.  Subsequent lines\nspecify the information of the list of objects, one object per list entry.\nEach entry has the following tab-delimited fields:\n\n* HTTP URL - The location of the object.\n\n* Length - The size of the object in bytes.\n\n* MD5 - The base64-encoded MD5 hash of the object.\n\nFor an example of a valid TSV file, see\n[Transferring data from URLs](https://cloud.google.com/storage/transfer/create-url-list).\n\nWhen transferring data based on a URL list, keep the following in mind:\n\n* When an object located at `http(s)://hostname:port/<URL-path>` is transferred\nto a data sink, the name of the object at the data sink is\n`<hostname>/<URL-path>`.\n\n* If the specified size of an object does not match the actual size of the\nobject fetched, the object will not be transferred.\n\n* If the specified MD5 does not match the MD5 computed from the transferred\nbytes, the object transfer will fail. For more information, see\n[Generating MD5 hashes](https://cloud.google.com/storage/transfer/#md5)\n\n* Ensure that each URL you specify is publicly accessible. For\nexample, in Google Cloud Storage you can\n[share an object publicly]\n(https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get\na link to it.\n\n* Storage Transfer Service obeys `robots.txt` rules and requires the source\nHTTP server to support `Range` requests and to return a `Content-Length`\nheader in each response.\n\n* [ObjectConditions](#ObjectConditions) have no effect when filtering objects\nto transfer.",
+      "description": "An HttpData resource specifies a list of objects on the web to be transferred\nover HTTP.  The information of the objects to be transferred is contained in\na file referenced by a URL. The first line in the file must be\n\"TsvHttpData-1.0\", which specifies the format of the file.  Subsequent lines\nspecify the information of the list of objects, one object per list entry.\nEach entry has the following tab-delimited fields:\n\n* HTTP URL - The location of the object.\n\n* Length - The size of the object in bytes.\n\n* MD5 - The base64-encoded MD5 hash of the object.\n\nFor an example of a valid TSV file, see\n[Transferring data from\nURLs](https://cloud.google.com/storage/transfer/create-url-list).\n\nWhen transferring data based on a URL list, keep the following in mind:\n\n* When an object located at `http(s)://hostname:port/<URL-path>` is\ntransferred to a data sink, the name of the object at the data sink is\n`<hostname>/<URL-path>`.\n\n* If the specified size of an object does not match the actual size of the\nobject fetched, the object will not be transferred.\n\n* If the specified MD5 does not match the MD5 computed from the transferred\nbytes, the object transfer will fail. For more information, see\n[Generating MD5 hashes](https://cloud.google.com/storage/transfer/#md5)\n\n* Ensure that each URL you specify is publicly accessible. For\nexample, in Google Cloud Storage you can\n[share an object publicly]\n(https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get\na link to it.\n\n* Storage Transfer Service obeys `robots.txt` rules and requires the source\nHTTP server to support `Range` requests and to return a `Content-Length`\nheader in each response.\n\n* [ObjectConditions](#ObjectConditions) have no effect when filtering objects\nto transfer.",
       "properties": {
         "listUrl": {
           "description": "The URL that points to the file that stores the object list entries.\nThis file must allow public access.  Currently, only URLs with HTTP and\nHTTPS schemes are supported.\nRequired.",

@@ -744,6 +744,15 @@ google_sheets.spreadsheets.getByDataFilter({
   * index `integer`: The zero-based index where the rule should be inserted.
   * rule [ConditionalFormatRule](#conditionalformatrule)
 
+### AddDimensionGroupRequest
+* AddDimensionGroupRequest `object`: Creates a group over the specified range.
+  * range [DimensionRange](#dimensionrange)
+
+### AddDimensionGroupResponse
+* AddDimensionGroupResponse `object`: The result of adding a group.
+  * dimensionGroups `array`: All groups of a dimension after adding a group to that dimension.
+    * items [DimensionGroup](#dimensiongroup)
+
 ### AddFilterViewRequest
 * AddFilterViewRequest `object`: Adds a filter view.
   * filter [FilterView](#filterview)
@@ -833,6 +842,7 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### BasicChartSeries
 * BasicChartSeries `object`: A single series of data in a chart.
+  * color [Color](#color)
   * lineStyle [LineStyle](#linestyle)
   * series [ChartData](#chartdata)
   * targetAxis `string` (values: BASIC_CHART_AXIS_POSITION_UNSPECIFIED, BOTTOM_AXIS, LEFT_AXIS, RIGHT_AXIS): The minor axis that will specify the range of values for this series.
@@ -960,7 +970,7 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### BooleanCondition
 * BooleanCondition `object`: A condition that can evaluate to true or false.
-  * type `string` (values: CONDITION_TYPE_UNSPECIFIED, NUMBER_GREATER, NUMBER_GREATER_THAN_EQ, NUMBER_LESS, NUMBER_LESS_THAN_EQ, NUMBER_EQ, NUMBER_NOT_EQ, NUMBER_BETWEEN, NUMBER_NOT_BETWEEN, TEXT_CONTAINS, TEXT_NOT_CONTAINS, TEXT_STARTS_WITH, TEXT_ENDS_WITH, TEXT_EQ, TEXT_IS_EMAIL, TEXT_IS_URL, DATE_EQ, DATE_BEFORE, DATE_AFTER, DATE_ON_OR_BEFORE, DATE_ON_OR_AFTER, DATE_BETWEEN, DATE_NOT_BETWEEN, DATE_IS_VALID, ONE_OF_RANGE, ONE_OF_LIST, BLANK, NOT_BLANK, CUSTOM_FORMULA): The type of condition.
+  * type `string` (values: CONDITION_TYPE_UNSPECIFIED, NUMBER_GREATER, NUMBER_GREATER_THAN_EQ, NUMBER_LESS, NUMBER_LESS_THAN_EQ, NUMBER_EQ, NUMBER_NOT_EQ, NUMBER_BETWEEN, NUMBER_NOT_BETWEEN, TEXT_CONTAINS, TEXT_NOT_CONTAINS, TEXT_STARTS_WITH, TEXT_ENDS_WITH, TEXT_EQ, TEXT_IS_EMAIL, TEXT_IS_URL, DATE_EQ, DATE_BEFORE, DATE_AFTER, DATE_ON_OR_BEFORE, DATE_ON_OR_AFTER, DATE_BETWEEN, DATE_NOT_BETWEEN, DATE_IS_VALID, ONE_OF_RANGE, ONE_OF_LIST, BLANK, NOT_BLANK, CUSTOM_FORMULA, BOOLEAN): The type of condition.
   * values `array`: The values of the condition. The number of supported values depends
     * items [ConditionValue](#conditionvalue)
 
@@ -1074,6 +1084,7 @@ google_sheets.spreadsheets.getByDataFilter({
   * title `string`: The title of the chart.
   * titleTextFormat [TextFormat](#textformat)
   * titleTextPosition [TextPosition](#textposition)
+  * treemapChart [TreemapChartSpec](#treemapchartspec)
   * waterfallChart [WaterfallChartSpec](#waterfallchartspec)
 
 ### ClearBasicFilterRequest
@@ -1104,7 +1115,7 @@ google_sheets.spreadsheets.getByDataFilter({
 * ConditionalFormatRule `object`: A rule describing a conditional format.
   * booleanRule [BooleanRule](#booleanrule)
   * gradientRule [GradientRule](#gradientrule)
-  * ranges `array`: The ranges that will be formatted if the condition is true.
+  * ranges `array`: The ranges that are formatted if the condition is true.
     * items [GridRange](#gridrange)
 
 ### CopyPasteRequest
@@ -1153,6 +1164,10 @@ google_sheets.spreadsheets.getByDataFilter({
   * showCustomUi `boolean`: True if the UI should be customized based on the kind of condition.
   * strict `boolean`: True if invalid data should be rejected.
 
+### DateTimeRule
+* DateTimeRule `object`: Allows you to organize the date-time values in a source data column into
+  * type `string` (values: DATE_TIME_RULE_TYPE_UNSPECIFIED, SECOND, MINUTE, HOUR, HOUR_MINUTE, HOUR_MINUTE_AMPM, DAY_OF_WEEK, DAY_OF_YEAR, DAY_OF_MONTH, DAY_MONTH, MONTH, QUARTER, YEAR, YEAR_MONTH, YEAR_QUARTER, YEAR_MONTH_DAY): The type of date-time grouping to apply.
+
 ### DeleteBandingRequest
 * DeleteBandingRequest `object`: Removes the banded range with the given ID from the spreadsheet.
   * bandedRangeId `integer`: The ID of the banded range to delete.
@@ -1174,6 +1189,15 @@ google_sheets.spreadsheets.getByDataFilter({
 * DeleteDeveloperMetadataResponse `object`: The response from deleting developer metadata.
   * deletedDeveloperMetadata `array`: The metadata that was deleted.
     * items [DeveloperMetadata](#developermetadata)
+
+### DeleteDimensionGroupRequest
+* DeleteDimensionGroupRequest `object`: Deletes a group over the specified range by decrementing the depth of the
+  * range [DimensionRange](#dimensionrange)
+
+### DeleteDimensionGroupResponse
+* DeleteDimensionGroupResponse `object`: The result of deleting a group.
+  * dimensionGroups `array`: All groups of a dimension after deleting a group from that dimension.
+    * items [DimensionGroup](#dimensiongroup)
 
 ### DeleteDimensionRequest
 * DeleteDimensionRequest `object`: Deletes the dimensions from the sheet.
@@ -1229,6 +1253,12 @@ google_sheets.spreadsheets.getByDataFilter({
   * metadataValue `string`: Limits the selected developer metadata to that which has a matching
   * visibility `string` (values: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED, DOCUMENT, PROJECT): Limits the selected developer metadata to that which has a matching
 
+### DimensionGroup
+* DimensionGroup `object`: A group over an interval of rows or columns on a sheet, which can contain or
+  * collapsed `boolean`: This field is true if this group is collapsed. A collapsed group remains
+  * depth `integer`: The depth of the group, representing how many groups have a range that
+  * range [DimensionRange](#dimensionrange)
+
 ### DimensionProperties
 * DimensionProperties `object`: Properties about a dimension.
   * developerMetadata `array`: The developer metadata associated with a single row or column.
@@ -1279,7 +1309,7 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### EmbeddedObjectPosition
 * EmbeddedObjectPosition `object`: The position of an embedded object such as a chart.
-  * newSheet `boolean`: If true, the embedded object will be put on a new sheet whose ID
+  * newSheet `boolean`: If true, the embedded object is put on a new sheet whose ID
   * overlayPosition [OverlayPosition](#overlayposition)
   * sheetId `integer`: The sheet this is on. Set only if the embedded object
 
@@ -1364,10 +1394,12 @@ google_sheets.spreadsheets.getByDataFilter({
 ### GridProperties
 * GridProperties `object`: Properties of a grid.
   * columnCount `integer`: The number of columns in the grid.
+  * columnGroupControlAfter `boolean`: True if the column grouping control toggle is shown after the group.
   * frozenColumnCount `integer`: The number of columns that are frozen in the grid.
   * frozenRowCount `integer`: The number of rows that are frozen in the grid.
   * hideGridlines `boolean`: True if the grid isn't showing gridlines in the UI.
   * rowCount `integer`: The number of rows in the grid.
+  * rowGroupControlAfter `boolean`: True if the row grouping control toggle is shown after the group.
 
 ### GridRange
 * GridRange `object`: A range on a sheet.
@@ -1388,9 +1420,9 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### HistogramRule
 * HistogramRule `object`: Allows you to organize the numeric values in a source data column into
-  * end `number`: Optional. The maximum value at which items will be placed into buckets
-  * interval `number`: Required. The size of the buckets that will be created. Must be positive.
-  * start `number`: Optional. The minimum value at which items will be placed into buckets
+  * end `number`: The maximum value at which items are placed into buckets
+  * interval `number`: The size of the buckets that are created. Must be positive.
+  * start `number`: The minimum value at which items are placed into buckets
 
 ### HistogramSeries
 * HistogramSeries `object`: A histogram series containing the series color and data.
@@ -1526,6 +1558,7 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### PivotGroupRule
 * PivotGroupRule `object`: An optional setting on a PivotGroup that defines buckets for the values
+  * dateTimeRule [DateTimeRule](#datetimerule)
   * histogramRule [HistogramRule](#histogramrule)
   * manualRule [ManualRule](#manualrule)
 
@@ -1587,6 +1620,7 @@ google_sheets.spreadsheets.getByDataFilter({
   * addBanding [AddBandingRequest](#addbandingrequest)
   * addChart [AddChartRequest](#addchartrequest)
   * addConditionalFormatRule [AddConditionalFormatRuleRequest](#addconditionalformatrulerequest)
+  * addDimensionGroup [AddDimensionGroupRequest](#adddimensiongrouprequest)
   * addFilterView [AddFilterViewRequest](#addfilterviewrequest)
   * addNamedRange [AddNamedRangeRequest](#addnamedrangerequest)
   * addProtectedRange [AddProtectedRangeRequest](#addprotectedrangerequest)
@@ -1603,6 +1637,7 @@ google_sheets.spreadsheets.getByDataFilter({
   * deleteConditionalFormatRule [DeleteConditionalFormatRuleRequest](#deleteconditionalformatrulerequest)
   * deleteDeveloperMetadata [DeleteDeveloperMetadataRequest](#deletedevelopermetadatarequest)
   * deleteDimension [DeleteDimensionRequest](#deletedimensionrequest)
+  * deleteDimensionGroup [DeleteDimensionGroupRequest](#deletedimensiongrouprequest)
   * deleteEmbeddedObject [DeleteEmbeddedObjectRequest](#deleteembeddedobjectrequest)
   * deleteFilterView [DeleteFilterViewRequest](#deletefilterviewrequest)
   * deleteNamedRange [DeleteNamedRangeRequest](#deletenamedrangerequest)
@@ -1630,6 +1665,7 @@ google_sheets.spreadsheets.getByDataFilter({
   * updateChartSpec [UpdateChartSpecRequest](#updatechartspecrequest)
   * updateConditionalFormatRule [UpdateConditionalFormatRuleRequest](#updateconditionalformatrulerequest)
   * updateDeveloperMetadata [UpdateDeveloperMetadataRequest](#updatedevelopermetadatarequest)
+  * updateDimensionGroup [UpdateDimensionGroupRequest](#updatedimensiongrouprequest)
   * updateDimensionProperties [UpdateDimensionPropertiesRequest](#updatedimensionpropertiesrequest)
   * updateEmbeddedObjectPosition [UpdateEmbeddedObjectPositionRequest](#updateembeddedobjectpositionrequest)
   * updateFilterView [UpdateFilterViewRequest](#updatefilterviewrequest)
@@ -1642,6 +1678,7 @@ google_sheets.spreadsheets.getByDataFilter({
 * Response `object`: A single response from an update.
   * addBanding [AddBandingResponse](#addbandingresponse)
   * addChart [AddChartResponse](#addchartresponse)
+  * addDimensionGroup [AddDimensionGroupResponse](#adddimensiongroupresponse)
   * addFilterView [AddFilterViewResponse](#addfilterviewresponse)
   * addNamedRange [AddNamedRangeResponse](#addnamedrangeresponse)
   * addProtectedRange [AddProtectedRangeResponse](#addprotectedrangeresponse)
@@ -1649,6 +1686,7 @@ google_sheets.spreadsheets.getByDataFilter({
   * createDeveloperMetadata [CreateDeveloperMetadataResponse](#createdevelopermetadataresponse)
   * deleteConditionalFormatRule [DeleteConditionalFormatRuleResponse](#deleteconditionalformatruleresponse)
   * deleteDeveloperMetadata [DeleteDeveloperMetadataResponse](#deletedevelopermetadataresponse)
+  * deleteDimensionGroup [DeleteDimensionGroupResponse](#deletedimensiongroupresponse)
   * duplicateFilterView [DuplicateFilterViewResponse](#duplicatefilterviewresponse)
   * duplicateSheet [DuplicateSheetResponse](#duplicatesheetresponse)
   * findReplace [FindReplaceResponse](#findreplaceresponse)
@@ -1682,11 +1720,13 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### Sheet
 * Sheet `object`: A sheet in a spreadsheet.
-  * bandedRanges `array`: The banded (i.e. alternating colors) ranges on this sheet.
+  * bandedRanges `array`: The banded (alternating colors) ranges on this sheet.
     * items [BandedRange](#bandedrange)
   * basicFilter [BasicFilter](#basicfilter)
   * charts `array`: The specifications of every chart on this sheet.
     * items [EmbeddedChart](#embeddedchart)
+  * columnGroups `array`: All column groups on this sheet, ordered by increasing range start index,
+    * items [DimensionGroup](#dimensiongroup)
   * conditionalFormats `array`: The conditional format rules in this sheet.
     * items [ConditionalFormatRule](#conditionalformatrule)
   * data `array`: Data in the grid, if this is a grid sheet.
@@ -1700,6 +1740,8 @@ google_sheets.spreadsheets.getByDataFilter({
   * properties [SheetProperties](#sheetproperties)
   * protectedRanges `array`: The protected ranges in this sheet.
     * items [ProtectedRange](#protectedrange)
+  * rowGroups `array`: All row groups on this sheet, ordered by increasing range start index, then
+    * items [DimensionGroup](#dimensiongroup)
 
 ### SheetProperties
 * SheetProperties `object`: Properties of a sheet.
@@ -1780,6 +1822,28 @@ google_sheets.spreadsheets.getByDataFilter({
   * delimiterType `string` (values: DELIMITER_TYPE_UNSPECIFIED, COMMA, SEMICOLON, PERIOD, SPACE, CUSTOM, AUTODETECT): The delimiter type to use.
   * source [GridRange](#gridrange)
 
+### TreemapChartColorScale
+* TreemapChartColorScale `object`: A color scale for a treemap chart.
+  * maxValueColor [Color](#color)
+  * midValueColor [Color](#color)
+  * minValueColor [Color](#color)
+  * noDataColor [Color](#color)
+
+### TreemapChartSpec
+* TreemapChartSpec `object`: A <a href="/chart/interactive/docs/gallery/treemap">Treemap chart</a>.
+  * colorData [ChartData](#chartdata)
+  * colorScale [TreemapChartColorScale](#treemapchartcolorscale)
+  * headerColor [Color](#color)
+  * hideTooltips `boolean`: True to hide tooltips.
+  * hintedLevels `integer`: The number of additional data levels beyond the labeled levels to be shown
+  * labels [ChartData](#chartdata)
+  * levels `integer`: The number of data levels to show on the treemap chart. These levels are
+  * maxValue `number`: The maximum possible data value. Cells with values greater than this will
+  * minValue `number`: The minimum possible data value. Cells with values less than this will
+  * parentLabels [ChartData](#chartdata)
+  * sizeData [ChartData](#chartdata)
+  * textFormat [TextFormat](#textformat)
+
 ### UnmergeCellsRequest
 * UnmergeCellsRequest `object`: Unmerges cells in the given range.
   * range [GridRange](#gridrange)
@@ -1837,6 +1901,11 @@ google_sheets.spreadsheets.getByDataFilter({
 * UpdateDeveloperMetadataResponse `object`: The response from updating developer metadata.
   * developerMetadata `array`: The updated developer metadata.
     * items [DeveloperMetadata](#developermetadata)
+
+### UpdateDimensionGroupRequest
+* UpdateDimensionGroupRequest `object`: Updates the state of the specified group.
+  * dimensionGroup [DimensionGroup](#dimensiongroup)
+  * fields `string`: The fields that should be updated.  At least one field must be specified.
 
 ### UpdateDimensionPropertiesRequest
 * UpdateDimensionPropertiesRequest `object`: Updates properties of dimensions within the specified range.

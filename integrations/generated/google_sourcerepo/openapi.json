@@ -12,11 +12,6 @@
       "url": "https://google.com"
     },
     "description": "Access source code repositories hosted by Google.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Cloud Source Repositories",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -32,7 +27,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://sourcerepo.googleapis.com/$discovery/rest?version=v1",
@@ -53,7 +48,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -61,19 +56,6 @@
         "https://www.googleapis.com/auth/source.read_only": "View the contents of your source code repositories",
         "https://www.googleapis.com/auth/source.read_write": "Manage the contents of your source code repositories"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/source.full_control": "Manage your source code repositories",
-        "https://www.googleapis.com/auth/source.read_only": "View the contents of your source code repositories",
-        "https://www.googleapis.com/auth/source.read_write": "Manage the contents of your source code repositories"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -214,32 +196,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.full_control"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/source.read_only"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/source.read_only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.read_write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.read_write"
             ]
           }
@@ -273,32 +243,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.full_control"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/source.read_only"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/source.read_only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.read_write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.read_write"
             ]
           }
@@ -347,7 +305,205 @@
         {
           "$ref": "#/parameters/upload_protocol"
         }
-      ]
+      ],
+      "patch": {
+        "description": "Updates information about a repo.",
+        "operationId": "projects.repos.patch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateRepoRequest"
+            }
+          },
+          {
+            "description": "The name of the requested repository. Values are of the form\n`projects/<project>/repos/<repo>`.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Repo"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.full_control"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.read_only"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.read_write"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/{name}/config": {
+      "get": {
+        "description": "Returns the Cloud Source Repositories configuration of the project.",
+        "operationId": "projects.getConfig",
+        "parameters": [
+          {
+            "description": "The name of the requested project. Values are of the form\n`projects/<project>`.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/ProjectConfig"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.full_control"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.read_only"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.read_write"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "patch": {
+        "description": "Updates the Cloud Source Repositories configuration of the project.",
+        "operationId": "projects.updateConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateProjectConfigRequest"
+            }
+          },
+          {
+            "description": "The name of the requested project. Values are of the form\n`projects/<project>`.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/ProjectConfig"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.full_control"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.read_only"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/source.read_write"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
     },
     "/v1/{name}/repos": {
       "get": {
@@ -387,32 +543,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.full_control"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/source.read_only"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/source.read_only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.read_write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.read_write"
             ]
           }
@@ -537,32 +681,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.full_control"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/source.read_only"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/source.read_only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.read_write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.read_write"
             ]
           }
@@ -598,32 +730,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.full_control"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/source.read_only"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/source.read_only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.read_write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.read_write"
             ]
           }
@@ -748,32 +868,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.full_control"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/source.read_only"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/source.read_only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.read_write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.read_write"
             ]
           }
@@ -857,32 +965,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.full_control"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/source.read_only"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/source.read_only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/source.read_write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/source.read_write"
             ]
           }
@@ -895,18 +991,12 @@
   },
   "definitions": {
     "AuditConfig": {
-      "description": "Specifies the audit configuration for a service.\nThe configuration determines which permission types are logged, and what\nidentities, if any, are exempted from logging.\nAn AuditConfig must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service,\nthe union of the two AuditConfigs is used for that service: the log_types\nspecified in each AuditConfig are enabled, and the exempted_members in each\nAuditConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n    {\n      \"audit_configs\": [\n        {\n          \"service\": \"allServices\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n              \"exempted_members\": [\n                \"user:foo@gmail.com\"\n              ]\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n            },\n            {\n              \"log_type\": \"ADMIN_READ\",\n            }\n          ]\n        },\n        {\n          \"service\": \"fooservice.googleapis.com\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n              \"exempted_members\": [\n                \"user:bar@gmail.com\"\n              ]\n            }\n          ]\n        }\n      ]\n    }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ\nlogging. It also exempts foo@gmail.com from DATA_READ logging, and\nbar@gmail.com from DATA_WRITE logging.",
+      "description": "Specifies the audit configuration for a service.\nThe configuration determines which permission types are logged, and what\nidentities, if any, are exempted from logging.\nAn AuditConfig must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service,\nthe union of the two AuditConfigs is used for that service: the log_types\nspecified in each AuditConfig are enabled, and the exempted_members in each\nAuditLogConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n    {\n      \"audit_configs\": [\n        {\n          \"service\": \"allServices\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n              \"exempted_members\": [\n                \"user:foo@gmail.com\"\n              ]\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n            },\n            {\n              \"log_type\": \"ADMIN_READ\",\n            }\n          ]\n        },\n        {\n          \"service\": \"fooservice.googleapis.com\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n              \"exempted_members\": [\n                \"user:bar@gmail.com\"\n              ]\n            }\n          ]\n        }\n      ]\n    }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ\nlogging. It also exempts foo@gmail.com from DATA_READ logging, and\nbar@gmail.com from DATA_WRITE logging.",
       "properties": {
         "auditLogConfigs": {
-          "description": "The configuration for logging of each type of permission.\nNext ID: 4",
+          "description": "The configuration for logging of each type of permission.",
           "items": {
             "$ref": "#/definitions/AuditLogConfig"
-          },
-          "type": "array"
-        },
-        "exemptedMembers": {
-          "items": {
-            "type": "string"
           },
           "type": "array"
         },
@@ -943,12 +1033,8 @@
     "Binding": {
       "description": "Associates `members` with a `role`.",
       "properties": {
-        "condition": {
-          "$ref": "#/definitions/Expr",
-          "description": "The condition that is associated with this binding.\nNOTE: an unsatisfied condition will not allow user access via current\nbinding. Different bindings, including their conditions, are examined\nindependently.\nThis field is GOOGLE_INTERNAL."
-        },
         "members": {
-          "description": "Specifies the identities requesting access for a Cloud Platform resource.\n`members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is\n   on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone\n   who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google\n   account. For example, `alice@gmail.com` or `joe@example.com`.\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service\n   account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group.\n   For example, `admins@example.com`.\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the\n   users of that domain. For example, `google.com` or `example.com`.\n\n",
+          "description": "Specifies the identities requesting access for a Cloud Platform resource.\n`members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is\n   on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone\n   who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google\n   account. For example, `alice@gmail.com` .\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service\n   account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group.\n   For example, `admins@example.com`.\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the\n   users of that domain. For example, `google.com` or `example.com`.\n\n",
           "items": {
             "type": "string"
           },
@@ -964,28 +1050,6 @@
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
-    },
-    "Expr": {
-      "description": "Represents an expression text. Example:\n\n    title: \"User account presence\"\n    description: \"Determines whether the request has a user account\"\n    expression: \"size(request.user) > 0\"",
-      "properties": {
-        "description": {
-          "description": "An optional description of the expression. This is a longer text which\ndescribes the expression, e.g. when hovered over it in a UI.",
-          "type": "string"
-        },
-        "expression": {
-          "description": "Textual representation of an expression in\nCommon Expression Language syntax.\n\nThe application context of the containing message determines which\nwell-known feature set of CEL is supported.",
-          "type": "string"
-        },
-        "location": {
-          "description": "An optional string indicating the location of the expression for error\nreporting, e.g. a file name and a position in the file.",
-          "type": "string"
-        },
-        "title": {
-          "description": "An optional title for the expression, i.e. a short string describing\nits purpose. This can be used e.g. in UIs which allow to enter the\nexpression.",
-          "type": "string"
-        }
-      },
       "type": "object"
     },
     "ListReposResponse": {
@@ -1024,7 +1088,7 @@
       "type": "object"
     },
     "Policy": {
-      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam).",
+      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**JSON Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\"\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\n**YAML Example**\n\n    bindings:\n    - members:\n      - user:mike@example.com\n      - group:admins@example.com\n      - domain:google.com\n      - serviceAccount:my-other-app@appspot.gserviceaccount.com\n      role: roles/owner\n    - members:\n      - user:sean@example.com\n      role: roles/viewer\n\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
       "properties": {
         "auditConfigs": {
           "description": "Specifies cloud audit logging configuration for this policy.",
@@ -1045,13 +1109,54 @@
           "format": "byte",
           "type": "string"
         },
-        "iamOwned": {
-          "type": "boolean"
-        },
         "version": {
-          "description": "Version of the `Policy`. The default version is 0.",
+          "description": "Deprecated.",
           "format": "int32",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectConfig": {
+      "description": "Cloud Source Repositories configuration of a project.",
+      "properties": {
+        "enablePrivateKeyCheck": {
+          "description": "Reject a Git push that contains a private key.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The name of the project. Values are of the form `projects/<project>`.",
+          "type": "string"
+        },
+        "pubsubConfigs": {
+          "additionalProperties": {
+            "$ref": "#/definitions/PubsubConfig"
+          },
+          "description": "How this project publishes a change in the repositories through Cloud\nPub/Sub. Keyed by the topic names.",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "PubsubConfig": {
+      "description": "Configuration to publish a Cloud Pub/Sub message.",
+      "properties": {
+        "messageFormat": {
+          "description": "The format of the Cloud Pub/Sub messages.",
+          "enum": [
+            "MESSAGE_FORMAT_UNSPECIFIED",
+            "PROTOBUF",
+            "JSON"
+          ],
+          "type": "string"
+        },
+        "serviceAccountEmail": {
+          "description": "Email address of the service account used for publishing Cloud Pub/Sub\nmessages. This service account needs to be in the same project as the\nPubsubConfig. When added, the caller needs to have\niam.serviceAccounts.actAs permission on this service account. If\nunspecified, it defaults to the compute engine default service account.",
+          "type": "string"
+        },
+        "topic": {
+          "description": "A topic of Cloud Pub/Sub. Values are of the form\n`projects/<project>/topics/<topic>`. The project needs to be the same\nproject as this config is in.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -1066,6 +1171,13 @@
         "name": {
           "description": "Resource name of the repository, of the form\n`projects/<project>/repos/<repo>`.  The repo name may contain slashes.\neg, `projects/myproject/repos/name/with/slash`",
           "type": "string"
+        },
+        "pubsubConfigs": {
+          "additionalProperties": {
+            "$ref": "#/definitions/PubsubConfig"
+          },
+          "description": "How this repository publishes a change in the repository through Cloud\nPub/Sub. Keyed by the topic names.",
+          "type": "object"
         },
         "size": {
           "description": "The disk usage of the repo, in bytes. Read-only field. Size is only\nreturned by GetRepo.",
@@ -1116,6 +1228,36 @@
             "type": "string"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateProjectConfigRequest": {
+      "description": "Request for UpdateProjectConfig.",
+      "properties": {
+        "projectConfig": {
+          "$ref": "#/definitions/ProjectConfig",
+          "description": "The new configuration for the project."
+        },
+        "updateMask": {
+          "description": "A FieldMask specifying which fields of the project_config to modify. Only\nthe fields in the mask will be modified. If no mask is provided, this\nrequest is no-op.",
+          "format": "google-fieldmask",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateRepoRequest": {
+      "description": "Request for UpdateRepo.",
+      "properties": {
+        "repo": {
+          "$ref": "#/definitions/Repo",
+          "description": "The new configuration for the repository."
+        },
+        "updateMask": {
+          "description": "A FieldMask specifying which fields of the repo to modify. Only the fields\nin the mask will be modified. If no mask is provided, this request is\nno-op.",
+          "format": "google-fieldmask",
+          "type": "string"
         }
       },
       "type": "object"

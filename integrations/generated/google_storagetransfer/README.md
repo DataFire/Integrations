@@ -1,6 +1,6 @@
 # @datafire/google_storagetransfer
 
-Client library for Google Storage Transfer
+Client library for Storage Transfer
 
 ## Installation and Usage
 ```bash
@@ -256,31 +256,21 @@ google_storagetransfer.transferOperations.delete({
 #### Output
 * output [Empty](#empty)
 
-### transferOperations.list
-Lists operations that match the specified filter in the request. If the
-server doesn't support this method, it returns `UNIMPLEMENTED`.
-
-NOTE: the `name` binding allows API services to override the binding
-to use different resource name schemes, such as `users/*/operations`. To
-override the binding, API services can add a binding such as
-`"/v1/{name=users/*}/operations"` to their service configuration.
-For backwards compatibility, the default name includes the operations
-collection id, however overriding users must ensure the name binding
-is the parent resource, without the operations collection id.
+### transferOperations.get
+Gets the latest state of a long-running operation.  Clients can use this
+method to poll the operation result at intervals as recommended by the API
+service.
 
 
 ```js
-google_storagetransfer.transferOperations.list({
+google_storagetransfer.transferOperations.get({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * filter `string`: A list of query parameters specified as JSON text in the form of {\"project_id\" : \"my_project_id\", \"job_names\" : [\"jobid1\", \"jobid2\",...], \"operation_names\" : [\"opid1\", \"opid2\",...], \"transfer_statuses\":[\"status1\", \"status2\",...]}. Since `job_names`, `operation_names`, and `transfer_statuses` support multiple values, they must be specified with array notation. `job_names`, `operation_names`, and `transfer_statuses` are optional.
-  * name **required** `string`: The value `transferOperations`.
-  * pageSize `integer`: The list page size. The max allowed value is 256.
-  * pageToken `string`: The list page token.
+  * name **required** `string`: The name of the operation resource.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -296,7 +286,7 @@ google_storagetransfer.transferOperations.list({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [ListOperationsResponse](#listoperationsresponse)
+* output [Operation](#operation)
 
 ### transferOperations.cancel
 Cancels a transfer. Use the get method to check whether the cancellation succeeded or whether the operation completed despite cancellation.
@@ -400,14 +390,14 @@ google_storagetransfer.transferOperations.resume({
   * secretAccessKey `string`: AWS secret access key. This field is not returned in RPC responses.
 
 ### AwsS3Data
-* AwsS3Data `object`: An AwsS3Data can be a data source, but not a data sink.
+* AwsS3Data `object`: An AwsS3Data resource can be a data source, but not a data sink.
   * awsAccessKey [AwsAccessKey](#awsaccesskey)
   * bucketName `string`: S3 Bucket name (see
 
 ### Date
 * Date `object`: Represents a whole calendar date, e.g. date of birth. The time of day and
   * day `integer`: Day of month. Must be from 1 to 31 and valid for the year and month, or 0
-  * month `integer`: Month of year. Must be from 1 to 12.
+  * month `integer`: Month of year. Must be from 1 to 12, or 0 if specifying a date without a
   * year `integer`: Year of date. Must be from 1 to 9999, or 0 if specifying a date without
 
 ### Empty
@@ -427,7 +417,7 @@ google_storagetransfer.transferOperations.resume({
     * items [ErrorLogEntry](#errorlogentry)
 
 ### GcsData
-* GcsData `object`: In a GcsData, an object's name is the Google Cloud Storage object's name and
+* GcsData `object`: In a GcsData resource, an object's name is the Google Cloud Storage object's
   * bucketName `string`: Google Cloud Storage bucket name (see
 
 ### GoogleServiceAccount
@@ -435,7 +425,7 @@ google_storagetransfer.transferOperations.resume({
   * accountEmail `string`: Required.
 
 ### HttpData
-* HttpData `object`: An HttpData specifies a list of objects on the web to be transferred over
+* HttpData `object`: An HttpData resource specifies a list of objects on the web to be transferred
   * listUrl `string`: The URL that points to the file that stores the object list entries.
 
 ### ListOperationsResponse

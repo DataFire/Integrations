@@ -156,7 +156,7 @@ thetvdb.search.series.get({}, context)
   * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
-* output [SeriesSearchData](#seriessearchdata)
+* output [SeriesSearchResults](#seriessearchresults)
 
 ### search.series.params.get
 Returns an array of parameters to query by in the `/search/series` route.
@@ -600,6 +600,7 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
   * episodeName `string`
   * firstAired `string`
   * id `integer`
+  * language [EpisodeLanguageInfo](#episodelanguageinfo)
   * lastUpdated `integer`
   * overview `string`
 
@@ -648,6 +649,11 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
 * EpisodeDataQueryParams `object`
   * data `array`
     * items `string`
+
+### EpisodeLanguageInfo
+* EpisodeLanguageInfo `object`
+  * episodeName `string`
+  * overview `string`
 
 ### EpisodeRecordData
 * EpisodeRecordData `object`
@@ -713,7 +719,7 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
   * overview `string`
   * rating `string`
   * runtime `string`
-  * seriesId `integer`
+  * seriesId `string`
   * seriesName `string`
   * siteRating `number`
   * siteRatingCount `integer`
@@ -816,8 +822,8 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
   * data `array`
     * items [SeriesImagesQueryParam](#seriesimagesqueryparam)
 
-### SeriesSearchData
-* SeriesSearchData `object`
+### SeriesSearchResult
+* SeriesSearchResult `object`
   * aliases `array`
     * items `string`
   * banner `string`
@@ -827,6 +833,11 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
   * overview `string`
   * seriesName `string`
   * status `string`
+
+### SeriesSearchResults
+* SeriesSearchResults `object`
+  * data `array`
+    * items [SeriesSearchResult](#seriessearchresult)
 
 ### Token
 * Token `object`

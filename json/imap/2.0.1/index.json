@@ -1,6 +1,6 @@
 {
   "id": "imap",
-  "title": "",
+  "title": "IMAP",
   "description": "Interact with e-mail servers via the Internet Message Access Protocol",
   "security": {
     "imap": {

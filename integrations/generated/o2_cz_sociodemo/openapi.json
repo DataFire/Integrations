@@ -15,7 +15,7 @@
       "url": "https://developer.o2.cz/portal/vop"
     },
     "title": "Socio-demo",
-    "version": "1.0-M6-SNAPSHOT",
+    "version": "1.0",
     "x-apisguru-categories": [
       "telecom"
     ],
@@ -43,10 +43,10 @@
   ],
   "tags": [
     {
-      "name": "sociodemo"
+      "name": "info"
     },
     {
-      "name": "info"
+      "name": "sociodemo"
     }
   ],
   "paths": {

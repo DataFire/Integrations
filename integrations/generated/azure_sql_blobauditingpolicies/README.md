@@ -112,16 +112,4 @@ azure_sql_blobauditingpolicies.DatabaseBlobAuditingPolicies_CreateOrUpdate({
   * storageAccountSubscriptionId `string`: Specifies the blob storage subscription Id.
   * storageEndpoint `string`: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

@@ -22,7 +22,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.2"
         },
         "format": "swagger",
         "url": "http://core.ac.uk/api-v2/doc",
@@ -902,6 +902,14 @@
               },
               "type": "array"
             }
+          },
+          {
+            "default": false,
+            "description": "Whether to retrieve statistics about the repository. The default value is false",
+            "in": "query",
+            "name": "stats",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "produces": [
@@ -947,6 +955,14 @@
             "name": "repositoryId",
             "required": true,
             "type": "integer"
+          },
+          {
+            "default": false,
+            "description": "Whether to retrieve statistics about the repository. The default value is false",
+            "in": "query",
+            "name": "stats",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "produces": [
@@ -990,6 +1006,14 @@
               },
               "type": "array"
             }
+          },
+          {
+            "default": false,
+            "description": "Whether to retrieve statistics about the repository. The default value is false",
+            "in": "query",
+            "name": "stats",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "produces": [
@@ -1054,6 +1078,14 @@
             "name": "pageSize",
             "required": false,
             "type": "integer"
+          },
+          {
+            "default": false,
+            "description": "Whether to retrieve statistics about the repository. The default value is false",
+            "in": "query",
+            "name": "stats",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "produces": [
@@ -1229,6 +1261,10 @@
         },
         "doi": {
           "description": "The DOI of the article",
+          "type": "string"
+        },
+        "downloadUrl": {
+          "description": "The download PDF URL which is displayed on our /display/[ArticleID] page",
           "type": "string"
         },
         "fulltext": {
@@ -1608,48 +1644,10 @@
         "name": {
           "description": "Repository name",
           "type": "string"
-        },
-        "openDoarId": {
-          "description": "ID of the repository in Open DOAR",
-          "type": "integer"
-        },
-        "repositoryLocation": {
-          "$ref": "#/definitions/RepositoryLocation",
-          "description": "Location of the repository"
-        },
-        "uri": {
-          "description": "Repository URI",
-          "type": "string"
         }
       }
     },
     "RepositoryDocument": {},
-    "RepositoryLocation": {
-      "properties": {
-        "country": {
-          "description": "Country name",
-          "type": "string"
-        },
-        "countryCode": {
-          "description": "Two letter country code",
-          "type": "string"
-        },
-        "id": {
-          "description": "CORE repository ID",
-          "type": "integer"
-        },
-        "latitude": {
-          "type": "integer"
-        },
-        "longitude": {
-          "type": "integer"
-        },
-        "repositoryName": {
-          "description": "Repository name",
-          "type": "string"
-        }
-      }
-    },
     "RepositoryResponse": {
       "properties": {
         "data": {

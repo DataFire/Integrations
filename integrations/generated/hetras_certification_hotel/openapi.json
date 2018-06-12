@@ -648,6 +648,88 @@
         ]
       }
     },
+    "/api/hotel/v0/hotels/{hotelId}/rateplans/batch/$rates": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "deprecated": false,
+        "description": "Currently this call only allows to set the base price for non-derived rateplans if the rateplan\r\n            is active and already loaded for the specified time period.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"rateplan\": \"STDN01\", \"from\": \"2018-01-01\", \"to\": \"2018-01-30\", \"base_price\": 120.00\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+        "operationId": "RatePlans_BatchUpdateRates",
+        "parameters": [
+          {
+            "description": "Application identifier",
+            "in": "header",
+            "name": "App-Id",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "app_ids"
+          },
+          {
+            "description": "Application key.",
+            "in": "header",
+            "name": "App-Key",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "app_keys"
+          },
+          {
+            "description": "The hotel id the rateplan belongs to.",
+            "format": "int32",
+            "in": "path",
+            "name": "hotelId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/RatesBatchUpdateRequestItem"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The update was successful",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          },
+          "400": {
+            "description": "Bad request. Request body erroneous."
+          },
+          "401": {
+            "description": "You provided wrong credentials, or you reached your API limit."
+          },
+          "403": {
+            "description": "The application does not have access to the requested resource."
+          },
+          "404": {
+            "description": "Not Found. The server has not found anything matching the Request-URI."
+          },
+          "422": {
+            "description": "The request failed to validate."
+          },
+          "500": {
+            "description": "We caught an unexpected error on our side. Please report with providing the Hetras-Tracking-Id from the response headers and we will check the logfiles."
+          },
+          "503": {
+            "description": "The server is currently unavailable. Please try later."
+          }
+        },
+        "summary": "Update a list of base rateplans for a given period and a given base price for single occupancy.",
+        "tags": [
+          "RatePlans"
+        ]
+      }
+    },
     "/api/hotel/v0/hotels/{hotelId}/rateplans/{rateplanCode}": {
       "get": {
         "consumes": [],
@@ -3239,6 +3321,37 @@
           "type": "array"
         }
       },
+      "type": "object"
+    },
+    "RatesBatchUpdateRequestItem": {
+      "description": "A rateplan update entry, for a given range and a given price.",
+      "properties": {
+        "base_price": {
+          "description": "The price of the rateplan for the default room type and single occupancy.",
+          "format": "double",
+          "type": "number"
+        },
+        "from": {
+          "description": "Defines the first business day you would like to update rates. The maximum time span between <i>from</i>´and <i>to</i>\r\n            is limited to 365 days.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "rateplan": {
+          "description": "The rateplan code to be updated. NOTE: this must be a base rateplan and not a derived one.",
+          "type": "string"
+        },
+        "to": {
+          "description": "Defines the last business day you would like to update rates. This can be same as {Hetras.PublicApi.Models.Hotels.Rateplans.Rates.RatesBatchUpdateRequestItem.To} if the update is for a single date.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base_price",
+        "rateplan",
+        "from",
+        "to"
+      ],
       "type": "object"
     },
     "RatesRequest": {

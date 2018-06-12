@@ -46,8 +46,9 @@ azure_automation_jobschedule.JobSchedule_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
+  * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
@@ -56,7 +57,8 @@ azure_automation_jobschedule.JobSchedule_ListByAutomationAccount({
   * nextLink `string`: Gets or sets the next link.
   * value `array`: Gets or sets a list of job schedules.
     * items `object`: Definition of the job schedule.
-      * id `string`: Gets or sets the id of the resource.
+      * id `string`: Gets the id of the resource.
+      * name `string`: Gets the name of the variable.
       * properties `object`: Definition of job schedule parameters.
         * jobScheduleId `string`: Gets or sets the id of job schedule.
         * parameters `object`: Gets or sets the parameters of the job schedule.
@@ -65,6 +67,7 @@ azure_automation_jobschedule.JobSchedule_ListByAutomationAccount({
           * name `string`: Gets or sets the name of the runbook.
         * schedule `object`: The schedule property associated with the entity.
           * name `string`: Gets or sets the name of the schedule.
+      * type `string`: Resource type
 
 ### JobSchedule_Delete
 Delete the job schedule identified by job schedule name.
@@ -82,7 +85,7 @@ azure_automation_jobschedule.JobSchedule_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * jobScheduleId **required** `string`: The job schedule name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -107,7 +110,7 @@ azure_automation_jobschedule.JobSchedule_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * jobScheduleId **required** `string`: The job schedule name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -115,7 +118,8 @@ azure_automation_jobschedule.JobSchedule_Get({
 
 #### Output
 * output `object`: Definition of the job schedule.
-  * id `string`: Gets or sets the id of the resource.
+  * id `string`: Gets the id of the resource.
+  * name `string`: Gets the name of the variable.
   * properties `object`: Definition of job schedule parameters.
     * jobScheduleId `string`: Gets or sets the id of job schedule.
     * parameters `object`: Gets or sets the parameters of the job schedule.
@@ -124,6 +128,7 @@ azure_automation_jobschedule.JobSchedule_Get({
       * name `string`: Gets or sets the name of the runbook.
     * schedule `object`: The schedule property associated with the entity.
       * name `string`: Gets or sets the name of the schedule.
+  * type `string`: Resource type
 
 ### JobSchedule_Create
 Create a job schedule.
@@ -142,7 +147,7 @@ azure_automation_jobschedule.JobSchedule_Create({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * jobScheduleId **required** `string`: The job schedule name.
   * parameters **required** `object`: The parameters supplied to the create job schedule operation.
@@ -158,7 +163,8 @@ azure_automation_jobschedule.JobSchedule_Create({
 
 #### Output
 * output `object`: Definition of the job schedule.
-  * id `string`: Gets or sets the id of the resource.
+  * id `string`: Gets the id of the resource.
+  * name `string`: Gets the name of the variable.
   * properties `object`: Definition of job schedule parameters.
     * jobScheduleId `string`: Gets or sets the id of job schedule.
     * parameters `object`: Gets or sets the parameters of the job schedule.
@@ -167,6 +173,7 @@ azure_automation_jobschedule.JobSchedule_Create({
       * name `string`: Gets or sets the name of the runbook.
     * schedule `object`: The schedule property associated with the entity.
       * name `string`: Gets or sets the name of the schedule.
+  * type `string`: Resource type
 
 
 

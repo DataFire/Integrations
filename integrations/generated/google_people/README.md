@@ -1,6 +1,6 @@
 # @datafire/google_people
 
-Client library for Google People
+Client library for People
 
 ## Installation and Usage
 ```bash
@@ -477,7 +477,7 @@ google_people.people.updateContact({
   * postalCode `string`: The postal code of the address.
   * region `string`: The region of the address; for example, the state or province.
   * streetAddress `string`: The street address.
-  * type `string`: The type of the address. The type can be custom or predefined.
+  * type `string`: The type of the address. The type can be custom or one of these predefined
 
 ### AgeRangeType
 * AgeRangeType `object`: A person's age range.
@@ -546,7 +546,7 @@ google_people.people.updateContact({
 ### Date
 * Date `object`: Represents a whole calendar date, for example a date of birth. The time
   * day `integer`: Day of month. Must be from 1 to 31 and valid for the year and month, or 0
-  * month `integer`: Month of year. Must be from 1 to 12.
+  * month `integer`: Month of year. Must be from 1 to 12, or 0 if specifying a date without a
   * year `integer`: Year of date. Must be from 1 to 9999, or 0 if specifying a date without
 
 ### DomainMembership
@@ -558,7 +558,7 @@ google_people.people.updateContact({
   * displayName `string`: The display name of the email.
   * formattedType `string`: The read-only type of the email address translated and formatted in the
   * metadata [FieldMetadata](#fieldmetadata)
-  * type `string`: The type of the email address. The type can be custom or predefined.
+  * type `string`: The type of the email address. The type can be custom or one of these
   * value `string`: The email address.
 
 ### Empty
@@ -569,7 +569,7 @@ google_people.people.updateContact({
   * date [Date](#date)
   * formattedType `string`: The read-only type of the event translated and formatted in the
   * metadata [FieldMetadata](#fieldmetadata)
-  * type `string`: The type of the event. The type can be custom or predefined.
+  * type `string`: The type of the event. The type can be custom or one of these predefined
 
 ### FieldMetadata
 * FieldMetadata `object`: Metadata about a field.
@@ -581,7 +581,7 @@ google_people.people.updateContact({
 * Gender `object`: A person's gender.
   * formattedValue `string`: The read-only value of the gender translated and formatted in the viewer's
   * metadata [FieldMetadata](#fieldmetadata)
-  * value `string`: The gender for the person. The gender can be custom or predefined.
+  * value `string`: The gender for the person. The gender can be custom or one of these
 
 ### GetPeopleResponse
 * GetPeopleResponse `object`
@@ -593,8 +593,8 @@ google_people.people.updateContact({
   * formattedProtocol `string`: The read-only protocol of the IM client formatted in the viewer's account
   * formattedType `string`: The read-only type of the IM client translated and formatted in the
   * metadata [FieldMetadata](#fieldmetadata)
-  * protocol `string`: The protocol of the IM client. The protocol can be custom or predefined.
-  * type `string`: The type of the IM client. The type can be custom or predefined.
+  * protocol `string`: The protocol of the IM client. The protocol can be custom or one of these
+  * type `string`: The type of the IM client. The type can be custom or one of these
   * username `string`: The user name used in the IM client.
 
 ### Interest
@@ -631,7 +631,7 @@ google_people.people.updateContact({
   * metadata [FieldMetadata](#fieldmetadata)
 
 ### ModifyContactGroupMembersRequest
-* ModifyContactGroupMembersRequest `object`: A request to modify an existing contact group's members.
+* ModifyContactGroupMembersRequest `object`: A request to modify an existing contact group's members. Contacts can be
   * resourceNamesToAdd `array`: The resource names of the contact people to add in the form of in the form
     * items `string`
   * resourceNamesToRemove `array`: The resource names of the contact people to remove in the form of in the
@@ -685,7 +685,7 @@ google_people.people.updateContact({
   * startDate [Date](#date)
   * symbol `string`: The symbol associated with the organization; for example, a stock ticker
   * title `string`: The person's job title at the organization.
-  * type `string`: The type of the organization. The type can be custom or predefined.
+  * type `string`: The type of the organization. The type can be custom or  one of these
 
 ### Person
 * Person `object`: Information about a person merged from various data sources such as the
@@ -739,6 +739,8 @@ google_people.people.updateContact({
   * residences `array`: The person's residences.
     * items [Residence](#residence)
   * resourceName `string`: The resource name for the person, assigned by the server. An ASCII string
+  * sipAddresses `array`: The person's SIP addresses.
+    * items [SipAddress](#sipaddress)
   * skills `array`: The person's skills.
     * items [Skill](#skill)
   * taglines `array`: The person's read-only taglines.
@@ -771,7 +773,7 @@ google_people.people.updateContact({
   * canonicalForm `string`: The read-only canonicalized [ITU-T E.164](https://law.resource.org/pub/us/cfr/ibr/004/itu-t.E.164.1.2008.pdf)
   * formattedType `string`: The read-only type of the phone number translated and formatted in the
   * metadata [FieldMetadata](#fieldmetadata)
-  * type `string`: The type of the phone number. The type can be custom or predefined.
+  * type `string`: The type of the phone number. The type can be custom or one of these
   * value `string`: The phone number.
 
 ### Photo
@@ -791,7 +793,7 @@ google_people.people.updateContact({
   * formattedType `string`: The type of the relation translated and formatted in the viewer's account
   * metadata [FieldMetadata](#fieldmetadata)
   * person `string`: The name of the other person this relation refers to.
-  * type `string`: The person's relation to the other person. The type can be custom or predefined.
+  * type `string`: The person's relation to the other person. The type can be custom or one of
 
 ### RelationshipInterest
 * RelationshipInterest `object`: A person's read-only relationship interest .
@@ -803,13 +805,20 @@ google_people.people.updateContact({
 * RelationshipStatus `object`: A person's read-only relationship status.
   * formattedValue `string`: The read-only value of the relationship status translated and formatted in
   * metadata [FieldMetadata](#fieldmetadata)
-  * value `string`: The relationship status. The value can be custom or predefined.
+  * value `string`: The relationship status. The value can be custom or one of these
 
 ### Residence
 * Residence `object`: A person's past or current residence.
   * current `boolean`: True if the residence is the person's current residence;
   * metadata [FieldMetadata](#fieldmetadata)
   * value `string`: The address of the residence.
+
+### SipAddress
+* SipAddress `object`: A person's SIP address. Session Initial Protocol addresses are used for VoIP
+  * formattedType `string`: The read-only type of the SIP address translated and formatted in the
+  * metadata [FieldMetadata](#fieldmetadata)
+  * type `string`: The type of the SIP address. The type can be custom or or one of these
+  * value `string`: The SIP address in the
 
 ### Skill
 * Skill `object`: A skill that the person has.
@@ -837,14 +846,14 @@ google_people.people.updateContact({
   * value `string`: The tagline.
 
 ### UpdateContactGroupRequest
-* UpdateContactGroupRequest `object`: A request to update an existing contact group. Only the name can be updated.
+* UpdateContactGroupRequest `object`: A request to update an existing user contact group. All updated fields will
   * contactGroup [ContactGroup](#contactgroup)
 
 ### Url
 * Url `object`: A person's associated URLs.
   * formattedType `string`: The read-only type of the URL translated and formatted in the viewer's
   * metadata [FieldMetadata](#fieldmetadata)
-  * type `string`: The type of the URL. The type can be custom or predefined.
+  * type `string`: The type of the URL. The type can be custom or one of these predefined
   * value `string`: The URL.
 
 ### UserDefined

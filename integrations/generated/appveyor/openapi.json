@@ -18,7 +18,7 @@
     },
     "termsOfService": "https://www.appveyor.com/terms-of-service/",
     "title": "AppVeyor",
-    "version": "0.20170106.0",
+    "version": "0.20180519.0",
     "x-apisguru-categories": [
       "developer_tools"
     ],
@@ -2168,6 +2168,9 @@
         },
         {
           "$ref": "#/parameters/projectSlug"
+        },
+        {
+          "$ref": "#/parameters/recordsNumber"
         }
       ]
     },
@@ -3263,8 +3266,10 @@
         "Auto",
         "AzureCloudService",
         "AzureCloudServiceConfig",
+        "ElasticBeanstalkPackage",
         "File",
         "NuGetPackage",
+        "OctopusPackage",
         "SsdtPackage",
         "WebDeployPackage",
         "Zip"
@@ -3529,6 +3534,7 @@
     },
     "BuildWorkerImageName": {
       "enum": [
+        "Previous Ubuntu",
         "Previous Visual Studio 2013",
         "Previous Visual Studio 2015",
         "Previous Visual Studio 2017",
@@ -4076,6 +4082,7 @@
       "enum": [
         "Account",
         "BuildEnvironment",
+        "Deny",
         "Environments",
         "Projects",
         "Roles",
@@ -4353,12 +4360,13 @@
       "type": "string"
     },
     "PermissionName": {
-      "description": "Available permission names.  The names correspond to the following groups:\n#### AccountPermission\n- ManageApplicationAuthorizations\n- UpdateAccountDetails\n- UpdateBillingDetails\n#### BuildEnvironmentPermission\n- ConfigureBuildEnvironment\n#### EnvironmentsPermission\n- DeployToEnvironment\n- ManageEnvironments\n- UpdateEnvironmentSettings\n#### ProjectsPermission\n- ManageProjects\n- RunProjectBuild\n- UpdateProjectSettings\n#### RolesPermission\n- AddRole\n- DeleteRole\n- UpdateRoleDetails\n#### UserPermission\n- ConfigureApiKeys\n#### UsersPermission\n- AddUser\n- DeleteUser\n- UpdateUserDetails\n",
+      "description": "Available permission names.  The names correspond to the following groups:\n#### AccountPermission\n- ManageApplicationAuthorizations\n- UpdateAccountDetails\n- UpdateBillingDetails\n#### BuildEnvironmentPermission\n- ConfigureBuildEnvironment\n#### DenyPermission\n- DenyAllProjectsEnvironments\n#### EnvironmentsPermission\n- DeployToEnvironment\n- ManageEnvironments\n- UpdateEnvironmentSettings\n#### ProjectsPermission\n- ManageProjects\n- RunProjectBuild\n- UpdateProjectSettings\n#### RolesPermission\n- AddRole\n- DeleteRole\n- UpdateRoleDetails\n#### UserPermission\n- ConfigureApiKeys\n#### UsersPermission\n- AddUser\n- DeleteUser\n- UpdateUserDetails\n",
       "enum": [
         "ManageApplicationAuthorizations",
         "UpdateAccountDetails",
         "UpdateBillingDetails",
         "ConfigureBuildEnvironment",
+        "DenyAllProjectsEnvironments",
         "DeployToEnvironment",
         "ManageEnvironments",
         "UpdateEnvironmentSettings",
@@ -4461,6 +4469,9 @@
               "type": "boolean"
             },
             "rollingBuildsDoNotCancelRunningBuilds": {
+              "type": "boolean"
+            },
+            "rollingBuildsOnlyForPullRequests": {
               "type": "boolean"
             },
             "saveBuildCacheInPullRequests": {
@@ -4764,6 +4775,12 @@
           },
           "type": "array"
         },
+        "matrixExcept": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValueMatrix"
+          },
+          "type": "array"
+        },
         "matrixExclude": {
           "items": {
             "$ref": "#/definitions/StoredNameValueMatrix"
@@ -4772,6 +4789,12 @@
         },
         "matrixFastFinish": {
           "type": "boolean"
+        },
+        "matrixOnly": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValueMatrix"
+          },
+          "type": "array"
         },
         "maxJobs": {
           "minimum": 1,
@@ -4831,7 +4854,13 @@
           "title": "Build worker image",
           "type": "array"
         },
+        "packageAspNetCoreProjects": {
+          "type": "boolean"
+        },
         "packageAzureCloudServiceProjects": {
+          "type": "boolean"
+        },
+        "packageDotnetConsoleProjects": {
           "type": "boolean"
         },
         "packageNuGetProjects": {
@@ -4841,6 +4870,12 @@
           "type": "boolean"
         },
         "packageWebApplicationProjects": {
+          "type": "boolean"
+        },
+        "packageWebApplicationProjectsBeanstalk": {
+          "type": "boolean"
+        },
+        "packageWebApplicationProjectsOctopus": {
           "type": "boolean"
         },
         "packageWebApplicationProjectsXCopy": {
@@ -4898,6 +4933,13 @@
         },
         "skipTags": {
           "type": "boolean"
+        },
+        "stacks": {
+          "items": {
+            "$ref": "#/definitions/UnknownType"
+          },
+          "maxItems": 0,
+          "type": "array"
         },
         "testAssemblies": {
           "items": {
@@ -5234,7 +5276,7 @@
             "scheduleCrontabExpression": {
               "description": "Build schedule as an NCrontab Expression.  See https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression",
               "externalDocs": {
-                "url": "https://appveyor-staging.azurewebsites.net/docs/build-configuration/#scheduled-builds"
+                "url": "https://www.appveyor.com/docs/build-configuration/#scheduled-builds"
               },
               "type": "string"
             },
@@ -5381,6 +5423,16 @@
         "created": "2014-03-18T20:12:08.4749886+00:00",
         "groups": [
           {
+            "name": "Deny",
+            "permissions": [
+              {
+                "allowed": false,
+                "description": "Deny all projects and environments, unless explicitly allowed",
+                "name": "DenyAllProjectsEnvironments"
+              }
+            ]
+          },
+          {
             "name": "Projects",
             "permissions": [
               {
@@ -5508,7 +5560,8 @@
     "ScriptLanguage": {
       "enum": [
         "cmd",
-        "ps"
+        "ps",
+        "pwsh"
       ],
       "type": "string"
     },
@@ -5606,6 +5659,13 @@
         }
       },
       "type": "object"
+    },
+    "UnknownType": {
+      "description": "A schema for values which have an undocumented/unknown type.\n\nAlthough the type of such values could be left unspecified according to\nJSON Schema (and by extension OpenAPI 2.0), such unspecified types cause\ntool failures (e.g. swagger-codegen).  So this type can be used as a\nplaceholder to prevent errors and document the behavior.\n",
+      "enum": [
+        "unknown"
+      ],
+      "type": "string"
     },
     "UserAccount": {
       "allOf": [

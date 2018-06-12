@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json",
         "version": "2.0"
       }
     ],
@@ -63,7 +63,8 @@
       "in": "header",
       "name": "Accept-Language",
       "required": false,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "client"
     },
     "api-version": {
       "description": "Specifies the API version to use for this request.",

@@ -87,8 +87,8 @@ google_compute.projects.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Project](#project)
@@ -105,7 +105,7 @@ google_compute.acceleratorTypes.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -115,8 +115,8 @@ google_compute.acceleratorTypes.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AcceleratorTypeAggregatedList](#acceleratortypeaggregatedlist)
@@ -133,7 +133,7 @@ google_compute.addresses.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -143,8 +143,8 @@ google_compute.addresses.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AddressAggregatedList](#addressaggregatedlist)
@@ -161,7 +161,7 @@ google_compute.autoscalers.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -171,8 +171,8 @@ google_compute.autoscalers.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AutoscalerAggregatedList](#autoscaleraggregatedlist)
@@ -189,7 +189,7 @@ google_compute.backendServices.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -199,8 +199,8 @@ google_compute.backendServices.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendServiceAggregatedList](#backendserviceaggregatedlist)
@@ -217,7 +217,7 @@ google_compute.regionCommitments.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -227,8 +227,8 @@ google_compute.regionCommitments.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CommitmentAggregatedList](#commitmentaggregatedlist)
@@ -245,7 +245,7 @@ google_compute.diskTypes.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -255,8 +255,8 @@ google_compute.diskTypes.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DiskTypeAggregatedList](#disktypeaggregatedlist)
@@ -273,7 +273,7 @@ google_compute.disks.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -283,8 +283,8 @@ google_compute.disks.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DiskAggregatedList](#diskaggregatedlist)
@@ -301,7 +301,7 @@ google_compute.forwardingRules.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -311,8 +311,8 @@ google_compute.forwardingRules.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ForwardingRuleAggregatedList](#forwardingruleaggregatedlist)
@@ -329,7 +329,7 @@ google_compute.instanceGroupManagers.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -339,8 +339,8 @@ google_compute.instanceGroupManagers.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroupManagerAggregatedList](#instancegroupmanageraggregatedlist)
@@ -357,7 +357,7 @@ google_compute.instanceGroups.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -367,8 +367,8 @@ google_compute.instanceGroups.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroupAggregatedList](#instancegroupaggregatedlist)
@@ -385,7 +385,7 @@ google_compute.instances.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -395,8 +395,8 @@ google_compute.instances.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceAggregatedList](#instanceaggregatedlist)
@@ -413,7 +413,7 @@ google_compute.interconnectAttachments.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -423,8 +423,8 @@ google_compute.interconnectAttachments.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InterconnectAttachmentAggregatedList](#interconnectattachmentaggregatedlist)
@@ -441,7 +441,7 @@ google_compute.machineTypes.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -451,8 +451,8 @@ google_compute.machineTypes.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [MachineTypeAggregatedList](#machinetypeaggregatedlist)
@@ -469,7 +469,7 @@ google_compute.globalOperations.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -479,8 +479,8 @@ google_compute.globalOperations.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OperationAggregatedList](#operationaggregatedlist)
@@ -497,7 +497,7 @@ google_compute.routers.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -507,8 +507,8 @@ google_compute.routers.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RouterAggregatedList](#routeraggregatedlist)
@@ -525,7 +525,7 @@ google_compute.subnetworks.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -535,8 +535,8 @@ google_compute.subnetworks.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SubnetworkAggregatedList](#subnetworkaggregatedlist)
@@ -553,7 +553,7 @@ google_compute.targetInstances.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -563,8 +563,8 @@ google_compute.targetInstances.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetInstanceAggregatedList](#targetinstanceaggregatedlist)
@@ -581,7 +581,7 @@ google_compute.targetPools.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -591,8 +591,8 @@ google_compute.targetPools.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetPoolAggregatedList](#targetpoolaggregatedlist)
@@ -609,7 +609,7 @@ google_compute.targetVpnGateways.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -619,8 +619,8 @@ google_compute.targetVpnGateways.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetVpnGatewayAggregatedList](#targetvpngatewayaggregatedlist)
@@ -637,7 +637,7 @@ google_compute.vpnTunnels.aggregatedList({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -647,8 +647,8 @@ google_compute.vpnTunnels.aggregatedList({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [VpnTunnelAggregatedList](#vpntunnelaggregatedlist)
@@ -672,8 +672,8 @@ google_compute.projects.disableXpnHost({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -698,8 +698,8 @@ google_compute.projects.disableXpnResource({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -723,8 +723,8 @@ google_compute.projects.enableXpnHost({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -749,14 +749,14 @@ google_compute.projects.enableXpnResource({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### projects.getXpnHost
-Get the shared VPC host project that this project links to. May be empty if no link exists.
+Gets the shared VPC host project that this project links to. May be empty if no link exists.
 
 
 ```js
@@ -773,14 +773,14 @@ google_compute.projects.getXpnHost({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Project](#project)
 
 ### projects.getXpnResources
-Get service resources (a.k.a service project) associated with this host project.
+Gets service resources (a.k.a service project) associated with this host project.
 
 
 ```js
@@ -801,8 +801,8 @@ google_compute.projects.getXpnResources({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ProjectsGetXpnResources](#projectsgetxpnresources)
@@ -819,7 +819,7 @@ google_compute.globalAddresses.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -829,8 +829,8 @@ google_compute.globalAddresses.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AddressList](#addresslist)
@@ -855,8 +855,8 @@ google_compute.globalAddresses.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -882,14 +882,14 @@ google_compute.globalAddresses.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### globalAddresses.get
-Returns the specified address resource. Get a list of available addresses by making a list() request.
+Returns the specified address resource. Gets a list of available addresses by making a list() request.
 
 
 ```js
@@ -908,8 +908,8 @@ google_compute.globalAddresses.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Address](#address)
@@ -926,7 +926,7 @@ google_compute.backendBuckets.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -936,8 +936,8 @@ google_compute.backendBuckets.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendBucketList](#backendbucketlist)
@@ -962,8 +962,8 @@ google_compute.backendBuckets.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -989,14 +989,14 @@ google_compute.backendBuckets.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### backendBuckets.get
-Returns the specified BackendBucket resource. Get a list of available backend buckets by making a list() request.
+Returns the specified BackendBucket resource. Gets a list of available backend buckets by making a list() request.
 
 
 ```js
@@ -1015,8 +1015,8 @@ google_compute.backendBuckets.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendBucket](#backendbucket)
@@ -1043,8 +1043,8 @@ google_compute.backendBuckets.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1071,8 +1071,8 @@ google_compute.backendBuckets.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1089,7 +1089,7 @@ google_compute.backendServices.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -1099,8 +1099,8 @@ google_compute.backendServices.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendServiceList](#backendservicelist)
@@ -1125,8 +1125,8 @@ google_compute.backendServices.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1152,14 +1152,14 @@ google_compute.backendServices.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### backendServices.get
-Returns the specified BackendService resource. Get a list of available backend services by making a list() request.
+Returns the specified BackendService resource. Gets a list of available backend services by making a list() request.
 
 
 ```js
@@ -1178,8 +1178,8 @@ google_compute.backendServices.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendService](#backendservice)
@@ -1206,8 +1206,8 @@ google_compute.backendServices.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1234,8 +1234,8 @@ google_compute.backendServices.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1261,8 +1261,8 @@ google_compute.backendServices.getHealth({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendServiceGroupHealth](#backendservicegrouphealth)
@@ -1279,7 +1279,7 @@ google_compute.firewalls.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -1289,8 +1289,8 @@ google_compute.firewalls.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [FirewallList](#firewalllist)
@@ -1315,8 +1315,8 @@ google_compute.firewalls.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1342,8 +1342,8 @@ google_compute.firewalls.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1368,8 +1368,8 @@ google_compute.firewalls.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Firewall](#firewall)
@@ -1396,8 +1396,8 @@ google_compute.firewalls.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1424,8 +1424,8 @@ google_compute.firewalls.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1442,7 +1442,7 @@ google_compute.globalForwardingRules.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -1452,8 +1452,8 @@ google_compute.globalForwardingRules.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ForwardingRuleList](#forwardingrulelist)
@@ -1478,8 +1478,8 @@ google_compute.globalForwardingRules.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1505,14 +1505,14 @@ google_compute.globalForwardingRules.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### globalForwardingRules.get
-Returns the specified GlobalForwardingRule resource. Get a list of available forwarding rules by making a list() request.
+Returns the specified GlobalForwardingRule resource. Gets a list of available forwarding rules by making a list() request.
 
 
 ```js
@@ -1531,8 +1531,8 @@ google_compute.globalForwardingRules.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ForwardingRule](#forwardingrule)
@@ -1559,8 +1559,8 @@ google_compute.globalForwardingRules.setTarget({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1577,7 +1577,7 @@ google_compute.healthChecks.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -1587,8 +1587,8 @@ google_compute.healthChecks.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [HealthCheckList](#healthchecklist)
@@ -1613,8 +1613,8 @@ google_compute.healthChecks.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1640,14 +1640,14 @@ google_compute.healthChecks.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### healthChecks.get
-Returns the specified HealthCheck resource. Get a list of available health checks by making a list() request.
+Returns the specified HealthCheck resource. Gets a list of available health checks by making a list() request.
 
 
 ```js
@@ -1666,8 +1666,8 @@ google_compute.healthChecks.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [HealthCheck](#healthcheck)
@@ -1694,8 +1694,8 @@ google_compute.healthChecks.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1722,8 +1722,8 @@ google_compute.healthChecks.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1740,7 +1740,7 @@ google_compute.httpHealthChecks.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -1750,8 +1750,8 @@ google_compute.httpHealthChecks.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [HttpHealthCheckList](#httphealthchecklist)
@@ -1776,8 +1776,8 @@ google_compute.httpHealthChecks.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1803,14 +1803,14 @@ google_compute.httpHealthChecks.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### httpHealthChecks.get
-Returns the specified HttpHealthCheck resource. Get a list of available HTTP health checks by making a list() request.
+Returns the specified HttpHealthCheck resource. Gets a list of available HTTP health checks by making a list() request.
 
 
 ```js
@@ -1829,8 +1829,8 @@ google_compute.httpHealthChecks.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [HttpHealthCheck](#httphealthcheck)
@@ -1857,8 +1857,8 @@ google_compute.httpHealthChecks.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1885,8 +1885,8 @@ google_compute.httpHealthChecks.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1903,7 +1903,7 @@ google_compute.httpsHealthChecks.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -1913,8 +1913,8 @@ google_compute.httpsHealthChecks.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [HttpsHealthCheckList](#httpshealthchecklist)
@@ -1939,8 +1939,8 @@ google_compute.httpsHealthChecks.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -1966,14 +1966,14 @@ google_compute.httpsHealthChecks.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### httpsHealthChecks.get
-Returns the specified HttpsHealthCheck resource. Get a list of available HTTPS health checks by making a list() request.
+Returns the specified HttpsHealthCheck resource. Gets a list of available HTTPS health checks by making a list() request.
 
 
 ```js
@@ -1992,8 +1992,8 @@ google_compute.httpsHealthChecks.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [HttpsHealthCheck](#httpshealthcheck)
@@ -2020,8 +2020,8 @@ google_compute.httpsHealthChecks.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2048,8 +2048,8 @@ google_compute.httpsHealthChecks.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2066,7 +2066,7 @@ google_compute.images.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -2076,8 +2076,8 @@ google_compute.images.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ImageList](#imagelist)
@@ -2103,8 +2103,8 @@ google_compute.images.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2129,8 +2129,8 @@ google_compute.images.getFromFamily({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Image](#image)
@@ -2156,14 +2156,14 @@ google_compute.images.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### images.get
-Returns the specified image. Get a list of available images by making a list() request.
+Returns the specified image. Gets a list of available images by making a list() request.
 
 
 ```js
@@ -2182,8 +2182,8 @@ google_compute.images.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Image](#image)
@@ -2212,8 +2212,8 @@ google_compute.images.deprecate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2239,8 +2239,8 @@ google_compute.images.setLabels({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2257,7 +2257,7 @@ google_compute.instanceTemplates.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -2267,8 +2267,8 @@ google_compute.instanceTemplates.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceTemplateList](#instancetemplatelist)
@@ -2293,8 +2293,8 @@ google_compute.instanceTemplates.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2320,14 +2320,14 @@ google_compute.instanceTemplates.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### instanceTemplates.get
-Returns the specified instance template. Get a list of available instance templates by making a list() request.
+Returns the specified instance template. Gets a list of available instance templates by making a list() request.
 
 
 ```js
@@ -2346,8 +2346,8 @@ google_compute.instanceTemplates.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceTemplate](#instancetemplate)
@@ -2364,7 +2364,7 @@ google_compute.interconnectLocations.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -2374,14 +2374,14 @@ google_compute.interconnectLocations.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InterconnectLocationList](#interconnectlocationlist)
 
 ### interconnectLocations.get
-Returns the details for the specified interconnect location. Get a list of available interconnect locations by making a list() request.
+Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request.
 
 
 ```js
@@ -2400,8 +2400,8 @@ google_compute.interconnectLocations.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InterconnectLocation](#interconnectlocation)
@@ -2418,7 +2418,7 @@ google_compute.interconnects.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -2428,8 +2428,8 @@ google_compute.interconnects.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InterconnectList](#interconnectlist)
@@ -2454,8 +2454,8 @@ google_compute.interconnects.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2481,8 +2481,8 @@ google_compute.interconnects.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2507,8 +2507,8 @@ google_compute.interconnects.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Interconnect](#interconnect)
@@ -2535,8 +2535,142 @@ google_compute.interconnects.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### licenseCodes.get
+Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code.
+
+
+```js
+google_compute.licenseCodes.get({
+  "licenseCode": "",
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * licenseCode **required** `string`: Number corresponding to the License code resource to return.
+  * project **required** `string`: Project ID for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LicenseCode](#licensecode)
+
+### licenseCodes.testIamPermissions
+Returns permissions that a caller has on the specified resource.
+
+
+```js
+google_compute.licenseCodes.testIamPermissions({
+  "project": "",
+  "resource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [TestPermissionsRequest](#testpermissionsrequest)
+  * project **required** `string`: Project ID for this request.
+  * resource **required** `string`: Name of the resource for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [TestPermissionsResponse](#testpermissionsresponse)
+
+### licenses.list
+Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.
+
+
+```js
+google_compute.licenses.list({
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+  * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+  * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+  * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+  * project **required** `string`: Project ID for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [LicensesListResponse](#licenseslistresponse)
+
+### licenses.insert
+Create a License resource in the specified project.
+
+
+```js
+google_compute.licenses.insert({
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [License](#license)
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### licenses.delete
+Deletes the specified license.
+
+
+```js
+google_compute.licenses.delete({
+  "license": "",
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * license **required** `string`: Name of the license resource to delete.
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2561,11 +2695,38 @@ google_compute.licenses.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [License](#license)
+
+### licenses.testIamPermissions
+Returns permissions that a caller has on the specified resource.
+
+
+```js
+google_compute.licenses.testIamPermissions({
+  "project": "",
+  "resource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [TestPermissionsRequest](#testpermissionsrequest)
+  * project **required** `string`: Project ID for this request.
+  * resource **required** `string`: Name of the resource for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [TestPermissionsResponse](#testpermissionsresponse)
 
 ### networks.list
 Retrieves the list of networks available to the specified project.
@@ -2579,7 +2740,7 @@ google_compute.networks.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -2589,8 +2750,8 @@ google_compute.networks.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [NetworkList](#networklist)
@@ -2615,8 +2776,8 @@ google_compute.networks.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2642,14 +2803,14 @@ google_compute.networks.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### networks.get
-Returns the specified network. Get a list of available networks by making a list() request.
+Returns the specified network. Gets a list of available networks by making a list() request.
 
 
 ```js
@@ -2668,8 +2829,8 @@ google_compute.networks.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Network](#network)
@@ -2696,8 +2857,8 @@ google_compute.networks.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2724,8 +2885,8 @@ google_compute.networks.addPeering({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2752,8 +2913,8 @@ google_compute.networks.removePeering({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2779,8 +2940,8 @@ google_compute.networks.switchToCustomMode({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2797,7 +2958,7 @@ google_compute.globalOperations.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -2807,8 +2968,8 @@ google_compute.globalOperations.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OperationList](#operationlist)
@@ -2833,14 +2994,14 @@ google_compute.globalOperations.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
 
 ### globalOperations.get
-Retrieves the specified Operations resource. Get a list of operations by making a list() request.
+Retrieves the specified Operations resource. Gets a list of operations by making a list() request.
 
 
 ```js
@@ -2859,8 +3020,8 @@ google_compute.globalOperations.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2877,7 +3038,7 @@ google_compute.routes.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -2887,8 +3048,8 @@ google_compute.routes.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RouteList](#routelist)
@@ -2913,8 +3074,8 @@ google_compute.routes.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -2940,14 +3101,14 @@ google_compute.routes.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### routes.get
-Returns the specified Route resource. Get a list of available routes by making a list() request.
+Returns the specified Route resource. Gets a list of available routes by making a list() request.
 
 
 ```js
@@ -2966,8 +3127,8 @@ google_compute.routes.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Route](#route)
@@ -2984,7 +3145,7 @@ google_compute.snapshots.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -2994,8 +3155,8 @@ google_compute.snapshots.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SnapshotList](#snapshotlist)
@@ -3021,8 +3182,8 @@ google_compute.snapshots.setLabels({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3050,14 +3211,14 @@ google_compute.snapshots.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### snapshots.get
-Returns the specified Snapshot resource. Get a list of available snapshots by making a list() request.
+Returns the specified Snapshot resource. Gets a list of available snapshots by making a list() request.
 
 
 ```js
@@ -3076,8 +3237,8 @@ google_compute.snapshots.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Snapshot](#snapshot)
@@ -3094,7 +3255,7 @@ google_compute.sslCertificates.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -3104,8 +3265,8 @@ google_compute.sslCertificates.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SslCertificateList](#sslcertificatelist)
@@ -3130,8 +3291,8 @@ google_compute.sslCertificates.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3157,14 +3318,14 @@ google_compute.sslCertificates.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### sslCertificates.get
-Returns the specified SslCertificate resource. Get a list of available SSL certificates by making a list() request.
+Returns the specified SslCertificate resource. Gets a list of available SSL certificates by making a list() request.
 
 
 ```js
@@ -3183,11 +3344,174 @@ google_compute.sslCertificates.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SslCertificate](#sslcertificate)
+
+### sslPolicies.list
+Lists all the SSL policies that have been configured for the specified project.
+
+
+```js
+google_compute.sslPolicies.list({
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+  * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+  * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+  * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+  * project **required** `string`: Project ID for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [SslPoliciesList](#sslpolicieslist)
+
+### sslPolicies.insert
+Returns the specified SSL policy resource. Gets a list of available SSL policies by making a list() request.
+
+
+```js
+google_compute.sslPolicies.insert({
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SslPolicy](#sslpolicy)
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### sslPolicies.listAvailableFeatures
+Lists all features that can be specified in the SSL policy when using custom profile.
+
+
+```js
+google_compute.sslPolicies.listAvailableFeatures({
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+  * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+  * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+  * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+  * project **required** `string`: Project ID for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [SslPoliciesListAvailableFeaturesResponse](#sslpolicieslistavailablefeaturesresponse)
+
+### sslPolicies.delete
+Deletes the specified SSL policy. The SSL policy resource can be deleted only if it is not in use by any TargetHttpsProxy or TargetSslProxy resources.
+
+
+```js
+google_compute.sslPolicies.delete({
+  "project": "",
+  "sslPolicy": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * sslPolicy **required** `string`: Name of the SSL policy to delete. The name must be 1-63 characters long, and comply with RFC1035.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### sslPolicies.get
+Lists all of the ordered rules present in a single specified policy.
+
+
+```js
+google_compute.sslPolicies.get({
+  "project": "",
+  "sslPolicy": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * project **required** `string`: Project ID for this request.
+  * sslPolicy **required** `string`: Name of the SSL policy to update. The name must be 1-63 characters long, and comply with RFC1035.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [SslPolicy](#sslpolicy)
+
+### sslPolicies.patch
+Patches the specified SSL policy with the data included in the request.
+
+
+```js
+google_compute.sslPolicies.patch({
+  "project": "",
+  "sslPolicy": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SslPolicy](#sslpolicy)
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * sslPolicy **required** `string`: Name of the SSL policy to update. The name must be 1-63 characters long, and comply with RFC1035.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
 
 ### targetHttpProxies.list
 Retrieves the list of TargetHttpProxy resources available to the specified project.
@@ -3201,7 +3525,7 @@ google_compute.targetHttpProxies.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -3211,8 +3535,8 @@ google_compute.targetHttpProxies.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetHttpProxyList](#targethttpproxylist)
@@ -3237,8 +3561,8 @@ google_compute.targetHttpProxies.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3264,14 +3588,14 @@ google_compute.targetHttpProxies.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### targetHttpProxies.get
-Returns the specified TargetHttpProxy resource. Get a list of available target HTTP proxies by making a list() request.
+Returns the specified TargetHttpProxy resource. Gets a list of available target HTTP proxies by making a list() request.
 
 
 ```js
@@ -3290,8 +3614,8 @@ google_compute.targetHttpProxies.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetHttpProxy](#targethttpproxy)
@@ -3308,7 +3632,7 @@ google_compute.targetHttpsProxies.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -3318,8 +3642,8 @@ google_compute.targetHttpsProxies.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetHttpsProxyList](#targethttpsproxylist)
@@ -3344,8 +3668,8 @@ google_compute.targetHttpsProxies.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3371,14 +3695,14 @@ google_compute.targetHttpsProxies.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### targetHttpsProxies.get
-Returns the specified TargetHttpsProxy resource. Get a list of available target HTTPS proxies by making a list() request.
+Returns the specified TargetHttpsProxy resource. Gets a list of available target HTTPS proxies by making a list() request.
 
 
 ```js
@@ -3397,11 +3721,39 @@ google_compute.targetHttpsProxies.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetHttpsProxy](#targethttpsproxy)
+
+### targetHttpsProxies.setSslPolicy
+Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the HTTPS proxy load balancer. They do not affect the connection between the load balancer and the backends.
+
+
+```js
+google_compute.targetHttpsProxies.setSslPolicy({
+  "project": "",
+  "targetHttpsProxy": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SslPolicyReference](#sslpolicyreference)
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * targetHttpsProxy **required** `string`: Name of the TargetHttpsProxy resource whose SSL policy is to be set. The name must be 1-63 characters long, and comply with RFC1035.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
 
 ### targetSslProxies.list
 Retrieves the list of TargetSslProxy resources available to the specified project.
@@ -3415,7 +3767,7 @@ google_compute.targetSslProxies.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -3425,8 +3777,8 @@ google_compute.targetSslProxies.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetSslProxyList](#targetsslproxylist)
@@ -3451,8 +3803,8 @@ google_compute.targetSslProxies.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3478,14 +3830,14 @@ google_compute.targetSslProxies.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### targetSslProxies.get
-Returns the specified TargetSslProxy resource. Get a list of available target SSL proxies by making a list() request.
+Returns the specified TargetSslProxy resource. Gets a list of available target SSL proxies by making a list() request.
 
 
 ```js
@@ -3504,8 +3856,8 @@ google_compute.targetSslProxies.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetSslProxy](#targetsslproxy)
@@ -3532,8 +3884,8 @@ google_compute.targetSslProxies.setBackendService({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3560,8 +3912,8 @@ google_compute.targetSslProxies.setProxyHeader({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3588,8 +3940,36 @@ google_compute.targetSslProxies.setSslCertificates({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### targetSslProxies.setSslPolicy
+Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the SSL proxy load balancer. They do not affect the connection between the load balancer and the backends.
+
+
+```js
+google_compute.targetSslProxies.setSslPolicy({
+  "project": "",
+  "targetSslProxy": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SslPolicyReference](#sslpolicyreference)
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * targetSslProxy **required** `string`: Name of the TargetSslProxy resource whose SSL policy is to be set. The name must be 1-63 characters long, and comply with RFC1035.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3606,7 +3986,7 @@ google_compute.targetTcpProxies.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -3616,8 +3996,8 @@ google_compute.targetTcpProxies.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetTcpProxyList](#targettcpproxylist)
@@ -3642,8 +4022,8 @@ google_compute.targetTcpProxies.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3669,14 +4049,14 @@ google_compute.targetTcpProxies.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### targetTcpProxies.get
-Returns the specified TargetTcpProxy resource. Get a list of available target TCP proxies by making a list() request.
+Returns the specified TargetTcpProxy resource. Gets a list of available target TCP proxies by making a list() request.
 
 
 ```js
@@ -3695,8 +4075,8 @@ google_compute.targetTcpProxies.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetTcpProxy](#targettcpproxy)
@@ -3723,8 +4103,8 @@ google_compute.targetTcpProxies.setBackendService({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3751,8 +4131,8 @@ google_compute.targetTcpProxies.setProxyHeader({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3769,7 +4149,7 @@ google_compute.urlMaps.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -3779,8 +4159,8 @@ google_compute.urlMaps.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [UrlMapList](#urlmaplist)
@@ -3805,8 +4185,8 @@ google_compute.urlMaps.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3832,14 +4212,14 @@ google_compute.urlMaps.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### urlMaps.get
-Returns the specified UrlMap resource. Get a list of available URL maps by making a list() request.
+Returns the specified UrlMap resource. Gets a list of available URL maps by making a list() request.
 
 
 ```js
@@ -3858,8 +4238,8 @@ google_compute.urlMaps.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [UrlMap](#urlmap)
@@ -3886,8 +4266,8 @@ google_compute.urlMaps.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3914,8 +4294,8 @@ google_compute.urlMaps.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3942,8 +4322,8 @@ google_compute.urlMaps.invalidateCache({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -3969,14 +4349,14 @@ google_compute.urlMaps.validate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [UrlMapsValidateResponse](#urlmapsvalidateresponse)
 
 ### projects.listXpnHosts
-List all shared VPC host projects visible to the user in an organization.
+Lists all shared VPC host projects visible to the user in an organization.
 
 
 ```js
@@ -3998,8 +4378,8 @@ google_compute.projects.listXpnHosts({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [XpnHostList](#xpnhostlist)
@@ -4024,8 +4404,8 @@ google_compute.projects.moveDisk({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4050,8 +4430,8 @@ google_compute.projects.moveInstance({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4068,7 +4448,7 @@ google_compute.regions.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -4078,14 +4458,14 @@ google_compute.regions.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RegionList](#regionlist)
 
 ### regions.get
-Returns the specified Region resource. Get a list of available regions by making a list() request.
+Returns the specified Region resource. Gets a list of available regions by making a list() request.
 
 
 ```js
@@ -4104,8 +4484,8 @@ google_compute.regions.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Region](#region)
@@ -4123,7 +4503,7 @@ google_compute.addresses.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -4134,8 +4514,8 @@ google_compute.addresses.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AddressList](#addresslist)
@@ -4162,8 +4542,8 @@ google_compute.addresses.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4191,8 +4571,8 @@ google_compute.addresses.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4219,8 +4599,8 @@ google_compute.addresses.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Address](#address)
@@ -4238,7 +4618,7 @@ google_compute.regionAutoscalers.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -4249,8 +4629,8 @@ google_compute.regionAutoscalers.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RegionAutoscalerList](#regionautoscalerlist)
@@ -4278,8 +4658,8 @@ google_compute.regionAutoscalers.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4306,8 +4686,8 @@ google_compute.regionAutoscalers.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4335,8 +4715,8 @@ google_compute.regionAutoscalers.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4364,8 +4744,8 @@ google_compute.regionAutoscalers.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4392,8 +4772,8 @@ google_compute.regionAutoscalers.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Autoscaler](#autoscaler)
@@ -4411,7 +4791,7 @@ google_compute.regionBackendServices.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -4422,8 +4802,8 @@ google_compute.regionBackendServices.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendServiceList](#backendservicelist)
@@ -4450,8 +4830,8 @@ google_compute.regionBackendServices.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4479,8 +4859,8 @@ google_compute.regionBackendServices.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4507,8 +4887,8 @@ google_compute.regionBackendServices.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendService](#backendservice)
@@ -4537,8 +4917,8 @@ google_compute.regionBackendServices.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4567,8 +4947,8 @@ google_compute.regionBackendServices.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4596,8 +4976,8 @@ google_compute.regionBackendServices.getHealth({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [BackendServiceGroupHealth](#backendservicegrouphealth)
@@ -4615,7 +4995,7 @@ google_compute.regionCommitments.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -4626,8 +5006,8 @@ google_compute.regionCommitments.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [CommitmentList](#commitmentlist)
@@ -4654,14 +5034,14 @@ google_compute.regionCommitments.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### regionCommitments.get
-Returns the specified commitment resource. Get a list of available commitments by making a list() request.
+Returns the specified commitment resource. Gets a list of available commitments by making a list() request.
 
 
 ```js
@@ -4682,11 +5062,304 @@ google_compute.regionCommitments.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Commitment](#commitment)
+
+### regionDiskTypes.list
+Retrieves a list of regional disk types available to the specified project.
+
+
+```js
+google_compute.regionDiskTypes.list({
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+  * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+  * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+  * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: The name of the region for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [RegionDiskTypeList](#regiondisktypelist)
+
+### regionDiskTypes.get
+Returns the specified regional disk type. Gets a list of available disk types by making a list() request.
+
+
+```js
+google_compute.regionDiskTypes.get({
+  "diskType": "",
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * diskType **required** `string`: Name of the disk type to return.
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: The name of the region for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [DiskType](#disktype)
+
+### regionDisks.list
+Retrieves the list of persistent disks contained within the specified region.
+
+
+```js
+google_compute.regionDisks.list({
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+  * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+  * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+  * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: Name of the region for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [DiskList](#disklist)
+
+### regionDisks.insert
+Creates a persistent regional disk in the specified project using the data included in the request.
+
+
+```js
+google_compute.regionDisks.insert({
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [Disk](#disk)
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: Name of the region for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * sourceImage `string`: Optional. Source image to restore onto a disk.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### regionDisks.delete
+Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots.
+
+
+```js
+google_compute.regionDisks.delete({
+  "disk": "",
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * disk **required** `string`: Name of the regional persistent disk to delete.
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: Name of the region for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### regionDisks.get
+Returns a specified regional persistent disk.
+
+
+```js
+google_compute.regionDisks.get({
+  "disk": "",
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * disk **required** `string`: Name of the regional persistent disk to return.
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: Name of the region for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Disk](#disk)
+
+### regionDisks.createSnapshot
+Creates a snapshot of this regional disk.
+
+
+```js
+google_compute.regionDisks.createSnapshot({
+  "disk": "",
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [Snapshot](#snapshot)
+  * disk **required** `string`: Name of the regional persistent disk to snapshot.
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: Name of the region for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### regionDisks.resize
+Resizes the specified regional persistent disk.
+
+
+```js
+google_compute.regionDisks.resize({
+  "disk": "",
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [RegionDisksResizeRequest](#regiondisksresizerequest)
+  * disk **required** `string`: Name of the regional persistent disk.
+  * project **required** `string`: The project ID for this request.
+  * region **required** `string`: Name of the region for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### regionDisks.setLabels
+Sets the labels on the target regional disk.
+
+
+```js
+google_compute.regionDisks.setLabels({
+  "project": "",
+  "region": "",
+  "resource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [RegionSetLabelsRequest](#regionsetlabelsrequest)
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: The region for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * resource **required** `string`: Name of the resource for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### regionDisks.testIamPermissions
+Returns permissions that a caller has on the specified resource.
+
+
+```js
+google_compute.regionDisks.testIamPermissions({
+  "project": "",
+  "region": "",
+  "resource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [TestPermissionsRequest](#testpermissionsrequest)
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: The name of the region for this request.
+  * resource **required** `string`: Name of the resource for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [TestPermissionsResponse](#testpermissionsresponse)
 
 ### forwardingRules.list
 Retrieves a list of ForwardingRule resources available to the specified project and region.
@@ -4701,7 +5374,7 @@ google_compute.forwardingRules.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -4712,8 +5385,8 @@ google_compute.forwardingRules.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ForwardingRuleList](#forwardingrulelist)
@@ -4740,8 +5413,8 @@ google_compute.forwardingRules.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4769,8 +5442,8 @@ google_compute.forwardingRules.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4797,8 +5470,8 @@ google_compute.forwardingRules.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ForwardingRule](#forwardingrule)
@@ -4827,8 +5500,8 @@ google_compute.forwardingRules.setTarget({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4846,7 +5519,7 @@ google_compute.regionInstanceGroupManagers.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -4857,8 +5530,8 @@ google_compute.regionInstanceGroupManagers.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RegionInstanceGroupManagerList](#regioninstancegroupmanagerlist)
@@ -4887,8 +5560,8 @@ google_compute.regionInstanceGroupManagers.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4916,8 +5589,8 @@ google_compute.regionInstanceGroupManagers.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -4944,8 +5617,8 @@ google_compute.regionInstanceGroupManagers.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroupManager](#instancegroupmanager)
@@ -4978,8 +5651,8 @@ google_compute.regionInstanceGroupManagers.abandonInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5012,8 +5685,8 @@ google_compute.regionInstanceGroupManagers.deleteInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5044,8 +5717,8 @@ google_compute.regionInstanceGroupManagers.listManagedInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RegionInstanceGroupManagersListInstancesResponse](#regioninstancegroupmanagerslistinstancesresponse)
@@ -5078,8 +5751,8 @@ google_compute.regionInstanceGroupManagers.recreateInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5111,8 +5784,8 @@ google_compute.regionInstanceGroupManagers.resize({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5141,8 +5814,8 @@ google_compute.regionInstanceGroupManagers.setInstanceTemplate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5171,8 +5844,8 @@ google_compute.regionInstanceGroupManagers.setTargetPools({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5190,7 +5863,7 @@ google_compute.regionInstanceGroups.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -5201,8 +5874,8 @@ google_compute.regionInstanceGroups.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RegionInstanceGroupList](#regioninstancegrouplist)
@@ -5229,8 +5902,8 @@ google_compute.regionInstanceGroups.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroup](#instancegroup)
@@ -5250,7 +5923,7 @@ google_compute.regionInstanceGroups.listInstances({
 #### Input
 * input `object`
   * body [RegionInstanceGroupsListInstancesRequest](#regioninstancegroupslistinstancesrequest)
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * instanceGroup **required** `string`: Name of the regional instance group for which we want to list the instances.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
@@ -5262,8 +5935,8 @@ google_compute.regionInstanceGroups.listInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RegionInstanceGroupsListInstances](#regioninstancegroupslistinstances)
@@ -5292,8 +5965,8 @@ google_compute.regionInstanceGroups.setNamedPorts({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5311,7 +5984,7 @@ google_compute.interconnectAttachments.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -5322,8 +5995,8 @@ google_compute.interconnectAttachments.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InterconnectAttachmentList](#interconnectattachmentlist)
@@ -5350,8 +6023,8 @@ google_compute.interconnectAttachments.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5379,8 +6052,8 @@ google_compute.interconnectAttachments.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5407,8 +6080,8 @@ google_compute.interconnectAttachments.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InterconnectAttachment](#interconnectattachment)
@@ -5426,7 +6099,7 @@ google_compute.regionOperations.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -5437,8 +6110,8 @@ google_compute.regionOperations.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OperationList](#operationlist)
@@ -5465,8 +6138,8 @@ google_compute.regionOperations.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -5493,8 +6166,8 @@ google_compute.regionOperations.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5512,7 +6185,7 @@ google_compute.routers.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -5523,8 +6196,8 @@ google_compute.routers.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RouterList](#routerlist)
@@ -5551,8 +6224,8 @@ google_compute.routers.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5580,14 +6253,14 @@ google_compute.routers.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### routers.get
-Returns the specified Router resource. Get a list of available routers by making a list() request.
+Returns the specified Router resource. Gets a list of available routers by making a list() request.
 
 
 ```js
@@ -5608,8 +6281,8 @@ google_compute.routers.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Router](#router)
@@ -5638,8 +6311,8 @@ google_compute.routers.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5668,8 +6341,8 @@ google_compute.routers.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5696,8 +6369,8 @@ google_compute.routers.getRouterStatus({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RouterStatusResponse](#routerstatusresponse)
@@ -5725,8 +6398,8 @@ google_compute.routers.preview({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [RoutersPreviewResponse](#routerspreviewresponse)
@@ -5744,7 +6417,7 @@ google_compute.subnetworks.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -5755,8 +6428,8 @@ google_compute.subnetworks.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SubnetworkList](#subnetworklist)
@@ -5783,8 +6456,8 @@ google_compute.subnetworks.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5812,14 +6485,14 @@ google_compute.subnetworks.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### subnetworks.get
-Returns the specified subnetwork. Get a list of available subnetworks list() request.
+Returns the specified subnetwork. Gets a list of available subnetworks list() request.
 
 
 ```js
@@ -5840,11 +6513,41 @@ google_compute.subnetworks.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Subnetwork](#subnetwork)
+
+### subnetworks.patch
+Patches the specified subnetwork with the data included in the request. Only the following fields within the subnetwork resource can be specified in the request: secondary_ip_range, allow_subnet_cidr_routes_overlap and role. It is also mandatory to specify the current fingeprint of the subnetwork resource being patched.
+
+
+```js
+google_compute.subnetworks.patch({
+  "project": "",
+  "region": "",
+  "subnetwork": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [Subnetwork](#subnetwork)
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: Name of the region scoping this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * subnetwork **required** `string`: Name of the Subnetwork resource to patch.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
 
 ### subnetworks.expandIpCidrRange
 Expands the IP CIDR range of the subnetwork to a specified value.
@@ -5870,8 +6573,8 @@ google_compute.subnetworks.expandIpCidrRange({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5900,8 +6603,8 @@ google_compute.subnetworks.setPrivateIpGoogleAccess({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5919,7 +6622,7 @@ google_compute.targetPools.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -5930,8 +6633,8 @@ google_compute.targetPools.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetPoolList](#targetpoollist)
@@ -5958,8 +6661,8 @@ google_compute.targetPools.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -5987,14 +6690,14 @@ google_compute.targetPools.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### targetPools.get
-Returns the specified target pool. Get a list of available target pools by making a list() request.
+Returns the specified target pool. Gets a list of available target pools by making a list() request.
 
 
 ```js
@@ -6015,8 +6718,8 @@ google_compute.targetPools.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetPool](#targetpool)
@@ -6045,8 +6748,8 @@ google_compute.targetPools.addHealthCheck({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6075,8 +6778,8 @@ google_compute.targetPools.addInstance({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6104,8 +6807,8 @@ google_compute.targetPools.getHealth({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetPoolInstanceHealth](#targetpoolinstancehealth)
@@ -6134,8 +6837,8 @@ google_compute.targetPools.removeHealthCheck({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6164,8 +6867,8 @@ google_compute.targetPools.removeInstance({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6195,8 +6898,8 @@ google_compute.targetPools.setBackup({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6214,7 +6917,7 @@ google_compute.targetVpnGateways.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -6225,8 +6928,8 @@ google_compute.targetVpnGateways.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetVpnGatewayList](#targetvpngatewaylist)
@@ -6253,8 +6956,8 @@ google_compute.targetVpnGateways.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6282,14 +6985,14 @@ google_compute.targetVpnGateways.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### targetVpnGateways.get
-Returns the specified target VPN gateway. Get a list of available target VPN gateways by making a list() request.
+Returns the specified target VPN gateway. Gets a list of available target VPN gateways by making a list() request.
 
 
 ```js
@@ -6310,8 +7013,8 @@ google_compute.targetVpnGateways.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetVpnGateway](#targetvpngateway)
@@ -6329,7 +7032,7 @@ google_compute.vpnTunnels.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -6340,8 +7043,8 @@ google_compute.vpnTunnels.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [VpnTunnelList](#vpntunnellist)
@@ -6368,8 +7071,8 @@ google_compute.vpnTunnels.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6397,14 +7100,14 @@ google_compute.vpnTunnels.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### vpnTunnels.get
-Returns the specified VpnTunnel resource. Get a list of available VPN tunnels by making a list() request.
+Returns the specified VpnTunnel resource. Gets a list of available VPN tunnels by making a list() request.
 
 
 ```js
@@ -6425,8 +7128,8 @@ google_compute.vpnTunnels.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [VpnTunnel](#vpntunnel)
@@ -6451,8 +7154,8 @@ google_compute.projects.setCommonInstanceMetadata({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6477,8 +7180,8 @@ google_compute.projects.setUsageExportBucket({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6505,8 +7208,8 @@ google_compute.targetHttpProxies.setUrlMap({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6533,8 +7236,8 @@ google_compute.targetHttpsProxies.setSslCertificates({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6561,8 +7264,8 @@ google_compute.targetHttpsProxies.setUrlMap({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6579,7 +7282,7 @@ google_compute.zones.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -6589,14 +7292,14 @@ google_compute.zones.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [ZoneList](#zonelist)
 
 ### zones.get
-Returns the specified Zone resource. Get a list of available zones by making a list() request.
+Returns the specified Zone resource. Gets a list of available zones by making a list() request.
 
 
 ```js
@@ -6615,8 +7318,8 @@ google_compute.zones.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Zone](#zone)
@@ -6634,7 +7337,7 @@ google_compute.acceleratorTypes.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -6645,14 +7348,14 @@ google_compute.acceleratorTypes.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AcceleratorTypeList](#acceleratortypelist)
 
 ### acceleratorTypes.get
-Returns the specified accelerator type. Get a list of available accelerator types by making a list() request.
+Returns the specified accelerator type.
 
 
 ```js
@@ -6673,8 +7376,8 @@ google_compute.acceleratorTypes.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AcceleratorType](#acceleratortype)
@@ -6692,7 +7395,7 @@ google_compute.autoscalers.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -6703,8 +7406,8 @@ google_compute.autoscalers.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [AutoscalerList](#autoscalerlist)
@@ -6732,8 +7435,8 @@ google_compute.autoscalers.patch({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6760,8 +7463,8 @@ google_compute.autoscalers.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6789,8 +7492,8 @@ google_compute.autoscalers.update({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6818,14 +7521,14 @@ google_compute.autoscalers.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### autoscalers.get
-Returns the specified autoscaler resource. Get a list of available autoscalers by making a list() request.
+Returns the specified autoscaler resource. Gets a list of available autoscalers by making a list() request.
 
 
 ```js
@@ -6846,8 +7549,8 @@ google_compute.autoscalers.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Autoscaler](#autoscaler)
@@ -6865,7 +7568,7 @@ google_compute.diskTypes.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -6876,14 +7579,14 @@ google_compute.diskTypes.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DiskTypeList](#disktypelist)
 
 ### diskTypes.get
-Returns the specified disk type. Get a list of available disk types by making a list() request.
+Returns the specified disk type. Gets a list of available disk types by making a list() request.
 
 
 ```js
@@ -6904,8 +7607,8 @@ google_compute.diskTypes.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DiskType](#disktype)
@@ -6923,7 +7626,7 @@ google_compute.disks.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -6934,8 +7637,8 @@ google_compute.disks.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [DiskList](#disklist)
@@ -6963,8 +7666,8 @@ google_compute.disks.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -6992,14 +7695,14 @@ google_compute.disks.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### disks.get
-Returns a specified persistent disk. Get a list of available persistent disks by making a list() request.
+Returns a specified persistent disk. Gets a list of available persistent disks by making a list() request.
 
 
 ```js
@@ -7020,8 +7723,8 @@ google_compute.disks.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Disk](#disk)
@@ -7051,8 +7754,8 @@ google_compute.disks.createSnapshot({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7081,8 +7784,8 @@ google_compute.disks.resize({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7111,8 +7814,8 @@ google_compute.disks.setLabels({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7130,7 +7833,7 @@ google_compute.instanceGroupManagers.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -7141,8 +7844,8 @@ google_compute.instanceGroupManagers.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroupManagerList](#instancegroupmanagerlist)
@@ -7171,8 +7874,8 @@ google_compute.instanceGroupManagers.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7200,14 +7903,14 @@ google_compute.instanceGroupManagers.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### instanceGroupManagers.get
-Returns all of the details about the specified managed instance group. Get a list of available managed instance groups by making a list() request.
+Returns all of the details about the specified managed instance group. Gets a list of available managed instance groups by making a list() request.
 
 
 ```js
@@ -7228,8 +7931,8 @@ google_compute.instanceGroupManagers.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroupManager](#instancegroupmanager)
@@ -7262,8 +7965,8 @@ google_compute.instanceGroupManagers.abandonInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7296,8 +7999,8 @@ google_compute.instanceGroupManagers.deleteInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7328,8 +8031,8 @@ google_compute.instanceGroupManagers.listManagedInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroupManagersListManagedInstancesResponse](#instancegroupmanagerslistmanagedinstancesresponse)
@@ -7362,8 +8065,8 @@ google_compute.instanceGroupManagers.recreateInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7395,8 +8098,8 @@ google_compute.instanceGroupManagers.resize({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7425,8 +8128,8 @@ google_compute.instanceGroupManagers.setInstanceTemplate({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7455,8 +8158,8 @@ google_compute.instanceGroupManagers.setTargetPools({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7474,7 +8177,7 @@ google_compute.instanceGroups.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -7485,8 +8188,8 @@ google_compute.instanceGroups.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroupList](#instancegrouplist)
@@ -7513,8 +8216,8 @@ google_compute.instanceGroups.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7542,14 +8245,14 @@ google_compute.instanceGroups.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### instanceGroups.get
-Returns the specified instance group. Get a list of available instance groups by making a list() request.
+Returns the specified instance group. Gets a list of available instance groups by making a list() request.
 
 
 ```js
@@ -7570,8 +8273,8 @@ google_compute.instanceGroups.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroup](#instancegroup)
@@ -7600,8 +8303,8 @@ google_compute.instanceGroups.addInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7621,7 +8324,7 @@ google_compute.instanceGroups.listInstances({
 #### Input
 * input `object`
   * body [InstanceGroupsListInstancesRequest](#instancegroupslistinstancesrequest)
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * instanceGroup **required** `string`: The name of the instance group from which you want to generate a list of included instances.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
@@ -7633,8 +8336,8 @@ google_compute.instanceGroups.listInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceGroupsListInstances](#instancegroupslistinstances)
@@ -7665,8 +8368,8 @@ google_compute.instanceGroups.removeInstances({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7695,8 +8398,8 @@ google_compute.instanceGroups.setNamedPorts({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7714,7 +8417,7 @@ google_compute.instances.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -7725,8 +8428,8 @@ google_compute.instances.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceList](#instancelist)
@@ -7747,14 +8450,15 @@ google_compute.instances.insert({
   * body [Instance](#instance)
   * project **required** `string`: Project ID for this request.
   * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * sourceInstanceTemplate `string`: Specifies instance template to create the instance.
   * zone **required** `string`: The name of the zone for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7782,14 +8486,14 @@ google_compute.instances.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### instances.get
-Returns the specified Instance resource. Get a list of available instances by making a list() request.
+Returns the specified Instance resource. Gets a list of available instances by making a list() request.
 
 
 ```js
@@ -7810,8 +8514,8 @@ google_compute.instances.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Instance](#instance)
@@ -7842,8 +8546,8 @@ google_compute.instances.addAccessConfig({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7863,6 +8567,7 @@ google_compute.instances.attachDisk({
 #### Input
 * input `object`
   * body [AttachedDisk](#attacheddisk)
+  * forceAttach `boolean`: Whether to force attach the disk even if it's currently attached to another instance. This is only available for regional disks.
   * instance **required** `string`: The instance name for this request.
   * project **required** `string`: Project ID for this request.
   * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
@@ -7872,8 +8577,8 @@ google_compute.instances.attachDisk({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7905,8 +8610,8 @@ google_compute.instances.deleteAccessConfig({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7936,8 +8641,8 @@ google_compute.instances.detachDisk({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -7956,7 +8661,7 @@ google_compute.instances.listReferrers({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * instance **required** `string`: Name of the target instance scoping this request, or '-' if the request should span over all instances in the container.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
@@ -7968,8 +8673,8 @@ google_compute.instances.listReferrers({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [InstanceListReferrers](#instancelistreferrers)
@@ -7997,8 +8702,8 @@ google_compute.instances.reset({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8027,8 +8732,8 @@ google_compute.instances.getSerialPortOutput({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [SerialPortOutput](#serialportoutput)
@@ -8060,8 +8765,8 @@ google_compute.instances.setDiskAutoDelete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8090,8 +8795,8 @@ google_compute.instances.setLabels({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8120,8 +8825,8 @@ google_compute.instances.setMachineResources({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8150,8 +8855,8 @@ google_compute.instances.setMachineType({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8180,8 +8885,8 @@ google_compute.instances.setMetadata({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8210,8 +8915,8 @@ google_compute.instances.setMinCpuPlatform({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8240,8 +8945,8 @@ google_compute.instances.setScheduling({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8270,8 +8975,8 @@ google_compute.instances.setServiceAccount({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8300,14 +9005,14 @@ google_compute.instances.setTags({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### instances.start
-Starts an instance that was stopped using the using the instances().stop method. For more information, see Restart an instance.
+Starts an instance that was stopped using the instances().stop method. For more information, see Restart an instance.
 
 
 ```js
@@ -8329,14 +9034,14 @@ google_compute.instances.start({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### instances.startWithEncryptionKey
-Starts an instance that was stopped using the using the instances().stop method. For more information, see Restart an instance.
+Starts an instance that was stopped using the instances().stop method. For more information, see Restart an instance.
 
 
 ```js
@@ -8359,8 +9064,8 @@ google_compute.instances.startWithEncryptionKey({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8388,8 +9093,8 @@ google_compute.instances.stop({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8420,8 +9125,40 @@ google_compute.instances.updateAccessConfig({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [Operation](#operation)
+
+### instances.updateNetworkInterface
+Updates an instance's network interface. This method follows PATCH semantics.
+
+
+```js
+google_compute.instances.updateNetworkInterface({
+  "instance": "",
+  "networkInterface": "",
+  "project": "",
+  "zone": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [NetworkInterface](#networkinterface)
+  * instance **required** `string`: The instance name for this request.
+  * networkInterface **required** `string`: The name of the network interface to update.
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * zone **required** `string`: The name of the zone for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8450,8 +9187,8 @@ google_compute.instances.setDeletionProtection({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8469,7 +9206,7 @@ google_compute.machineTypes.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -8480,14 +9217,14 @@ google_compute.machineTypes.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [MachineTypeList](#machinetypelist)
 
 ### machineTypes.get
-Returns the specified machine type. Get a list of available machine types by making a list() request.
+Returns the specified machine type. Gets a list of available machine types by making a list() request.
 
 
 ```js
@@ -8508,8 +9245,8 @@ google_compute.machineTypes.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [MachineType](#machinetype)
@@ -8527,7 +9264,7 @@ google_compute.zoneOperations.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -8538,8 +9275,8 @@ google_compute.zoneOperations.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [OperationList](#operationlist)
@@ -8566,8 +9303,8 @@ google_compute.zoneOperations.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 *Output schema unknown*
@@ -8594,8 +9331,8 @@ google_compute.zoneOperations.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8613,7 +9350,7 @@ google_compute.targetInstances.list({
 
 #### Input
 * input `object`
-  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * filter `string`: A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
   * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
   * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
   * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
@@ -8624,8 +9361,8 @@ google_compute.targetInstances.list({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetInstanceList](#targetinstancelist)
@@ -8652,8 +9389,8 @@ google_compute.targetInstances.insert({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
@@ -8681,14 +9418,14 @@ google_compute.targetInstances.delete({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [Operation](#operation)
 
 ### targetInstances.get
-Returns the specified TargetInstance resource. Get a list of available target instances by making a list() request.
+Returns the specified TargetInstance resource. Gets a list of available target instances by making a list() request.
 
 
 ```js
@@ -8709,8 +9446,8 @@ google_compute.targetInstances.get({
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
 * output [TargetInstance](#targetinstance)
@@ -8769,7 +9506,7 @@ google_compute.targetInstances.get({
 
 ### AcceleratorTypesScopedList
 * AcceleratorTypesScopedList `object`
-  * acceleratorTypes `array`: [Output Only] List of accelerator types contained in this scope.
+  * acceleratorTypes `array`: [Output Only] A list of accelerator types contained in this scope.
     * items [AcceleratorType](#acceleratortype)
   * warning `object`: [Output Only] An informational warning that appears when the accelerator types list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -8797,7 +9534,7 @@ google_compute.targetInstances.get({
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * ipVersion `string` (values: IPV4, IPV6, UNSPECIFIED_VERSION): The IP Version that will be used by this address. Valid options are IPV4 or IPV6. This can only be specified for a global address.
   * kind `string`: [Output Only] Type of the resource. Always compute#address for addresses.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * region `string`: [Output Only] URL of the region where the regional address resides. This field is not applicable to global addresses. You must specify this field as part of the HTTP request URL. You cannot set this field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * status `string` (values: IN_USE, RESERVED): [Output Only] The status of the address, which can be one of RESERVING, RESERVED, or IN_USE. An address that is RESERVING is currently in the process of being reserved. A RESERVED address is currently reserved and available to use. An IN_USE address is currently being used by another resource and is not available.
@@ -8838,7 +9575,7 @@ google_compute.targetInstances.get({
 
 ### AddressesScopedList
 * AddressesScopedList `object`
-  * addresses `array`: [Output Only] List of addresses contained in this scope.
+  * addresses `array`: [Output Only] A list of addresses contained in this scope.
     * items [Address](#address)
   * warning `object`: [Output Only] Informational warning which replaces the list of addresses when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -8859,6 +9596,8 @@ google_compute.targetInstances.get({
   * boot `boolean`: Indicates that this is a boot disk. The virtual machine will use the first partition of the disk for its root filesystem.
   * deviceName `string`: Specifies a unique device name of your choice that is reflected into the /dev/disk/by-id/google-* tree of a Linux operating system running within the instance. This name can be used to reference the device for mounting, resizing, and so on, from within the instance.
   * diskEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
+  * guestOsFeatures `array`: A list of features to enable on the guest operating system. Applicable only for bootable images. Read  Enabling guest operating system features to see a list of available options.
+    * items [GuestOsFeature](#guestosfeature)
   * index `integer`: [Output Only] A zero-based index to this disk, where 0 is reserved for the boot disk. If you have many disks attached to an instance, each disk would have a unique index number.
   * initializeParams [AttachedDiskInitializeParams](#attacheddiskinitializeparams)
   * interface `string` (values: NVME, SCSI): Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
@@ -8885,7 +9624,7 @@ google_compute.targetInstances.get({
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#autoscaler for autoscalers.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * region `string`: [Output Only] URL of the region where the instance group resides (for autoscalers living in regional scope).
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * status `string` (values: ACTIVE, DELETING, ERROR, PENDING): [Output Only] The status of the autoscaler configuration.
@@ -8932,7 +9671,7 @@ google_compute.targetInstances.get({
 
 ### AutoscalersScopedList
 * AutoscalersScopedList `object`
-  * autoscalers `array`: [Output Only] List of autoscalers contained in this scope.
+  * autoscalers `array`: [Output Only] A list of autoscalers contained in this scope.
     * items [Autoscaler](#autoscaler)
   * warning `object`: [Output Only] Informational warning which replaces the list of autoscalers when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -8986,7 +9725,7 @@ google_compute.targetInstances.get({
   * enableCdn `boolean`: If true, enable Cloud CDN for this BackendBucket.
   * id `string`: [Output Only] Unique identifier for the resource; defined by the server.
   * kind `string`: Type of the resource.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
 
 ### BackendBucketList
@@ -9022,7 +9761,7 @@ google_compute.targetInstances.get({
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of resource. Always compute#backendService for backend services.
   * loadBalancingScheme `string` (values: EXTERNAL, INTERNAL, INVALID_LOAD_BALANCING_SCHEME): Indicates whether the backend service will be used with internal or external load balancing. A backend service created for one type of load balancing cannot be used with the other. Possible values are INTERNAL and EXTERNAL.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * port `integer`: Deprecated in favor of portName. The TCP port to connect on the backend. The default value is 80.
   * portName `string`: Name of backend port. The same name should appear in the instance groups referenced by this service. Required when the load balancing scheme is EXTERNAL.
   * protocol `string` (values: HTTP, HTTPS, SSL, TCP, UDP): The protocol this BackendService uses to communicate with backends.
@@ -9081,7 +9820,7 @@ google_compute.targetInstances.get({
 
 ### BackendServicesScopedList
 * BackendServicesScopedList `object`
-  * backendServices `array`: List of BackendServices contained in this scope.
+  * backendServices `array`: A list of BackendServices contained in this scope.
     * items [BackendService](#backendservice)
   * warning `object`: Informational warning which replaces the list of backend services when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -9113,10 +9852,10 @@ google_compute.targetInstances.get({
   * endTimestamp `string`: [Output Only] Commitment end time in RFC3339 text format.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#commitment for commitments.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * plan `string` (values: INVALID, THIRTY_SIX_MONTH, TWELVE_MONTH): The plan for this commitment, which determines duration and discount rate. The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years).
   * region `string`: [Output Only] URL of the region where this commitment may be used.
-  * resources `array`: List of commitment amounts for particular resources. Note that VCPU and MEMORY resource commitments must occur together.
+  * resources `array`: A list of commitment amounts for particular resources. Note that VCPU and MEMORY resource commitments must occur together.
     * items [ResourceCommitment](#resourcecommitment)
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * startTimestamp `string`: [Output Only] Commitment start time in RFC3339 text format.
@@ -9156,7 +9895,7 @@ google_compute.targetInstances.get({
 
 ### CommitmentsScopedList
 * CommitmentsScopedList `object`
-  * commitments `array`: [Output Only] List of commitments contained in this scope.
+  * commitments `array`: [Output Only] A list of commitments contained in this scope.
     * items [Commitment](#commitment)
   * warning `object`: [Output Only] Informational warning which replaces the list of commitments when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -9193,16 +9932,23 @@ google_compute.targetInstances.get({
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * diskEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
+  * guestOsFeatures `array`: A list of features to enable on the guest operating system. Applicable only for bootable images. Read  Enabling guest operating system features to see a list of available options.
+    * items [GuestOsFeature](#guestosfeature)
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#disk for disks.
   * labelFingerprint `string`: A fingerprint for the labels being applied to this disk, which is essentially a hash of the labels set used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels.
   * labels `object`: Labels to apply to this disk. These can be later modified by the setLabels method.
   * lastAttachTimestamp `string`: [Output Only] Last attach timestamp in RFC3339 text format.
   * lastDetachTimestamp `string`: [Output Only] Last detach timestamp in RFC3339 text format.
+  * licenseCodes `array`: Integer license codes indicating which licenses are attached to this disk.
+    * items `string`
   * licenses `array`: Any applicable publicly visible licenses.
     * items `string`
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * options `string`: Internal use only.
+  * region `string`: [Output Only] URL of the region where the disk resides. Only applicable for regional resources. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
+  * replicaZones `array`: URLs of the zones where the disk should be replicated to. Only applicable for regional resources.
+    * items `string`
   * selfLink `string`: [Output Only] Server-defined fully-qualified URL for this resource.
   * sizeGb `string`: Size of the persistent disk, specified in GB. You can specify this field when creating a persistent disk using the sourceImage or sourceSnapshot parameter, or specify it alone to create an empty persistent disk.
   * sourceImage `string`: The source image used to create this disk. If the source image is deleted, this field will not be set.
@@ -9212,7 +9958,7 @@ google_compute.targetInstances.get({
   * sourceSnapshotEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
   * sourceSnapshotId `string`: [Output Only] The unique ID of the snapshot used to create this disk. This value identifies the exact snapshot that was used to create this persistent disk. For example, if you created the persistent disk from a snapshot that was later deleted and recreated under the same name, the source snapshot ID would identify the exact version of the snapshot that was used.
   * status `string` (values: CREATING, FAILED, READY, RESTORING): [Output Only] The status of disk creation.
-  * type `string`: URL of the disk type resource describing which disk type to use to create the disk. Provide this when creating the disk.
+  * type `string`: URL of the disk type resource describing which disk type to use to create the disk. Provide this when creating the disk. For example: project/zones/zone/diskTypes/pd-standard or pd-ssd
   * users `array`: [Output Only] Links to the users of the disk (attached instances) in form: project/zones/zone/instances/instance
     * items `string`
   * zone `string`: [Output Only] URL of the zone where the disk resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
@@ -9262,6 +10008,7 @@ google_compute.targetInstances.get({
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#diskType for disk types.
   * name `string`: [Output Only] Name of the resource.
+  * region `string`: [Output Only] URL of the region where the disk type resides. Only applicable for regional resources. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * validDiskSize `string`: [Output Only] An optional textual description of the valid disk size, such as "10GB-10TB".
   * zone `string`: [Output Only] URL of the zone where the disk type resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
@@ -9299,7 +10046,7 @@ google_compute.targetInstances.get({
 
 ### DiskTypesScopedList
 * DiskTypesScopedList `object`
-  * diskTypes `array`: [Output Only] List of disk types contained in this scope.
+  * diskTypes `array`: [Output Only] A list of disk types contained in this scope.
     * items [DiskType](#disktype)
   * warning `object`: [Output Only] Informational warning which replaces the list of disk types when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -9315,7 +10062,7 @@ google_compute.targetInstances.get({
 
 ### DisksScopedList
 * DisksScopedList `object`
-  * disks `array`: [Output Only] List of disks contained in this scope.
+  * disks `array`: [Output Only] A list of disks contained in this scope.
     * items [Disk](#disk)
   * warning `object`: [Output Only] Informational warning which replaces the list of disks when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -9344,7 +10091,7 @@ google_compute.targetInstances.get({
   * direction `string` (values: EGRESS, INGRESS): Direction of traffic to which this firewall applies; default is INGRESS. Note: For INGRESS traffic, it is NOT supported to specify destinationRanges; For EGRESS traffic, it is NOT supported to specify sourceRanges OR sourceTags.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#firewall for firewall rules.
-  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: URL of the network resource for this firewall rule. If not specified when creating a firewall rule, the default network is used:
   * priority `integer`: Priority for this rule. This is an integer between 0 and 65535, both inclusive. When not specified, the value assumed is 1000. Relative priorities determine precedence of conflicting rules. Lower value of priority implies higher precedence (eg, a rule with priority 0 has higher precedence than a rule with priority 1). DENY rules take precedence over ALLOW rules having equal priority.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
@@ -9386,7 +10133,7 @@ google_compute.targetInstances.get({
   * ipVersion `string` (values: IPV4, IPV6, UNSPECIFIED_VERSION): The IP Version that will be used by this forwarding rule. Valid options are IPV4 or IPV6. This can only be specified for a global forwarding rule.
   * kind `string`: [Output Only] Type of the resource. Always compute#forwardingRule for Forwarding Rule resources.
   * loadBalancingScheme `string` (values: EXTERNAL, INTERNAL, INVALID): This signifies what the ForwardingRule will be used for and can only take the following values: INTERNAL, EXTERNAL The value of INTERNAL means that this will be used for Internal Network Load Balancing (TCP, UDP). The value of EXTERNAL means that this will be used for External Load Balancing (HTTP(S) LB, External TCP/UDP LB, SSL Proxy)
-  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: This field is not used for external load balancing.
   * portRange `string`: This field is used along with the target field for TargetHttpProxy, TargetHttpsProxy, TargetSslProxy, TargetTcpProxy, TargetVpnGateway, TargetPool, TargetInstance.
   * ports `array`: This field is used along with the backend_service field for internal load balancing.
@@ -9429,7 +10176,7 @@ google_compute.targetInstances.get({
 
 ### ForwardingRulesScopedList
 * ForwardingRulesScopedList `object`
-  * forwardingRules `array`: List of forwarding rules contained in this scope.
+  * forwardingRules `array`: A list of forwarding rules contained in this scope.
     * items [ForwardingRule](#forwardingrule)
   * warning `object`: Informational warning which replaces the list of forwarding rules when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -9442,11 +10189,11 @@ google_compute.targetInstances.get({
 ### GlobalSetLabelsRequest
 * GlobalSetLabelsRequest `object`
   * labelFingerprint `string`: The fingerprint of the previous set of labels for this resource, used to detect conflicts. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash when updating or changing labels. Make a get() request to the resource to get the latest fingerprint.
-  * labels `object`: A list of labels to apply for this resource. Each label key & value must comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. For example, "webserver-frontend": "images". A label value can also be empty (e.g. "my-label": "").
+  * labels `object`: A list of labels to apply for this resource. Each label key & value must comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. For example, "webserver-frontend": "images". A label value can also be empty (e.g. "my-label": "").
 
 ### GuestOsFeature
 * GuestOsFeature `object`: Guest OS features.
-  * type `string` (values: FEATURE_TYPE_UNSPECIFIED, MULTI_IP_SUBNET, VIRTIO_SCSI_MULTIQUEUE, WINDOWS): The ID of a supported feature. Read  Enabling guest operating system features to see a list of available options.
+  * type `string` (values: FEATURE_TYPE_UNSPECIFIED, MULTI_IP_SUBNET, SECURE_BOOT, UEFI_COMPATIBLE, VIRTIO_SCSI_MULTIQUEUE, WINDOWS): The ID of a supported feature. Read  Enabling guest operating system features to see a list of available options.
 
 ### HTTPHealthCheck
 * HTTPHealthCheck `object`
@@ -9474,7 +10221,7 @@ google_compute.targetInstances.get({
   * httpsHealthCheck [HTTPSHealthCheck](#httpshealthcheck)
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: Type of the resource.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * sslHealthCheck [SSLHealthCheck](#sslhealthcheck)
   * tcpHealthCheck [TCPHealthCheck](#tcphealthcheck)
@@ -9525,7 +10272,7 @@ google_compute.targetInstances.get({
   * host `string`: The value of the host header in the HTTP health check request. If left empty (default value), the public IP on behalf of which this health check is performed will be used.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#httpHealthCheck for HTTP health checks.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * port `integer`: The TCP port number for the HTTP health check request. The default value is 80.
   * requestPath `string`: The request path of the HTTP health check request. The default value is /.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
@@ -9557,7 +10304,7 @@ google_compute.targetInstances.get({
   * host `string`: The value of the host header in the HTTPS health check request. If left empty (default value), the public IP on behalf of which this health check is performed will be used.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: Type of the resource.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * port `integer`: The TCP port number for the HTTPS health check request. The default value is 443.
   * requestPath `string`: The request path of the HTTPS health check request. The default value is "/".
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
@@ -9595,9 +10342,11 @@ google_compute.targetInstances.get({
   * kind `string`: [Output Only] Type of the resource. Always compute#image for images.
   * labelFingerprint `string`: A fingerprint for the labels being applied to this image, which is essentially a hash of the labels used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels.
   * labels `object`: Labels to apply to this image. These can be later modified by the setLabels method.
+  * licenseCodes `array`: Integer license codes indicating which licenses are attached to this image.
+    * items `string`
   * licenses `array`: Any applicable license URI.
     * items `string`
-  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * rawDisk `object`: The parameters of the raw disk image.
     * containerType `string` (values: TAR): The format used to encode and transmit the block device, which should be TAR. This is just a container and transmission format and not a runtime format. Provided by the client when the disk image is created.
     * sha1Checksum `string`: An optional SHA1 checksum of the disk image before unpackaging; provided by the client when the disk image is created.
@@ -9609,6 +10358,9 @@ google_compute.targetInstances.get({
   * sourceImage `string`: URL of the source image used to create this image. This can be a full or valid partial URL. You must provide exactly one of:  
   * sourceImageEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
   * sourceImageId `string`: [Output Only] The ID value of the image used to create this image. This value may be used to determine whether the image was taken from the current or a previous instance of a given image name.
+  * sourceSnapshot `string`: URL of the source snapshot used to create this image. This can be a full or valid partial URL. You must provide exactly one of:  
+  * sourceSnapshotEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
+  * sourceSnapshotId `string`: [Output Only] The ID value of the snapshot used to create this image. This value may be used to determine whether the snapshot was taken from the current or a previous instance of a given snapshot name.
   * sourceType `string` (values: RAW): The type of the image used to create this disk. The default and only value is RAW
   * status `string` (values: FAILED, PENDING, READY): [Output Only] The status of the image. An image can be used to create other resources, such as instances, only after the image has been successfully created and the status is set to READY. Possible values are FAILED, PENDING, or READY.
 
@@ -9637,16 +10389,16 @@ google_compute.targetInstances.get({
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * disks `array`: Array of disks associated with this instance. Persistent disks must be created before you can assign them.
     * items [AttachedDisk](#attacheddisk)
-  * guestAccelerators `array`: List of the type and count of accelerator cards attached to the instance.
+  * guestAccelerators `array`: A list of the type and count of accelerator cards attached to the instance.
     * items [AcceleratorConfig](#acceleratorconfig)
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#instance for instances.
-  * labelFingerprint `string`: A fingerprint for this request, which is essentially a hash of the metadata's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update metadata. You must always provide an up-to-date fingerprint hash in order to update or change metadata.
+  * labelFingerprint `string`: A fingerprint for this request, which is essentially a hash of the label's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels.
   * labels `object`: Labels to apply to this instance. These can be later modified by the setLabels method.
   * machineType `string`: Full or partial URL of the machine type resource to use for this instance, in the format: zones/zone/machineTypes/machine-type. This is provided by the client when the instance is created. For example, the following is a valid partial url to a predefined machine type:
   * metadata [Metadata](#metadata)
   * minCpuPlatform `string`: Specifies a minimum CPU platform for the VM instance. Applicable values are the friendly names of CPU platforms, such as minCpuPlatform: "Intel Haswell" or minCpuPlatform: "Intel Sandy Bridge".
-  * name `string`: The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * networkInterfaces `array`: An array of network configurations for this instance. These specify how interfaces are configured to interact with other network services, such as connecting to the internet. Multiple interfaces are supported per instance.
     * items [NetworkInterface](#networkinterface)
   * scheduling [Scheduling](#scheduling)
@@ -9685,10 +10437,10 @@ google_compute.targetInstances.get({
   * namedPorts `array`: Assigns a name to a port number. For example: {name: "http", port: 80}
     * items [NamedPort](#namedport)
   * network `string`: The URL of the network to which all instances in the instance group belong.
-  * region `string`: The URL of the region where the instance group is located (for regional resources).
+  * region `string`: [Output Only] The URL of the region where the instance group is located (for regional resources).
   * selfLink `string`: [Output Only] The URL for this instance group. The server generates this URL.
   * size `integer`: [Output Only] The total number of instances in the instance group.
-  * subnetwork `string`: The URL of the subnetwork to which all instances in the instance group belong.
+  * subnetwork `string`: [Output Only] The URL of the subnetwork to which all instances in the instance group belong.
   * zone `string`: [Output Only] The URL of the zone where the instance group is located (for zonal resources).
 
 ### InstanceGroupAggregatedList
@@ -9728,7 +10480,7 @@ google_compute.targetInstances.get({
   * creationTimestamp `string`: [Output Only] The creation timestamp for this managed instance group in RFC3339 text format.
   * currentActions [InstanceGroupManagerActionsSummary](#instancegroupmanageractionssummary)
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
-  * fingerprint `string`: [Output Only] The fingerprint of the resource data. You can use this optional field for optimistic locking when you update the resource.
+  * fingerprint `string`: Fingerprint of this resource. This field may be used in optimistic locking. It will be ignored when inserting an InstanceGroupManager. An up-to-date fingerprint must be provided in order to update the InstanceGroupManager or the field need to be unset.
   * id `string`: [Output Only] A unique identifier for this resource type. The server generates this identifier.
   * instanceGroup `string`: [Output Only] The URL of the Instance Group resource.
   * instanceTemplate `string`: The URL of the instance template that is specified for this managed instance group. The group uses this template to create all new instances in the managed instance group.
@@ -9941,7 +10693,7 @@ google_compute.targetInstances.get({
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] A unique identifier for this instance template. The server defines this identifier.
   * kind `string`: [Output Only] The resource type, which is always compute#instanceTemplate for instance templates.
-  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * properties [InstanceProperties](#instanceproperties)
   * selfLink `string`: [Output Only] The URL for this instance template. The server defines this URL.
 
@@ -9970,7 +10722,7 @@ google_compute.targetInstances.get({
 
 ### InstancesScopedList
 * InstancesScopedList `object`
-  * instances `array`: [Output Only] List of instances contained in this scope.
+  * instances `array`: [Output Only] A list of instances contained in this scope.
     * items [Instance](#instance)
   * warning `object`: [Output Only] Informational warning which replaces the list of instances when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -9987,7 +10739,7 @@ google_compute.targetInstances.get({
 
 ### InstancesSetMachineResourcesRequest
 * InstancesSetMachineResourcesRequest `object`
-  * guestAccelerators `array`: List of the type and count of accelerator cards attached to the instance.
+  * guestAccelerators `array`: A list of the type and count of accelerator cards attached to the instance.
     * items [AcceleratorConfig](#acceleratorconfig)
 
 ### InstancesSetMachineTypeRequest
@@ -10012,12 +10764,12 @@ google_compute.targetInstances.get({
 ### Interconnect
 * Interconnect `object`: Represents an Interconnects resource. The Interconnects resource is a dedicated connection between Google's network and your on-premises network. For more information, see the  Dedicated overview page. (== resource_for v1.interconnects ==) (== resource_for beta.interconnects ==)
   * adminEnabled `boolean`: Administrative status of the interconnect. When this is set to true, the Interconnect is functional and can carry traffic. When set to false, no packets can be carried over the interconnect and no BGP routes are exchanged over it. By default, the status is set to true.
-  * circuitInfos `array`: [Output Only] List of CircuitInfo objects, that describe the individual circuits in this LAG.
+  * circuitInfos `array`: [Output Only] A list of CircuitInfo objects, that describe the individual circuits in this LAG.
     * items [InterconnectCircuitInfo](#interconnectcircuitinfo)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * customerName `string`: Customer name, to put in the Letter of Authorization as the party authorized to request a crossconnect.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
-  * expectedOutages `array`: [Output Only] List of outages expected for this Interconnect.
+  * expectedOutages `array`: [Output Only] A list of outages expected for this Interconnect.
     * items [InterconnectOutageNotification](#interconnectoutagenotification)
   * googleIpAddress `string`: [Output Only] IP address configured on the Google side of the Interconnect link. This can be used only for ping tests.
   * googleReferenceId `string`: [Output Only] Google reference ID; to be used when raising support tickets with Google or otherwise to debug backend connectivity issues.
@@ -10028,7 +10780,7 @@ google_compute.targetInstances.get({
   * kind `string`: [Output Only] Type of the resource. Always compute#interconnect for interconnects.
   * linkType `string` (values: LINK_TYPE_ETHERNET_10G_LR): Type of link requested. This field indicates speed of each of the links in the bundle, not the entire bundle. Only 10G per link is allowed for a dedicated interconnect. Options: Ethernet_10G_LR
   * location `string`: URL of the InterconnectLocation object that represents where this connection is to be provisioned.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * nocContactEmail `string`: Email address to contact the customer NOC for operations and maintenance notifications regarding this Interconnect. If specified, this will be used for notifications in addition to all other forms described, such as Stackdriver logs alerting and Cloud Notifications.
   * operationalStatus `string` (values: OS_ACTIVE, OS_UNPROVISIONED): [Output Only] The current status of whether or not this Interconnect is functional.
   * peerIpAddress `string`: [Output Only] IP address configured on the customer side of the Interconnect link. The customer should configure this IP address during turnup when prompted by Google NOC. This can be used only for ping tests.
@@ -10046,7 +10798,7 @@ google_compute.targetInstances.get({
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * interconnect `string`: URL of the underlying Interconnect object that this attachment's traffic will traverse through.
   * kind `string`: [Output Only] Type of the resource. Always compute#interconnectAttachment for interconnect attachments.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * operationalStatus `string` (values: OS_ACTIVE, OS_UNPROVISIONED): [Output Only] The current status of whether or not this interconnect attachment is functional.
   * privateInterconnectInfo [InterconnectAttachmentPrivateInfo](#interconnectattachmentprivateinfo)
   * region `string`: [Output Only] URL of the region where the regional interconnect attachment resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
@@ -10090,7 +10842,7 @@ google_compute.targetInstances.get({
 
 ### InterconnectAttachmentsScopedList
 * InterconnectAttachmentsScopedList `object`
-  * interconnectAttachments `array`: List of interconnect attachments contained in this scope.
+  * interconnectAttachments `array`: A list of interconnect attachments contained in this scope.
     * items [InterconnectAttachment](#interconnectattachment)
   * warning `object`: Informational warning which replaces the list of addresses when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -10164,7 +10916,7 @@ google_compute.targetInstances.get({
 
 ### InterconnectOutageNotification
 * InterconnectOutageNotification `object`: Description of a planned outage on this Interconnect. Next id: 9
-  * affectedCircuits `array`: Iff issue_type is IT_PARTIAL_OUTAGE, a list of the Google-side circuit IDs that will be affected.
+  * affectedCircuits `array`: If issue_type is IT_PARTIAL_OUTAGE, a list of the Google-side circuit IDs that will be affected.
     * items `string`
   * description `string`: A description about the purpose of the outage.
   * endTime `string`: Scheduled end time for the outage (milliseconds since Unix epoch).
@@ -10177,9 +10929,53 @@ google_compute.targetInstances.get({
 ### License
 * License `object`: A license resource.
   * chargesUseFee `boolean`: [Output Only] Deprecated. This field no longer reflects whether a license charges a usage fee.
+  * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
+  * description `string`: An optional textual description of the resource; provided by the client when the resource is created.
+  * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of resource. Always compute#license for licenses.
+  * licenseCode `string`: [Output Only] The unique code used to attach this license to images, snapshots, and disks.
   * name `string`: [Output Only] Name of the resource. The name is 1-63 characters long and complies with RFC1035.
+  * resourceRequirements [LicenseResourceRequirements](#licenseresourcerequirements)
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
+  * transferable `boolean`: If false, licenses will not be copied from the source resource when creating an image from a disk, disk from snapshot, or snapshot from disk.
+
+### LicenseCode
+* LicenseCode `object`
+  * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
+  * description `string`: [Output Only] Description of this License Code.
+  * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
+  * kind `string`: [Output Only] Type of resource. Always compute#licenseCode for licenses.
+  * licenseAlias `array`: [Output Only] URL and description aliases of Licenses with the same License Code.
+    * items [LicenseCodeLicenseAlias](#licensecodelicensealias)
+  * name `string`: [Output Only] Name of the resource. The name is 1-20 characters long and must be a valid 64 bit integer.
+  * selfLink `string`: [Output Only] Server-defined URL for the resource.
+  * state `string` (values: DISABLED, ENABLED, RESTRICTED, STATE_UNSPECIFIED, TERMINATED): [Output Only] Current state of this License Code.
+  * transferable `boolean`: [Output Only] If true, the license will remain attached when creating images or snapshots from disks. Otherwise, the license is not transferred.
+
+### LicenseCodeLicenseAlias
+* LicenseCodeLicenseAlias `object`
+  * description `string`: [Output Only] Description of this License Code.
+  * selfLink `string`: [Output Only] URL of license corresponding to this License Code.
+
+### LicenseResourceRequirements
+* LicenseResourceRequirements `object`
+  * minGuestCpuCount `integer`: Minimum number of guest cpus required to use the Instance. Enforced at Instance creation and Instance start.
+  * minMemoryMb `integer`: Minimum memory required to use the Instance. Enforced at Instance creation and Instance start.
+
+### LicensesListResponse
+* LicensesListResponse `object`
+  * id `string`: [Output Only] Unique identifier for the resource; defined by the server.
+  * items `array`: A list of License resources.
+    * items [License](#license)
+  * nextPageToken `string`: [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
+  * selfLink `string`: [Output Only] Server-defined URL for this resource.
+  * warning `object`: [Output Only] Informational warning message.
+    * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+    * data `array`: [Output Only] Metadata about this warning in key: value format. For example:
+      * items `object`
+        * key `string`: [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
+        * value `string`: [Output Only] A warning data value corresponding to the key.
+    * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### MachineType
 * MachineType `object`: A Machine Type resource. (== resource_for v1.machineTypes ==) (== resource_for beta.machineTypes ==)
@@ -10195,7 +10991,7 @@ google_compute.targetInstances.get({
   * maximumPersistentDisksSizeGb `string`: [Output Only] Maximum total persistent disks size (GB) allowed.
   * memoryMb `integer`: [Output Only] The amount of physical memory available to the instance, defined in MB.
   * name `string`: [Output Only] Name of the resource.
-  * scratchDisks `array`: [Output Only] List of extended scratch disks assigned to the instance.
+  * scratchDisks `array`: [Output Only] A list of extended scratch disks assigned to the instance.
     * items `object`
       * diskGb `integer`: Size of the scratch disk, defined in GB.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
@@ -10234,7 +11030,7 @@ google_compute.targetInstances.get({
 
 ### MachineTypesScopedList
 * MachineTypesScopedList `object`
-  * machineTypes `array`: [Output Only] List of machine types contained in this scope.
+  * machineTypes `array`: [Output Only] A list of machine types contained in this scope.
     * items [MachineType](#machinetype)
   * warning `object`: [Output Only] An informational warning that appears when the machine types list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -10245,7 +11041,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### ManagedInstance
-* ManagedInstance `object`
+* ManagedInstance `object`: Next available tag: 12
   * currentAction `string` (values: ABANDONING, CREATING, CREATING_WITHOUT_RETRIES, DELETING, NONE, RECREATING, REFRESHING, RESTARTING): [Output Only] The current action that the managed instance group has scheduled for the instance. Possible values: 
   * id `string`: [Output only] The unique identifier for this resource. This field is empty when instance does not exist.
   * instance `string`: [Output Only] The URL of the instance. The URL can exist even if the instance has not yet been created.
@@ -10284,8 +11080,8 @@ google_compute.targetInstances.get({
   * gatewayIPv4 `string`: A gateway address for default routing to other networks. This value is read only and is selected by the Google Compute Engine, typically as the first usable address in the IPv4Range.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#network for networks.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
-  * peerings `array`: [Output Only] List of network peerings for the resource.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * peerings `array`: [Output Only] A list of network peerings for the resource.
     * items [NetworkPeering](#networkpeering)
   * routingConfig [NetworkRoutingConfig](#networkroutingconfig)
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
@@ -10298,6 +11094,7 @@ google_compute.targetInstances.get({
     * items [AccessConfig](#accessconfig)
   * aliasIpRanges `array`: An array of alias IP ranges for this network interface. Can only be specified for network interfaces on subnet-mode networks.
     * items [AliasIpRange](#aliasiprange)
+  * fingerprint `string`: Fingerprint hash of contents stored in this network interface. This field will be ignored when inserting an Instance or adding a NetworkInterface. An up-to-date fingerprint must be provided in order to update the NetworkInterface.
   * kind `string`: [Output Only] Type of the resource. Always compute#networkInterface for network interfaces.
   * name `string`: [Output Only] The name of the network interface, generated by the server. For network devices, these are eth0, eth1, etc.
   * network `string`: URL of the network resource for this instance. When creating an instance, if neither the network nor the subnetwork is specified, the default network global/networks/default is used; if the network is not specified but the subnetwork is specified, the network is inferred.
@@ -10323,7 +11120,7 @@ google_compute.targetInstances.get({
 ### NetworkPeering
 * NetworkPeering `object`: A network peering attached to a network resource. The message includes the peering name, peer network, peering state, and a flag indicating whether Google Compute Engine should automatically create routes for the peering.
   * autoCreateRoutes `boolean`: Whether full mesh connectivity is created and managed automatically. When it is set to true, Google Compute Engine will automatically create and manage the routes between two networks when the state is ACTIVE. Otherwise, user needs to create routes manually to route packets to peer network.
-  * name `string`: Name of this peering. Provided by the client when the peering is created. The name must comply with RFC1035. Specifically, the name must be 1-63 characters long and match regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all the following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of this peering. Provided by the client when the peering is created. The name must comply with RFC1035. Specifically, the name must be 1-63 characters long and match regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all the following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: The URL of the peer network. It can be either full URL or partial URL. The peer network may belong to a different project. If the partial URL does not contain project, it is assumed that the peer network is in the same project as the current network.
   * state `string` (values: ACTIVE, INACTIVE): [Output Only] State for the peering.
   * stateDetails `string`: [Output Only] Details about the current state of the peering.
@@ -10344,7 +11141,7 @@ google_compute.targetInstances.get({
 
 ### Operation
 * Operation `object`: An Operation resource, used to manage asynchronous API requests. (== resource_for v1.globalOperations ==) (== resource_for beta.globalOperations ==) (== resource_for v1.regionOperations ==) (== resource_for beta.regionOperations ==) (== resource_for v1.zoneOperations ==) (== resource_for beta.zoneOperations ==)
-  * clientOperationId `string`: [Output Only] Reserved for future use.
+  * clientOperationId `string`: [Output Only] The value of `requestId` if you provided it in the request. Not present otherwise.
   * creationTimestamp `string`: [Deprecated] This field is deprecated.
   * description `string`: [Output Only] A textual description of the operation, which is set when the operation is created.
   * endTime `string`: [Output Only] The time that this operation was completed. This value is in RFC3339 text format.
@@ -10413,7 +11210,7 @@ google_compute.targetInstances.get({
 
 ### OperationsScopedList
 * OperationsScopedList `object`
-  * operations `array`: [Output Only] List of operations contained in this scope.
+  * operations `array`: [Output Only] A list of operations contained in this scope.
     * items [Operation](#operation)
   * warning `object`: [Output Only] Informational warning which replaces the list of operations when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -10476,7 +11273,7 @@ google_compute.targetInstances.get({
 ### Quota
 * Quota `object`: A quotas entry.
   * limit `number`: [Output Only] Quota limit for this metric.
-  * metric `string` (values: AUTOSCALERS, BACKEND_BUCKETS, BACKEND_SERVICES, COMMITMENTS, CPUS, CPUS_ALL_REGIONS, DISKS_TOTAL_GB, FIREWALLS, FORWARDING_RULES, HEALTH_CHECKS, IMAGES, INSTANCES, INSTANCE_GROUPS, INSTANCE_GROUP_MANAGERS, INSTANCE_TEMPLATES, INTERCONNECTS, INTERNAL_ADDRESSES, IN_USE_ADDRESSES, LOCAL_SSD_TOTAL_GB, NETWORKS, NVIDIA_K80_GPUS, NVIDIA_P100_GPUS, PREEMPTIBLE_CPUS, PREEMPTIBLE_LOCAL_SSD_GB, PREEMPTIBLE_NVIDIA_K80_GPUS, PREEMPTIBLE_NVIDIA_P100_GPUS, REGIONAL_AUTOSCALERS, REGIONAL_INSTANCE_GROUP_MANAGERS, ROUTERS, ROUTES, SECURITY_POLICIES, SECURITY_POLICY_RULES, SNAPSHOTS, SSD_TOTAL_GB, SSL_CERTIFICATES, STATIC_ADDRESSES, SUBNETWORKS, TARGET_HTTPS_PROXIES, TARGET_HTTP_PROXIES, TARGET_INSTANCES, TARGET_POOLS, TARGET_SSL_PROXIES, TARGET_TCP_PROXIES, TARGET_VPN_GATEWAYS, URL_MAPS, VPN_TUNNELS): [Output Only] Name of the quota metric.
+  * metric `string` (values: AUTOSCALERS, BACKEND_BUCKETS, BACKEND_SERVICES, COMMITMENTS, CPUS, CPUS_ALL_REGIONS, DISKS_TOTAL_GB, FIREWALLS, FORWARDING_RULES, HEALTH_CHECKS, IMAGES, INSTANCES, INSTANCE_GROUPS, INSTANCE_GROUP_MANAGERS, INSTANCE_TEMPLATES, INTERCONNECTS, INTERCONNECT_ATTACHMENTS_PER_REGION, INTERCONNECT_ATTACHMENTS_TOTAL_MBPS, INTERNAL_ADDRESSES, IN_USE_ADDRESSES, LOCAL_SSD_TOTAL_GB, NETWORKS, NVIDIA_K80_GPUS, NVIDIA_P100_GPUS, NVIDIA_V100_GPUS, PREEMPTIBLE_CPUS, PREEMPTIBLE_LOCAL_SSD_GB, PREEMPTIBLE_NVIDIA_K80_GPUS, PREEMPTIBLE_NVIDIA_P100_GPUS, REGIONAL_AUTOSCALERS, REGIONAL_INSTANCE_GROUP_MANAGERS, ROUTERS, ROUTES, SECURITY_POLICIES, SECURITY_POLICY_RULES, SNAPSHOTS, SSD_TOTAL_GB, SSL_CERTIFICATES, STATIC_ADDRESSES, SUBNETWORKS, TARGET_HTTPS_PROXIES, TARGET_HTTP_PROXIES, TARGET_INSTANCES, TARGET_POOLS, TARGET_SSL_PROXIES, TARGET_TCP_PROXIES, TARGET_VPN_GATEWAYS, URL_MAPS, VPN_TUNNELS): [Output Only] Name of the quota metric.
   * usage `number`: [Output Only] Current usage of this metric.
 
 ### Reference
@@ -10516,6 +11313,26 @@ google_compute.targetInstances.get({
         * key `string`: [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
         * value `string`: [Output Only] A warning data value corresponding to the key.
     * message `string`: [Output Only] A human-readable description of the warning code.
+
+### RegionDiskTypeList
+* RegionDiskTypeList `object`
+  * id `string`: [Output Only] Unique identifier for the resource; defined by the server.
+  * items `array`: A list of DiskType resources.
+    * items [DiskType](#disktype)
+  * kind `string`: [Output Only] Type of resource. Always compute#regionDiskTypeList for region disk types.
+  * nextPageToken `string`: [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
+  * selfLink `string`: [Output Only] Server-defined URL for this resource.
+  * warning `object`: [Output Only] Informational warning message.
+    * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+    * data `array`: [Output Only] Metadata about this warning in key: value format. For example:
+      * items `object`
+        * key `string`: [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
+        * value `string`: [Output Only] A warning data value corresponding to the key.
+    * message `string`: [Output Only] A human-readable description of the warning code.
+
+### RegionDisksResizeRequest
+* RegionDisksResizeRequest `object`
+  * sizeGb `string`: The new size of the regional persistent disk, which is specified in GB.
 
 ### RegionInstanceGroupList
 * RegionInstanceGroupList `object`: Contains a list of InstanceGroup resources.
@@ -10561,7 +11378,7 @@ google_compute.targetInstances.get({
 
 ### RegionInstanceGroupManagersListInstancesResponse
 * RegionInstanceGroupManagersListInstancesResponse `object`
-  * managedInstances `array`: List of managed instances.
+  * managedInstances `array`: A list of managed instances.
     * items [ManagedInstance](#managedinstance)
 
 ### RegionInstanceGroupManagersRecreateRequest
@@ -10622,6 +11439,11 @@ google_compute.targetInstances.get({
         * value `string`: [Output Only] A warning data value corresponding to the key.
     * message `string`: [Output Only] A human-readable description of the warning code.
 
+### RegionSetLabelsRequest
+* RegionSetLabelsRequest `object`
+  * labelFingerprint `string`: The fingerprint of the previous set of labels for this resource, used to detect conflicts. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels. Make a get() request to the resource to get the latest fingerprint.
+  * labels `object`: The labels to set for this resource.
+
 ### ResourceCommitment
 * ResourceCommitment `object`: Commitment for a particular resource (a Commitment is composed of one or more of these).
   * amount `string`: The amount of the resource purchased (in a type-dependent unit, such as bytes). For vCPUs, this can just be an integer. For memory, this must be provided in MB. Memory must be a multiple of 256 MB, with up to 6.5GB of memory per every vCPU.
@@ -10638,7 +11460,7 @@ google_compute.targetInstances.get({
   * destRange `string`: The destination range of outgoing packets that this route applies to. Only IPv4 is supported.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of this resource. Always compute#routes for Route resources.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: Fully-qualified URL of the network that this route applies to.
   * nextHopGateway `string`: The URL to a gateway that should handle matching packets. You can only specify the internet gateway using a full or partial valid URL:  projects/<project-id>/global/gateways/default-internet-gateway
   * nextHopInstance `string`: The URL to an instance that should handle matching packets. You can specify this as a full or partial URL. For example:
@@ -10686,10 +11508,15 @@ google_compute.targetInstances.get({
   * interfaces `array`: Router interfaces. Each interface requires either one linked resource (e.g. linkedVpnTunnel), or IP address and IP address range (e.g. ipRange), or both.
     * items [RouterInterface](#routerinterface)
   * kind `string`: [Output Only] Type of resource. Always compute#router for routers.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: URI of the network to which this router belongs.
   * region `string`: [Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
+
+### RouterAdvertisedIpRange
+* RouterAdvertisedIpRange `object`: Description-tagged IP ranges for the router to advertise.
+  * description `string`: User-specified description for the IP range.
+  * range `string`: The IP range to advertise. The value must be a CIDR-formatted string.
 
 ### RouterAggregatedList
 * RouterAggregatedList `object`: Contains a list of routers.
@@ -10708,10 +11535,20 @@ google_compute.targetInstances.get({
 
 ### RouterBgp
 * RouterBgp `object`
+  * advertiseMode `string` (values: CUSTOM, DEFAULT): User-specified flag to indicate which mode to use for advertisement.
+  * advertisedGroups `array`: User-specified list of prefix groups to advertise in custom mode. This field can only be populated if advertise_mode is CUSTOM and is advertised to all peers of the router. These groups will be advertised in addition to any specified prefixes. Leave this field blank to advertise no custom groups.
+    * items `string` (values: ALL_SUBNETS)
+  * advertisedIpRanges `array`: User-specified list of individual IP ranges to advertise in custom mode. This field can only be populated if advertise_mode is CUSTOM and is advertised to all peers of the router. These IP ranges will be advertised in addition to any specified groups. Leave this field blank to advertise no custom IP ranges.
+    * items [RouterAdvertisedIpRange](#routeradvertisediprange)
   * asn `integer`: Local BGP Autonomous System Number (ASN). Must be an RFC6996 private ASN, either 16-bit or 32-bit. The value will be fixed for this router resource. All VPN tunnels that link to this router will have the same local ASN.
 
 ### RouterBgpPeer
 * RouterBgpPeer `object`
+  * advertiseMode `string` (values: CUSTOM, DEFAULT): User-specified flag to indicate which mode to use for advertisement.
+  * advertisedGroups `array`: User-specified list of prefix groups to advertise in custom mode. This field can only be populated if advertise_mode is CUSTOM and overrides the list defined for the router (in Bgp message). These groups will be advertised in addition to any specified prefixes. Leave this field blank to advertise no custom groups.
+    * items `string` (values: ALL_SUBNETS)
+  * advertisedIpRanges `array`: User-specified list of individual IP ranges to advertise in custom mode. This field can only be populated if advertise_mode is CUSTOM and overrides the list defined for the router (in Bgp message). These IP ranges will be advertised in addition to any specified groups. Leave this field blank to advertise no custom IP ranges.
+    * items [RouterAdvertisedIpRange](#routeradvertisediprange)
   * advertisedRoutePriority `integer`: The priority of routes advertised to this BGP peer. In the case where there is more than one matching route of maximum length, the routes with lowest priority value win.
   * interfaceName `string`: Name of the interface the BGP peer is associated with.
   * ipAddress `string`: IP address of the interface inside Google Cloud Platform. Only IPv4 is supported.
@@ -10777,7 +11614,7 @@ google_compute.targetInstances.get({
 
 ### RoutersScopedList
 * RoutersScopedList `object`
-  * routers `array`: List of routers contained in this scope.
+  * routers `array`: A list of routers contained in this scope.
     * items [Router](#router)
   * warning `object`: Informational warning which replaces the list of routers when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -10824,9 +11661,11 @@ google_compute.targetInstances.get({
   * kind `string`: [Output Only] Type of the resource. Always compute#snapshot for Snapshot resources.
   * labelFingerprint `string`: A fingerprint for the labels being applied to this snapshot, which is essentially a hash of the labels set used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels.
   * labels `object`: Labels to apply to this snapshot. These can be later modified by the setLabels method. Label values may be empty.
+  * licenseCodes `array`: Integer license codes indicating which licenses are attached to this snapshot.
+    * items `string`
   * licenses `array`: [Output Only] A list of public visible licenses that apply to this snapshot. This can be because the original image had licenses attached (such as a Windows image).
     * items `string`
-  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * snapshotEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
   * sourceDisk `string`: [Output Only] The source disk used to create this snapshot.
@@ -10859,7 +11698,7 @@ google_compute.targetInstances.get({
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#sslCertificate for SSL certificates.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * privateKey `string`: A write-only private key in PEM format. Only insert requests will include this field.
   * selfLink `string`: [Output only] Server-defined URL for the resource.
 
@@ -10879,15 +11718,66 @@ google_compute.targetInstances.get({
         * value `string`: [Output Only] A warning data value corresponding to the key.
     * message `string`: [Output Only] A human-readable description of the warning code.
 
+### SslPoliciesList
+* SslPoliciesList `object`
+  * id `string`: [Output Only] Unique identifier for the resource; defined by the server.
+  * items `array`: A list of SslPolicy resources.
+    * items [SslPolicy](#sslpolicy)
+  * kind `string`: [Output Only] Type of the resource. Always compute#sslPoliciesList for lists of sslPolicies.
+  * nextPageToken `string`: [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
+  * selfLink `string`: [Output Only] Server-defined URL for this resource.
+  * warning `object`: [Output Only] Informational warning message.
+    * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+    * data `array`: [Output Only] Metadata about this warning in key: value format. For example:
+      * items `object`
+        * key `string`: [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
+        * value `string`: [Output Only] A warning data value corresponding to the key.
+    * message `string`: [Output Only] A human-readable description of the warning code.
+
+### SslPoliciesListAvailableFeaturesResponse
+* SslPoliciesListAvailableFeaturesResponse `object`
+  * features `array`
+    * items `string`
+
+### SslPolicy
+* SslPolicy `object`: A SSL policy specifies the server-side support for SSL features. This can be attached to a TargetHttpsProxy or a TargetSslProxy. This affects connections between clients and the HTTPS or SSL proxy load balancer. They do not affect the connection between the load balancers and the backends.
+  * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
+  * customFeatures `array`: A list of features enabled when the selected profile is CUSTOM. The
+    * items `string`
+  * description `string`: An optional description of this resource. Provide this property when you create the resource.
+  * enabledFeatures `array`: [Output Only] The list of features enabled in the SSL policy.
+    * items `string`
+  * fingerprint `string`: Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a SslPolicy. An up-to-date fingerprint must be provided in order to update the SslPolicy.
+  * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
+  * kind `string`: [Output only] Type of the resource. Always compute#sslPolicyfor SSL policies.
+  * minTlsVersion `string` (values: TLS_1_0, TLS_1_1, TLS_1_2): The minimum version of SSL protocol that can be used by the clients to establish a connection with the load balancer. This can be one of TLS_1_0, TLS_1_1, TLS_1_2.
+  * name `string`: Name of the resource. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * profile `string` (values: COMPATIBLE, CUSTOM, MODERN, RESTRICTED): Profile specifies the set of SSL features that can be used by the load balancer when negotiating SSL with clients. This can be one of COMPATIBLE, MODERN, RESTRICTED, or CUSTOM. If using CUSTOM, the set of SSL features to enable must be specified in the customFeatures field.
+  * selfLink `string`: [Output Only] Server-defined URL for the resource.
+  * warnings `array`: [Output Only] If potential misconfigurations are detected for this SSL policy, this field will be populated with warning messages.
+    * items `object`
+      * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+      * data `array`: [Output Only] Metadata about this warning in key: value format. For example:
+        * items `object`
+          * key `string`: [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
+          * value `string`: [Output Only] A warning data value corresponding to the key.
+      * message `string`: [Output Only] A human-readable description of the warning code.
+
+### SslPolicyReference
+* SslPolicyReference `object`
+  * sslPolicy `string`: URL of the SSL policy resource. Set this to empty string to clear any existing SSL policy associated with the target proxy resource.
+
 ### Subnetwork
 * Subnetwork `object`: A Subnetwork resource. (== resource_for beta.subnetworks ==) (== resource_for v1.subnetworks ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource. This field can be set only at resource creation time.
+  * enableFlowLogs `boolean`: Whether to enable flow logging for this subnetwork.
+  * fingerprint `string`: Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a Subnetwork. An up-to-date fingerprint must be provided in order to update the Subnetwork.
   * gatewayAddress `string`: [Output Only] The gateway address for default routes to reach destination addresses outside this subnetwork.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * ipCidrRange `string`: The range of internal addresses that are owned by this subnetwork. Provide this property when you create the subnetwork. For example, 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and non-overlapping within a network. Only IPv4 is supported. This field can be set only at resource creation time.
   * kind `string`: [Output Only] Type of the resource. Always compute#subnetwork for Subnetwork resources.
-  * name `string`: The name of the resource, provided by the client when initially creating the resource. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: The name of the resource, provided by the client when initially creating the resource. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: The URL of the network to which this subnetwork belongs, provided by the client when initially creating the subnetwork. Only networks that are in the distributed mode can have subnetworks. This field can be set only at resource creation time.
   * privateIpGoogleAccess `boolean`: Whether the VMs in this subnet can access Google services without assigned external IP addresses. This field can be both set at resource creation time and updated using setPrivateIpGoogleAccess.
   * region `string`: URL of the region where the Subnetwork resides. This field can be set only at resource creation time.
@@ -10937,7 +11827,7 @@ google_compute.targetInstances.get({
 
 ### SubnetworksScopedList
 * SubnetworksScopedList `object`
-  * subnetworks `array`: List of subnetworks contained in this scope.
+  * subnetworks `array`: A list of subnetworks contained in this scope.
     * items [Subnetwork](#subnetwork)
   * warning `object`: An informational warning that appears when the list of addresses is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -10961,7 +11851,7 @@ google_compute.targetInstances.get({
 
 ### Tags
 * Tags `object`: A set of instance tags.
-  * fingerprint `string`: Specifies a fingerprint for this request, which is essentially a hash of the metadata's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update metadata. You must always provide an up-to-date fingerprint hash in order to update or change metadata.
+  * fingerprint `string`: Specifies a fingerprint for this request, which is essentially a hash of the tags' contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update tags. You must always provide an up-to-date fingerprint hash in order to update or change tags.
   * items `array`: An array of tags. Each tag must be 1-63 characters long, and comply with RFC1035.
     * items `string`
 
@@ -10971,7 +11861,7 @@ google_compute.targetInstances.get({
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of resource. Always compute#targetHttpProxy for target HTTP proxies.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * urlMap `string`: URL to the UrlMap resource that defines the mapping from URL to the BackendService.
 
@@ -11002,10 +11892,11 @@ google_compute.targetInstances.get({
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of resource. Always compute#targetHttpsProxy for target HTTPS proxies.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * sslCertificates `array`: URLs to SslCertificate resources that are used to authenticate connections between users and the load balancer. Currently, exactly one SSL certificate must be specified.
     * items `string`
+  * sslPolicy `string`: URL of SslPolicy resource that will be associated with the TargetHttpsProxy resource. If not set, the TargetHttpsProxy resource will not have any SSL policy configured.
   * urlMap `string`: A fully-qualified or valid partial URL to the UrlMap resource that defines the mapping from URL to the BackendService. For example, the following are all valid URLs for specifying a URL map:  
 
 ### TargetHttpsProxyList
@@ -11031,7 +11922,7 @@ google_compute.targetInstances.get({
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * instance `string`: A URL to the virtual machine instance that handles traffic for this target instance. When creating a target instance, you can provide the fully-qualified URL or a valid partial URL to the desired virtual machine. For example, the following are all valid URLs: 
   * kind `string`: [Output Only] The type of the resource. Always compute#targetInstance for target instances.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * natPolicy `string` (values: NO_NAT): NAT option controlling how IPs are NAT'ed to the instance. Currently only NO_NAT (default value) is supported.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * zone `string`: [Output Only] URL of the zone where the target instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
@@ -11069,7 +11960,7 @@ google_compute.targetInstances.get({
 
 ### TargetInstancesScopedList
 * TargetInstancesScopedList `object`
-  * targetInstances `array`: List of target instances contained in this scope.
+  * targetInstances `array`: A list of target instances contained in this scope.
     * items [TargetInstance](#targetinstance)
   * warning `object`: Informational warning which replaces the list of addresses when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -11091,7 +11982,7 @@ google_compute.targetInstances.get({
   * instances `array`: A list of resource URLs to the virtual machine instances serving this pool. They must live in zones contained in the same region as this pool.
     * items `string`
   * kind `string`: [Output Only] Type of the resource. Always compute#targetPool for target pools.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * region `string`: [Output Only] URL of the region where the target pool resides.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * sessionAffinity `string` (values: CLIENT_IP, CLIENT_IP_PORT_PROTO, CLIENT_IP_PROTO, GENERATED_COOKIE, NONE): Sesssion affinity option, must be one of the following values:
@@ -11155,7 +12046,7 @@ google_compute.targetInstances.get({
 
 ### TargetPoolsScopedList
 * TargetPoolsScopedList `object`
-  * targetPools `array`: List of target pools contained in this scope.
+  * targetPools `array`: A list of target pools contained in this scope.
     * items [TargetPool](#targetpool)
   * warning `object`: Informational warning which replaces the list of addresses when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -11188,12 +12079,13 @@ google_compute.targetInstances.get({
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#targetSslProxy for target SSL proxies.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * proxyHeader `string` (values: NONE, PROXY_V1): Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * service `string`: URL to the BackendService resource.
   * sslCertificates `array`: URLs to SslCertificate resources that are used to authenticate connections to Backends. Currently exactly one SSL certificate must be specified.
     * items `string`
+  * sslPolicy `string`: URL of SslPolicy resource that will be associated with the TargetSslProxy resource. If not set, the TargetSslProxy resource will not have any SSL policy configured.
 
 ### TargetSslProxyList
 * TargetSslProxyList `object`: Contains a list of TargetSslProxy resources.
@@ -11225,7 +12117,7 @@ google_compute.targetInstances.get({
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#targetTcpProxy for target TCP proxies.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * proxyHeader `string` (values: NONE, PROXY_V1): Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * service `string`: URL to the BackendService resource.
@@ -11254,7 +12146,7 @@ google_compute.targetInstances.get({
     * items `string`
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of resource. Always compute#targetVpnGateway for target VPN gateways.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: URL of the network to which this VPN gateway is attached. Provided by the client when the VPN gateway is created.
   * region `string`: [Output Only] URL of the region where the target VPN gateway resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
@@ -11295,7 +12187,7 @@ google_compute.targetInstances.get({
 
 ### TargetVpnGatewaysScopedList
 * TargetVpnGatewaysScopedList `object`
-  * targetVpnGateways `array`: [Output Only] List of target vpn gateways contained in this scope.
+  * targetVpnGateways `array`: [Output Only] A list of target vpn gateways contained in this scope.
     * items [TargetVpnGateway](#targetvpngateway)
   * warning `object`: [Output Only] Informational warning which replaces the list of addresses when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
@@ -11312,6 +12204,16 @@ google_compute.targetInstances.get({
   * host `string`
   * path `string`
 
+### TestPermissionsRequest
+* TestPermissionsRequest `object`
+  * permissions `array`: The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed.
+    * items `string`
+
+### TestPermissionsResponse
+* TestPermissionsResponse `object`
+  * permissions `array`: A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
+    * items `string`
+
 ### UrlMap
 * UrlMap `object`: A UrlMap resource. This resource defines the mapping from URL to the BackendService resource, based on the "longest-match" of the URL's host and path.
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
@@ -11322,7 +12224,7 @@ google_compute.targetInstances.get({
     * items [HostRule](#hostrule)
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * kind `string`: [Output Only] Type of the resource. Always compute#urlMaps for url maps.
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * pathMatchers `array`: The list of named PathMatchers to use against the URL.
     * items [PathMatcher](#pathmatcher)
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
@@ -11388,7 +12290,7 @@ google_compute.targetInstances.get({
   * kind `string`: [Output Only] Type of resource. Always compute#vpnTunnel for VPN tunnels.
   * localTrafficSelector `array`: Local traffic selector to use when establishing the VPN tunnel with peer VPN gateway. The value should be a CIDR formatted string, for example: 192.168.0.0/16. The ranges should be disjoint. Only IPv4 is supported.
     * items `string`
-  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+  * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * peerIp `string`: IP address of the peer VPN gateway. Only IPv4 is supported.
   * region `string`: [Output Only] URL of the region where the VPN tunnel resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * remoteTrafficSelector `array`: Remote traffic selectors to use when establishing the VPN tunnel with peer VPN gateway. The value should be a CIDR formatted string, for example: 192.168.0.0/16. The ranges should be disjoint. Only IPv4 is supported.
@@ -11433,7 +12335,7 @@ google_compute.targetInstances.get({
 
 ### VpnTunnelsScopedList
 * VpnTunnelsScopedList `object`
-  * vpnTunnels `array`: List of vpn tunnels contained in this scope.
+  * vpnTunnels `array`: A list of vpn tunnels contained in this scope.
     * items [VpnTunnel](#vpntunnel)
   * warning `object`: Informational warning which replaces the list of addresses when the list is empty.
     * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.

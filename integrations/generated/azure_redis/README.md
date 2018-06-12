@@ -45,6 +45,27 @@ azure_redis.Operations_List({
 #### Output
 * output [OperationListResult](#operationlistresult)
 
+### Redis_CheckNameAvailability
+Checks that the redis cache name is valid and is not already in use.
+
+
+```js
+azure_redis.Redis_CheckNameAvailability({
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * parameters **required** [CheckNameAvailabilityParameters](#checknameavailabilityparameters)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
 ### Redis_List
 Gets all Redis caches in the specified subscription.
 
@@ -184,6 +205,29 @@ azure_redis.FirewallRules_CreateOrUpdate({
 
 #### Output
 * output [RedisFirewallRule](#redisfirewallrule)
+
+### PatchSchedules_ListByRedisResource
+Gets all patch schedules in the specified redis cache (there is only one).
+
+
+```js
+azure_redis.PatchSchedules_ListByRedisResource({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "cacheName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * cacheName **required** `string`: The name of the Redis cache.
+
+#### Output
+* output [RedisPatchScheduleListResult](#redispatchschedulelistresult)
 
 ### Redis_Delete
 Deletes a Redis cache.
@@ -479,6 +523,31 @@ azure_redis.Redis_ListKeys({
 #### Output
 * output [RedisAccessKeys](#redisaccesskeys)
 
+### Redis_ListUpgradeNotifications
+Gets any upgrade notifications for a Redis cache.
+
+
+```js
+azure_redis.Redis_ListUpgradeNotifications({
+  "resourceGroupName": "",
+  "name": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "history": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * name **required** `string`: The name of the Redis cache.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * history **required** `number`: how many minutes in past to look for upgrade notifications
+
+#### Output
+* output [NotificationListResponse](#notificationlistresponse)
+
 ### PatchSchedules_Delete
 Deletes the patching schedule of a redis cache (requires Premium SKU).
 
@@ -487,6 +556,7 @@ Deletes the patching schedule of a redis cache (requires Premium SKU).
 azure_redis.PatchSchedules_Delete({
   "resourceGroupName": "",
   "name": "",
+  "default": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -496,6 +566,7 @@ azure_redis.PatchSchedules_Delete({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * name **required** `string`: The name of the redis cache.
+  * default **required** `string` (values: default): Default string modeled as parameter for auto generation to work correctly.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -510,6 +581,7 @@ Gets the patching schedule of a redis cache (requires Premium SKU).
 azure_redis.PatchSchedules_Get({
   "resourceGroupName": "",
   "name": "",
+  "default": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -519,6 +591,7 @@ azure_redis.PatchSchedules_Get({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * name **required** `string`: The name of the redis cache.
+  * default **required** `string` (values: default): Default string modeled as parameter for auto generation to work correctly.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -533,6 +606,7 @@ Create or replace the patching schedule for Redis cache (requires Premium SKU).
 azure_redis.PatchSchedules_CreateOrUpdate({
   "resourceGroupName": "",
   "name": "",
+  "default": "",
   "parameters": null,
   "api-version": "",
   "subscriptionId": ""
@@ -543,6 +617,7 @@ azure_redis.PatchSchedules_CreateOrUpdate({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * name **required** `string`: The name of the Redis cache.
+  * default **required** `string` (values: default): Default string modeled as parameter for auto generation to work correctly.
   * parameters **required** [RedisPatchSchedule](#redispatchschedule)
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -579,6 +654,11 @@ azure_redis.Redis_RegenerateKey({
 
 ## Definitions
 
+### CheckNameAvailabilityParameters
+* CheckNameAvailabilityParameters `object`: Parameters body to pass for name availability check.
+  * name **required** `string`: Resource name.
+  * type **required** `string`: Resource type. The only legal value of this property for checking redis cache name availability is 'Microsoft.Cache/redis'.
+
 ### ExportRDBParameters
 * ExportRDBParameters `object`: Parameters for Redis export operation.
   * container **required** `string`: Container name to export to.
@@ -590,6 +670,12 @@ azure_redis.Redis_RegenerateKey({
   * files **required** `array`: files to import.
     * items `string`
   * format `string`: File format.
+
+### NotificationListResponse
+* NotificationListResponse `object`: The response of listUpgradeNotifications.
+  * nextLink `string`: Link for next set of notifications.
+  * value `array`: List of all notifications.
+    * items [UpgradeNotification](#upgradenotification)
 
 ### Operation
 * Operation `object`: REST API operation
@@ -715,6 +801,12 @@ azure_redis.Redis_RegenerateKey({
   * name `string`: Resource name.
   * type `string`: Resource type.
 
+### RedisPatchScheduleListResult
+* RedisPatchScheduleListResult `object`: The response of list patch schedules Redis operation.
+  * nextLink `string`: Link for next page of results.
+  * value `array`: Results of the list patch schedules operation.
+    * items [RedisPatchSchedule](#redispatchschedule)
+
 ### RedisProperties
 * RedisProperties `object`: Properties of the redis cache.
   * accessKeys [RedisAccessKeys](#redisaccesskeys)
@@ -796,5 +888,11 @@ azure_redis.Redis_RegenerateKey({
   * id `string`: Resource ID.
   * name `string`: Resource name.
   * type `string`: Resource type.
+
+### UpgradeNotification
+* UpgradeNotification `object`: Properties of upgrade notification.
+  * name `string`: Name of upgrade notification.
+  * timestamp `string`: Timestamp when upgrade notification occured.
+  * upsellNotification `object`: Details about this upgrade notification
 
 

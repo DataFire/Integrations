@@ -74,7 +74,7 @@ azure_apimanagement_apimidentityprovider.IdentityProvider_Delete({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * identityProviderName **required** `string` (values: facebook, google, microsoft, twitter, aad, aadB2C): Identity Provider Type identifier.
-  * If-Match **required** `string`: The entity state (Etag) version of the backend to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -153,7 +153,7 @@ azure_apimanagement_apimidentityprovider.IdentityProvider_Update({
   * serviceName **required** `string`: The name of the API Management service.
   * identityProviderName **required** `string` (values: facebook, google, microsoft, twitter, aad, aadB2C): Identity Provider Type identifier.
   * parameters **required** [IdentityProviderUpdateParameters](#identityproviderupdateparameters)
-  * If-Match **required** `string`: The entity state (Etag) version of the identity provider configuration to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -181,6 +181,7 @@ azure_apimanagement_apimidentityprovider.IdentityProvider_CreateOrUpdate({
   * serviceName **required** `string`: The name of the API Management service.
   * identityProviderName **required** `string` (values: facebook, google, microsoft, twitter, aad, aadB2C): Identity Provider Type identifier.
   * parameters **required** [IdentityProviderContract](#identityprovidercontract)
+  * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 

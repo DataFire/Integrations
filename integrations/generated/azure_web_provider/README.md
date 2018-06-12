@@ -40,10 +40,11 @@ azure_web_provider.Provider_GetAvailableStacks({
 
 #### Input
 * input `object`
+  * osTypeSelected `string` (values: Windows, Linux)
   * api-version **required** `string`: API Version
 
 #### Output
-* output `object`
+* output [ApplicationStackCollection](#applicationstackcollection)
 
 ### Provider_ListOperations
 Gets all available operations for the Microsoft.Web resource provider. Also exposes resource metric definitions
@@ -112,14 +113,45 @@ azure_web_provider.Provider_GetAvailableStacksOnPrem({
 
 #### Input
 * input `object`
+  * osTypeSelected `string` (values: Windows, Linux)
   * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
   * api-version **required** `string`: API Version
 
 #### Output
-* output `object`
+* output [ApplicationStackCollection](#applicationstackcollection)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### ApplicationStack
+* ApplicationStack `object`: Application stack.
+  * dependency `string`: Application stack dependency.
+  * display `string`: Application stack display name.
+  * frameworks `array`: List of frameworks associated with application stack.
+    * items [ApplicationStack](#applicationstack)
+  * majorVersions `array`: List of major versions available.
+    * items [StackMajorVersion](#stackmajorversion)
+  * name `string`: Application stack name.
+
+### ApplicationStackCollection
+* ApplicationStackCollection `object`: Collection of Application Stacks
+  * nextLink `string`: Link to next page of resources.
+  * value **required** `array`: Collection of resources.
+    * items [ApplicationStack](#applicationstack)
+
+### StackMajorVersion
+* StackMajorVersion `object`: Application stack major version.
+  * displayVersion `string`: Application stack major version (display only).
+  * isDefault `boolean`: <code>true</code> if this is the default major version; otherwise, <code>false</code>.
+  * minorVersions `array`: Minor versions associated with the major version.
+    * items [StackMinorVersion](#stackminorversion)
+  * runtimeVersion `string`: Application stack major version (runtime only).
+
+### StackMinorVersion
+* StackMinorVersion `object`: Application stack minor version.
+  * displayVersion `string`: Application stack minor version (display only).
+  * isDefault `boolean`: <code>true</code> if this is the default minor version; otherwise, <code>false</code>.
+  * runtimeVersion `string`: Application stack minor version (runtime only).
+
+

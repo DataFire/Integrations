@@ -46,8 +46,9 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_ListByAutomat
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
+  * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
@@ -61,6 +62,7 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_ListByAutomat
       * hybridRunbookWorkers `array`: Gets or sets the list of hybrid runbook workers.
         * items `object`: Definition of hybrid runbook worker.
           * ip `string`: Gets or sets the assigned machine IP address.
+          * lastSeenDateTime `string`: Last Heartbeat from the Worker
           * name `string`: Gets or sets the worker machine name.
           * registrationTime `string`: Gets or sets the registration time of the worker machine.
       * id `string`: Gets or sets the id of the resource.
@@ -82,7 +84,7 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: Automation account name.
   * hybridRunbookWorkerGroupName **required** `string`: The hybrid runbook worker group name
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -107,7 +109,7 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * hybridRunbookWorkerGroupName **required** `string`: The hybrid runbook worker group name
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -120,6 +122,7 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_Get({
   * hybridRunbookWorkers `array`: Gets or sets the list of hybrid runbook workers.
     * items `object`: Definition of hybrid runbook worker.
       * ip `string`: Gets or sets the assigned machine IP address.
+      * lastSeenDateTime `string`: Last Heartbeat from the Worker
       * name `string`: Gets or sets the worker machine name.
       * registrationTime `string`: Gets or sets the registration time of the worker machine.
   * id `string`: Gets or sets the id of the resource.
@@ -142,7 +145,7 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * hybridRunbookWorkerGroupName **required** `string`: The hybrid runbook worker group name
   * parameters **required** `object`: Parameters supplied to the update operation.
@@ -158,6 +161,7 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_Update({
   * hybridRunbookWorkers `array`: Gets or sets the list of hybrid runbook workers.
     * items `object`: Definition of hybrid runbook worker.
       * ip `string`: Gets or sets the assigned machine IP address.
+      * lastSeenDateTime `string`: Last Heartbeat from the Worker
       * name `string`: Gets or sets the worker machine name.
       * registrationTime `string`: Gets or sets the registration time of the worker machine.
   * id `string`: Gets or sets the id of the resource.

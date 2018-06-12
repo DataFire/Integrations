@@ -11,12 +11,7 @@
       "url": "https://google.com"
     },
     "description": "Provides access to information about profiles and contacts.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google People",
+    "title": "People",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://people.googleapis.com/$discovery/rest?version=v1",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/contacts": "Manage your contacts",
@@ -65,24 +60,6 @@
         "https://www.googleapis.com/auth/userinfo.email": "View your email address",
         "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/contacts": "Manage your contacts",
-        "https://www.googleapis.com/auth/contacts.readonly": "View your contacts",
-        "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
-        "https://www.googleapis.com/auth/user.addresses.read": "View your street addresses",
-        "https://www.googleapis.com/auth/user.birthday.read": "View your complete date of birth",
-        "https://www.googleapis.com/auth/user.emails.read": "View your email addresses",
-        "https://www.googleapis.com/auth/user.phonenumbers.read": "View your phone numbers",
-        "https://www.googleapis.com/auth/userinfo.email": "View your email address",
-        "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -241,16 +218,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/contacts.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/contacts.readonly"
             ]
           }
@@ -324,9 +295,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           }
         ],
@@ -369,16 +337,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/contacts.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/contacts.readonly"
             ]
           }
@@ -435,7 +397,7 @@
         "operationId": "people.getBatchGet",
         "parameters": [
           {
-            "description": "**Required.** A field mask to restrict which fields on each person are\nreturned. Valid values are:\n\n* addresses\n* ageRanges\n* biographies\n* birthdays\n* braggingRights\n* coverPhotos\n* emailAddresses\n* events\n* genders\n* imClients\n* interests\n* locales\n* memberships\n* metadata\n* names\n* nicknames\n* occupations\n* organizations\n* phoneNumbers\n* photos\n* relations\n* relationshipInterests\n* relationshipStatuses\n* residences\n* skills\n* taglines\n* urls",
+            "description": "**Required.** A field mask to restrict which fields on each person are\nreturned. Multiple fields can be specified by separating them with commas.\nValid values are:\n\n* addresses\n* ageRanges\n* biographies\n* birthdays\n* braggingRights\n* coverPhotos\n* emailAddresses\n* events\n* genders\n* imClients\n* interests\n* locales\n* memberships\n* metadata\n* names\n* nicknames\n* occupations\n* organizations\n* phoneNumbers\n* photos\n* relations\n* relationshipInterests\n* relationshipStatuses\n* residences\n* sipAddresses\n* skills\n* taglines\n* urls\n* userDefined",
             "in": "query",
             "name": "personFields",
             "type": "string"
@@ -469,72 +431,45 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/contacts.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/contacts.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/user.addresses.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/user.addresses.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/user.birthday.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/user.birthday.read"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/user.emails.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/user.emails.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/user.phonenumbers.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/user.phonenumbers.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userinfo.email"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userinfo.profile"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.profile"
             ]
           }
@@ -657,9 +592,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           }
         ],
@@ -699,9 +631,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/contacts"
             ]
           }
@@ -747,72 +676,45 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/contacts.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/contacts.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/user.addresses.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/user.addresses.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/user.birthday.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/user.birthday.read"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/user.emails.read"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/user.emails.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/user.phonenumbers.read"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/user.phonenumbers.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userinfo.email"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userinfo.profile"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.profile"
             ]
           }
@@ -894,9 +796,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           }
         ],
@@ -923,7 +822,7 @@
             "type": "string"
           },
           {
-            "description": "**Required.** A field mask to restrict which fields on each person are\nreturned. Valid values are:\n\n* addresses\n* ageRanges\n* biographies\n* birthdays\n* braggingRights\n* coverPhotos\n* emailAddresses\n* events\n* genders\n* imClients\n* interests\n* locales\n* memberships\n* metadata\n* names\n* nicknames\n* occupations\n* organizations\n* phoneNumbers\n* photos\n* relations\n* relationshipInterests\n* relationshipStatuses\n* residences\n* skills\n* taglines\n* urls",
+            "description": "**Required.** A field mask to restrict which fields on each person are\nreturned. Multiple fields can be specified by separating them with commas.\nValid values are:\n\n* addresses\n* ageRanges\n* biographies\n* birthdays\n* braggingRights\n* coverPhotos\n* emailAddresses\n* events\n* genders\n* imClients\n* interests\n* locales\n* memberships\n* metadata\n* names\n* nicknames\n* occupations\n* organizations\n* phoneNumbers\n* photos\n* relations\n* relationshipInterests\n* relationshipStatuses\n* residences\n* sipAddresses\n* skills\n* taglines\n* urls\n* userDefined",
             "in": "query",
             "name": "personFields",
             "type": "string"
@@ -978,16 +877,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/contacts.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/contacts.readonly"
             ]
           }
@@ -1112,9 +1005,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/contacts"
             ]
           }
         ],
@@ -1148,9 +1038,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/contacts"
             ]
           }
@@ -1263,7 +1150,7 @@
             "x-reservedExpansion": true
           },
           {
-            "description": "**Required.** A field mask to restrict which fields on the person are\nupdated. Valid values are:\n\n* addresses\n* biographies\n* birthdays\n* braggingRights\n* emailAddresses\n* events\n* genders\n* imClients\n* interests\n* locales\n* names\n* nicknames\n* occupations\n* organizations\n* phoneNumbers\n* relations\n* residences\n* skills\n* urls",
+            "description": "**Required.** A field mask to restrict which fields on the person are\nupdated. Multiple fields can be specified by separating them with commas.\nAll updated fields will be replaced. Valid values are:\n\n* addresses\n* biographies\n* birthdays\n* emailAddresses\n* events\n* genders\n* imClients\n* interests\n* locales\n* names\n* nicknames\n* occupations\n* organizations\n* phoneNumbers\n* relations\n* residences\n* sipAddresses\n* urls\n* userDefined",
             "in": "query",
             "name": "updatePersonFields",
             "type": "string"
@@ -1280,9 +1167,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/contacts"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/contacts"
             ]
           }
@@ -1342,7 +1226,7 @@
           "type": "string"
         },
         "type": {
-          "description": "The type of the address. The type can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `home`\n* `work`\n* `other`",
+          "description": "The type of the address. The type can be custom or one of these predefined\nvalues:\n\n* `home`\n* `work`\n* `other`",
           "type": "string"
         }
       },
@@ -1487,7 +1371,7 @@
       "description": "A Google contact group membership.",
       "properties": {
         "contactGroupId": {
-          "description": "The contact group ID for the contact group membership. The contact group\nID can be custom or predefined. Possible values include, but are not\nlimited to, the following:\n\n*  `myContacts`\n*  `starred`\n*  A numerical ID for user-created groups.",
+          "description": "The contact group ID for the contact group membership. The contact group\nID can be custom or one of these predefined values:\n\n*  `myContacts`\n*  `starred`\n*  A numerical ID for user-created groups.",
           "type": "string"
         }
       },
@@ -1563,7 +1447,7 @@
           "type": "integer"
         },
         "month": {
-          "description": "Month of year. Must be from 1 to 12.",
+          "description": "Month of year. Must be from 1 to 12, or 0 if specifying a date without a\nmonth.",
           "format": "int32",
           "type": "integer"
         },
@@ -1601,7 +1485,7 @@
           "description": "Metadata about the email address."
         },
         "type": {
-          "description": "The type of the email address. The type can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `home`\n* `work`\n* `other`",
+          "description": "The type of the email address. The type can be custom or one of these\npredefined values:\n\n* `home`\n* `work`\n* `other`",
           "type": "string"
         },
         "value": {
@@ -1632,7 +1516,7 @@
           "description": "Metadata about the event."
         },
         "type": {
-          "description": "The type of the event. The type can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `anniversary`\n* `other`",
+          "description": "The type of the event. The type can be custom or one of these predefined\nvalues:\n\n* `anniversary`\n* `other`",
           "type": "string"
         }
       },
@@ -1668,7 +1552,7 @@
           "description": "Metadata about the gender."
         },
         "value": {
-          "description": "The gender for the person. The gender can be custom or predefined.\nPossible values include, but are not limited to, the\nfollowing:\n\n* `male`\n* `female`\n* `other`\n* `unknown`",
+          "description": "The gender for the person. The gender can be custom or one of these\npredefined values:\n\n* `male`\n* `female`\n* `other`\n* `unknown`",
           "type": "string"
         }
       },
@@ -1702,11 +1586,11 @@
           "description": "Metadata about the IM client."
         },
         "protocol": {
-          "description": "The protocol of the IM client. The protocol can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `aim`\n* `msn`\n* `yahoo`\n* `skype`\n* `qq`\n* `googleTalk`\n* `icq`\n* `jabber`\n* `netMeeting`",
+          "description": "The protocol of the IM client. The protocol can be custom or one of these\npredefined values:\n\n* `aim`\n* `msn`\n* `yahoo`\n* `skype`\n* `qq`\n* `googleTalk`\n* `icq`\n* `jabber`\n* `netMeeting`",
           "type": "string"
         },
         "type": {
-          "description": "The type of the IM client. The type can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `home`\n* `work`\n* `other`",
+          "description": "The type of the IM client. The type can be custom or one of these\npredefined values:\n\n* `home`\n* `work`\n* `other`",
           "type": "string"
         },
         "username": {
@@ -1819,7 +1703,7 @@
       "type": "object"
     },
     "ModifyContactGroupMembersRequest": {
-      "description": "A request to modify an existing contact group's members.",
+      "description": "A request to modify an existing contact group's members. Contacts can be\nremoved from any group but they can only be added to a user group or\nmyContacts or starred system groups.",
       "properties": {
         "resourceNamesToAdd": {
           "description": "The resource names of the contact people to add in the form of in the form\n`people/`<var>person_id</var>.",
@@ -2008,7 +1892,7 @@
           "type": "string"
         },
         "type": {
-          "description": "The type of the organization. The type can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `work`\n* `school`",
+          "description": "The type of the organization. The type can be custom or  one of these\npredefined values:\n\n* `work`\n* `school`",
           "type": "string"
         }
       },
@@ -2200,6 +2084,13 @@
           "description": "The resource name for the person, assigned by the server. An ASCII string\nwith a max length of 27 characters, in the form of\n`people/`<var>person_id</var>.",
           "type": "string"
         },
+        "sipAddresses": {
+          "description": "The person's SIP addresses.",
+          "items": {
+            "$ref": "#/definitions/SipAddress"
+          },
+          "type": "array"
+        },
         "skills": {
           "description": "The person's skills.",
           "items": {
@@ -2310,7 +2201,7 @@
           "description": "Metadata about the phone number."
         },
         "type": {
-          "description": "The type of the phone number. The type can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `home`\n* `work`\n* `mobile`\n* `homeFax`\n* `workFax`\n* `otherFax`\n* `pager`\n* `workMobile`\n* `workPager`\n* `main`\n* `googleVoice`\n* `other`",
+          "description": "The type of the phone number. The type can be custom or one of these\npredefined values:\n\n* `home`\n* `work`\n* `mobile`\n* `homeFax`\n* `workFax`\n* `otherFax`\n* `pager`\n* `workMobile`\n* `workPager`\n* `main`\n* `googleVoice`\n* `other`",
           "type": "string"
         },
         "value": {
@@ -2382,7 +2273,7 @@
           "type": "string"
         },
         "type": {
-          "description": "The person's relation to the other person. The type can be custom or predefined.\nPossible values include, but are not limited to, the following values:\n\n* `spouse`\n* `child`\n* `mother`\n* `father`\n* `parent`\n* `brother`\n* `sister`\n* `friend`\n* `relative`\n* `domesticPartner`\n* `manager`\n* `assistant`\n* `referredBy`\n* `partner`",
+          "description": "The person's relation to the other person. The type can be custom or one of\nthese predefined values:\n\n* `spouse`\n* `child`\n* `mother`\n* `father`\n* `parent`\n* `brother`\n* `sister`\n* `friend`\n* `relative`\n* `domesticPartner`\n* `manager`\n* `assistant`\n* `referredBy`\n* `partner`",
           "type": "string"
         }
       },
@@ -2400,7 +2291,7 @@
           "description": "Metadata about the relationship interest."
         },
         "value": {
-          "description": "The kind of relationship the person is looking for. The value can be custom\nor predefined. Possible values include, but are not limited to, the\nfollowing values:\n\n* `friend`\n* `date`\n* `relationship`\n* `networking`",
+          "description": "The kind of relationship the person is looking for. The value can be custom\nor one of these predefined values:\n\n* `friend`\n* `date`\n* `relationship`\n* `networking`",
           "type": "string"
         }
       },
@@ -2418,7 +2309,7 @@
           "description": "Metadata about the relationship status."
         },
         "value": {
-          "description": "The relationship status. The value can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `single`\n* `inARelationship`\n* `engaged`\n* `married`\n* `itsComplicated`\n* `openRelationship`\n* `widowed`\n* `inDomesticPartnership`\n* `inCivilUnion`",
+          "description": "The relationship status. The value can be custom or one of these\npredefined values:\n\n* `single`\n* `inARelationship`\n* `engaged`\n* `married`\n* `itsComplicated`\n* `openRelationship`\n* `widowed`\n* `inDomesticPartnership`\n* `inCivilUnion`",
           "type": "string"
         }
       },
@@ -2437,6 +2328,28 @@
         },
         "value": {
           "description": "The address of the residence.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SipAddress": {
+      "description": "A person's SIP address. Session Initial Protocol addresses are used for VoIP\ncommunications to make voice or video calls over the internet.",
+      "properties": {
+        "formattedType": {
+          "description": "The read-only type of the SIP address translated and formatted in the\nviewer's account locale or the `Accept-Language` HTTP header locale.",
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/FieldMetadata",
+          "description": "Metadata about the SIP address."
+        },
+        "type": {
+          "description": "The type of the SIP address. The type can be custom or or one of these\npredefined values:\n\n* `home`\n* `work`\n* `mobile`\n* `other`",
+          "type": "string"
+        },
+        "value": {
+          "description": "The SIP address in the\n[RFC 3261 19.1](https://tools.ietf.org/html/rfc3261#section-19.1) SIP URI\nformat.",
           "type": "string"
         }
       },
@@ -2530,7 +2443,7 @@
       "type": "object"
     },
     "UpdateContactGroupRequest": {
-      "description": "A request to update an existing contact group. Only the name can be updated.",
+      "description": "A request to update an existing user contact group. All updated fields will\nbe replaced.",
       "properties": {
         "contactGroup": {
           "$ref": "#/definitions/ContactGroup",
@@ -2551,7 +2464,7 @@
           "description": "Metadata about the URL."
         },
         "type": {
-          "description": "The type of the URL. The type can be custom or predefined.\nPossible values include, but are not limited to, the following:\n\n* `home`\n* `work`\n* `blog`\n* `profile`\n* `homePage`\n* `ftp`\n* `reservations`\n* `appInstallPage`: website for a Google+ application.\n* `other`",
+          "description": "The type of the URL. The type can be custom or one of these predefined\nvalues:\n\n* `home`\n* `work`\n* `blog`\n* `profile`\n* `homePage`\n* `ftp`\n* `reservations`\n* `appInstallPage`: website for a Google+ application.\n* `other`",
           "type": "string"
         },
         "value": {

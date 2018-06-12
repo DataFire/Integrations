@@ -46,59 +46,58 @@ azure_automation_job.Job_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
   * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
 * output `object`: The response model for the list job operation.
-  * nextLink `string`: Gets or sets the next link.
-  * value `array`: Gets or sets a list of jobs.
-    * items `object`: Definition of the job.
-      * id `string`: Gets or sets the id of the resource.
-      * properties `object`: Definition of job properties.
-        * creationTime `string`: Gets or sets the creation time of the job.
-        * endTime `string`: Gets or sets the end time of the job.
-        * exception `string`: Gets or sets the exception of the job.
-        * jobId `string`: Gets or sets the id of the job.
-        * lastModifiedTime `string`: Gets or sets the last modified time of the job.
-        * lastStatusModifiedTime `string`: Gets or sets the last status modified time of the job.
-        * parameters `object`: Gets or sets the parameters of the job.
-        * runOn `string`: Gets or sets the runOn which specifies the group name where the job is to be executed.
+  * nextLink `string`: The  link to the next page.
+  * value `array`: List of jobs.
+    * items `object`: Job collection item properties.
+      * properties **required** `object`: Job collection item properties.
+        * creationTime `string`: The creation time of the job.
+        * endTime `string`: The end time of the job.
+        * jobId `string`: The id of the job.
+        * lastModifiedTime `string`: The last modified time of the job.
+        * provisioningState `string`: The provisioning state of a resource.
+        * runOn `string`: Specifies the runOn group name where the job was executed.
         * runbook `object`: The runbook property associated with the entity.
           * name `string`: Gets or sets the name of the runbook.
-        * startTime `string`: Gets or sets the start time of the job.
-        * startedBy `string`: Gets or sets the job started by.
-        * status `string` (values: New, Activating, Running, Completed, Failed, Stopped, Blocked, Suspended, Disconnected, Suspending, Stopping, Resuming, Removing): Gets or sets the status of the job.
-        * statusDetails `string`: Gets or sets the status details of the job.
+        * startTime `string`: The start time of the job.
+        * status `string` (values: New, Activating, Running, Completed, Failed, Stopped, Blocked, Suspended, Disconnected, Suspending, Stopping, Resuming, Removing): The status of the job.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### Job_Get
-Retrieve the job identified by job id.
+Retrieve the job identified by job name.
 
 
 ```js
 azure_automation_job.Job_Get({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
-  "subscriptionId": "",
+  "jobName": "",
   "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job id.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The job name.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
 * output `object`: Definition of the job.
-  * id `string`: Gets or sets the id of the resource.
   * properties `object`: Definition of job properties.
     * creationTime `string`: Gets or sets the creation time of the job.
     * endTime `string`: Gets or sets the end time of the job.
@@ -107,6 +106,7 @@ azure_automation_job.Job_Get({
     * lastModifiedTime `string`: Gets or sets the last modified time of the job.
     * lastStatusModifiedTime `string`: Gets or sets the last status modified time of the job.
     * parameters `object`: Gets or sets the parameters of the job.
+    * provisioningState `string`: The provisioning state of a resource.
     * runOn `string`: Gets or sets the runOn which specifies the group name where the job is to be executed.
     * runbook `object`: The runbook property associated with the entity.
       * name `string`: Gets or sets the name of the runbook.
@@ -114,6 +114,9 @@ azure_automation_job.Job_Get({
     * startedBy `string`: Gets or sets the job started by.
     * status `string` (values: New, Activating, Running, Completed, Failed, Stopped, Blocked, Suspended, Disconnected, Suspending, Stopping, Resuming, Removing): Gets or sets the status of the job.
     * statusDetails `string`: Gets or sets the status details of the job.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Job_Create
 Create a job of the runbook.
@@ -121,35 +124,32 @@ Create a job of the runbook.
 
 ```js
 azure_automation_job.Job_Create({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
+  "jobName": "",
   "parameters": null,
-  "subscriptionId": "",
   "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job id.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The job name.
   * parameters **required** `object`: The parameters supplied to the create job operation.
-    * location `string`: Gets or sets the location of the resource.
-    * name `string`: Gets or sets name of the resource.
-    * properties **required** `object`: The parameters supplied to the create job operation.
+    * properties **required** `object`
       * parameters `object`: Gets or sets the parameters of the job.
       * runOn `string`: Gets or sets the runOn which specifies the group name where the job is to be executed.
-      * runbook **required** `object`: The runbook property associated with the entity.
+      * runbook `object`: The runbook property associated with the entity.
         * name `string`: Gets or sets the name of the runbook.
-    * tags `object`: Gets or sets the tags attached to the resource.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
 * output `object`: Definition of the job.
-  * id `string`: Gets or sets the id of the resource.
   * properties `object`: Definition of job properties.
     * creationTime `string`: Gets or sets the creation time of the job.
     * endTime `string`: Gets or sets the end time of the job.
@@ -158,6 +158,7 @@ azure_automation_job.Job_Create({
     * lastModifiedTime `string`: Gets or sets the last modified time of the job.
     * lastStatusModifiedTime `string`: Gets or sets the last status modified time of the job.
     * parameters `object`: Gets or sets the parameters of the job.
+    * provisioningState `string`: The provisioning state of a resource.
     * runOn `string`: Gets or sets the runOn which specifies the group name where the job is to be executed.
     * runbook `object`: The runbook property associated with the entity.
       * name `string`: Gets or sets the name of the runbook.
@@ -165,41 +166,45 @@ azure_automation_job.Job_Create({
     * startedBy `string`: Gets or sets the job started by.
     * status `string` (values: New, Activating, Running, Completed, Failed, Stopped, Blocked, Suspended, Disconnected, Suspending, Stopping, Resuming, Removing): Gets or sets the status of the job.
     * statusDetails `string`: Gets or sets the status details of the job.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Job_GetOutput
-Retrieve the job output identified by job id.
+Retrieve the job output identified by job name.
 
 
 ```js
 azure_automation_job.Job_GetOutput({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
-  "subscriptionId": "",
+  "jobName": "",
   "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job id.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The name of the job to be created.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
-* output `file`
+* output `string`
 
 ### Job_Resume
-Resume the job identified by jobId.
+Resume the job identified by jobName.
 
 
 ```js
 azure_automation_job.Job_Resume({
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
+  "jobName": "",
   "subscriptionId": "",
   "api-version": ""
 }, context)
@@ -207,49 +212,51 @@ azure_automation_job.Job_Resume({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job id.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The job name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
 *Output schema unknown*
 
 ### Job_GetRunbookContent
-Retrieve the runbook content of the job identified by job id.
+Retrieve the runbook content of the job identified by job name.
 
 
 ```js
 azure_automation_job.Job_GetRunbookContent({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
-  "subscriptionId": "",
+  "jobName": "",
   "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job id.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The job name.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
-* output `file`
+* output `string`
 
 ### Job_Stop
-Stop the job identified by jobId.
+Stop the job identified by jobName.
 
 
 ```js
 azure_automation_job.Job_Stop({
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
+  "jobName": "",
   "subscriptionId": "",
   "api-version": ""
 }, context)
@@ -257,24 +264,25 @@ azure_automation_job.Job_Stop({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job id.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The job name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
 *Output schema unknown*
 
 ### JobStream_ListByJob
-Retrieve a list of jobs streams identified by job id.
+Retrieve a list of jobs streams identified by job name.
 
 
 ```js
 azure_automation_job.JobStream_ListByJob({
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
+  "jobName": "",
   "subscriptionId": "",
   "api-version": ""
 }, context)
@@ -282,12 +290,13 @@ azure_automation_job.JobStream_ListByJob({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job Id.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The job name.
   * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
 * output `object`: The response model for the list job stream operation.
@@ -309,23 +318,24 @@ Retrieve the job stream identified by job stream id.
 
 ```js
 azure_automation_job.JobStream_Get({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
+  "jobName": "",
   "jobStreamId": "",
-  "subscriptionId": "",
   "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job id.
-  * jobStreamId **required** `string`: The job stream id.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The job name.
+  * jobStreamId **required** `string`: The job stream id.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
 * output `object`: Definition of the job stream.
@@ -339,26 +349,27 @@ azure_automation_job.JobStream_Get({
     * value `object`: Gets or sets the values of the job stream.
 
 ### Job_Suspend
-Suspend the job identified by jobId.
+Suspend the job identified by job name.
 
 
 ```js
 azure_automation_job.Job_Suspend({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "automationAccountName": "",
-  "jobId": "",
-  "subscriptionId": "",
+  "jobName": "",
   "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
-  * automationAccountName **required** `string`: The automation account name.
-  * jobId **required** `string`: The job id.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The name of the automation account.
+  * jobName **required** `string`: The job name.
   * api-version **required** `string`: Client Api Version.
+  * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
 *Output schema unknown*

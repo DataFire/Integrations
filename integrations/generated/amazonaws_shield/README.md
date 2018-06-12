@@ -13,9 +13,8 @@ let amazonaws_shield = require('@datafire/amazonaws_shield').create({
   region: ""
 });
 
-amazonaws_shield.CreateProtection({
-  "Name": "",
-  "ResourceArn": ""
+amazonaws_shield.AssociateDRTLogBucket({
+  "LogBucket": ""
 }).then(data => {
   console.log(data);
 });
@@ -26,6 +25,40 @@ amazonaws_shield.CreateProtection({
 <fullname>AWS Shield Advanced</fullname> <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF and AWS Shield Developer Guide</a>.</p>
 
 ## Actions
+
+### AssociateDRTLogBucket
+
+
+
+```js
+amazonaws_shield.AssociateDRTLogBucket({
+  "LogBucket": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * LogBucket **required** [LogBucket](#logbucket)
+
+#### Output
+* output [AssociateDRTLogBucketResponse](#associatedrtlogbucketresponse)
+
+### AssociateDRTRole
+
+
+
+```js
+amazonaws_shield.AssociateDRTRole({
+  "RoleArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleArn **required** [RoleArn](#rolearn)
+
+#### Output
+* output [AssociateDRTRoleResponse](#associatedrtroleresponse)
 
 ### CreateProtection
 
@@ -108,6 +141,34 @@ amazonaws_shield.DescribeAttack({
 #### Output
 * output [DescribeAttackResponse](#describeattackresponse)
 
+### DescribeDRTAccess
+
+
+
+```js
+amazonaws_shield.DescribeDRTAccess({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeDRTAccessResponse](#describedrtaccessresponse)
+
+### DescribeEmergencyContactSettings
+
+
+
+```js
+amazonaws_shield.DescribeEmergencyContactSettings({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeEmergencyContactSettingsResponse](#describeemergencycontactsettingsresponse)
+
 ### DescribeProtection
 
 
@@ -138,6 +199,37 @@ amazonaws_shield.DescribeSubscription({}, context)
 
 #### Output
 * output [DescribeSubscriptionResponse](#describesubscriptionresponse)
+
+### DisassociateDRTLogBucket
+
+
+
+```js
+amazonaws_shield.DisassociateDRTLogBucket({
+  "LogBucket": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * LogBucket **required** [LogBucket](#logbucket)
+
+#### Output
+* output [DisassociateDRTLogBucketResponse](#disassociatedrtlogbucketresponse)
+
+### DisassociateDRTRole
+
+
+
+```js
+amazonaws_shield.DisassociateDRTRole({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DisassociateDRTRoleResponse](#disassociatedrtroleresponse)
 
 ### GetSubscriptionState
 
@@ -188,9 +280,57 @@ amazonaws_shield.ListProtections({}, context)
 #### Output
 * output [ListProtectionsResponse](#listprotectionsresponse)
 
+### UpdateEmergencyContactSettings
+
+
+
+```js
+amazonaws_shield.UpdateEmergencyContactSettings({}, context)
+```
+
+#### Input
+* input `object`
+  * EmergencyContactList [EmergencyContactList](#emergencycontactlist)
+
+#### Output
+* output [UpdateEmergencyContactSettingsResponse](#updateemergencycontactsettingsresponse)
+
+### UpdateSubscription
+
+
+
+```js
+amazonaws_shield.UpdateSubscription({}, context)
+```
+
+#### Input
+* input `object`
+  * AutoRenew [AutoRenew](#autorenew)
+
+#### Output
+* output [UpdateSubscriptionResponse](#updatesubscriptionresponse)
+
 
 
 ## Definitions
+
+### AccessDeniedForDependencyException
+* AccessDeniedForDependencyException `object`: In order to grant the necessary access to the DDoS Response Team, the user submitting <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. 
+  * message [errorMessage](#errormessage)
+
+### AssociateDRTLogBucketRequest
+* AssociateDRTLogBucketRequest `object`
+  * LogBucket **required** [LogBucket](#logbucket)
+
+### AssociateDRTLogBucketResponse
+* AssociateDRTLogBucketResponse `object`
+
+### AssociateDRTRoleRequest
+* AssociateDRTRoleRequest `object`
+  * RoleArn **required** [RoleArn](#rolearn)
+
+### AssociateDRTRoleResponse
+* AssociateDRTRoleResponse `object`
 
 ### AttackDetail
 * AttackDetail `object`: The details of a DDoS attack.
@@ -247,6 +387,9 @@ amazonaws_shield.ListProtections({}, context)
 * AttackVectorDescriptionList `array`
   * items [AttackVectorDescription](#attackvectordescription)
 
+### AutoRenew
+* AutoRenew `string` (values: ENABLED, DISABLED)
+
 ### Contributor
 * Contributor `object`: A contributor to the attack and their contribution.
   * Name [String](#string)
@@ -288,6 +431,21 @@ amazonaws_shield.ListProtections({}, context)
 * DescribeAttackResponse `object`
   * Attack [AttackDetail](#attackdetail)
 
+### DescribeDRTAccessRequest
+* DescribeDRTAccessRequest `object`
+
+### DescribeDRTAccessResponse
+* DescribeDRTAccessResponse `object`
+  * LogBucketList [LogBucketList](#logbucketlist)
+  * RoleArn [RoleArn](#rolearn)
+
+### DescribeEmergencyContactSettingsRequest
+* DescribeEmergencyContactSettingsRequest `object`
+
+### DescribeEmergencyContactSettingsResponse
+* DescribeEmergencyContactSettingsResponse `object`
+  * EmergencyContactList [EmergencyContactList](#emergencycontactlist)
+
 ### DescribeProtectionRequest
 * DescribeProtectionRequest `object`
   * ProtectionId **required** [ProtectionId](#protectionid)
@@ -303,11 +461,35 @@ amazonaws_shield.ListProtections({}, context)
 * DescribeSubscriptionResponse `object`
   * Subscription [Subscription](#subscription)
 
+### DisassociateDRTLogBucketRequest
+* DisassociateDRTLogBucketRequest `object`
+  * LogBucket **required** [LogBucket](#logbucket)
+
+### DisassociateDRTLogBucketResponse
+* DisassociateDRTLogBucketResponse `object`
+
+### DisassociateDRTRoleRequest
+* DisassociateDRTRoleRequest `object`
+
+### DisassociateDRTRoleResponse
+* DisassociateDRTRoleResponse `object`
+
 ### Double
 * Double `number`
 
 ### DurationInSeconds
 * DurationInSeconds `integer`
+
+### EmailAddress
+* EmailAddress `string`
+
+### EmergencyContact
+* EmergencyContact `object`: Contact information that the DRT can use to contact you during a suspected attack.
+  * EmailAddress **required** [EmailAddress](#emailaddress)
+
+### EmergencyContactList
+* EmergencyContactList `array`
+  * items [EmergencyContact](#emergencycontact)
 
 ### GetSubscriptionStateRequest
 * GetSubscriptionStateRequest `object`
@@ -327,6 +509,10 @@ amazonaws_shield.ListProtections({}, context)
 * InvalidOperationException `object`: Exception that indicates that the operation would not cause any change to occur.
   * message [errorMessage](#errormessage)
 
+### InvalidPaginationTokenException
+* InvalidPaginationTokenException `object`: Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.
+  * message [errorMessage](#errormessage)
+
 ### InvalidParameterException
 * InvalidParameterException `object`: Exception that indicates that the parameters passed to the API are invalid. 
   * message [errorMessage](#errormessage)
@@ -335,11 +521,20 @@ amazonaws_shield.ListProtections({}, context)
 * InvalidResourceException `object`: Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.
   * message [errorMessage](#errormessage)
 
+### Limit
+* Limit `object`: Specifies how many protections of a given type you can create.
+  * Max [Long](#long)
+  * Type [String](#string)
+
 ### LimitNumber
 * LimitNumber `integer`
 
 ### LimitType
 * LimitType `string`
+
+### Limits
+* Limits `array`
+  * items [Limit](#limit)
 
 ### LimitsExceededException
 * LimitsExceededException `object`: <p>Exception that indicates that the operation would exceed a limit.</p> <p> <code>Type</code> is the type of limit that would be exceeded.</p> <p> <code>Limit</code> is the threshold that would be exceeded.</p>
@@ -371,8 +566,15 @@ amazonaws_shield.ListProtections({}, context)
   * Protections [Protections](#protections)
 
 ### LockedSubscriptionException
-* LockedSubscriptionException `object`: Exception that indicates that the subscription you are trying to delete has not yet completed the 1-year commitment. You cannot delete this subscription.
+* LockedSubscriptionException `object`: You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.
   * message [errorMessage](#errormessage)
+
+### LogBucket
+* LogBucket `string`
+
+### LogBucketList
+* LogBucketList `array`
+  * items [LogBucket](#logbucket)
 
 ### Long
 * Long `integer`
@@ -387,6 +589,10 @@ amazonaws_shield.ListProtections({}, context)
 ### MitigationList
 * MitigationList `array`
   * items [Mitigation](#mitigation)
+
+### NoAssociatedRoleException
+* NoAssociatedRoleException `object`: The ARN of the role that you specifed does not exist.
+  * message [errorMessage](#errormessage)
 
 ### OptimisticLockException
 * OptimisticLockException `object`: Exception that indicates that the protection state has been modified by another client. You can retry the request.
@@ -423,6 +629,9 @@ amazonaws_shield.ListProtections({}, context)
 * ResourceNotFoundException `object`: Exception indicating the specified resource does not exist.
   * message [errorMessage](#errormessage)
 
+### RoleArn
+* RoleArn `string`
+
 ### String
 * String `string`
 
@@ -442,6 +651,9 @@ amazonaws_shield.ListProtections({}, context)
 
 ### Subscription
 * Subscription `object`: Information about the AWS Shield Advanced subscription for an account.
+  * AutoRenew [AutoRenew](#autorenew)
+  * EndTime [Timestamp](#timestamp)
+  * Limits [Limits](#limits)
   * StartTime [Timestamp](#timestamp)
   * TimeCommitmentInSeconds [DurationInSeconds](#durationinseconds)
 
@@ -487,6 +699,20 @@ amazonaws_shield.ListProtections({}, context)
 
 ### Unit
 * Unit `string` (values: BITS, BYTES, PACKETS, REQUESTS)
+
+### UpdateEmergencyContactSettingsRequest
+* UpdateEmergencyContactSettingsRequest `object`
+  * EmergencyContactList [EmergencyContactList](#emergencycontactlist)
+
+### UpdateEmergencyContactSettingsResponse
+* UpdateEmergencyContactSettingsResponse `object`
+
+### UpdateSubscriptionRequest
+* UpdateSubscriptionRequest `object`
+  * AutoRenew [AutoRenew](#autorenew)
+
+### UpdateSubscriptionResponse
+* UpdateSubscriptionResponse `object`
 
 ### errorMessage
 * errorMessage `string`

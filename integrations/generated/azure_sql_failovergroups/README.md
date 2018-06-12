@@ -265,16 +265,4 @@ azure_sql_failovergroups.FailoverGroups_ForceFailoverAllowDataLoss({
   * location `string`: Geo location of the partner server.
   * replicationRole `string` (values: Primary, Secondary): Replication role of the partner server.
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

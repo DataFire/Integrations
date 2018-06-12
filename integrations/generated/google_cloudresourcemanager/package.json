@@ -1,8 +1,8 @@
 {
   "name": "@datafire/google_cloudresourcemanager",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Google Cloud Resource Manager",
+  "description": "DataFire integration for Cloud Resource Manager",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

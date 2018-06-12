@@ -8,10 +8,9 @@ npm install --save @datafire/rebilly
 ```
 ```js
 let rebilly = require('@datafire/rebilly').create({
-  ApiKey: "",
-  username: "",
-  password: "",
-  RebAuth: ""
+  JWT: "",
+  PublishableApiKey: "",
+  SecretApiKey: ""
 });
 
 rebilly.transactions.get({}).then(data => {
@@ -27,7 +26,7 @@ resource URLs.  It returns HTTP response codes to indicate errors.  It also
 accepts and returns JSON in the HTTP body.  You can use your favorite
 HTTP/REST library for your programming language to use Rebilly's API, or
 you can use one of our SDKs (currently available in [PHP](https://github.com/Rebilly/rebilly-php)
-and [Javascript](https://github.com/Rebilly/rebilly-js-sdk).
+and [Javascript](https://github.com/Rebilly/rebilly-js-sdk)).
 
 We have other APIs that are also available.  Every action from our [app](https://app.rebilly.com)
 is supported by an API which is documented and available for use so that you
@@ -40,24 +39,12 @@ You can generate additional API keys, and delete API keys (as you may
 need to rotate your keys in the future). You authenticate to the
 Rebilly API by providing your secret key in the request header.
 
-Rebilly offers three forms of authentication:  private key, JSON Web Tokens, and
-public key.
-- private key: authenticates each request by searching for the presence
-of an HTTP header: REB-APIKEY.
-- JWT: authenticates each request by the HTTP header: Authorization.
-- public key: authenticates by the HTTP header: REB-AUTH (read more on this below).
-
-Rebilly also offers JSON Web Tokens (JWT) authentication, where you can control
-the specific granular permissions and expiration for that JWT.  We call our resource
-for generating JWT [Sessions](#tag/Sessions).
-
-Rebilly also has a client-side authentication scheme that uses an
-apiUser and HMAC-SHA1 signature (only for the Tokens resource), so
-that you may safely create tokens from the client-side without compromising
-your secret keys.
+Rebilly offers three forms of authentication:  secret key, publishable key, JSON Web Tokens, and public signature key.
+- [Secret API key](#section/Authentication/SecretApiKey): used for requests made from the server side. Never share these keys. Keep them guarded and secure
+- [Publishable API key](#section/Authentication/PublishableApiKey): used for requests from the client side. For now can only be used on the [Tokens resource](#tag/Payment-Tokens%2Fpaths%2F~1tokens%2Fpost)
+- [JWT](#section/Authentication/JWT): short lifetime tokens that can be assigned a specific expiration time
 
 Never share your secret keys. Keep them guarded and secure.
-The client-side authentication scheme uses one HTTP header named REB-AUTH.
 
 <!-- ReDoc-Inject: <security-definitions> -->
 
@@ -71,6 +58,25 @@ $client = new Rebilly\Client([
     'baseUrl' => 'https://api.rebilly.com',
 ]);
 ```
+
+# Using filter
+Rebilly provides collections filtering. You can use `?filter` param on collection to define which records should be shown in the response.
+
+Here is filter format description:
+
+- Fields and values in filter are separated with `:`: `?filter=firstName:John`.
+
+- Fields in filter are separated with `;`: `?filter=firstName:John;lastName:Doe`.
+
+- You can use multiple values using `,` as values separator: `?filter=firstName:John,Bob`.
+
+- To negate the filter use `!`: `?filter=firstName:!John`. Note that you can negate multiple values like this: `?filter=firstName:!John,Bob`. This filter rule will exclude all Johns and Bobs from the response.
+
+- You can use range filters like this: `?filter=amount:1..10`.
+
+- You can use gte (greater than or equals) filter like this: `?filter=amount:1..`, or lte (less than or equals) than filter like this: `?filter=amount:..10`.
+
+- You can create some [predefined values lists](https://rebilly.github.io/RebillyUserAPI/#tag/Lists) and use them in filter: `?filter=firstName:@yourListName`. You can also exclude list values: `?filter=firstName:!@yourListName`
 
 
 ## Actions
@@ -930,26 +936,6 @@ rebilly.custom_fields.resource.get({
 * output `array`: The list of custom fields
   * items [CustomField](#customfield)
 
-### custom_fields.resource.name.delete
-Delete a custom field by its name
-
-
-
-```js
-rebilly.custom_fields.resource.name.delete({
-  "resource": "",
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resource **required** `string` (values: customers, payment-cards, subscriptions, transactions, websites, contacts, products): The resource type string
-  * name **required** `string`: The custom field's identifier string
-
-#### Output
-*Output schema unknown*
-
 ### custom_fields.resource.name.get
 Retrieve a schema of the given Custom Field for the given resource type
 
@@ -1261,20 +1247,36 @@ rebilly.files.get({}, context)
   * items [File](#file)
 
 ### files.post
-Create a file
+Additionally, a file can be sent with:
+ - multipart/form-data POST request: in this case all property names are the same as the JSON ones (`file` is an uploaded file)
+ - file body request: the file body is sent as the request body, with the appropriate `Content-Type`. No aditional
+ properties can be set along the request data
+
+The following file types only are allowed:
+ - jpg
+ - png
+ - gif
+ - pdf
+ - mp3
+
+
+If using a Publishable Api Key, only private files can be created. The files can later on be modified or used using
+ a secret API key.
 
 
 
 ```js
 rebilly.files.post({
-  "body": {}
+  "body": {
+    "file": "",
+    "url": ""
+  }
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** `object`
-    * url `string`: The file URL
+  * body **required** [FileCreateRequest](#filecreaterequest)
 
 #### Output
 * output [File](#file)
@@ -2532,6 +2534,52 @@ rebilly.subscriptions.id.cancel.post({
 #### Output
 * output [Subscription](#subscription)
 
+### subscriptions.id.change_plan.post
+Change a subscription's plan and designate when and if there should be pro rata credits given.
+
+
+
+```js
+rebilly.subscriptions.id.change_plan.post({
+  "body": {
+    "planId": null,
+    "renewalPolicy": "",
+    "prorated": true
+  },
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [SubscriptionChange](#subscriptionchange)
+  * id **required** `string`: The resource identifier string
+
+#### Output
+* output [Subscription](#subscription)
+
+### subscriptions.id.interim_invoice.post
+Issue an interim invoice for a subscription, typically used in conjunction with plan changes and pro rata adjustments.
+This process creates an invoice, adds the subscription's line items to the invoice, and issues the invoice, and applies
+payment to it if a transaction id is supplied.
+
+
+
+```js
+rebilly.subscriptions.id.interim_invoice.post({
+  "body": {},
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [SubscriptionInvoice](#subscriptioninvoice)
+  * id **required** `string`: The resource identifier string
+
+#### Output
+* output [Invoice](#invoice)
+
 ### subscriptions.id.lead_source.delete
 Delete a Lead Source that belongs to a certain Subscription
 
@@ -2605,29 +2653,6 @@ rebilly.subscriptions.id.matched_rules.get({
 #### Output
 * output `array`
   * items [MatchedRule](#matchedrule)
-
-### subscriptions.id.switch.post
-Switch a subscription
-
-
-
-```js
-rebilly.subscriptions.id.switch.post({
-  "body": {
-    "planId": null,
-    "policy": ""
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [SubscriptionSwitch](#subscriptionswitch)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Subscription](#subscription)
 
 ### tax_categories.get
 Retrieve a list of tax categories
@@ -2907,7 +2932,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -2919,7 +2944,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -2939,10 +2964,7 @@ rebilly.transactions.id.refund.post({
 
 ### A1GatewayMpis
 * A1GatewayMpis `object`: A1Gateway Mpis
-  * name **required** `string` (values: Other)
-
-### AcquirerName
-* AcquirerName `string` (values: Alipay, AIB, AstroPay Card, Ipay Options, B+S, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, Beanstream, BMO Harris Bank, Borgun, BraintreePayments, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, Flexepin, Forte, FundSend, GlobalCollect, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, RBC, RBS WorldPay, RealTime, RebillyProcessor, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): Acquirer name
+  * name **required** `string` (values: PaayMpi, Other)
 
 ### AmexVPC
 * AmexVPC: AmexVPC config
@@ -2950,7 +2972,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -2962,7 +2984,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -2992,42 +3014,6 @@ rebilly.transactions.id.refund.post({
   * max `number`: The maximum amount allowed
   * min **required** `number`: The minimum amount allowed
 
-### ApiKey
-* ApiKey `object`: API secret Key.
-  * _links `array`: The links related to resource
-
-  * apiUser `string`: API user name
-  * createdTime: The API key created time
-  * datetimeFormat `string` (values: mysql, iso8601): Date time format
-  * description `string`: API key description
-  * id
-  * secretKey `string`: API secret key's value
-
-### ApiTracking
-* ApiTracking `object`: Tracking API Requests.
-  * _links `array`: The links related to resource
-
-  * createdTime: The log created time
-  * duration `integer`: Request duration in milliseconds
-  * id
-  * method `string` (values: HEAD, GET, POST, PUT, DELETE, PATCH): HTTP method
-  * request `string`: Request JSON-string
-  * requestHeaders `object`
-  * response `string`: Response JSON-string
-  * responseHeaders `object`
-  * status `integer`: HTTP response code
-  * url `string`: API request address
-  * user `object`: The user who has made a request
-    * apiKeyId
-    * email `string`: The user email
-    * fingerprint `string`: The user device fingerprint hash
-    * firstName `string`: The user first name
-    * ipAddress `string`: Client IP address
-    * isSupport `boolean`: If user from support
-    * lastName `string`: The user last name
-    * userAgent `string`: The software that is acting on behalf of a user
-    * userId
-
 ### ApprovalUrlLink
 * ApprovalUrlLink `object`
   * rel **required** `string` (values: approvalUrl): The link type
@@ -3039,7 +3025,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3051,7 +3037,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3111,7 +3097,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3123,7 +3109,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3153,6 +3139,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -3179,7 +3166,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3191,7 +3178,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3225,7 +3212,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3237,7 +3224,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3263,7 +3250,7 @@ rebilly.transactions.id.refund.post({
 
 ### CardinalCommerce
 * CardinalCommerce: CardinalCommerce Mpi Credentials
-  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, Other)
+  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, PaayMpi, Other)
   * merchantId **required** `string`: Cardinal MerchantId
   * processorId **required** `string`: Cardinal ProcessorId
   * transactionPwd **required** `string`: Cardinal TransactionPwd
@@ -3274,7 +3261,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3286,7 +3273,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3309,7 +3296,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3321,7 +3308,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3345,7 +3332,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3357,7 +3344,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3376,60 +3363,6 @@ rebilly.transactions.id.refund.post({
     * partialAuth **required** `boolean`: Support for Partial Auths
     * password **required** `string`: Chase Gateway Net Connect password
     * username **required** `string`: Chase Gateway Net Connect username
-
-### CheckoutPage
-* CheckoutPage `object`
-  * _links `array`: The links related to resource
-
-  * allowCustomCustomerId `boolean`: If to enable your own customer ID in requests
-  * createdTime: Checkout page created time
-  * id: Checkout page identifier string
-  * isActive `boolean`: If checkout page active
-  * name **required** `string`: Checkout page name
-  * planId **required** `string`: Checkout page plan ID
-  * redirectTimeout `integer`: Checkout page redirect timeout
-  * redirectUrl `string`: Checkout page url
-  * updatedTime: Checkout page updated time
-  * uriPath **required** `string`: Your own custom uri path for this Checkout Page. It will be appended to checkout url https://checkout.rebilly.com/checkout/<uriPath>
-  * websiteId **required** `string`: Checkout page website ID
-
-### ChinaUnionPay
-* ChinaUnionPay: China Union Pay Gateway config
-  * _links `array`: The links related to resource
-
-  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
-    * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
-  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
-    * items [AmountRestrictions](#amountrestrictions)
-  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
-  * createdTime: Gateway Account created time
-  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
-  * descriptor `string`: The gateway account's descriptor
-  * downtimeEnd `string`: Gateway account downtime end
-  * downtimeStart `string`: Gateway account downtime start
-  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
-  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
-    * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
-  * id: The gateway identifier string
-  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
-  * method [Method](#method)
-  * monthlyLimit `number`: Monthly Limit
-  * organizationId **required**: Organization ID
-  * paymentCardSchemes `array`: Accepted payment card brands
-    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
-  * status `string` (values: active, inactive, pending): The gateway account's status
-  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
-  * updatedTime: Gateway Account updated time
-  * websites **required** `array`: Websites IDs
-    * items: Website ID
-  * gatewayConfig **required** `object`
-    * accountId **required** `string`: China Union Pay Gateway account ID
-    * goods **required** `string`: China Union Pay Gateway goods
-    * md5key **required** `string`: China Union Pay Gateway md5key
-    * mobilePay **required** `string`: China Union Pay Gateway mobile pay param
-    * partyId **required** `string`: China Union Pay Gateway party ID
 
 ### CommonScheduleInstruction
 * CommonScheduleInstruction `object`: The calculation instruction of scheduled time
@@ -3452,6 +3385,7 @@ rebilly.transactions.id.refund.post({
   * customerId: The contact customer ID
   * emails [ContactEmails](#contactemails)
   * firstName `string`: The contact first name
+  * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values, excluding id, customer id, createdTime, updatedTime.
   * id: The contact identifier string
   * lastName `string`: The contact last name
   * organization `string`: The contact organization
@@ -3475,6 +3409,7 @@ rebilly.transactions.id.refund.post({
   * country `string`: The contact country ISO Alpha-2 code
   * emails [ContactEmails](#contactemails)
   * firstName `string`: The contact first name
+  * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
   * lastName `string`: The contact last name
   * organization `string`: The contact organization
   * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -3515,9 +3450,9 @@ rebilly.transactions.id.refund.post({
   * additionalRestrictions `array`: Additional restrictions for coupon's redemptions
 
   * canceledTime: Coupon redemption canceled time
+  * createdTime: Coupon redeem time
   * customerId: Customer's ID
   * id
-  * redeemedTime: Coupon redeem time
   * redemptionCode: Coupon's redemption code
 
 ### CouponRestriction
@@ -3540,7 +3475,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3552,7 +3487,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3569,17 +3504,6 @@ rebilly.transactions.id.refund.post({
     * merchantId **required** `string`: Credorax Gateway merchant ID
     * merchantMd5Signature **required** `string`: Credorax Gateway md5 signature
 
-### CustomEvent
-* CustomEvent `object`
-  * chronology **required** `string` (values: before, after): The emitting time of the custom event relatively to the system event
-  * createdTime [ServerTimestamp](#servertimestamp)
-  * description `string`: The custom event description
-  * eventType **required** `string` (values: subscription-ended, subscription-trial-ended, subscription-renewed, payment-card-expired, invoice-past-due, invoice-issued, invoice-voided, invoice-paid, invoice-abandoned): The system event type
-  * id: The custom event identifier string
-  * rulesCount `integer`
-  * scheduleInstruction **required** [CustomEventScheduleInstruction](#customeventscheduleinstruction)
-  * title **required** `string`: The custom event title
-
 ### CustomEventScheduleInstruction
 * CustomEventScheduleInstruction `object`: The calculation instruction of scheduled time
   * method **required** `string` (values: date-interval, day-of-month, day-of-week)
@@ -3589,7 +3513,6 @@ rebilly.transactions.id.refund.post({
   * _links `array`: The links related to resource
 
   * description `string`: The custom field description
-  * isUsed `boolean`: A flag to represent that the custom field is used on a record of the resource.
   * name **required** `string`: The name of the custom field
   * type **required** `string` (values: array, boolean, datetime, integer, number, string, monetary): Type value    | Description
 
@@ -3615,7 +3538,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3627,7 +3550,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3669,7 +3592,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3681,7 +3604,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3739,27 +3662,13 @@ rebilly.transactions.id.refund.post({
   * rel **required** `string` (values: dispute): The link type
   * href **required** `string`: The link URL
 
-### EmailNotification
-* EmailNotification `object`
-  * bcc `array`: The hidden recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * bodyHtml **required** `string`: Leave empty to recieve "text/plain" email.
-  * bodyText **required** `string`: Leave empty to use text from "bodyHtml" without tags.
-  * cc `array`: The recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * credentialHash **required** `string`: SMTP Credential identifier string.
-  * recipients **required** `array`: The recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * sender **required** `string`: The sender address. The template palceholders are allowed.
-  * subject **required** `string`: The message subject. The template palceholders are allowed.
-
 ### Error
 * Error `object`
   * error `string`
   * status `integer`
 
 ### EventType
-* EventType `string` (values: dispute-created, gateway-account-requested, transaction-processed, subscription-activated, subscription-canceled, subscription-created, subscription-renewed, payment-card-expired, invoice-past-due, payment-declined, transaction-process-requested, risk-score-changed): Rebilly event type
+* EventType `string` (values: dispute-created, gateway-account-requested, transaction-processed, subscription-activated, subscription-canceled, subscription-created, subscription-renewed, payment-card-expired, invoice-past-due, transaction-declined, transaction-process-requested, risk-score-changed): Rebilly event type
 
 ### File
 * File `object`
@@ -3781,6 +3690,16 @@ rebilly.transactions.id.refund.post({
   * url `string`: Write-only. If defined on POST, this would be used as a file source.
   * width `integer`: Image width, applicable to images only
 
+### FileCreateRequest
+* FileCreateRequest `object`
+  * description `string`: The file description
+  * file **required** `string`: The file in base64 encoded format. This or `url` is required.
+  * isPublic `boolean`: The File visibility. If public a permalink is provided.
+  * name `string`: The file name used for downloading
+  * tags `array`: The tags list
+    * items `string`
+  * url **required** `string`: The URL of the file to upload. This or `file` is required.
+
 ### FileDownloadLink
 * FileDownloadLink `object`
   * rel **required** `string` (values: download): The link type
@@ -3797,7 +3716,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3809,7 +3728,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3826,17 +3745,13 @@ rebilly.transactions.id.refund.post({
     * apiKey **required** `string`: Flexepin API Key
     * apiSecret **required** `string`: Flexepin API Secret
 
-### ForgotPassword
-* ForgotPassword `object`
-  * email **required** `string`: Email
-
 ### Forte
 * Forte: Forte Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3848,7 +3763,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3873,7 +3788,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3885,7 +3800,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3908,7 +3823,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3920,7 +3835,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3939,7 +3854,7 @@ rebilly.transactions.id.refund.post({
 
 ### GETMpis
 * GETMpis `object`: GET Mpis
-  * name **required** `string` (values: Other)
+  * name **required** `string` (values: PaayMpi, Other)
 
 ### GatewayAccount
 * GatewayAccount `object`
@@ -3947,7 +3862,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -3959,7 +3874,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -3978,20 +3893,13 @@ rebilly.transactions.id.refund.post({
   * rel **required** `string` (values: gatewayAccount): The link type
   * href **required** `string`: The link URL
 
-### GatewayAccountPickInstruction
-* GatewayAccountPickInstruction `object`
-  * method **required** `string` (values: gateway-account-weights, gateway-acquirer-weights)
-
-### GatewayName
-* GatewayName `string` (values: A1Gateway, AmexVPC, AstroPayCard, AuthorizeNet, Beanstream, BraintreePayments, Cashflows, Cayan, Chase, ChinaUnionPay, Credorax, DataCash, Dengi, eMerchantPay, Flexepin, FundSend, Forte, GET, GlobalCollect, GlobalOne, Gpaysafe, iCheque, Ilixium, Intuit, IpayOptions, JetPay, Jeton, Moneris, NMI, OchaPay, Optimal, PandaGateway, Payeezy, Payflow, PayPal, Payr, Payvision, Plugnpay, Realex, RealTime, RebillyProcessor, Redsys, RPN, Sagepay, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The gateway name
-
 ### GlobalCollect
 * GlobalCollect: GlobalCollect Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4003,7 +3911,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4037,7 +3945,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4049,7 +3957,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4066,31 +3974,13 @@ rebilly.transactions.id.refund.post({
     * sharedSecret **required** `string`: GlobalOne Gateway shared secret
     * terminalId **required** `string`: GlobalOne Gateway terminal ID
 
-### GlobalWebhook
-* GlobalWebhook `object`
-  * _links `array`: Links related to resource
-
-  * createdTime: List created time
-  * credentialHash **required** `string`: Hash from Credentials which is used for authentication by the given URL
-  * eventsFilter `array`: An array of System event type
-    * items [GlobalWebhookEventType](#globalwebhookeventtype)
-  * headers `object`: Map of elements with header name - header value association
-  * id: The webhook identifier string
-  * method **required** `string` (values: GET, POST, PUT, PATCH, DELETE)
-  * status [OnOff](#onoff)
-  * updatedTime: List updated time
-  * url **required** `string`: URL that will be triggered when the given event occurs.
-
-### GlobalWebhookEventType
-* GlobalWebhookEventType `string` (values: gateway-account-requested, subscription-trial-ended, subscription-activated, subscription-canceled, subscription-renewed, transaction-processed, payment-card-expired, payment-declined, invoice-modified, invoice-created, dispute-created, suspended-payment-completed): Rebilly webhooks event type
-
 ### Gpaysafe
 * Gpaysafe: Gpaysafe Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4102,7 +3992,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4124,7 +4014,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4136,7 +4026,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4169,7 +4059,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4181,7 +4071,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4218,6 +4108,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -4235,6 +4126,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -4248,6 +4140,7 @@ rebilly.transactions.id.refund.post({
       * redemptionId: Redemption ID
   * dueTime: Invoice due time
   * id: The invoice identifier string
+  * invoiceNumber `integer`: An auto-incrementing number based on the sequence of invoices for any particular customer.
   * issuedTime: Invoice issued time
   * items `array`: Invoice items array
     * items `string`
@@ -4301,7 +4194,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4313,7 +4206,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4341,7 +4234,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4353,7 +4246,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4375,7 +4268,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4387,7 +4280,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4403,24 +4296,6 @@ rebilly.transactions.id.refund.post({
   * gatewayConfig **required** `object`
     * apiKey **required** `string`: Jeton apiKey
 
-### Layout
-* Layout `object`
-  * _links `array`: The links related to resource
-
-  * createdTime: Layout created time
-  * id: The layout identifier string
-  * items `array`: The array of layout items (planId and starred)
-    * items [LayoutItem](#layoutitem)
-  * name **required** `string`: The name of the layout string
-
-### LayoutItem
-* LayoutItem `object`
-  * _links `array`: The links related to resource
-
-  * order `integer`: Item's order in Layout
-  * planId **required**: The plan identifier string
-  * starred `boolean`: Boolean if the plan should be starred (special callout presentation)
-
 ### LeadSource
 * LeadSource `object`
   * _links `array`: The links related to resource
@@ -4433,7 +4308,6 @@ rebilly.transactions.id.refund.post({
   * createdTime: LeadSource created time
   * currency `string`: Currency (three letter ISO 4217 alpha code) (eg USD, EUR)
   * id: The lead source identifier string
-  * ipAddress `string`: Customer's IP Address
   * medium `string`: Lead Source's medium (eg search, display)
   * path `string`: Lead Source's path uri (eg www.example.com/some/landing/path)
   * salesAgent `string`: Lead Source's sales agent (eg James Bond)
@@ -4446,18 +4320,6 @@ rebilly.transactions.id.refund.post({
 * LeadSourceLink `object`
   * rel **required** `string` (values: leadSource): The link type
   * href **required** `string`: The link URL
-
-### List
-* List `object`
-  * _links `array`: Links related to resource
-
-  * createdTime: List created time
-  * id: List ID
-  * name **required** `string`: List name
-  * updatedTime: List updated time
-  * values **required** `array`: List values
-    * items `string`
-  * version `integer`: List version
 
 ### MatchedRule
 * MatchedRule `object`
@@ -4474,7 +4336,7 @@ rebilly.transactions.id.refund.post({
   * rulesVersion `integer`: Rule version
 
 ### Method
-* Method `string` (values: ach, cash, payment-card, paypal, Alipay, China UnionPay, Flexepin, Gpaysafe, Jeton, OchaPay, SMSVoucher, UPayCard, WeChat Pay, AstroPay Card, bank-transfer, bitcoin, Boleto, cash-deposit, echeck, instant-bank-transfer, invoice, miscellaneous, online-bank-transfer, phone, voucher): The payment method
+* Method `string` (values: ach, cash, payment-card, paypal, Alipay, China UnionPay, Flexepin, Gpaysafe, Jeton, OchaPay, SMSVoucher, UPayCard, WeChat Pay, AstroPay Card, bank-transfer, bitcoin, Boleto, cash-deposit, echeck, instant-bank-transfer, invoice, miscellaneous, online-bank-transfer, phone, voucher, QQPay): The payment method
 
 ### Moneris
 * Moneris: Moneris Gateway config
@@ -4482,7 +4344,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4494,7 +4356,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4512,15 +4374,15 @@ rebilly.transactions.id.refund.post({
     * storeId **required** `string`: Moneris Gateway store ID
 
 ### MpiName
-* MpiName `string` (values: PayvisionMpi, WirecardMpi, IlixiumMpi, DataCashMpi, OptimalMpi, GlobalCollectMpi, CardinalCommerce, Other): The Merchant plug-in Name
+* MpiName `string` (values: PayvisionMpi, WirecardMpi, IlixiumMpi, DataCashMpi, OptimalMpi, GlobalCollectMpi, CardinalCommerce, PaayMpi, Other): The Merchant plug-in Name
 
-### NMI
-* NMI: NMI Gateway config
+### MtaPay
+* MtaPay: MTA Pay Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4532,7 +4394,45 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * accountId **required** `string`: MTA Pay Gateway account ID
+    * goods **required** `string`: MTA Pay Gateway goods
+    * md5key **required** `string`: MTA Pay Gateway md5key
+    * mobilePay **required** `string`: MTA Pay Gateway mobile pay param
+    * partyId **required** `string`: MTA Pay Gateway party ID
+
+### NMI
+* NMI: NMI Gateway config
+  * _links `array`: The links related to resource
+
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4552,25 +4452,11 @@ rebilly.transactions.id.refund.post({
 
 ### NMIMpis
 * NMIMpis `object`: NMI Mpis
-  * name **required** `string` (values: Other)
+  * name **required** `string` (values: PaayMpi, Other)
 
 ### NewLink
 * NewLink `object`
   * href **required** `string`: The link URL
-
-### Note
-* Note `object`
-  * _links `array`: The links related to resource
-
-  * archived `boolean`: Is the note archived (excluded from List method)
-  * archivedTime: Note archived time
-  * content **required** `string`: The note's name
-  * createdBy `string`: The note's creator
-  * createdTime: Note created time
-  * id: The note identifier string
-  * relatedId **required**: The note's related resource ID
-  * relatedType **required** `string` (values: customer, payment-card, payment-gateway, subscription, transaction): The note's related resource type
-  * updatedTime: Note updated time
 
 ### NotesLink
 * NotesLink `object`
@@ -4583,7 +4469,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4595,7 +4481,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4627,7 +4513,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4639,7 +4525,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4666,21 +4552,6 @@ rebilly.transactions.id.refund.post({
 * OptimalMpis `object`: Optimal Mpis
   * name **required** `string` (values: OptimalMpi)
 
-### Organization
-* Organization `object`
-  * _links `array`: The links related to resource
-
-  * address `string`: The organization street address
-  * address2 `string`: The organization street address
-  * city `string`: The organization city
-  * country **required** `string`: The organization country ISO Alpha-2 code
-  * createdTime [ServerTimestamp](#servertimestamp)
-  * id: The organization identifier string
-  * name **required** `string`: The organization name
-  * postalCode `string`: The organization postal code
-  * region `string`: The organization region (state)
-  * updatedTime: The organization updated time
-
 ### OrganizationLink
 * OrganizationLink `object`
   * rel **required** `string` (values: organization): The link type
@@ -4688,14 +4559,29 @@ rebilly.transactions.id.refund.post({
 
 ### Other
 * Other: Other
-  * name **required** `string` (values: Other)
-  * name **required** `string` (values: Other)
-  * name **required** `string` (values: Other)
-  * name **required** `string` (values: Other)
-  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, Other)
-  * name **required** `string` (values: Other)
-  * name **required** `string` (values: Other)
-  * name **required** `string` (values: Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+
+### PaayMpi
+* PaayMpi: Paay
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * name **required** `string` (values: PaayMpi, Other)
+  * apiKey **required** `string`: Paay ApiKey
+  * mpiUrl **required** `string`: Paay MPI url
+  * sandboxMpiUrl **required** `string`: Paay sandbox MPI url
+  * secret **required** `string`: Paay secret
 
 ### PandaGateway
 * PandaGateway: Panda Gateway config
@@ -4703,7 +4589,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4715,7 +4601,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4744,7 +4630,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4756,7 +4642,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4784,6 +4670,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -4803,7 +4690,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4815,7 +4702,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4840,7 +4727,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -4852,7 +4739,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -4882,6 +4769,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -4939,6 +4827,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -4995,6 +4884,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -5002,19 +4892,19 @@ rebilly.transactions.id.refund.post({
     * region `string`: The contact region (state)
   * fingerprint `string`: Device fingerprint hash
   * id: The token identifier string
-  * method **required** [Method](#method)
+  * method **required** `string` (values: payment-card, ach): The payment method
   * paymentInstrument **required** [PaymentTokenInstrument](#paymenttokeninstrument)
 
 ### PaymentTokenInstrument
 * PaymentTokenInstrument `object`: Payment Token instrument object
-  * accountNumber `integer`: AccountNumber
+  * accountNumber `integer`: AccountNumber, required if the method is `bank-account`
   * accountType `string`: Account Type
   * bankName `string`: Bank name
   * cvv `string`: The CVV/CVC of the payment card
-  * expMonth `integer`: Card's expiry month
-  * expYear `integer`: Card's expiry year
-  * pan `string`: The card PAN (Primary Account Number)
-  * routingNumber `integer`: Routing Number
+  * expMonth `integer`: Card's expiry month, required if the method is `payment-card`
+  * expYear `integer`: Card's expiry year, required if the method is `payment-card`
+  * pan `string`: The card PAN (Primary Account Number), required if the method is `payment-card`
+  * routingNumber `integer`: Routing Number, required if the method is `bank-account`
 
 ### Payr
 * Payr: Payr Gateway config
@@ -5022,7 +4912,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5034,7 +4924,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5057,7 +4947,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5069,7 +4959,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5091,11 +4981,11 @@ rebilly.transactions.id.refund.post({
 
 ### PayvisionMpi
 * PayvisionMpi: Payvision Integrated
-  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, Other)
+  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, PaayMpi, Other)
 
 ### PayvisionMpis
 * PayvisionMpis `object`: Payvision Mpis
-  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, Other)
+  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, PaayMpi, Other)
 
 ### PermalinkLink
 * PermalinkLink `object`
@@ -5140,7 +5030,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5152,7 +5042,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5193,30 +5083,13 @@ rebilly.transactions.id.refund.post({
   * taxCategoryId `string` (values: 99999, 20010, 40030, 51020, 51010, 31000, 30070): The product's tax category identifier string
   * updatedTime: The product updated time
 
-### Profile
-* Profile `object`
-  * availableCurrencies `array`: An array of reporting currencies enabled for the merchant
-    * items `string`
-  * businessPhone `string`: The user business phone number
-  * country `string`: The user country setting - two letter code
-  * email `string`: The user email
-  * firstName `string`: User's first name
-  * id: The user identifier string
-  * lastName `string`: User's last name
-  * mobilePhone `string`: The user mobile phone number
-  * preferences `object`: User preferences like timezone, language and many more. This is an object with custom properties.
-  * reportingCurrency `string`: The user's ISO Alpha-3 code used for reports
-  * totpRequired `boolean`: The user setting of two-factor authentification
-  * totpSecret `string`: The user TOTP key for authentification app (if TOTP enabled)
-  * totpUrl `string`: The user link to QR-code for TOTP authentification app (if TOTP enabled)
-
 ### RPN
 * RPN: RPN Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5228,7 +5101,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5251,7 +5124,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5263,7 +5136,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5286,7 +5159,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5298,7 +5171,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5323,7 +5196,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5335,7 +5208,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5375,7 +5248,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5387,7 +5260,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5408,10 +5281,6 @@ rebilly.transactions.id.refund.post({
 * RefundUrlLink `object`
   * rel **required** `string` (values: refundUrl): The link type
   * href **required** `string`: The link URL
-
-### ResetPassword
-* ResetPassword `object`
-  * newPassword **required** `string`: New password
 
 ### ResetPasswordToken
 * ResetPasswordToken `object`
@@ -5455,49 +5324,10 @@ rebilly.transactions.id.refund.post({
   * timeZone `string`: Time zone for specified ipAddress
   * vpnServiceName `string`: VPN service name, if available
 
-### Rule
-* Rule `object`: The rule
-  * actions **required** `array`
-    * items [RuleAction](#ruleaction)
-  * criteria [Condition](#condition)
-  * final `boolean`: Whether rule is final, meaning stop further matching rules if this is matched
-  * name **required** `string`
-  * status [OnOff](#onoff)
-
-### RuleAction
-* RuleAction `object`
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-
-### RuleSet
-* RuleSet `object`: Set of rules for particular event
-  * _links `array`: The links related to resource
-
-  * rules **required** `array`
-    * items [Rule](#rule)
-  * updatedTime [ServerTimestamp](#servertimestamp)
-  * version `integer`
-
-### RuleSetHistoryItem
-* RuleSetHistoryItem `object`: Version of rules
-  * _links `array`: The links related to a resource
-
-  * createdTime [ServerTimestamp](#servertimestamp)
-  * version `integer`
-
 ### RuleSetHistoryLink
 * RuleSetHistoryLink `object`
   * rel **required** `string` (values: history): The link type
   * href **required** `string`: The link URL
-
-### RuleSetVersion
-* RuleSetVersion `object`: Version of rules
-  * _links `array`: The links related to resource
-
-  * createdTime [ServerTimestamp](#servertimestamp)
-  * rules `array`
-    * items [Rule](#rule)
-  * version `integer`
 
 ### RuleSetVersionLink
 * RuleSetVersionLink `object`
@@ -5510,7 +5340,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5522,7 +5352,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5544,7 +5374,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5556,7 +5386,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5578,50 +5408,8 @@ rebilly.transactions.id.refund.post({
   * rel **required** `string` (values: self): The link type
   * href **required** `string`: The link URL
 
-### SendPreviewWebhook
-* SendPreviewWebhook: Trigger a test webhook
-  * body `string`
-  * credentialHash `string`: Webhook Credential identifier string.
-  * headers `array`
-    * items [WebhookHeader](#webhookheader)
-  * method **required** `string` (values: GET, POST, PUT, PATCH, DELETE)
-  * query `object`: The URI parameters
-  * url **required** `string`
-
-### SendTestEmail
-* SendTestEmail: Send a test email
-  * bcc `array`: The hidden recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * bodyHtml **required** `string`: Leave empty to recieve "text/plain" email.
-  * bodyText **required** `string`: Leave empty to use text from "bodyHtml" without tags.
-  * cc `array`: The recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * credentialHash **required** `string`: SMTP Credential identifier string.
-  * recipients **required** `array`: The recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * sender **required** `string`: The sender address. The template palceholders are allowed.
-  * subject **required** `string`: The message subject. The template palceholders are allowed.
-
 ### ServerTimestamp
 * ServerTimestamp `string`: Read-only timestamp, automatically assigned on back-end.
-
-### Session
-* Session `object`
-  * _links `array`: The links related to resource
-
-  * createdTime: Session created time
-  * expiredTime `string`: Session expired time. Defaults to one hour
-  * id: The session identifier string
-  * permissions **required**: The session's permissions. See the format in example
-    * items `object`
-      * methods `array`
-        * items `string` (values: HEAD, GET, POST, PUT, DELETE, PATCH)
-      * resourceIds `array`
-        * items [ResourceId](#resourceid)
-      * resourceName `string` (values: 3dsecure, api-keys, api-tracking, authentication-options, authentication-tokens, bank-accounts, blacklists, checkout-pages, contacts, coupons, coupons-redemptions, credentials, custom-events, custom-fields, customers, disputes, events, gateway-accounts, invoices, layouts, lead-sources, lists, matched-rules, notes, oct-batch, organizations, password-tokens, payments, payment-cards, payment-cards-migrations, paypal-accounts, plans, reports, reset-sandbox, rulesets, sessions, subscriptions, subscription-tracking, tokens, transactions, users, webhook, webhook-tracking, websites)
-  * token `string`: The session's token used for authentication
-  * updatedTime: Session updated time
-  * userId: The user identifier string
 
 ### ShippingZone
 * ShippingZone `object`
@@ -5648,46 +5436,13 @@ rebilly.transactions.id.refund.post({
   * rel **required** `string` (values: signedLink): The link type
   * href **required** `string`: The link URL
 
-### Signin
-* Signin `object`
-  * email **required** `string`: Email
-  * expiredTime `string`: Session expired time. Defaults to one hour
-  * password **required** `string`: Password
-
-### Signup
-* Signup `object`
-  * businessPhone **required** `string`: The user business phone number
-  * company **required** `string`: The user's company name
-  * currencies `array`: An array of currencies codes
-    * items `string`: 3 letters ISO 4217 currency code
-  * email **required** `string`: The user email
-  * firstName **required** `string`: The user first name
-  * lastName **required** `string`: The user last name
-  * merchantCategoryCode `integer`: Merchant category code. Defaults to "Computer Software Stores"
-  * password **required** `string`: The user password
-  * website **required** `string`: The user's website address
-
-### SmtpAuthorization
-* SmtpAuthorization `object`
-  * type `string` (values: none, plain, login, cram-md5)
-
-### SmtpCredential
-* SmtpCredential `object`: SMTP Credential
-  * _links `array`: The links related to resource
-
-  * auth [SmtpAuthorization](#smtpauthorization)
-  * encryption `string` (values: none, tls, ssl): The encryption value
-  * hash
-  * host **required** `string`: The host name
-  * port `integer`: The port value
-
 ### StaticGateway
 * StaticGateway: StaticGateway Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5699,7 +5454,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5713,18 +5468,13 @@ rebilly.transactions.id.refund.post({
   * websites **required** `array`: Websites IDs
     * items: Website ID
 
-### Status
-* Status `object`
-  * status `string` (values: ok): The API status. If everything is ok - value is 'ok'
-  * time: Current time
-
 ### Stripe
 * Stripe: Stripe Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -5736,7 +5486,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -5765,6 +5515,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -5784,6 +5535,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -5793,6 +5545,17 @@ rebilly.transactions.id.refund.post({
   * id: The Subscription identifier string
   * inTrial `boolean`: True if the subscription is currently in a trial period
   * initialInvoiceId: Unique id for the initial invoice
+  * lineItemSubtotal `number`: Subtotal of line items in this subscription (signed value).  If credits exceed debits, it will be a negative number.
+  * lineItems `array`: Subscription line items which queue until the next renewal (or interim) invoice is issued for the subscription.
+    * items `object`: Line item
+      * createdTime `string`: Date-time when the item was added to the subscription
+      * description `string`: Description of line item
+      * periodEndTime `string`: Date-time when the period ends for this item
+      * periodStartTime `string`: Date-time when the period begins for this item
+      * quantity `integer`: Quantity of line item
+      * type `string` (values: debit, credit): Type of line item
+      * unitPriceAmount `integer`: Unit price in minor unit coins of the line item
+      * unitPriceCurrency `string`: Currency ISO code
   * planId **required**: Unique id for each plan
   * quantity `integer`: Quantity for each subscription. Default value to 1
   * rebillNumber `integer`: The current period number
@@ -5817,7 +5580,7 @@ rebilly.transactions.id.refund.post({
     * timeZone `string`: Time zone for specified ipAddress
     * vpnServiceName `string`: VPN service name, if available
   * startTime `string`: Subscription start time
-  * status `string`: Subscription status
+  * status `string` (values: Active, Will become active at a future date, Active but set to cancel at next rebill date, Cancelled, Inactive, Suspended): Subscription status is deprecated and the values will change to `active`, `canceled`.
   * updatedTime: Subscription updated time
   * websiteId **required**: Unique id for each website
 
@@ -5828,37 +5591,22 @@ rebilly.transactions.id.refund.post({
   * canceledBy **required** `string` (values: merchant, customer): Canceled by
   * policy **required** `string` (values: at-next-renewal, now-with-prorata-credit, now): Cancel policy
 
+### SubscriptionChange
+* SubscriptionChange `object`
+  * effectiveTime `string`: The date from which the renewal time (for `reset` operations) and proration calculations are made.  If omitted, it will default to the current time.
+  * planId **required**: The plan identifier string
+  * preview `boolean`: If set to true, it will not change the subscription.  It allows for a way to preview the changes that would be made to a subscription.
+  * prorated **required** `boolean`: Whether or not to give a pro rata credit for the amount of time remaining between the `effectiveTime` and the end of the current period.
+  * renewalPolicy **required** `string` (values: reset, retain): The value determines whether the subscription retains its current `renewalTime` or resets it to a newly calculated `renewalTime`.
+
+### SubscriptionInvoice
+* SubscriptionInvoice `object`
+  * transactionId: If present, applies a payment to the invoice created.  If the payment is for the invoice total, it would be marked as paid.
+
 ### SubscriptionLink
 * SubscriptionLink `object`
   * rel **required** `string` (values: subscription): The link type
   * href **required** `string`: The link URL
-
-### SubscriptionSwitch
-* SubscriptionSwitch `object`
-  * planId **required**: The plan identifier string
-  * policy **required** `string` (values: at-next-renewal, now-with-prorata-credit, now): Switch policy
-  * quantity `integer`: Quantity for each subscription. Default value to 1
-  * websiteId: The website's ID
-
-### SubscriptionTracking
-* SubscriptionTracking `object`: Tracking subscription log
-  * _links `array`: The links related to resource
-
-  * createdTime: The log created time
-  * id
-  * invoiceItemId
-  * message `string`: It contains the transaction number and renewal time
-  * result `string` (values: created, postponed, stopped, error): Subscription's result
-  * subscriptionId
-
-### SystemEvent
-* SystemEvent `object`: The application event
-  * _links `array`: The links related to resource
-
-  * description `string`
-  * eventType [EventType](#eventtype)
-  * rulesCount `integer`
-  * title `string`
 
 ### TaxCategory
 * TaxCategory `object`
@@ -5908,7 +5656,7 @@ rebilly.transactions.id.refund.post({
     * liability **required** `string` (values: protected, not protected, protected (attempt))
   * _links `array`: The links related to resource
 
-  * acquirerName `string`: Acquirer name, available only when transaction use gateway, else null
+  * acquirerName: Acquirer name, available only when transaction use gateway, else null
   * amount `number`: The transactions's amount
   * billingAddress: Billing Address
     * address `string`: The contact street address
@@ -5917,6 +5665,7 @@ rebilly.transactions.id.refund.post({
     * country `string`: The contact country ISO Alpha-2 code
     * emails [ContactEmails](#contactemails)
     * firstName `string`: The contact first name
+    * hash `string`: A hash that can be used to compare multiple contacts for identical attribute values
     * lastName `string`: The contact last name
     * organization `string`: The contact organization
     * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -5941,11 +5690,15 @@ rebilly.transactions.id.refund.post({
   * description `string`: The payment description
   * gateway `object`: The related gateway information
     * avsResponse `object`: The AVS gateway's response
-      * code `string`: The raw response code
-      * message `string`: The raw response message
+      * code `string`: The response code
+      * message `string`: The response message
+      * originalCode `string`: The raw response code
+      * originalMessage `string`: The raw response message
     * cvvResponse `object`: The CVV gateway's response
-      * code `string`: The raw response code
-      * message `string`: The raw response message
+      * code `string`: The response code
+      * message `string`: The response message
+      * originalCode `string`: The raw response code
+      * originalMessage `string`: The raw response message
     * response `object`: The gateway's response
       * code `string`: The gateway's response code
       * message `string`: The gateway's response message
@@ -5953,8 +5706,9 @@ rebilly.transactions.id.refund.post({
       * originalMessage `string`: The raw, unmapped gateway's response message
       * type `string`: The gateway's response type
   * gatewayAccountId: The transactions's Gateway Account ID
-  * gatewayName `string`: Payment Gateway name, available only when transaction use gateway, else null
+  * gatewayName: Payment Gateway name, available only when transaction use gateway, else null
   * gatewayTransactionId: The gateway's transaction ID
+  * hadDiscrepancy `boolean`: True if the transaction has been updated due to a disprepancy with its source of truth
   * has3ds `boolean`
   * hasDcc `boolean`: True if transaction has Dynamic Currency Conversion applied
   * id: The transaction identifier string
@@ -5967,10 +5721,12 @@ rebilly.transactions.id.refund.post({
   * method: Payment Method
   * parentTransactionId: The transactions's parent ID
   * paymentInstrument [PaymentInstrument](#paymentinstrument)
+  * planIds `array`: The plan IDs related to transaction's subscription(s)
+
   * processedTime: Transaction processed time
   * rebillNumber `integer`: The transactions's rebill number
   * redirectUrls [RedirectUrls](#redirecturls)
-  * result `string` (values: approved, canceled, declined, unknown): Transaction result
+  * result `string` (values: abandoned, approved, canceled, declined, unknown): Transaction result
   * retriedTransactionId: The retried transaction ID
   * retriesResult `string` (values: approved, canceled, declined, scheduled): Retries sequence result
   * retryInstruction [PaymentRetry](#paymentretry)
@@ -5997,7 +5753,7 @@ rebilly.transactions.id.refund.post({
   * riskScore `integer`: The transactions's risk score
   * scheduledTime `string`: The time the transaction is scheduled for collection
   * status `string` (values: completed, connection-error, never-sent, pending, sending, suspended, timeout, waiting-capture, waiting-refund): Transaction status
-  * subscriptionIds `array`: The subscription IDs related to transaction
+  * subscriptionIds `array`: The subscription IDs related to transaction's invoice(s)
 
   * type `string` (values: authorize, capture, credit, refund, sale, void): Transaction type
   * updatedTime: Transaction updated time
@@ -6031,7 +5787,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6043,7 +5799,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -6067,7 +5823,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6079,7 +5835,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -6101,58 +5857,13 @@ rebilly.transactions.id.refund.post({
   * currentPassword `string`: Current user's password - used when requesting password change
   * newPassword `string`: New user's password - used when requesting password change
 
-### User
-* User `object`
-  * _links `array`: The links related to resource
-
-  * availableCurrencies `array`: An array of reporting currencies enabled for the merchant
-    * items `string`
-  * businessPhone `string`: The user business phone number
-  * country `string`: The user country setting - two letter code
-  * createdTime: The user created time
-  * email **required** `string`: The user email
-  * firstName **required** `string`: User's first name
-  * id: The user identifier string
-  * lastName **required** `string`: User's last name
-  * loginTime: The user last login time
-  * mobilePhone `string`: The user mobile phone number
-  * password `string`: User's password. If not provided, password reset email will be sent
-  * permissions: The user's permissions. See the format in example
-    * items `object`
-      * methods `array`
-        * items `string` (values: HEAD, GET, POST, PUT, DELETE, PATCH)
-      * resourceIds `array`
-        * items [ResourceId](#resourceid)
-      * resourceName `string` (values: 3dsecure, api-keys, api-tracking, authentication-options, authentication-tokens, bank-accounts, blacklists, checkout-pages, contacts, coupons, coupons-redemptions, credentials, custom-events, custom-fields, customers, disputes, events, gateway-accounts, invoices, layouts, lead-sources, lists, matched-rules, notes, oct-batch, organizations, password-tokens, payments, payment-cards, payment-cards-migrations, paypal-accounts, plans, reports, reset-sandbox, rulesets, sessions, subscriptions, subscription-tracking, tokens, transactions, users, webhook, webhook-tracking, websites)
-  * preferences `object`: User preferences like timezone, language and many more. This is an object with custom properties.
-  * reportingCurrency `string`: The user's ISO Alpha-3 code used for reports
-  * status `string` (values: active, inactive, pending-confirmation): The user status
-  * totpRequired `boolean`: The user setting of two-factor authentification
-  * totpSecret `string`: The user TOTP key for authentification app (if TOTP enabled)
-  * totpUrl `string`: The user link to QR-code for TOTP authentification app (if TOTP enabled)
-  * updatedTime: The user updated time
-
-### UserPasswordAuthorization
-* UserPasswordAuthorization `object`
-  * password **required** `string`
-  * username **required** `string`
-
-### UserPermissions
-* UserPermissions `array`
-  * items `object`
-    * methods `array`
-      * items `string` (values: HEAD, GET, POST, PUT, DELETE, PATCH)
-    * resourceIds `array`
-      * items [ResourceId](#resourceid)
-    * resourceName `string` (values: 3dsecure, api-keys, api-tracking, authentication-options, authentication-tokens, bank-accounts, blacklists, checkout-pages, contacts, coupons, coupons-redemptions, credentials, custom-events, custom-fields, customers, disputes, events, gateway-accounts, invoices, layouts, lead-sources, lists, matched-rules, notes, oct-batch, organizations, password-tokens, payments, payment-cards, payment-cards-migrations, paypal-accounts, plans, reports, reset-sandbox, rulesets, sessions, subscriptions, subscription-tracking, tokens, transactions, users, webhook, webhook-tracking, websites)
-
 ### VantivLitle
 * VantivLitle: VantivLitle Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6164,7 +5875,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -6185,7 +5896,7 @@ rebilly.transactions.id.refund.post({
 
 ### VantivLitleMpis
 * VantivLitleMpis `object`: VantivLitle Mpis
-  * name **required** `string` (values: Other)
+  * name **required** `string` (values: PaayMpi, Other)
 
 ### Walpay
 * Walpay: Walpay Gateway config
@@ -6193,7 +5904,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6205,7 +5916,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -6225,51 +5936,7 @@ rebilly.transactions.id.refund.post({
 
 ### WalpayMpis
 * WalpayMpis `object`: WalpayMpis Mpis
-  * name **required** `string` (values: Other)
-
-### Webhook
-* Webhook `object`
-  * body `string`
-  * credentialHash `string`: Webhook Credential identifier string.
-  * headers `array`
-    * items [WebhookHeader](#webhookheader)
-  * method **required** `string` (values: GET, POST, PUT, PATCH, DELETE)
-  * query `object`: The URI parameters
-  * url **required** `string`
-
-### WebhookAuthorization
-* WebhookAuthorization `object`
-  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
-
-### WebhookCredential
-* WebhookCredential `object`: Webhook credential
-  * auth [WebhookAuthorization](#webhookauthorization)
-  * hash
-  * host **required** `string`: The host name
-
-### WebhookHeader
-* WebhookHeader `object`
-  * name **required** `string`
-  * status [OnOff](#onoff)
-  * value **required** `string`
-
-### WebhookTracking
-* WebhookTracking `object`: Webhook Tracking Requests.
-  * _links `array`: The links related to resource
-
-  * attempt `integer`: The Webhook's attempt number
-  * createdTime: The log created time
-  * eventType [EventType](#eventtype)
-  * headers `object`: HTTP headers which were used to send webhook
-  * id
-  * initiatedTime: Initiated time
-  * method `string`: HTTP method which was used to send webhook
-  * payload `string`: Webhook's payload
-  * responseBody `string`: Response body received
-  * responseCode `integer`: HTTP code response
-  * sentTime: Sent time
-  * source `string` (values: webhooks, rules): The Webhook's source
-  * url `string`: Url where webhook was sent
+  * name **required** `string` (values: PaayMpi, Other)
 
 ### Website
 * Website `object`
@@ -6289,27 +5956,13 @@ rebilly.transactions.id.refund.post({
   * rel **required** `string` (values: website): The link type
   * href **required** `string`: The link URL
 
-### WebsiteWebhookTracking
-* WebsiteWebhookTracking `object`: Webhook Tracking Requests.
-  * _links `array`: The links related to resource
-
-  * createdTime: The log created time
-  * eventName `string`: Event name for which webhook was called
-  * id
-  * nextSendTime: Next send time
-  * pushData `string`: Event's data information JSON-string
-  * response `integer`: HTTP code response
-  * sentTime: Sent time
-  * status `string` (values: fail, success): Event's status
-  * websiteId
-
 ### Wirecard
 * Wirecard: Wirecard Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6321,7 +5974,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -6355,7 +6008,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6367,7 +6020,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -6387,19 +6040,13 @@ rebilly.transactions.id.refund.post({
 
 ### WorldpayMpis
 * WorldpayMpis `object`: Worldpay Mpis
-  * name **required** `string` (values: Other)
+  * name **required** `string` (values: PaayMpi, Other)
 
 ### ach
 * ach: ACH payment instrument object
   * method **required** [Method](#method)
   * bankAccountId **required**: The bank account identifier string
   * gatewayAccountId: The payment gateway identifier string
-
-### add-risk-score
-* add-risk-score
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-  * score `integer`
 
 ### and
 * and `object`: Logical AND
@@ -6411,30 +6058,12 @@ rebilly.transactions.id.refund.post({
 * auto
   * method **required** `string` (values: auto, immediately, date-interval, day-of-month, day-of-week)
 
-### basic
-* basic
-  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
-  * password **required** `string`
-  * username **required** `string`
-
 ### between
 * between `object`: Between condition
   * op **required** `string` (values: and, or, not, between, equals, in, gt, gte, lt, lte): The condition operation
   * max **required** `string`
   * min **required** `string`
   * path **required** `string`
-
-### blacklist
-* blacklist: Add customer data to blacklist
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-  * ttl `integer`: Blacklist TTL. Defaults to zero, meaning blacklist record won't expire ever.
-  * type **required** `string` (values: customer-id, email, fingerprint, ip-address, payment-card-id)
-
-### cancel-scheduled-payments
-* cancel-scheduled-payments
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
 
 ### cash
 * cash: Cash payment instrument object
@@ -6445,12 +6074,6 @@ rebilly.transactions.id.refund.post({
 * compare `object`
   * path **required** `string`
   * value **required** `string`
-
-### cram-md5
-* cram-md5
-  * type `string` (values: none, plain, login, cram-md5)
-  * password **required** `string`
-  * username **required** `string`
 
 ### date-interval
 * date-interval
@@ -6474,12 +6097,6 @@ rebilly.transactions.id.refund.post({
   * time [Time](#time)
   * week `string` (values: next, first-in-month, last-in-month)
 
-### digest
-* digest
-  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
-  * password **required** `string`
-  * username **required** `string`
-
 ### discount
 * discount
   * method **required** `string` (values: none, partial, discount)
@@ -6498,7 +6115,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6510,7 +6127,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -6530,7 +6147,7 @@ rebilly.transactions.id.refund.post({
 
 ### eMerchantPayMpis
 * eMerchantPayMpis `object`: eMerchantPay Mpis
-  * name **required** `string` (values: Other)
+  * name **required** `string` (values: PaayMpi, Other)
 
 ### equals
 * equals `object`: Equals condition
@@ -6544,23 +6161,6 @@ rebilly.transactions.id.refund.post({
   * amount **required** `number`: Discount amount
   * currency **required** `string`: Discount currency
 
-### gateway-account-weights
-* gateway-account-weights
-  * method **required** `string` (values: gateway-account-weights, gateway-acquirer-weights)
-  * weightedList **required** `array`
-    * items `object`
-      * gatewayAccountId **required** [ResourceId](#resourceid)
-      * weight **required** `integer`
-
-### gateway-acquirer-weights
-* gateway-acquirer-weights
-  * method **required** `string` (values: gateway-account-weights, gateway-acquirer-weights)
-  * weightedList **required** `array`
-    * items `object`
-      * acquirerName **required** [AcquirerName](#acquirername)
-      * gatewayName **required** [GatewayName](#gatewayname)
-      * weight **required** `integer`
-
 ### gt
 * gt `object`: Greater than condition
   * op **required** `string` (values: and, or, not, between, equals, in, gt, gte, lt, lte): The condition operation
@@ -6573,18 +6173,13 @@ rebilly.transactions.id.refund.post({
   * path **required** `string`
   * value **required** `string`
 
-### guess-payment-card-expiration
-* guess-payment-card-expiration
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-
 ### iCheque
 * iCheque: iCheque Gateway config
   * _links `array`: The links related to resource
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6596,7 +6191,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
@@ -6633,12 +6228,6 @@ rebilly.transactions.id.refund.post({
 * logical-not `object`
   * condition **required** [Condition](#condition)
 
-### login
-* login
-  * type `string` (values: none, plain, login, cram-md5)
-  * password **required** `string`
-  * username **required** `string`
-
 ### lt
 * lt `object`: Less than condition
   * op **required** `string` (values: and, or, not, between, equals, in, gt, gte, lt, lte): The condition operation
@@ -6658,24 +6247,10 @@ rebilly.transactions.id.refund.post({
   * amount **required** `integer`: Minimum order quantity
   * currency **required** `string`: Minimum order currency
 
-### none
-* none
-  * method **required** `string` (values: none, partial, discount)
-  * type `string` (values: none, plain, login, cram-md5)
-  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
-
 ### not
 * not `object`: Logical NOT
   * op **required** `string` (values: and, or, not, between, equals, in, gt, gte, lt, lte): The condition operation
   * condition **required** [Condition](#condition)
-
-### oauth1
-* oauth1
-  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
-  * consumerKey **required** `string`
-  * consumerSecret **required** `string`
-  * token **required** `string`
-  * tokenSecret **required** `string`
 
 ### or
 * or `object`: Logical OR
@@ -6706,18 +6281,6 @@ rebilly.transactions.id.refund.post({
   * type `string` (values: fixed, percent): Discount type
   * value **required** `number`: Discount percent
 
-### pick-gateway-account
-* pick-gateway-account
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-  * pickInstruction **required** [GatewayAccountPickInstruction](#gatewayaccountpickinstruction)
-
-### plain
-* plain
-  * type `string` (values: none, plain, login, cram-md5)
-  * password **required** `string`
-  * username **required** `string`
-
 ### redemptions-per-customer
 * redemptions-per-customer: Quantity per Customer restrictions
   * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
@@ -6745,62 +6308,11 @@ rebilly.transactions.id.refund.post({
   * subscriptionIds **required** `array`: Subscription IDs coupon can be applied to
     * items `string`
 
-### schedule-payment
-* schedule-payment
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-  * amountPolicy **required** `string` (values: balance-outstanding, invoice-total)
-  * scheduleInstruction **required** [CommonScheduleInstruction](#commonscheduleinstruction)
-
-### schedule-payment-retry
-* schedule-payment-retry
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-  * afterAttemptPolicy **required** `string` (values: none, change-subscription-renewal-time): The policy on the attempt finishes
-  * afterRetryEndPolicy **required** `string` (values: none, cancel-subscription): The policy on the retry ends
-  * attempts **required** `array`
-    * items `object`
-      * paymentInstruction **required** [AmountAdjustment](#amountadjustment)
-      * scheduleInstruction **required** [CommonScheduleInstruction](#commonscheduleinstruction)
-
-### send-email
-* send-email
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-  * bcc `array`: The hidden recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * bodyHtml **required** `string`: Leave empty to recieve "text/plain" email.
-  * bodyText **required** `string`: Leave empty to use text from "bodyHtml" without tags.
-  * cc `array`: The recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * credentialHash **required** `string`: SMTP Credential identifier string.
-  * recipients **required** `array`: The recipients addresses. The template palceholders are allowed.
-    * items `string`
-  * sender **required** `string`: The sender address. The template palceholders are allowed.
-  * subject **required** `string`: The message subject. The template palceholders are allowed.
-
-### stop-subscriptions
-* stop-subscriptions: Stop active subscriptions
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-
 ### total-redemptions
 * total-redemptions: total-redemptions restrictions
   * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
   * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions): Redemption's additional restriction type
   * quantity **required** `integer`: Total redemptions quantity
-
-### trigger-webhook
-* trigger-webhook
-  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
-  * status [OnOff](#onoff)
-  * body `string`
-  * credentialHash `string`: Webhook Credential identifier string.
-  * headers `array`
-    * items [WebhookHeader](#webhookheader)
-  * method **required** `string` (values: GET, POST, PUT, PATCH, DELETE)
-  * query `object`: The URI parameters
-  * url **required** `string`
 
 ### vegaaH
 * vegaaH: vegaaH Gateway config
@@ -6808,7 +6320,7 @@ rebilly.transactions.id.refund.post({
 
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
-  * acquirerName **required** [AcquirerName](#acquirername)
+  * acquirerName **required** `string` (values: Alipay, AIB, ApcoPay, AstroPay Card, Ipay Options, B+S, Bambora, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, BMO Harris Bank, Borgun, BraintreePayments, Cardknox, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Cryptonator, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, FinTecSystems, Flexepin, Forte, FundSend, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Ingenico, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, QQPay, RBC, RBS WorldPay, RealTime, RebillyProcessor, Skrill, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): The acquirer name
   * amountRestrictions `array`: Set restrictions on allowed amounts per currency
     * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
@@ -6820,7 +6332,7 @@ rebilly.transactions.id.refund.post({
   * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
-  * gatewayName **required** [GatewayName](#gatewayname)
+  * gatewayName **required** `string` (values: A1Gateway, AmexVPC, ApcoPay, AstroPay, AstroPayCard, AuthorizeNet, Bambora, BraintreePayments, Cardknox, Cashflows, Cayan, Chase, Credorax, Cryptonator, DataCash, Dengi, eMerchantPay, Flexepin, FinTecSystems, FundSend, Forte, GET, GlobalOnePay, Gpaysafe, iCheque, Ilixium, Ingenico, Intuit, IpayOptions, JetPay, Jeton, Moneris, MtaPay, NMI, OchaPay, PandaGateway, Payeezy, Payflow, PayPal, Payr, Paysafe, Payvision, Plugnpay, Realex, Realtime, RebillyProcessor, Redsys, RPN, Sagepay, Skrill, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The payment gateway name
   * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)

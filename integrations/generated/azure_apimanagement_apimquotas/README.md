@@ -153,11 +153,11 @@ azure_apimanagement_apimquotas.QuotaByPeriodKeys_Update({
 
 ### QuotaCounterContract
 * QuotaCounterContract `object`: Quota counter details.
-  * Value [QuotaCounterValueContractProperties](#quotacountervaluecontractproperties)
   * counterKey **required** `string`: The Key value of the Counter. Must not be empty.
   * periodEndTime **required** `string`: The date of the end of Counter Period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
   * periodKey **required** `string`: Identifier of the Period for which the counter was collected. Must not be empty.
   * periodStartTime **required** `string`: The date of the start of Counter Period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  * value [QuotaCounterValueContractProperties](#quotacountervaluecontractproperties)
 
 ### QuotaCounterValueContract
 * QuotaCounterValueContract `object`: Quota counter value details.

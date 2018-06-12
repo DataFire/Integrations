@@ -46,7 +46,7 @@ azure_automation_certificate.Certificate_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -56,8 +56,6 @@ azure_automation_certificate.Certificate_ListByAutomationAccount({
   * nextLink `string`: Gets or sets the next link.
   * value `array`: Gets or sets a list of certificates.
     * items `object`: Definition of the certificate.
-      * id `string`: Gets the id of the resource.
-      * name `string`: Gets the name of the certificate.
       * properties `object`: Properties of the certificate.
         * creationTime `string`: Gets the creation time.
         * description `string`: Gets or sets the description.
@@ -65,6 +63,9 @@ azure_automation_certificate.Certificate_ListByAutomationAccount({
         * isExportable `boolean`: Gets the is exportable flag of the certificate.
         * lastModifiedTime `string`: Gets the last modified time.
         * thumbprint `string`: Gets the thumbprint of the certificate.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### Certificate_Delete
 Delete the certificate.
@@ -82,7 +83,7 @@ azure_automation_certificate.Certificate_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * certificateName **required** `string`: The name of certificate.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -107,7 +108,7 @@ azure_automation_certificate.Certificate_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * certificateName **required** `string`: The name of certificate.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -115,8 +116,6 @@ azure_automation_certificate.Certificate_Get({
 
 #### Output
 * output `object`: Definition of the certificate.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the certificate.
   * properties `object`: Properties of the certificate.
     * creationTime `string`: Gets the creation time.
     * description `string`: Gets or sets the description.
@@ -124,6 +123,9 @@ azure_automation_certificate.Certificate_Get({
     * isExportable `boolean`: Gets the is exportable flag of the certificate.
     * lastModifiedTime `string`: Gets the last modified time.
     * thumbprint `string`: Gets the thumbprint of the certificate.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Certificate_Update
 Update a certificate.
@@ -142,11 +144,11 @@ azure_automation_certificate.Certificate_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * certificateName **required** `string`: The parameters supplied to the update certificate operation.
   * parameters **required** `object`: The parameters supplied to the update certificate operation.
-    * name **required** `string`: Gets or sets the name of the certificate.
+    * name `string`: Gets or sets the name of the certificate.
     * properties `object`: The properties of the update certificate operation
       * description `string`: Gets or sets the description of the certificate.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -154,8 +156,6 @@ azure_automation_certificate.Certificate_Update({
 
 #### Output
 * output `object`: Definition of the certificate.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the certificate.
   * properties `object`: Properties of the certificate.
     * creationTime `string`: Gets the creation time.
     * description `string`: Gets or sets the description.
@@ -163,6 +163,9 @@ azure_automation_certificate.Certificate_Update({
     * isExportable `boolean`: Gets the is exportable flag of the certificate.
     * lastModifiedTime `string`: Gets the last modified time.
     * thumbprint `string`: Gets the thumbprint of the certificate.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Certificate_CreateOrUpdate
 Create a certificate.
@@ -181,7 +184,7 @@ azure_automation_certificate.Certificate_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * certificateName **required** `string`: The parameters supplied to the create or update certificate operation.
   * parameters **required** `object`: The parameters supplied to the create or update or replace certificate operation.
@@ -196,8 +199,6 @@ azure_automation_certificate.Certificate_CreateOrUpdate({
 
 #### Output
 * output `object`: Definition of the certificate.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the certificate.
   * properties `object`: Properties of the certificate.
     * creationTime `string`: Gets the creation time.
     * description `string`: Gets or sets the description.
@@ -205,6 +206,9 @@ azure_automation_certificate.Certificate_CreateOrUpdate({
     * isExportable `boolean`: Gets the is exportable flag of the certificate.
     * lastModifiedTime `string`: Gets the last modified time.
     * thumbprint `string`: Gets the thumbprint of the certificate.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 
 

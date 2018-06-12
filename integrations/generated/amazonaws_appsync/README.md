@@ -52,7 +52,9 @@ amazonaws_appsync.CreateGraphqlApi({
 #### Input
 * input `object`
   * authenticationType **required** [AuthenticationType](#authenticationtype)
+  * logConfig [LogConfig](#logconfig)
   * name **required** [String](#string)
+  * openIDConnectConfig [OpenIDConnectConfig](#openidconnectconfig)
   * userPoolConfig [UserPoolConfig](#userpoolconfig)
 
 #### Output
@@ -107,7 +109,9 @@ amazonaws_appsync.UpdateGraphqlApi({
 * input `object`
   * apiId **required** `string`
   * authenticationType [AuthenticationType](#authenticationtype)
+  * logConfig [LogConfig](#logconfig)
   * name **required** [String](#string)
+  * openIDConnectConfig [OpenIDConnectConfig](#openidconnectconfig)
   * userPoolConfig [UserPoolConfig](#userpoolconfig)
 
 #### Output
@@ -565,7 +569,7 @@ amazonaws_appsync.UpdateResolver({
 ## Definitions
 
 ### ApiKey
-* ApiKey `object`: Describes an API key.
+* ApiKey `object`: <p>Describes an API key.</p> <p>Customers invoke AWS AppSync GraphQL APIs with API keys as an identity mechanism. There are two key versions:</p> <p> <b>da1</b>: This version was introduced at launch in November 2017. These keys always expire after 7 days. Key expiration is managed by DynamoDB TTL. The keys will cease to be valid after Feb 21, 2018 and should not be used after that date.</p> <ul> <li> <p> <code>ListApiKeys</code> returns the expiration time in milliseconds.</p> </li> <li> <p> <code>CreateApiKey</code> returns the expiration time in milliseconds.</p> </li> <li> <p> <code>UpdateApiKey</code> is not available for this key version.</p> </li> <li> <p> <code>DeleteApiKey</code> deletes the item from the table.</p> </li> <li> <p>Expiration is stored in DynamoDB as milliseconds. This results in a bug where keys are not automatically deleted because DynamoDB expects the TTL to be stored in seconds. As a one-time action, we will delete these keys from the table after Feb 21, 2018.</p> </li> </ul> <p> <b>da2</b>: This version was introduced in February 2018 when AppSync added support to extend key expiration.</p> <ul> <li> <p> <code>ListApiKeys</code> returns the expiration time in seconds.</p> </li> <li> <p> <code>CreateApiKey</code> returns the expiration time in seconds and accepts a user-provided expiration time in seconds.</p> </li> <li> <p> <code>UpdateApiKey</code> returns the expiration time in seconds and accepts a user-provided expiration time in seconds. Key expiration can only be updated while the key has not expired.</p> </li> <li> <p> <code>DeleteApiKey</code> deletes the item from the table.</p> </li> <li> <p>Expiration is stored in DynamoDB as seconds.</p> </li> </ul>
   * description [String](#string)
   * expires [Long](#long)
   * id [String](#string)
@@ -575,7 +579,7 @@ amazonaws_appsync.UpdateResolver({
   * message [String](#string)
 
 ### ApiKeyValidityOutOfBoundsException
-* ApiKeyValidityOutOfBoundsException `object`: The API key expiration must be set to a value between 1 and 365 days.
+* ApiKeyValidityOutOfBoundsException `object`: The API key expiration must be set to a value between 1 and 365 days from creation (for <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).
   * message [String](#string)
 
 ### ApiKeys
@@ -587,7 +591,7 @@ amazonaws_appsync.UpdateResolver({
   * message [String](#string)
 
 ### AuthenticationType
-* AuthenticationType `string` (values: API_KEY, AWS_IAM, AMAZON_COGNITO_USER_POOLS)
+* AuthenticationType `string` (values: API_KEY, AWS_IAM, AMAZON_COGNITO_USER_POOLS, OPENID_CONNECT)
 
 ### BadRequestException
 * BadRequestException `object`: The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again. 
@@ -629,7 +633,9 @@ amazonaws_appsync.UpdateResolver({
 ### CreateGraphqlApiRequest
 * CreateGraphqlApiRequest `object`
   * authenticationType **required** [AuthenticationType](#authenticationtype)
+  * logConfig [LogConfig](#logconfig)
   * name **required** [String](#string)
+  * openIDConnectConfig [OpenIDConnectConfig](#openidconnectconfig)
   * userPoolConfig [UserPoolConfig](#userpoolconfig)
 
 ### CreateGraphqlApiResponse
@@ -721,6 +727,9 @@ amazonaws_appsync.UpdateResolver({
 ### ErrorMessage
 * ErrorMessage `string`
 
+### FieldLogLevel
+* FieldLogLevel `string` (values: NONE, ERROR, ALL)
+
 ### GetDataSourceRequest
 * GetDataSourceRequest `object`
 
@@ -773,7 +782,9 @@ amazonaws_appsync.UpdateResolver({
   * apiId [String](#string)
   * arn [String](#string)
   * authenticationType [AuthenticationType](#authenticationtype)
+  * logConfig [LogConfig](#logconfig)
   * name [ResourceName](#resourcename)
+  * openIDConnectConfig [OpenIDConnectConfig](#openidconnectconfig)
   * uris [MapOfStringToString](#mapofstringtostring)
   * userPoolConfig [UserPoolConfig](#userpoolconfig)
 
@@ -833,6 +844,11 @@ amazonaws_appsync.UpdateResolver({
   * nextToken [PaginationToken](#paginationtoken)
   * types [TypeList](#typelist)
 
+### LogConfig
+* LogConfig `object`: The CloudWatch Logs configuration.
+  * cloudWatchLogsRoleArn **required** [String](#string)
+  * fieldLogLevel **required** [FieldLogLevel](#fieldloglevel)
+
 ### Long
 * Long `integer`
 
@@ -851,6 +867,13 @@ amazonaws_appsync.UpdateResolver({
 ### NotFoundException
 * NotFoundException `object`: The resource specified in the request was not found. Check the resource and try again.
   * message [String](#string)
+
+### OpenIDConnectConfig
+* OpenIDConnectConfig `object`: Describes an Open Id Connect configuration.
+  * authTTL [Long](#long)
+  * clientId [String](#string)
+  * iatTTL [Long](#long)
+  * issuer **required** [String](#string)
 
 ### OutputType
 * OutputType `string` (values: SDL, JSON)
@@ -932,7 +955,9 @@ amazonaws_appsync.UpdateResolver({
 ### UpdateGraphqlApiRequest
 * UpdateGraphqlApiRequest `object`
   * authenticationType [AuthenticationType](#authenticationtype)
+  * logConfig [LogConfig](#logconfig)
   * name **required** [String](#string)
+  * openIDConnectConfig [OpenIDConnectConfig](#openidconnectconfig)
   * userPoolConfig [UserPoolConfig](#userpoolconfig)
 
 ### UpdateGraphqlApiResponse

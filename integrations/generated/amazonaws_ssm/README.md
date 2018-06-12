@@ -279,6 +279,26 @@ amazonaws_ssm.DeleteDocument({
 #### Output
 * output [DeleteDocumentResult](#deletedocumentresult)
 
+### DeleteInventory
+
+
+
+```js
+amazonaws_ssm.DeleteInventory({
+  "TypeName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientToken [ClientToken](#clienttoken)
+  * DryRun [DryRun](#dryrun)
+  * SchemaDeleteOption [InventorySchemaDeleteOption](#inventoryschemadeleteoption)
+  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+
+#### Output
+* output [DeleteInventoryResult](#deleteinventoryresult)
+
 ### DeleteMaintenanceWindow
 
 
@@ -703,6 +723,23 @@ amazonaws_ssm.DescribeInstancePatches({
 
 #### Output
 * output [DescribeInstancePatchesResult](#describeinstancepatchesresult)
+
+### DescribeInventoryDeletions
+
+
+
+```js
+amazonaws_ssm.DescribeInventoryDeletions({}, context)
+```
+
+#### Input
+* input `object`
+  * DeletionId [InventoryDeletionId](#inventorydeletionid)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+
+#### Output
+* output [DescribeInventoryDeletionsResult](#describeinventorydeletionsresult)
 
 ### DescribeMaintenanceWindowExecutionTaskInvocations
 
@@ -1709,6 +1746,7 @@ amazonaws_ssm.SendCommand({
   * DocumentHash [DocumentHash](#documenthash)
   * DocumentHashType [DocumentHashType](#documenthashtype)
   * DocumentName **required** [DocumentARN](#documentarn)
+  * DocumentVersion [DocumentVersion](#documentversion)
   * InstanceIds [InstanceIdList](#instanceidlist)
   * MaxConcurrency [MaxConcurrency](#maxconcurrency)
   * MaxErrors [MaxErrors](#maxerrors)
@@ -2319,6 +2357,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * Comment [Comment](#comment)
   * CompletedCount [CompletedCount](#completedcount)
   * DocumentName [DocumentName](#documentname)
+  * DocumentVersion [DocumentVersion](#documentversion)
   * ErrorCount [ErrorCount](#errorcount)
   * ExpiresAfter [DateTime](#datetime)
   * InstanceIds [InstanceIdList](#instanceidlist)
@@ -2360,6 +2399,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * CommandPlugins [CommandPluginList](#commandpluginlist)
   * Comment [Comment](#comment)
   * DocumentName [DocumentName](#documentname)
+  * DocumentVersion [DocumentVersion](#documentversion)
   * InstanceId [InstanceId](#instanceid)
   * InstanceName [InstanceTagName](#instancetagname)
   * NotificationConfig [NotificationConfig](#notificationconfig)
@@ -2691,6 +2731,19 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### DeleteDocumentResult
 * DeleteDocumentResult `object`
 
+### DeleteInventoryRequest
+* DeleteInventoryRequest `object`
+  * ClientToken [ClientToken](#clienttoken)
+  * DryRun [DryRun](#dryrun)
+  * SchemaDeleteOption [InventorySchemaDeleteOption](#inventoryschemadeleteoption)
+  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+
+### DeleteInventoryResult
+* DeleteInventoryResult `object`
+  * DeletionId [InventoryDeletionId](#inventorydeletionid)
+  * DeletionSummary [InventoryDeletionSummary](#inventorydeletionsummary)
+  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+
 ### DeleteMaintenanceWindowRequest
 * DeleteMaintenanceWindowRequest `object`
   * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
@@ -2934,6 +2987,17 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DescribeInstancePatchesResult `object`
   * NextToken [NextToken](#nexttoken)
   * Patches [PatchComplianceDataList](#patchcompliancedatalist)
+
+### DescribeInventoryDeletionsRequest
+* DescribeInventoryDeletionsRequest `object`
+  * DeletionId [InventoryDeletionId](#inventorydeletionid)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+
+### DescribeInventoryDeletionsResult
+* DescribeInventoryDeletionsResult `object`
+  * InventoryDeletions [InventoryDeletionsList](#inventorydeletionslist)
+  * NextToken [NextToken](#nexttoken)
 
 ### DescribeMaintenanceWindowExecutionTaskInvocationsRequest
 * DescribeMaintenanceWindowExecutionTaskInvocationsRequest `object`
@@ -3230,6 +3294,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DoesNotExistException `object`: <p>Error returned when the ID specified for a resource, such as a Maintenance Window or Patch baseline, doesn't exist.</p> <p>For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems Manager Limits</a>.</p>
   * Message [String](#string)
 
+### DryRun
+* DryRun `boolean`
+
 ### DuplicateDocumentContent
 * DuplicateDocumentContent `object`: The content of the association document matches another document. Change the content of the document and try again.
   * Message [String](#string)
@@ -3300,6 +3367,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * CommandId [CommandId](#commandid)
   * Comment [Comment](#comment)
   * DocumentName [DocumentName](#documentname)
+  * DocumentVersion [DocumentVersion](#documentversion)
   * ExecutionElapsedTime [StringDateTime](#stringdatetime)
   * ExecutionEndDateTime [StringDateTime](#stringdatetime)
   * ExecutionStartDateTime [StringDateTime](#stringdatetime)
@@ -3779,6 +3847,14 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### InvalidCommandId
 * InvalidCommandId `object`
 
+### InvalidDeleteInventoryParametersException
+* InvalidDeleteInventoryParametersException `object`: One or more of the parameters specified for the delete operation is not valid. Verify all parameters and try again.
+  * Message [String](#string)
+
+### InvalidDeletionIdException
+* InvalidDeletionIdException `object`: The ID specified for the delete operation does not exist or is not valide. Verify the ID and try again.
+  * Message [String](#string)
+
 ### InvalidDocument
 * InvalidDocument `object`: The specified document does not exist.
   * Message [String](#string)
@@ -3826,6 +3902,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 * InvalidInventoryItemContextException `object`: You specified invalid keys or values in the <code>Context</code> attribute for <code>InventoryItem</code>. Verify the keys and values, and try again.
   * Message [String](#string)
 
+### InvalidInventoryRequestException
+* InvalidInventoryRequestException `object`: The request is not valid.
+  * Message [String](#string)
+
 ### InvalidItemContentException
 * InvalidItemContentException `object`: One or more content items is not valid.
   * Message [String](#string)
@@ -3841,6 +3921,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InvalidNotificationConfig
 * InvalidNotificationConfig `object`: One or more configuration items is not valid. Verify that a valid Amazon Resource Name (ARN) was provided for an Amazon SNS topic.
+  * Message [String](#string)
+
+### InvalidOptionException
+* InvalidOptionException `object`: The delete inventory option specified is not valid. Verify the option and try again.
   * Message [String](#string)
 
 ### InvalidOutputFolder
@@ -3904,6 +3988,51 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InventoryAttributeDataType
 * InventoryAttributeDataType `string` (values: string, number)
+
+### InventoryDeletionId
+* InventoryDeletionId `string`
+
+### InventoryDeletionLastStatusMessage
+* InventoryDeletionLastStatusMessage `string`
+
+### InventoryDeletionLastStatusUpdateTime
+* InventoryDeletionLastStatusUpdateTime `string`
+
+### InventoryDeletionStartTime
+* InventoryDeletionStartTime `string`
+
+### InventoryDeletionStatus
+* InventoryDeletionStatus `string` (values: InProgress, Complete)
+
+### InventoryDeletionStatusItem
+* InventoryDeletionStatusItem `object`: Status information returned by the <code>DeleteInventory</code> action.
+  * DeletionId [InventoryDeletionId](#inventorydeletionid)
+  * DeletionStartTime [InventoryDeletionStartTime](#inventorydeletionstarttime)
+  * DeletionSummary [InventoryDeletionSummary](#inventorydeletionsummary)
+  * LastStatus [InventoryDeletionStatus](#inventorydeletionstatus)
+  * LastStatusMessage [InventoryDeletionLastStatusMessage](#inventorydeletionlaststatusmessage)
+  * LastStatusUpdateTime [InventoryDeletionLastStatusUpdateTime](#inventorydeletionlaststatusupdatetime)
+  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+
+### InventoryDeletionSummary
+* InventoryDeletionSummary `object`: Information about the delete operation.
+  * RemainingCount [RemainingCount](#remainingcount)
+  * SummaryItems [InventoryDeletionSummaryItems](#inventorydeletionsummaryitems)
+  * TotalCount [TotalCount](#totalcount)
+
+### InventoryDeletionSummaryItem
+* InventoryDeletionSummaryItem `object`: Either a count, remaining count, or a version number in a delete inventory summary.
+  * Count [ResourceCount](#resourcecount)
+  * RemainingCount [RemainingCount](#remainingcount)
+  * Version [InventoryItemSchemaVersion](#inventoryitemschemaversion)
+
+### InventoryDeletionSummaryItems
+* InventoryDeletionSummaryItems `array`
+  * items [InventoryDeletionSummaryItem](#inventorydeletionsummaryitem)
+
+### InventoryDeletionsList
+* InventoryDeletionsList `array`
+  * items [InventoryDeletionStatusItem](#inventorydeletionstatusitem)
 
 ### InventoryFilter
 * InventoryFilter `object`: One or more filters. Use a filter to return a more specific list of results.
@@ -4024,6 +4153,9 @@ amazonaws_ssm.UpdatePatchBaseline({
     * key [InventoryResultItemKey](#inventoryresultitemkey)
     * value [InventoryResultItem](#inventoryresultitem)
 
+### InventorySchemaDeleteOption
+* InventorySchemaDeleteOption `string` (values: DisableSchema, DeleteSchema)
+
 ### InventoryTypeDisplayName
 * InventoryTypeDisplayName `string`
 
@@ -4049,6 +4181,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### KeyList
 * KeyList `array`
   * items [TagKey](#tagkey)
+
+### LastResourceDataSyncMessage
+* LastResourceDataSyncMessage `string`
 
 ### LastResourceDataSyncStatus
 * LastResourceDataSyncStatus `string` (values: Successful, Failed, InProgress)
@@ -4203,7 +4338,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * TagList [TagList](#taglist)
 
 ### LoggingInfo
-* LoggingInfo `object`: Information about an Amazon S3 bucket to write instance-level logs to.
+* LoggingInfo `object`: <p>Information about an Amazon S3 bucket to write instance-level logs to.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> </note>
   * S3BucketName **required** [S3BucketName](#s3bucketname)
   * S3KeyPrefix [S3KeyPrefix](#s3keyprefix)
   * S3Region **required** [S3Region](#s3region)
@@ -4342,7 +4477,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowLambdaClientContext `string`
 
 ### MaintenanceWindowLambdaParameters
-* MaintenanceWindowLambdaParameters `object`: The parameters for a LAMBDA task type.
+* MaintenanceWindowLambdaParameters `object`: <p>The parameters for a LAMBDA task type.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Lambda tasks, Systems Manager ignores any values specified for TaskParameters and LoggingInfo.</p> </note>
   * ClientContext [MaintenanceWindowLambdaClientContext](#maintenancewindowlambdaclientcontext)
   * Payload [MaintenanceWindowLambdaPayload](#maintenancewindowlambdapayload)
   * Qualifier [MaintenanceWindowLambdaQualifier](#maintenancewindowlambdaqualifier)
@@ -4363,7 +4498,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowResourceType `string` (values: INSTANCE)
 
 ### MaintenanceWindowRunCommandParameters
-* MaintenanceWindowRunCommandParameters `object`: The parameters for a RUN_COMMAND task type.
+* MaintenanceWindowRunCommandParameters `object`: <p>The parameters for a RUN_COMMAND task type.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Run Command tasks, Systems Manager uses specified values for <code>TaskParameters</code> and <code>LoggingInfo</code> only if no values are specified for <code>TaskInvocationParameters</code>. </p> </note>
   * Comment [Comment](#comment)
   * DocumentHash [DocumentHash](#documenthash)
   * DocumentHashType [DocumentHashType](#documenthashtype)
@@ -4384,7 +4519,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowStepFunctionsName `string`
 
 ### MaintenanceWindowStepFunctionsParameters
-* MaintenanceWindowStepFunctionsParameters `object`: The parameters for the STEP_FUNCTION execution.
+* MaintenanceWindowStepFunctionsParameters `object`: <p>The parameters for a STEP_FUNCTION task.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Step Functions tasks, Systems Manager ignores any values specified for <code>TaskParameters</code> and <code>LoggingInfo</code>.</p> </note>
   * Input [MaintenanceWindowStepFunctionsInput](#maintenancewindowstepfunctionsinput)
   * Name [MaintenanceWindowStepFunctionsName](#maintenancewindowstepfunctionsname)
 
@@ -4534,7 +4669,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * NotificationType `string` (values: Command, Invocation)
 
 ### OperatingSystem
-* OperatingSystem `string` (values: WINDOWS, AMAZON_LINUX, UBUNTU, REDHAT_ENTERPRISE_LINUX, SUSE)
+* OperatingSystem `string` (values: WINDOWS, AMAZON_LINUX, UBUNTU, REDHAT_ENTERPRISE_LINUX, SUSE, CENTOS)
 
 ### OwnerInformation
 * OwnerInformation `string`
@@ -4754,7 +4889,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * PatchFailedCount `integer`
 
 ### PatchFilter
-* PatchFilter `object`: <p>Defines a patch filter.</p> <p>A patch filter consists of key/value pairs, but not all keys are valid for all operating system types. For example, the key <code>PRODUCT</code> is valid for all supported operating system types. The key <code>MSRC_SEVERITY</code>, however, is valid only for Windows operating systems, and the key <code>SECTION</code> is valid only for Ubuntu operating systems.</p> <p>Refer to the following sections for information about which keys may be used with each major operating system, and which values are valid for each key.</p> <p> <b>Windows Operating Systems</b> </p> <p>The supported keys for Windows operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>MSRC_SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Windows7</code> </p> </li> <li> <p> <code>Windows8</code> </p> </li> <li> <p> <code>Windows8.1</code> </p> </li> <li> <p> <code>Windows8Embedded</code> </p> </li> <li> <p> <code>Windows10</code> </p> </li> <li> <p> <code>Windows10LTSB</code> </p> </li> <li> <p> <code>WindowsServer2008</code> </p> </li> <li> <p> <code>WindowsServer2008R2</code> </p> </li> <li> <p> <code>WindowsServer2012</code> </p> </li> <li> <p> <code>WindowsServer2012R2</code> </p> </li> <li> <p> <code>WindowsServer2016</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>CriticalUpdates</code> </p> </li> <li> <p> <code>DefinitionUpdates</code> </p> </li> <li> <p> <code>Drivers</code> </p> </li> <li> <p> <code>FeaturePacks</code> </p> </li> <li> <p> <code>SecurityUpdates</code> </p> </li> <li> <p> <code>ServicePacks</code> </p> </li> <li> <p> <code>Tools</code> </p> </li> <li> <p> <code>UpdateRollups</code> </p> </li> <li> <p> <code>Updates</code> </p> </li> <li> <p> <code>Upgrades</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>MSRC_SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> <li> <p> <code>Unspecified</code> </p> </li> </ul> <p> <b>Ubuntu Operating Systems</b> </p> <p>The supported keys for Ubuntu operating systems are <code>PRODUCT</code>, <code>PRIORITY</code>, and <code>SECTION</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Ubuntu14.04</code> </p> </li> <li> <p> <code>Ubuntu16.04</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>PRIORITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Required</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Standard</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Extra</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SECTION</code> </p> <p>Only the length of the key value is validated. Minimum length is 1. Maximum length is 64.</p> <p> <b>Amazon Linux Operating Systems</b> </p> <p>The supported keys for Amazon Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>AmazonLinux2012.03</code> </p> </li> <li> <p> <code>AmazonLinux2012.09</code> </p> </li> <li> <p> <code>AmazonLinux2013.03</code> </p> </li> <li> <p> <code>AmazonLinux2013.09</code> </p> </li> <li> <p> <code>AmazonLinux2014.03</code> </p> </li> <li> <p> <code>AmazonLinux2014.09</code> </p> </li> <li> <p> <code>AmazonLinux2015.03</code> </p> </li> <li> <p> <code>AmazonLinux2015.09</code> </p> </li> <li> <p> <code>AmazonLinux2016.03</code> </p> </li> <li> <p> <code>AmazonLinux2016.09</code> </p> </li> <li> <p> <code>AmazonLinux2017.03</code> </p> </li> <li> <p> <code>AmazonLinux2017.09</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>RedHat Enterprise Linux (RHEL) Operating Systems</b> </p> <p>The supported keys for RedHat Enterprise Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>RedhatEnterpriseLinux6.5</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.6</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.7</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.8</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.9</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.0</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.1</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.2</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.3</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.4</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>SUSE Linux Enterprise Server (SUSE) Operating Systems</b> </p> <p>The supported keys for SUSE operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Suse12.0</code> </p> </li> <li> <p> <code>Suse12.1</code> </p> </li> <li> <p> <code>Suse12.2</code> </p> </li> <li> <p> <code>Suse12.3</code> </p> </li> <li> <p> <code>Suse12.4</code> </p> </li> <li> <p> <code>Suse12.5</code> </p> </li> <li> <p> <code>Suse12.6</code> </p> </li> <li> <p> <code>Suse12.7</code> </p> </li> <li> <p> <code>Suse12.8</code> </p> </li> <li> <p> <code>Suse12.9</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Feature</code> </p> </li> <li> <p> <code>Document</code> </p> </li> <li> <p> <code>Yast</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul>
+* PatchFilter `object`: <p>Defines a patch filter.</p> <p>A patch filter consists of key/value pairs, but not all keys are valid for all operating system types. For example, the key <code>PRODUCT</code> is valid for all supported operating system types. The key <code>MSRC_SEVERITY</code>, however, is valid only for Windows operating systems, and the key <code>SECTION</code> is valid only for Ubuntu operating systems.</p> <p>Refer to the following sections for information about which keys may be used with each major operating system, and which values are valid for each key.</p> <p> <b>Windows Operating Systems</b> </p> <p>The supported keys for Windows operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>MSRC_SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Windows7</code> </p> </li> <li> <p> <code>Windows8</code> </p> </li> <li> <p> <code>Windows8.1</code> </p> </li> <li> <p> <code>Windows8Embedded</code> </p> </li> <li> <p> <code>Windows10</code> </p> </li> <li> <p> <code>Windows10LTSB</code> </p> </li> <li> <p> <code>WindowsServer2008</code> </p> </li> <li> <p> <code>WindowsServer2008R2</code> </p> </li> <li> <p> <code>WindowsServer2012</code> </p> </li> <li> <p> <code>WindowsServer2012R2</code> </p> </li> <li> <p> <code>WindowsServer2016</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>CriticalUpdates</code> </p> </li> <li> <p> <code>DefinitionUpdates</code> </p> </li> <li> <p> <code>Drivers</code> </p> </li> <li> <p> <code>FeaturePacks</code> </p> </li> <li> <p> <code>SecurityUpdates</code> </p> </li> <li> <p> <code>ServicePacks</code> </p> </li> <li> <p> <code>Tools</code> </p> </li> <li> <p> <code>UpdateRollups</code> </p> </li> <li> <p> <code>Updates</code> </p> </li> <li> <p> <code>Upgrades</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>MSRC_SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> <li> <p> <code>Unspecified</code> </p> </li> </ul> <p> <b>Ubuntu Operating Systems</b> </p> <p>The supported keys for Ubuntu operating systems are <code>PRODUCT</code>, <code>PRIORITY</code>, and <code>SECTION</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Ubuntu14.04</code> </p> </li> <li> <p> <code>Ubuntu16.04</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>PRIORITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Required</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Standard</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Extra</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SECTION</code> </p> <p>Only the length of the key value is validated. Minimum length is 1. Maximum length is 64.</p> <p> <b>Amazon Linux Operating Systems</b> </p> <p>The supported keys for Amazon Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>AmazonLinux2012.03</code> </p> </li> <li> <p> <code>AmazonLinux2012.09</code> </p> </li> <li> <p> <code>AmazonLinux2013.03</code> </p> </li> <li> <p> <code>AmazonLinux2013.09</code> </p> </li> <li> <p> <code>AmazonLinux2014.03</code> </p> </li> <li> <p> <code>AmazonLinux2014.09</code> </p> </li> <li> <p> <code>AmazonLinux2015.03</code> </p> </li> <li> <p> <code>AmazonLinux2015.09</code> </p> </li> <li> <p> <code>AmazonLinux2016.03</code> </p> </li> <li> <p> <code>AmazonLinux2016.09</code> </p> </li> <li> <p> <code>AmazonLinux2017.03</code> </p> </li> <li> <p> <code>AmazonLinux2017.09</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>RedHat Enterprise Linux (RHEL) Operating Systems</b> </p> <p>The supported keys for RedHat Enterprise Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>RedhatEnterpriseLinux6.5</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.6</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.7</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.8</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.9</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.0</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.1</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.2</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.3</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.4</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>SUSE Linux Enterprise Server (SLES) Operating Systems</b> </p> <p>The supported keys for SLES operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Suse12.0</code> </p> </li> <li> <p> <code>Suse12.1</code> </p> </li> <li> <p> <code>Suse12.2</code> </p> </li> <li> <p> <code>Suse12.3</code> </p> </li> <li> <p> <code>Suse12.4</code> </p> </li> <li> <p> <code>Suse12.5</code> </p> </li> <li> <p> <code>Suse12.6</code> </p> </li> <li> <p> <code>Suse12.7</code> </p> </li> <li> <p> <code>Suse12.8</code> </p> </li> <li> <p> <code>Suse12.9</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Feature</code> </p> </li> <li> <p> <code>Document</code> </p> </li> <li> <p> <code>Yast</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>CentOS Operating Systems</b> </p> <p>The supported keys for CentOS operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>CentOS6.5</code> </p> </li> <li> <p> <code>CentOS6.6</code> </p> </li> <li> <p> <code>CentOS6.7</code> </p> </li> <li> <p> <code>CentOS6.8</code> </p> </li> <li> <p> <code>CentOS6.9</code> </p> </li> <li> <p> <code>CentOS7.0</code> </p> </li> <li> <p> <code>CentOS7.1</code> </p> </li> <li> <p> <code>CentOS7.2</code> </p> </li> <li> <p> <code>CentOS7.3</code> </p> </li> <li> <p> <code>CentOS7.4</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul>
   * Key **required** [PatchFilterKey](#patchfilterkey)
   * Values **required** [PatchFilterValueList](#patchfiltervaluelist)
 
@@ -4933,6 +5068,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### PutComplianceItemsResult
 * PutComplianceItemsResult `object`
 
+### PutInventoryMessage
+* PutInventoryMessage `string`
+
 ### PutInventoryRequest
 * PutInventoryRequest `object`
   * InstanceId **required** [InstanceId](#instanceid)
@@ -4940,6 +5078,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### PutInventoryResult
 * PutInventoryResult `object`
+  * Message [PutInventoryMessage](#putinventorymessage)
 
 ### PutParameterRequest
 * PutParameterRequest `object`
@@ -5014,6 +5153,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### RegistrationsCount
 * RegistrationsCount `integer`
 
+### RemainingCount
+* RemainingCount `integer`
+
 ### RemoveTagsFromResourceRequest
 * RemoveTagsFromResourceRequest `object`
   * ResourceId **required** [ResourceId](#resourceid)
@@ -5043,6 +5185,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 * ResourceComplianceSummaryItemList `array`
   * items [ResourceComplianceSummaryItem](#resourcecompliancesummaryitem)
 
+### ResourceCount
+* ResourceCount `integer`
+
 ### ResourceDataSyncAWSKMSKeyARN
 * ResourceDataSyncAWSKMSKeyARN `string`
 
@@ -5065,6 +5210,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * ResourceDataSyncItem `object`: Information about a Resource Data Sync configuration, including its current status and last successful sync.
   * LastStatus [LastResourceDataSyncStatus](#lastresourcedatasyncstatus)
   * LastSuccessfulSyncTime [LastSuccessfulResourceDataSyncTime](#lastsuccessfulresourcedatasynctime)
+  * LastSyncStatusMessage [LastResourceDataSyncMessage](#lastresourcedatasyncmessage)
   * LastSyncTime [LastResourceDataSyncTime](#lastresourcedatasynctime)
   * S3Destination [ResourceDataSyncS3Destination](#resourcedatasyncs3destination)
   * SyncCreatedTime [ResourceDataSyncCreatedTime](#resourcedatasynccreatedtime)
@@ -5166,6 +5312,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * DocumentHash [DocumentHash](#documenthash)
   * DocumentHashType [DocumentHashType](#documenthashtype)
   * DocumentName **required** [DocumentARN](#documentarn)
+  * DocumentVersion [DocumentVersion](#documentversion)
   * InstanceIds [InstanceIdList](#instanceidlist)
   * MaxConcurrency [MaxConcurrency](#maxconcurrency)
   * MaxErrors [MaxErrors](#maxerrors)
@@ -5364,6 +5511,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### TooManyUpdates
 * TooManyUpdates `object`: There are concurrent updates for a resource that supports one update at a time.
   * Message [String](#string)
+
+### TotalCount
+* TotalCount `integer`
 
 ### TotalSizeLimitExceededException
 * TotalSizeLimitExceededException `object`: The size of inventory data has exceeded the total size limit for the resource.

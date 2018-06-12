@@ -1,6 +1,6 @@
 # @datafire/google_adexperiencereport
 
-Client library for Google Ad Experience Report
+Client library for Ad Experience Report
 
 ## Installation and Usage
 ```bash

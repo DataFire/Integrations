@@ -251,6 +251,7 @@ amazonaws_route53domains.ListOperations({}, context)
   * Marker `string`
   * Marker [PageMarker](#pagemarker)
   * MaxItems [PageMaxItems](#pagemaxitems)
+  * SubmittedSince [Timestamp](#timestamp)
 
 #### Output
 * output [ListOperationsResponse](#listoperationsresponse)
@@ -624,7 +625,7 @@ amazonaws_route53domains.ViewBilling({}, context)
   * items [DomainSummary](#domainsummary)
 
 ### DomainTransferability
-* DomainTransferability `object`
+* DomainTransferability `object`: A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.
   * Transferable [Transferable](#transferable)
 
 ### DuplicateRequest
@@ -770,6 +771,7 @@ amazonaws_route53domains.ViewBilling({}, context)
 * ListOperationsRequest `object`: The ListOperations request includes the following elements.
   * Marker [PageMarker](#pagemarker)
   * MaxItems [PageMaxItems](#pagemaxitems)
+  * SubmittedSince [Timestamp](#timestamp)
 
 ### ListOperationsResponse
 * ListOperationsResponse `object`: The ListOperations response includes the following elements.

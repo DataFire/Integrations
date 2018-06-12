@@ -12,7 +12,7 @@ let wmata_rail_station = require('@datafire/wmata_rail_station').create({
   apiKeyQuery: ""
 });
 
-wmata_rail_station.json.jStations.get({}).then(data => {
+wmata_rail_station.5476364f031f5909e4fe3311({}).then(data => {
   console.log(data);
 });
 ```
@@ -23,7 +23,7 @@ Rail line and station information, including locations, fares, times, and parkin
 
 ## Actions
 
-### Lines.get
+### 5476364f031f5909e4fe3314
 <h4 class="text-primary">Description</h4>
 
 <p>Returns information about all rail lines.</p>
@@ -106,7 +106,7 @@ station.</td>
 
 
 ```js
-wmata_rail_station.Lines.get(null, context)
+wmata_rail_station.5476364f031f5909e4fe3314(null, context)
 ```
 
 #### Input
@@ -115,7 +115,7 @@ wmata_rail_station.Lines.get(null, context)
 #### Output
 *Output schema unknown*
 
-### Path.get
+### 5476364f031f5909e4fe3316
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a set of ordered stations and distances between two stations on the
@@ -190,7 +190,7 @@ rail-related APIs to retrieve data about a station.</td>
 
 
 ```js
-wmata_rail_station.Path.get({
+wmata_rail_station.5476364f031f5909e4fe3316({
   "FromStationCode": "",
   "ToStationCode": ""
 }, context)
@@ -204,7 +204,7 @@ wmata_rail_station.Path.get({
 #### Output
 *Output schema unknown*
 
-### SrcStationToDstStationInfo.get
+### 5476364f031f5909e4fe331b
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a distance, fare information, and estimated travel time between any
@@ -311,7 +311,7 @@ people with disabilities</a>.
 
 
 ```js
-wmata_rail_station.SrcStationToDstStationInfo.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe331b({}, context)
 ```
 
 #### Input
@@ -322,7 +322,7 @@ wmata_rail_station.SrcStationToDstStationInfo.get({}, context)
 #### Output
 *Output schema unknown*
 
-### StationEntrances.get
+### 5476364f031f5909e4fe3317
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of nearby station entrances based on latitude, longitude, and
@@ -410,7 +410,7 @@ station code.</td>
 
 
 ```js
-wmata_rail_station.StationEntrances.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe3317({}, context)
 ```
 
 #### Input
@@ -422,7 +422,7 @@ wmata_rail_station.StationEntrances.get({}, context)
 #### Output
 *Output schema unknown*
 
-### StationInfo.get
+### 5476364f031f5909e4fe3318
 <h4 class="text-primary">Description</h4>
 
 <p>Returns station location and address information based on a given
@@ -550,7 +550,7 @@ use.</td>
 
 
 ```js
-wmata_rail_station.StationInfo.get({
+wmata_rail_station.5476364f031f5909e4fe3318({
   "StationCode": ""
 }, context)
 ```
@@ -562,7 +562,7 @@ wmata_rail_station.StationInfo.get({
 #### Output
 *Output schema unknown*
 
-### StationParking.get
+### 5476364f031f5909e4fe3315
 <h4 class="text-primary">Description</h4>
 
 <p>Returns parking information at a station based on a given StationCode. Omit
@@ -711,7 +711,7 @@ short-term spots are available.</td>
 
 
 ```js
-wmata_rail_station.StationParking.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe3315({}, context)
 ```
 
 #### Input
@@ -721,7 +721,7 @@ wmata_rail_station.StationParking.get({}, context)
 #### Output
 *Output schema unknown*
 
-### StationTimes.get
+### 5476364f031f5909e4fe331a
 <h4 class="text-primary">Description</h4>
 
 <p>Returns opening and scheduled first/last train times based on a given
@@ -867,7 +867,7 @@ other rail-related APIs to retrieve data about a station.</td>
 
 
 ```js
-wmata_rail_station.StationTimes.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe331a({}, context)
 ```
 
 #### Input
@@ -877,7 +877,7 @@ wmata_rail_station.StationTimes.get({}, context)
 #### Output
 *Output schema unknown*
 
-### Stations.get
+### 5476364f031f5909e4fe3319
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of station location and address information based on a given
@@ -1023,7 +1023,7 @@ use.</td>
 
 
 ```js
-wmata_rail_station.Stations.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe3319({}, context)
 ```
 
 #### Input
@@ -1033,7 +1033,7 @@ wmata_rail_station.Stations.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.jLines.get
+### 5476364f031f5909e4fe330c
 <h4 class="text-primary">Description</h4>
 
 <p>Returns information about all rail lines.</p>
@@ -1116,7 +1116,7 @@ station.</td>
 
 
 ```js
-wmata_rail_station.json.jLines.get(null, context)
+wmata_rail_station.5476364f031f5909e4fe330c(null, context)
 ```
 
 #### Input
@@ -1125,7 +1125,7 @@ wmata_rail_station.json.jLines.get(null, context)
 #### Output
 *Output schema unknown*
 
-### json.jPath.get
+### 5476364f031f5909e4fe330e
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a set of ordered stations and distances between two stations on the
@@ -1200,7 +1200,7 @@ rail-related APIs to retrieve data about a station.</td>
 
 
 ```js
-wmata_rail_station.json.jPath.get({
+wmata_rail_station.5476364f031f5909e4fe330e({
   "FromStationCode": "",
   "ToStationCode": ""
 }, context)
@@ -1214,7 +1214,7 @@ wmata_rail_station.json.jPath.get({
 #### Output
 *Output schema unknown*
 
-### json.jSrcStationToDstStationInfo.get
+### 5476364f031f5909e4fe3313
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a distance, fare information, and estimated travel time between any
@@ -1322,7 +1322,7 @@ people with disabilities</a>.
 
 
 ```js
-wmata_rail_station.json.jSrcStationToDstStationInfo.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe3313({}, context)
 ```
 
 #### Input
@@ -1333,7 +1333,7 @@ wmata_rail_station.json.jSrcStationToDstStationInfo.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.jStationEntrances.get
+### 5476364f031f5909e4fe330f
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of nearby station entrances based on latitude, longitude, and
@@ -1421,7 +1421,7 @@ station code.</td>
 
 
 ```js
-wmata_rail_station.json.jStationEntrances.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe330f({}, context)
 ```
 
 #### Input
@@ -1433,7 +1433,7 @@ wmata_rail_station.json.jStationEntrances.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.jStationInfo.get
+### 5476364f031f5909e4fe3310
 <h4 class="text-primary">Description</h4>
 
 <p>Returns station location and address information based on a given
@@ -1561,7 +1561,7 @@ use.</td>
 
 
 ```js
-wmata_rail_station.json.jStationInfo.get({
+wmata_rail_station.5476364f031f5909e4fe3310({
   "StationCode": ""
 }, context)
 ```
@@ -1573,7 +1573,7 @@ wmata_rail_station.json.jStationInfo.get({
 #### Output
 *Output schema unknown*
 
-### json.jStationParking.get
+### 5476364f031f5909e4fe330d
 <h4 class="text-primary">Description</h4>
 
 <p>Returns parking information at a station based on a given StationCode. Omit
@@ -1722,7 +1722,7 @@ short-term spots are available.</td>
 
 
 ```js
-wmata_rail_station.json.jStationParking.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe330d({}, context)
 ```
 
 #### Input
@@ -1732,7 +1732,7 @@ wmata_rail_station.json.jStationParking.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.jStationTimes.get
+### 5476364f031f5909e4fe3312
 <h4 class="text-primary">Description</h4>
 
 <p>Returns opening and scheduled first/last train times based on a given
@@ -1878,7 +1878,7 @@ other rail-related APIs to retrieve data about a station.</td>
 
 
 ```js
-wmata_rail_station.json.jStationTimes.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe3312({}, context)
 ```
 
 #### Input
@@ -1888,7 +1888,7 @@ wmata_rail_station.json.jStationTimes.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.jStations.get
+### 5476364f031f5909e4fe3311
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of station location and address information based on a given
@@ -2034,7 +2034,7 @@ use.</td>
 
 
 ```js
-wmata_rail_station.json.jStations.get({}, context)
+wmata_rail_station.5476364f031f5909e4fe3311({}, context)
 ```
 
 #### Input

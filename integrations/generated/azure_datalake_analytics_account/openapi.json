@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/datalake-analytics/resource-manager/Microsoft.DataLakeAnalytics/stable/2016-11-01/account.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/datalake-analytics/resource-manager/Microsoft.DataLakeAnalytics/stable/2016-11-01/account.json",
         "version": "2.0"
       }
     ],
@@ -63,7 +63,8 @@
       "in": "path",
       "name": "accountName",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "method"
     },
     "ApiVersionParameter": {
       "description": "Client Api Version.",
@@ -77,7 +78,8 @@
       "in": "path",
       "name": "resourceGroupName",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "method"
     },
     "SubscriptionIdParameter": {
       "description": "Get subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
@@ -3971,14 +3973,14 @@
           }
         },
         "firewallRules": {
-          "description": "The list of firewall rules associated with this Data Lake Analytics account.",
+          "description": "The list of firewall rules associated with this account.",
           "items": {
             "$ref": "#/definitions/UpdateFirewallRuleWithAccountParameters"
           },
           "type": "array"
         },
         "firewallState": {
-          "description": "The current state of the IP address firewall for this Data Lake Analytics account.",
+          "description": "The current state of the IP address firewall for this account. Disabling the firewall does not remove existing rules, they will just be ignored until the firewall is re-enabled.",
           "enum": [
             "Enabled",
             "Disabled"

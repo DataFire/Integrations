@@ -194,6 +194,27 @@ amazonaws_workmail.DeleteGroup({
 #### Output
 * output [DeleteGroupResponse](#deletegroupresponse)
 
+### DeleteMailboxPermissions
+
+
+
+```js
+amazonaws_workmail.DeleteMailboxPermissions({
+  "OrganizationId": "",
+  "EntityId": "",
+  "GranteeId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EntityId **required** [WorkMailIdentifier](#workmailidentifier)
+  * GranteeId **required** [WorkMailIdentifier](#workmailidentifier)
+  * OrganizationId **required** [OrganizationId](#organizationid)
+
+#### Output
+* output [DeleteMailboxPermissionsResponse](#deletemailboxpermissionsresponse)
+
 ### DeleteResource
 
 
@@ -434,6 +455,29 @@ amazonaws_workmail.ListGroups({
 #### Output
 * output [ListGroupsResponse](#listgroupsresponse)
 
+### ListMailboxPermissions
+
+
+
+```js
+amazonaws_workmail.ListMailboxPermissions({
+  "OrganizationId": "",
+  "EntityId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * EntityId **required** [WorkMailIdentifier](#workmailidentifier)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * OrganizationId **required** [OrganizationId](#organizationid)
+
+#### Output
+* output [ListMailboxPermissionsResponse](#listmailboxpermissionsresponse)
+
 ### ListOrganizations
 
 
@@ -514,6 +558,29 @@ amazonaws_workmail.ListUsers({
 
 #### Output
 * output [ListUsersResponse](#listusersresponse)
+
+### PutMailboxPermissions
+
+
+
+```js
+amazonaws_workmail.PutMailboxPermissions({
+  "OrganizationId": "",
+  "EntityId": "",
+  "GranteeId": "",
+  "PermissionValues": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * EntityId **required** [WorkMailIdentifier](#workmailidentifier)
+  * GranteeId **required** [WorkMailIdentifier](#workmailidentifier)
+  * OrganizationId **required** [OrganizationId](#organizationid)
+  * PermissionValues **required** [PermissionValues](#permissionvalues)
+
+#### Output
+* output [PutMailboxPermissionsResponse](#putmailboxpermissionsresponse)
 
 ### RegisterToWorkMail
 
@@ -694,6 +761,15 @@ amazonaws_workmail.UpdateResource({
 
 ### DeleteGroupResponse
 * DeleteGroupResponse `object`
+
+### DeleteMailboxPermissionsRequest
+* DeleteMailboxPermissionsRequest `object`
+  * EntityId **required** [WorkMailIdentifier](#workmailidentifier)
+  * GranteeId **required** [WorkMailIdentifier](#workmailidentifier)
+  * OrganizationId **required** [OrganizationId](#organizationid)
+
+### DeleteMailboxPermissionsResponse
+* DeleteMailboxPermissionsResponse `object`
 
 ### DeleteResourceRequest
 * DeleteResourceRequest `object`
@@ -891,6 +967,18 @@ amazonaws_workmail.UpdateResource({
   * Groups [Groups](#groups)
   * NextToken [NextToken](#nexttoken)
 
+### ListMailboxPermissionsRequest
+* ListMailboxPermissionsRequest `object`
+  * EntityId **required** [WorkMailIdentifier](#workmailidentifier)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * OrganizationId **required** [OrganizationId](#organizationid)
+
+### ListMailboxPermissionsResponse
+* ListMailboxPermissionsResponse `object`
+  * NextToken [NextToken](#nexttoken)
+  * Permissions [Permissions](#permissions)
+
 ### ListOrganizationsRequest
 * ListOrganizationsRequest `object`
   * MaxResults [MaxResults](#maxresults)
@@ -996,6 +1084,33 @@ amazonaws_workmail.UpdateResource({
 
 ### Password
 * Password `string`
+
+### Permission
+* Permission `object`: Permission granted to an entity (user, group) to access a certain aspect of another entity's mailbox.
+  * GranteeId **required** [WorkMailIdentifier](#workmailidentifier)
+  * GranteeType **required** [MemberType](#membertype)
+  * PermissionValues **required** [PermissionValues](#permissionvalues)
+
+### PermissionType
+* PermissionType `string` (values: FULL_ACCESS, SEND_AS, SEND_ON_BEHALF)
+
+### PermissionValues
+* PermissionValues `array`
+  * items [PermissionType](#permissiontype)
+
+### Permissions
+* Permissions `array`
+  * items [Permission](#permission)
+
+### PutMailboxPermissionsRequest
+* PutMailboxPermissionsRequest `object`
+  * EntityId **required** [WorkMailIdentifier](#workmailidentifier)
+  * GranteeId **required** [WorkMailIdentifier](#workmailidentifier)
+  * OrganizationId **required** [OrganizationId](#organizationid)
+  * PermissionValues **required** [PermissionValues](#permissionvalues)
+
+### PutMailboxPermissionsResponse
+* PutMailboxPermissionsResponse `object`
 
 ### RegisterToWorkMailRequest
 * RegisterToWorkMailRequest `object`

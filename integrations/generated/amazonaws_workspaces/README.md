@@ -13,9 +13,9 @@ let amazonaws_workspaces = require('@datafire/amazonaws_workspaces').create({
   region: ""
 });
 
-amazonaws_workspaces.CreateTags({
-  "ResourceId": "",
-  "Tags": []
+amazonaws_workspaces.AssociateIpGroups({
+  "DirectoryId": "",
+  "GroupIds": []
 }).then(data => {
   console.log(data);
 });
@@ -26,6 +26,63 @@ amazonaws_workspaces.CreateTags({
 <fullname>Amazon WorkSpaces Service</fullname> <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows desktops for your users.</p>
 
 ## Actions
+
+### AssociateIpGroups
+
+
+
+```js
+amazonaws_workspaces.AssociateIpGroups({
+  "DirectoryId": "",
+  "GroupIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required** [DirectoryId](#directoryid)
+  * GroupIds **required** [IpGroupIdList](#ipgroupidlist)
+
+#### Output
+* output [AssociateIpGroupsResult](#associateipgroupsresult)
+
+### AuthorizeIpRules
+
+
+
+```js
+amazonaws_workspaces.AuthorizeIpRules({
+  "GroupId": "",
+  "UserRules": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** [IpGroupId](#ipgroupid)
+  * UserRules **required** [IpRuleList](#iprulelist)
+
+#### Output
+* output [AuthorizeIpRulesResult](#authorizeiprulesresult)
+
+### CreateIpGroup
+
+
+
+```js
+amazonaws_workspaces.CreateIpGroup({
+  "GroupName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupDesc [IpGroupDesc](#ipgroupdesc)
+  * GroupName **required** [IpGroupName](#ipgroupname)
+  * UserRules [IpRuleList](#iprulelist)
+
+#### Output
+* output [CreateIpGroupResult](#createipgroupresult)
 
 ### CreateTags
 
@@ -63,6 +120,23 @@ amazonaws_workspaces.CreateWorkspaces({
 #### Output
 * output [CreateWorkspacesResult](#createworkspacesresult)
 
+### DeleteIpGroup
+
+
+
+```js
+amazonaws_workspaces.DeleteIpGroup({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** [IpGroupId](#ipgroupid)
+
+#### Output
+* output [DeleteIpGroupResult](#deleteipgroupresult)
+
 ### DeleteTags
 
 
@@ -81,6 +155,23 @@ amazonaws_workspaces.DeleteTags({
 
 #### Output
 * output [DeleteTagsResult](#deletetagsresult)
+
+### DescribeIpGroups
+
+
+
+```js
+amazonaws_workspaces.DescribeIpGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * GroupIds [IpGroupIdList](#ipgroupidlist)
+  * MaxResults [Limit](#limit)
+  * NextToken [PaginationToken](#paginationtoken)
+
+#### Output
+* output [DescribeIpGroupsResult](#describeipgroupsresult)
 
 ### DescribeTags
 
@@ -172,6 +263,25 @@ amazonaws_workspaces.DescribeWorkspacesConnectionStatus({}, context)
 #### Output
 * output [DescribeWorkspacesConnectionStatusResult](#describeworkspacesconnectionstatusresult)
 
+### DisassociateIpGroups
+
+
+
+```js
+amazonaws_workspaces.DisassociateIpGroups({
+  "DirectoryId": "",
+  "GroupIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required** [DirectoryId](#directoryid)
+  * GroupIds **required** [IpGroupIdList](#ipgroupidlist)
+
+#### Output
+* output [DisassociateIpGroupsResult](#disassociateipgroupsresult)
+
 ### ModifyWorkspaceProperties
 
 
@@ -190,6 +300,25 @@ amazonaws_workspaces.ModifyWorkspaceProperties({
 
 #### Output
 * output [ModifyWorkspacePropertiesResult](#modifyworkspacepropertiesresult)
+
+### ModifyWorkspaceState
+
+
+
+```js
+amazonaws_workspaces.ModifyWorkspaceState({
+  "WorkspaceId": "",
+  "WorkspaceState": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * WorkspaceId **required** [WorkspaceId](#workspaceid)
+  * WorkspaceState **required** [TargetWorkspaceState](#targetworkspacestate)
+
+#### Output
+* output [ModifyWorkspaceStateResult](#modifyworkspacestateresult)
 
 ### RebootWorkspaces
 
@@ -224,6 +353,25 @@ amazonaws_workspaces.RebuildWorkspaces({
 
 #### Output
 * output [RebuildWorkspacesResult](#rebuildworkspacesresult)
+
+### RevokeIpRules
+
+
+
+```js
+amazonaws_workspaces.RevokeIpRules({
+  "GroupId": "",
+  "UserRules": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** [IpGroupId](#ipgroupid)
+  * UserRules **required** [IpRevokedRuleList](#iprevokedrulelist)
+
+#### Output
+* output [RevokeIpRulesResult](#revokeiprulesresult)
 
 ### StartWorkspaces
 
@@ -276,6 +424,25 @@ amazonaws_workspaces.TerminateWorkspaces({
 #### Output
 * output [TerminateWorkspacesResult](#terminateworkspacesresult)
 
+### UpdateRulesOfIpGroup
+
+
+
+```js
+amazonaws_workspaces.UpdateRulesOfIpGroup({
+  "GroupId": "",
+  "UserRules": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** [IpGroupId](#ipgroupid)
+  * UserRules **required** [IpRuleList](#iprulelist)
+
+#### Output
+* output [UpdateRulesOfIpGroupResult](#updaterulesofipgroupresult)
+
 
 
 ## Definitions
@@ -289,6 +456,22 @@ amazonaws_workspaces.TerminateWorkspaces({
 
 ### Alias
 * Alias `string`
+
+### AssociateIpGroupsRequest
+* AssociateIpGroupsRequest `object`
+  * DirectoryId **required** [DirectoryId](#directoryid)
+  * GroupIds **required** [IpGroupIdList](#ipgroupidlist)
+
+### AssociateIpGroupsResult
+* AssociateIpGroupsResult `object`
+
+### AuthorizeIpRulesRequest
+* AuthorizeIpRulesRequest `object`
+  * GroupId **required** [IpGroupId](#ipgroupid)
+  * UserRules **required** [IpRuleList](#iprulelist)
+
+### AuthorizeIpRulesResult
+* AuthorizeIpRulesResult `object`
 
 ### BooleanObject
 * BooleanObject `boolean`
@@ -320,6 +503,16 @@ amazonaws_workspaces.TerminateWorkspaces({
 ### ConnectionState
 * ConnectionState `string` (values: CONNECTED, DISCONNECTED, UNKNOWN)
 
+### CreateIpGroupRequest
+* CreateIpGroupRequest `object`
+  * GroupDesc [IpGroupDesc](#ipgroupdesc)
+  * GroupName **required** [IpGroupName](#ipgroupname)
+  * UserRules [IpRuleList](#iprulelist)
+
+### CreateIpGroupResult
+* CreateIpGroupResult `object`
+  * GroupId [IpGroupId](#ipgroupid)
+
 ### CreateTagsRequest
 * CreateTagsRequest `object`
   * ResourceId **required** [NonEmptyString](#nonemptystring)
@@ -348,6 +541,13 @@ amazonaws_workspaces.TerminateWorkspaces({
   * EnableWorkDocs [BooleanObject](#booleanobject)
   * UserEnabledAsLocalAdministrator [BooleanObject](#booleanobject)
 
+### DeleteIpGroupRequest
+* DeleteIpGroupRequest `object`
+  * GroupId **required** [IpGroupId](#ipgroupid)
+
+### DeleteIpGroupResult
+* DeleteIpGroupResult `object`
+
 ### DeleteTagsRequest
 * DeleteTagsRequest `object`
   * ResourceId **required** [NonEmptyString](#nonemptystring)
@@ -355,6 +555,17 @@ amazonaws_workspaces.TerminateWorkspaces({
 
 ### DeleteTagsResult
 * DeleteTagsResult `object`
+
+### DescribeIpGroupsRequest
+* DescribeIpGroupsRequest `object`
+  * GroupIds [IpGroupIdList](#ipgroupidlist)
+  * MaxResults [Limit](#limit)
+  * NextToken [PaginationToken](#paginationtoken)
+
+### DescribeIpGroupsResult
+* DescribeIpGroupsResult `object`
+  * NextToken [PaginationToken](#paginationtoken)
+  * Result [WorkspacesIpGroupsList](#workspacesipgroupslist)
 
 ### DescribeTagsRequest
 * DescribeTagsRequest `object`
@@ -426,6 +637,14 @@ amazonaws_workspaces.TerminateWorkspaces({
 ### DirectoryName
 * DirectoryName `string`
 
+### DisassociateIpGroupsRequest
+* DisassociateIpGroupsRequest `object`
+  * DirectoryId **required** [DirectoryId](#directoryid)
+  * GroupIds **required** [IpGroupIdList](#ipgroupidlist)
+
+### DisassociateIpGroupsResult
+* DisassociateIpGroupsResult `object`
+
 ### DnsIpAddresses
 * DnsIpAddresses `array`
   * items [IpAddress](#ipaddress)
@@ -477,11 +696,43 @@ amazonaws_workspaces.TerminateWorkspaces({
   * message [ExceptionMessage](#exceptionmessage)
 
 ### InvalidResourceStateException
-* InvalidResourceStateException `object`: The state of the WorkSpace is not valid for this operation.
+* InvalidResourceStateException `object`: The state of the resource is not valid for this operation.
   * message [ExceptionMessage](#exceptionmessage)
 
 ### IpAddress
 * IpAddress `string`
+
+### IpGroupDesc
+* IpGroupDesc `string`
+
+### IpGroupId
+* IpGroupId `string`
+
+### IpGroupIdList
+* IpGroupIdList `array`
+  * items [IpGroupId](#ipgroupid)
+
+### IpGroupName
+* IpGroupName `string`
+
+### IpRevokedRuleList
+* IpRevokedRuleList `array`
+  * items [IpRule](#iprule)
+
+### IpRule
+* IpRule `string`
+
+### IpRuleDesc
+* IpRuleDesc `string`
+
+### IpRuleItem
+* IpRuleItem `object`: Information about a rule for an IP access control group.
+  * ipRule [IpRule](#iprule)
+  * ruleDesc [IpRuleDesc](#ipruledesc)
+
+### IpRuleList
+* IpRuleList `array`
+  * items [IpRuleItem](#ipruleitem)
 
 ### Limit
 * Limit `integer`
@@ -509,11 +760,23 @@ amazonaws_workspaces.TerminateWorkspaces({
 ### ModifyWorkspacePropertiesResult
 * ModifyWorkspacePropertiesResult `object`
 
+### ModifyWorkspaceStateRequest
+* ModifyWorkspaceStateRequest `object`
+  * WorkspaceId **required** [WorkspaceId](#workspaceid)
+  * WorkspaceState **required** [TargetWorkspaceState](#targetworkspacestate)
+
+### ModifyWorkspaceStateResult
+* ModifyWorkspaceStateResult `object`
+
 ### NonEmptyString
 * NonEmptyString `string`
 
 ### OperationInProgressException
 * OperationInProgressException `object`: The properties of this WorkSpace are currently being modified. Try again in a moment.
+  * message [ExceptionMessage](#exceptionmessage)
+
+### OperationNotSupportedException
+* OperationNotSupportedException `object`: This operation is not supported.
   * message [ExceptionMessage](#exceptionmessage)
 
 ### PaginationToken
@@ -554,6 +817,18 @@ amazonaws_workspaces.TerminateWorkspaces({
 ### RegistrationCode
 * RegistrationCode `string`
 
+### ResourceAlreadyExistsException
+* ResourceAlreadyExistsException `object`: The specified resource already exists.
+  * message [ExceptionMessage](#exceptionmessage)
+
+### ResourceAssociatedException
+* ResourceAssociatedException `object`: The resource is associated with a directory.
+  * message [ExceptionMessage](#exceptionmessage)
+
+### ResourceCreationFailedException
+* ResourceCreationFailedException `object`: The resource could not be created.
+  * message [ExceptionMessage](#exceptionmessage)
+
 ### ResourceLimitExceededException
 * ResourceLimitExceededException `object`: Your resource limits have been exceeded.
   * message [ExceptionMessage](#exceptionmessage)
@@ -567,6 +842,14 @@ amazonaws_workspaces.TerminateWorkspaces({
 * ResourceUnavailableException `object`: The specified resource is not available.
   * ResourceId [NonEmptyString](#nonemptystring)
   * message [ExceptionMessage](#exceptionmessage)
+
+### RevokeIpRulesRequest
+* RevokeIpRulesRequest `object`
+  * GroupId **required** [IpGroupId](#ipgroupid)
+  * UserRules **required** [IpRevokedRuleList](#iprevokedrulelist)
+
+### RevokeIpRulesResult
+* RevokeIpRulesResult `object`
 
 ### RootStorage
 * RootStorage `object`: Information about the root volume for a WorkSpace bundle.
@@ -642,6 +925,9 @@ amazonaws_workspaces.TerminateWorkspaces({
 ### TagValue
 * TagValue `string`
 
+### TargetWorkspaceState
+* TargetWorkspaceState `string` (values: AVAILABLE, ADMIN_MAINTENANCE)
+
 ### TerminateRequest
 * TerminateRequest `object`: Information used to terminate a WorkSpace.
   * WorkspaceId **required** [WorkspaceId](#workspaceid)
@@ -664,6 +950,14 @@ amazonaws_workspaces.TerminateWorkspaces({
 ### UnsupportedWorkspaceConfigurationException
 * UnsupportedWorkspaceConfigurationException `object`: The configuration of this WorkSpace is not supported for this operation. For more information, see the <a href="http://docs.aws.amazon.com/workspaces/latest/adminguide/">Amazon WorkSpaces Administration Guide</a>. 
   * message [ExceptionMessage](#exceptionmessage)
+
+### UpdateRulesOfIpGroupRequest
+* UpdateRulesOfIpGroupRequest `object`
+  * GroupId **required** [IpGroupId](#ipgroupid)
+  * UserRules **required** [IpRuleList](#iprulelist)
+
+### UpdateRulesOfIpGroupResult
+* UpdateRulesOfIpGroupResult `object`
 
 ### UserName
 * UserName `string`
@@ -718,7 +1012,7 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [WorkspaceConnectionStatus](#workspaceconnectionstatus)
 
 ### WorkspaceDirectory
-* WorkspaceDirectory `object`: Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.
+* WorkspaceDirectory `object`: Information about an AWS Directory Service directory for use with Amazon WorkSpaces.
   * Alias [Alias](#alias)
   * CustomerUserName [UserName](#username)
   * DirectoryId [DirectoryId](#directoryid)
@@ -731,6 +1025,7 @@ amazonaws_workspaces.TerminateWorkspaces({
   * SubnetIds [SubnetIds](#subnetids)
   * WorkspaceCreationProperties [DefaultWorkspaceCreationProperties](#defaultworkspacecreationproperties)
   * WorkspaceSecurityGroupId [SecurityGroupId](#securitygroupid)
+  * ipGroupIds [IpGroupIdList](#ipgroupidlist)
 
 ### WorkspaceDirectoryState
 * WorkspaceDirectoryState `string` (values: REGISTERING, REGISTERED, DEREGISTERING, DEREGISTERED, ERROR)
@@ -776,6 +1071,17 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [WorkspaceRequest](#workspacerequest)
 
 ### WorkspaceState
-* WorkspaceState `string` (values: PENDING, AVAILABLE, IMPAIRED, UNHEALTHY, REBOOTING, STARTING, REBUILDING, MAINTENANCE, TERMINATING, TERMINATED, SUSPENDED, UPDATING, STOPPING, STOPPED, ERROR)
+* WorkspaceState `string` (values: PENDING, AVAILABLE, IMPAIRED, UNHEALTHY, REBOOTING, STARTING, REBUILDING, MAINTENANCE, ADMIN_MAINTENANCE, TERMINATING, TERMINATED, SUSPENDED, UPDATING, STOPPING, STOPPED, ERROR)
+
+### WorkspacesIpGroup
+* WorkspacesIpGroup `object`: Information about an IP access control group.
+  * groupDesc [IpGroupDesc](#ipgroupdesc)
+  * groupId [IpGroupId](#ipgroupid)
+  * groupName [IpGroupName](#ipgroupname)
+  * userRules [IpRuleList](#iprulelist)
+
+### WorkspacesIpGroupsList
+* WorkspacesIpGroupsList `array`
+  * items [WorkspacesIpGroup](#workspacesipgroup)
 
 

@@ -15,10 +15,8 @@ let azure_notificationhubs = require('@datafire/azure_notificationhubs').create(
   redirect_uri: ""
 });
 
-azure_notificationhubs.Name_CheckAvailability({
-  "parameters": null,
-  "api-version": "",
-  "subscriptionId": ""
+azure_notificationhubs.Operations_List({
+  "api-version": ""
 }).then(data => {
   console.log(data);
 });
@@ -30,26 +28,22 @@ Azure NotificationHub client
 
 ## Actions
 
-### Name_CheckAvailability
-Checks the availability of the given service namespace across all Azure subscriptions. This is useful because the domain name is created based on the service namespace name.
+### Operations_List
+Lists all of the available NotificationHubs REST API operations.
 
 
 ```js
-azure_notificationhubs.Name_CheckAvailability({
-  "parameters": null,
-  "api-version": "",
-  "subscriptionId": ""
+azure_notificationhubs.Operations_List({
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * parameters **required** [CheckNameAvailabilityRequestParameters](#checknameavailabilityrequestparameters)
   * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [CheckNameAvailabilityResponse](#checknameavailabilityresponse)
+* output [OperationListResult](#operationlistresult)
 
 ### Namespaces_CheckAvailability
 Checks the availability of the given service namespace across all Azure subscriptions. This is useful because the domain name is created based on the service namespace name.
@@ -331,7 +325,7 @@ azure_notificationhubs.Namespaces_ListKeys({
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [ResourceListKeys](#resourcelistkeys)
+* output [SharedAccessAuthorizationRuleListResult](#sharedaccessauthorizationrulelistresult)
 
 ### Namespaces_RegenerateKeys
 Regenerates the Primary/Secondary Keys to the Namespace Authorization Rule
@@ -360,37 +354,12 @@ azure_notificationhubs.Namespaces_RegenerateKeys({
 #### Output
 * output [ResourceListKeys](#resourcelistkeys)
 
-### Hubs_CheckAvailability
+### NotificationHubs_CheckNotificationHubAvailability
 Checks the availability of the given notificationHub in a namespace.
 
 
 ```js
-azure_notificationhubs.Hubs_CheckAvailability({
-  "resourceGroupName": "",
-  "namespaceName": "",
-  "parameters": null,
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * namespaceName **required** `string`: The namespace name.
-  * parameters **required** [CheckNameAvailabilityRequestParameters](#checknameavailabilityrequestparameters)
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-* output [CheckNameAvailabilityResponse](#checknameavailabilityresponse)
-
-### NotificationHubs_CheckAvailability
-Checks the availability of the given notificationHub in a namespace.
-
-
-```js
-azure_notificationhubs.NotificationHubs_CheckAvailability({
+azure_notificationhubs.NotificationHubs_CheckNotificationHubAvailability({
   "resourceGroupName": "",
   "namespaceName": "",
   "parameters": null,
@@ -752,22 +721,16 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 * CheckAvailabilityResult `object`: Description of a CheckAvailibility resource.
   * isAvailiable `boolean`: True if the name is available and can be used to create new Namespace/NotificationHub. Otherwise false.
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags
   * type `string`: Resource type
 
-### CheckNameAvailabilityRequestParameters
-* CheckNameAvailabilityRequestParameters `object`: Parameters supplied to the Check Name Availability for Namespace and NotificationHubs.
-  * Name **required** `string`: Resource name
-  * Type `string`: Resource type
-
-### CheckNameAvailabilityResponse
-* CheckNameAvailabilityResponse `object`
-  * Message `string`: The messsage returned when checking for namespace name availability
-  * NameAvailable `boolean`: Checks if the namespace name is available
-  * Reason `string`: States the reason due to which the namespace name is not available
+### ErrorResponse
+* ErrorResponse `object`: Error reponse indicates NotificationHubs service is not able to process the incoming request. The reason is provided in the error message.
+  * code `string`: Error code.
+  * message `string`: Error message indicating why the operation failed.
 
 ### GcmCredential
 * GcmCredential `object`: Description of a NotificationHub GcmCredential.
@@ -792,7 +755,7 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 * NamespaceCreateOrUpdateParameters `object`: Parameters supplied to the CreateOrUpdate Namespace operation.
   * properties [NamespaceProperties](#namespaceproperties)
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags
@@ -813,7 +776,9 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 * NamespaceProperties `object`: Namespace properties.
   * createdAt `string`: The time the namespace was created.
   * critical `boolean`: Whether or not the namespace is set as Critical.
+  * dataCenter `string`: Data center for the namespace
   * enabled `boolean`: Whether or not the namespace is currently enabled.
+  * metricId `string`: Identifier for Azure Insights metrics
   * name `string`: The name of the namespace.
   * namespaceType `string` (values: Messaging, NotificationHub): The namespace type.
   * provisioningState `string`: Provisioning state of the Namespace.
@@ -822,12 +787,13 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
   * serviceBusEndpoint `string`: Endpoint you can use to perform NotificationHub operations.
   * status `string`: Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
   * subscriptionId `string`: The Id of the Azure subscription associated with the namespace.
+  * updatedAt `string`: The time the namespace was updated.
 
 ### NamespaceResource
 * NamespaceResource `object`: Description of a Namespace resource.
   * properties [NamespaceProperties](#namespaceproperties)
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags
@@ -837,7 +803,7 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 * NotificationHubCreateOrUpdateParameters `object`: Parameters supplied to the CreateOrUpdate NotificationHub operation.
   * properties **required** [NotificationHubProperties](#notificationhubproperties)
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags
@@ -866,11 +832,25 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 * NotificationHubResource `object`: Description of a NotificationHub Resource.
   * properties [NotificationHubProperties](#notificationhubproperties)
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags
   * type `string`: Resource type
+
+### Operation
+* Operation `object`: A NotificationHubs REST API operation
+  * display `object`: The object that represents the operation.
+    * operation `string`: Operation type: Read, write, delete, etc.
+    * provider `string`: Service provider: Microsoft.NotificationHubs
+    * resource `string`: Resource on which the operation is performed: Invoice, etc.
+  * name `string`: Operation name: {provider}/{resource}/{operation}
+
+### OperationListResult
+* OperationListResult `object`: Result of the request to list NotificationHubs operations. It contains a list of operations and a URL link to get the next set of results.
+  * nextLink `string`: URL to get the next set of operation list results if there are any.
+  * value `array`: List of NotificationHubs operations supported by the Microsoft.NotificationHubs resource provider.
+    * items [Operation](#operation)
 
 ### PnsCredentialsProperties
 * PnsCredentialsProperties `object`: Description of a NotificationHub PNS Credentials.
@@ -885,7 +865,7 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 * PnsCredentialsResource `object`: Description of a NotificationHub PNS Credentials.
   * properties [PnsCredentialsProperties](#pnscredentialsproperties)
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags
@@ -898,7 +878,7 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 ### Resource
 * Resource `object`
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags
@@ -915,12 +895,6 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 ### SharedAccessAuthorizationRuleCreateOrUpdateParameters
 * SharedAccessAuthorizationRuleCreateOrUpdateParameters `object`: Parameters supplied to the CreateOrUpdate Namespace AuthorizationRules.
   * properties **required** [SharedAccessAuthorizationRuleProperties](#sharedaccessauthorizationruleproperties)
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * sku [Sku](#sku)
-  * tags `object`: Resource tags
-  * type `string`: Resource type
 
 ### SharedAccessAuthorizationRuleListResult
 * SharedAccessAuthorizationRuleListResult `object`: The response of the List Namespace operation.
@@ -930,14 +904,22 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 
 ### SharedAccessAuthorizationRuleProperties
 * SharedAccessAuthorizationRuleProperties `object`: SharedAccessAuthorizationRule properties.
+  * claimType `string`: A string that describes the claim type
+  * claimValue `string`: A string that describes the claim value
+  * createdTime `string`: The created time for this rule
+  * keyName `string`: A string that describes the authorization rule.
+  * modifiedTime `string`: The last modified time for this rule
+  * primaryKey `string`: A base64-encoded 256-bit primary key for signing and validating the SAS token.
+  * revision `integer`: The revision number for the rule
   * rights `array`: The rights associated with the rule.
     * items `string` (values: Manage, Send, Listen)
+  * secondaryKey `string`: A base64-encoded 256-bit primary key for signing and validating the SAS token.
 
 ### SharedAccessAuthorizationRuleResource
 * SharedAccessAuthorizationRuleResource `object`: Description of a Namespace AuthorizationRules.
   * properties [SharedAccessAuthorizationRuleProperties](#sharedaccessauthorizationruleproperties)
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags

@@ -12,7 +12,7 @@ let transavia = require('@datafire/transavia').create({
   apiKeyQuery: ""
 });
 
-transavia.nearest.get({}).then(data => {
+transavia.58d8bcb8a9e6240e200cff27({}).then(data => {
   console.log(data);
 });
 ```
@@ -23,12 +23,12 @@ Returns all airports
 
 ## Actions
 
-### .get
+### 58d8bcb7a9e6240e200cff24
 Retrieve all airports.
 
 
 ```js
-transavia..get(null, context)
+transavia.58d8bcb7a9e6240e200cff24(null, context)
 ```
 
 #### Input
@@ -37,12 +37,12 @@ transavia..get(null, context)
 #### Output
 * output [AirportDtoArray](#airportdtoarray)
 
-### countrycode.countryCode.get
+### 58d8bcb8a9e6240e200cff26
 Retrieve airports by country code.
 
 
 ```js
-transavia.countrycode.countryCode.get({
+transavia.58d8bcb8a9e6240e200cff26({
   "countryCode": ""
 }, context)
 ```
@@ -54,12 +54,12 @@ transavia.countrycode.countryCode.get({
 #### Output
 * output [AirportDtoArray](#airportdtoarray)
 
-### nearest.get
+### 58d8bcb8a9e6240e200cff27
 Retrieve nearest airports by geo coordinates (latitude/longitude).
 
 
 ```js
-transavia.nearest.get({}, context)
+transavia.58d8bcb8a9e6240e200cff27({}, context)
 ```
 
 #### Input
@@ -72,12 +72,12 @@ transavia.nearest.get({}, context)
 #### Output
 * output [NearestAirportDtoArray](#nearestairportdtoarray)
 
-### nearest.id.get
+### 58d8bcb8a9e6240e200cff28
 Retrieve nearest airports by station id.
 
 
 ```js
-transavia.nearest.id.get({
+transavia.58d8bcb8a9e6240e200cff28({
   "id": ""
 }, context)
 ```
@@ -91,12 +91,12 @@ transavia.nearest.id.get({
 #### Output
 * output [NearestAirportDtoArray](#nearestairportdtoarray)
 
-### id.get
+### 58d8bcb7a9e6240e200cff25
 Retrieve airport by id.
 
 
 ```js
-transavia.id.get({
+transavia.58d8bcb7a9e6240e200cff25({
   "id": ""
 }, context)
 ```

@@ -690,6 +690,27 @@ amazonaws_ds.RemoveTagsFromResource({
 #### Output
 * output [RemoveTagsFromResourceResult](#removetagsfromresourceresult)
 
+### ResetUserPassword
+
+
+
+```js
+amazonaws_ds.ResetUserPassword({
+  "DirectoryId": "",
+  "UserName": "",
+  "NewPassword": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required** [DirectoryId](#directoryid)
+  * NewPassword **required** [UserPassword](#userpassword)
+  * UserName **required** [CustomerUserName](#customerusername)
+
+#### Output
+* output [ResetUserPasswordResult](#resetuserpasswordresult)
+
 ### RestoreFromSnapshot
 
 
@@ -1011,6 +1032,9 @@ amazonaws_ds.VerifyTrust({
 
 ### CreatedDateTime
 * CreatedDateTime `string`
+
+### CustomerUserName
+* CustomerUserName `string`
 
 ### DeleteAssociatedConditionalForwarder
 * DeleteAssociatedConditionalForwarder `boolean`
@@ -1359,6 +1383,11 @@ amazonaws_ds.VerifyTrust({
   * Message [ExceptionMessage](#exceptionmessage)
   * RequestId [RequestId](#requestid)
 
+### InvalidPasswordException
+* InvalidPasswordException `object`: The new password provided by the user does not meet the password complexity requirements defined in your directory.
+  * Message [ExceptionMessage](#exceptionmessage)
+  * RequestId [RequestId](#requestid)
+
 ### IpAddr
 * IpAddr `string`
 
@@ -1524,6 +1553,15 @@ amazonaws_ds.VerifyTrust({
 
 ### RequestId
 * RequestId `string`: The AWS request identifier.
+
+### ResetUserPasswordRequest
+* ResetUserPasswordRequest `object`
+  * DirectoryId **required** [DirectoryId](#directoryid)
+  * NewPassword **required** [UserPassword](#userpassword)
+  * UserName **required** [CustomerUserName](#customerusername)
+
+### ResetUserPasswordResult
+* ResetUserPasswordResult `object`
 
 ### ResourceId
 * ResourceId `string`
@@ -1761,8 +1799,16 @@ amazonaws_ds.VerifyTrust({
 ### UseSameUsername
 * UseSameUsername `boolean`
 
+### UserDoesNotExistException
+* UserDoesNotExistException `object`: The user provided a username that does not exist in your directory.
+  * Message [ExceptionMessage](#exceptionmessage)
+  * RequestId [RequestId](#requestid)
+
 ### UserName
 * UserName `string`
+
+### UserPassword
+* UserPassword `string`
 
 ### VerifyTrustRequest
 * VerifyTrustRequest `object`: Initiates the verification of an existing trust relationship between a Microsoft AD in the AWS cloud and an external domain.

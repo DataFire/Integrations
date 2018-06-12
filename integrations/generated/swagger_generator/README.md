@@ -47,7 +47,7 @@ swagger_generator.getClientOptions({
 
 #### Input
 * input `object`
-  * language **required** `string` (values: akka-scala, android, apex, async-scala, bash, clojure, cpprest, csharp, CsharpDotNet2, cwiki, dart, dynamic-html, eiffel, elixir, flash, go, groovy, html, html2, java, javascript, javascript-closure-angular, jaxrs-cxf-client, jmeter, kotlin, objc, perl, php, powershell, python, qt5cpp, ruby, scala, swagger, swagger-yaml, swift, swift3, swift4, tizen, typescript-angular, typescript-angular2, typescript-fetch, typescript-jquery, typescript-node): The target language for the client library
+  * language **required** `string` (values: ada, akka-scala, android, apex, bash, clojure, cpprest, csharp, csharp-dotnet2, cwiki, dart, dynamic-html, eiffel, elixir, elm, erlang-client, flash, go, groovy, haskell-http-client, html, html2, java, javascript, javascript-closure-angular, jaxrs-cxf-client, jmeter, kotlin, lua, objc, perl, php, powershell, python, qt5cpp, r, ruby, rust, scala, scalaz, swagger, swagger-yaml, swift, swift3, swift4, tizen, typescript-angular, typescript-angularjs, typescript-aurelia, typescript-fetch, typescript-jquery, typescript-node): The target language for the client library
 
 #### Output
 * output `object`
@@ -65,7 +65,7 @@ swagger_generator.generateClient({
 
 #### Input
 * input `object`
-  * language **required** `string` (values: akka-scala, android, apex, async-scala, bash, clojure, cpprest, csharp, CsharpDotNet2, cwiki, dart, dynamic-html, eiffel, elixir, flash, go, groovy, html, html2, java, javascript, javascript-closure-angular, jaxrs-cxf-client, jmeter, kotlin, objc, perl, php, powershell, python, qt5cpp, ruby, scala, swagger, swagger-yaml, swift, swift3, swift4, tizen, typescript-angular, typescript-angular2, typescript-fetch, typescript-jquery, typescript-node): The target language for the client library
+  * language **required** `string` (values: ada, akka-scala, android, apex, bash, clojure, cpprest, csharp, csharp-dotnet2, cwiki, dart, dynamic-html, eiffel, elixir, elm, erlang-client, flash, go, groovy, haskell-http-client, html, html2, java, javascript, javascript-closure-angular, jaxrs-cxf-client, jmeter, kotlin, lua, objc, perl, php, powershell, python, qt5cpp, r, ruby, rust, scala, scalaz, swagger, swagger-yaml, swift, swift3, swift4, tizen, typescript-angular, typescript-angularjs, typescript-aurelia, typescript-fetch, typescript-jquery, typescript-node): The target language for the client library
   * body **required** [GeneratorInput](#generatorinput)
 
 #### Output
@@ -115,7 +115,7 @@ swagger_generator.getServerOptions({
 
 #### Input
 * input `object`
-  * framework **required** `string` (values: aspnet5, aspnetcore, erlang-server, finch, go-server, haskell, inflector, java-play-framework, java-vertx, jaxrs, jaxrs-cxf, jaxrs-cxf-cdi, jaxrs-resteasy, jaxrs-resteasy-eap, jaxrs-spec, lumen, msf4j, nancyfx, nodejs-server, php-symfony, pistache-server, python-flask, rails5, restbed, scalatra, silex-PHP, sinatra, slim, spring, undertow, ze-ph): The target language for the server framework
+  * framework **required** `string` (values: ada-server, aspnetcore, erlang-server, finch, go-server, haskell, inflector, java-pkmst, java-play-framework, java-vertx, jaxrs, jaxrs-cxf, jaxrs-cxf-cdi, jaxrs-resteasy, jaxrs-resteasy-eap, jaxrs-spec, lumen, msf4j, nancyfx, nodejs-server, php-silex, php-symfony, pistache-server, python-flask, rails5, restbed, rust-server, scala-lagom-server, scalatra, sinatra, slim, spring, undertow, ze-ph): The target language for the server framework
 
 #### Output
 * output `object`
@@ -133,7 +133,7 @@ swagger_generator.generateServerForLanguage({
 
 #### Input
 * input `object`
-  * framework **required** `string` (values: aspnet5, aspnetcore, erlang-server, finch, go-server, haskell, inflector, java-play-framework, java-vertx, jaxrs, jaxrs-cxf, jaxrs-cxf-cdi, jaxrs-resteasy, jaxrs-resteasy-eap, jaxrs-spec, lumen, msf4j, nancyfx, nodejs-server, php-symfony, pistache-server, python-flask, rails5, restbed, scalatra, silex-PHP, sinatra, slim, spring, undertow, ze-ph): framework
+  * framework **required** `string` (values: ada-server, aspnetcore, erlang-server, finch, go-server, haskell, inflector, java-pkmst, java-play-framework, java-vertx, jaxrs, jaxrs-cxf, jaxrs-cxf-cdi, jaxrs-resteasy, jaxrs-resteasy-eap, jaxrs-spec, lumen, msf4j, nancyfx, nodejs-server, php-silex, php-symfony, pistache-server, python-flask, rails5, restbed, rust-server, scala-lagom-server, scalatra, sinatra, slim, spring, undertow, ze-ph): framework
   * body **required** [GeneratorInput](#generatorinput)
 
 #### Output

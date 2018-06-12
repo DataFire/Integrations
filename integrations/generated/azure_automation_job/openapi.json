@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "AutomationManagement",
-    "version": "2015-10-31",
+    "version": "2017-05-15-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/job.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/preview/2017-05-15-preview/job.json",
         "version": "2.0"
       }
     ],
@@ -67,19 +67,23 @@
         "operationId": "Job_ListByAutomationAccount",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The filter to apply on the operation.",
@@ -101,6 +105,14 @@
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -110,59 +122,81 @@
               "description": "The response model for the list job operation.",
               "properties": {
                 "nextLink": {
-                  "description": "Gets or sets the next link.",
+                  "description": "The  link to the next page.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "value": {
-                  "description": "Gets or sets a list of jobs.",
+                  "description": "List of jobs.",
                   "items": {
-                    "description": "Definition of the job.",
+                    "allOf": [
+                      {
+                        "allOf": [
+                          {
+                            "description": "The core properties of ARM resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource Id for the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                      }
+                    ],
+                    "description": "Job collection item properties.",
                     "properties": {
-                      "id": {
-                        "description": "Gets or sets the id of the resource.",
-                        "type": "string"
-                      },
                       "properties": {
-                        "description": "Definition of job properties.",
+                        "description": "Job collection item properties.",
                         "properties": {
                           "creationTime": {
-                            "description": "Gets or sets the creation time of the job.",
+                            "description": "The creation time of the job.",
                             "format": "date-time",
-                            "type": "string"
+                            "readOnly": true,
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "endTime": {
-                            "description": "Gets or sets the end time of the job.",
+                            "description": "The end time of the job.",
                             "format": "date-time",
-                            "type": "string"
-                          },
-                          "exception": {
-                            "description": "Gets or sets the exception of the job.",
-                            "type": "string"
+                            "readOnly": true,
+                            "type": "string",
+                            "x-nullable": true
                           },
                           "jobId": {
-                            "description": "Gets or sets the id of the job.",
+                            "description": "The id of the job.",
                             "format": "uuid",
-                            "type": "string"
+                            "readOnly": true,
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "lastModifiedTime": {
-                            "description": "Gets or sets the last modified time of the job.",
+                            "description": "The last modified time of the job.",
                             "format": "date-time",
-                            "type": "string"
+                            "readOnly": true,
+                            "type": "string",
+                            "x-nullable": true
                           },
-                          "lastStatusModifiedTime": {
-                            "description": "Gets or sets the last status modified time of the job.",
-                            "format": "date-time",
+                          "provisioningState": {
+                            "description": "The provisioning state of a resource.",
+                            "readOnly": true,
                             "type": "string"
-                          },
-                          "parameters": {
-                            "additionalProperties": {
-                              "type": "string"
-                            },
-                            "description": "Gets or sets the parameters of the job.",
-                            "type": "object"
                           },
                           "runOn": {
-                            "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
+                            "description": "Specifies the runOn group name where the job was executed.",
                             "type": "string"
                           },
                           "runbook": {
@@ -175,16 +209,14 @@
                             }
                           },
                           "startTime": {
-                            "description": "Gets or sets the start time of the job.",
+                            "description": "The start time of the job.",
                             "format": "date-time",
-                            "type": "string"
-                          },
-                          "startedBy": {
-                            "description": "Gets or sets the job started by.",
-                            "type": "string"
+                            "readOnly": true,
+                            "type": "string",
+                            "x-nullable": true
                           },
                           "status": {
-                            "description": "Gets or sets the status of the job.",
+                            "description": "The status of the job.",
                             "enum": [
                               "New",
                               "Activating",
@@ -200,19 +232,20 @@
                               "Resuming",
                               "Removing"
                             ],
+                            "readOnly": true,
                             "type": "string",
                             "x-ms-enum": {
                               "modelAsString": true,
                               "name": "JobStatus"
                             }
-                          },
-                          "statusDetails": {
-                            "description": "Gets or sets the status details of the job.",
-                            "type": "string"
                           }
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "properties"
+                    ],
+                    "type": "object"
                   },
                   "type": "array"
                 }
@@ -243,36 +276,41 @@
         "x-ms-examples": {
           "List jobs by automation account": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2017-05-15-preview",
               "automationAccountName": "ContoseAutomationAccount",
-              "resourceGroupName": "rg",
-              "subscriptionId": "subid"
+              "jobName": "foo",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
             },
             "responses": {
               "200": {
                 "body": {
+                  "nextLink": "",
                   "value": [
                     {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
+                      "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/job1",
+                      "name": "job1",
                       "properties": {
                         "creationTime": "2017-03-30T05:53:30.243+00:00",
+                        "endTime": null,
                         "jobId": "45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
-                        "jobScheduleId": "24bd77b2-f3c1-42a8-815b-e80ac5c2de9c",
                         "lastModifiedTime": "2017-03-30T05:53:30.243+00:00",
-                        "provisioningState": "Processing",
+                        "provisioningState": "Succeeded",
                         "runbook": {
                           "name": "TestRunbook"
                         },
+                        "startTime": null,
                         "status": "New"
-                      }
+                      },
+                      "type": "Microsoft.Automation/AutomationAccounts/Jobs"
                     },
                     {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/7584055f-5118-460a-a2dd-5176c9c8efe9",
+                      "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/job2",
+                      "name": "job2",
                       "properties": {
                         "creationTime": "2017-03-30T05:46:49.37+00:00",
                         "endTime": "2017-03-30T05:48:38.857+00:00",
                         "jobId": "7584055f-5118-460a-a2dd-5176c9c8efe9",
-                        "jobScheduleId": "379d0e16-245c-43b2-8f99-54dc7f960ff9",
                         "lastModifiedTime": "2017-03-30T05:48:38.857+00:00",
                         "provisioningState": "Succeeded",
                         "runbook": {
@@ -280,199 +318,8 @@
                         },
                         "startTime": "2017-03-30T05:47:35.2+00:00",
                         "status": "Completed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/1054546d-0a8f-4cfe-b08d-b617598f00ed",
-                      "properties": {
-                        "creationTime": "2017-03-30T05:48:33.45+00:00",
-                        "endTime": "2017-03-30T05:48:33.56+00:00",
-                        "jobId": "1054546d-0a8f-4cfe-b08d-b617598f00ed",
-                        "jobScheduleId": "46c278cf-f817-416a-8f30-ccd02ec97873",
-                        "lastModifiedTime": "2017-03-30T05:48:33.56+00:00",
-                        "provisioningState": "Failed",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T05:48:33.56+00:00",
-                        "status": "Failed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/f8f72961-cc60-4222-ad36-02d66cc79fbc",
-                      "properties": {
-                        "creationTime": "2017-03-30T03:40:42.283+00:00",
-                        "endTime": "2017-03-30T05:46:36.447+00:00",
-                        "jobId": "f8f72961-cc60-4222-ad36-02d66cc79fbc",
-                        "jobScheduleId": "7b76b6d9-6823-4eb6-b594-f1033480f942",
-                        "lastModifiedTime": "2017-03-30T05:46:36.447+00:00",
-                        "provisioningState": "Failed",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T03:42:20.927+00:00",
-                        "status": "Stopped"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/962e21d8-625a-40a4-a7d9-ef1d1c594a53",
-                      "properties": {
-                        "creationTime": "2017-03-30T05:43:54.737+00:00",
-                        "endTime": "2017-03-30T05:43:54.817+00:00",
-                        "jobId": "962e21d8-625a-40a4-a7d9-ef1d1c594a53",
-                        "jobScheduleId": "b1959bf9-a552-4a26-b6d5-3dada8204e2e",
-                        "lastModifiedTime": "2017-03-30T05:43:54.817+00:00",
-                        "provisioningState": "Failed",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T05:43:54.817+00:00",
-                        "status": "Failed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/db2708ac-8f07-4af7-af99-f381877e61f3",
-                      "properties": {
-                        "creationTime": "2017-03-30T05:43:09.69+00:00",
-                        "endTime": "2017-03-30T05:43:09.813+00:00",
-                        "jobId": "db2708ac-8f07-4af7-af99-f381877e61f3",
-                        "jobScheduleId": "d306b6c7-b41c-43ef-b07f-b121e8849793",
-                        "lastModifiedTime": "2017-03-30T05:43:09.813+00:00",
-                        "provisioningState": "Failed",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T05:43:09.813+00:00",
-                        "status": "Failed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/ad36c63e-cb95-4aae-9f0f-26c8b436440a",
-                      "properties": {
-                        "creationTime": "2017-03-30T05:36:31.127+00:00",
-                        "endTime": "2017-03-30T05:36:31.22+00:00",
-                        "jobId": "ad36c63e-cb95-4aae-9f0f-26c8b436440a",
-                        "jobScheduleId": "3e6d8a83-c330-4946-9f37-26dce027258d",
-                        "lastModifiedTime": "2017-03-30T05:36:31.22+00:00",
-                        "provisioningState": "Failed",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T05:36:31.22+00:00",
-                        "status": "Failed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/3b5d4c8a-14cf-47c3-b7e0-0bf14780e676",
-                      "properties": {
-                        "creationTime": "2017-03-30T05:35:45.513+00:00",
-                        "endTime": "2017-03-30T05:35:45.593+00:00",
-                        "jobId": "3b5d4c8a-14cf-47c3-b7e0-0bf14780e676",
-                        "jobScheduleId": "af8ee432-29c2-4a1e-9828-ae66c21523fc",
-                        "lastModifiedTime": "2017-03-30T05:35:45.593+00:00",
-                        "provisioningState": "Failed",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T05:35:45.593+00:00",
-                        "status": "Failed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/9f199f26-f918-4693-b604-5e3134503cf5",
-                      "properties": {
-                        "creationTime": "2017-03-30T03:27:33.253+00:00",
-                        "endTime": "2017-03-30T03:58:41.713+00:00",
-                        "jobId": "9f199f26-f918-4693-b604-5e3134503cf5",
-                        "jobScheduleId": "78bfb5a9-9b05-4e29-81f7-88e2e2171cd3",
-                        "lastModifiedTime": "2017-03-30T03:58:41.713+00:00",
-                        "provisioningState": "Failed",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T03:29:18.227+00:00",
-                        "status": "Failed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/89a6bfd1-d10e-4ccd-bfc6-b212a6a2a2d1",
-                      "properties": {
-                        "creationTime": "2017-03-30T02:05:11.343+00:00",
-                        "endTime": "2017-03-30T03:58:32.073+00:00",
-                        "jobId": "89a6bfd1-d10e-4ccd-bfc6-b212a6a2a2d1",
-                        "jobScheduleId": "d29ef781-956a-40d2-bfe9-fed8d7cca7e6",
-                        "lastModifiedTime": "2017-03-30T03:58:32.073+00:00",
-                        "provisioningState": "Failed",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T02:06:20.91+00:00",
-                        "status": "Stopped"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/ac08b537-6024-4d36-a61b-94e1c990ebd2",
-                      "properties": {
-                        "creationTime": "2017-03-30T02:02:47.23+00:00",
-                        "endTime": "2017-03-30T02:03:13.933+00:00",
-                        "jobId": "ac08b537-6024-4d36-a61b-94e1c990ebd2",
-                        "jobScheduleId": "4664fbae-62b3-4fec-9aa8-c267e2c893bb",
-                        "lastModifiedTime": "2017-03-30T02:03:13.933+00:00",
-                        "provisioningState": "Succeeded",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T02:03:09.153+00:00",
-                        "status": "Completed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/299920cb-c908-49d1-bd0a-41873ad558bb",
-                      "properties": {
-                        "creationTime": "2017-03-30T02:00:22.133+00:00",
-                        "endTime": "2017-03-30T02:02:05.12+00:00",
-                        "jobId": "299920cb-c908-49d1-bd0a-41873ad558bb",
-                        "jobScheduleId": "f1b61fad-b85a-4c1f-a3df-2bdf0f22bae1",
-                        "lastModifiedTime": "2017-03-30T02:02:05.12+00:00",
-                        "provisioningState": "Succeeded",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T02:01:43.51+00:00",
-                        "status": "Completed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/b0cd9455-7f40-4878-b1e9-68d256ee4d69",
-                      "properties": {
-                        "creationTime": "2017-03-30T01:59:11.77+00:00",
-                        "endTime": "2017-03-30T02:00:05.21+00:00",
-                        "jobId": "b0cd9455-7f40-4878-b1e9-68d256ee4d69",
-                        "jobScheduleId": "69bb5960-f2f6-4579-bf8d-014f6e775d68",
-                        "lastModifiedTime": "2017-03-30T02:00:05.21+00:00",
-                        "provisioningState": "Succeeded",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T01:59:51.35+00:00",
-                        "status": "Completed"
-                      }
-                    },
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/9f8ee99e-ec36-49bd-beb8-9086a6270579",
-                      "properties": {
-                        "creationTime": "2017-03-30T01:55:55.2+00:00",
-                        "endTime": "2017-03-30T01:57:22.563+00:00",
-                        "jobId": "9f8ee99e-ec36-49bd-beb8-9086a6270579",
-                        "jobScheduleId": "7752b3a6-e443-48cd-ada0-6e70f4e43e4d",
-                        "lastModifiedTime": "2017-03-30T01:57:22.563+00:00",
-                        "provisioningState": "Succeeded",
-                        "runbook": {
-                          "name": "TestRunbook"
-                        },
-                        "startTime": "2017-03-30T01:57:07.14+00:00",
-                        "status": "Completed"
-                      }
+                      },
+                      "type": "Microsoft.Automation/AutomationAccounts/Jobs"
                     }
                   ]
                 },
@@ -481,46 +328,50 @@
             }
           }
         },
+        "x-ms-odata": "./definitions.json#/definitions/JobCollectionItem",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}": {
       "get": {
-        "description": "Retrieve the job identified by job id.",
+        "description": "Retrieve the job identified by job name.",
         "externalDocs": {
           "url": "http://aka.ms/azureautomationsdk/joboperations"
         },
         "operationId": "Job_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "pattern": "^[-\\w\\._]+$",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The automation account name.",
-            "in": "path",
-            "name": "automationAccountName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The job id.",
-            "format": "uuid",
-            "in": "path",
-            "name": "jobId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
             "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The job name.",
+            "in": "path",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -530,30 +381,64 @@
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the job.",
               "properties": {
-                "id": {
-                  "description": "Gets or sets the id of the resource.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of job properties.",
                   "properties": {
                     "creationTime": {
                       "description": "Gets or sets the creation time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "endTime": {
                       "description": "Gets or sets the end time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "exception": {
                       "description": "Gets or sets the exception of the job.",
@@ -562,17 +447,20 @@
                     "jobId": {
                       "description": "Gets or sets the id of the job.",
                       "format": "uuid",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "lastStatusModifiedTime": {
                       "description": "Gets or sets the last status modified time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "parameters": {
                       "additionalProperties": {
@@ -580,6 +468,11 @@
                       },
                       "description": "Gets or sets the parameters of the job.",
                       "type": "object"
+                    },
+                    "provisioningState": {
+                      "description": "The provisioning state of a resource.",
+                      "readOnly": true,
+                      "type": "string"
                     },
                     "runOn": {
                       "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
@@ -597,7 +490,8 @@
                     "startTime": {
                       "description": "Gets or sets the start time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "startedBy": {
                       "description": "Gets or sets the job started by.",
@@ -632,7 +526,11 @@
                     }
                   }
                 }
-              }
+              },
+              "x-ms-mutability": [
+                "read",
+                "create"
+              ]
             }
           },
           "default": {
@@ -655,7 +553,48 @@
         },
         "tags": [
           "Job"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get job": {
+            "parameters": {
+              "api-version": "2017-05-15-preview",
+              "automationAccountName": "ContoseAutomationAccount",
+              "jobName": "foo",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/jobName",
+                  "name": "foo",
+                  "properties": {
+                    "creationTime": "2018-02-01T05:53:30.243+00:00",
+                    "endTime": null,
+                    "exception": null,
+                    "jobId": "5b8a3960-e8ab-45f6-bec6-567df8467d1a",
+                    "lastModifiedTime": "2018-02-01T05:53:30.243+00:00",
+                    "lastStatusModifiedTime": "2018-02-01T05:53:30.243+00:00",
+                    "parameters": {
+                      "tag01": "value01",
+                      "tag02": "value02"
+                    },
+                    "provisioningState": "Processing",
+                    "runOn": "",
+                    "runbook": {
+                      "name": "TestRunbook"
+                    },
+                    "startTime": null,
+                    "status": "New",
+                    "statusDetails": "None"
+                  },
+                  "type": "Microsoft.Automation/AutomationAccounts/Jobs"
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       },
       "put": {
         "description": "Create a job of the runbook.",
@@ -665,25 +604,35 @@
         "operationId": "Job_Create",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The job id.",
-            "format": "uuid",
+            "description": "The job name.",
             "in": "path",
-            "name": "jobId",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -695,16 +644,7 @@
             "schema": {
               "description": "The parameters supplied to the create job operation.",
               "properties": {
-                "location": {
-                  "description": "Gets or sets the location of the resource.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets or sets name of the resource.",
-                  "type": "string"
-                },
                 "properties": {
-                  "description": "The parameters supplied to the create job operation.",
                   "properties": {
                     "parameters": {
                       "additionalProperties": {
@@ -726,17 +666,7 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "runbook"
-                  ]
-                },
-                "tags": {
-                  "additionalProperties": {
-                    "type": "string"
-                  },
-                  "description": "Gets or sets the tags attached to the resource.",
-                  "type": "object"
+                  }
                 }
               },
               "required": [
@@ -745,42 +675,69 @@
             }
           },
           {
-            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Client Api Version.",
             "in": "query",
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
           "201": {
             "description": "Created",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the job.",
               "properties": {
-                "id": {
-                  "description": "Gets or sets the id of the resource.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of job properties.",
                   "properties": {
                     "creationTime": {
                       "description": "Gets or sets the creation time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "endTime": {
                       "description": "Gets or sets the end time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "exception": {
                       "description": "Gets or sets the exception of the job.",
@@ -789,17 +746,20 @@
                     "jobId": {
                       "description": "Gets or sets the id of the job.",
                       "format": "uuid",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "lastStatusModifiedTime": {
                       "description": "Gets or sets the last status modified time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "parameters": {
                       "additionalProperties": {
@@ -807,6 +767,11 @@
                       },
                       "description": "Gets or sets the parameters of the job.",
                       "type": "object"
+                    },
+                    "provisioningState": {
+                      "description": "The provisioning state of a resource.",
+                      "readOnly": true,
+                      "type": "string"
                     },
                     "runOn": {
                       "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
@@ -824,7 +789,8 @@
                     "startTime": {
                       "description": "Gets or sets the start time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "startedBy": {
                       "description": "Gets or sets the job started by.",
@@ -859,7 +825,11 @@
                     }
                   }
                 }
-              }
+              },
+              "x-ms-mutability": [
+                "read",
+                "create"
+              ]
             }
           },
           "default": {
@@ -886,50 +856,50 @@
         "x-ms-examples": {
           "Create job": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2017-05-15-preview",
               "automationAccountName": "ContoseAutomationAccount",
-              "jobId": "45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
+              "jobName": "foo",
               "parameters": {
-                "location": "East US 2",
-                "name": "TestRunbook",
                 "properties": {
                   "parameters": {
-                    "tag01": "value01",
-                    "tag02": "value02"
+                    "key01": "value01",
+                    "key02": "value02"
                   },
+                  "runOn": "",
                   "runbook": {
                     "name": "TestRunbook"
                   }
-                },
-                "tags": {
-                  "jobTags01": "jobTagsValue01",
-                  "jobTags02": "value02"
                 }
               },
-              "resourceGroupName": "rg",
-              "subscriptionId": "subid"
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
             },
             "responses": {
               "201": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
+                  "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/jobName",
+                  "name": "foo",
                   "properties": {
-                    "creationTime": "2017-03-30T05:53:30.243+00:00",
-                    "jobId": "45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
-                    "lastModifiedTime": "2017-03-30T05:53:30.243+00:00",
-                    "lastStatusModifiedTime": "2017-03-30T05:53:30.243+00:00",
+                    "creationTime": "2018-02-01T05:53:30.243+00:00",
+                    "endTime": null,
+                    "exception": null,
+                    "jobId": "5b8a3960-e8ab-45f6-bec6-567df8467d1a",
+                    "lastModifiedTime": "2018-02-01T05:53:30.243+00:00",
+                    "lastStatusModifiedTime": "2018-02-01T05:53:30.243+00:00",
                     "parameters": {
                       "tag01": "value01",
                       "tag02": "value02"
                     },
                     "provisioningState": "Processing",
+                    "runOn": "",
                     "runbook": {
                       "name": "TestRunbook"
                     },
-                    "startedBy": "myEmaild@microsoft.com",
+                    "startTime": null,
                     "status": "New",
                     "statusDetails": "None"
-                  }
+                  },
+                  "type": "Microsoft.Automation/AutomationAccounts/Jobs"
                 },
                 "headers": {}
               }
@@ -938,40 +908,44 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobId}/output": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}/output": {
       "get": {
-        "description": "Retrieve the job output identified by job id.",
+        "description": "Retrieve the job output identified by job name.",
         "externalDocs": {
           "url": "http://aka.ms/azureautomationsdk/joboperations"
         },
         "operationId": "Job_GetOutput",
         "parameters": [
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "pattern": "^[-\\w\\._]+$",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The automation account name.",
-            "in": "path",
-            "name": "automationAccountName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The job id.",
-            "in": "path",
-            "name": "jobId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
             "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the job to be created.",
+            "in": "path",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -981,13 +955,24 @@
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
+        ],
+        "produces": [
+          "text/plain"
         ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "type": "file"
+              "type": "string"
             }
           },
           "default": {
@@ -1012,71 +997,57 @@
           "Job"
         ],
         "x-ms-examples": {
-          "Get Job": {
+          "Get Job Output": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2017-05-15-preview",
               "automationAccountName": "ContoseAutomationAccount",
-              "jobId": "45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
-              "resourceGroupName": "rg",
-              "subscriptionId": "subid"
+              "jobName": "foo",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
             },
             "responses": {
               "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
-                  "properties": {
-                    "creationTime": "2017-03-30T05:53:30.243+00:00",
-                    "jobId": "45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
-                    "lastModifiedTime": "2017-03-30T05:53:30.243+00:00",
-                    "lastStatusModifiedTime": "2017-03-30T05:53:30.243+00:00",
-                    "parameters": {
-                      "tag01": "value01",
-                      "tag02": "value02"
-                    },
-                    "provisioningState": "Processing",
-                    "runbook": {
-                      "name": "TestRunbook"
-                    },
-                    "startedBy": "myEmaild@microsoft.com",
-                    "status": "New",
-                    "statusDetails": "None"
-                  }
-                },
-                "headers": {}
+                "body": "Wednesday, February 7, 2018 3:47:17 PM",
+                "headers": {
+                  "Content-Type": "text/plain"
+                }
               }
             }
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobId}/resume": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}/resume": {
       "post": {
-        "description": "Resume the job identified by jobId.",
+        "description": "Resume the job identified by jobName.",
         "externalDocs": {
           "url": "http://aka.ms/azureautomationsdk/joboperations"
         },
         "operationId": "Job_Resume",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The job id.",
-            "format": "uuid",
+            "description": "The job name.",
             "in": "path",
-            "name": "jobId",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -1093,6 +1064,14 @@
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -1123,11 +1102,11 @@
         "x-ms-examples": {
           "Resume job": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2017-05-15-preview",
               "automationAccountName": "ContoseAutomationAccount",
-              "jobId": "45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
-              "resourceGroupName": "rg",
-              "subscriptionId": "subid"
+              "jobName": "foo",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
             },
             "responses": {
               "200": {}
@@ -1136,40 +1115,44 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobId}/runbookContent": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}/runbookContent": {
       "get": {
-        "description": "Retrieve the runbook content of the job identified by job id.",
+        "description": "Retrieve the runbook content of the job identified by job name.",
         "externalDocs": {
           "url": "http://aka.ms/azureautomationsdk/joboperations"
         },
         "operationId": "Job_GetRunbookContent",
         "parameters": [
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "pattern": "^[-\\w\\._]+$",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The automation account name.",
-            "in": "path",
-            "name": "automationAccountName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The job id.",
-            "in": "path",
-            "name": "jobId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
             "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The job name.",
+            "in": "path",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -1179,13 +1162,24 @@
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
+        ],
+        "produces": [
+          "text/powershell"
         ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "type": "file"
+              "type": "string"
             }
           },
           "default": {
@@ -1208,37 +1202,59 @@
         },
         "tags": [
           "Job"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get Job Runbook Content": {
+            "parameters": {
+              "api-version": "2017-05-15-preview",
+              "automationAccountName": "ContoseAutomationAccount",
+              "jobName": "foo",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
+            },
+            "responses": {
+              "200": {
+                "body": "get-date",
+                "headers": {
+                  "Content-Type": "text/powershell"
+                }
+              }
+            }
+          }
+        }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobId}/stop": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}/stop": {
       "post": {
-        "description": "Stop the job identified by jobId.",
+        "description": "Stop the job identified by jobName.",
         "externalDocs": {
           "url": "http://aka.ms/azureautomationsdk/joboperations"
         },
         "operationId": "Job_Stop",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The job id.",
-            "format": "uuid",
+            "description": "The job name.",
             "in": "path",
-            "name": "jobId",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -1255,6 +1271,14 @@
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -1285,11 +1309,11 @@
         "x-ms-examples": {
           "Stop job": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2017-05-15-preview",
               "automationAccountName": "ContoseAutomationAccount",
-              "jobId": "45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
-              "resourceGroupName": "rg",
-              "subscriptionId": "subid"
+              "jobName": "foo",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
             },
             "responses": {
               "200": {}
@@ -1298,33 +1322,37 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobId}/streams": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}/streams": {
       "get": {
-        "description": "Retrieve a list of jobs streams identified by job id.",
+        "description": "Retrieve a list of jobs streams identified by job name.",
         "externalDocs": {
           "url": "http://aka.ms/azureautomationsdk/jobstreamoperations"
         },
         "operationId": "JobStream_ListByJob",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The job Id.",
+            "description": "The job name.",
             "in": "path",
-            "name": "jobId",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -1348,6 +1376,14 @@
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -1404,7 +1440,8 @@
                           "time": {
                             "description": "Gets or sets the creation time of the job.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "value": {
                             "additionalProperties": {
@@ -1413,8 +1450,7 @@
                             "description": "Gets or sets the values of the job stream.",
                             "type": "object"
                           }
-                        },
-                        "x-ms-client-flatten": true
+                        }
                       }
                     }
                   },
@@ -1444,12 +1480,51 @@
         "tags": [
           "JobStream"
         ],
+        "x-ms-examples": {
+          "List job streams by job name": {
+            "parameters": {
+              "api-version": "2017-05-15-preview",
+              "automationAccountName": "ContoseAutomationAccount",
+              "jobName": "foo",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "",
+                  "value": [
+                    {
+                      "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourcegroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/jobName/streams/24456a8a-2857-4af6-932c-3455f38bd05e_00636535675981232703_00000000000000000001",
+                      "properties": {
+                        "jobStreamId": "24456a8a-2857-4af6-932c-3455f38bd05e_00636535675981232703_00000000000000000001",
+                        "streamType": "Output",
+                        "summary": null,
+                        "time": "2018-02-07T02:33:18.1232703+00:00"
+                      }
+                    },
+                    {
+                      "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourcegroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/jobName/streams/24456a8a-2857-4af6-932c-3455f38bd05e_00636535675984691350_00000000000000000002",
+                      "properties": {
+                        "jobStreamId": "24456a8a-2857-4af6-932c-3455f38bd05e_00636535675984691350_00000000000000000002",
+                        "streamType": "Output",
+                        "summary": null,
+                        "time": "2018-02-07T02:33:18.469135+00:00"
+                      }
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobId}/streams/{jobStreamId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}/streams/{jobStreamId}": {
       "get": {
         "description": "Retrieve the job stream identified by job stream id.",
         "externalDocs": {
@@ -1458,24 +1533,35 @@
         "operationId": "JobStream_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The job id.",
+            "description": "The job name.",
             "in": "path",
-            "name": "jobId",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -1487,18 +1573,19 @@
             "type": "string"
           },
           {
-            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Client Api Version.",
             "in": "query",
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -1546,7 +1633,8 @@
                     "time": {
                       "description": "Gets or sets the creation time of the job.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "value": {
                       "additionalProperties": {
@@ -1555,8 +1643,7 @@
                       "description": "Gets or sets the values of the job stream.",
                       "type": "object"
                     }
-                  },
-                  "x-ms-client-flatten": true
+                  }
                 }
               }
             }
@@ -1581,44 +1668,75 @@
         },
         "tags": [
           "JobStream"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get job stream": {
+            "parameters": {
+              "api-version": "2017-05-15-preview",
+              "automationAccountName": "ContoseAutomationAccount",
+              "jobName": "foo",
+              "jobStreamId": "851b2101-686f-40e2-8a4b-5b8df08afbd1_00636535684910693884_00000000000000000001",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourcegroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/jobName/streams/851b2101-686f-40e2-8a4b-5b8df08afbd1_00636535684910693884_00000000000000000001",
+                  "properties": {
+                    "jobStreamId": "851b2101-686f-40e2-8a4b-5b8df08afbd1:00636535684910693884:00000000000000000001",
+                    "streamText": "",
+                    "streamType": "Output",
+                    "summary": null,
+                    "time": "2018-02-07T02:48:11.0693884+00:00",
+                    "value": {}
+                  }
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobId}/suspend": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}/suspend": {
       "post": {
-        "description": "Suspend the job identified by jobId.",
+        "description": "Suspend the job identified by job name.",
         "externalDocs": {
           "url": "http://aka.ms/azureautomationsdk/joboperations"
         },
         "operationId": "Job_Suspend",
         "parameters": [
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "pattern": "^[-\\w\\._]+$",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The automation account name.",
-            "in": "path",
-            "name": "automationAccountName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The job id.",
-            "format": "uuid",
-            "in": "path",
-            "name": "jobId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
             "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The job name.",
+            "in": "path",
+            "name": "jobName",
             "required": true,
             "type": "string"
           },
@@ -1628,6 +1746,14 @@
             "name": "api-version",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Identifies this specific client request.",
+            "in": "header",
+            "name": "clientRequestId",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -1658,11 +1784,11 @@
         "x-ms-examples": {
           "Suspend job": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2017-05-15-preview",
               "automationAccountName": "ContoseAutomationAccount",
-              "jobId": "45203a94-a8cb-47c3-8ce4-4dcc3a5f7d23",
-              "resourceGroupName": "rg",
-              "subscriptionId": "subid"
+              "jobName": "foo",
+              "resourceGroupName": "mygroup",
+              "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab"
             },
             "responses": {
               "200": {}

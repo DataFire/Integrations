@@ -96,7 +96,7 @@ clever_cloud.getGithub(null, context)
 *This action has no parameters*
 
 #### Output
-* output [Transaction_Id](#transaction_id)
+* output [Transaction%20Id](#transaction%20id)
 
 ### getGithubApplications
 
@@ -2896,7 +2896,7 @@ clever_cloud.getPaymentsProviders(null, context)
 
 #### Output
 * output `array`
-  * items [Payment_Provider](#payment_provider)
+  * items [Payment%20Provider](#payment%20provider)
 
 ### getPaymentsTokensBt
 
@@ -4076,7 +4076,7 @@ clever_cloud.putSelfChangePassword(null, context)
 *This action has no parameters*
 
 #### Output
-* output [Change_Password](#change_password)
+* output [Change%20Password](#change%20password)
 
 ### getSelfConfirmationEmail
 
@@ -4995,8 +4995,13 @@ clever_cloud.postVendorBillingOwnerId({
 * Body `object`
   * body **required** `string`
 
-### Change_Password
+### Change Password
 
+
+### Change_Password
+* Change_Password `object`
+  * newPassword **required** `string`
+  * oldPassword **required** `string`
 
 ### Conso
 * Conso `object`
@@ -5151,6 +5156,9 @@ clever_cloud.postVendorBillingOwnerId({
   * vatState **required** `string`
   * zipcode **required** `string`
 
+### Payment Provider
+
+
 ### PaymentData
 * PaymentData `object`
   * deviceData `string`
@@ -5158,7 +5166,11 @@ clever_cloud.postVendorBillingOwnerId({
   * type **required** `string` (values: NEW_CARD, EXISTING_CARD)
 
 ### Payment_Provider
-
+* Payment_Provider `object`
+  * comingSoon **required** `boolean`
+  * imgUrl **required** `string`
+  * name **required** `string`
+  * title **required** `string`
 
 ### Plan
 * Plan `object`
@@ -5277,8 +5289,12 @@ clever_cloud.postVendorBillingOwnerId({
   * rights **required** [Rights](#rights)
   * token **required** `string`
 
-### Transaction_Id
+### Transaction Id
 
+
+### Transaction_Id
+* Transaction_Id `object`: A simple transaction id
+  * transactionId **required** `string`: The transaction Id
 
 ### URL
 * URL `object`: Must be a valid HTTP URL

@@ -166,7 +166,7 @@ azure_monitor_actiongroups_api.ActionGroups_CreateOrUpdate({
 * output [ActionGroupResource](#actiongroupresource)
 
 ### ActionGroups_EnableReceiver
-Enable a receiver in an action group. This changes the receiver's status from Disabled to Enabled.
+Enable a receiver in an action group. This changes the receiver's status from Disabled to Enabled. This operation is only supported for Email or SMS receivers.
 
 
 ```js
@@ -200,14 +200,20 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
     * items [AutomationRunbookReceiver](#automationrunbookreceiver)
   * azureAppPushReceivers `array`: The list of AzureAppPush receivers that are part of this action group.
     * items [AzureAppPushReceiver](#azureapppushreceiver)
+  * azureFunctionReceivers `array`: The list of azure function receivers that are part of this action group.
+    * items [AzureFunctionReceiver](#azurefunctionreceiver)
   * emailReceivers `array`: The list of email receivers that are part of this action group.
     * items [EmailReceiver](#emailreceiver)
   * enabled **required** `boolean`: Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
   * groupShortName **required** `string`: The short name of the action group. This will be used in SMS messages.
   * itsmReceivers `array`: The list of ITSM receivers that are part of this action group.
     * items [ItsmReceiver](#itsmreceiver)
+  * logicAppReceivers `array`: The list of logic app receivers that are part of this action group.
+    * items [LogicAppReceiver](#logicappreceiver)
   * smsReceivers `array`: The list of SMS receivers that are part of this action group.
     * items [SmsReceiver](#smsreceiver)
+  * voiceReceivers `array`: The list of voice receivers that are part of this action group.
+    * items [VoiceReceiver](#voicereceiver)
   * webhookReceivers `array`: The list of webhook receivers that are part of this action group.
     * items [WebhookReceiver](#webhookreceiver)
 
@@ -247,6 +253,13 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
   * emailAddress **required** `string`: The email address registered for the Azure mobile app.
   * name **required** `string`: The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 
+### AzureFunctionReceiver
+* AzureFunctionReceiver `object`: An azure function receiver.
+  * functionAppResourceId **required** `string`: The azure resource id of the function app.
+  * functionName **required** `string`: The function name in the function app.
+  * httpTriggerUrl **required** `string`: The http trigger url where http request sent to.
+  * name **required** `string`: The name of the azure function receiver. Names must be unique across all receivers within an action group.
+
 ### EmailReceiver
 * EmailReceiver `object`: An email receiver.
   * emailAddress **required** `string`: The email address of this receiver.
@@ -270,6 +283,12 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
   * ticketConfiguration **required** `string`: JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
   * workspaceId **required** `string`: OMS LA instance identifier.
 
+### LogicAppReceiver
+* LogicAppReceiver `object`: A logic app receiver.
+  * callbackUrl **required** `string`: The callback url where http request sent to.
+  * name **required** `string`: The name of the logic app receiver. Names must be unique across all receivers within an action group.
+  * resourceId **required** `string`: The azure resource id of the logic app receiver.
+
 ### ReceiverStatus
 * ReceiverStatus `string` (values: NotSpecified, Enabled, Disabled): Indicates the status of the receiver. Receivers that are not Enabled will not receive any communications.
 
@@ -286,6 +305,12 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
   * name **required** `string`: The name of the SMS receiver. Names must be unique across all receivers within an action group.
   * phoneNumber **required** `string`: The phone number of the SMS receiver.
   * status [ReceiverStatus](#receiverstatus)
+
+### VoiceReceiver
+* VoiceReceiver `object`: A voice receiver.
+  * countryCode **required** `string`: The country code of the voice receiver.
+  * name **required** `string`: The name of the voice receiver. Names must be unique across all receivers within an action group.
+  * phoneNumber **required** `string`: The phone number of the voice receiver.
 
 ### WebhookReceiver
 * WebhookReceiver `object`: A webhook receiver.

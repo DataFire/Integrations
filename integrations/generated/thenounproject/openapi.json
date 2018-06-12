@@ -14,13 +14,13 @@
       "media"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_nounproject_profile_image.png"
     },
     "x-origin": [
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "swagger",
         "url": "http://api.thenounproject.com/config/api-doc",

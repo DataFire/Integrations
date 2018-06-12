@@ -11,12 +11,7 @@
       "url": "https://google.com"
     },
     "description": "Manages identity and access control for Google Cloud Platform resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Identity and Access Management (IAM)",
+    "title": "Identity and Access Management (IAM)",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://iam.googleapis.com/$discovery/rest?version=v1",
@@ -52,21 +47,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -256,9 +241,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -333,9 +315,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -395,9 +374,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -514,9 +490,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -556,9 +529,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -602,9 +572,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -692,9 +659,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -733,9 +697,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -785,9 +746,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -869,9 +827,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -917,9 +872,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1000,9 +952,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1086,9 +1035,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1170,9 +1116,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1256,9 +1199,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1294,6 +1234,10 @@
           },
           {
             "description": "Include Roles that have been deleted.",
+            "enum": [
+              "BASIC",
+              "FULL"
+            ],
             "in": "query",
             "name": "showDeleted",
             "type": "boolean"
@@ -1320,9 +1264,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1404,9 +1345,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1481,9 +1419,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1567,9 +1502,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1652,9 +1584,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1665,12 +1594,52 @@
     }
   },
   "definitions": {
+    "AuditConfig": {
+      "description": "Specifies the audit configuration for a service.\nThe configuration determines which permission types are logged, and what\nidentities, if any, are exempted from logging.\nAn AuditConfig must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service,\nthe union of the two AuditConfigs is used for that service: the log_types\nspecified in each AuditConfig are enabled, and the exempted_members in each\nAuditLogConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n    {\n      \"audit_configs\": [\n        {\n          \"service\": \"allServices\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n              \"exempted_members\": [\n                \"user:foo@gmail.com\"\n              ]\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n            },\n            {\n              \"log_type\": \"ADMIN_READ\",\n            }\n          ]\n        },\n        {\n          \"service\": \"fooservice.googleapis.com\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n              \"exempted_members\": [\n                \"user:bar@gmail.com\"\n              ]\n            }\n          ]\n        }\n      ]\n    }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ\nlogging. It also exempts foo@gmail.com from DATA_READ logging, and\nbar@gmail.com from DATA_WRITE logging.",
+      "properties": {
+        "auditLogConfigs": {
+          "description": "The configuration for logging of each type of permission.",
+          "items": {
+            "$ref": "#/definitions/AuditLogConfig"
+          },
+          "type": "array"
+        },
+        "service": {
+          "description": "Specifies a service that will be enabled for audit logging.\nFor example, `storage.googleapis.com`, `cloudsql.googleapis.com`.\n`allServices` is a special value that covers all services.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AuditData": {
       "description": "Audit log information specific to Cloud IAM. This message is serialized\nas an `Any` type in the `ServiceData` message of an\n`AuditLog` message.",
       "properties": {
         "policyDelta": {
           "$ref": "#/definitions/PolicyDelta",
           "description": "Policy delta between the original policy and the newly set policy."
+        }
+      },
+      "type": "object"
+    },
+    "AuditLogConfig": {
+      "description": "Provides the configuration for logging a type of permissions.\nExample:\n\n    {\n      \"audit_log_configs\": [\n        {\n          \"log_type\": \"DATA_READ\",\n          \"exempted_members\": [\n            \"user:foo@gmail.com\"\n          ]\n        },\n        {\n          \"log_type\": \"DATA_WRITE\",\n        }\n      ]\n    }\n\nThis enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting\nfoo@gmail.com from DATA_READ logging.",
+      "properties": {
+        "exemptedMembers": {
+          "description": "Specifies the identities that do not cause logging for this type of\npermission.\nFollows the same format of Binding.members.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "logType": {
+          "description": "The log type that this config enables.",
+          "enum": [
+            "LOG_TYPE_UNSPECIFIED",
+            "ADMIN_READ",
+            "DATA_WRITE",
+            "DATA_READ"
+          ],
+          "type": "string"
         }
       },
       "type": "object"
@@ -1689,7 +1658,7 @@
       "description": "Associates `members` with a `role`.",
       "properties": {
         "members": {
-          "description": "Specifies the identities requesting access for a Cloud Platform resource.\n`members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is\n   on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone\n   who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google\n   account. For example, `alice@gmail.com` or `joe@example.com`.\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service\n   account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group.\n   For example, `admins@example.com`.\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the\n   users of that domain. For example, `google.com` or `example.com`.\n\n",
+          "description": "Specifies the identities requesting access for a Cloud Platform resource.\n`members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is\n   on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone\n   who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google\n   account. For example, `alice@gmail.com` .\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service\n   account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group.\n   For example, `admins@example.com`.\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the\n   users of that domain. For example, `google.com` or `example.com`.\n\n",
           "items": {
             "type": "string"
           },
@@ -1875,8 +1844,15 @@
       "type": "object"
     },
     "Policy": {
-      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
+      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**JSON Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\"\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\n**YAML Example**\n\n    bindings:\n    - members:\n      - user:mike@example.com\n      - group:admins@example.com\n      - domain:google.com\n      - serviceAccount:my-other-app@appspot.gserviceaccount.com\n      role: roles/owner\n    - members:\n      - user:sean@example.com\n      role: roles/viewer\n\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
       "properties": {
+        "auditConfigs": {
+          "description": "Specifies cloud audit logging configuration for this policy.",
+          "items": {
+            "$ref": "#/definitions/AuditConfig"
+          },
+          "type": "array"
+        },
         "bindings": {
           "description": "Associates a list of `members` to a `role`.\n`bindings` with no members will result in an error.",
           "items": {
@@ -2110,7 +2086,7 @@
           "type": "string"
         },
         "privateKeyData": {
-          "description": "The private key data. Only provided in `CreateServiceAccountKey`\nresponses. Make sure to keep the private key data secure because it\nallows for the assertion of the service account identity.\nWhen decoded, the private key data can be used to authenticate with\nGoogle API client libraries and with\n<a href=\"/sdk/gcloud/reference/auth/activate-service-account\">gcloud\nauth activate-service-account</a>.",
+          "description": "The private key data. Only provided in `CreateServiceAccountKey`\nresponses. Make sure to keep the private key data secure because it\nallows for the assertion of the service account identity.\nWhen base64 decoded, the private key data can be used to authenticate with\nGoogle API client libraries and with\n<a href=\"/sdk/gcloud/reference/auth/activate-service-account\">gcloud\nauth activate-service-account</a>.",
           "format": "byte",
           "type": "string"
         },
@@ -2147,6 +2123,11 @@
         "policy": {
           "$ref": "#/definitions/Policy",
           "description": "REQUIRED: The complete policy to be applied to the `resource`. The size of\nthe policy is limited to a few 10s of KB. An empty policy is a\nvalid policy but certain Cloud Platform services (such as Projects)\nmight reject them."
+        },
+        "updateMask": {
+          "description": "OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only\nthe fields in the mask will be modified. If no mask is provided, the\nfollowing default mask is used:\npaths: \"bindings, etag\"\nThis field is only used by Cloud IAM.",
+          "format": "google-fieldmask",
+          "type": "string"
         }
       },
       "type": "object"

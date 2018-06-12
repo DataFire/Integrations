@@ -12,13 +12,13 @@
       "name": "Open Nitro Project",
       "url": "http://developer.bbc.co.uk/"
     },
-    "description": "We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by reliably providing the right blend of metadata needed by clients.",
+    "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
     "license": {
       "name": "Nitro Public License",
       "url": "https://developer.bbc.co.uk/nitropubliclicence/"
     },
     "termsOfService": "http://www.bbc.co.uk/terms/",
-    "title": "Radio & Music Services",
+    "title": "BBC Nitro",
     "version": "1.0.0",
     "x-apiClientRegistration": {
       "url": "https://developer.bbc.co.uk/user/register"
@@ -28,8 +28,7 @@
       "open_data"
     ],
     "x-logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_thumb_6_63_BBC_Radio_logo.svg_140px-BBC_Radio_logo.svg.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_github.com_Mermade_bbcparse_blob_master_nitroApi_nitro-logo.png"
     },
     "x-origin": [
       {

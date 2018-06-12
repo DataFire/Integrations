@@ -12,7 +12,7 @@ let wmata_bus_route = require('@datafire/wmata_bus_route').create({
   apiKeyQuery: ""
 });
 
-wmata_bus_route.json.jStops.get({}).then(data => {
+wmata_bus_route.5476362a281d830c946a3d6d({}).then(data => {
   console.log(data);
 });
 ```
@@ -23,7 +23,7 @@ Bus stop information, route and schedule data, and bus positions.
 
 ## Actions
 
-### BusPositions.get
+### 5476362a281d830c946a3d6e
 <h4 class="text-primary">Description</h4>
 
 <p>Returns bus positions for the given route, with an optional search radius.
@@ -155,12 +155,12 @@ bus itself.</td>
 
 
 ```js
-wmata_bus_route.BusPositions.get({}, context)
+wmata_bus_route.5476362a281d830c946a3d6e({}, context)
 ```
 
 #### Input
 * input `object`
-  * RouteID `string` (values: B30): Bus route, e.g.: B30, 10A.
+  * RouteID `string` (values: 70): Bus route, e.g.: 70, 10A.
   * Lat `string`: Center point Latitude, required if Longitude and Radius are specified.
   * Lon `string`: Center point Longitude, required if Latitude and Radius are specified.
   * Radius `string`: Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
@@ -168,7 +168,7 @@ wmata_bus_route.BusPositions.get({}, context)
 #### Output
 *Output schema unknown*
 
-### RouteDetails.get
+### 5476362a281d830c946a3d6f
 <h4 class="text-primary">Description</h4>
 <p>For a given date, returns the set of ordered latitude/longitude points along route variant along with the list of stops served.</p>
 <h4 class="text-primary">Response Elements</h4>
@@ -280,20 +280,20 @@ Array containing stop information (<a href="#Stop">Stop</a>).
 
 
 ```js
-wmata_bus_route.RouteDetails.get({
+wmata_bus_route.5476362a281d830c946a3d6f({
   "RouteID": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RouteID **required** `string` (values: B30): Bus route variant, e.g.: B30, 10A, 10Av1.
+  * RouteID **required** `string` (values: 70): Bus route variant, e.g.: 70, 10A, 10Av1.
   * Date `string`: Date in YYYY-MM-DD format for which to retrieve route and stop information.  Defaults to today's date unless specified.
 
 #### Output
 *Output schema unknown*
 
-### RouteSchedule.get
+### 5476362a281d830c946a3d71
 <h4 class="text-primary">Description</h4>
 
 <p>Returns schedules for a given route variant for a given date.</p>
@@ -444,21 +444,21 @@ this stop. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.:
 
 
 ```js
-wmata_bus_route.RouteSchedule.get({
+wmata_bus_route.5476362a281d830c946a3d71({
   "RouteID": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RouteID **required** `string` (values: B30): Bus route variant, e.g.: B30, 10A, 10Av1.
+  * RouteID **required** `string` (values: 70): Bus route variant, e.g.: 70, 10A, 10Av1.
   * Date `string`: Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
   * IncludingVariations `boolean` (values: false, true): Whether or not to include variations.  For example, if B30 is specified, include all variations such as B30v1, B30v2, etc.
 
 #### Output
 *Output schema unknown*
 
-### Routes.get
+### 5476362a281d830c946a3d70
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of all bus route variants (patterns). For example, the 10A
@@ -517,7 +517,7 @@ various other bus-related methods.</td>
 
 
 ```js
-wmata_bus_route.Routes.get(null, context)
+wmata_bus_route.5476362a281d830c946a3d70(null, context)
 ```
 
 #### Input
@@ -526,7 +526,7 @@ wmata_bus_route.Routes.get(null, context)
 #### Output
 *Output schema unknown*
 
-### StopSchedule.get
+### 5476362a281d830c946a3d72
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a set of buses scheduled at a stop for a given date.</p>
@@ -679,20 +679,20 @@ methods. If unavailable, the StopID will be 0 or NULL.</td>
 
 
 ```js
-wmata_bus_route.StopSchedule.get({
+wmata_bus_route.5476362a281d830c946a3d72({
   "StopID": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * StopID **required** `string` (values: 3002578): 7-digit regional stop ID.
+  * StopID **required** `string` (values: 1001195): 7-digit regional stop ID.
   * Date `string`: Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
 
 #### Output
 *Output schema unknown*
 
-### Stops.get
+### 5476362a281d830c946a3d73
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of nearby bus stops based on latitude, longitude, and radius.
@@ -764,7 +764,7 @@ methods. If unavailable, the StopID will be 0 or NULL.</td>
 
 
 ```js
-wmata_bus_route.Stops.get({}, context)
+wmata_bus_route.5476362a281d830c946a3d73({}, context)
 ```
 
 #### Input
@@ -776,7 +776,7 @@ wmata_bus_route.Stops.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.jBusPositions.get
+### 5476362a281d830c946a3d68
 <h4 class="text-primary">Description</h4>
 
 <p>Returns bus positions for the given route, with an optional search radius.
@@ -908,12 +908,12 @@ bus itself.</td>
 
 
 ```js
-wmata_bus_route.json.jBusPositions.get({}, context)
+wmata_bus_route.5476362a281d830c946a3d68({}, context)
 ```
 
 #### Input
 * input `object`
-  * RouteID `string` (values: B30): Base bus route, e.g.: B30, 10A.
+  * RouteID `string` (values: 70): Base bus route, e.g.: 70, 10A.
   * Lat `number`: Center point Latitude, required if Longitude and Radius are specified.
   * Lon `number`: Center point Longitude, required if Latitude and Radius are specified.
   * Radius `number`: Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
@@ -921,7 +921,7 @@ wmata_bus_route.json.jBusPositions.get({}, context)
 #### Output
 *Output schema unknown*
 
-### json.jRouteDetails.get
+### 5476362a281d830c946a3d69
 <h4 class="text-primary">Description</h4>
 
 <p>For a given date, returns the set of ordered latitude/longitude points along
@@ -1089,20 +1089,20 @@ methods. If unavailable, the StopID will be 0 or NULL.</td>
 
 
 ```js
-wmata_bus_route.json.jRouteDetails.get({
+wmata_bus_route.5476362a281d830c946a3d69({
   "RouteID": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RouteID **required** `string` (values: B30): Bus route variant, e.g.: B30, 10A, 10Av1.
+  * RouteID **required** `string` (values: 70): Bus route variant, e.g.: 70, 10A, 10Av1.
   * Date `string`: Date in YYYY-MM-DD format for which to retrieve route and stop information.  Defaults to today's date unless specified.
 
 #### Output
 *Output schema unknown*
 
-### json.jRouteSchedule.get
+### 5476362a281d830c946a3d6b
 <h4 class="text-primary">Description</h4>
 
 <p>Returns schedules for a given route variant for a given date.</p>
@@ -1253,21 +1253,21 @@ this stop. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.:
 
 
 ```js
-wmata_bus_route.json.jRouteSchedule.get({
+wmata_bus_route.5476362a281d830c946a3d6b({
   "RouteID": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RouteID **required** `string` (values: B30): Bus route variant, e.g.: B30, 10A, 10Av1, etc.
+  * RouteID **required** `string` (values: 70): Bus route variant, e.g.: 70, 10A, 10Av1, etc.
   * Date `string`: Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
   * IncludingVariations `boolean` (values: false, true): Whether or not to include variations if a base route is specified in RouteID.  For example, if B30 is specified and IncludingVariations is set to true, data for all variations of B30 such as B30v1, B30v2, etc. will be returned.
 
 #### Output
 *Output schema unknown*
 
-### json.jRoutes.get
+### 5476362a281d830c946a3d6a
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of all bus route variants (patterns). For example, the 10A
@@ -1325,7 +1325,7 @@ various other bus-related methods.</td>
 
 
 ```js
-wmata_bus_route.json.jRoutes.get(null, context)
+wmata_bus_route.5476362a281d830c946a3d6a(null, context)
 ```
 
 #### Input
@@ -1334,7 +1334,7 @@ wmata_bus_route.json.jRoutes.get(null, context)
 #### Output
 *Output schema unknown*
 
-### json.jStopSchedule.get
+### 5476362a281d830c946a3d6c
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a set of buses scheduled at a stop for a given date.</p>
@@ -1487,20 +1487,20 @@ methods. If unavailable, the StopID will be 0 or NULL.</td>
 
 
 ```js
-wmata_bus_route.json.jStopSchedule.get({
+wmata_bus_route.5476362a281d830c946a3d6c({
   "StopID": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * StopID **required** `string` (values: 3002578): 7-digit regional stop ID.
+  * StopID **required** `string` (values: 1001195): 7-digit regional stop ID.
   * Date `string`: Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
 
 #### Output
 *Output schema unknown*
 
-### json.jStops.get
+### 5476362a281d830c946a3d6d
 <h4 class="text-primary">Description</h4>
 
 <p>Returns a list of nearby bus stops based on latitude, longitude, and radius.
@@ -1572,7 +1572,7 @@ methods. If unavailable, the StopID will be 0 or NULL.</td>
 
 
 ```js
-wmata_bus_route.json.jStops.get({}, context)
+wmata_bus_route.5476362a281d830c946a3d6d({}, context)
 ```
 
 #### Input

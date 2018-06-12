@@ -355,7 +355,7 @@ learnifier.orgunits.orgid.projects.projectid.participants.post({
 *Output schema unknown*
 
 ### orgunits.orgid.projects.projectid.participants._participantId.delete
-Deletes a participant. The user itself will still remain but any state related to the project will be deleted. 
+Deletes a participant. The user itself will still remain but any state related to the project will be deleted.
 It might not be possible due to constraints from the products in the project to delete the participant. However
 this can only be determined at the time of the delete. If a delete fails the participant will have their inError
 flag set.

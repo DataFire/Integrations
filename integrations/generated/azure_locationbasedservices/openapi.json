@@ -15,12 +15,12 @@
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
     "x-ms-code-generation-settings": {
-      "name": "Client"
+      "name": "LocationBasedServicesManagementClient"
     },
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/locationbasedservices/resource-manager/Microsoft.LocationBasedServices/preview/2017-01-01-preview/locationbasedservices.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/locationbasedservices/resource-manager/Microsoft.LocationBasedServices/preview/2017-01-01-preview/locationbasedservices.json",
         "version": "2.0"
       }
     ],

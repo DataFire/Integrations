@@ -1,6 +1,6 @@
 # @datafire/google_runtimeconfig
 
-Client library for Google Cloud Runtime Configuration
+Client library for Cloud Runtime Configuration
 
 ## Installation and Usage
 ```bash

@@ -1,0 +1,26 @@
+{
+  "name": "@datafire/azure_azurestack_customersubscription",
+  "version": "3.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for AzureStack Azure Bridge Client",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/azure.com/azurestack-CustomerSubscription/2017-06-01/swagger.json",
+    "type": "openapi"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

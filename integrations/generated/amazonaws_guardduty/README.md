@@ -107,6 +107,109 @@ amazonaws_guardduty.UpdateDetector({
 #### Output
 * output [UpdateDetectorResponse](#updatedetectorresponse)
 
+### ListFilters
+
+
+
+```js
+amazonaws_guardduty.ListFilters({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * detectorId **required** `string`
+
+#### Output
+* output [ListFiltersResponse](#listfiltersresponse)
+
+### CreateFilter
+
+
+
+```js
+amazonaws_guardduty.CreateFilter({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * Action [FilterAction](#filteraction)
+  * ClientToken [__stringMin0Max64](#__stringmin0max64)
+  * Description [FilterDescription](#filterdescription)
+  * FindingCriteria [FindingCriteria](#findingcriteria)
+  * Name [FilterName](#filtername)
+  * Rank [FilterRank](#filterrank)
+
+#### Output
+* output [CreateFilterResponse](#createfilterresponse)
+
+### DeleteFilter
+
+
+
+```js
+amazonaws_guardduty.DeleteFilter({
+  "detectorId": "",
+  "filterName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * filterName **required** `string`
+
+#### Output
+* output [DeleteFilterResponse](#deletefilterresponse)
+
+### GetFilter
+
+
+
+```js
+amazonaws_guardduty.GetFilter({
+  "detectorId": "",
+  "filterName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * filterName **required** `string`
+
+#### Output
+* output [GetFilterResponse](#getfilterresponse)
+
+### UpdateFilter
+
+
+
+```js
+amazonaws_guardduty.UpdateFilter({
+  "detectorId": "",
+  "filterName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * filterName **required** `string`
+  * Action [FilterAction](#filteraction)
+  * Description [FilterDescription](#filterdescription)
+  * FindingCriteria [FindingCriteria](#findingcriteria)
+  * Rank [FilterRank](#filterrank)
+
+#### Output
+* output [UpdateFilterResponse](#updatefilterresponse)
+
 ### ListFindings
 
 
@@ -500,6 +603,7 @@ amazonaws_guardduty.InviteMembers({
 * input `object`
   * detectorId **required** `string`
   * AccountIds [AccountIds](#accountids)
+  * DisableEmailNotification [__boolean](#__boolean)
   * Message [Message](#message)
 
 #### Output
@@ -722,8 +826,8 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 
 ### AccountDetail
 * AccountDetail `object`: An object containing the member's accountId and email address.
-  * AccountId [AccountId](#accountid)
-  * Email [Email](#email)
+  * AccountId **required** [AccountId](#accountid)
+  * Email **required** [Email](#email)
 
 ### AccountDetails
 * AccountDetails `array`: A list of account/email pairs.
@@ -799,6 +903,19 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 * CreateDetectorResponse `object`
   * DetectorId [DetectorId](#detectorid)
 
+### CreateFilterRequest
+* CreateFilterRequest `object`: CreateFilterRequest request body.
+  * Action [FilterAction](#filteraction)
+  * ClientToken [__stringMin0Max64](#__stringmin0max64)
+  * Description [FilterDescription](#filterdescription)
+  * FindingCriteria [FindingCriteria](#findingcriteria)
+  * Name [FilterName](#filtername)
+  * Rank [FilterRank](#filterrank)
+
+### CreateFilterResponse
+* CreateFilterResponse `object`
+  * Name [FilterName](#filtername)
+
 ### CreateIPSetRequest
 * CreateIPSetRequest `object`: CreateIPSet request body.
   * Activate [Activate](#activate)
@@ -852,6 +969,12 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 
 ### DeleteDetectorResponse
 * DeleteDetectorResponse `object`
+
+### DeleteFilterRequest
+* DeleteFilterRequest `object`
+
+### DeleteFilterResponse
+* DeleteFilterResponse `object`
 
 ### DeleteIPSetRequest
 * DeleteIPSetRequest `object`
@@ -933,27 +1056,43 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### Feedback
 * Feedback `string` (values: USEFUL, NOT_USEFUL): Finding Feedback Value
 
+### FilterAction
+* FilterAction `string` (values: NOOP, ARCHIVE): The action associated with a filter.
+
+### FilterDescription
+* FilterDescription `string`: The filter description
+
+### FilterName
+* FilterName `string`: The unique identifier for a filter
+
+### FilterNames
+* FilterNames `array`: A list of filter names
+  * items [FilterName](#filtername)
+
+### FilterRank
+* FilterRank `integer`: Relative position of filter among list of exisiting filters.
+
 ### Finding
 * Finding `object`: Representation of a abnormal or suspicious activity.
-  * AccountId [__string](#__string)
-  * Arn [__string](#__string)
+  * AccountId **required** [__string](#__string)
+  * Arn **required** [__string](#__string)
   * Confidence [__double](#__double)
-  * CreatedAt [CreatedAt](#createdat)
+  * CreatedAt **required** [CreatedAt](#createdat)
   * Description [__string](#__string)
-  * Id [__string](#__string)
+  * Id **required** [__string](#__string)
   * Partition [__string](#__string)
-  * Region [__string](#__string)
-  * Resource [Resource](#resource)
-  * SchemaVersion [__string](#__string)
+  * Region **required** [__string](#__string)
+  * Resource **required** [Resource](#resource)
+  * SchemaVersion **required** [__string](#__string)
   * Service [Service](#service)
-  * Severity [__double](#__double)
+  * Severity **required** [__double](#__double)
   * Title [__string](#__string)
-  * Type [__string](#__string)
-  * UpdatedAt [UpdatedAt](#updatedat)
+  * Type **required** [__string](#__string)
+  * UpdatedAt **required** [UpdatedAt](#updatedat)
 
 ### FindingCriteria
 * FindingCriteria `object`: Represents the criteria used for querying findings.
-  * Criterion [MapOfCondition](#mapofcondition)
+  * Criterion [__mapOfCondition](#__mapofcondition)
 
 ### FindingId
 * FindingId `string`: The unique identifier for the Finding
@@ -971,7 +1110,7 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 
 ### FindingStatistics
 * FindingStatistics `object`: Finding statistics object.
-  * CountBySeverity [MapOfCountBySeverityFindingStatistic](#mapofcountbyseverityfindingstatistic)
+  * CountBySeverity [__mapOfCountBySeverityFindingStatistic](#__mapofcountbyseverityfindingstatistic)
 
 ### FindingType
 * FindingType `string`: The finding type for the finding
@@ -998,6 +1137,17 @@ amazonaws_guardduty.DeleteInvitations({}, context)
   * ServiceRole [ServiceRole](#servicerole)
   * Status [DetectorStatus](#detectorstatus)
   * UpdatedAt [UpdatedAt](#updatedat)
+
+### GetFilterRequest
+* GetFilterRequest `object`
+
+### GetFilterResponse
+* GetFilterResponse `object`
+  * Action [FilterAction](#filteraction)
+  * Description [FilterDescription](#filterdescription)
+  * FindingCriteria [FindingCriteria](#findingcriteria)
+  * Name [FilterName](#filtername)
+  * Rank [FilterRank](#filterrank)
 
 ### GetFindingsRequest
 * GetFindingsRequest `object`: GetFindings request body.
@@ -1069,6 +1219,7 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 * InstanceDetails `object`: The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
   * AvailabilityZone [__string](#__string)
   * IamInstanceProfile [IamInstanceProfile](#iaminstanceprofile)
+  * ImageDescription [__string](#__string)
   * ImageId [__string](#__string)
   * InstanceId [__string](#__string)
   * InstanceState [__string](#__string)
@@ -1101,6 +1252,7 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### InviteMembersRequest
 * InviteMembersRequest `object`: InviteMembers request body.
   * AccountIds [AccountIds](#accountids)
+  * DisableEmailNotification [__boolean](#__boolean)
   * Message [Message](#message)
 
 ### InviteMembersResponse
@@ -1136,6 +1288,14 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### ListDetectorsResponse
 * ListDetectorsResponse `object`
   * DetectorIds [DetectorIds](#detectorids)
+  * NextToken [NextToken](#nexttoken)
+
+### ListFiltersRequest
+* ListFiltersRequest `object`
+
+### ListFiltersResponse
+* ListFiltersResponse `object`
+  * FilterNames [FilterNames](#filternames)
   * NextToken [NextToken](#nexttoken)
 
 ### ListFindingsRequest
@@ -1174,10 +1334,6 @@ amazonaws_guardduty.DeleteInvitations({}, context)
   * Members [Members](#members)
   * NextToken [NextToken](#nexttoken)
 
-### ListOfPortProbeDetail
-* ListOfPortProbeDetail `array`
-  * items [PortProbeDetail](#portprobedetail)
-
 ### ListThreatIntelSetsRequest
 * ListThreatIntelSetsRequest `object`
 
@@ -1194,18 +1350,6 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### Location
 * Location `string`: The location of the S3 bucket where the list resides. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
 
-### MapOfCondition
-* MapOfCondition `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [Condition](#condition)
-
-### MapOfCountBySeverityFindingStatistic
-* MapOfCountBySeverityFindingStatistic `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [CountBySeverityFindingStatistic](#countbyseverityfindingstatistic)
-
 ### Master
 * Master `object`: Contains details about the master account.
   * AccountId [__string](#__string)
@@ -1221,20 +1365,20 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 
 ### Member
 * Member `object`: Contains details about the member account.
-  * AccountId [AccountId](#accountid)
+  * AccountId **required** [AccountId](#accountid)
   * DetectorId [DetectorId](#detectorid)
-  * Email [Email](#email)
+  * Email **required** [Email](#email)
   * InvitedAt [InvitedAt](#invitedat)
-  * MasterId [MasterId](#masterid)
-  * RelationshipStatus [__string](#__string)
-  * UpdatedAt [UpdatedAt](#updatedat)
+  * MasterId **required** [MasterId](#masterid)
+  * RelationshipStatus **required** [__string](#__string)
+  * UpdatedAt **required** [UpdatedAt](#updatedat)
 
 ### Members
 * Members `array`: A list of member descriptions.
   * items [Member](#member)
 
 ### Message
-* Message `string`: The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
+* Message `string`: The invitation message that you want to send to the accounts that you’re inviting to GuardDuty as members.
 
 ### Name
 * Name `string`: The user-friendly name to identify the list.
@@ -1255,6 +1399,7 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### NetworkInterface
 * NetworkInterface `object`: The network interface information of the EC2 instance.
   * Ipv6Addresses [Ipv6Addresses](#ipv6addresses)
+  * NetworkInterfaceId [NetworkInterfaceId](#networkinterfaceid)
   * PrivateDnsName [PrivateDnsName](#privatednsname)
   * PrivateIpAddress [PrivateIpAddress](#privateipaddress)
   * PrivateIpAddresses [PrivateIpAddresses](#privateipaddresses)
@@ -1263,6 +1408,9 @@ amazonaws_guardduty.DeleteInvitations({}, context)
   * SecurityGroups [SecurityGroups](#securitygroups)
   * SubnetId [__string](#__string)
   * VpcId [__string](#__string)
+
+### NetworkInterfaceId
+* NetworkInterfaceId `string`: The ID of the network interface.
 
 ### NetworkInterfaces
 * NetworkInterfaces `array`: The network interface information of the EC2 instance.
@@ -1284,7 +1432,7 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### PortProbeAction
 * PortProbeAction `object`: Information about the PORT_PROBE action described in this finding.
   * Blocked [__boolean](#__boolean)
-  * PortProbeDetails [ListOfPortProbeDetail](#listofportprobedetail)
+  * PortProbeDetails [__listOfPortProbeDetail](#__listofportprobedetail)
 
 ### PortProbeDetail
 * PortProbeDetail `object`: Details about the port probe finding.
@@ -1410,8 +1558,8 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 
 ### UnprocessedAccount
 * UnprocessedAccount `object`: An object containing the unprocessed account and a result string explaining why it was unprocessed.
-  * AccountId [__string](#__string)
-  * Result [__string](#__string)
+  * AccountId **required** [__string](#__string)
+  * Result **required** [__string](#__string)
 
 ### UnprocessedAccounts
 * UnprocessedAccounts `array`: A list of objects containing the unprocessed account and a result string explaining why it was unprocessed.
@@ -1423,6 +1571,17 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 
 ### UpdateDetectorResponse
 * UpdateDetectorResponse `object`
+
+### UpdateFilterRequest
+* UpdateFilterRequest `object`: UpdateFilterRequest request body.
+  * Action [FilterAction](#filteraction)
+  * Description [FilterDescription](#filterdescription)
+  * FindingCriteria [FindingCriteria](#findingcriteria)
+  * Rank [FilterRank](#filterrank)
+
+### UpdateFilterResponse
+* UpdateFilterResponse `object`
+  * Name [FilterName](#filtername)
 
 ### UpdateFindingsFeedbackRequest
 * UpdateFindingsFeedbackRequest `object`: UpdateFindingsFeedback request body.
@@ -1463,8 +1622,30 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### __integer
 * __integer `integer`
 
+### __listOfPortProbeDetail
+* __listOfPortProbeDetail `array`
+  * items [PortProbeDetail](#portprobedetail)
+
+### __long
+* __long `integer`
+
+### __mapOfCondition
+* __mapOfCondition `array`
+  * items `object`
+    * key [__string](#__string)
+    * value [Condition](#condition)
+
+### __mapOfCountBySeverityFindingStatistic
+* __mapOfCountBySeverityFindingStatistic `array`
+  * items `object`
+    * key [__string](#__string)
+    * value [CountBySeverityFindingStatistic](#countbyseverityfindingstatistic)
+
 ### __string
 * __string `string`
+
+### __stringMin0Max64
+* __stringMin0Max64 `string`
 
 ### __timestamp
 * __timestamp `string`

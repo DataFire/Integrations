@@ -188,16 +188,4 @@ azure_sql_metrics.ElasticPools_ListMetrics({
   * timestamp `string`: The metric timestamp (ISO-8601 format).
   * total `number`: The total value of the metric.
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

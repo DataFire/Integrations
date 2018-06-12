@@ -8,7 +8,7 @@
   "info": {
     "description": "A simple and elegant way to explore cancer data",
     "title": "FireBrowse Beta API",
-    "version": "1.1.35 (2017-06-07 14:29:58 28726ab6ba294a2d7961ce37)",
+    "version": "1.1.38 (2018-02-26 11:01:29 484103261f6ef681a05cf163)",
     "x-apisguru-categories": [
       "open_data"
     ],
@@ -19,7 +19,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "swagger",
         "url": "http://firebrowse.org/api/api-docs",
@@ -2443,7 +2443,7 @@
             "description": "No response was specified"
           }
         },
-        "summary": "Retrieve datestamps of all GDAC Firehose standard data and analyses runs that have been ingested into FireBrowse.",
+        "summary": "Retrieve dates of all GDAC Firehose stddata & analyses runs that have been ingested into FireBrowse.",
         "tags": [
           "Metadata"
         ]

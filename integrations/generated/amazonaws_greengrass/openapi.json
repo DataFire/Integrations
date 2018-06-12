@@ -186,7 +186,7 @@
         }
       ],
       "post": {
-        "description": "Creates a core definition. You may optionally provide the initial version of the core definition or use ''CreateCoreDefinitionVersion'' at a later time. AWS Greengrass Groups must each contain exactly 1 AWS Greengrass Core.",
+        "description": "Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. AWS Greengrass groups must each contain exactly one AWS Greengrass core.",
         "operationId": "CreateCoreDefinition",
         "parameters": [
           {
@@ -216,7 +216,7 @@
     },
     "/greengrass/definition/cores/{CoreDefinitionId}": {
       "delete": {
-        "description": "Deletes a core definition. The core definition must not have been used in a deployment.",
+        "description": "Deletes a core definition.",
         "operationId": "DeleteCoreDefinition",
         "parameters": [
           {
@@ -349,7 +349,7 @@
     },
     "/greengrass/definition/cores/{CoreDefinitionId}/versions": {
       "get": {
-        "description": "Lists versions of a core definition.",
+        "description": "Lists the versions of a core definition.",
         "operationId": "ListCoreDefinitionVersions",
         "parameters": [
           {
@@ -412,7 +412,7 @@
         }
       ],
       "post": {
-        "description": "Creates a version of a core definition that has already been defined. AWS Greengrass Groups must each contain exactly 1 AWS Greengrass Core.",
+        "description": "Creates a version of a core definition that has already been defined. AWS Greengrass groups must each contain exactly one AWS Greengrass core.",
         "operationId": "CreateCoreDefinitionVersion",
         "parameters": [
           {
@@ -570,7 +570,7 @@
         }
       ],
       "post": {
-        "description": "Creates a device definition. You may optinally provide the initial version of the device definition or use ``CreateDeviceDefinitionVersion`` at a later time.",
+        "description": "Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.",
         "operationId": "CreateDeviceDefinition",
         "parameters": [
           {
@@ -600,7 +600,7 @@
     },
     "/greengrass/definition/devices/{DeviceDefinitionId}": {
       "delete": {
-        "description": "Deletes a device definition. The device definition must not have been used in a deployment.",
+        "description": "Deletes a device definition.",
         "operationId": "DeleteDeviceDefinition",
         "parameters": [
           {
@@ -954,7 +954,7 @@
         }
       ],
       "post": {
-        "description": "Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ``CreateFunctionDefinitionVersion`` later.",
+        "description": "Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.",
         "operationId": "CreateFunctionDefinition",
         "parameters": [
           {
@@ -984,7 +984,7 @@
     },
     "/greengrass/definition/functions/{FunctionDefinitionId}": {
       "delete": {
-        "description": "Deletes a Lambda function definition. The Lambda function definition must not have been used in a deployment.",
+        "description": "Deletes a Lambda function definition.",
         "operationId": "DeleteFunctionDefinition",
         "parameters": [
           {
@@ -1018,7 +1018,7 @@
         }
       },
       "get": {
-        "description": "Retrieves information about a Lambda function definition, such as its creation time and latest version.",
+        "description": "Retrieves information about a Lambda function definition, including its creation time and latest version.",
         "operationId": "GetFunctionDefinition",
         "parameters": [
           {
@@ -1180,7 +1180,7 @@
         }
       ],
       "post": {
-        "description": "Create a version of a Lambda function definition that has already been defined.",
+        "description": "Creates a version of a Lambda function definition that has already been defined.",
         "operationId": "CreateFunctionDefinitionVersion",
         "parameters": [
           {
@@ -1216,7 +1216,7 @@
     },
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}": {
       "get": {
-        "description": "Retrieves information about a Lambda function definition version, such as which Lambda functions are included in the version and their configurations.",
+        "description": "Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.",
         "operationId": "GetFunctionDefinitionVersion",
         "parameters": [
           {
@@ -1338,7 +1338,7 @@
         }
       ],
       "post": {
-        "description": "Creates a logger definition. You may optionally provide the initial version of the logger definition or use ``CreateLoggerDefinitionVersion`` at a later time.",
+        "description": "Creates a logger definition. You may provide the initial version of the logger definition now or use ''CreateLoggerDefinitionVersion'' at a later time.",
         "operationId": "CreateLoggerDefinition",
         "parameters": [
           {
@@ -1368,7 +1368,7 @@
     },
     "/greengrass/definition/loggers/{LoggerDefinitionId}": {
       "delete": {
-        "description": "Deletes a logger definition. The logger definition must not have been used in a deployment.",
+        "description": "Deletes a logger definition.",
         "operationId": "DeleteLoggerDefinition",
         "parameters": [
           {
@@ -1722,7 +1722,7 @@
         }
       ],
       "post": {
-        "description": "Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ``CreateResourceDefinitionVersion`` later.",
+        "description": "Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.",
         "operationId": "CreateResourceDefinition",
         "parameters": [
           {
@@ -1786,7 +1786,7 @@
         }
       },
       "get": {
-        "description": "Retrieves information about a resource definition, such as its creation time and latest version.",
+        "description": "Retrieves information about a resource definition, including its creation time and latest version.",
         "operationId": "GetResourceDefinition",
         "parameters": [
           {
@@ -1948,7 +1948,7 @@
         }
       ],
       "post": {
-        "description": "Create a version of a resource definition that has already been defined.",
+        "description": "Creates a version of a resource definition that has already been defined.",
         "operationId": "CreateResourceDefinitionVersion",
         "parameters": [
           {
@@ -1984,7 +1984,7 @@
     },
     "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}": {
       "get": {
-        "description": "Retrieves information about a resource definition version, such as which resources are included in the version.",
+        "description": "Retrieves information about a resource definition version, including which resources are included in the version.",
         "operationId": "GetResourceDefinitionVersion",
         "parameters": [
           {
@@ -2106,7 +2106,7 @@
         }
       ],
       "post": {
-        "description": "Creates a subscription definition. You may optionally provide the initial version of the subscription definition or use ``CreateSubscriptionDefinitionVersion`` at a later time.",
+        "description": "Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.",
         "operationId": "CreateSubscriptionDefinition",
         "parameters": [
           {
@@ -2136,7 +2136,7 @@
     },
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}": {
       "delete": {
-        "description": "Deletes a subscription definition. The subscription definition must not have been used in a deployment.",
+        "description": "Deletes a subscription definition.",
         "operationId": "DeleteSubscriptionDefinition",
         "parameters": [
           {
@@ -2490,7 +2490,7 @@
         }
       ],
       "post": {
-        "description": "Creates a group. You may optionally provide the initial version of the group or use ''CreateGroupVersion'' at a later time.",
+        "description": "Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion'' at a later time.",
         "operationId": "CreateGroup",
         "parameters": [
           {
@@ -2520,7 +2520,7 @@
     },
     "/greengrass/groups/{GroupId}": {
       "delete": {
-        "description": "Deletes a group. The group must not have been used in deployment.",
+        "description": "Deletes a group.",
         "operationId": "DeleteGroup",
         "parameters": [
           {
@@ -2833,7 +2833,7 @@
         }
       ],
       "put": {
-        "description": "Updates the Cert expiry time for a group.",
+        "description": "Updates the Certificate expiry time for a group.",
         "operationId": "UpdateGroupCertificateConfiguration",
         "parameters": [
           {
@@ -3296,7 +3296,7 @@
         }
       ],
       "put": {
-        "description": "Associates a role with a group. The role will be used by the AWS Greengrass core in order to access AWS cloud services. The role's permissions will allow Greengrass core Lambda functions to perform actions against the cloud.",
+        "description": "Associates a role with a group. Your AWS Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.",
         "operationId": "AssociateRoleToGroup",
         "parameters": [
           {
@@ -3338,7 +3338,7 @@
     },
     "/greengrass/groups/{GroupId}/versions": {
       "get": {
-        "description": "List the versions of a group.",
+        "description": "Lists the versions of a group.",
         "operationId": "ListGroupVersions",
         "parameters": [
           {
@@ -3508,7 +3508,7 @@
     },
     "/greengrass/servicerole": {
       "delete": {
-        "description": "Disassociates the service role from the account. Without a service role, deployments will not work.",
+        "description": "Disassociates the service role from your account. Without a service role, deployments will not work.",
         "operationId": "DisassociateServiceRoleFromAccount",
         "parameters": [
           {
@@ -3536,7 +3536,7 @@
         }
       },
       "get": {
-        "description": "Retrieves the service role that is attached to the account.",
+        "description": "Retrieves the service role that is attached to your account.",
         "operationId": "GetServiceRoleForAccount",
         "parameters": [
           {
@@ -3593,7 +3593,7 @@
         }
       ],
       "put": {
-        "description": "Associates a role which is used by AWS Greengrass. AWS Greengrass uses the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. It needs to have minimum permissions in policy ``AWSGreengrassResourceAccessRolePolicy``",
+        "description": "Associates a role with your account. AWS Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.",
         "operationId": "AssociateServiceRoleToAccount",
         "parameters": [
           {
@@ -3769,7 +3769,7 @@
         }
       ],
       "post": {
-        "description": "Creates an Iot Job that will trigger your Greengrass Cores to update the software they are running.",
+        "description": "Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.",
         "operationId": "CreateSoftwareUpdateJob",
         "parameters": [
           {
@@ -3809,7 +3809,7 @@
       "properties": {
         "RoleArn": {
           "$ref": "#/definitions/__string",
-          "description": "Role arn you wish to associate with this group."
+          "description": "The ARN of the role you wish to associate with this group."
         }
       },
       "type": "object"
@@ -3818,7 +3818,7 @@
       "properties": {
         "AssociatedAt": {
           "$ref": "#/definitions/__string",
-          "description": "Time the role arn was associated to your group."
+          "description": "The time, in milliseconds since the epoch, when the role ARN was associated with the group."
         }
       },
       "type": "object"
@@ -3827,7 +3827,7 @@
       "properties": {
         "RoleArn": {
           "$ref": "#/definitions/__string",
-          "description": "Role arn you wish to associate with this account."
+          "description": "The ARN of the service role you wish to associate with your account."
         }
       },
       "type": "object"
@@ -3836,35 +3836,35 @@
       "properties": {
         "AssociatedAt": {
           "$ref": "#/definitions/__string",
-          "description": "Time when the service role was associated to the account."
+          "description": "The time when the service role was associated with the account."
         }
       },
       "type": "object"
     },
     "BadRequestException": {
-      "description": "General Error",
+      "description": "General error information.",
       "properties": {
         "ErrorDetails": {
           "$ref": "#/definitions/ErrorDetails",
-          "description": "Error Details"
+          "description": "Details about the error."
         },
         "Message": {
           "$ref": "#/definitions/__string",
-          "description": "Message containing information about the error"
+          "description": "A message containing information about the error."
         }
       },
       "type": "object"
     },
     "ConnectivityInfo": {
-      "description": "Connectivity Info",
+      "description": "Information about a Greengrass core's connectivity.",
       "properties": {
         "HostAddress": {
           "$ref": "#/definitions/__string",
-          "description": "Endpoint for the GGC. Can be an IP address or DNS."
+          "description": "The endpoint for the Greengrass core. Can be an IP address or DNS."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Element Id for this entry in the list."
+          "description": "The ID of the connectivity information."
         },
         "Metadata": {
           "$ref": "#/definitions/__string",
@@ -3872,53 +3872,53 @@
         },
         "PortNumber": {
           "$ref": "#/definitions/__integer",
-          "description": "Port of the GGC. Usually 8883."
+          "description": "The port of the Greengrass core. Usually 8883."
         }
       },
       "type": "object"
     },
     "Core": {
-      "description": "Information on the core",
+      "description": "Information about a core.",
       "properties": {
         "CertificateArn": {
           "$ref": "#/definitions/__string",
-          "description": "Certificate arn of the core."
+          "description": "The ARN of the certificate associated with the core."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Element Id for this entry in the list."
+          "description": "The ID of the core."
         },
         "SyncShadow": {
           "$ref": "#/definitions/__boolean",
-          "description": "If true, the local shadow value automatically syncs with the cloud's shadow state."
+          "description": "If true, the core's local shadow is automatically synced with the cloud."
         },
         "ThingArn": {
           "$ref": "#/definitions/__string",
-          "description": "Thing arn of the core."
+          "description": "The ARN of the thing which is the core."
         }
       },
       "type": "object"
     },
     "CoreDefinitionVersion": {
-      "description": "Information on core definition version",
+      "description": "Information about a core definition version.",
       "properties": {
         "Cores": {
-          "$ref": "#/definitions/ListOfCore",
-          "description": "Cores in the definition version."
+          "$ref": "#/definitions/__listOfCore",
+          "description": "A list of cores in the core definition version."
         }
       },
       "type": "object"
     },
     "CreateCoreDefinitionRequest": {
-      "description": "Information on the core definition request",
+      "description": "Information needed to create a core definition.",
       "properties": {
         "InitialVersion": {
           "$ref": "#/definitions/CoreDefinitionVersion",
-          "description": "Information on the initial version"
+          "description": "Information about the initial version of the core definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the core definition"
+          "description": "The name of the core definition."
         }
       },
       "type": "object"
@@ -3927,31 +3927,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -3959,8 +3959,8 @@
     "CreateCoreDefinitionVersionRequest": {
       "properties": {
         "Cores": {
-          "$ref": "#/definitions/ListOfCore",
-          "description": "Cores in the definition version."
+          "$ref": "#/definitions/__listOfCore",
+          "description": "A list of cores in the core definition version."
         }
       },
       "type": "object"
@@ -3969,19 +3969,19 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the version."
+          "description": "The ARN of the version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the version was created."
+          "description": "The time, in milliseconds since the epoch, when the version was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource container."
+          "description": "The ID of the version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id of a version."
+          "description": "The unique ID of the version."
         }
       },
       "type": "object"
@@ -3990,15 +3990,15 @@
       "properties": {
         "DeploymentId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the deployment if you wish to redeploy a previous deployment."
+          "description": "The ID of the deployment if you wish to redeploy a previous deployment."
         },
         "DeploymentType": {
           "$ref": "#/definitions/DeploymentType",
-          "description": "Type of deployment. When used in CreateDeployment, only NewDeployment and Redeployment are valid. "
+          "description": "The type of deployment. When used in ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid."
         },
         "GroupVersionId": {
           "$ref": "#/definitions/__string",
-          "description": "Group Version you wish to deploy."
+          "description": "The ID of the group version to be deployed."
         }
       },
       "type": "object"
@@ -4007,11 +4007,11 @@
       "properties": {
         "DeploymentArn": {
           "$ref": "#/definitions/__string",
-          "description": "The arn of the deployment."
+          "description": "The ARN of the deployment."
         },
         "DeploymentId": {
           "$ref": "#/definitions/__string",
-          "description": "The id of the deployment."
+          "description": "The ID of the deployment."
         }
       },
       "type": "object"
@@ -4020,11 +4020,11 @@
       "properties": {
         "InitialVersion": {
           "$ref": "#/definitions/DeviceDefinitionVersion",
-          "description": "Information on the initial version"
+          "description": "Information about the initial version of the device definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the device definition"
+          "description": "The name of the device definition."
         }
       },
       "type": "object"
@@ -4033,31 +4033,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -4065,8 +4065,8 @@
     "CreateDeviceDefinitionVersionRequest": {
       "properties": {
         "Devices": {
-          "$ref": "#/definitions/ListOfDevice",
-          "description": "Devices in the definition version."
+          "$ref": "#/definitions/__listOfDevice",
+          "description": "A list of devices in the definition version."
         }
       },
       "type": "object"
@@ -4075,19 +4075,19 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the version."
+          "description": "The ARN of the version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the version was created."
+          "description": "The time, in milliseconds since the epoch, when the version was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource container."
+          "description": "The ID of the version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id of a version."
+          "description": "The unique ID of the version."
         }
       },
       "type": "object"
@@ -4096,11 +4096,11 @@
       "properties": {
         "InitialVersion": {
           "$ref": "#/definitions/FunctionDefinitionVersion",
-          "description": "Information on the initial version"
+          "description": "Information about the initial version of the function definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the function definition"
+          "description": "The name of the function definition."
         }
       },
       "type": "object"
@@ -4109,41 +4109,41 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
     },
     "CreateFunctionDefinitionVersionRequest": {
-      "description": "Function definition version",
+      "description": "Information needed to create a function definition version.",
       "properties": {
         "Functions": {
-          "$ref": "#/definitions/ListOfFunction",
-          "description": "Lambda functions in this function definition version."
+          "$ref": "#/definitions/__listOfFunction",
+          "description": "A list of Lambda functions in this function definition version."
         }
       },
       "type": "object"
@@ -4152,19 +4152,19 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the version."
+          "description": "The ARN of the version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the version was created."
+          "description": "The time, in milliseconds since the epoch, when the version was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource container."
+          "description": "The ID of the version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id of a version."
+          "description": "The unique ID of the version."
         }
       },
       "type": "object"
@@ -4177,7 +4177,7 @@
       "properties": {
         "GroupCertificateAuthorityArn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the group certificate authority."
+          "description": "The ARN of the group certificate authority."
         }
       },
       "type": "object"
@@ -4186,11 +4186,11 @@
       "properties": {
         "InitialVersion": {
           "$ref": "#/definitions/GroupVersion",
-          "description": "Information on the initial version"
+          "description": "Information about the initial version of the group."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the group"
+          "description": "The name of the group."
         }
       },
       "type": "object"
@@ -4199,31 +4199,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -4232,27 +4232,27 @@
       "properties": {
         "CoreDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Core definition version arn for this group."
+          "description": "The ARN of the core definition version for this group."
         },
         "DeviceDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Device definition version arn for this group."
+          "description": "The ARN of the device definition version for this group."
         },
         "FunctionDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Function definition version arn for this group."
+          "description": "The ARN of the function definition version for this group."
         },
         "LoggerDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Logger definition version arn for this group."
+          "description": "The ARN of the logger definition version for this group."
         },
         "ResourceDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Resource definition version arn for this group."
+          "description": "The resource definition version ARN for this group."
         },
         "SubscriptionDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Subscription definition version arn for this group."
+          "description": "The ARN of the subscription definition version for this group."
         }
       },
       "type": "object"
@@ -4261,19 +4261,19 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the version."
+          "description": "The ARN of the version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the version was created."
+          "description": "The time, in milliseconds since the epoch, when the version was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource container."
+          "description": "The ID of the version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id of a version."
+          "description": "The unique ID of the version."
         }
       },
       "type": "object"
@@ -4282,11 +4282,11 @@
       "properties": {
         "InitialVersion": {
           "$ref": "#/definitions/LoggerDefinitionVersion",
-          "description": "Information on the initial version"
+          "description": "Information about the initial version of the logger definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the logger definition"
+          "description": "The name of the logger definition."
         }
       },
       "type": "object"
@@ -4295,31 +4295,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -4327,8 +4327,8 @@
     "CreateLoggerDefinitionVersionRequest": {
       "properties": {
         "Loggers": {
-          "$ref": "#/definitions/ListOfLogger",
-          "description": "List of loggers."
+          "$ref": "#/definitions/__listOfLogger",
+          "description": "A list of loggers."
         }
       },
       "type": "object"
@@ -4337,19 +4337,19 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the version."
+          "description": "The ARN of the version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the version was created."
+          "description": "The time, in milliseconds since the epoch, when the version was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource container."
+          "description": "The ID of the version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id of a version."
+          "description": "The unique ID of the version."
         }
       },
       "type": "object"
@@ -4358,11 +4358,11 @@
       "properties": {
         "InitialVersion": {
           "$ref": "#/definitions/ResourceDefinitionVersion",
-          "description": "Information on the initial version"
+          "description": "Information about the initial version of the resource definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the resource definition"
+          "description": "The name of the resource definition."
         }
       },
       "type": "object"
@@ -4371,31 +4371,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -4403,8 +4403,8 @@
     "CreateResourceDefinitionVersionRequest": {
       "properties": {
         "Resources": {
-          "$ref": "#/definitions/ListOfResource",
-          "description": "List of resources."
+          "$ref": "#/definitions/__listOfResource",
+          "description": "A list of resources."
         }
       },
       "type": "object"
@@ -4413,19 +4413,19 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the version."
+          "description": "The ARN of the version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the version was created."
+          "description": "The time, in milliseconds since the epoch, when the version was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource container."
+          "description": "The ID of the version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id of a version."
+          "description": "The unique ID of the version."
         }
       },
       "type": "object"
@@ -4457,11 +4457,11 @@
       "properties": {
         "IotJobArn": {
           "$ref": "#/definitions/__string",
-          "description": "The Iot Job Arn corresponding to this update."
+          "description": "The IoT Job ARN corresponding to this update."
         },
         "IotJobId": {
           "$ref": "#/definitions/__string",
-          "description": "The Iot Job Id corresponding to this update."
+          "description": "The IoT Job Id corresponding to this update."
         }
       },
       "type": "object"
@@ -4470,11 +4470,11 @@
       "properties": {
         "InitialVersion": {
           "$ref": "#/definitions/SubscriptionDefinitionVersion",
-          "description": "Information on the initial version"
+          "description": "Information about the initial version of the subscription definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the subscription definition"
+          "description": "The name of the subscription definition."
         }
       },
       "type": "object"
@@ -4483,31 +4483,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -4515,8 +4515,8 @@
     "CreateSubscriptionDefinitionVersionRequest": {
       "properties": {
         "Subscriptions": {
-          "$ref": "#/definitions/ListOfSubscription",
-          "description": "Subscriptions in the version."
+          "$ref": "#/definitions/__listOfSubscription",
+          "description": "A list of subscriptions."
         }
       },
       "type": "object"
@@ -4525,53 +4525,53 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the version."
+          "description": "The ARN of the version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the version was created."
+          "description": "The time, in milliseconds since the epoch, when the version was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource container."
+          "description": "The ID of the version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id of a version."
+          "description": "The unique ID of the version."
         }
       },
       "type": "object"
     },
     "DefinitionInformation": {
-      "description": "Information on the Definition",
+      "description": "Information about a definition.",
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -4633,27 +4633,27 @@
       "type": "object"
     },
     "Deployment": {
-      "description": "Information on the deployment",
+      "description": "Information about a deployment.",
       "properties": {
         "CreatedAt": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp when the deployment was created."
+          "description": "The time, in milliseconds since the epoch, when the deployment was created."
         },
         "DeploymentArn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the deployment."
+          "description": "The ARN of the deployment."
         },
         "DeploymentId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the deployment."
+          "description": "The ID of the deployment."
         },
         "DeploymentType": {
           "$ref": "#/definitions/DeploymentType",
-          "description": "The type of deployment."
+          "description": "The type of the deployment."
         },
         "GroupArn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the group for this deployment."
+          "description": "The ARN of the group for this deployment."
         }
       },
       "type": "object"
@@ -4674,33 +4674,33 @@
       "type": "array"
     },
     "Device": {
-      "description": "Information on a Device",
+      "description": "Information about a device.",
       "properties": {
         "CertificateArn": {
           "$ref": "#/definitions/__string",
-          "description": "Certificate arn of the device."
+          "description": "The ARN of the certificate associated with the device."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Element Id for this entry in the list."
+          "description": "The ID of the device."
         },
         "SyncShadow": {
           "$ref": "#/definitions/__boolean",
-          "description": "If true, the local shadow value automatically syncs with the cloud's shadow state."
+          "description": "If true, the device's local shadow will be automatically synced with the cloud."
         },
         "ThingArn": {
           "$ref": "#/definitions/__string",
-          "description": "Thing arn of the device."
+          "description": "The thing ARN of the device."
         }
       },
       "type": "object"
     },
     "DeviceDefinitionVersion": {
-      "description": "Information on device definition version",
+      "description": "Information about a device definition version.",
       "properties": {
         "Devices": {
-          "$ref": "#/definitions/ListOfDevice",
-          "description": "Devices in the definition version."
+          "$ref": "#/definitions/__listOfDevice",
+          "description": "A list of devices in the definition version."
         }
       },
       "type": "object"
@@ -4713,7 +4713,7 @@
       "properties": {
         "DisassociatedAt": {
           "$ref": "#/definitions/__string",
-          "description": "Time when the role was disassociated from the group."
+          "description": "The time, in milliseconds since the epoch, when the role was disassociated from the group."
         }
       },
       "type": "object"
@@ -4726,7 +4726,7 @@
       "properties": {
         "DisassociatedAt": {
           "$ref": "#/definitions/__string",
-          "description": "Time when the service role was disassociated from the account."
+          "description": "The time when the service role was disassociated from the account."
         }
       },
       "type": "object"
@@ -4736,113 +4736,124 @@
       "properties": {},
       "type": "object"
     },
+    "EncodingType": {
+      "enum": [
+        "binary",
+        "json"
+      ],
+      "type": "string"
+    },
     "ErrorDetail": {
-      "description": "ErrorDetail",
+      "description": "Details about the error.",
       "properties": {
         "DetailedErrorCode": {
           "$ref": "#/definitions/__string",
-          "description": "Detailed Error Code"
+          "description": "A detailed error code."
         },
         "DetailedErrorMessage": {
           "$ref": "#/definitions/__string",
-          "description": "Detailed Error Message"
+          "description": "A detailed error message."
         }
       },
       "type": "object"
     },
     "ErrorDetails": {
-      "description": "Error Details",
+      "description": "A list of error details.",
       "items": {
         "$ref": "#/definitions/ErrorDetail"
       },
       "type": "array"
     },
     "Function": {
-      "description": "Information on function",
+      "description": "Information about a Lambda function.",
       "properties": {
         "FunctionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the Lambda function."
+          "description": "The ARN of the Lambda function."
         },
         "FunctionConfiguration": {
           "$ref": "#/definitions/FunctionConfiguration",
-          "description": "Configuration of the function"
+          "description": "The configuration of the Lambda function."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the function in this version."
+          "description": "The ID of the Lambda function."
         }
       },
       "type": "object"
     },
     "FunctionConfiguration": {
-      "description": "Configuration of the function",
+      "description": "The configuration of the Lambda function.",
       "properties": {
+        "EncodingType": {
+          "$ref": "#/definitions/EncodingType",
+          "description": "The expected encoding type of the input payload for the function. The default is ''json''."
+        },
         "Environment": {
           "$ref": "#/definitions/FunctionConfigurationEnvironment",
-          "description": "Environment of the function configuration"
+          "description": "The environment configuration of the function."
         },
         "ExecArgs": {
           "$ref": "#/definitions/__string",
-          "description": "Execution Arguments"
+          "description": "The execution arguments."
         },
         "Executable": {
           "$ref": "#/definitions/__string",
-          "description": "Executable"
+          "description": "The name of the function executable."
         },
         "MemorySize": {
           "$ref": "#/definitions/__integer",
-          "description": "The memory size, in KB, you configured for the function."
+          "description": "The memory size, in KB, which the function requires."
         },
         "Pinned": {
           "$ref": "#/definitions/__boolean",
-          "description": "Whether the function is pinned or not. Pinned means the function is long-lived and starts when the core starts."
+          "description": "True if the function is pinned. Pinned means the function is long-lived and starts when the core starts."
         },
         "Timeout": {
           "$ref": "#/definitions/__integer",
-          "description": "The function execution time at which Lambda should terminate the function. This timeout still applies to pinned lambdas for each request."
+          "description": "The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned lambdas for each request."
         }
       },
       "type": "object"
     },
     "FunctionConfigurationEnvironment": {
-      "description": "Environment of the function configuration",
+      "description": "The environment configuration of the function.",
       "properties": {
         "AccessSysfs": {
           "$ref": "#/definitions/__boolean",
-          "description": "Flag to allow lambda access sys filesystem."
+          "description": "If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys."
         },
         "ResourceAccessPolicies": {
-          "$ref": "#/definitions/ListOfResourceAccessPolicy",
-          "description": "Policies for the function to access resources."
+          "$ref": "#/definitions/__listOfResourceAccessPolicy",
+          "description": "A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources."
         },
         "Variables": {
-          "$ref": "#/definitions/MapOf__string",
-          "description": "Environment variables for the lambda function."
+          "$ref": "#/definitions/__mapOf__string",
+          "description": "Environment variables for the Lambda function's configuration."
         }
       },
       "type": "object"
     },
     "FunctionDefinitionVersion": {
-      "description": "Information on the function definition version",
+      "description": "Information about a function definition version.",
       "properties": {
         "Functions": {
-          "$ref": "#/definitions/ListOfFunction",
-          "description": "Lambda functions in this function definition version."
+          "$ref": "#/definitions/__listOfFunction",
+          "description": "A list of Lambda functions in this function definition version."
         }
       },
       "type": "object"
     },
     "GeneralError": {
-      "description": "General Error",
+      "description": "General error information.",
       "properties": {
         "ErrorDetails": {
           "$ref": "#/definitions/ErrorDetails",
-          "description": "Error Details"
+          "description": "Details about the error."
         },
         "Message": {
           "$ref": "#/definitions/__string",
-          "description": "Message containing information about the error"
+          "description": "A message containing information about the error."
         }
       },
       "type": "object"
@@ -4855,11 +4866,11 @@
       "properties": {
         "AssociatedAt": {
           "$ref": "#/definitions/__string",
-          "description": "Time when the role was associated for the group."
+          "description": "The time when the role was associated with the group."
         },
         "RoleArn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the role that is associated with the group."
+          "description": "The ARN of the role that is associated with the group."
         }
       },
       "type": "object"
@@ -4871,12 +4882,12 @@
     "GetConnectivityInfoResponse": {
       "properties": {
         "ConnectivityInfo": {
-          "$ref": "#/definitions/ListOfConnectivityInfo",
-          "description": "Connectivity info list"
+          "$ref": "#/definitions/__listOfConnectivityInfo",
+          "description": "Connectivity info list."
         },
         "Message": {
           "$ref": "#/definitions/__string",
-          "description": "Response Text"
+          "description": "A message about the connectivity info request."
         }
       },
       "type": "object"
@@ -4889,31 +4900,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -4926,23 +4937,23 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the core definition version."
+          "description": "The ARN of the core definition version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the core definition version was created."
+          "description": "The time, in milliseconds since the epoch, when the core definition version was created."
         },
         "Definition": {
           "$ref": "#/definitions/CoreDefinitionVersion",
-          "description": "Information on definition"
+          "description": "Information about the core definition version."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the core definition the version belongs to."
+          "description": "The ID of the core definition version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Version of the core definition version."
+          "description": "The version of the core definition version."
         }
       },
       "type": "object"
@@ -4955,7 +4966,7 @@
       "properties": {
         "DeploymentStatus": {
           "$ref": "#/definitions/__string",
-          "description": "Status of the deployment."
+          "description": "The status of the deployment."
         },
         "DeploymentType": {
           "$ref": "#/definitions/DeploymentType",
@@ -4963,15 +4974,15 @@
         },
         "ErrorDetails": {
           "$ref": "#/definitions/ErrorDetails",
-          "description": "The error Details"
+          "description": "Error details"
         },
         "ErrorMessage": {
           "$ref": "#/definitions/__string",
-          "description": "Error Message"
+          "description": "Error message"
         },
         "UpdatedAt": {
           "$ref": "#/definitions/__string",
-          "description": "Last time the deployment status was updated."
+          "description": "The time, in milliseconds since the epoch, when the deployment status was updated."
         }
       },
       "type": "object"
@@ -4984,31 +4995,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -5021,23 +5032,23 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the device definition version."
+          "description": "The ARN of the device definition version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the device definition version was created."
+          "description": "The time, in milliseconds since the epoch, when the device definition version was created."
         },
         "Definition": {
           "$ref": "#/definitions/DeviceDefinitionVersion",
-          "description": "Device definition version"
+          "description": "Information about the device definition version."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the device definition the version belongs to."
+          "description": "The ID of the device definition version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Version of the device definition version."
+          "description": "The version of the device definition version."
         }
       },
       "type": "object"
@@ -5050,31 +5061,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -5087,23 +5098,23 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the function definition version."
+          "description": "The ARN of the function definition version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp when the funtion definition version was created."
+          "description": "The time, in milliseconds since the epoch, when the function definition version was created."
         },
         "Definition": {
           "$ref": "#/definitions/FunctionDefinitionVersion",
-          "description": "Information on the definition"
+          "description": "Information on the definition."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the function definition the version belongs to."
+          "description": "The ID of the function definition version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Version of the function definition version."
+          "description": "The version of the function definition version."
         }
       },
       "type": "object"
@@ -5116,15 +5127,15 @@
       "properties": {
         "GroupCertificateAuthorityArn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the certificate authority for the group."
+          "description": "The ARN of the certificate authority for the group."
         },
         "GroupCertificateAuthorityId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the certificate authority for the group."
+          "description": "The ID of the certificate authority for the group."
         },
         "PemEncodedCertificate": {
           "$ref": "#/definitions/__string",
-          "description": "PEM encoded certificate for the group."
+          "description": "The PEM encoded certificate for the group."
         }
       },
       "type": "object"
@@ -5137,15 +5148,15 @@
       "properties": {
         "CertificateAuthorityExpiryInMilliseconds": {
           "$ref": "#/definitions/__string",
-          "description": "Amount of time when the certificate authority expires in milliseconds."
+          "description": "The amount of time remaining before the certificate authority expires, in milliseconds."
         },
         "CertificateExpiryInMilliseconds": {
           "$ref": "#/definitions/__string",
-          "description": "Amount of time when the certificate expires in milliseconds."
+          "description": "The amount of time remaining before the certificate expires, in milliseconds."
         },
         "GroupId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the group the certificate configuration belongs to."
+          "description": "The ID of the group certificate configuration."
         }
       },
       "type": "object"
@@ -5158,31 +5169,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -5195,23 +5206,23 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the group version."
+          "description": "The ARN of the group version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp when the group version was created."
+          "description": "The time, in milliseconds since the epoch, when the group version was created."
         },
         "Definition": {
           "$ref": "#/definitions/GroupVersion",
-          "description": "Information on the definition"
+          "description": "Information about the group version definition."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the group version."
+          "description": "The ID of the group version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id for a version of the Group."
+          "description": "The unique ID for the version of the group."
         }
       },
       "type": "object"
@@ -5224,31 +5235,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -5261,23 +5272,23 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the logger definition version."
+          "description": "The ARN of the logger definition version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the logger definition version was created."
+          "description": "The time, in milliseconds since the epoch, when the logger definition version was created."
         },
         "Definition": {
           "$ref": "#/definitions/LoggerDefinitionVersion",
-          "description": "Information on definition"
+          "description": "Information about the logger definition version."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the logger definition the version belongs to."
+          "description": "The ID of the logger definition version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Version of the logger definition version."
+          "description": "The version of the logger definition version."
         }
       },
       "type": "object"
@@ -5290,31 +5301,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -5331,19 +5342,19 @@
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the resource definition version was created."
+          "description": "The time, in milliseconds since the epoch, when the resource definition version was created."
         },
         "Definition": {
           "$ref": "#/definitions/ResourceDefinitionVersion",
-          "description": "Information on definition."
+          "description": "Information about the definition."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource definition the version belongs to."
+          "description": "The ID of the resource definition version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Version of the resource definition version."
+          "description": "The version of the resource definition version."
         }
       },
       "type": "object"
@@ -5356,11 +5367,11 @@
       "properties": {
         "AssociatedAt": {
           "$ref": "#/definitions/__string",
-          "description": "Time when the service role was associated to the account."
+          "description": "The time when the service role was associated with the account."
         },
         "RoleArn": {
           "$ref": "#/definitions/__string",
-          "description": "Role arn which is associated to the account."
+          "description": "The ARN of the role which is associated with the account."
         }
       },
       "type": "object"
@@ -5373,31 +5384,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the definition."
+          "description": "The ARN of the definition."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the definition was created."
+          "description": "The time, in milliseconds since the epoch, when the definition was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the definition."
+          "description": "The ID of the definition."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the definition."
+          "description": "The time, in milliseconds since the epoch, when the definition was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the definition."
+          "description": "The latest version of the definition."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the definition."
+          "description": "The ARN of the latest version of the definition."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the definition."
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -5410,89 +5421,89 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the subscription definition version."
+          "description": "The ARN of the subscription definition version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the subscription definition version was created."
+          "description": "The time, in milliseconds since the epoch, when the subscription definition version was created."
         },
         "Definition": {
           "$ref": "#/definitions/SubscriptionDefinitionVersion",
-          "description": "Information on the definition"
+          "description": "Information about the subscription definition version."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the subscription definition the version belongs to."
+          "description": "The ID of the subscription definition version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Version of the subscription definition version."
+          "description": "The version of the subscription definition version."
         }
       },
       "type": "object"
     },
     "GroupCertificateAuthorityProperties": {
-      "description": "Information on group certificate authority properties",
+      "description": "Information about a certificate authority for a group.",
       "properties": {
         "GroupCertificateAuthorityArn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the certificate authority for the group."
+          "description": "The ARN of the certificate authority for the group."
         },
         "GroupCertificateAuthorityId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the certificate authority for the group."
+          "description": "The ID of the certificate authority for the group."
         }
       },
       "type": "object"
     },
     "GroupCertificateConfiguration": {
-      "description": "Information on the group certificate configuration",
+      "description": "Information about a group certificate configuration.",
       "properties": {
         "CertificateAuthorityExpiryInMilliseconds": {
           "$ref": "#/definitions/__string",
-          "description": "Amount of time when the certificate authority expires in milliseconds."
+          "description": "The amount of time remaining before the certificate authority expires, in milliseconds."
         },
         "CertificateExpiryInMilliseconds": {
           "$ref": "#/definitions/__string",
-          "description": "Amount of time when the certificate expires in milliseconds."
+          "description": "The amount of time remaining before the certificate expires, in milliseconds."
         },
         "GroupId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the group the certificate configuration belongs to."
+          "description": "The ID of the group certificate configuration."
         }
       },
       "type": "object"
     },
     "GroupInformation": {
-      "description": "Information on the group",
+      "description": "Information about a group.",
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of a group."
+          "description": "The ARN of the group."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the group was created."
+          "description": "The time, in milliseconds since the epoch, when the group was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of a group."
+          "description": "The ID of the group."
         },
         "LastUpdatedTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Last updated timestamp of the group."
+          "description": "The time, in milliseconds since the epoch, when the group was last updated."
         },
         "LatestVersion": {
           "$ref": "#/definitions/__string",
-          "description": "Last version of the group."
+          "description": "The latest version of the group."
         },
         "LatestVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Latest version arn of the group."
+          "description": "The ARN of the latest version of the group."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "Name of a group."
+          "description": "The name of the group."
         }
       },
       "type": "object"
@@ -5502,55 +5513,55 @@
       "properties": {
         "AutoAddGroupOwner": {
           "$ref": "#/definitions/__boolean",
-          "description": "Eanble the auto added group owner."
+          "description": "If true, GreenGrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group."
         },
         "GroupOwner": {
           "$ref": "#/definitions/__string",
-          "description": "Name of the group owner."
+          "description": "The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional."
         }
       },
       "type": "object"
     },
     "GroupVersion": {
-      "description": "Information on group version",
+      "description": "Information about a group version.",
       "properties": {
         "CoreDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Core definition version arn for this group."
+          "description": "The ARN of the core definition version for this group."
         },
         "DeviceDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Device definition version arn for this group."
+          "description": "The ARN of the device definition version for this group."
         },
         "FunctionDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Function definition version arn for this group."
+          "description": "The ARN of the function definition version for this group."
         },
         "LoggerDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Logger definition version arn for this group."
+          "description": "The ARN of the logger definition version for this group."
         },
         "ResourceDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Resource definition version arn for this group."
+          "description": "The resource definition version ARN for this group."
         },
         "SubscriptionDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Subscription definition version arn for this group."
+          "description": "The ARN of the subscription definition version for this group."
         }
       },
       "type": "object"
     },
     "InternalServerErrorException": {
-      "description": "General Error",
+      "description": "General error information.",
       "properties": {
         "ErrorDetails": {
           "$ref": "#/definitions/ErrorDetails",
-          "description": "Error Details"
+          "description": "Details about the error."
         },
         "Message": {
           "$ref": "#/definitions/__string",
-          "description": "Message containing information about the error"
+          "description": "A message containing information about the error."
         }
       },
       "type": "object"
@@ -5566,8 +5577,8 @@
           "description": "The token for the next set of results, or ''null'' if there are no additional results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionInformation",
-          "description": "Versions"
+          "$ref": "#/definitions/__listOfVersionInformation",
+          "description": "Information about a version."
         }
       },
       "type": "object"
@@ -5579,8 +5590,8 @@
     "ListCoreDefinitionsResponse": {
       "properties": {
         "Definitions": {
-          "$ref": "#/definitions/ListOfDefinitionInformation",
-          "description": "Definitions"
+          "$ref": "#/definitions/__listOfDefinitionInformation",
+          "description": "Information about a definition."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5590,11 +5601,11 @@
       "type": "object"
     },
     "ListDefinitionsResponse": {
-      "description": "List of definition responses",
+      "description": "A list of definitions.",
       "properties": {
         "Definitions": {
-          "$ref": "#/definitions/ListOfDefinitionInformation",
-          "description": "Definitions"
+          "$ref": "#/definitions/__listOfDefinitionInformation",
+          "description": "Information about a definition."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5611,7 +5622,7 @@
       "properties": {
         "Deployments": {
           "$ref": "#/definitions/Deployments",
-          "description": "List of deployments for the requested groups"
+          "description": "A list of deployments for the requested groups."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5631,8 +5642,8 @@
           "description": "The token for the next set of results, or ''null'' if there are no additional results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionInformation",
-          "description": "Versions"
+          "$ref": "#/definitions/__listOfVersionInformation",
+          "description": "Information about a version."
         }
       },
       "type": "object"
@@ -5644,8 +5655,8 @@
     "ListDeviceDefinitionsResponse": {
       "properties": {
         "Definitions": {
-          "$ref": "#/definitions/ListOfDefinitionInformation",
-          "description": "Definitions"
+          "$ref": "#/definitions/__listOfDefinitionInformation",
+          "description": "Information about a definition."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5665,8 +5676,8 @@
           "description": "The token for the next set of results, or ''null'' if there are no additional results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionInformation",
-          "description": "Versions"
+          "$ref": "#/definitions/__listOfVersionInformation",
+          "description": "Information about a version."
         }
       },
       "type": "object"
@@ -5678,8 +5689,8 @@
     "ListFunctionDefinitionsResponse": {
       "properties": {
         "Definitions": {
-          "$ref": "#/definitions/ListOfDefinitionInformation",
-          "description": "Definitions"
+          "$ref": "#/definitions/__listOfDefinitionInformation",
+          "description": "Information about a definition."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5695,8 +5706,8 @@
     "ListGroupCertificateAuthoritiesResponse": {
       "properties": {
         "GroupCertificateAuthorities": {
-          "$ref": "#/definitions/ListOfGroupCertificateAuthorityProperties",
-          "description": "List of certificate authorities associated with the group."
+          "$ref": "#/definitions/__listOfGroupCertificateAuthorityProperties",
+          "description": "A list of certificate authorities associated with the group."
         }
       },
       "type": "object"
@@ -5712,8 +5723,8 @@
           "description": "The token for the next set of results, or ''null'' if there are no additional results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionInformation",
-          "description": "Versions"
+          "$ref": "#/definitions/__listOfVersionInformation",
+          "description": "Information about a version."
         }
       },
       "type": "object"
@@ -5725,8 +5736,8 @@
     "ListGroupsResponse": {
       "properties": {
         "Groups": {
-          "$ref": "#/definitions/ListOfGroupInformation",
-          "description": "Groups"
+          "$ref": "#/definitions/__listOfGroupInformation",
+          "description": "Information about a group."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5746,8 +5757,8 @@
           "description": "The token for the next set of results, or ''null'' if there are no additional results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionInformation",
-          "description": "Versions"
+          "$ref": "#/definitions/__listOfVersionInformation",
+          "description": "Information about a version."
         }
       },
       "type": "object"
@@ -5759,8 +5770,8 @@
     "ListLoggerDefinitionsResponse": {
       "properties": {
         "Definitions": {
-          "$ref": "#/definitions/ListOfDefinitionInformation",
-          "description": "Definitions"
+          "$ref": "#/definitions/__listOfDefinitionInformation",
+          "description": "Information about a definition."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5768,78 +5779,6 @@
         }
       },
       "type": "object"
-    },
-    "ListOfConnectivityInfo": {
-      "items": {
-        "$ref": "#/definitions/ConnectivityInfo"
-      },
-      "type": "array"
-    },
-    "ListOfCore": {
-      "items": {
-        "$ref": "#/definitions/Core"
-      },
-      "type": "array"
-    },
-    "ListOfDefinitionInformation": {
-      "items": {
-        "$ref": "#/definitions/DefinitionInformation"
-      },
-      "type": "array"
-    },
-    "ListOfDevice": {
-      "items": {
-        "$ref": "#/definitions/Device"
-      },
-      "type": "array"
-    },
-    "ListOfFunction": {
-      "items": {
-        "$ref": "#/definitions/Function"
-      },
-      "type": "array"
-    },
-    "ListOfGroupCertificateAuthorityProperties": {
-      "items": {
-        "$ref": "#/definitions/GroupCertificateAuthorityProperties"
-      },
-      "type": "array"
-    },
-    "ListOfGroupInformation": {
-      "items": {
-        "$ref": "#/definitions/GroupInformation"
-      },
-      "type": "array"
-    },
-    "ListOfLogger": {
-      "items": {
-        "$ref": "#/definitions/Logger"
-      },
-      "type": "array"
-    },
-    "ListOfResource": {
-      "items": {
-        "$ref": "#/definitions/Resource"
-      },
-      "type": "array"
-    },
-    "ListOfResourceAccessPolicy": {
-      "items": {
-        "$ref": "#/definitions/ResourceAccessPolicy"
-      },
-      "type": "array"
-    },
-    "ListOfSubscription": {
-      "items": {
-        "$ref": "#/definitions/Subscription"
-      },
-      "type": "array"
-    },
-    "ListOfVersionInformation": {
-      "items": {
-        "$ref": "#/definitions/VersionInformation"
-      },
-      "type": "array"
     },
     "ListResourceDefinitionVersionsRequest": {
       "properties": {},
@@ -5852,8 +5791,8 @@
           "description": "The token for the next set of results, or ''null'' if there are no additional results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionInformation",
-          "description": "Versions"
+          "$ref": "#/definitions/__listOfVersionInformation",
+          "description": "Information about a version."
         }
       },
       "type": "object"
@@ -5865,8 +5804,8 @@
     "ListResourceDefinitionsResponse": {
       "properties": {
         "Definitions": {
-          "$ref": "#/definitions/ListOfDefinitionInformation",
-          "description": "Definitions"
+          "$ref": "#/definitions/__listOfDefinitionInformation",
+          "description": "Information about a definition."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5886,8 +5825,8 @@
           "description": "The token for the next set of results, or ''null'' if there are no additional results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionInformation",
-          "description": "Versions"
+          "$ref": "#/definitions/__listOfVersionInformation",
+          "description": "Information about a version."
         }
       },
       "type": "object"
@@ -5899,8 +5838,8 @@
     "ListSubscriptionDefinitionsResponse": {
       "properties": {
         "Definitions": {
-          "$ref": "#/definitions/ListOfDefinitionInformation",
-          "description": "Definitions"
+          "$ref": "#/definitions/__listOfDefinitionInformation",
+          "description": "Information about a definition."
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -5910,73 +5849,73 @@
       "type": "object"
     },
     "ListVersionsResponse": {
-      "description": "List of versions response",
+      "description": "A list of versions.",
       "properties": {
         "NextToken": {
           "$ref": "#/definitions/__string",
           "description": "The token for the next set of results, or ''null'' if there are no additional results."
         },
         "Versions": {
-          "$ref": "#/definitions/ListOfVersionInformation",
-          "description": "Versions"
+          "$ref": "#/definitions/__listOfVersionInformation",
+          "description": "Information about a version."
         }
       },
       "type": "object"
     },
     "LocalDeviceResourceData": {
-      "description": "Attributes that define the Local Device Resource.",
+      "description": "Attributes that define a local device resource.",
       "properties": {
         "GroupOwnerSetting": {
           "$ref": "#/definitions/GroupOwnerSetting",
-          "description": "Group owner related settings for local resources."
+          "description": "Group/owner related settings for local resources."
         },
         "SourcePath": {
           "$ref": "#/definitions/__string",
-          "description": "Local source path of the resource."
+          "description": "The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''."
         }
       },
       "type": "object"
     },
     "LocalVolumeResourceData": {
-      "description": "Attributes that define the Local Volume Resource.",
+      "description": "Attributes that define a local volume resource.",
       "properties": {
         "DestinationPath": {
           "$ref": "#/definitions/__string",
-          "description": "Local destination path of the resource."
+          "description": "The absolute local path of the resource inside the lambda environment."
         },
         "GroupOwnerSetting": {
           "$ref": "#/definitions/GroupOwnerSetting",
-          "description": "Group owner related settings for local resources."
+          "description": "Allows you to configure additional group privileges for the Lambda process. This field is optional."
         },
         "SourcePath": {
           "$ref": "#/definitions/__string",
-          "description": "Local source path of the resource."
+          "description": "The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/proc'' or ''/sys''."
         }
       },
       "type": "object"
     },
     "Logger": {
-      "description": "Information on the Logger",
+      "description": "Information about a logger",
       "properties": {
         "Component": {
           "$ref": "#/definitions/LoggerComponent",
-          "description": "The component that will be subject to logs"
+          "description": "The component that will be subject to logging."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Element Id for this entry in the list."
+          "description": "The id of the logger."
         },
         "Level": {
           "$ref": "#/definitions/LoggerLevel",
-          "description": "The level of the logs"
+          "description": "The level of the logs."
         },
         "Space": {
           "$ref": "#/definitions/__integer",
-          "description": "Amount of hardware space, in KB, to use if file system is used for logging purposes."
+          "description": "The amount of file space, in KB, to use if the local file system is used for logging purposes."
         },
         "Type": {
           "$ref": "#/definitions/LoggerType",
-          "description": "The type which will be use for log output"
+          "description": "The type of log output which will be used."
         }
       },
       "type": "object"
@@ -5989,11 +5928,11 @@
       "type": "string"
     },
     "LoggerDefinitionVersion": {
-      "description": "Information on logger definition version",
+      "description": "Information about a logger definition version.",
       "properties": {
         "Loggers": {
-          "$ref": "#/definitions/ListOfLogger",
-          "description": "List of loggers."
+          "$ref": "#/definitions/__listOfLogger",
+          "description": "A list of loggers."
         }
       },
       "type": "object"
@@ -6015,22 +5954,8 @@
       ],
       "type": "string"
     },
-    "MapOf__string": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/__string"
-          },
-          "value": {
-            "$ref": "#/definitions/__string"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
-    },
     "Permission": {
-      "description": "Type of permissions a function could have to access a resource.",
+      "description": "The type of permission a function has to access a resource.",
       "enum": [
         "ro",
         "rw"
@@ -6038,11 +5963,11 @@
       "type": "string"
     },
     "ResetDeploymentsRequest": {
-      "description": "Information needed to perform a reset of a group's deployments.",
+      "description": "Information needed to reset deployments.",
       "properties": {
         "Force": {
           "$ref": "#/definitions/__boolean",
-          "description": "When set to true, perform a best-effort only core reset."
+          "description": "If true, performs a best-effort only core reset."
         }
       },
       "type": "object"
@@ -6051,25 +5976,25 @@
       "properties": {
         "DeploymentArn": {
           "$ref": "#/definitions/__string",
-          "description": "The arn of the reset deployment."
+          "description": "The ARN of the deployment."
         },
         "DeploymentId": {
           "$ref": "#/definitions/__string",
-          "description": "The id of the reset deployment."
+          "description": "The ID of the deployment."
         }
       },
       "type": "object"
     },
     "Resource": {
-      "description": "Information on the resource.",
+      "description": "Information about a resource.",
       "properties": {
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Resource Id."
+          "description": "The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "A descriptive resource name."
+          "description": "The descriptive resource name, which is displayed on the Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group."
         },
         "ResourceDataContainer": {
           "$ref": "#/definitions/ResourceDataContainer",
@@ -6079,39 +6004,61 @@
       "type": "object"
     },
     "ResourceAccessPolicy": {
-      "description": "Policy for the function to access a resource.",
+      "description": "A policy used by the function to access a resource.",
       "properties": {
         "Permission": {
           "$ref": "#/definitions/Permission",
-          "description": "The function's access permission to the resource."
+          "description": "The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only)."
         },
         "ResourceId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource. A reference to the resource definiton."
+          "description": "The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)"
         }
       },
       "type": "object"
     },
     "ResourceDataContainer": {
-      "description": "A container of data for all resource types.",
+      "description": "A container for resource data. The container takes only one of the following supported resource data types: ''LocalDeviceResourceData'', ''LocalVolumeResourceData'', ''SageMakerMachineLearningModelResourceData'', ''S3MachineLearningModelResourceData''.",
       "properties": {
         "LocalDeviceResourceData": {
           "$ref": "#/definitions/LocalDeviceResourceData",
-          "description": "Attributes that define the Local Device Resource."
+          "description": "Attributes that define the local device resource."
         },
         "LocalVolumeResourceData": {
           "$ref": "#/definitions/LocalVolumeResourceData",
-          "description": "Attributes that define the Local Volume Resource."
+          "description": "Attributes that define the local volume resource."
+        },
+        "S3MachineLearningModelResourceData": {
+          "$ref": "#/definitions/S3MachineLearningModelResourceData",
+          "description": "Attributes that define an S3 machine learning resource."
+        },
+        "SageMakerMachineLearningModelResourceData": {
+          "$ref": "#/definitions/SageMakerMachineLearningModelResourceData",
+          "description": "Attributes that define an SageMaker machine learning resource."
         }
       },
       "type": "object"
     },
     "ResourceDefinitionVersion": {
-      "description": "Information on resource definition version",
+      "description": "Information about a resource definition version.",
       "properties": {
         "Resources": {
-          "$ref": "#/definitions/ListOfResource",
-          "description": "List of resources."
+          "$ref": "#/definitions/__listOfResource",
+          "description": "A list of resources."
+        }
+      },
+      "type": "object"
+    },
+    "S3MachineLearningModelResourceData": {
+      "description": "Attributes that define an S3 machine learning resource.",
+      "properties": {
+        "DestinationPath": {
+          "$ref": "#/definitions/__string",
+          "description": "The absolute local path of the resource inside the Lambda environment."
+        },
+        "S3Uri": {
+          "$ref": "#/definitions/__string",
+          "description": "The URI of the source model in an S3 bucket. The model package must be in tar.gz or .zip format."
         }
       },
       "type": "object"
@@ -6120,8 +6067,22 @@
       "description": "The IAM Role that Greengrass will use to create pre-signed URLs pointing towards the update artifact.",
       "type": "string"
     },
+    "SageMakerMachineLearningModelResourceData": {
+      "description": "Attributes that define an SageMaker machine learning resource.",
+      "properties": {
+        "DestinationPath": {
+          "$ref": "#/definitions/__string",
+          "description": "The absolute local path of the resource inside the Lambda environment."
+        },
+        "SageMakerJobArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the SageMaker training job that represents the source model."
+        }
+      },
+      "type": "object"
+    },
     "SoftwareToUpdate": {
-      "description": "The piece of software on the Greengrass Core that will be updated.",
+      "description": "The piece of software on the Greengrass core that will be updated.",
       "enum": [
         "core",
         "ota_agent"
@@ -6129,33 +6090,33 @@
       "type": "string"
     },
     "Subscription": {
-      "description": "Information on subscription",
+      "description": "Information about a subscription.",
       "properties": {
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Element Id for this entry in the list."
+          "description": "The id of the subscription."
         },
         "Source": {
           "$ref": "#/definitions/__string",
-          "description": "Source of the subscription. Can be a thing arn, lambda arn or word 'cloud'"
+          "description": "The source of the subscription. Can be a thing ARN, a Lambda function ARN, 'cloud' (which represents the IoT cloud), or 'GGShadowService'."
         },
         "Subject": {
           "$ref": "#/definitions/__string",
-          "description": "Subject of the message."
+          "description": "The subject of the message."
         },
         "Target": {
           "$ref": "#/definitions/__string",
-          "description": "Where the message is sent to. Can be a thing arn, lambda arn or word 'cloud'."
+          "description": "Where the message is sent to. Can be a thing ARN, a Lambda function ARN, 'cloud' (which represents the IoT cloud), or 'GGShadowService'."
         }
       },
       "type": "object"
     },
     "SubscriptionDefinitionVersion": {
-      "description": "Information on subscription definition version",
+      "description": "Information about a subscription definition version.",
       "properties": {
         "Subscriptions": {
-          "$ref": "#/definitions/ListOfSubscription",
-          "description": "Subscriptions in the version."
+          "$ref": "#/definitions/__listOfSubscription",
+          "description": "A list of subscriptions."
         }
       },
       "type": "object"
@@ -6175,11 +6136,11 @@
       "type": "string"
     },
     "UpdateConnectivityInfoRequest": {
-      "description": "connectivity info request",
+      "description": "Connectivity information.",
       "properties": {
         "ConnectivityInfo": {
-          "$ref": "#/definitions/ListOfConnectivityInfo",
-          "description": "Connectivity info list"
+          "$ref": "#/definitions/__listOfConnectivityInfo",
+          "description": "A list of connectivity info."
         }
       },
       "type": "object"
@@ -6188,11 +6149,11 @@
       "properties": {
         "Message": {
           "$ref": "#/definitions/__string",
-          "description": "Response Text"
+          "description": "A message about the connectivity info update request."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "New Version"
+          "description": "The new version of the connectivity info."
         }
       },
       "type": "object"
@@ -6201,7 +6162,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the definition"
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -6214,7 +6175,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the definition"
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -6227,7 +6188,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the definition"
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -6240,7 +6201,7 @@
       "properties": {
         "CertificateExpiryInMilliseconds": {
           "$ref": "#/definitions/__string",
-          "description": "Amount of time when the certificate expires in milliseconds."
+          "description": "The amount of time remaining before the certificate expires, in milliseconds."
         }
       },
       "type": "object"
@@ -6249,15 +6210,15 @@
       "properties": {
         "CertificateAuthorityExpiryInMilliseconds": {
           "$ref": "#/definitions/__string",
-          "description": "Amount of time when the certificate authority expires in milliseconds."
+          "description": "The amount of time remaining before the certificate authority expires, in milliseconds."
         },
         "CertificateExpiryInMilliseconds": {
           "$ref": "#/definitions/__string",
-          "description": "Amount of time when the certificate expires in milliseconds."
+          "description": "The amount of time remaining before the certificate expires, in milliseconds."
         },
         "GroupId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the group the certificate configuration belongs to."
+          "description": "The ID of the group certificate configuration."
         }
       },
       "type": "object"
@@ -6266,7 +6227,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the definition"
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -6279,7 +6240,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the definition"
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -6292,7 +6253,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the definition"
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -6305,7 +6266,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "name of the definition"
+          "description": "The name of the definition."
         }
       },
       "type": "object"
@@ -6315,14 +6276,14 @@
       "type": "object"
     },
     "UpdateTargets": {
-      "description": "The target arns that this update will be applied to.",
+      "description": "The ARNs of the targets (IoT things or IoT thing groups) that this update will be applied to.",
       "items": {
         "$ref": "#/definitions/__string"
       },
       "type": "array"
     },
     "UpdateTargetsArchitecture": {
-      "description": "The architecture of the Cores in the targets of an update",
+      "description": "The architecture of the cores which are the targets of an update.",
       "enum": [
         "armv7l",
         "x86_64",
@@ -6331,7 +6292,7 @@
       "type": "string"
     },
     "UpdateTargetsOperatingSystem": {
-      "description": "The operating system of the Cores in the targets of an update",
+      "description": "The operating system of the cores which are the targets of an update.",
       "enum": [
         "ubuntu",
         "raspbian",
@@ -6340,23 +6301,23 @@
       "type": "string"
     },
     "VersionInformation": {
-      "description": "Information on the version",
+      "description": "Information about a version.",
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the version."
+          "description": "The ARN of the version."
         },
         "CreationTimestamp": {
           "$ref": "#/definitions/__string",
-          "description": "Timestamp of when the version was created."
+          "description": "The time, in milliseconds since the epoch, when the version was created."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the resource container."
+          "description": "The ID of the version."
         },
         "Version": {
           "$ref": "#/definitions/__string",
-          "description": "Unique Id of a version."
+          "description": "The unique ID of the version."
         }
       },
       "type": "object"
@@ -6370,6 +6331,95 @@
     },
     "__integer": {
       "type": "integer"
+    },
+    "__listOfConnectivityInfo": {
+      "items": {
+        "$ref": "#/definitions/ConnectivityInfo"
+      },
+      "type": "array"
+    },
+    "__listOfCore": {
+      "items": {
+        "$ref": "#/definitions/Core"
+      },
+      "type": "array"
+    },
+    "__listOfDefinitionInformation": {
+      "items": {
+        "$ref": "#/definitions/DefinitionInformation"
+      },
+      "type": "array"
+    },
+    "__listOfDevice": {
+      "items": {
+        "$ref": "#/definitions/Device"
+      },
+      "type": "array"
+    },
+    "__listOfFunction": {
+      "items": {
+        "$ref": "#/definitions/Function"
+      },
+      "type": "array"
+    },
+    "__listOfGroupCertificateAuthorityProperties": {
+      "items": {
+        "$ref": "#/definitions/GroupCertificateAuthorityProperties"
+      },
+      "type": "array"
+    },
+    "__listOfGroupInformation": {
+      "items": {
+        "$ref": "#/definitions/GroupInformation"
+      },
+      "type": "array"
+    },
+    "__listOfLogger": {
+      "items": {
+        "$ref": "#/definitions/Logger"
+      },
+      "type": "array"
+    },
+    "__listOfResource": {
+      "items": {
+        "$ref": "#/definitions/Resource"
+      },
+      "type": "array"
+    },
+    "__listOfResourceAccessPolicy": {
+      "items": {
+        "$ref": "#/definitions/ResourceAccessPolicy"
+      },
+      "type": "array"
+    },
+    "__listOfSubscription": {
+      "items": {
+        "$ref": "#/definitions/Subscription"
+      },
+      "type": "array"
+    },
+    "__listOfVersionInformation": {
+      "items": {
+        "$ref": "#/definitions/VersionInformation"
+      },
+      "type": "array"
+    },
+    "__long": {
+      "type": "integer"
+    },
+    "__mapOf__string": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/__string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "__string": {
       "type": "string"

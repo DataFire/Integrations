@@ -905,6 +905,7 @@ azure_web_appserviceplans.AppServicePlans_ListWebApps({
               * arguments `string`: Command-line arguments to be passed to the script processor.
               * extension `string`: Requests with this extension will be handled using the specified FastCGI application.
               * scriptProcessor `string`: The absolute path to the FastCGI application.
+          * http20Enabled `boolean`: Http20Enabled: configures a web site to allow clients to connect over http2.0
           * httpLoggingEnabled `boolean`: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
           * ipSecurityRestrictions `array`: IP security restrictions.
             * items `object`: IP security restriction on an app.
@@ -927,6 +928,7 @@ azure_web_appserviceplans.AppServicePlans_ListWebApps({
             * validation `string`: MachineKey validation.
             * validationKey `string`: Validation key.
           * managedPipelineMode `string` (values: Integrated, Classic): Managed pipeline mode.
+          * minTlsVersion `string` (values: 1.0, 1.1, 1.2): MinTlsVersion: configures the minimum version of TLS required for SSL requests
           * netFrameworkVersion `string`: .NET Framework version.
           * nodeVersion `string`: Version of Node.js.
           * numberOfWorkers `integer`: Number of workers.

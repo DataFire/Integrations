@@ -46,7 +46,7 @@ azure_automation_dscnode.AgentRegistrationInformation_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -76,10 +76,10 @@ azure_automation_dscnode.AgentRegistrationInformation_RegenerateKey({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * parameters **required** `object`: The parameters supplied to the regenerate keys operation.
-    * keyName **required** `string` (values: Primary, Secondary): Gets or sets the agent registration key name - Primary or Secondary.
+    * keyName **required** `string` (values: primary, secondary): Gets or sets the agent registration key name - primary or secondary.
     * location `string`: Gets or sets the location of the resource.
     * name `string`: Gets or sets the name of the resource.
     * tags `object`: Gets or sets the tags attached to the resource.
@@ -110,35 +110,14 @@ azure_automation_dscnode.DscNode_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: The response model for the list dsc nodes operation.
-  * nextLink `string`: Gets or sets the next link.
-  * value `array`: Gets or sets a list of dsc nodes.
-    * items `object`: Definition of the dsc node type.
-      * accountId `string`: Gets or sets the account id of the node.
-      * etag `string`: Gets or sets the etag of the resource.
-      * extensionHandler `array`: Gets or sets the list of extensionHandler properties for a Node.
-        * items `object`: The dsc extensionHandler property associated with the node
-          * name `string`: Gets or sets the name of the extension handler.
-          * version `string`: Gets or sets the version of the extension handler.
-      * ip `string`: Gets or sets the ip of the node.
-      * lastSeen `string`: Gets or sets the last seen time of the node.
-      * nodeConfiguration `object`: The dsc nodeconfiguration property associated with the entity.
-        * name `string`: Gets or sets the name of the dsc nodeconfiguration.
-      * nodeId `string`: Gets or sets the node id.
-      * registrationTime `string`: Gets or sets the registration time of the node.
-      * status `string`: Gets or sets the status of the node.
-      * id `string`: Resource Id
-      * location **required** `string`: Resource location
-      * name `string`: Resource name
-      * tags `object`: Resource tags
-      * type `string`: Resource type
+* output [DscNodeListResult](#dscnodelistresult)
 
 ### DscNode_Delete
 Delete the dsc node identified by node id.
@@ -156,32 +135,14 @@ azure_automation_dscnode.DscNode_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: Automation account name.
   * nodeId **required** `string`: The node id.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the dsc node type.
-  * accountId `string`: Gets or sets the account id of the node.
-  * etag `string`: Gets or sets the etag of the resource.
-  * extensionHandler `array`: Gets or sets the list of extensionHandler properties for a Node.
-    * items `object`: The dsc extensionHandler property associated with the node
-      * name `string`: Gets or sets the name of the extension handler.
-      * version `string`: Gets or sets the version of the extension handler.
-  * ip `string`: Gets or sets the ip of the node.
-  * lastSeen `string`: Gets or sets the last seen time of the node.
-  * nodeConfiguration `object`: The dsc nodeconfiguration property associated with the entity.
-    * name `string`: Gets or sets the name of the dsc nodeconfiguration.
-  * nodeId `string`: Gets or sets the node id.
-  * registrationTime `string`: Gets or sets the registration time of the node.
-  * status `string`: Gets or sets the status of the node.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+* output [DscNode](#dscnode)
 
 ### DscNode_Get
 Retrieve the dsc node identified by node id.
@@ -199,32 +160,14 @@ azure_automation_dscnode.DscNode_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * nodeId **required** `string`: The node id.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the dsc node type.
-  * accountId `string`: Gets or sets the account id of the node.
-  * etag `string`: Gets or sets the etag of the resource.
-  * extensionHandler `array`: Gets or sets the list of extensionHandler properties for a Node.
-    * items `object`: The dsc extensionHandler property associated with the node
-      * name `string`: Gets or sets the name of the extension handler.
-      * version `string`: Gets or sets the version of the extension handler.
-  * ip `string`: Gets or sets the ip of the node.
-  * lastSeen `string`: Gets or sets the last seen time of the node.
-  * nodeConfiguration `object`: The dsc nodeconfiguration property associated with the entity.
-    * name `string`: Gets or sets the name of the dsc nodeconfiguration.
-  * nodeId `string`: Gets or sets the node id.
-  * registrationTime `string`: Gets or sets the registration time of the node.
-  * status `string`: Gets or sets the status of the node.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+* output [DscNode](#dscnode)
 
 ### DscNode_Update
 Update the dsc node.
@@ -243,7 +186,7 @@ azure_automation_dscnode.DscNode_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * nodeId **required** `string`: Parameters supplied to the update dsc node.
   * parameters **required** `object`: The parameters supplied to the update dsc node operation.
@@ -254,25 +197,7 @@ azure_automation_dscnode.DscNode_Update({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the dsc node type.
-  * accountId `string`: Gets or sets the account id of the node.
-  * etag `string`: Gets or sets the etag of the resource.
-  * extensionHandler `array`: Gets or sets the list of extensionHandler properties for a Node.
-    * items `object`: The dsc extensionHandler property associated with the node
-      * name `string`: Gets or sets the name of the extension handler.
-      * version `string`: Gets or sets the version of the extension handler.
-  * ip `string`: Gets or sets the ip of the node.
-  * lastSeen `string`: Gets or sets the last seen time of the node.
-  * nodeConfiguration `object`: The dsc nodeconfiguration property associated with the entity.
-    * name `string`: Gets or sets the name of the dsc nodeconfiguration.
-  * nodeId `string`: Gets or sets the node id.
-  * registrationTime `string`: Gets or sets the registration time of the node.
-  * status `string`: Gets or sets the status of the node.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+* output [DscNode](#dscnode)
 
 ### NodeReports_ListByNode
 Retrieve the Dsc node report list by node id.
@@ -290,7 +215,7 @@ azure_automation_dscnode.NodeReports_ListByNode({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * nodeId **required** `string`: The parameters supplied to the list operation.
   * $filter `string`: The filter to apply on the operation.
@@ -368,7 +293,7 @@ azure_automation_dscnode.NodeReports_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * nodeId **required** `string`: The Dsc node id.
   * reportId **required** `string`: The report id.
@@ -443,7 +368,7 @@ azure_automation_dscnode.NodeReports_GetContent({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * nodeId **required** `string`: The Dsc node id.
   * reportId **required** `string`: The report id.
@@ -451,10 +376,35 @@ azure_automation_dscnode.NodeReports_GetContent({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `file`
+* output `object`
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### DscNode
+* DscNode `object`: Definition of the dsc node type.
+  * accountId `string`: Gets or sets the account id of the node.
+  * etag `string`: Gets or sets the etag of the resource.
+  * extensionHandler `array`: Gets or sets the list of extensionHandler properties for a Node.
+    * items `object`: The dsc extensionHandler property associated with the node
+      * name `string`: Gets or sets the name of the extension handler.
+      * version `string`: Gets or sets the version of the extension handler.
+  * ip `string`: Gets or sets the ip of the node.
+  * lastSeen `string`: Gets or sets the last seen time of the node.
+  * nodeConfiguration `object`: The dsc nodeconfiguration property associated with the entity.
+    * name `string`: Gets or sets the name of the dsc nodeconfiguration.
+  * nodeId `string`: Gets or sets the node id.
+  * registrationTime `string`: Gets or sets the registration time of the node.
+  * status `string`: Gets or sets the status of the node.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
+
+### DscNodeListResult
+* DscNodeListResult `object`: The response model for the list dsc nodes operation.
+  * nextLink `string`: Gets or sets the next link.
+  * value `array`: Gets or sets a list of dsc nodes.
+    * items [DscNode](#dscnode)
+
+

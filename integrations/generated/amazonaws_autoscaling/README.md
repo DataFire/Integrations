@@ -22,7 +22,7 @@ amazonaws_autoscaling.AttachInstances({
 
 ## Description
 
-<fullname>Auto Scaling</fullname> <p>Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the Amazon CloudWatch and Elastic Load Balancing services.</p>
+<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing services.</p>
 
 ## Actions
 
@@ -134,6 +134,7 @@ amazonaws_autoscaling.CreateAutoScalingGroup({
   * MinSize **required** [AutoScalingGroupMinSize](#autoscalinggroupminsize)
   * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
   * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * ServiceLinkedRoleARN [ResourceName](#resourcename)
   * Tags [Tags](#tags)
   * TargetGroupARNs [TargetGroupARNs](#targetgrouparns)
   * TerminationPolicies [TerminationPolicies](#terminationpolicies)
@@ -1049,6 +1050,7 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
   * MinSize [AutoScalingGroupMinSize](#autoscalinggroupminsize)
   * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
   * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * ServiceLinkedRoleARN [ResourceName](#resourcename)
   * TerminationPolicies [TerminationPolicies](#terminationpolicies)
   * VPCZoneIdentifier [XmlStringMaxLen2047](#xmlstringmaxlen2047)
 
@@ -1156,6 +1158,7 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
   * MinSize **required** [AutoScalingGroupMinSize](#autoscalinggroupminsize)
   * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
   * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * ServiceLinkedRoleARN [ResourceName](#resourcename)
   * Status [XmlStringMaxLen255](#xmlstringmaxlen255)
   * SuspendedProcesses [SuspendedProcesses](#suspendedprocesses)
   * Tags [TagDescriptionList](#tagdescriptionlist)
@@ -1280,6 +1283,7 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
   * MinSize **required** [AutoScalingGroupMinSize](#autoscalinggroupminsize)
   * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
   * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * ServiceLinkedRoleARN [ResourceName](#resourcename)
   * Tags [Tags](#tags)
   * TargetGroupARNs [TargetGroupARNs](#targetgrouparns)
   * TerminationPolicies [TerminationPolicies](#terminationpolicies)
@@ -2001,6 +2005,10 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 * SecurityGroups `array`
   * items [XmlString](#xmlstring)
 
+### ServiceLinkedRoleFailure
+* ServiceLinkedRoleFailure `object`: The service-linked role is not yet ready for use.
+  * message [XmlStringMaxLen255](#xmlstringmaxlen255)
+
 ### SetDesiredCapacityType
 * SetDesiredCapacityType `object`
   * AutoScalingGroupName **required** [ResourceName](#resourcename)
@@ -2122,6 +2130,7 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
   * MinSize [AutoScalingGroupMinSize](#autoscalinggroupminsize)
   * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
   * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * ServiceLinkedRoleARN [ResourceName](#resourcename)
   * TerminationPolicies [TerminationPolicies](#terminationpolicies)
   * VPCZoneIdentifier [XmlStringMaxLen2047](#xmlstringmaxlen2047)
 

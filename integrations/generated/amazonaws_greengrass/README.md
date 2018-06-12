@@ -136,7 +136,7 @@ amazonaws_greengrass.CreateCoreDefinitionVersion({
 #### Input
 * input `object`
   * CoreDefinitionId **required** `string`
-  * Cores [ListOfCore](#listofcore)
+  * Cores [__listOfCore](#__listofcore)
 
 #### Output
 * output [CreateCoreDefinitionVersionResponse](#createcoredefinitionversionresponse)
@@ -272,7 +272,7 @@ amazonaws_greengrass.CreateDeviceDefinitionVersion({
 #### Input
 * input `object`
   * DeviceDefinitionId **required** `string`
-  * Devices [ListOfDevice](#listofdevice)
+  * Devices [__listOfDevice](#__listofdevice)
 
 #### Output
 * output [CreateDeviceDefinitionVersionResponse](#createdevicedefinitionversionresponse)
@@ -408,7 +408,7 @@ amazonaws_greengrass.CreateFunctionDefinitionVersion({
 #### Input
 * input `object`
   * FunctionDefinitionId **required** `string`
-  * Functions [ListOfFunction](#listoffunction)
+  * Functions [__listOfFunction](#__listoffunction)
 
 #### Output
 * output [CreateFunctionDefinitionVersionResponse](#createfunctiondefinitionversionresponse)
@@ -544,7 +544,7 @@ amazonaws_greengrass.CreateLoggerDefinitionVersion({
 #### Input
 * input `object`
   * LoggerDefinitionId **required** `string`
-  * Loggers [ListOfLogger](#listoflogger)
+  * Loggers [__listOfLogger](#__listoflogger)
 
 #### Output
 * output [CreateLoggerDefinitionVersionResponse](#createloggerdefinitionversionresponse)
@@ -680,7 +680,7 @@ amazonaws_greengrass.CreateResourceDefinitionVersion({
 #### Input
 * input `object`
   * ResourceDefinitionId **required** `string`
-  * Resources [ListOfResource](#listofresource)
+  * Resources [__listOfResource](#__listofresource)
 
 #### Output
 * output [CreateResourceDefinitionVersionResponse](#createresourcedefinitionversionresponse)
@@ -816,7 +816,7 @@ amazonaws_greengrass.CreateSubscriptionDefinitionVersion({
 #### Input
 * input `object`
   * SubscriptionDefinitionId **required** `string`
-  * Subscriptions [ListOfSubscription](#listofsubscription)
+  * Subscriptions [__listOfSubscription](#__listofsubscription)
 
 #### Output
 * output [CreateSubscriptionDefinitionVersionResponse](#createsubscriptiondefinitionversionresponse)
@@ -1268,7 +1268,7 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 #### Input
 * input `object`
   * ThingName **required** `string`
-  * ConnectivityInfo [ListOfConnectivityInfo](#listofconnectivityinfo)
+  * ConnectivityInfo [__listOfConnectivityInfo](#__listofconnectivityinfo)
 
 #### Output
 * output [UpdateConnectivityInfoResponse](#updateconnectivityinforesponse)
@@ -1314,30 +1314,30 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * AssociatedAt [__string](#__string)
 
 ### BadRequestException
-* BadRequestException `object`: General Error
+* BadRequestException `object`: General error information.
   * ErrorDetails [ErrorDetails](#errordetails)
   * Message [__string](#__string)
 
 ### ConnectivityInfo
-* ConnectivityInfo `object`: Connectivity Info
+* ConnectivityInfo `object`: Information about a Greengrass core's connectivity.
   * HostAddress [__string](#__string)
   * Id [__string](#__string)
   * Metadata [__string](#__string)
   * PortNumber [__integer](#__integer)
 
 ### Core
-* Core `object`: Information on the core
+* Core `object`: Information about a core.
   * CertificateArn [__string](#__string)
   * Id [__string](#__string)
   * SyncShadow [__boolean](#__boolean)
   * ThingArn [__string](#__string)
 
 ### CoreDefinitionVersion
-* CoreDefinitionVersion `object`: Information on core definition version
-  * Cores [ListOfCore](#listofcore)
+* CoreDefinitionVersion `object`: Information about a core definition version.
+  * Cores [__listOfCore](#__listofcore)
 
 ### CreateCoreDefinitionRequest
-* CreateCoreDefinitionRequest `object`: Information on the core definition request
+* CreateCoreDefinitionRequest `object`: Information needed to create a core definition.
   * InitialVersion [CoreDefinitionVersion](#coredefinitionversion)
   * Name [__string](#__string)
 
@@ -1353,7 +1353,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### CreateCoreDefinitionVersionRequest
 * CreateCoreDefinitionVersionRequest `object`
-  * Cores [ListOfCore](#listofcore)
+  * Cores [__listOfCore](#__listofcore)
 
 ### CreateCoreDefinitionVersionResponse
 * CreateCoreDefinitionVersionResponse `object`
@@ -1390,7 +1390,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### CreateDeviceDefinitionVersionRequest
 * CreateDeviceDefinitionVersionRequest `object`
-  * Devices [ListOfDevice](#listofdevice)
+  * Devices [__listOfDevice](#__listofdevice)
 
 ### CreateDeviceDefinitionVersionResponse
 * CreateDeviceDefinitionVersionResponse `object`
@@ -1415,8 +1415,8 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * Name [__string](#__string)
 
 ### CreateFunctionDefinitionVersionRequest
-* CreateFunctionDefinitionVersionRequest `object`: Function definition version
-  * Functions [ListOfFunction](#listoffunction)
+* CreateFunctionDefinitionVersionRequest `object`: Information needed to create a function definition version.
+  * Functions [__listOfFunction](#__listoffunction)
 
 ### CreateFunctionDefinitionVersionResponse
 * CreateFunctionDefinitionVersionResponse `object`
@@ -1480,7 +1480,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### CreateLoggerDefinitionVersionRequest
 * CreateLoggerDefinitionVersionRequest `object`
-  * Loggers [ListOfLogger](#listoflogger)
+  * Loggers [__listOfLogger](#__listoflogger)
 
 ### CreateLoggerDefinitionVersionResponse
 * CreateLoggerDefinitionVersionResponse `object`
@@ -1506,7 +1506,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### CreateResourceDefinitionVersionRequest
 * CreateResourceDefinitionVersionRequest `object`
-  * Resources [ListOfResource](#listofresource)
+  * Resources [__listOfResource](#__listofresource)
 
 ### CreateResourceDefinitionVersionResponse
 * CreateResourceDefinitionVersionResponse `object`
@@ -1546,7 +1546,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### CreateSubscriptionDefinitionVersionRequest
 * CreateSubscriptionDefinitionVersionRequest `object`
-  * Subscriptions [ListOfSubscription](#listofsubscription)
+  * Subscriptions [__listOfSubscription](#__listofsubscription)
 
 ### CreateSubscriptionDefinitionVersionResponse
 * CreateSubscriptionDefinitionVersionResponse `object`
@@ -1556,7 +1556,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * Version [__string](#__string)
 
 ### DefinitionInformation
-* DefinitionInformation `object`: Information on the Definition
+* DefinitionInformation `object`: Information about a definition.
   * Arn [__string](#__string)
   * CreationTimestamp [__string](#__string)
   * Id [__string](#__string)
@@ -1608,7 +1608,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 * DeleteSubscriptionDefinitionResponse `object`
 
 ### Deployment
-* Deployment `object`: Information on the deployment
+* Deployment `object`: Information about a deployment.
   * CreatedAt [__string](#__string)
   * DeploymentArn [__string](#__string)
   * DeploymentId [__string](#__string)
@@ -1623,15 +1623,15 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * items [Deployment](#deployment)
 
 ### Device
-* Device `object`: Information on a Device
+* Device `object`: Information about a device.
   * CertificateArn [__string](#__string)
   * Id [__string](#__string)
   * SyncShadow [__boolean](#__boolean)
   * ThingArn [__string](#__string)
 
 ### DeviceDefinitionVersion
-* DeviceDefinitionVersion `object`: Information on device definition version
-  * Devices [ListOfDevice](#listofdevice)
+* DeviceDefinitionVersion `object`: Information about a device definition version.
+  * Devices [__listOfDevice](#__listofdevice)
 
 ### DisassociateRoleFromGroupRequest
 * DisassociateRoleFromGroupRequest `object`
@@ -1650,23 +1650,27 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### Empty
 * Empty `object`: Empty
 
+### EncodingType
+* EncodingType `string` (values: binary, json)
+
 ### ErrorDetail
-* ErrorDetail `object`: ErrorDetail
+* ErrorDetail `object`: Details about the error.
   * DetailedErrorCode [__string](#__string)
   * DetailedErrorMessage [__string](#__string)
 
 ### ErrorDetails
-* ErrorDetails `array`: Error Details
+* ErrorDetails `array`: A list of error details.
   * items [ErrorDetail](#errordetail)
 
 ### Function
-* Function `object`: Information on function
+* Function `object`: Information about a Lambda function.
   * FunctionArn [__string](#__string)
   * FunctionConfiguration [FunctionConfiguration](#functionconfiguration)
   * Id [__string](#__string)
 
 ### FunctionConfiguration
-* FunctionConfiguration `object`: Configuration of the function
+* FunctionConfiguration `object`: The configuration of the Lambda function.
+  * EncodingType [EncodingType](#encodingtype)
   * Environment [FunctionConfigurationEnvironment](#functionconfigurationenvironment)
   * ExecArgs [__string](#__string)
   * Executable [__string](#__string)
@@ -1675,17 +1679,17 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * Timeout [__integer](#__integer)
 
 ### FunctionConfigurationEnvironment
-* FunctionConfigurationEnvironment `object`: Environment of the function configuration
+* FunctionConfigurationEnvironment `object`: The environment configuration of the function.
   * AccessSysfs [__boolean](#__boolean)
-  * ResourceAccessPolicies [ListOfResourceAccessPolicy](#listofresourceaccesspolicy)
-  * Variables [MapOf__string](#mapof__string)
+  * ResourceAccessPolicies [__listOfResourceAccessPolicy](#__listofresourceaccesspolicy)
+  * Variables [__mapOf__string](#__mapof__string)
 
 ### FunctionDefinitionVersion
-* FunctionDefinitionVersion `object`: Information on the function definition version
-  * Functions [ListOfFunction](#listoffunction)
+* FunctionDefinitionVersion `object`: Information about a function definition version.
+  * Functions [__listOfFunction](#__listoffunction)
 
 ### GeneralError
-* GeneralError `object`: General Error
+* GeneralError `object`: General error information.
   * ErrorDetails [ErrorDetails](#errordetails)
   * Message [__string](#__string)
 
@@ -1702,7 +1706,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### GetConnectivityInfoResponse
 * GetConnectivityInfoResponse `object`
-  * ConnectivityInfo [ListOfConnectivityInfo](#listofconnectivityinfo)
+  * ConnectivityInfo [__listOfConnectivityInfo](#__listofconnectivityinfo)
   * Message [__string](#__string)
 
 ### GetCoreDefinitionRequest
@@ -1911,18 +1915,18 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * Version [__string](#__string)
 
 ### GroupCertificateAuthorityProperties
-* GroupCertificateAuthorityProperties `object`: Information on group certificate authority properties
+* GroupCertificateAuthorityProperties `object`: Information about a certificate authority for a group.
   * GroupCertificateAuthorityArn [__string](#__string)
   * GroupCertificateAuthorityId [__string](#__string)
 
 ### GroupCertificateConfiguration
-* GroupCertificateConfiguration `object`: Information on the group certificate configuration
+* GroupCertificateConfiguration `object`: Information about a group certificate configuration.
   * CertificateAuthorityExpiryInMilliseconds [__string](#__string)
   * CertificateExpiryInMilliseconds [__string](#__string)
   * GroupId [__string](#__string)
 
 ### GroupInformation
-* GroupInformation `object`: Information on the group
+* GroupInformation `object`: Information about a group.
   * Arn [__string](#__string)
   * CreationTimestamp [__string](#__string)
   * Id [__string](#__string)
@@ -1937,7 +1941,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * GroupOwner [__string](#__string)
 
 ### GroupVersion
-* GroupVersion `object`: Information on group version
+* GroupVersion `object`: Information about a group version.
   * CoreDefinitionVersionArn [__string](#__string)
   * DeviceDefinitionVersionArn [__string](#__string)
   * FunctionDefinitionVersionArn [__string](#__string)
@@ -1946,7 +1950,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * SubscriptionDefinitionVersionArn [__string](#__string)
 
 ### InternalServerErrorException
-* InternalServerErrorException `object`: General Error
+* InternalServerErrorException `object`: General error information.
   * ErrorDetails [ErrorDetails](#errordetails)
   * Message [__string](#__string)
 
@@ -1956,19 +1960,19 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### ListCoreDefinitionVersionsResponse
 * ListCoreDefinitionVersionsResponse `object`
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionInformation](#listofversioninformation)
+  * Versions [__listOfVersionInformation](#__listofversioninformation)
 
 ### ListCoreDefinitionsRequest
 * ListCoreDefinitionsRequest `object`
 
 ### ListCoreDefinitionsResponse
 * ListCoreDefinitionsResponse `object`
-  * Definitions [ListOfDefinitionInformation](#listofdefinitioninformation)
+  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
   * NextToken [__string](#__string)
 
 ### ListDefinitionsResponse
-* ListDefinitionsResponse `object`: List of definition responses
-  * Definitions [ListOfDefinitionInformation](#listofdefinitioninformation)
+* ListDefinitionsResponse `object`: A list of definitions.
+  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
   * NextToken [__string](#__string)
 
 ### ListDeploymentsRequest
@@ -1985,14 +1989,14 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### ListDeviceDefinitionVersionsResponse
 * ListDeviceDefinitionVersionsResponse `object`
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionInformation](#listofversioninformation)
+  * Versions [__listOfVersionInformation](#__listofversioninformation)
 
 ### ListDeviceDefinitionsRequest
 * ListDeviceDefinitionsRequest `object`
 
 ### ListDeviceDefinitionsResponse
 * ListDeviceDefinitionsResponse `object`
-  * Definitions [ListOfDefinitionInformation](#listofdefinitioninformation)
+  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
   * NextToken [__string](#__string)
 
 ### ListFunctionDefinitionVersionsRequest
@@ -2001,14 +2005,14 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### ListFunctionDefinitionVersionsResponse
 * ListFunctionDefinitionVersionsResponse `object`
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionInformation](#listofversioninformation)
+  * Versions [__listOfVersionInformation](#__listofversioninformation)
 
 ### ListFunctionDefinitionsRequest
 * ListFunctionDefinitionsRequest `object`
 
 ### ListFunctionDefinitionsResponse
 * ListFunctionDefinitionsResponse `object`
-  * Definitions [ListOfDefinitionInformation](#listofdefinitioninformation)
+  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
   * NextToken [__string](#__string)
 
 ### ListGroupCertificateAuthoritiesRequest
@@ -2016,7 +2020,7 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### ListGroupCertificateAuthoritiesResponse
 * ListGroupCertificateAuthoritiesResponse `object`
-  * GroupCertificateAuthorities [ListOfGroupCertificateAuthorityProperties](#listofgroupcertificateauthorityproperties)
+  * GroupCertificateAuthorities [__listOfGroupCertificateAuthorityProperties](#__listofgroupcertificateauthorityproperties)
 
 ### ListGroupVersionsRequest
 * ListGroupVersionsRequest `object`
@@ -2024,14 +2028,14 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### ListGroupVersionsResponse
 * ListGroupVersionsResponse `object`
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionInformation](#listofversioninformation)
+  * Versions [__listOfVersionInformation](#__listofversioninformation)
 
 ### ListGroupsRequest
 * ListGroupsRequest `object`
 
 ### ListGroupsResponse
 * ListGroupsResponse `object`
-  * Groups [ListOfGroupInformation](#listofgroupinformation)
+  * Groups [__listOfGroupInformation](#__listofgroupinformation)
   * NextToken [__string](#__string)
 
 ### ListLoggerDefinitionVersionsRequest
@@ -2040,63 +2044,15 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### ListLoggerDefinitionVersionsResponse
 * ListLoggerDefinitionVersionsResponse `object`
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionInformation](#listofversioninformation)
+  * Versions [__listOfVersionInformation](#__listofversioninformation)
 
 ### ListLoggerDefinitionsRequest
 * ListLoggerDefinitionsRequest `object`
 
 ### ListLoggerDefinitionsResponse
 * ListLoggerDefinitionsResponse `object`
-  * Definitions [ListOfDefinitionInformation](#listofdefinitioninformation)
+  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
   * NextToken [__string](#__string)
-
-### ListOfConnectivityInfo
-* ListOfConnectivityInfo `array`
-  * items [ConnectivityInfo](#connectivityinfo)
-
-### ListOfCore
-* ListOfCore `array`
-  * items [Core](#core)
-
-### ListOfDefinitionInformation
-* ListOfDefinitionInformation `array`
-  * items [DefinitionInformation](#definitioninformation)
-
-### ListOfDevice
-* ListOfDevice `array`
-  * items [Device](#device)
-
-### ListOfFunction
-* ListOfFunction `array`
-  * items [Function](#function)
-
-### ListOfGroupCertificateAuthorityProperties
-* ListOfGroupCertificateAuthorityProperties `array`
-  * items [GroupCertificateAuthorityProperties](#groupcertificateauthorityproperties)
-
-### ListOfGroupInformation
-* ListOfGroupInformation `array`
-  * items [GroupInformation](#groupinformation)
-
-### ListOfLogger
-* ListOfLogger `array`
-  * items [Logger](#logger)
-
-### ListOfResource
-* ListOfResource `array`
-  * items [Resource](#resource)
-
-### ListOfResourceAccessPolicy
-* ListOfResourceAccessPolicy `array`
-  * items [ResourceAccessPolicy](#resourceaccesspolicy)
-
-### ListOfSubscription
-* ListOfSubscription `array`
-  * items [Subscription](#subscription)
-
-### ListOfVersionInformation
-* ListOfVersionInformation `array`
-  * items [VersionInformation](#versioninformation)
 
 ### ListResourceDefinitionVersionsRequest
 * ListResourceDefinitionVersionsRequest `object`
@@ -2104,14 +2060,14 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### ListResourceDefinitionVersionsResponse
 * ListResourceDefinitionVersionsResponse `object`
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionInformation](#listofversioninformation)
+  * Versions [__listOfVersionInformation](#__listofversioninformation)
 
 ### ListResourceDefinitionsRequest
 * ListResourceDefinitionsRequest `object`
 
 ### ListResourceDefinitionsResponse
 * ListResourceDefinitionsResponse `object`
-  * Definitions [ListOfDefinitionInformation](#listofdefinitioninformation)
+  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
   * NextToken [__string](#__string)
 
 ### ListSubscriptionDefinitionVersionsRequest
@@ -2120,34 +2076,34 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### ListSubscriptionDefinitionVersionsResponse
 * ListSubscriptionDefinitionVersionsResponse `object`
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionInformation](#listofversioninformation)
+  * Versions [__listOfVersionInformation](#__listofversioninformation)
 
 ### ListSubscriptionDefinitionsRequest
 * ListSubscriptionDefinitionsRequest `object`
 
 ### ListSubscriptionDefinitionsResponse
 * ListSubscriptionDefinitionsResponse `object`
-  * Definitions [ListOfDefinitionInformation](#listofdefinitioninformation)
+  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
   * NextToken [__string](#__string)
 
 ### ListVersionsResponse
-* ListVersionsResponse `object`: List of versions response
+* ListVersionsResponse `object`: A list of versions.
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionInformation](#listofversioninformation)
+  * Versions [__listOfVersionInformation](#__listofversioninformation)
 
 ### LocalDeviceResourceData
-* LocalDeviceResourceData `object`: Attributes that define the Local Device Resource.
+* LocalDeviceResourceData `object`: Attributes that define a local device resource.
   * GroupOwnerSetting [GroupOwnerSetting](#groupownersetting)
   * SourcePath [__string](#__string)
 
 ### LocalVolumeResourceData
-* LocalVolumeResourceData `object`: Attributes that define the Local Volume Resource.
+* LocalVolumeResourceData `object`: Attributes that define a local volume resource.
   * DestinationPath [__string](#__string)
   * GroupOwnerSetting [GroupOwnerSetting](#groupownersetting)
   * SourcePath [__string](#__string)
 
 ### Logger
-* Logger `object`: Information on the Logger
+* Logger `object`: Information about a logger
   * Component [LoggerComponent](#loggercomponent)
   * Id [__string](#__string)
   * Level [LoggerLevel](#loggerlevel)
@@ -2158,8 +2114,8 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 * LoggerComponent `string` (values: GreengrassSystem, Lambda)
 
 ### LoggerDefinitionVersion
-* LoggerDefinitionVersion `object`: Information on logger definition version
-  * Loggers [ListOfLogger](#listoflogger)
+* LoggerDefinitionVersion `object`: Information about a logger definition version.
+  * Loggers [__listOfLogger](#__listoflogger)
 
 ### LoggerLevel
 * LoggerLevel `string` (values: DEBUG, INFO, WARN, ERROR, FATAL)
@@ -2167,17 +2123,11 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### LoggerType
 * LoggerType `string` (values: FileSystem, AWSCloudWatch)
 
-### MapOf__string
-* MapOf__string `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [__string](#__string)
-
 ### Permission
-* Permission `string` (values: ro, rw): Type of permissions a function could have to access a resource.
+* Permission `string` (values: ro, rw): The type of permission a function has to access a resource.
 
 ### ResetDeploymentsRequest
-* ResetDeploymentsRequest `object`: Information needed to perform a reset of a group's deployments.
+* ResetDeploymentsRequest `object`: Information needed to reset deployments.
   * Force [__boolean](#__boolean)
 
 ### ResetDeploymentsResponse
@@ -2186,48 +2136,60 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * DeploymentId [__string](#__string)
 
 ### Resource
-* Resource `object`: Information on the resource.
+* Resource `object`: Information about a resource.
   * Id [__string](#__string)
   * Name [__string](#__string)
   * ResourceDataContainer [ResourceDataContainer](#resourcedatacontainer)
 
 ### ResourceAccessPolicy
-* ResourceAccessPolicy `object`: Policy for the function to access a resource.
+* ResourceAccessPolicy `object`: A policy used by the function to access a resource.
   * Permission [Permission](#permission)
   * ResourceId [__string](#__string)
 
 ### ResourceDataContainer
-* ResourceDataContainer `object`: A container of data for all resource types.
+* ResourceDataContainer `object`: A container for resource data. The container takes only one of the following supported resource data types: ''LocalDeviceResourceData'', ''LocalVolumeResourceData'', ''SageMakerMachineLearningModelResourceData'', ''S3MachineLearningModelResourceData''.
   * LocalDeviceResourceData [LocalDeviceResourceData](#localdeviceresourcedata)
   * LocalVolumeResourceData [LocalVolumeResourceData](#localvolumeresourcedata)
+  * S3MachineLearningModelResourceData [S3MachineLearningModelResourceData](#s3machinelearningmodelresourcedata)
+  * SageMakerMachineLearningModelResourceData [SageMakerMachineLearningModelResourceData](#sagemakermachinelearningmodelresourcedata)
 
 ### ResourceDefinitionVersion
-* ResourceDefinitionVersion `object`: Information on resource definition version
-  * Resources [ListOfResource](#listofresource)
+* ResourceDefinitionVersion `object`: Information about a resource definition version.
+  * Resources [__listOfResource](#__listofresource)
+
+### S3MachineLearningModelResourceData
+* S3MachineLearningModelResourceData `object`: Attributes that define an S3 machine learning resource.
+  * DestinationPath [__string](#__string)
+  * S3Uri [__string](#__string)
 
 ### S3UrlSignerRole
 * S3UrlSignerRole `string`: The IAM Role that Greengrass will use to create pre-signed URLs pointing towards the update artifact.
 
+### SageMakerMachineLearningModelResourceData
+* SageMakerMachineLearningModelResourceData `object`: Attributes that define an SageMaker machine learning resource.
+  * DestinationPath [__string](#__string)
+  * SageMakerJobArn [__string](#__string)
+
 ### SoftwareToUpdate
-* SoftwareToUpdate `string` (values: core, ota_agent): The piece of software on the Greengrass Core that will be updated.
+* SoftwareToUpdate `string` (values: core, ota_agent): The piece of software on the Greengrass core that will be updated.
 
 ### Subscription
-* Subscription `object`: Information on subscription
+* Subscription `object`: Information about a subscription.
   * Id [__string](#__string)
   * Source [__string](#__string)
   * Subject [__string](#__string)
   * Target [__string](#__string)
 
 ### SubscriptionDefinitionVersion
-* SubscriptionDefinitionVersion `object`: Information on subscription definition version
-  * Subscriptions [ListOfSubscription](#listofsubscription)
+* SubscriptionDefinitionVersion `object`: Information about a subscription definition version.
+  * Subscriptions [__listOfSubscription](#__listofsubscription)
 
 ### UpdateAgentLogLevel
 * UpdateAgentLogLevel `string` (values: NONE, TRACE, DEBUG, VERBOSE, INFO, WARN, ERROR, FATAL): The minimum level of log statements that should be logged by the OTA Agent during an update.
 
 ### UpdateConnectivityInfoRequest
-* UpdateConnectivityInfoRequest `object`: connectivity info request
-  * ConnectivityInfo [ListOfConnectivityInfo](#listofconnectivityinfo)
+* UpdateConnectivityInfoRequest `object`: Connectivity information.
+  * ConnectivityInfo [__listOfConnectivityInfo](#__listofconnectivityinfo)
 
 ### UpdateConnectivityInfoResponse
 * UpdateConnectivityInfoResponse `object`
@@ -2294,17 +2256,17 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 * UpdateSubscriptionDefinitionResponse `object`
 
 ### UpdateTargets
-* UpdateTargets `array`: The target arns that this update will be applied to.
+* UpdateTargets `array`: The ARNs of the targets (IoT things or IoT thing groups) that this update will be applied to.
   * items [__string](#__string)
 
 ### UpdateTargetsArchitecture
-* UpdateTargetsArchitecture `string` (values: armv7l, x86_64, aarch64): The architecture of the Cores in the targets of an update
+* UpdateTargetsArchitecture `string` (values: armv7l, x86_64, aarch64): The architecture of the cores which are the targets of an update.
 
 ### UpdateTargetsOperatingSystem
-* UpdateTargetsOperatingSystem `string` (values: ubuntu, raspbian, amazon_linux): The operating system of the Cores in the targets of an update
+* UpdateTargetsOperatingSystem `string` (values: ubuntu, raspbian, amazon_linux): The operating system of the cores which are the targets of an update.
 
 ### VersionInformation
-* VersionInformation `object`: Information on the version
+* VersionInformation `object`: Information about a version.
   * Arn [__string](#__string)
   * CreationTimestamp [__string](#__string)
   * Id [__string](#__string)
@@ -2318,6 +2280,63 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### __integer
 * __integer `integer`
+
+### __listOfConnectivityInfo
+* __listOfConnectivityInfo `array`
+  * items [ConnectivityInfo](#connectivityinfo)
+
+### __listOfCore
+* __listOfCore `array`
+  * items [Core](#core)
+
+### __listOfDefinitionInformation
+* __listOfDefinitionInformation `array`
+  * items [DefinitionInformation](#definitioninformation)
+
+### __listOfDevice
+* __listOfDevice `array`
+  * items [Device](#device)
+
+### __listOfFunction
+* __listOfFunction `array`
+  * items [Function](#function)
+
+### __listOfGroupCertificateAuthorityProperties
+* __listOfGroupCertificateAuthorityProperties `array`
+  * items [GroupCertificateAuthorityProperties](#groupcertificateauthorityproperties)
+
+### __listOfGroupInformation
+* __listOfGroupInformation `array`
+  * items [GroupInformation](#groupinformation)
+
+### __listOfLogger
+* __listOfLogger `array`
+  * items [Logger](#logger)
+
+### __listOfResource
+* __listOfResource `array`
+  * items [Resource](#resource)
+
+### __listOfResourceAccessPolicy
+* __listOfResourceAccessPolicy `array`
+  * items [ResourceAccessPolicy](#resourceaccesspolicy)
+
+### __listOfSubscription
+* __listOfSubscription `array`
+  * items [Subscription](#subscription)
+
+### __listOfVersionInformation
+* __listOfVersionInformation `array`
+  * items [VersionInformation](#versioninformation)
+
+### __long
+* __long `integer`
+
+### __mapOf__string
+* __mapOf__string `array`
+  * items `object`
+    * key [__string](#__string)
+    * value [__string](#__string)
 
 ### __string
 * __string `string`

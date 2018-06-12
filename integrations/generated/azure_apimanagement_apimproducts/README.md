@@ -78,8 +78,8 @@ azure_apimanagement_apimproducts.Product_Delete({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * productId **required** `string`: Product identifier. Must be unique in the current API Management service instance.
-  * deleteSubscriptions `boolean`: Delete existing subscriptions to the product or not.
-  * If-Match **required** `string`: ETag of the Product Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+  * deleteSubscriptions `boolean`: Delete existing subscriptions associated with the product or not.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -158,7 +158,7 @@ azure_apimanagement_apimproducts.Product_Update({
   * serviceName **required** `string`: The name of the API Management service.
   * productId **required** `string`: Product identifier. Must be unique in the current API Management service instance.
   * parameters **required** [ProductUpdateParameters](#productupdateparameters)
-  * If-Match **required** `string`: ETag of the Product Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -186,6 +186,7 @@ azure_apimanagement_apimproducts.Product_CreateOrUpdate({
   * serviceName **required** `string`: The name of the API Management service.
   * productId **required** `string`: Product identifier. Must be unique in the current API Management service instance.
   * parameters **required** [ProductContract](#productcontract)
+  * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -258,6 +259,33 @@ Deletes the specified API from the specified product.
 
 ```js
 azure_apimanagement_apimproducts.ProductApi_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "apiId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * serviceName **required** `string`: The name of the API Management service.
+  * productId **required** `string`: Product identifier. Must be unique in the current API Management service instance.
+  * apiId **required** `string`: API identifier. Must be unique in the current API Management service instance.
+  * api-version **required** `string`: Version of the API to be used with the client request.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
+### ProductApi_CheckEntityExists
+Checks that API entity specified by identifier is associated with the Product entity.
+
+
+```js
+azure_apimanagement_apimproducts.ProductApi_CheckEntityExists({
   "resourceGroupName": "",
   "serviceName": "",
   "productId": "",
@@ -365,7 +393,7 @@ azure_apimanagement_apimproducts.ProductGroup_ListByProduct({
   * nextLink `string`: Next page link if any.
   * value `array`: Page values.
     * items `object`: Contract details.
-      * properties `object`: Developer group.
+      * properties `object`: Group contract Properties.
         * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
         * description `string`: Group description. Can contain HTML formatting tags.
         * displayName **required** `string`: Group name.
@@ -381,6 +409,33 @@ Deletes the association between the specified group and product.
 
 ```js
 azure_apimanagement_apimproducts.ProductGroup_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "groupId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * serviceName **required** `string`: The name of the API Management service.
+  * productId **required** `string`: Product identifier. Must be unique in the current API Management service instance.
+  * groupId **required** `string`: Group identifier. Must be unique in the current API Management service instance.
+  * api-version **required** `string`: Version of the API to be used with the client request.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
+### ProductGroup_CheckEntityExists
+Checks that Group entity specified by identifier is associated with the Product entity.
+
+
+```js
+azure_apimanagement_apimproducts.ProductGroup_CheckEntityExists({
   "resourceGroupName": "",
   "serviceName": "",
   "productId": "",
@@ -428,7 +483,7 @@ azure_apimanagement_apimproducts.ProductGroup_CreateOrUpdate({
 
 #### Output
 * output `object`: Contract details.
-  * properties `object`: Developer group.
+  * properties `object`: Group contract Properties.
     * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
     * description `string`: Group description. Can contain HTML formatting tags.
     * displayName **required** `string`: Group name.
@@ -466,6 +521,7 @@ azure_apimanagement_apimproducts.ProductPolicy_ListByProduct({
   * value `array`: Policy Contract value.
     * items `object`: Policy Contract details.
       * properties `object`: Policy contract Properties.
+        * contentFormat `string` (values: xml, xml-link, rawxml, rawxml-link): Format of the policyContent.
         * policyContent **required** `string`: Json escaped Xml Encoded contents of the Policy.
       * id `string`: Resource ID.
       * name `string`: Resource name.
@@ -493,7 +549,7 @@ azure_apimanagement_apimproducts.ProductPolicy_Delete({
   * serviceName **required** `string`: The name of the API Management service.
   * productId **required** `string`: Product identifier. Must be unique in the current API Management service instance.
   * policyId **required** `string` (values: policy): The identifier of the Policy.
-  * If-Match **required** `string`: The entity state (Etag) version of the product policy to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+  * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -527,10 +583,38 @@ azure_apimanagement_apimproducts.ProductPolicy_Get({
 #### Output
 * output `object`: Policy Contract details.
   * properties `object`: Policy contract Properties.
+    * contentFormat `string` (values: xml, xml-link, rawxml, rawxml-link): Format of the policyContent.
     * policyContent **required** `string`: Json escaped Xml Encoded contents of the Policy.
   * id `string`: Resource ID.
   * name `string`: Resource name.
   * type `string`: Resource type for API Management resource.
+
+### ProductPolicy_GetEntityTag
+Get the ETag of the policy configuration at the Product level.
+
+
+```js
+azure_apimanagement_apimproducts.ProductPolicy_GetEntityTag({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "productId": "",
+  "policyId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * serviceName **required** `string`: The name of the API Management service.
+  * api-version **required** `string`: Version of the API to be used with the client request.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * productId **required** `string`: Product identifier. Must be unique in the current API Management service instance.
+  * policyId **required** `string` (values: policy): The identifier of the Policy.
+
+#### Output
+*Output schema unknown*
 
 ### ProductPolicy_CreateOrUpdate
 Creates or updates policy configuration for the Product.
@@ -554,8 +638,10 @@ azure_apimanagement_apimproducts.ProductPolicy_CreateOrUpdate({
   * serviceName **required** `string`: The name of the API Management service.
   * productId **required** `string`: Product identifier. Must be unique in the current API Management service instance.
   * policyId **required** `string` (values: policy): The identifier of the Policy.
+  * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * parameters **required** `object`: Policy Contract details.
     * properties `object`: Policy contract Properties.
+      * contentFormat `string` (values: xml, xml-link, rawxml, rawxml-link): Format of the policyContent.
       * policyContent **required** `string`: Json escaped Xml Encoded contents of the Policy.
     * id `string`: Resource ID.
     * name `string`: Resource name.
@@ -566,6 +652,7 @@ azure_apimanagement_apimproducts.ProductPolicy_CreateOrUpdate({
 #### Output
 * output `object`: Policy Contract details.
   * properties `object`: Policy contract Properties.
+    * contentFormat `string` (values: xml, xml-link, rawxml, rawxml-link): Format of the policyContent.
     * policyContent **required** `string`: Json escaped Xml Encoded contents of the Policy.
   * id `string`: Resource ID.
   * name `string`: Resource name.

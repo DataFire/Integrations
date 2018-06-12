@@ -739,6 +739,25 @@ amazonaws_pinpoint.UpdateEndpointsBatch({
 #### Output
 *Output schema unknown*
 
+### DeleteEndpoint
+
+
+
+```js
+amazonaws_pinpoint.DeleteEndpoint({
+  "application-id": "",
+  "endpoint-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * endpoint-id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetEndpoint
 
 
@@ -831,6 +850,61 @@ amazonaws_pinpoint.PutEventStream({
 
 #### Output
 * output [PutEventStreamResponse](#puteventstreamresponse)
+
+### GetExportJobs
+
+
+
+```js
+amazonaws_pinpoint.GetExportJobs({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetExportJobsResponse](#getexportjobsresponse)
+
+### CreateExportJob
+
+
+
+```js
+amazonaws_pinpoint.CreateExportJob({
+  "application-id": "",
+  "ExportJobRequest": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * ExportJobRequest **required** [ExportJobRequest](#exportjobrequest)
+
+#### Output
+*Output schema unknown*
+
+### GetExportJob
+
+
+
+```js
+amazonaws_pinpoint.GetExportJob({
+  "application-id": "",
+  "job-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * job-id **required** `string`
+
+#### Output
+* output [GetExportJobResponse](#getexportjobresponse)
 
 ### GetImportJobs
 
@@ -1000,6 +1074,25 @@ amazonaws_pinpoint.UpdateSegment({
 
 #### Output
 * output [UpdateSegmentResponse](#updatesegmentresponse)
+
+### GetSegmentExportJobs
+
+
+
+```js
+amazonaws_pinpoint.GetSegmentExportJobs({
+  "application-id": "",
+  "segment-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * segment-id **required** `string`
+
+#### Output
+* output [GetSegmentExportJobsResponse](#getsegmentexportjobsresponse)
 
 ### GetSegmentImportJobs
 
@@ -1321,6 +1414,7 @@ amazonaws_pinpoint.SendUsersMessages({
 ### ApplicationSettingsResource
 * ApplicationSettingsResource `object`: Application settings.
   * ApplicationId [__string](#__string)
+  * CampaignHook [CampaignHook](#campaignhook)
   * LastModifiedDate [__string](#__string)
   * Limits [CampaignLimits](#campaignlimits)
   * QuietTime [QuietTime](#quiettime)
@@ -1386,6 +1480,12 @@ amazonaws_pinpoint.SendUsersMessages({
   * HtmlBody [__string](#__string)
   * Title [__string](#__string)
 
+### CampaignHook
+* CampaignHook `object`
+  * LambdaFunctionName [__string](#__string)
+  * Mode [Mode](#mode)
+  * WebUrl [__string](#__string)
+
 ### CampaignLimits
 * CampaignLimits `object`: Campaign Limits are used to limit the number of messages that can be sent to a user.
   * Daily [__integer](#__integer)
@@ -1401,6 +1501,7 @@ amazonaws_pinpoint.SendUsersMessages({
   * DefaultState [CampaignState](#campaignstate)
   * Description [__string](#__string)
   * HoldoutPercent [__integer](#__integer)
+  * Hook [CampaignHook](#campaignhook)
   * Id [__string](#__string)
   * IsPaused [__boolean](#__boolean)
   * LastModifiedDate [__string](#__string)
@@ -1434,7 +1535,7 @@ amazonaws_pinpoint.SendUsersMessages({
   * NextToken [__string](#__string)
 
 ### ChannelType
-* ChannelType `string` (values: GCM, APNS, APNS_SANDBOX, APNS_VOIP, APNS_VOIP_SANDBOX, ADM, SMS, EMAIL, BAIDU)
+* ChannelType `string` (values: GCM, APNS, APNS_SANDBOX, APNS_VOIP, APNS_VOIP_SANDBOX, ADM, SMS, EMAIL, BAIDU, CUSTOM)
 
 ### CreateAppRequest
 * CreateAppRequest `object`
@@ -1455,6 +1556,14 @@ amazonaws_pinpoint.SendUsersMessages({
 ### CreateCampaignResponse
 * CreateCampaignResponse `object`
   * CampaignResponse **required** [CampaignResponse](#campaignresponse)
+
+### CreateExportJobRequest
+* CreateExportJobRequest `object`
+  * ExportJobRequest **required** [ExportJobRequest](#exportjobrequest)
+
+### CreateExportJobResponse
+* CreateExportJobResponse `object`
+  * ExportJobResponse **required** [ExportJobResponse](#exportjobresponse)
 
 ### CreateImportJobRequest
 * CreateImportJobRequest `object`
@@ -1549,6 +1658,13 @@ amazonaws_pinpoint.SendUsersMessages({
 ### DeleteEmailChannelResponse
 * DeleteEmailChannelResponse `object`
   * EmailChannelResponse **required** [EmailChannelResponse](#emailchannelresponse)
+
+### DeleteEndpointRequest
+* DeleteEndpointRequest `object`
+
+### DeleteEndpointResponse
+* DeleteEndpointResponse `object`
+  * EndpointResponse **required** [EndpointResponse](#endpointresponse)
 
 ### DeleteEventStreamRequest
 * DeleteEventStreamRequest `object`: DeleteEventStream Request
@@ -1721,6 +1837,39 @@ amazonaws_pinpoint.SendUsersMessages({
   * LastUpdatedBy [__string](#__string)
   * RoleArn [__string](#__string)
 
+### ExportJobRequest
+* ExportJobRequest `object`
+  * RoleArn [__string](#__string)
+  * S3UrlPrefix [__string](#__string)
+  * SegmentId [__string](#__string)
+
+### ExportJobResource
+* ExportJobResource `object`
+  * RoleArn [__string](#__string)
+  * S3UrlPrefix [__string](#__string)
+  * SegmentId [__string](#__string)
+
+### ExportJobResponse
+* ExportJobResponse `object`
+  * ApplicationId [__string](#__string)
+  * CompletedPieces [__integer](#__integer)
+  * CompletionDate [__string](#__string)
+  * CreationDate [__string](#__string)
+  * Definition [ExportJobResource](#exportjobresource)
+  * FailedPieces [__integer](#__integer)
+  * Failures [ListOf__string](#listof__string)
+  * Id [__string](#__string)
+  * JobStatus [JobStatus](#jobstatus)
+  * TotalFailures [__integer](#__integer)
+  * TotalPieces [__integer](#__integer)
+  * TotalProcessed [__integer](#__integer)
+  * Type [__string](#__string)
+
+### ExportJobsResponse
+* ExportJobsResponse `object`: Export job list.
+  * Item [ListOfExportJobResponse](#listofexportjobresponse)
+  * NextToken [__string](#__string)
+
 ### ForbiddenException
 * ForbiddenException `object`: Simple message object.
   * Message [__string](#__string)
@@ -1890,6 +2039,20 @@ amazonaws_pinpoint.SendUsersMessages({
 * GetEventStreamResponse `object`
   * EventStream **required** [EventStream](#eventstream)
 
+### GetExportJobRequest
+* GetExportJobRequest `object`
+
+### GetExportJobResponse
+* GetExportJobResponse `object`
+  * ExportJobResponse **required** [ExportJobResponse](#exportjobresponse)
+
+### GetExportJobsRequest
+* GetExportJobsRequest `object`
+
+### GetExportJobsResponse
+* GetExportJobsResponse `object`
+  * ExportJobsResponse **required** [ExportJobsResponse](#exportjobsresponse)
+
 ### GetGcmChannelRequest
 * GetGcmChannelRequest `object`
 
@@ -1910,6 +2073,13 @@ amazonaws_pinpoint.SendUsersMessages({
 ### GetImportJobsResponse
 * GetImportJobsResponse `object`
   * ImportJobsResponse **required** [ImportJobsResponse](#importjobsresponse)
+
+### GetSegmentExportJobsRequest
+* GetSegmentExportJobsRequest `object`
+
+### GetSegmentExportJobsResponse
+* GetSegmentExportJobsResponse `object`
+  * ExportJobsResponse **required** [ExportJobsResponse](#exportjobsresponse)
 
 ### GetSegmentImportJobsRequest
 * GetSegmentImportJobsRequest `object`
@@ -2019,6 +2189,10 @@ amazonaws_pinpoint.SendUsersMessages({
 ### ListOfEndpointBatchItem
 * ListOfEndpointBatchItem `array`
   * items [EndpointBatchItem](#endpointbatchitem)
+
+### ListOfExportJobResponse
+* ListOfExportJobResponse `array`
+  * items [ExportJobResponse](#exportjobresponse)
 
 ### ListOfImportJobResponse
 * ListOfImportJobResponse `array`
@@ -2158,6 +2332,9 @@ amazonaws_pinpoint.SendUsersMessages({
   * Message [__string](#__string)
   * RequestID [__string](#__string)
 
+### Mode
+* Mode `string` (values: DELIVERY, FILTER)
+
 ### NotFoundException
 * NotFoundException `object`: Simple message object.
   * Message [__string](#__string)
@@ -2209,6 +2386,7 @@ amazonaws_pinpoint.SendUsersMessages({
 * SMSMessage `object`: SMS Message.
   * Body [__string](#__string)
   * MessageType [MessageType](#messagetype)
+  * OriginationNumber [__string](#__string)
   * SenderId [__string](#__string)
   * Substitutions [MapOfListOf__string](#mapoflistof__string)
 
@@ -2437,6 +2615,7 @@ amazonaws_pinpoint.SendUsersMessages({
 
 ### WriteApplicationSettingsRequest
 * WriteApplicationSettingsRequest `object`: Creating application setting request
+  * CampaignHook [CampaignHook](#campaignhook)
   * Limits [CampaignLimits](#campaignlimits)
   * QuietTime [QuietTime](#quiettime)
 
@@ -2445,6 +2624,7 @@ amazonaws_pinpoint.SendUsersMessages({
   * AdditionalTreatments [ListOfWriteTreatmentResource](#listofwritetreatmentresource)
   * Description [__string](#__string)
   * HoldoutPercent [__integer](#__integer)
+  * Hook [CampaignHook](#campaignhook)
   * IsPaused [__boolean](#__boolean)
   * Limits [CampaignLimits](#campaignlimits)
   * MessageConfiguration [MessageConfiguration](#messageconfiguration)

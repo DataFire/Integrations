@@ -10,8 +10,8 @@
     "contact": {
       "x-twitter": "weatherbitio"
     },
-    "description": "This is the documentation for the Weatherbit API.  The base URL for the API is [http://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/) or [https://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/). Below is the Swagger UI documentation for the API. All API requests require the `key` parameter.        An Example for a 5 day forecast for London, UK would be `http://api.weatherbit.io/v2.0/forecast/3hourly?city=London`&`country=UK`",
-    "title": "Weatherbit.io - Weather",
+    "description": "This is the documentation for the Weatherbit Weather API.  The base URL for the API is [http://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/) or [https://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/). Below is the Swagger UI documentation for the API. All API requests require the `key` parameter.        An Example for a 5 day forecast for London, UK would be `http://api.weatherbit.io/v2.0/forecast/3hourly?city=London`&`country=UK`. See our [Weather API description page](https://www.weatherbit.io/api) for additional documentation.",
+    "title": "Weatherbit.io - Swagger UI Weather API documentation",
     "version": "2.0.0",
     "x-apisguru-categories": [
       "location"
@@ -82,7 +82,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -94,7 +94,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -203,7 +203,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -215,7 +215,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -324,7 +324,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -336,7 +336,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -453,7 +453,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -465,7 +465,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -582,7 +582,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -594,7 +594,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -703,7 +703,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -715,7 +715,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -840,7 +840,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -852,7 +852,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -961,7 +961,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -973,7 +973,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -1082,7 +1082,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -1094,7 +1094,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -1211,7 +1211,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -1223,7 +1223,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -1340,7 +1340,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -1352,7 +1352,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -1461,7 +1461,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -1473,7 +1473,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -1602,7 +1602,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -1625,7 +1625,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -1745,7 +1745,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -1757,7 +1757,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -1850,7 +1850,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -1873,7 +1873,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -1977,7 +1977,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -1989,7 +1989,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -2101,7 +2101,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -2113,7 +2113,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -2225,7 +2225,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -2237,7 +2237,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -2330,7 +2330,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -2342,7 +2342,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -2435,7 +2435,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -2447,7 +2447,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -2564,7 +2564,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -2576,7 +2576,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -2677,7 +2677,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -2689,7 +2689,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -2790,7 +2790,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -2802,7 +2802,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -2911,7 +2911,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -2923,7 +2923,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3032,7 +3032,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3044,7 +3044,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3161,7 +3161,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3173,7 +3173,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3274,7 +3274,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3286,7 +3286,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3387,7 +3387,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3399,7 +3399,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3508,7 +3508,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3520,7 +3520,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3629,7 +3629,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3641,7 +3641,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3750,7 +3750,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3762,7 +3762,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3863,7 +3863,7 @@
             "type": "integer"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3875,7 +3875,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -3984,7 +3984,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -3996,7 +3996,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -4105,7 +4105,7 @@
             "type": "number"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -4117,7 +4117,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -4226,7 +4226,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -4238,7 +4238,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -4371,7 +4371,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -4383,7 +4383,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -4492,7 +4492,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -4504,7 +4504,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -4613,7 +4613,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -4625,7 +4625,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -4742,7 +4742,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -4754,7 +4754,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -4871,7 +4871,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -4883,7 +4883,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -4992,7 +4992,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5004,7 +5004,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -5137,7 +5137,15 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Temperature threshold to use to calculate degree days (default 18 C) ",
+            "format": "double",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5181,6 +5189,8 @@
         },
         "summary": "Returns multiple locations given a bounding box. ",
         "tags": [
+          "Historical Degree Day API",
+          "Historical Solar Irradiance API",
           "Historical Weather Energy API (Advanced+ / Enterprise Plans)"
         ],
         "operationId": "history.energy.bbox_lat1_lat1_lon1_lon1_lat2_lat2_lon2_lon2.get"
@@ -5223,7 +5233,27 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Time period to aggregate by (daily, monthly)",
+            "enum": [
+              "daily",
+              "monthly"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "tp",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temperature threshold to use to calculate degree days (default 18 C) ",
+            "format": "double",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5267,6 +5297,8 @@
         },
         "summary": "Returns Energy API response  - Given a single lat/lon. ",
         "tags": [
+          "Historical Degree Day API",
+          "Historical Solar Irradiance API",
           "Historical Weather Energy API (Advanced+ / Enterprise Plans)"
         ],
         "operationId": "history.energy_lat_lat_lon_lon.get"
@@ -5317,7 +5349,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5329,7 +5361,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -5438,7 +5470,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5450,7 +5482,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -5559,7 +5591,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5571,7 +5603,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -5688,7 +5720,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5700,7 +5732,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -5817,7 +5849,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5829,7 +5861,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -5938,7 +5970,7 @@
             "type": "string"
           },
           {
-            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
             "enum": [
               "S",
               "I"
@@ -5950,7 +5982,7 @@
             "type": "string"
           },
           {
-            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
             "enum": [
               "ar",
               "az",
@@ -6102,7 +6134,7 @@
       "properties": {
         "app_temp": {
           "description": "Apparent temperature - Default (C)",
-          "example": "14.85",
+          "example": 14.85,
           "type": "number"
         },
         "city_name": {
@@ -6112,7 +6144,7 @@
         },
         "clouds": {
           "description": "Cloud cover (%)",
-          "example": "42",
+          "example": 42,
           "type": "integer"
         },
         "country_code": {
@@ -6126,34 +6158,34 @@
           "type": "string"
         },
         "dewpt": {
-          "description": "Dew point temperature - Default (C)",
-          "example": "12",
+          "description": "Dew point temperature - default (C)",
+          "example": 12,
           "type": "number"
         },
         "dhi": {
           "description": "Direct component of solar insolation (W/m^2)",
-          "example": "450.4",
+          "example": 450.4,
           "type": "number"
         },
         "elev_angle": {
           "description": "Current solar elevation angle (Degrees)",
-          "example": "37",
+          "example": 37,
           "type": "number"
         },
         "hour_angle": {
           "description": "Current solar hour angle (Degrees)",
-          "example": "45",
+          "example": 45,
           "type": "number"
         },
         "lat": {
           "description": "Latitude",
-          "example": "38.00",
-          "type": "string"
+          "example": 38,
+          "type": "number"
         },
         "lon": {
           "description": "Longitude",
-          "example": "-78.25",
-          "type": "string"
+          "example": -78.25,
+          "type": "number"
         },
         "ob_time": {
           "description": "Full time (UTC) of observation (YYYY-MM-DD HH:MM)",
@@ -6166,27 +6198,27 @@
         },
         "precip": {
           "description": "Precipitation in last hour - Default (mm)",
-          "example": "2",
+          "example": 2,
           "type": "number"
         },
         "pres": {
           "description": "Pressure (mb)",
-          "example": "1010",
+          "example": 1010,
           "type": "number"
         },
         "rh": {
           "description": "Relative humidity (%)",
-          "example": "75",
+          "example": 75,
           "type": "integer"
         },
         "slp": {
           "description": "Mean sea level pressure in millibars (mb)",
-          "example": "1013.12",
+          "example": 1013.12,
           "type": "number"
         },
         "snow": {
           "description": "Snowfall in last hour - Default (mm)",
-          "example": "10",
+          "example": 10,
           "type": "number"
         },
         "state_code": {
@@ -6211,7 +6243,7 @@
         },
         "temp": {
           "description": "Temperature - Default (C)",
-          "example": "13.85",
+          "example": 13.85,
           "type": "number"
         },
         "timezone": {
@@ -6221,18 +6253,18 @@
         },
         "ts": {
           "description": "Unix Timestamp",
-          "example": "1490990400",
+          "example": 1490990400,
           "type": "number"
         },
         "uv": {
           "description": "UV Index",
-          "example": "6.5",
+          "example": 6.5,
           "type": "number"
         },
         "vis": {
-          "description": "Visibility - Default (M)",
-          "example": "10000",
-          "type": "string"
+          "description": "Visibility - default (M)",
+          "example": 10000,
+          "type": "integer"
         },
         "weather": {
           "properties": {
@@ -6265,13 +6297,13 @@
           "type": "string"
         },
         "wind_dir": {
-          "description": "Wind direction (Degrees)",
-          "example": "125",
+          "description": "Wind direction (degrees)",
+          "example": 125,
           "type": "integer"
         },
         "wind_speed": {
           "description": "Wind speed - Default (m/s)",
-          "example": "5.85",
+          "example": 5.85,
           "type": "number"
         }
       },
@@ -6296,8 +6328,8 @@
     "EnergyObs": {
       "properties": {
         "cdd": {
-          "description": "Cooling degree days - base 18 degrees (C)",
-          "example": "10",
+          "description": "Cooling degree days",
+          "example": 10,
           "type": "number"
         },
         "city_name": {
@@ -6307,7 +6339,7 @@
         },
         "clouds": {
           "description": "Average cloud cover (%)",
-          "example": "42",
+          "example": 42,
           "type": "integer"
         },
         "country_code": {
@@ -6317,17 +6349,12 @@
         },
         "dewpt": {
           "description": "Average dew point temperature - Default (C)",
-          "example": "12",
-          "type": "number"
-        },
-        "dhi": {
-          "description": "Average direct component of solar insolation (W/m^2)",
-          "example": "450.4",
+          "example": 12,
           "type": "number"
         },
         "hdd": {
-          "description": "Heating degree days - base 18 degrees (C)",
-          "example": "120",
+          "description": "Heating degree days",
+          "example": 120,
           "type": "number"
         },
         "lat": {
@@ -6342,17 +6369,17 @@
         },
         "precip": {
           "description": "Total precipitation in period - Default (mm)",
-          "example": "2",
+          "example": 2,
           "type": "number"
         },
         "rh": {
           "description": "Average Relative humidity (%)",
-          "example": "75",
+          "example": 75,
           "type": "integer"
         },
         "snow": {
           "description": "Total snowfall in period - Default (mm)",
-          "example": "10",
+          "example": 10,
           "type": "number"
         },
         "state_code": {
@@ -6366,13 +6393,28 @@
           "type": "string"
         },
         "sun_hours": {
-          "description": "Average number of daily sun hours - # hours where Solar Insolation > 1000 W/m^2",
-          "example": "4.5",
+          "description": "Average number of daily sun hours - # hours where Solar GHI > 1000 W/m^2",
+          "example": 4.5,
+          "type": "number"
+        },
+        "t_dhi": {
+          "description": "Total diffuse horizontal solar irradiance (W/m^2)",
+          "example": 450,
+          "type": "number"
+        },
+        "t_dni": {
+          "description": "Total direct normal solar irradiance (W/m^2)",
+          "example": 1200,
+          "type": "number"
+        },
+        "t_ghi": {
+          "description": "Total global horizontal solar irradiance (W/m^2)",
+          "example": 3000,
           "type": "number"
         },
         "temp": {
           "description": "Average temperature - Default (C)",
-          "example": "13.85",
+          "example": 13.85,
           "type": "number"
         },
         "timezone": {
@@ -6382,12 +6424,12 @@
         },
         "wind_dir": {
           "description": "Average wind direction (Degrees)",
-          "example": "125",
+          "example": 125,
           "type": "integer"
         },
         "wind_speed": {
           "description": "Average wind speed - Default (m/s)",
-          "example": "5.85",
+          "example": 5.85,
           "type": "number"
         }
       },
@@ -6434,18 +6476,18 @@
     "Forecast": {
       "properties": {
         "app_max_temp": {
-          "description": "Apparent Maximum daily Temperature - Default (C)",
-          "example": "4",
+          "description": "Apparent Maximum daily Temperature - default (C)",
+          "example": 4,
           "type": "number"
         },
         "app_min_temp": {
-          "description": "Apparent Minimum daily Temperature - Default (C)",
-          "example": "-2",
+          "description": "Apparent Minimum daily Temperature - default (C)",
+          "example": -2,
           "type": "number"
         },
         "clouds": {
           "description": "Cloud cover as a percentage (%)",
-          "example": "100",
+          "example": 100,
           "type": "integer"
         },
         "datetime": {
@@ -6454,23 +6496,23 @@
           "type": "string"
         },
         "dewpt": {
-          "description": "Dewpoint (Average) - Default (C)",
-          "example": "1.0",
+          "description": "Dewpoint (Average) - default (C)",
+          "example": 1,
           "type": "number"
         },
         "max_dhi": {
-          "description": "Max direct component of solar insolation (W/m^2)",
+          "description": "[Deprecated] Max direct component of solar insolation (W/m^2)",
           "example": "655",
           "type": "number"
         },
         "max_temp": {
-          "description": "Maximum daily Temperature - Default (C)",
-          "example": "1.5",
+          "description": "Maximum daily Temperature - default (C)",
+          "example": 1.5,
           "type": "number"
         },
         "min_temp": {
-          "description": "Minimum daily Temperature - Default (C)",
-          "example": "-1.23",
+          "description": "Minimum daily Temperature - default (C)",
+          "example": -1.23,
           "type": "number"
         },
         "pod": {
@@ -6480,37 +6522,42 @@
         },
         "pop": {
           "description": "Chance of Precipitation as a percentage (%)",
-          "example": "75",
+          "example": 75,
           "type": "number"
         },
         "precip": {
-          "description": "Accumulated precipitation since last forecast point. Default (mm)",
-          "example": "1.1",
+          "description": "Accumulated precipitation since last forecast point - default (mm)",
+          "example": 1.1,
           "type": "number"
         },
         "pres": {
           "description": "Pressure (mb)",
-          "example": "1005",
+          "example": 1005,
           "type": "number"
         },
         "rh": {
           "description": "Relative Humidity as a percentage (%)",
-          "example": "95",
+          "example": 95,
           "type": "integer"
         },
         "slp": {
           "description": "Mean Sea level pressure (mb)",
-          "example": "1012.89",
+          "example": 1012.89,
           "type": "number"
         },
         "snow": {
-          "description": "Accumulated snowfall since last forecast point. Default (mm)",
-          "example": "10.45",
+          "description": "Accumulated snowfall since last forecast point - default (mm)",
+          "example": 10.45,
+          "type": "number"
+        },
+        "snow_depth": {
+          "description": "Snow Depth - default (mm)",
+          "example": 45,
           "type": "number"
         },
         "temp": {
-          "description": "Temperature (Average) - Default (C)",
-          "example": "1.0",
+          "description": "Temperature (Average) - default (C)",
+          "example": 1,
           "type": "number"
         },
         "ts": {
@@ -6520,12 +6567,12 @@
         },
         "uv": {
           "description": "UV Index",
-          "example": "6.5",
+          "example": 6.5,
           "type": "number"
         },
         "vis": {
           "description": "Average Visibility default (KM)",
-          "example": "3.0",
+          "example": 3,
           "type": "number"
         },
         "weather": {
@@ -6560,12 +6607,12 @@
         },
         "wind_dir": {
           "description": "Wind direction",
-          "example": "105",
+          "example": 105,
           "type": "integer"
         },
         "wind_spd": {
           "description": "Wind Speed (default m/s)",
-          "example": "13.85",
+          "example": 13.85,
           "type": "number"
         }
       },
@@ -6616,12 +6663,12 @@
       "properties": {
         "app_temp": {
           "description": "Apparent Temperature - Default (C)",
-          "example": "4.5",
+          "example": 4.5,
           "type": "number"
         },
         "clouds": {
           "description": "Cloud cover as a percentage (%)",
-          "example": "100",
+          "example": 100,
           "type": "integer"
         },
         "datetime": {
@@ -6631,12 +6678,22 @@
         },
         "dewpt": {
           "description": "Dewpoint - Default (C)",
-          "example": "-4.0",
+          "example": -4,
           "type": "number"
         },
         "dhi": {
-          "description": "Direct component of solar radiation (W/m^2)",
-          "example": "500",
+          "description": "Diffuse normal solar irradiance (W/m^2)",
+          "example": 200,
+          "type": "number"
+        },
+        "dni": {
+          "description": "Direct normal solar irradiance (W/m^2)",
+          "example": 400,
+          "type": "number"
+        },
+        "ghi": {
+          "description": "Global horizontal solar irradiance (W/m^2)",
+          "example": 1500,
           "type": "number"
         },
         "pod": {
@@ -6646,47 +6703,52 @@
         },
         "pop": {
           "description": "Chance of Precipitation as a percentage (%)",
-          "example": "75",
+          "example": 75,
           "type": "number"
         },
         "precip": {
           "description": "Accumulated precipitation since last forecast point. Default (mm)",
-          "example": "1.1",
+          "example": 1.1,
           "type": "number"
         },
         "precip6h": {
           "description": "Accumulated precipitation since last forecast point. Default (mm)",
-          "example": "14.50",
+          "example": 14.5,
           "type": "number"
         },
         "pres": {
           "description": "Pressure (mb)",
-          "example": "1005",
+          "example": 1005,
           "type": "number"
         },
         "rh": {
           "description": "Relative Humidity as a percentage (%)",
-          "example": "95",
+          "example": 95,
           "type": "integer"
         },
         "slp": {
           "description": "Mean Sea level pressure (mb)",
-          "example": "1012.89",
+          "example": 1012.89,
           "type": "number"
         },
         "snow": {
-          "description": "Accumulated snowfall since last forecast point. Default (mm)",
-          "example": "10.45",
+          "description": "Accumulated snowfall since last forecast point - Default (mm)",
+          "example": 10.45,
           "type": "number"
         },
         "snow6h": {
           "description": "6 hour accumulated snowfall. Default (mm)",
-          "example": "140.87",
+          "example": 140.87,
+          "type": "number"
+        },
+        "snow_depth": {
+          "description": "Snow depth - Default (mm)",
+          "example": 45,
           "type": "number"
         },
         "temp": {
           "description": "Temperature - Default (C)",
-          "example": "-1.5",
+          "example": -1.5,
           "type": "number"
         },
         "ts": {
@@ -6696,12 +6758,12 @@
         },
         "uv": {
           "description": "UV Index",
-          "example": "6.5",
+          "example": 6.5,
           "type": "number"
         },
         "vis": {
           "description": "Visibility - Default (KM)",
-          "example": "1",
+          "example": 1,
           "type": "number"
         },
         "weather": {
@@ -6736,12 +6798,12 @@
         },
         "wind_dir": {
           "description": "Wind direction",
-          "example": "105",
+          "example": 105,
           "type": "integer"
         },
         "wind_spd": {
           "description": "Wind Speed - Default (m/s)",
-          "example": "13.85",
+          "example": 13.85,
           "type": "number"
         }
       },
@@ -6901,6 +6963,14 @@
           "example": "-122.33",
           "type": "string"
         },
+        "sources": {
+          "description": "Weather stations used in response",
+          "items": {
+            "example": "12345-89083",
+            "type": "string"
+          },
+          "type": "array"
+        },
         "state_code": {
           "description": "State abbreviation",
           "example": "WA",
@@ -6942,6 +7012,14 @@
           "example": "-122.33",
           "type": "string"
         },
+        "sources": {
+          "description": "Weather stations used in response",
+          "items": {
+            "example": "12345-89083",
+            "type": "string"
+          },
+          "type": "array"
+        },
         "state_code": {
           "description": "State abbreviation",
           "example": "WA",
@@ -6964,102 +7042,132 @@
         },
         "dewpt": {
           "description": "Average dewpoint - Default (C)",
-          "example": "-1.5",
+          "example": -1.5,
           "type": "number"
         },
         "dhi": {
-          "description": "Average direct solar insolation (W/m^2)",
-          "example": "125",
+          "description": "Average hourly diffuse horizontal solar irradiance (W/m^2)",
+          "example": 125,
+          "type": "integer"
+        },
+        "dni": {
+          "description": "Average direct normal solar irradiance (W/m^2)",
+          "example": 125,
+          "type": "integer"
+        },
+        "ghi": {
+          "description": "Average hourly global horizontal solar irradiance (W/m^2)",
+          "example": 125,
           "type": "integer"
         },
         "max_temp": {
-          "description": "Max Temperature - Default (C)",
-          "example": "1.5",
+          "description": "Max temperature - Default (C)",
+          "example": 1.5,
           "type": "number"
         },
         "max_temp_ts": {
-          "description": "Time of Max Temperature - Unix Timestamp",
-          "example": "1501970816",
+          "description": "Time of max memperature - Unix Timestamp",
+          "example": 1501970816,
           "type": "number"
         },
         "max_uv": {
           "description": "Max UV Index (1-11+)",
-          "example": "6",
+          "example": 6,
           "type": "integer"
         },
         "max_wind_dir": {
-          "description": "Direction of wind at time of max wind - (Degrees)",
-          "example": "325",
+          "description": "Direction of wind at time of max 2min wind (degrees)",
+          "example": 325,
           "type": "integer"
         },
         "max_wind_spd": {
-          "description": "Average Wind Speed - Default (m/s)",
-          "example": "19.98",
+          "description": "Max 2min Wind Speed - default (m/s)",
+          "example": 19.98,
           "type": "number"
         },
         "max_wind_spd_ts": {
-          "description": "Time of max wind - Unix Timestamp",
-          "example": "1501970516",
+          "description": "Time of max 2min wind - unix timestamp",
+          "example": 1501970516,
           "type": "number"
         },
         "min_temp": {
-          "description": "Min Temperature - Default (C)",
-          "example": "11.7",
+          "description": "Min temperature - Default (C)",
+          "example": 11.7,
           "type": "number"
         },
         "min_temp_ts": {
-          "description": "Time of Max Temperature - Unix Timestamp",
-          "example": "1501970516",
+          "description": "Time of max temperature - unix timestamp",
+          "example": 1501970516,
           "type": "number"
         },
         "precip": {
-          "description": "Liquid equivalent precipitation - Default (mm)",
-          "example": "3",
+          "description": "Liquid equivalent precipitation - default (mm)",
+          "example": 3,
           "type": "number"
         },
         "pres": {
           "description": "Average pressure (mb)",
-          "example": "885.1",
+          "example": 885.1,
           "type": "number"
         },
         "rh": {
           "description": "Average relative humidity as a percentage (%)",
-          "example": "85",
+          "example": 85,
           "type": "integer"
         },
         "slp": {
-          "description": "Average Sea level pressure (mb)",
-          "example": "1020.1",
+          "description": "Average sea level pressure (mb)",
+          "example": 1020.1,
           "type": "number"
         },
         "snow": {
-          "description": "Snowfall - Default (mm)",
-          "example": "30",
+          "description": "Snowfall - default (mm)",
+          "example": 30,
+          "type": "number"
+        },
+        "snow_depth": {
+          "description": "Snow Depth - default (mm)",
+          "example": 60,
           "type": "number"
         },
         "t_dhi": {
-          "description": "Total/Cumulative direct solar insolation (W/m^2)",
-          "example": "4500",
+          "description": "Total diffuse horizontal solar irradiance (W/m^2)",
+          "example": 4500,
+          "type": "integer"
+        },
+        "t_dni": {
+          "description": "Total direct normal solar irradiance (W/m^2)",
+          "example": 4500,
+          "type": "integer"
+        },
+        "t_ghi": {
+          "description": "Total global horizontal solar irradiance (W/m^2)",
+          "example": 4500,
           "type": "integer"
         },
         "temp": {
-          "description": "Average Temperature - Default (C)",
-          "example": "1.0",
+          "description": "Average temperature - Default (C)",
+          "example": 1,
           "type": "number"
         },
         "ts": {
-          "description": "Unix Timestamp of datetime (Midnight UTC)",
-          "example": "1501970516",
+          "description": "Unix timestamp of datetime (Midnight UTC)",
+          "example": 1501970516,
           "type": "number"
         },
         "wind_dir": {
-          "description": "Average Wind direction - (Degrees)",
-          "example": "325",
+          "description": "Average wind direction (degrees)",
+          "example": 325,
           "type": "integer"
         },
+        "wind_gust_spd": {
+          "description": "Wind gust direction (degrees)",
+          "example": 340,
+          "type": "number"
+        },
         "wind_spd": {
-          "description": "Average Wind Speed - Default (m/s)",
-          "example": "14.98",
+          "description": "Average wind speed - default (m/s)",
+          "example": 14.98,
           "type": "number"
         }
       },
@@ -7074,23 +7182,33 @@
         },
         "dewpt": {
           "description": "Dew point (Default Celcius)",
-          "example": "-1.5",
+          "example": -1.5,
           "type": "integer"
         },
         "dhi": {
-          "description": "Direct component of solar insolation (W/m^2)",
-          "example": "150.7",
+          "description": "Diffuse normal solar irradiance (W/m^2)",
+          "example": 200,
+          "type": "number"
+        },
+        "dni": {
+          "description": "Direct normal solar irradiance (W/m^2)",
+          "example": 400,
           "type": "number"
         },
         "elev_angle": {
           "description": "Solar elevation angle (Degrees)",
-          "example": "27",
-          "type": "integer"
+          "example": 27.5,
+          "type": "number"
+        },
+        "ghi": {
+          "description": "Global horizontal solar irradiance (W/m^2)",
+          "example": 1500,
+          "type": "number"
         },
         "h_angle": {
           "description": "Solar hour angle (Degrees)",
-          "example": "4",
-          "type": "integer"
+          "example": 15,
+          "type": "number"
         },
         "pod": {
           "description": "Part of the day (d = day, n = night)",
@@ -7099,47 +7217,42 @@
         },
         "precip": {
           "description": "Liquid equivalent precipitation - Default (mm)",
-          "example": "3",
+          "example": 3,
           "type": "number"
         },
         "precip6h": {
           "description": "Liquid equivalent precipitation in last 6 hours - Default (mm)",
-          "example": "6",
+          "example": 6,
           "type": "number"
         },
         "pres": {
           "description": "Pressure (mb)",
-          "example": "845",
-          "type": "number"
-        },
-        "qc": {
-          "description": "Set to 0 measurement has not yet been quality controlled, and should not be considered an authoritative observation",
-          "example": "0",
+          "example": 845,
           "type": "number"
         },
         "rh": {
           "description": "Relative Humidity as a percentage (%)",
-          "example": "85",
+          "example": 85,
           "type": "integer"
         },
         "slp": {
           "description": "Sea level pressure (mb)",
-          "example": "1020.10",
+          "example": 1020.1,
           "type": "number"
         },
         "snow": {
           "description": "Snowfall - Default (mm)",
-          "example": "30",
+          "example": 30,
           "type": "number"
         },
         "snow6h": {
           "description": "Snowfall in last 6 hours - Default (mm)",
-          "example": "60",
+          "example": 60,
           "type": "number"
         },
         "temp": {
           "description": "Temperature (Default Celcius)",
-          "example": "-1.2",
+          "example": -1.2,
           "type": "number"
         },
         "ts": {
@@ -7149,7 +7262,7 @@
         },
         "uv": {
           "description": "UV Index (1-11+)",
-          "example": "4",
+          "example": 4,
           "type": "integer"
         },
         "weather": {
@@ -7174,12 +7287,12 @@
         },
         "wind_dir": {
           "description": "Wind direction (Degrees)",
-          "example": "325",
+          "example": 325,
           "type": "integer"
         },
         "wind_spd": {
           "description": "Wind Speed (Default m/s)",
-          "example": "14.7",
+          "example": 14.7,
           "type": "number"
         }
       },

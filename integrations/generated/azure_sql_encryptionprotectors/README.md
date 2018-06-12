@@ -133,16 +133,4 @@ azure_sql_encryptionprotectors.EncryptionProtectors_CreateOrUpdate({
   * thumbprint `string`: Thumbprint of the server key.
   * uri `string`: The URI of the server key.
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 

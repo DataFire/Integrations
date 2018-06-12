@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Manages classes, rosters, and invitations in Google Classroom.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Classroom",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://classroom.googleapis.com/$discovery/rest?version=v1",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/classroom.announcements": "View and manage announcements in Google Classroom",
@@ -74,33 +69,6 @@
         "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly": "View your course work and grades in Google Classroom",
         "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/classroom.announcements": "View and manage announcements in Google Classroom",
-        "https://www.googleapis.com/auth/classroom.announcements.readonly": "View announcements in Google Classroom",
-        "https://www.googleapis.com/auth/classroom.courses": "Manage your Google Classroom classes",
-        "https://www.googleapis.com/auth/classroom.courses.readonly": "View your Google Classroom classes",
-        "https://www.googleapis.com/auth/classroom.coursework.me": "Manage your course work and view your grades in Google Classroom",
-        "https://www.googleapis.com/auth/classroom.coursework.me.readonly": "View your course work and grades in Google Classroom",
-        "https://www.googleapis.com/auth/classroom.coursework.students": "Manage course work and grades for students in the Google Classroom classes you teach and view the course work and grades for classes you administer",
-        "https://www.googleapis.com/auth/classroom.coursework.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer",
-        "https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly": "View your Google Classroom guardians",
-        "https://www.googleapis.com/auth/classroom.guardianlinks.students": "View and manage guardians for students in your Google Classroom classes",
-        "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly": "View guardians for students in your Google Classroom classes",
-        "https://www.googleapis.com/auth/classroom.profile.emails": "View the email addresses of people in your classes",
-        "https://www.googleapis.com/auth/classroom.profile.photos": "View the profile photos of people in your classes",
-        "https://www.googleapis.com/auth/classroom.push-notifications": "Receive notifications about your Google Classroom data",
-        "https://www.googleapis.com/auth/classroom.rosters": "Manage your Google Classroom class rosters",
-        "https://www.googleapis.com/auth/classroom.rosters.readonly": "View your Google Classroom class rosters",
-        "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly": "View your course work and grades in Google Classroom",
-        "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -298,16 +266,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.courses"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.courses.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.courses.readonly"
             ]
           }
@@ -381,9 +343,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.courses"
             ]
           }
         ],
@@ -429,16 +388,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.courses"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.courses.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.courses.readonly"
             ]
           }
@@ -519,9 +472,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.courses"
             ]
           }
         ],
@@ -561,9 +511,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.courses"
             ]
           }
@@ -673,16 +620,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.announcements"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.announcements"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.announcements.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.announcements.readonly"
             ]
           }
@@ -763,9 +704,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.announcements"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.announcements"
             ]
           }
         ],
@@ -806,9 +744,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.announcements"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.announcements"
             ]
           }
         ],
@@ -847,16 +782,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.announcements"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.announcements"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.announcements.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.announcements.readonly"
             ]
           }
@@ -950,9 +879,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.announcements"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.announcements"
             ]
           }
         ],
@@ -1041,9 +967,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.announcements"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.announcements"
             ]
           }
         ],
@@ -1111,32 +1034,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
             ]
           }
@@ -1216,9 +1127,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           }
@@ -1307,48 +1215,30 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly"
             ]
           }
@@ -1438,48 +1328,30 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly"
             ]
           }
@@ -1580,16 +1452,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           }
@@ -1686,16 +1552,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           }
@@ -1792,9 +1652,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
             ]
           }
         ],
@@ -1889,9 +1746,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           }
@@ -1988,9 +1842,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
             ]
           }
         ],
@@ -2031,9 +1882,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           }
         ],
@@ -2072,32 +1920,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
             ]
           }
@@ -2191,9 +2027,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           }
         ],
@@ -2282,9 +2115,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
             ]
           }
         ],
@@ -2330,32 +2160,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.emails"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.emails"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.profile.photos"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.profile.photos"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
             ]
           }
@@ -2442,24 +2260,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.emails"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.emails"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.photos"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.photos"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters"
             ]
           }
@@ -2501,9 +2310,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           }
         ],
@@ -2542,32 +2348,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.emails"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.emails"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.profile.photos"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.profile.photos"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
             ]
           }
@@ -2655,32 +2449,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.emails"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.emails"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.profile.photos"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.profile.photos"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
             ]
           }
@@ -2761,24 +2543,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.emails"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.emails"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.photos"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.photos"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters"
             ]
           }
@@ -2820,9 +2593,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           }
         ],
@@ -2861,254 +2631,21 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.emails"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.emails"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.profile.photos"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.profile.photos"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ]
-          }
-        ],
-        "tags": [
-          "courses"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
-    },
-    "/v1/courses/{courseId}/topics": {
-      "get": {
-        "description": "Returns the list of topics that the requester is permitted to view.\n\nThis method returns the following error codes:\n\n* `PERMISSION_DENIED` if the requesting user is not permitted to access\nthe requested course or for access errors.\n* `INVALID_ARGUMENT` if the request is malformed.\n* `NOT_FOUND` if the requested course does not exist.",
-        "operationId": "courses.topics.list",
-        "parameters": [
-          {
-            "description": "Identifier of the course.\nThis identifier can be either the Classroom-assigned identifier or an\nalias.",
-            "in": "path",
-            "name": "courseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Maximum number of items to return. Zero or unspecified indicates that the\nserver may assign a maximum.\n\nThe server may return fewer than the specified number of results.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
-          },
-          {
-            "description": "nextPageToken\nvalue returned from a previous\nlist call,\nindicating that the subsequent page of results should be returned.\n\nThe list request\nmust be otherwise identical to the one that resulted in this token.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/ListTopicResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
-            ]
-          }
-        ],
-        "tags": [
-          "courses"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
-    },
-    "/v1/courses/{courseId}/topics/{id}": {
-      "get": {
-        "description": "Returns a topic.\n\nThis method returns the following error codes:\n\n* `PERMISSION_DENIED` if the requesting user is not permitted to access the\nrequested course or topic, or for access errors.\n* `INVALID_ARGUMENT` if the request is malformed.\n* `NOT_FOUND` if the requested course or topic does not exist.",
-        "operationId": "courses.topics.get",
-        "parameters": [
-          {
-            "description": "Identifier of the course.",
-            "in": "path",
-            "name": "courseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Identifier of the topic.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Topic"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
             ]
           }
         ],
@@ -3183,9 +2720,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.courses"
             ]
           }
         ],
@@ -3217,16 +2751,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.courses"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.courses.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.courses.readonly"
             ]
           }
@@ -3313,9 +2841,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.courses"
             ]
           }
         ],
@@ -3353,9 +2878,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.courses"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.courses"
             ]
           }
@@ -3407,16 +2929,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
             ]
           }
@@ -3490,9 +3006,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           }
         ],
@@ -3526,9 +3039,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           }
         ],
@@ -3560,16 +3070,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
             ]
           }
@@ -3686,9 +3190,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           }
         ],
@@ -3763,24 +3264,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.push-notifications"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.push-notifications"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
             ]
           }
@@ -3815,24 +3307,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.push-notifications"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.push-notifications"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
             ]
           }
@@ -3941,16 +3424,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
             ]
           }
@@ -4031,9 +3508,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students"
             ]
           }
         ],
@@ -4074,16 +3548,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
             ]
           }
@@ -4177,9 +3645,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students"
             ]
           }
         ],
@@ -4231,24 +3696,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
             ]
           }
@@ -4331,9 +3787,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students"
             ]
           }
         ],
@@ -4372,24 +3825,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
             ]
           }
@@ -4465,32 +3909,20 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.profile.emails"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.profile.emails"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.profile.photos"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.profile.photos"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/classroom.rosters"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/classroom.rosters"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/classroom.rosters.readonly"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/classroom.rosters.readonly"
             ]
           }
@@ -4947,7 +4379,7 @@
           "type": "integer"
         },
         "month": {
-          "description": "Month of year. Must be from 1 to 12.",
+          "description": "Month of year. Must be from 1 to 12, or 0 if specifying a date without a\nmonth.",
           "format": "int32",
           "type": "integer"
         },
@@ -5377,23 +4809,6 @@
       },
       "type": "object"
     },
-    "ListTopicResponse": {
-      "description": "Response when listing topics.",
-      "properties": {
-        "nextPageToken": {
-          "description": "Token identifying the next page of results to return. If empty, no further\nresults are available.",
-          "type": "string"
-        },
-        "topic": {
-          "description": "Topic items that match the request.",
-          "items": {
-            "$ref": "#/definitions/Topic"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "Material": {
       "description": "Material attached to course work.\n\nWhen creating attachments, setting the `form` field is not supported.",
       "properties": {
@@ -5789,29 +5204,6 @@
           "description": "Seconds of minutes of the time. Must normally be from 0 to 59. An API may\nallow the value 60 if it allows leap-seconds.",
           "format": "int32",
           "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Topic": {
-      "description": "Topic created by a teacher for the course",
-      "properties": {
-        "courseId": {
-          "description": "Identifier of the course.\n\nRead-only.",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the topic, generated by the user.\nLeading and trailing whitespaces, if any, will be trimmed. Also, multiple\nconsecutive whitespaces will be collapsed into one inside the name.\nTopic names are case sensitive, and must be no longer than 100 characters.",
-          "type": "string"
-        },
-        "topicId": {
-          "description": "Unique identifier for the topic.\n\nRead-only.",
-          "type": "string"
-        },
-        "updateTime": {
-          "description": "The time the topic was last updated by the system.\n\nRead-only.",
-          "format": "google-datetime",
-          "type": "string"
         }
       },
       "type": "object"

@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/subscription/resource-manager/Microsoft.Subscription/preview/2017-11-01-preview/subscriptionDefinitions.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/subscription/resource-manager/Microsoft.Subscription/preview/2017-11-01-preview/subscriptionDefinitions.json",
         "version": "2.0"
       }
     ],

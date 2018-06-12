@@ -4,20 +4,15 @@
     "https"
   ],
   "host": "www.googleapis.com",
-  "basePath": "/pagespeedonline/v2",
+  "basePath": "/pagespeedonline/v4",
   "info": {
     "contact": {
       "name": "Google",
       "url": "https://google.com"
     },
     "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "PageSpeed Insights",
-    "version": "v2",
+    "version": "v4",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
@@ -31,10 +26,10 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/pagespeedonline/v2/rest",
+        "url": "https://www.googleapis.com/discovery/v1/apis/pagespeedonline/v4/rest",
         "version": "v1"
       }
     ],
@@ -47,7 +42,7 @@
     }
   },
   "externalDocs": {
-    "url": "https://developers.google.com/speed/docs/insights/v2/getting-started"
+    "url": "https://developers.google.com/speed/docs/insights/v4/getting-started"
   },
   "parameters": {
     "alt": {
@@ -86,13 +81,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -140,7 +135,14 @@
             "type": "boolean"
           },
           {
-            "description": "The analysis strategy to use",
+            "default": false,
+            "description": "Indicates if binary data containing snapshot images should be included",
+            "in": "query",
+            "name": "snapshots",
+            "type": "boolean"
+          },
+          {
+            "description": "The analysis strategy (desktop or mobile) to use, and desktop is the default",
             "enum": [
               "desktop",
               "mobile"
@@ -155,13 +157,25 @@
             "name": "url",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Campaign name for analytics.",
+            "in": "query",
+            "name": "utm_campaign",
+            "type": "string"
+          },
+          {
+            "description": "Campaign source for analytics.",
+            "in": "query",
+            "name": "utm_source",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Result"
+              "$ref": "#/definitions/PagespeedApiPagespeedResponseV4"
             }
           }
         },
@@ -195,7 +209,7 @@
     }
   },
   "definitions": {
-    "PagespeedApiFormatStringV2": {
+    "PagespeedApiFormatStringV4": {
       "properties": {
         "args": {
           "description": "List of arguments for the format string.",
@@ -210,22 +224,18 @@
                 "items": {
                   "properties": {
                     "height": {
-                      "description": "The height of the rect.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "left": {
-                      "description": "The left coordinate of the rect, in page coordinates.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "top": {
-                      "description": "The top coordinate of the rect, in page coordinates.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "width": {
-                      "description": "The width of the rect.",
                       "format": "int32",
                       "type": "integer"
                     }
@@ -239,22 +249,18 @@
                 "items": {
                   "properties": {
                     "height": {
-                      "description": "The height of the rect.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "left": {
-                      "description": "The left coordinate of the rect, in page coordinates.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "top": {
-                      "description": "The top coordinate of the rect, in page coordinates.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "width": {
-                      "description": "The width of the rect.",
                       "format": "int32",
                       "type": "integer"
                     }
@@ -283,7 +289,7 @@
       },
       "type": "object"
     },
-    "PagespeedApiImageV2": {
+    "PagespeedApiImageV4": {
       "properties": {
         "data": {
           "description": "Image data base64 encoded.",
@@ -304,25 +310,20 @@
           "type": "string"
         },
         "page_rect": {
-          "description": "The region of the page that is captured by this image, with dimensions measured in CSS pixels.",
           "properties": {
             "height": {
-              "description": "The height of the rect.",
               "format": "int32",
               "type": "integer"
             },
             "left": {
-              "description": "The left coordinate of the rect, in page coordinates.",
               "format": "int32",
               "type": "integer"
             },
             "top": {
-              "description": "The top coordinate of the rect, in page coordinates.",
               "format": "int32",
               "type": "integer"
             },
             "width": {
-              "description": "The width of the rect.",
               "format": "int32",
               "type": "integer"
             }
@@ -337,7 +338,7 @@
       },
       "type": "object"
     },
-    "Result": {
+    "PagespeedApiPagespeedResponseV4": {
       "properties": {
         "captchaResult": {
           "description": "The captcha verify result",
@@ -354,8 +355,12 @@
               "additionalProperties": {
                 "description": "The enum-like identifier for this rule. For instance \"EnableKeepAlive\" or \"AvoidCssImport\". Not localized.",
                 "properties": {
+                  "beta": {
+                    "description": "Whether this rule is in 'beta'. Rules in beta are new rules that are being tested, which do not impact the overall score.",
+                    "type": "boolean"
+                  },
                   "groups": {
-                    "description": "List of rule groups that this rule belongs to. Each entry in the list is one of \"SPEED\" or \"USABILITY\".",
+                    "description": "List of rule groups that this rule belongs to. Each entry in the list is one of \"SPEED\", \"USABILITY\", or \"SECURITY\".",
                     "items": {
                       "type": "string"
                     },
@@ -371,7 +376,7 @@
                     "type": "number"
                   },
                   "summary": {
-                    "$ref": "#/definitions/PagespeedApiFormatStringV2",
+                    "$ref": "#/definitions/PagespeedApiFormatStringV4",
                     "description": "A brief summary description for the rule, indicating at a high level what should be done to follow the rule and what benefit can be gained by doing so."
                   },
                   "urlBlocks": {
@@ -379,7 +384,7 @@
                     "items": {
                       "properties": {
                         "header": {
-                          "$ref": "#/definitions/PagespeedApiFormatStringV2",
+                          "$ref": "#/definitions/PagespeedApiFormatStringV4",
                           "description": "Heading to be displayed with the list of URLs."
                         },
                         "urls": {
@@ -389,12 +394,12 @@
                               "details": {
                                 "description": "List of entries that provide additional details about a single URL. Optional.",
                                 "items": {
-                                  "$ref": "#/definitions/PagespeedApiFormatStringV2"
+                                  "$ref": "#/definitions/PagespeedApiFormatStringV4"
                                 },
                                 "type": "array"
                               },
                               "result": {
-                                "$ref": "#/definitions/PagespeedApiFormatStringV2",
+                                "$ref": "#/definitions/PagespeedApiFormatStringV4",
                                 "description": "A format string that gives information about the URL, and a list of arguments for that format string."
                               }
                             },
@@ -432,9 +437,65 @@
           "description": "Kind of result.",
           "type": "string"
         },
+        "loadingExperience": {
+          "description": "Metrics of end users' page loading experience.",
+          "properties": {
+            "id": {
+              "description": "The url, pattern or origin which the metrics are on.",
+              "type": "string"
+            },
+            "initial_url": {
+              "type": "string"
+            },
+            "metrics": {
+              "additionalProperties": {
+                "description": "The type of the metric.",
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "distributions": {
+                    "items": {
+                      "properties": {
+                        "max": {
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "min": {
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "proportion": {
+                          "format": "double",
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "median": {
+                    "format": "int32",
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "overall_category": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
         "pageStats": {
           "description": "Summary statistics for the page, such as number of JavaScript bytes, number of HTML bytes, etc.",
           "properties": {
+            "cms": {
+              "description": "Content management system (CMS) used for the page.",
+              "type": "string"
+            },
             "cssResponseBytes": {
               "description": "Number of uncompressed response bytes for CSS resources on the page.",
               "format": "int64",
@@ -460,6 +521,16 @@
               "format": "int64",
               "type": "string"
             },
+            "numRenderBlockingRoundTrips": {
+              "description": "The needed round trips to load render blocking resources",
+              "format": "int32",
+              "type": "integer"
+            },
+            "numTotalRoundTrips": {
+              "description": "The needed round trips to load the full page",
+              "format": "int32",
+              "type": "integer"
+            },
             "numberCssResources": {
               "description": "Number of CSS resources referenced by the page.",
               "format": "int32",
@@ -480,8 +551,18 @@
               "format": "int32",
               "type": "integer"
             },
+            "numberRobotedResources": {
+              "description": "Number of roboted resources.",
+              "format": "int32",
+              "type": "integer"
+            },
             "numberStaticResources": {
               "description": "Number of static (i.e. cacheable) resources on the page.",
+              "format": "int32",
+              "type": "integer"
+            },
+            "numberTransientFetchFailureResources": {
+              "description": "Number of transient-failed resources.",
               "format": "int32",
               "type": "integer"
             },
@@ -489,6 +570,18 @@
               "description": "Number of response bytes for other resources on the page.",
               "format": "int64",
               "type": "string"
+            },
+            "overTheWireResponseBytes": {
+              "description": "Number of over-the-wire bytes, uses the default gzip compression strategy as an estimation.",
+              "format": "int64",
+              "type": "string"
+            },
+            "robotedUrls": {
+              "description": "List of roboted urls.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             },
             "textResponseBytes": {
               "description": "Number of uncompressed response bytes for text resources not covered by other statistics (i.e non-HTML, non-script, non-CSS resources) on the page.",
@@ -499,6 +592,13 @@
               "description": "Total size of all request bytes sent by the page.",
               "format": "int64",
               "type": "string"
+            },
+            "transientFetchFailureUrls": {
+              "description": "List of transient fetch failure urls.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             }
           },
           "type": "object"
@@ -510,10 +610,13 @@
         },
         "ruleGroups": {
           "additionalProperties": {
-            "description": "The name of this rule group: one of \"SPEED\" or \"USABILITY\".",
+            "description": "The name of this rule group: one of \"SPEED\", \"USABILITY\", or \"SECURITY\".",
             "properties": {
+              "pass": {
+                "type": "boolean"
+              },
               "score": {
-                "description": "The score (0-100) for this rule group, which indicates how much better a page could be in that category (e.g. how much faster, or how much more usable). A high score indicates little room for improvement, while a lower score indicates more room for improvement.",
+                "description": "The score (0-100) for this rule group, which indicates how much better a page could be in that category (e.g. how much faster, or how much more usable, or how much more secure). A high score indicates little room for improvement, while a lower score indicates more room for improvement.",
                 "format": "int32",
                 "type": "integer"
               }
@@ -524,8 +627,15 @@
           "type": "object"
         },
         "screenshot": {
-          "$ref": "#/definitions/PagespeedApiImageV2",
+          "$ref": "#/definitions/PagespeedApiImageV4",
           "description": "Base64-encoded screenshot of the page that was analyzed."
+        },
+        "snapshots": {
+          "description": "Additional base64-encoded screenshots of the page, in various partial render states.",
+          "items": {
+            "$ref": "#/definitions/PagespeedApiImageV4"
+          },
+          "type": "array"
         },
         "title": {
           "description": "Title of the page, as displayed in the browser's title bar.",

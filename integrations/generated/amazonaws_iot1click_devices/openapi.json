@@ -1,0 +1,1325 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "devices.iot1click.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Stub description",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT 1-Click Devices Service",
+    "version": "2018-05-14",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot1click-devices-2018-05-14.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iot1click-devices",
+    "x-datafire": {
+      "name": "amazonaws_iot1click_devices",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/iot1click/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/claims/{claimCode}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Adds device(s) to your account (i.e., claim one or more devices) if and only if\n you received a claim code with the device(s).",
+        "operationId": "ClaimDevicesByClaimCode",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ClaimDevicesByClaimCodeRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "claimCode",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ClaimDevicesByClaimCodeResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      }
+    },
+    "/devices": {
+      "get": {
+        "description": "Lists the 1-Click compatible devices associated with your AWS account.",
+        "operationId": "ListDevices",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListDevicesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDevicesResponse"
+            }
+          },
+          "480": {
+            "description": "RangeNotSatisfiableException",
+            "schema": {
+              "$ref": "#/definitions/RangeNotSatisfiableException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/devices/{deviceId}": {
+      "get": {
+        "description": "Given a device ID, returns a DescribeDeviceResponse object describing\n the details of the device.",
+        "operationId": "DescribeDevice",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDeviceRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDeviceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/devices/{deviceId}/events": {
+      "get": {
+        "description": "Using a device ID, returns a DeviceEventsResponse object containing\n an array of events for the device.",
+        "operationId": "ListDeviceEvents",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListDeviceEventsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDeviceEventsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "RangeNotSatisfiableException",
+            "schema": {
+              "$ref": "#/definitions/RangeNotSatisfiableException"
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/devices/{deviceId}/finalize-claim": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "<p>Given a device ID, finalizes the claim request for the associated device.</p><note>\n <p>Claiming a device consists of initiating a claim, then publishing a device\n event, and finalizing the claim. For a device of type button, a\n device event can be published by simply clicking the device.</p>\n </note>",
+        "operationId": "FinalizeDeviceClaim",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FinalizeDeviceClaimRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/FinalizeDeviceClaimResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "PreconditionFailedException",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailedException"
+            }
+          },
+          "484": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            }
+          }
+        }
+      }
+    },
+    "/devices/{deviceId}/initiate-claim": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "<p>Given a device ID, initiates a claim request for the associated device.</p><note>\n <p>Claiming a device consists of initiating a claim, then publishing a device\n event, and finalizing the claim. For a device of type button, a\n device event can be published by simply clicking the device.</p>\n </note>",
+        "operationId": "InitiateDeviceClaim",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InitiateDeviceClaimRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InitiateDeviceClaimResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            }
+          }
+        }
+      }
+    },
+    "/devices/{deviceId}/methods": {
+      "get": {
+        "description": "Given a device ID, returns the invokable methods associated with the\n device.",
+        "operationId": "GetDeviceMethods",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDeviceMethodsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDeviceMethodsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Given a device ID, issues a request to invoke a named device method (with possible\n parameters). See the \"Example POST\" code snippet below.",
+        "operationId": "InvokeDeviceMethod",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InvokeDeviceMethodRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InvokeDeviceMethodResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "PreconditionFailedException",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "RangeNotSatisfiableException",
+            "schema": {
+              "$ref": "#/definitions/RangeNotSatisfiableException"
+            }
+          },
+          "485": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            }
+          }
+        }
+      }
+    },
+    "/devices/{deviceId}/state": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Using a Boolean value (true or false), this operation\n enables or disables the device given a device ID.",
+        "operationId": "UpdateDeviceState",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateDeviceStateRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateDeviceStateResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/devices/{deviceId}/unclaim": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Disassociates a device from your AWS account using its device ID.",
+        "operationId": "UnclaimDevice",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UnclaimDeviceRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UnclaimDeviceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Attributes": {
+      "properties": {},
+      "type": "object"
+    },
+    "ClaimDevicesByClaimCodeRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ClaimDevicesByClaimCodeResponse": {
+      "properties": {
+        "ClaimCode": {
+          "$ref": "#/definitions/__stringMin12Max40",
+          "description": "The claim code provided by the device manufacturer."
+        },
+        "Total": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of devices associated with the claim code that has been processed\n in the claim request."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDeviceRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeDeviceResponse": {
+      "properties": {
+        "DeviceDescription": {
+          "$ref": "#/definitions/DeviceDescription",
+          "description": "Device details."
+        }
+      },
+      "type": "object"
+    },
+    "Device": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/Attributes",
+          "description": "The user specified attributes associated with the device for an event."
+        },
+        "DeviceId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique identifier of the device."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The device type, such as \"button\"."
+        }
+      },
+      "type": "object"
+    },
+    "DeviceAttributes": {
+      "description": "\nDeviceAttributes is a string-to-string map specified by the user.",
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/__string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "DeviceClaimResponse": {
+      "properties": {
+        "State": {
+          "$ref": "#/definitions/__string",
+          "description": "The device's final claim state."
+        }
+      },
+      "type": "object"
+    },
+    "DeviceDescription": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/DeviceAttributes",
+          "description": "An array of zero or more elements of DeviceAttribute objects\n providing user specified device attributes."
+        },
+        "DeviceId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique identifier of the device."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "A Boolean value indicating whether or not the device is enabled."
+        },
+        "RemainingLife": {
+          "$ref": "#/definitions/__doubleMin0Max100",
+          "description": "A value between 0 and 1 inclusive, representing the fraction of life remaining for\n the device."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The type of the device, such as \"button\"."
+        }
+      },
+      "type": "object"
+    },
+    "DeviceEvent": {
+      "properties": {
+        "Device": {
+          "$ref": "#/definitions/Device",
+          "description": "An object representing the device associated with the event."
+        },
+        "StdEvent": {
+          "$ref": "#/definitions/__string",
+          "description": "A serialized JSON object representing the device-type specific event."
+        }
+      },
+      "type": "object"
+    },
+    "DeviceEventsResponse": {
+      "properties": {
+        "Events": {
+          "$ref": "#/definitions/__listOfDeviceEvent",
+          "description": "An array of zero or more elements describing the event(s) associated with the\n device."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token to retrieve the next set of results."
+        }
+      },
+      "type": "object"
+    },
+    "DeviceMethod": {
+      "properties": {
+        "DeviceType": {
+          "$ref": "#/definitions/__string",
+          "description": "The type of the device, such as \"button\"."
+        },
+        "MethodName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the method applicable to the deviceType."
+        }
+      },
+      "type": "object"
+    },
+    "Empty": {
+      "description": "On success, an empty object is returned.",
+      "properties": {},
+      "type": "object"
+    },
+    "FinalizeDeviceClaimRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "FinalizeDeviceClaimResponse": {
+      "properties": {
+        "State": {
+          "$ref": "#/definitions/__string",
+          "description": "The device's final claim state."
+        }
+      },
+      "type": "object"
+    },
+    "ForbiddenException": {
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/__string",
+          "description": "403"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The 403 error message returned by the web server."
+        }
+      },
+      "type": "object"
+    },
+    "GetDeviceMethodsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetDeviceMethodsResponse": {
+      "properties": {
+        "DeviceMethods": {
+          "$ref": "#/definitions/__listOfDeviceMethod",
+          "description": "List of available device APIs."
+        }
+      },
+      "type": "object"
+    },
+    "InitiateDeviceClaimRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "InitiateDeviceClaimResponse": {
+      "properties": {
+        "State": {
+          "$ref": "#/definitions/__string",
+          "description": "The device's final claim state."
+        }
+      },
+      "type": "object"
+    },
+    "InternalFailureException": {
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/__string",
+          "description": "500"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The 500 error message returned by the web server."
+        }
+      },
+      "type": "object"
+    },
+    "InvalidRequestException": {
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/__string",
+          "description": "400"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The 400 error message returned by the web server."
+        }
+      },
+      "type": "object"
+    },
+    "InvokeDeviceMethodRequest": {
+      "properties": {
+        "DeviceMethod": {
+          "$ref": "#/definitions/DeviceMethod",
+          "description": "The device method to invoke."
+        },
+        "DeviceMethodParameters": {
+          "$ref": "#/definitions/__string",
+          "description": "A JSON encoded string containing the device method request parameters."
+        }
+      },
+      "type": "object"
+    },
+    "InvokeDeviceMethodResponse": {
+      "properties": {
+        "DeviceMethodResponse": {
+          "$ref": "#/definitions/__string",
+          "description": "A JSON encoded string containing the device method response."
+        }
+      },
+      "type": "object"
+    },
+    "ListDeviceEventsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListDeviceEventsResponse": {
+      "properties": {
+        "Events": {
+          "$ref": "#/definitions/__listOfDeviceEvent",
+          "description": "An array of zero or more elements describing the event(s) associated with the\n device."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token to retrieve the next set of results."
+        }
+      },
+      "type": "object"
+    },
+    "ListDevicesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListDevicesResponse": {
+      "properties": {
+        "Devices": {
+          "$ref": "#/definitions/__listOfDeviceDescription",
+          "description": "A list of devices."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token to retrieve the next set of results."
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 250,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PreconditionFailedException": {
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/__string",
+          "description": "412"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "An error message explaining the error or its remedy."
+        }
+      },
+      "type": "object"
+    },
+    "RangeNotSatisfiableException": {
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/__string",
+          "description": "416"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The requested number of results specified by nextToken cannot be\n satisfied."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceConflictException": {
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/__string",
+          "description": "409"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "An error message explaining the error or its remedy."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceNotFoundException": {
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/__string",
+          "description": "404"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The requested device could not be found."
+        }
+      },
+      "type": "object"
+    },
+    "UnclaimDeviceRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "UnclaimDeviceResponse": {
+      "properties": {
+        "State": {
+          "$ref": "#/definitions/__string",
+          "description": "The device's final claim state."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDeviceStateRequest": {
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If true, the device is enabled. If false, the device is\n disabled."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDeviceStateResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "__boolean": {
+      "type": "boolean"
+    },
+    "__double": {
+      "format": "double",
+      "type": "number"
+    },
+    "__doubleMin0Max100": {
+      "format": "double",
+      "type": "number"
+    },
+    "__integer": {
+      "type": "integer"
+    },
+    "__listOfDeviceDescription": {
+      "items": {
+        "$ref": "#/definitions/DeviceDescription"
+      },
+      "type": "array"
+    },
+    "__listOfDeviceEvent": {
+      "items": {
+        "$ref": "#/definitions/DeviceEvent"
+      },
+      "type": "array"
+    },
+    "__listOfDeviceMethod": {
+      "items": {
+        "$ref": "#/definitions/DeviceMethod"
+      },
+      "type": "array"
+    },
+    "__long": {
+      "type": "integer"
+    },
+    "__string": {
+      "type": "string"
+    },
+    "__stringMin12Max40": {
+      "maxLength": 40,
+      "minLength": 12,
+      "type": "string"
+    },
+    "__timestampIso8601": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "__timestampUnix": {
+      "format": "date-time",
+      "type": "string"
+    }
+  }
+}

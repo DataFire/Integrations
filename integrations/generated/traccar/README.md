@@ -613,6 +613,79 @@ traccar.groups.id.put({
 #### Output
 * output [Group](#group)
 
+### maintenances.get
+Without params, it returns a list of Maintenances the user has access to
+
+
+```js
+traccar.maintenances.get({}, context)
+```
+
+#### Input
+* input `object`
+  * all `boolean`: Can only be used by admins or managers to fetch all entities
+  * userId `integer`: Standard users can use this only with their own _userId_
+  * deviceId `integer`: Standard users can use this only with _deviceId_s, they have access to
+  * groupId `integer`: Standard users can use this only with _groupId_s, they have access to
+  * refresh `boolean`
+
+#### Output
+* output `array`
+  * items [Maintenance](#maintenance)
+
+### maintenances.post
+Create a Maintenance
+
+
+```js
+traccar.maintenances.post({
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [Maintenance](#maintenance)
+
+#### Output
+* output [Maintenance](#maintenance)
+
+### maintenances.id.delete
+Delete a Maintenance
+
+
+```js
+traccar.maintenances.id.delete({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`
+
+#### Output
+*Output schema unknown*
+
+### maintenances.id.put
+Update a Maintenance
+
+
+```js
+traccar.maintenances.id.put({
+  "id": 0,
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`
+  * body **required** [Maintenance](#maintenance)
+
+#### Output
+* output [Maintenance](#maintenance)
+
 ### notifications.get
 Without params, it returns a list of Notifications the user has access to
 
@@ -1080,6 +1153,7 @@ traccar.users.id.put({
 * Device `object`
   * category `string`
   * contact `string`
+  * disabled `boolean`
   * geofenceIds `array`
     * items `integer`
   * groupId `integer`
@@ -1108,6 +1182,7 @@ traccar.users.id.put({
   * deviceId `integer`
   * geofenceId `integer`
   * id `integer`
+  * maintenanceId `integer`
   * positionId `integer`
   * serverTime `string`: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
   * type `string`
@@ -1126,9 +1201,18 @@ traccar.users.id.put({
   * id `integer`
   * name `string`
 
+### Maintenance
+* Maintenance `object`
+  * id `integer`
+  * name `string`
+  * period `number`
+  * start `number`
+  * type `string`
+
 ### Notification
 * Notification `object`
   * always `boolean`
+  * calendarId `integer`
   * id `integer`
   * mail `boolean`
   * sms `boolean`
@@ -1224,6 +1308,7 @@ traccar.users.id.put({
   * longitude `number`
   * map `string`
   * mapUrl `string`
+  * poiLayer `string`
   * readonly `boolean`
   * registration `boolean`
   * twelveHourFormat `boolean`
@@ -1241,7 +1326,7 @@ traccar.users.id.put({
 
 ### User
 * User `object`
-  * admin `boolean`
+  * administrator `boolean`
   * coordinateFormat `string`
   * deviceLimit `integer`
   * deviceReadonly `boolean`
@@ -1255,6 +1340,7 @@ traccar.users.id.put({
   * map `string`
   * name `string`
   * password `string`
+  * poiLayer `string`
   * readonly `boolean`
   * token `string`
   * twelveHourFormat `boolean`

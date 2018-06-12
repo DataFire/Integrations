@@ -9,7 +9,7 @@
     "contact": {
       "email": "apiteam@twinehealth.com"
     },
-    "description": "# Overview\nThe Twine Health API is RESTful API. The requests and responses are formated according to the [JSON API](http://jsonapi.org/format/1.0/) specification.\n\nIn addition to this documentation, we also provide an [OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) \"yaml\" file describing the API: [Twine API Specification](swagger.yaml).\n\n# Authentication\nAuthentication for the Twine API is based on the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Twine currently supports grant types of **client_credentials** and **refresh_token**.\n\nSee [POST /oauth/token](#operation/createToken) for details on the request and response formats.\n<!-- ReDoc-Inject: <security-definitions> -->\n",
+    "description": "# Overview\nThe Twine Health API is RESTful API. The requests and responses are formated according to the [JSON API](http://jsonapi.org/format/1.0/) specification.\n\nIn addition to this documentation, we also provide an [OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) \"yaml\" file describing the API: [Twine API Specification](swagger.yaml).\n\n# Authentication\nAuthentication for the Twine API is based on the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Twine currently supports grant types of **client_credentials** and **refresh_token**.\n\nSee [POST /oauth/token](#operation/createToken) for details on the request and response formats.\n<!-- ReDoc-Inject: <security-definitions> -->\n\n# Paging\nThe Twine API supports two different pagination strategies for GET collection endpoints. \n\n#### Skip-based paging\n\nSkip-based paging uses the query parameters `page[size]` and `page[number]` to specify the max number of resources returned and the page number. We default to skip-based paging if there are no page parameters. The response will include a `links` object containing links to the first, last, prev, and next pages of data.\n\nIf the contents of the collection change while you are iterating through the collection, you will see duplicate or missing documents. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=1`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=2`, the first entry in the second response will be a duplicate of the last entry in the first response.\n\n#### Cursor-based paging\nCursor-based paging uses the query parameters `page[limit]` and `page[after]` to specify the max number of entries returned and identify where to begin the next page. Add `page[limit]` to the parameters to use cursor-based paging. The response will include a `links` object containing a link to the next page of data, if the next page exists. \n\nCursor-based paging is not subject to duplication if new resources are added to the collection. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[limit]=50`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, you will not see a duplicate entry when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[limit]=50&page[after]=<cursor>`. \n\nWe encourage the use of cursor-based paging for performance reasons. \n\nIn either form of paging, you can determine whether any resources were missed by comparing the number of fetched resources against `meta.count`. Set `page[size]` or `page[limit]` to 0 to get only the count.\n\nIt is not valid to mix the two strategies.\n",
     "title": "Twine",
     "version": "7.18.0",
     "x-apisguru-categories": [
@@ -82,6 +82,10 @@
     {
       "description": "A calendar event represents an event involving or relevant to a patient which will or has occurred on a specific date or during a specific period of time.",
       "name": "calendar event"
+    },
+    {
+      "description": "A calendar event response indicates the attendee's response to a calendar event.  Only `POST` for creation is allowed as the responses are updated into the corresponding calendar events.",
+      "name": "calendar event response"
     },
     {
       "description": "Email history represents a single email that was sent using twine.",
@@ -496,9 +500,26 @@
             "description": "Page size",
             "in": "query",
             "maximum": 50,
+            "minimum": 0,
             "name": "page[size]",
             "required": false,
             "type": "integer"
+          },
+          {
+            "default": 50,
+            "description": "Page limit",
+            "in": "query",
+            "minimum": 0,
+            "name": "page[limit]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page cursor",
+            "in": "query",
+            "name": "page[cursor]",
+            "required": false,
+            "type": "string"
           },
           {
             "description": "List of related resources to include in the response",
@@ -660,7 +681,7 @@
         ]
       },
       "patch": {
-        "description": "Update a calendar event for a patient. Attribute `all_day` must be true and `end_at` cannot be specified for `plan-check-in` event type. To mark a calendar event as 'completed', set `completed_at` and `completed_by` to desired values.  To mark a completed calendar event as 'not completed', set `completed_at` and `completed_by` to `null`.",
+        "description": "Update a calendar event for a patient. Attribute `all_day` must be true and `end_at` cannot be specified for `plan-check-in` event type. To mark a calendar event as 'completed', set `completed_at` and `completed_by` to desired values.  To mark a completed calendar event as 'not completed', set `completed_at` and `completed_by` to `null`. Attendees can be added or removed, but response status cannot be updated. Use the calendar event response api for response status updates instead.",
         "operationId": "updateCalendarEvent",
         "parameters": [
           {
@@ -708,6 +729,52 @@
         "summary": "Update a calendar event",
         "tags": [
           "calendar event"
+        ]
+      }
+    },
+    "/calendar_event_response": {
+      "post": {
+        "description": "Create a calendar event response for an attendee of a calendar event, the attendee can be a coach or patient.  Calendar event responses cannot be fetched, updated nor deleted.  Use calendar event api to fetch the response status for attendees.",
+        "operationId": "createCalendarEventResponse",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCalendarEventResponseRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateCalendarEventResponseRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          },
+          "409": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          }
+        },
+        "summary": "Create calendar event response",
+        "tags": [
+          "calendar event response"
         ]
       }
     },
@@ -1020,9 +1087,26 @@
             "description": "Page size",
             "in": "query",
             "maximum": 50,
+            "minimum": 0,
             "name": "page[size]",
             "required": false,
             "type": "integer"
+          },
+          {
+            "default": 50,
+            "description": "Page limit",
+            "in": "query",
+            "minimum": 0,
+            "name": "page[limit]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page cursor",
+            "in": "query",
+            "name": "page[cursor]",
+            "required": false,
+            "type": "string"
           },
           {
             "description": "List of related resources to include in the response",
@@ -1154,9 +1238,26 @@
             "description": "Page size",
             "in": "query",
             "maximum": 100,
+            "minimum": 0,
             "name": "page[size]",
             "required": false,
             "type": "integer"
+          },
+          {
+            "default": 50,
+            "description": "Page limit",
+            "in": "query",
+            "minimum": 0,
+            "name": "page[limit]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page cursor",
+            "in": "query",
+            "name": "page[cursor]",
+            "required": false,
+            "type": "string"
           },
           {
             "description": "List of related resources to include in the response",
@@ -1629,9 +1730,26 @@
             "description": "Page size",
             "in": "query",
             "maximum": 50,
+            "minimum": 0,
             "name": "page[size]",
             "required": false,
             "type": "integer"
+          },
+          {
+            "default": 50,
+            "description": "Page limit",
+            "in": "query",
+            "minimum": 0,
+            "name": "page[limit]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page cursor",
+            "in": "query",
+            "name": "page[cursor]",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1903,9 +2021,26 @@
             "description": "Page size",
             "in": "query",
             "maximum": 50,
+            "minimum": 0,
             "name": "page[size]",
             "required": false,
             "type": "integer"
+          },
+          {
+            "default": 50,
+            "description": "Page limit",
+            "in": "query",
+            "minimum": 0,
+            "name": "page[limit]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page cursor",
+            "in": "query",
+            "name": "page[cursor]",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3222,10 +3357,12 @@
           "all_day": true,
           "attendees": [
             {
+              "_id": "5ac7e74679f6868274a42e28",
               "response_status": "needsAction",
               "user": "5a0c8e27a9d454cc150997c9"
             },
             {
+              "_id": "5ac7e74679f6868274a42e27",
               "response_status": "needsAction",
               "user": "5a0c8e27a9d454cc150997f7"
             }
@@ -3390,6 +3527,144 @@
         "type": {
           "enum": [
             "calendar_event"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CalendarEventResponseResource": {
+      "example": {
+        "attributes": {
+          "attendee": "5ac7e74679f6868274a42e28",
+          "response_status": "accepted"
+        },
+        "id": "5ad0f966ceb0909e4bfa84dd",
+        "links": {
+          "self": "/pub/calendar_event_response/5ad0f966ceb0909e4bfa84dd"
+        },
+        "relationships": {
+          "calendar_event": {
+            "data": {
+              "id": "5755db2a3db4179179999acf",
+              "type": "calendar_event"
+            },
+            "links": {
+              "related": "/pub/calendar_event_response/5ad0f966ceb0909e4bfa84dd/calendar_event"
+            }
+          },
+          "user": {
+            "data": {
+              "id": "5a0c8e27a9d454cc150997f7",
+              "type": "user"
+            },
+            "links": {
+              "related": "/pub/calendar_event_response/5ad0f966ceb0909e4bfa84dd/user"
+            }
+          }
+        },
+        "type": "calendar_event_response"
+      },
+      "properties": {
+        "attributes": {
+          "properties": {
+            "attendee": {
+              "description": "The attendee in the attendees list of the calendar event.",
+              "type": "object"
+            },
+            "response_status": {
+              "description": "The response status for the attendee.",
+              "enum": [
+                "accepted",
+                "declined",
+                "tentative"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "properties": {
+            "self": {
+              "example": "/calendar_event_response/5ad0f966ceb0909e4bfa84dd",
+              "pattern": "/calendar_event_response/[0-9a-z]+",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "relationships": {
+          "properties": {
+            "calendar_event": {
+              "description": "The calendar_event is the calendar event for which the calendar event response is created specificially for",
+              "properties": {
+                "data": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "links": {
+                  "properties": {
+                    "related": {
+                      "example": "/pub/calendar_event_response/5ad0f966ceb0909e4bfa84dd/calendar_event",
+                      "pattern": "/pub/calendar_event_response/[0-9a-z]+",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "data"
+              ],
+              "type": "object"
+            },
+            "user": {
+              "description": "The user is the coach or patient for whom the calendar event response is created specificially for",
+              "properties": {
+                "data": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "links": {
+                  "properties": {
+                    "related": {
+                      "example": "/pub/calendar_event_response/5ad0f966ceb0909e4bfa84dd/user",
+                      "pattern": "/pub/calendar_event_response/[0-9a-z]+",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "data"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "calendar_event_response"
           ],
           "type": "string"
         }
@@ -3734,6 +4009,88 @@
           "$ref": "#/definitions/CreateOrUpdateMetaResponse"
         }
       },
+      "type": "object"
+    },
+    "CreateCalendarEventResponseRequest": {
+      "example": {
+        "data": {
+          "attributes": {
+            "attendee": "5ac7e74679f6868274a42e28",
+            "response_status": "accepted"
+          },
+          "relationships": {
+            "calendar_event": {
+              "data": {
+                "id": "5755db2a3db4179179999acf",
+                "type": "calendar_event"
+              }
+            },
+            "user": {
+              "data": {
+                "id": "5a0c8e27a9d454cc150997f7",
+                "type": "user"
+              }
+            }
+          },
+          "type": "calendar_event_response"
+        }
+      },
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/CalendarEventResponseResource/properties/attributes"
+                }
+              ],
+              "required": [
+                "attendee",
+                "response_status"
+              ]
+            },
+            "relationships": {
+              "properties": {
+                "calendar_event": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/CalendarEventResponseResource/properties/relationships/properties/calendar_event/properties/data"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "type": "object"
+                },
+                "user": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/CalendarEventResponseResource/properties/relationships/properties/user/properties/data"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "$ref": "#/definitions/CalendarEventResponseResource/properties/type"
+            }
+          },
+          "required": [
+            "type",
+            "attributes",
+            "relationships"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
       "type": "object"
     },
     "CreateGroupRequest": {
@@ -5625,7 +5982,13 @@
       "properties": {
         "attributes": {
           "properties": {
+            "bio": {
+              "description": "A description of the group",
+              "example": "Team Health is all about the patient experience.",
+              "type": "string"
+            },
             "name": {
+              "description": "The name of the group",
               "example": "Team Health",
               "type": "string"
             }
@@ -6573,8 +6936,6 @@
                 "peak_expiratory_flow_rate",
                 "peripheral_perfusion_index",
                 "respiratory_rate",
-                "sleep_analysis_asleep",
-                "sleep_analysis_in_bed",
                 "inhaler_usage"
               ],
               "type": "string"
@@ -8090,6 +8451,7 @@
         "action",
         "bundle",
         "calendar event",
+        "calendar event response",
         "email history",
         "health profile",
         "health profile answer",

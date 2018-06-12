@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/schedule.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/schedule.json",
         "version": "2.0"
       }
     ],
@@ -67,12 +67,15 @@
         "operationId": "Schedule_ListByAutomationAccount",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -112,11 +115,13 @@
                     "description": "Definition of the schedule.",
                     "properties": {
                       "id": {
-                        "description": "Gets or sets the id of the resource.",
+                        "description": "Gets the id of the resource.",
+                        "readOnly": true,
                         "type": "string"
                       },
                       "name": {
-                        "description": "Gets or sets the name of the schedule.",
+                        "description": "Gets name of the schedule.",
+                        "readOnly": true,
                         "type": "string"
                       },
                       "properties": {
@@ -129,7 +134,8 @@
                                 "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                                 "items": {
                                   "format": "int32",
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "x-nullable": false
                                 },
                                 "type": "array"
                               },
@@ -139,7 +145,7 @@
                                   "description": "The properties of the create advanced schedule monthly occurrence.",
                                   "properties": {
                                     "day": {
-                                      "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                      "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                       "enum": [
                                         "Monday",
                                         "Tuesday",
@@ -176,7 +182,8 @@
                           "creationTime": {
                             "description": "Gets or sets the creation time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "description": {
                             "description": "Gets or sets the description.",
@@ -185,12 +192,14 @@
                           "expiryTime": {
                             "description": "Gets or sets the end time of the schedule.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": true
                           },
                           "expiryTimeOffsetMinutes": {
                             "description": "Gets or sets the expiry time's offset in minutes.",
                             "format": "double",
-                            "type": "number"
+                            "type": "number",
+                            "x-nullable": false
                           },
                           "frequency": {
                             "description": "Gets or sets the frequency of the schedule.",
@@ -218,34 +227,44 @@
                           "lastModifiedTime": {
                             "description": "Gets or sets the last modified time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "nextRun": {
                             "description": "Gets or sets the next run time of the schedule.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": true
                           },
                           "nextRunOffsetMinutes": {
                             "description": "Gets or sets the next run time's offset in minutes.",
                             "format": "double",
-                            "type": "number"
+                            "type": "number",
+                            "x-nullable": false
                           },
                           "startTime": {
                             "description": "Gets or sets the start time of the schedule.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "startTimeOffsetMinutes": {
                             "description": "Gets the start time's offset in minutes.",
                             "format": "double",
                             "readOnly": true,
-                            "type": "number"
+                            "type": "number",
+                            "x-nullable": false
                           },
                           "timeZone": {
                             "description": "Gets or sets the time zone of the schedule.",
                             "type": "string"
                           }
                         }
+                      },
+                      "type": {
+                        "description": "Resource type",
+                        "readOnly": true,
+                        "type": "string"
                       }
                     }
                   },
@@ -3689,12 +3708,15 @@
         "operationId": "Schedule_Delete",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -3777,12 +3799,15 @@
         "operationId": "Schedule_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -3820,11 +3845,13 @@
               "description": "Definition of the schedule.",
               "properties": {
                 "id": {
-                  "description": "Gets or sets the id of the resource.",
+                  "description": "Gets the id of the resource.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "name": {
-                  "description": "Gets or sets the name of the schedule.",
+                  "description": "Gets name of the schedule.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "properties": {
@@ -3837,7 +3864,8 @@
                           "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                           "items": {
                             "format": "int32",
-                            "type": "integer"
+                            "type": "integer",
+                            "x-nullable": false
                           },
                           "type": "array"
                         },
@@ -3847,7 +3875,7 @@
                             "description": "The properties of the create advanced schedule monthly occurrence.",
                             "properties": {
                               "day": {
-                                "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                 "enum": [
                                   "Monday",
                                   "Tuesday",
@@ -3884,7 +3912,8 @@
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -3893,12 +3922,14 @@
                     "expiryTime": {
                       "description": "Gets or sets the end time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "expiryTimeOffsetMinutes": {
                       "description": "Gets or sets the expiry time's offset in minutes.",
                       "format": "double",
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "frequency": {
                       "description": "Gets or sets the frequency of the schedule.",
@@ -3926,34 +3957,44 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "nextRun": {
                       "description": "Gets or sets the next run time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "nextRunOffsetMinutes": {
                       "description": "Gets or sets the next run time's offset in minutes.",
                       "format": "double",
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "startTime": {
                       "description": "Gets or sets the start time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "startTimeOffsetMinutes": {
                       "description": "Gets the start time's offset in minutes.",
                       "format": "double",
                       "readOnly": true,
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "timeZone": {
                       "description": "Gets or sets the time zone of the schedule.",
                       "type": "string"
                     }
                   }
+                },
+                "type": {
+                  "description": "Resource type",
+                  "readOnly": true,
+                  "type": "string"
                 }
               }
             }
@@ -3994,6 +4035,7 @@
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/schedules/mySchedule",
                   "name": "mySchedule",
                   "properties": {
+                    "advancedSchedule": null,
                     "creationTime": "2017-03-27T16:59:22.697+00:00",
                     "description": "my description of schedule goes here",
                     "expiryTime": "2017-04-01T17:28:00+00:00",
@@ -4023,12 +4065,15 @@
         "operationId": "Schedule_Update",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -4069,10 +4114,7 @@
                     }
                   }
                 }
-              },
-              "required": [
-                "name"
-              ]
+              }
             }
           },
           {
@@ -4097,11 +4139,13 @@
               "description": "Definition of the schedule.",
               "properties": {
                 "id": {
-                  "description": "Gets or sets the id of the resource.",
+                  "description": "Gets the id of the resource.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "name": {
-                  "description": "Gets or sets the name of the schedule.",
+                  "description": "Gets name of the schedule.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "properties": {
@@ -4114,7 +4158,8 @@
                           "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                           "items": {
                             "format": "int32",
-                            "type": "integer"
+                            "type": "integer",
+                            "x-nullable": false
                           },
                           "type": "array"
                         },
@@ -4124,7 +4169,7 @@
                             "description": "The properties of the create advanced schedule monthly occurrence.",
                             "properties": {
                               "day": {
-                                "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                 "enum": [
                                   "Monday",
                                   "Tuesday",
@@ -4161,7 +4206,8 @@
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -4170,12 +4216,14 @@
                     "expiryTime": {
                       "description": "Gets or sets the end time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "expiryTimeOffsetMinutes": {
                       "description": "Gets or sets the expiry time's offset in minutes.",
                       "format": "double",
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "frequency": {
                       "description": "Gets or sets the frequency of the schedule.",
@@ -4203,34 +4251,44 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "nextRun": {
                       "description": "Gets or sets the next run time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "nextRunOffsetMinutes": {
                       "description": "Gets or sets the next run time's offset in minutes.",
                       "format": "double",
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "startTime": {
                       "description": "Gets or sets the start time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "startTimeOffsetMinutes": {
                       "description": "Gets the start time's offset in minutes.",
                       "format": "double",
                       "readOnly": true,
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "timeZone": {
                       "description": "Gets or sets the time zone of the schedule.",
                       "type": "string"
                     }
                   }
+                },
+                "type": {
+                  "description": "Resource type",
+                  "readOnly": true,
+                  "type": "string"
                 }
               }
             }
@@ -4278,6 +4336,7 @@
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/schedules/mySchedule",
                   "name": "mySchedule",
                   "properties": {
+                    "advancedSchedule": null,
                     "creationTime": "2017-03-27T16:59:22.697+00:00",
                     "description": "my updated description of schedule goes here",
                     "expiryTime": "2017-04-01T17:28:00+00:00",
@@ -4307,12 +4366,15 @@
         "operationId": "Schedule_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -4350,7 +4412,8 @@
                           "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                           "items": {
                             "format": "int32",
-                            "type": "integer"
+                            "type": "integer",
+                            "x-nullable": false
                           },
                           "type": "array"
                         },
@@ -4360,7 +4423,7 @@
                             "description": "The properties of the create advanced schedule monthly occurrence.",
                             "properties": {
                               "day": {
-                                "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                 "enum": [
                                   "Monday",
                                   "Tuesday",
@@ -4401,7 +4464,8 @@
                     "expiryTime": {
                       "description": "Gets or sets the end time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "frequency": {
                       "description": "Gets or sets the frequency of the schedule.",
@@ -4424,7 +4488,8 @@
                     "startTime": {
                       "description": "Gets or sets the start time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "timeZone": {
                       "description": "Gets or sets the time zone of the schedule.",
@@ -4465,11 +4530,13 @@
               "description": "Definition of the schedule.",
               "properties": {
                 "id": {
-                  "description": "Gets or sets the id of the resource.",
+                  "description": "Gets the id of the resource.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "name": {
-                  "description": "Gets or sets the name of the schedule.",
+                  "description": "Gets name of the schedule.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "properties": {
@@ -4482,7 +4549,8 @@
                           "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
                           "items": {
                             "format": "int32",
-                            "type": "integer"
+                            "type": "integer",
+                            "x-nullable": false
                           },
                           "type": "array"
                         },
@@ -4492,7 +4560,7 @@
                             "description": "The properties of the create advanced schedule monthly occurrence.",
                             "properties": {
                               "day": {
-                                "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.",
+                                "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
                                 "enum": [
                                   "Monday",
                                   "Tuesday",
@@ -4529,7 +4597,8 @@
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -4538,12 +4607,14 @@
                     "expiryTime": {
                       "description": "Gets or sets the end time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "expiryTimeOffsetMinutes": {
                       "description": "Gets or sets the expiry time's offset in minutes.",
                       "format": "double",
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "frequency": {
                       "description": "Gets or sets the frequency of the schedule.",
@@ -4571,34 +4642,44 @@
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "nextRun": {
                       "description": "Gets or sets the next run time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "nextRunOffsetMinutes": {
                       "description": "Gets or sets the next run time's offset in minutes.",
                       "format": "double",
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "startTime": {
                       "description": "Gets or sets the start time of the schedule.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "startTimeOffsetMinutes": {
                       "description": "Gets the start time's offset in minutes.",
                       "format": "double",
                       "readOnly": true,
-                      "type": "number"
+                      "type": "number",
+                      "x-nullable": false
                     },
                     "timeZone": {
                       "description": "Gets or sets the time zone of the schedule.",
                       "type": "string"
                     }
                   }
+                },
+                "type": {
+                  "description": "Resource type",
+                  "readOnly": true,
+                  "type": "string"
                 }
               }
             }
@@ -4653,6 +4734,7 @@
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/schedules/mySchedule",
                   "name": "mySchedule",
                   "properties": {
+                    "advancedSchedule": null,
                     "creationTime": "2017-03-27T16:59:22.697+00:00",
                     "description": "my description of schedule goes here",
                     "expiryTime": "2017-04-01T17:28:00+00:00",

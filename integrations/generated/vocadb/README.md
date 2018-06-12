@@ -137,6 +137,44 @@ vocadb.AlbumApi_GetNames({}, context)
 * output `array`
   * items `string`
 
+### AlbumApi_GetNewAlbums
+Output is cached for 1 hour.
+
+
+```js
+vocadb.AlbumApi_GetNewAlbums({}, context)
+```
+
+#### Input
+* input `object`
+  * languagePreference `string` (values: Default, Japanese, Romaji, English)
+  * fields `string` (values: None, AdditionalNames, Artists, Description, Discs, Identifiers, MainPicture, Names, PVs, ReleaseEvent, Tags, Tracks, WebLinks)
+
+#### Output
+* output `array`
+  * items [AlbumForApiContract](#albumforapicontract)
+
+### AlbumApi_GetTopAlbums
+Output is cached for 1 hour.
+
+
+```js
+vocadb.AlbumApi_GetTopAlbums({
+  "ignoreIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ignoreIds **required** `array`
+    * items `integer`
+  * languagePreference `string` (values: Default, Japanese, Romaji, English)
+  * fields `string` (values: None, AdditionalNames, Artists, Description, Discs, Identifiers, MainPicture, Names, PVs, ReleaseEvent, Tags, Tracks, WebLinks)
+
+#### Output
+* output `array`
+  * items [AlbumForApiContract](#albumforapicontract)
+
 ### AlbumApi_Delete
 Deletes an album.
 
@@ -790,6 +828,7 @@ vocadb.ReleaseEventSeriesApi_Delete({
 * input `object`
   * id **required** `integer`: ID of the series to be deleted.
   * notes `string`: Notes.
+  * hardDelete `boolean`: If true, the entry is hard deleted. Hard deleted entries cannot be restored normally, but they will be moved to trash.
 
 #### Output
 *Output schema unknown*
@@ -1245,6 +1284,23 @@ vocadb.SongApi_PostEditComment({
 #### Output
 *Output schema unknown*
 
+### SongApi_GetHighlightedSongs
+Output is cached for 1 hour.
+
+
+```js
+vocadb.SongApi_GetHighlightedSongs({}, context)
+```
+
+#### Input
+* input `object`
+  * languagePreference `string` (values: Default, Japanese, Romaji, English)
+  * fields `string` (values: None, AdditionalNames, Albums, Artists, Lyrics, MainPicture, Names, PVs, ReleaseEvent, Tags, ThumbUrl, WebLinks)
+
+#### Output
+* output `array`
+  * items [SongForApiContract](#songforapicontract)
+
 ### SongApi_GetLyrics
 Output is cached. Specify song version as parameter to refresh.
 
@@ -1608,6 +1664,7 @@ vocadb.TagApi_GetTopTags({}, context)
 #### Input
 * input `object`
   * categoryName `string`: Tag category, for example "Genres". Optional - if not specified, no filtering is done.
+  * maxResults `integer`: Maximum number of tags to return.
   * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
 
 #### Output
@@ -2052,7 +2109,7 @@ vocadb.UserApi_GetFollowedArtists({
 * input `object`
   * id **required** `integer`: ID of the user whose followed artists are to be browsed.
   * query `string`: Artist name query (optional).
-  * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band): Filter by artist type.
+  * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band, Vocalist, Character): Filter by artist type.
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).
   * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
@@ -2315,6 +2372,7 @@ vocadb.UserApi_GetSongLists({
   * createDate `string`
   * defaultName `string`
   * defaultNameLanguage `string` (values: Unspecified, Japanese, Romaji, English)
+  * deleted `boolean`
   * description `string`
   * discType `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Game, Fanmade, Instrumental, Other)
   * discs `array`
@@ -2370,7 +2428,7 @@ vocadb.UserApi_GetSongLists({
 ### ArtistContract
 * ArtistContract `object`
   * additionalNames `string`
-  * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band)
+  * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band, Vocalist, Character)
   * deleted `boolean`
   * id `integer`
   * name `string`
@@ -2382,7 +2440,7 @@ vocadb.UserApi_GetSongLists({
 ### ArtistForAlbumForApiContract
 * ArtistForAlbumForApiContract `object`
   * artist [ArtistContract](#artistcontract)
-  * categories `string` (values: Nothing, Vocalist, Producer, Animator, Label, Circle, Other, Band, Illustrator)
+  * categories `string` (values: Nothing, Vocalist, Producer, Animator, Label, Circle, Other, Band, Illustrator, Subject)
   * effectiveRoles `string` (values: Default, Animator, Arranger, Composer, Distributor, Illustrator, Instrumentalist, Lyricist, Mastering, Publisher, Vocalist, VoiceManipulator, Other, Mixer, Chorus, Encoder, VocalDataProvider)
   * isSupport `boolean`
   * name `string`
@@ -2395,7 +2453,7 @@ vocadb.UserApi_GetSongLists({
     * items [ArtistForArtistForApiContract](#artistforartistforapicontract)
   * artistLinksReverse `array`
     * items [ArtistForArtistForApiContract](#artistforartistforapicontract)
-  * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band)
+  * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band, Vocalist, Character)
   * baseVoicebank [ArtistContract](#artistcontract)
   * createDate `string`
   * defaultName `string`
@@ -2433,9 +2491,10 @@ vocadb.UserApi_GetSongLists({
 ### ArtistForSongContract
 * ArtistForSongContract `object`
   * artist [ArtistContract](#artistcontract)
-  * categories `string` (values: Nothing, Vocalist, Producer, Animator, Label, Circle, Other, Band, Illustrator)
+  * categories `string` (values: Nothing, Vocalist, Producer, Animator, Label, Circle, Other, Band, Illustrator, Subject)
   * effectiveRoles `string` (values: Default, Animator, Arranger, Composer, Distributor, Illustrator, Instrumentalist, Lyricist, Mastering, Publisher, Vocalist, VoiceManipulator, Other, Mixer, Chorus, Encoder, VocalDataProvider)
   * id `integer`
+  * isCustomName `boolean`
   * isSupport `boolean`
   * name `string`
   * roles `string` (values: Default, Animator, Arranger, Composer, Distributor, Illustrator, Instrumentalist, Lyricist, Mastering, Publisher, Vocalist, VoiceManipulator, Other, Mixer, Chorus, Encoder, VocalDataProvider)
@@ -2447,13 +2506,13 @@ vocadb.UserApi_GetSongLists({
 ### ArtistRelationsForApi
 * ArtistRelationsForApi `object`
   * latestAlbums `array`
-    * items [AlbumContract](#albumcontract)
+    * items [AlbumForApiContract](#albumforapicontract)
   * latestEvents `array`
     * items [ReleaseEventForApiContract](#releaseeventforapicontract)
   * latestSongs `array`
     * items [SongForApiContract](#songforapicontract)
   * popularAlbums `array`
-    * items [AlbumContract](#albumcontract)
+    * items [AlbumForApiContract](#albumforapicontract)
   * popularSongs `array`
     * items [SongForApiContract](#songforapicontract)
 
@@ -2499,7 +2558,7 @@ vocadb.UserApi_GetSongLists({
   * activityDate `string`
   * additionalNames `string`
   * artistString `string`
-  * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band)
+  * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band, Vocalist, Character)
   * createDate `string`
   * defaultName `string`
   * defaultNameLanguage `string` (values: Unspecified, Japanese, Romaji, English)
@@ -2516,7 +2575,7 @@ vocadb.UserApi_GetSongLists({
     * items [PVContract](#pvcontract)
   * releaseEventSeriesName `string`
   * songListFeaturedCategory `string` (values: Nothing, Concerts, VocaloidRanking, Pools, Other)
-  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
+  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Arrangement, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
   * status `string` (values: Draft, Finished, Approved, Locked)
   * tagCategoryName `string`
   * tags `array`
@@ -2540,6 +2599,7 @@ vocadb.UserApi_GetSongLists({
 
 ### EntryThumbForApiContract
 * EntryThumbForApiContract `object`
+  * mime `string`
   * urlSmallThumb `string`
   * urlThumb `string`
   * urlTinyThumb `string`
@@ -2811,7 +2871,7 @@ vocadb.UserApi_GetSongLists({
   * publishDate `string`
   * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga)
   * ratingScore `integer`
-  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
+  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Arrangement, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
   * status `string` (values: Draft, Finished, Approved, Locked)
   * thumbUrl `string`
   * version `integer`
@@ -2844,7 +2904,7 @@ vocadb.UserApi_GetSongLists({
     * items [PVContract](#pvcontract)
   * ratingScore `integer`
   * releaseEvent [ReleaseEventForApiContract](#releaseeventforapicontract)
-  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
+  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Arrangement, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
   * status `string` (values: Draft, Finished, Approved, Locked)
   * tags `array`
     * items [TagUsageForApiContract](#tagusageforapicontract)

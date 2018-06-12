@@ -21,7 +21,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/preview/2017-05-15-preview/softwareUpdateConfigurationMachineRun.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/preview/2017-05-15-preview/softwareUpdateConfigurationMachineRun.json",
         "version": "2.0"
       }
     ],
@@ -78,19 +78,23 @@
             "type": "string"
           },
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Client Api Version.",
@@ -104,7 +108,8 @@
             "in": "header",
             "name": "clientRequestId",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The filter to apply on the operation. You can use the following filters: 'properties/osType', 'properties/status', 'properties/startTime', and 'properties/softwareUpdateConfiguration/name'",
@@ -176,13 +181,15 @@
                             "description": "Creation time of theresource, which only appears in the response.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "endTime": {
                             "description": "End time of the software update configuration machine run.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": true
                           },
                           "job": {
                             "description": "Software update configuration machine run job navigation properties.",
@@ -204,7 +211,8 @@
                             "description": "Last time resource was modified, which only appears in the response.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "osType": {
                             "description": "Operating system target of the software update configuration triggered this run",
@@ -232,7 +240,8 @@
                             "description": "Start time of the software update configuration machine run.",
                             "format": "date-time",
                             "readOnly": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "status": {
                             "description": "Status of the software update configuration machine run.",
@@ -262,6 +271,23 @@
           },
           "404": {
             "description": "Resource group, or account doesn't exist."
+          },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "schema": {
+              "description": "Error response of an operation failure",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -420,19 +446,23 @@
             "type": "string"
           },
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The Id of the software update configuration machine run.",
@@ -454,7 +484,8 @@
             "in": "header",
             "name": "clientRequestId",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           }
         ],
         "responses": {
@@ -496,13 +527,15 @@
                       "description": "Creation time of theresource, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "endTime": {
                       "description": "End time of the software update configuration machine run.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "job": {
                       "description": "Software update configuration machine run job navigation properties.",
@@ -524,7 +557,8 @@
                       "description": "Last time resource was modified, which only appears in the response.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "osType": {
                       "description": "Operating system target of the software update configuration triggered this run",
@@ -552,7 +586,8 @@
                       "description": "Start time of the software update configuration machine run.",
                       "format": "date-time",
                       "readOnly": true,
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "status": {
                       "description": "Status of the software update configuration machine run.",
@@ -578,6 +613,23 @@
           },
           "404": {
             "description": "Resource group, account, or software update configuration machine run doesn't exist."
+          },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "schema": {
+              "description": "Error response of an operation failure",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [

@@ -256,15 +256,15 @@
             }
           },
           "480": {
-            "description": "UnprocessableEntityException",
-            "schema": {
-              "$ref": "#/definitions/UnprocessableEntityException"
-            }
-          },
-          "481": {
             "description": "BadRequestException",
             "schema": {
               "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
             }
           },
           "482": {
@@ -509,15 +509,15 @@
             }
           },
           "480": {
-            "description": "UnprocessableEntityException",
-            "schema": {
-              "$ref": "#/definitions/UnprocessableEntityException"
-            }
-          },
-          "481": {
             "description": "BadRequestException",
             "schema": {
               "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
             }
           },
           "482": {
@@ -1097,7 +1097,77 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "put": {
+        "description": "Update an Input Security Group's Whilelists.",
+        "operationId": "UpdateInputSecurityGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateInputSecurityGroupRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "inputSecurityGroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateInputSecurityGroupResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "485": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      }
     },
     "/prod/inputs": {
       "get": {
@@ -1435,7 +1505,77 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "put": {
+        "description": "Updates an input.",
+        "operationId": "UpdateInput",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateInputRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "inputId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateInputResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "485": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1607,7 +1747,7 @@
           "description": "Dolby Digital coding mode. Determines number of channels."
         },
         "Dialnorm": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max31",
           "description": "Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through."
         },
         "DrcProfile": {
@@ -1660,10 +1800,13 @@
           "description": "A directory and base filename where archive files should be written.  If the base filename portion of the URI is left blank, the base filename of the first input will be automatically inserted."
         },
         "RolloverInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1",
           "description": "Number of seconds to write to archive file before closing and starting a new one."
         }
       },
+      "required": [
+        "Destination"
+      ],
       "type": "object"
     },
     "ArchiveOutputSettings": {
@@ -1682,6 +1825,9 @@
           "description": "String concatenated to the end of the destination filename.  Required for multiple outputs of the same type."
         }
       },
+      "required": [
+        "ContainerSettings"
+      ],
       "type": "object"
     },
     "AribDestinationSettings": {
@@ -1698,14 +1844,18 @@
       "description": "Placeholder documentation for AudioChannelMapping",
       "properties": {
         "InputChannelLevels": {
-          "$ref": "#/definitions/ListOfInputChannelLevel",
+          "$ref": "#/definitions/__listOfInputChannelLevel",
           "description": "Indices and gain values for each input channel that should be remixed into this output channel."
         },
         "OutputChannel": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max7",
           "description": "The index of the output channel being produced."
         }
       },
+      "required": [
+        "OutputChannel",
+        "InputChannelLevels"
+      ],
       "type": "object"
     },
     "AudioCodecSettings": {
@@ -1753,7 +1903,7 @@
           "description": "Audio codec settings."
         },
         "LanguageCode": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin3Max3",
           "description": "Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input."
         },
         "LanguageCodeControl": {
@@ -1773,6 +1923,10 @@
           "description": "Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary)."
         }
       },
+      "required": [
+        "AudioSelectorName",
+        "Name"
+      ],
       "type": "object"
     },
     "AudioDescriptionAudioTypeControl": {
@@ -1803,6 +1957,9 @@
           "description": "When set to \"strict\", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If \"loose\", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language."
         }
       },
+      "required": [
+        "LanguageCode"
+      ],
       "type": "object"
     },
     "AudioLanguageSelectionPolicy": {
@@ -1840,7 +1997,7 @@
           "description": "When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted."
         },
         "TargetLkfs": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMinNegative59Max0",
           "description": "Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS."
         }
       },
@@ -1878,10 +2035,13 @@
       "description": "Placeholder documentation for AudioPidSelection",
       "properties": {
         "Pid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max8191",
           "description": "Selects a specific PID from within a source."
         }
       },
+      "required": [
+        "Pid"
+      ],
       "type": "object"
     },
     "AudioSelector": {
@@ -1896,6 +2056,9 @@
           "description": "The audio selector settings."
         }
       },
+      "required": [
+        "Name"
+      ],
       "type": "object"
     },
     "AudioSelectorSettings": {
@@ -1917,6 +2080,14 @@
         "HEARING_IMPAIRED",
         "UNDEFINED",
         "VISUAL_IMPAIRED_COMMENTARY"
+      ],
+      "type": "string"
+    },
+    "AuthenticationScheme": {
+      "description": "Placeholder documentation for AuthenticationScheme",
+      "enum": [
+        "AKAMAI",
+        "COMMON"
       ],
       "type": "string"
     },
@@ -1998,7 +2169,7 @@
           "description": "Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster."
         },
         "NetworkId": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin34Max34",
           "description": "Provides Network ID that matches EIDR ID format (e.g., \"10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C\")."
         },
         "State": {
@@ -2054,7 +2225,7 @@
           "description": "Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match."
         },
         "BackgroundOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match."
         },
         "Font": {
@@ -2066,11 +2237,11 @@
           "description": "Specifies the color of the burned-in captions.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match."
         },
         "FontOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.  All burn-in and DVB-Sub font settings must match."
         },
         "FontResolution": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin96Max600",
           "description": "Font resolution in DPI (dots per inch); default is 96 dpi.  All burn-in and DVB-Sub font settings must match."
         },
         "FontSize": {
@@ -2082,7 +2253,7 @@
           "description": "Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         },
         "OutlineSize": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max10",
           "description": "Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         },
         "ShadowColor": {
@@ -2090,7 +2261,7 @@
           "description": "Specifies the color of the shadow cast by the captions.  All burn-in and DVB-Sub font settings must match."
         },
         "ShadowOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match."
         },
         "ShadowXOffset": {
@@ -2106,11 +2277,11 @@
           "description": "Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs."
         },
         "XPosition": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter.  All burn-in and DVB-Sub font settings must match."
         },
         "YPosition": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output.  All burn-in and DVB-Sub font settings must match."
         }
       },
@@ -2181,6 +2352,10 @@
           "description": "Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event."
         }
       },
+      "required": [
+        "CaptionSelectorName",
+        "Name"
+      ],
       "type": "object"
     },
     "CaptionDestinationSettings": {
@@ -2200,6 +2375,9 @@
         },
         "EmbeddedPlusScte20DestinationSettings": {
           "$ref": "#/definitions/EmbeddedPlusScte20DestinationSettings"
+        },
+        "RtmpCaptionInfoDestinationSettings": {
+          "$ref": "#/definitions/RtmpCaptionInfoDestinationSettings"
         },
         "Scte20PlusEmbeddedDestinationSettings": {
           "$ref": "#/definitions/Scte20PlusEmbeddedDestinationSettings"
@@ -2226,18 +2404,23 @@
       "description": "Maps a caption channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2), with an optional description.",
       "properties": {
         "CaptionChannel": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max4",
           "description": "The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)"
         },
         "LanguageCode": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin3Max3",
           "description": "Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)"
         },
         "LanguageDescription": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1",
           "description": "Textual description of language"
         }
       },
+      "required": [
+        "LanguageCode",
+        "LanguageDescription",
+        "CaptionChannel"
+      ],
       "type": "object"
     },
     "CaptionSelector": {
@@ -2256,6 +2439,9 @@
           "description": "Caption selector settings."
         }
       },
+      "required": [
+        "Name"
+      ],
       "type": "object"
     },
     "CaptionSelectorSettings": {
@@ -2290,11 +2476,11 @@
           "description": "The unique arn of the channel."
         },
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination",
+          "$ref": "#/definitions/__listOfOutputDestination",
           "description": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n"
         },
         "EgressEndpoints": {
-          "$ref": "#/definitions/ListOfChannelEgressEndpoint",
+          "$ref": "#/definitions/__listOfChannelEgressEndpoint",
           "description": "The endpoints where outgoing connections initiate from"
         },
         "EncoderSettings": {
@@ -2305,11 +2491,15 @@
           "description": "The unique id of the channel."
         },
         "InputAttachments": {
-          "$ref": "#/definitions/ListOfInputAttachment",
+          "$ref": "#/definitions/__listOfInputAttachment",
           "description": "List of input attachments for channel."
         },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level being written to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -2336,7 +2526,7 @@
           "$ref": "#/definitions/__string"
         },
         "ValidationErrors": {
-          "$ref": "#/definitions/ListOfValidationError",
+          "$ref": "#/definitions/__listOfValidationError",
           "description": "A collection of validation error responses from attempting to create a channel with a bouquet of settings."
         }
       },
@@ -2375,11 +2565,11 @@
           "description": "The unique arn of the channel."
         },
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination",
+          "$ref": "#/definitions/__listOfOutputDestination",
           "description": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n"
         },
         "EgressEndpoints": {
-          "$ref": "#/definitions/ListOfChannelEgressEndpoint",
+          "$ref": "#/definitions/__listOfChannelEgressEndpoint",
           "description": "The endpoints where outgoing connections initiate from"
         },
         "Id": {
@@ -2387,11 +2577,15 @@
           "description": "The unique id of the channel."
         },
         "InputAttachments": {
-          "$ref": "#/definitions/ListOfInputAttachment",
+          "$ref": "#/definitions/__listOfInputAttachment",
           "description": "List of input attachments for channel."
         },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level being written to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -2424,18 +2618,22 @@
       "description": "Placeholder documentation for CreateChannel",
       "properties": {
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination"
+          "$ref": "#/definitions/__listOfOutputDestination"
         },
         "EncoderSettings": {
           "$ref": "#/definitions/EncoderSettings"
         },
         "InputAttachments": {
-          "$ref": "#/definitions/ListOfInputAttachment",
+          "$ref": "#/definitions/__listOfInputAttachment",
           "description": "List of input attachments for channel."
         },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification",
           "description": "Specification of input for this channel (max. bitrate, resolution, codec, etc.)"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level to write to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -2460,18 +2658,22 @@
       "description": "A request to create a channel",
       "properties": {
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination"
+          "$ref": "#/definitions/__listOfOutputDestination"
         },
         "EncoderSettings": {
           "$ref": "#/definitions/EncoderSettings"
         },
         "InputAttachments": {
-          "$ref": "#/definitions/ListOfInputAttachment",
+          "$ref": "#/definitions/__listOfInputAttachment",
           "description": "List of input attachments for channel."
         },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification",
           "description": "Specification of input for this channel (max. bitrate, resolution, codec, etc.)"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level to write to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -2514,11 +2716,11 @@
       "description": "Placeholder documentation for CreateInput",
       "properties": {
         "Destinations": {
-          "$ref": "#/definitions/ListOfInputDestinationRequest",
+          "$ref": "#/definitions/__listOfInputDestinationRequest",
           "description": "Destination settings for PUSH type inputs."
         },
         "InputSecurityGroups": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of security groups referenced by IDs to attach to the input."
         },
         "Name": {
@@ -2530,7 +2732,7 @@
           "description": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries.\n"
         },
         "Sources": {
-          "$ref": "#/definitions/ListOfInputSourceRequest",
+          "$ref": "#/definitions/__listOfInputSourceRequest",
           "description": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
         },
         "Type": {
@@ -2543,11 +2745,11 @@
       "description": "The name of the input",
       "properties": {
         "Destinations": {
-          "$ref": "#/definitions/ListOfInputDestinationRequest",
+          "$ref": "#/definitions/__listOfInputDestinationRequest",
           "description": "Destination settings for PUSH type inputs."
         },
         "InputSecurityGroups": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of security groups referenced by IDs to attach to the input."
         },
         "Name": {
@@ -2559,7 +2761,7 @@
           "description": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries.\n"
         },
         "Sources": {
-          "$ref": "#/definitions/ListOfInputSourceRequest",
+          "$ref": "#/definitions/__listOfInputSourceRequest",
           "description": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
         },
         "Type": {
@@ -2590,7 +2792,7 @@
       "description": "The IPv4 CIDRs to whitelist for this Input Security Group",
       "properties": {
         "WhitelistRules": {
-          "$ref": "#/definitions/ListOfInputWhitelistRuleCidr",
+          "$ref": "#/definitions/__listOfInputWhitelistRuleCidr",
           "description": "List of IPv4 CIDR addresses to whitelist"
         }
       },
@@ -2627,11 +2829,11 @@
           "description": "The unique arn of the channel."
         },
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination",
+          "$ref": "#/definitions/__listOfOutputDestination",
           "description": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n"
         },
         "EgressEndpoints": {
-          "$ref": "#/definitions/ListOfChannelEgressEndpoint",
+          "$ref": "#/definitions/__listOfChannelEgressEndpoint",
           "description": "The endpoints where outgoing connections initiate from"
         },
         "EncoderSettings": {
@@ -2642,11 +2844,15 @@
           "description": "The unique id of the channel."
         },
         "InputAttachments": {
-          "$ref": "#/definitions/ListOfInputAttachment",
+          "$ref": "#/definitions/__listOfInputAttachment",
           "description": "List of input attachments for channel."
         },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level being written to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -2699,11 +2905,11 @@
           "description": "The unique arn of the channel."
         },
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination",
+          "$ref": "#/definitions/__listOfOutputDestination",
           "description": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n"
         },
         "EgressEndpoints": {
-          "$ref": "#/definitions/ListOfChannelEgressEndpoint",
+          "$ref": "#/definitions/__listOfChannelEgressEndpoint",
           "description": "The endpoints where outgoing connections initiate from"
         },
         "EncoderSettings": {
@@ -2714,11 +2920,15 @@
           "description": "The unique id of the channel."
         },
         "InputAttachments": {
-          "$ref": "#/definitions/ListOfInputAttachment",
+          "$ref": "#/definitions/__listOfInputAttachment",
           "description": "List of input attachments for channel."
         },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level being written to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -2751,11 +2961,11 @@
           "description": "The Unique ARN of the input (generated, immutable)."
         },
         "AttachedChannels": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of channel IDs that that input is attached to (currently an input can only be attached to one channel)."
         },
         "Destinations": {
-          "$ref": "#/definitions/ListOfInputDestination",
+          "$ref": "#/definitions/__listOfInputDestination",
           "description": "A list of the destinations of the input (PUSH-type)."
         },
         "Id": {
@@ -2767,11 +2977,11 @@
           "description": "The user-assigned name (This is a mutable value)."
         },
         "SecurityGroups": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of IDs for all the security groups attached to the input."
         },
         "Sources": {
-          "$ref": "#/definitions/ListOfInputSource",
+          "$ref": "#/definitions/__listOfInputSource",
           "description": "A list of the sources of the input (PULL-type)."
         },
         "State": {
@@ -2799,8 +3009,16 @@
           "$ref": "#/definitions/__string",
           "description": "The Id of the Input Security Group"
         },
+        "Inputs": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "The list of inputs currently using this Input Security Group."
+        },
+        "State": {
+          "$ref": "#/definitions/InputSecurityGroupState",
+          "description": "The current state of the Input Security Group."
+        },
         "WhitelistRules": {
-          "$ref": "#/definitions/ListOfInputWhitelistRule",
+          "$ref": "#/definitions/__listOfInputWhitelistRule",
           "description": "Whitelist rules and their sync status"
         }
       },
@@ -2810,18 +3028,22 @@
       "description": "DVB Network Information Table (NIT)",
       "properties": {
         "NetworkId": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65536",
           "description": "The numeric value placed in the Network Information Table (NIT)."
         },
         "NetworkName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1Max256",
           "description": "The network name text placed in the networkNameDescriptor inside the Network Information Table. Maximum length is 256 characters."
         },
         "RepInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin25Max10000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         }
       },
+      "required": [
+        "NetworkName",
+        "NetworkId"
+      ],
       "type": "object"
     },
     "DvbSdtOutputSdt": {
@@ -2842,15 +3064,15 @@
           "description": "Selects method of inserting SDT information into output stream. The sdtFollow setting copies SDT information from input stream to output stream. The sdtFollowIfPresent setting copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. The sdtManual setting means user will enter the SDT information. The sdtNone setting means output stream will not contain SDT information."
         },
         "RepInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin25Max2000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         },
         "ServiceName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1Max256",
           "description": "The service name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters."
         },
         "ServiceProviderName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1Max256",
           "description": "The service provider name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters."
         }
       },
@@ -2910,7 +3132,7 @@
           "description": "Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match."
         },
         "BackgroundOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match."
         },
         "Font": {
@@ -2922,11 +3144,11 @@
           "description": "Specifies the color of the burned-in captions.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match."
         },
         "FontOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.  All burn-in and DVB-Sub font settings must match."
         },
         "FontResolution": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin96Max600",
           "description": "Font resolution in DPI (dots per inch); default is 96 dpi.  All burn-in and DVB-Sub font settings must match."
         },
         "FontSize": {
@@ -2938,7 +3160,7 @@
           "description": "Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         },
         "OutlineSize": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max10",
           "description": "Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match."
         },
         "ShadowColor": {
@@ -2946,7 +3168,7 @@
           "description": "Specifies the color of the shadow cast by the captions.  All burn-in and DVB-Sub font settings must match."
         },
         "ShadowOpacity": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max255",
           "description": "Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match."
         },
         "ShadowXOffset": {
@@ -2962,11 +3184,11 @@
           "description": "Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs."
         },
         "XPosition": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter.  This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match."
         },
         "YPosition": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match."
         }
       },
@@ -2993,7 +3215,7 @@
       "description": "Placeholder documentation for DvbSubSourceSettings",
       "properties": {
         "Pid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1",
           "description": "When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors."
         }
       },
@@ -3003,7 +3225,7 @@
       "description": "DVB Time and Date Table (SDT)",
       "properties": {
         "RepInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1000Max30000",
           "description": "The number of milliseconds between instances of this table in the output transport stream."
         }
       },
@@ -3133,7 +3355,7 @@
           "description": "When set to enabled, activates a DC highpass filter for all input channels."
         },
         "Dialnorm": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max31",
           "description": "Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through."
         },
         "DrcLine": {
@@ -3261,11 +3483,11 @@
           "description": "Set to \"auto\" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions."
         },
         "Source608ChannelNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max4",
           "description": "Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough."
         },
         "Source608TrackNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max5",
           "description": "This field is unused and deprecated."
         }
       },
@@ -3280,7 +3502,7 @@
       "description": "Placeholder documentation for EncoderSettings",
       "properties": {
         "AudioDescriptions": {
-          "$ref": "#/definitions/ListOfAudioDescription"
+          "$ref": "#/definitions/__listOfAudioDescription"
         },
         "AvailBlanking": {
           "$ref": "#/definitions/AvailBlanking",
@@ -3295,7 +3517,7 @@
           "description": "Settings for blackout slate."
         },
         "CaptionDescriptions": {
-          "$ref": "#/definitions/ListOfCaptionDescription",
+          "$ref": "#/definitions/__listOfCaptionDescription",
           "description": "Settings for caption decriptions"
         },
         "GlobalConfiguration": {
@@ -3303,16 +3525,22 @@
           "description": "Configuration settings that apply to the event as a whole."
         },
         "OutputGroups": {
-          "$ref": "#/definitions/ListOfOutputGroup"
+          "$ref": "#/definitions/__listOfOutputGroup"
         },
         "TimecodeConfig": {
           "$ref": "#/definitions/TimecodeConfig",
           "description": "Contains settings used to acquire and adjust timecode information from inputs."
         },
         "VideoDescriptions": {
-          "$ref": "#/definitions/ListOfVideoDescription"
+          "$ref": "#/definitions/__listOfVideoDescription"
         }
       },
+      "required": [
+        "VideoDescriptions",
+        "AudioDescriptions",
+        "OutputGroups",
+        "TimecodeConfig"
+      ],
       "type": "object"
     },
     "FecOutputIncludeFec": {
@@ -3327,7 +3555,7 @@
       "description": "Placeholder documentation for FecOutputSettings",
       "properties": {
         "ColumnDepth": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin4Max20",
           "description": "Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive."
         },
         "IncludeFec": {
@@ -3335,7 +3563,7 @@
           "description": "Enables column only or column and row based FEC"
         },
         "RowLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max20",
           "description": "Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive."
         }
       },
@@ -3380,7 +3608,7 @@
       "description": "Placeholder documentation for GlobalConfiguration",
       "properties": {
         "InitialAudioGain": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative60Max60",
           "description": "Value to set the initial audio gain for the Live Event."
         },
         "InputEndAction": {
@@ -3574,15 +3802,15 @@
           "description": "Indicates that AFD values will be written into the output stream.  If afdSignaling is \"auto\", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to \"fixed\", the AFD value will be the value configured in the fixedAfd parameter."
         },
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1000",
           "description": "Average bitrate in bits/second. Required for VBR, CBR, and ABR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000."
         },
         "BufFillPct": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max100",
           "description": "Percentage of the buffer that should initially be filled (HRD buffer model)."
         },
         "BufSize": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Size of buffer (HRD buffer model) in bits/second."
         },
         "ColorMetadata": {
@@ -3618,15 +3846,15 @@
           "description": "Documentation update needed"
         },
         "GopClosedCadence": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting."
         },
         "GopNumBFrames": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max7",
           "description": "Number of B-frames between reference frames."
         },
         "GopSize": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin1",
           "description": "GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits. Must be greater than zero."
         },
         "GopSizeUnits": {
@@ -3642,15 +3870,15 @@
           "description": "Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content."
         },
         "MaxBitrate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1000",
           "description": "Maximum bitrate in bits/second (for VBR mode only)."
         },
         "MinIInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max30",
           "description": "Only meaningful if sceneChangeDetect is set to enabled.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1"
         },
         "NumRefFrames": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max6",
           "description": "Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding."
         },
         "ParControl": {
@@ -3658,7 +3886,7 @@
           "description": "This field indicates how the output pixel aspect ratio is specified.  If \"specified\" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if \"initializeFromSource\" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input."
         },
         "ParDenominator": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1",
           "description": "Pixel Aspect Ratio denominator."
         },
         "ParNumerator": {
@@ -3682,11 +3910,11 @@
           "description": "Scene change detection.  Inserts I-frames on scene changes when enabled."
         },
         "Slices": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max32",
           "description": "Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.\nThis field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution."
         },
         "Softness": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max128",
           "description": "Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image."
         },
         "SpatialAq": {
@@ -3761,11 +3989,11 @@
       "description": "Placeholder documentation for HlsAkamaiSettings",
       "properties": {
         "ConnectionRetryInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of seconds to wait before retrying connection to the CDN if the connection is lost."
         },
         "FilecacheDuration": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max600",
           "description": "Size in seconds of file cache for streaming outputs."
         },
         "HttpTransferMode": {
@@ -3773,11 +4001,11 @@
           "description": "Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature."
         },
         "NumRetries": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of retry attempts that will be made before the Live Event is put into an error state."
         },
         "RestartDelay": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max15",
           "description": "If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart."
         },
         "Salt": {
@@ -3795,19 +4023,19 @@
       "description": "Placeholder documentation for HlsBasicPutSettings",
       "properties": {
         "ConnectionRetryInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of seconds to wait before retrying connection to the CDN if the connection is lost."
         },
         "FilecacheDuration": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max600",
           "description": "Size in seconds of file cache for streaming outputs."
         },
         "NumRetries": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of retry attempts that will be made before the Live Event is put into an error state."
         },
         "RestartDelay": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max15",
           "description": "If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart."
         }
       },
@@ -3876,7 +4104,7 @@
       "description": "Placeholder documentation for HlsGroupSettings",
       "properties": {
         "AdMarkers": {
-          "$ref": "#/definitions/ListOfHlsAdMarkers",
+          "$ref": "#/definitions/__listOfHlsAdMarkers",
           "description": "Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs."
         },
         "BaseUrlContent": {
@@ -3888,7 +4116,7 @@
           "description": "A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file."
         },
         "CaptionLanguageMappings": {
-          "$ref": "#/definitions/ListOfCaptionLanguageMapping",
+          "$ref": "#/definitions/__listOfCaptionLanguageMapping",
           "description": "Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to \"insert\"."
         },
         "CaptionLanguageSetting": {
@@ -3904,7 +4132,7 @@
           "description": "Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation."
         },
         "ConstantIv": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin32Max32",
           "description": "For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to \"explicit\" then this parameter is required and is used as the IV for encryption."
         },
         "Destination": {
@@ -3924,7 +4152,7 @@
           "description": "Parameters that control interactions with the CDN."
         },
         "IndexNSegments": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin3",
           "description": "If mode is \"live\", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is \"vod\", this parameter has no effect."
         },
         "InputLossAction": {
@@ -3940,7 +4168,7 @@
           "description": "For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is \"followsSegmentNumber\", it will cause the IV to change every segment (to match the segment number). If this is set to \"explicit\", you must enter a constantIv value."
         },
         "KeepSegments": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1",
           "description": "If mode is \"live\", the number of TS segments to retain in the destination directory. If mode is \"vod\", this parameter has no effect."
         },
         "KeyFormat": {
@@ -3964,7 +4192,7 @@
           "description": "Indicates whether the output manifest should use floating point or integer values for segment duration."
         },
         "MinSegmentLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed."
         },
         "Mode": {
@@ -3980,11 +4208,11 @@
           "description": "Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset."
         },
         "ProgramDateTimePeriod": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max3600",
           "description": "Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds."
         },
         "SegmentLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1",
           "description": "Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer."
         },
         "SegmentationMode": {
@@ -3992,7 +4220,7 @@
           "description": "When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input streams."
         },
         "SegmentsPerSubdirectory": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1",
           "description": "Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect."
         },
         "StreamInfResolution": {
@@ -4004,11 +4232,11 @@
           "description": "Indicates ID3 frame that has the timecode."
         },
         "TimedMetadataId3Period": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Timed Metadata interval in seconds."
         },
         "TimestampDeltaMilliseconds": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Provides an extra millisecond delta offset to fine tune the timestamps."
         },
         "TsFileMode": {
@@ -4016,25 +4244,28 @@
           "description": "When set to \"singleFile\", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching."
         }
       },
+      "required": [
+        "Destination"
+      ],
       "type": "object"
     },
     "HlsInputSettings": {
       "description": "Placeholder documentation for HlsInputSettings",
       "properties": {
         "Bandwidth": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest."
         },
         "BufferSegments": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "When specified, reading of the HLS input will begin this many buffer segments from the end (most recently written segment).  When not specified, the HLS input will begin with the first segment specified in the m3u8."
         },
         "Retries": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable."
         },
         "RetryInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "The number of seconds between retries when an attempt to read a manifest or segment fails."
         }
       },
@@ -4076,11 +4307,11 @@
       "description": "Placeholder documentation for HlsMediaStoreSettings",
       "properties": {
         "ConnectionRetryInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of seconds to wait before retrying connection to the CDN if the connection is lost."
         },
         "FilecacheDuration": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max600",
           "description": "Size in seconds of file cache for streaming outputs."
         },
         "MediaStoreStorageClass": {
@@ -4088,11 +4319,11 @@
           "description": "When set to temporal, output files are stored in non-persistent memory for faster reading and writing."
         },
         "NumRetries": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of retry attempts that will be made before the Live Event is put into an error state."
         },
         "RestartDelay": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max15",
           "description": "If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart."
         }
       },
@@ -4129,7 +4360,7 @@
           "description": "Settings regarding the underlying stream. These settings are different for audio-only outputs."
         },
         "NameModifier": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1",
           "description": "String concatenated to the end of the destination filename. Accepts \\\"Format Identifiers\\\":#formatIdentifierParameters."
         },
         "SegmentModifier": {
@@ -4137,6 +4368,9 @@
           "description": "String concatenated to end of segment filenames."
         }
       },
+      "required": [
+        "HlsSettings"
+      ],
       "type": "object"
     },
     "HlsProgramDateTime": {
@@ -4204,11 +4438,11 @@
       "description": "Placeholder documentation for HlsWebdavSettings",
       "properties": {
         "ConnectionRetryInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of seconds to wait before retrying connection to the CDN if the connection is lost."
         },
         "FilecacheDuration": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max600",
           "description": "Size in seconds of file cache for streaming outputs."
         },
         "HttpTransferMode": {
@@ -4216,11 +4450,11 @@
           "description": "Specify whether or not to use chunked transfer encoding to WebDAV."
         },
         "NumRetries": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of retry attempts that will be made before the Live Event is put into an error state."
         },
         "RestartDelay": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max15",
           "description": "If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart."
         }
       },
@@ -4234,11 +4468,11 @@
           "description": "The Unique ARN of the input (generated, immutable)."
         },
         "AttachedChannels": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of channel IDs that that input is attached to (currently an input can only be attached to one channel)."
         },
         "Destinations": {
-          "$ref": "#/definitions/ListOfInputDestination",
+          "$ref": "#/definitions/__listOfInputDestination",
           "description": "A list of the destinations of the input (PUSH-type)."
         },
         "Id": {
@@ -4250,11 +4484,11 @@
           "description": "The user-assigned name (This is a mutable value)."
         },
         "SecurityGroups": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "A list of IDs for all the security groups attached to the input."
         },
         "Sources": {
-          "$ref": "#/definitions/ListOfInputSource",
+          "$ref": "#/definitions/__listOfInputSource",
           "description": "A list of the sources of the input (PULL-type)."
         },
         "State": {
@@ -4284,14 +4518,18 @@
       "description": "Placeholder documentation for InputChannelLevel",
       "properties": {
         "Gain": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative60Max6",
           "description": "Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB."
         },
         "InputChannel": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max15",
           "description": "The index of the input channel used as a source."
         }
       },
+      "required": [
+        "InputChannel",
+        "Gain"
+      ],
       "type": "object"
     },
     "InputCodec": {
@@ -4365,13 +4603,16 @@
         },
         "Uri": {
           "$ref": "#/definitions/__string",
-          "description": "Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a rtmpEndpoint should have a uri simliar to: \"rtmp://fmsserver/live\"."
+          "description": "Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\"."
         },
         "Username": {
           "$ref": "#/definitions/__string",
           "description": "Documentation update needed"
         }
       },
+      "required": [
+        "Uri"
+      ],
       "type": "object"
     },
     "InputLossActionForHlsOut": {
@@ -4403,11 +4644,11 @@
       "description": "Placeholder documentation for InputLossBehavior",
       "properties": {
         "BlackFrameMsec": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000000",
           "description": "Documentation update needed"
         },
         "InputLossImageColor": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin6Max6",
           "description": "When input loss image type is \"color\" this field specifies the color to use. Value: 6 hex characters representing the values of RGB."
         },
         "InputLossImageSlate": {
@@ -4419,7 +4660,7 @@
           "description": "Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec."
         },
         "RepeatFrameMsec": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000000",
           "description": "Documentation update needed"
         }
       },
@@ -4462,18 +4703,36 @@
           "$ref": "#/definitions/__string",
           "description": "The Id of the Input Security Group"
         },
+        "Inputs": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "The list of inputs currently using this Input Security Group."
+        },
+        "State": {
+          "$ref": "#/definitions/InputSecurityGroupState",
+          "description": "The current state of the Input Security Group."
+        },
         "WhitelistRules": {
-          "$ref": "#/definitions/ListOfInputWhitelistRule",
+          "$ref": "#/definitions/__listOfInputWhitelistRule",
           "description": "Whitelist rules and their sync status"
         }
       },
       "type": "object"
     },
+    "InputSecurityGroupState": {
+      "description": "Placeholder documentation for InputSecurityGroupState",
+      "enum": [
+        "IDLE",
+        "IN_USE",
+        "UPDATING",
+        "DELETED"
+      ],
+      "type": "string"
+    },
     "InputSecurityGroupWhitelistRequest": {
       "description": "Request of IPv4 CIDR addresses to whitelist in a security group.",
       "properties": {
         "WhitelistRules": {
-          "$ref": "#/definitions/ListOfInputWhitelistRuleCidr",
+          "$ref": "#/definitions/__listOfInputWhitelistRuleCidr",
           "description": "List of IPv4 CIDR addresses to whitelist"
         }
       },
@@ -4483,11 +4742,11 @@
       "description": "Live Event input parameters. There can be multiple inputs in a single Live Event.",
       "properties": {
         "AudioSelectors": {
-          "$ref": "#/definitions/ListOfAudioSelector",
+          "$ref": "#/definitions/__listOfAudioSelector",
           "description": "Used to select the audio stream to decode for inputs that have multiple available."
         },
         "CaptionSelectors": {
-          "$ref": "#/definitions/ListOfCaptionSelector",
+          "$ref": "#/definitions/__listOfCaptionSelector",
           "description": "Used to select the caption input to use for inputs that have multiple available."
         },
         "DeblockFilter": {
@@ -4499,7 +4758,7 @@
           "description": "Enable or disable the denoise filter when filtering."
         },
         "FilterStrength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max5",
           "description": "Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest)."
         },
         "InputFilter": {
@@ -4620,7 +4879,7 @@
       "properties": {
         "Cidr": {
           "$ref": "#/definitions/__string",
-          "description": "The IPv4 CIDR to whitelist"
+          "description": "The IPv4 CIDR to whitelist."
         }
       },
       "type": "object"
@@ -4679,7 +4938,7 @@
       "description": "Placeholder documentation for ListChannelsResponse",
       "properties": {
         "Channels": {
-          "$ref": "#/definitions/ListOfChannelSummary"
+          "$ref": "#/definitions/__listOfChannelSummary"
         },
         "NextToken": {
           "$ref": "#/definitions/__string"
@@ -4691,7 +4950,7 @@
       "description": "Placeholder documentation for ListChannelsResultModel",
       "properties": {
         "Channels": {
-          "$ref": "#/definitions/ListOfChannelSummary"
+          "$ref": "#/definitions/__listOfChannelSummary"
         },
         "NextToken": {
           "$ref": "#/definitions/__string"
@@ -4708,7 +4967,7 @@
       "description": "Placeholder documentation for ListInputSecurityGroupsResponse",
       "properties": {
         "InputSecurityGroups": {
-          "$ref": "#/definitions/ListOfInputSecurityGroup",
+          "$ref": "#/definitions/__listOfInputSecurityGroup",
           "description": "List of input security groups"
         },
         "NextToken": {
@@ -4721,7 +4980,7 @@
       "description": "Result of input security group list request",
       "properties": {
         "InputSecurityGroups": {
-          "$ref": "#/definitions/ListOfInputSecurityGroup",
+          "$ref": "#/definitions/__listOfInputSecurityGroup",
           "description": "List of input security groups"
         },
         "NextToken": {
@@ -4739,7 +4998,7 @@
       "description": "Placeholder documentation for ListInputsResponse",
       "properties": {
         "Inputs": {
-          "$ref": "#/definitions/ListOfInput"
+          "$ref": "#/definitions/__listOfInput"
         },
         "NextToken": {
           "$ref": "#/definitions/__string"
@@ -4751,7 +5010,7 @@
       "description": "Placeholder documentation for ListInputsResultModel",
       "properties": {
         "Inputs": {
-          "$ref": "#/definitions/ListOfInput"
+          "$ref": "#/definitions/__listOfInput"
         },
         "NextToken": {
           "$ref": "#/definitions/__string"
@@ -4759,187 +5018,16 @@
       },
       "type": "object"
     },
-    "ListOfAudioChannelMapping": {
-      "description": "Placeholder documentation for ListOfAudioChannelMapping",
-      "items": {
-        "$ref": "#/definitions/AudioChannelMapping"
-      },
-      "type": "array"
-    },
-    "ListOfAudioDescription": {
-      "description": "Placeholder documentation for ListOfAudioDescription",
-      "items": {
-        "$ref": "#/definitions/AudioDescription"
-      },
-      "type": "array"
-    },
-    "ListOfAudioSelector": {
-      "description": "Placeholder documentation for ListOfAudioSelector",
-      "items": {
-        "$ref": "#/definitions/AudioSelector"
-      },
-      "type": "array"
-    },
-    "ListOfCaptionDescription": {
-      "description": "Placeholder documentation for ListOfCaptionDescription",
-      "items": {
-        "$ref": "#/definitions/CaptionDescription"
-      },
-      "type": "array"
-    },
-    "ListOfCaptionLanguageMapping": {
-      "description": "Placeholder documentation for ListOfCaptionLanguageMapping",
-      "items": {
-        "$ref": "#/definitions/CaptionLanguageMapping"
-      },
-      "type": "array"
-    },
-    "ListOfCaptionSelector": {
-      "description": "Placeholder documentation for ListOfCaptionSelector",
-      "items": {
-        "$ref": "#/definitions/CaptionSelector"
-      },
-      "type": "array"
-    },
-    "ListOfChannelEgressEndpoint": {
-      "description": "Placeholder documentation for ListOfChannelEgressEndpoint",
-      "items": {
-        "$ref": "#/definitions/ChannelEgressEndpoint"
-      },
-      "type": "array"
-    },
-    "ListOfChannelSummary": {
-      "description": "Placeholder documentation for ListOfChannelSummary",
-      "items": {
-        "$ref": "#/definitions/ChannelSummary"
-      },
-      "type": "array"
-    },
-    "ListOfHlsAdMarkers": {
-      "description": "Placeholder documentation for ListOfHlsAdMarkers",
-      "items": {
-        "$ref": "#/definitions/HlsAdMarkers"
-      },
-      "type": "array"
-    },
-    "ListOfInput": {
-      "description": "Placeholder documentation for ListOfInput",
-      "items": {
-        "$ref": "#/definitions/Input"
-      },
-      "type": "array"
-    },
-    "ListOfInputAttachment": {
-      "description": "Placeholder documentation for ListOfInputAttachment",
-      "items": {
-        "$ref": "#/definitions/InputAttachment"
-      },
-      "type": "array"
-    },
-    "ListOfInputChannelLevel": {
-      "description": "Placeholder documentation for ListOfInputChannelLevel",
-      "items": {
-        "$ref": "#/definitions/InputChannelLevel"
-      },
-      "type": "array"
-    },
-    "ListOfInputDestination": {
-      "description": "Placeholder documentation for ListOfInputDestination",
-      "items": {
-        "$ref": "#/definitions/InputDestination"
-      },
-      "type": "array"
-    },
-    "ListOfInputDestinationRequest": {
-      "description": "Placeholder documentation for ListOfInputDestinationRequest",
-      "items": {
-        "$ref": "#/definitions/InputDestinationRequest"
-      },
-      "type": "array"
-    },
-    "ListOfInputSecurityGroup": {
-      "description": "Placeholder documentation for ListOfInputSecurityGroup",
-      "items": {
-        "$ref": "#/definitions/InputSecurityGroup"
-      },
-      "type": "array"
-    },
-    "ListOfInputSource": {
-      "description": "Placeholder documentation for ListOfInputSource",
-      "items": {
-        "$ref": "#/definitions/InputSource"
-      },
-      "type": "array"
-    },
-    "ListOfInputSourceRequest": {
-      "description": "Placeholder documentation for ListOfInputSourceRequest",
-      "items": {
-        "$ref": "#/definitions/InputSourceRequest"
-      },
-      "type": "array"
-    },
-    "ListOfInputWhitelistRule": {
-      "description": "Placeholder documentation for ListOfInputWhitelistRule",
-      "items": {
-        "$ref": "#/definitions/InputWhitelistRule"
-      },
-      "type": "array"
-    },
-    "ListOfInputWhitelistRuleCidr": {
-      "description": "Placeholder documentation for ListOfInputWhitelistRuleCidr",
-      "items": {
-        "$ref": "#/definitions/InputWhitelistRuleCidr"
-      },
-      "type": "array"
-    },
-    "ListOfOutput": {
-      "description": "Placeholder documentation for ListOfOutput",
-      "items": {
-        "$ref": "#/definitions/Output"
-      },
-      "type": "array"
-    },
-    "ListOfOutputDestination": {
-      "description": "Placeholder documentation for ListOfOutputDestination",
-      "items": {
-        "$ref": "#/definitions/OutputDestination"
-      },
-      "type": "array"
-    },
-    "ListOfOutputDestinationSettings": {
-      "description": "Placeholder documentation for ListOfOutputDestinationSettings",
-      "items": {
-        "$ref": "#/definitions/OutputDestinationSettings"
-      },
-      "type": "array"
-    },
-    "ListOfOutputGroup": {
-      "description": "Placeholder documentation for ListOfOutputGroup",
-      "items": {
-        "$ref": "#/definitions/OutputGroup"
-      },
-      "type": "array"
-    },
-    "ListOfValidationError": {
-      "description": "Placeholder documentation for ListOfValidationError",
-      "items": {
-        "$ref": "#/definitions/ValidationError"
-      },
-      "type": "array"
-    },
-    "ListOfVideoDescription": {
-      "description": "Placeholder documentation for ListOfVideoDescription",
-      "items": {
-        "$ref": "#/definitions/VideoDescription"
-      },
-      "type": "array"
-    },
-    "ListOf__string": {
-      "description": "Placeholder documentation for ListOf__string",
-      "items": {
-        "$ref": "#/definitions/__string"
-      },
-      "type": "array"
+    "LogLevel": {
+      "description": "The log level the user wants for their channel.",
+      "enum": [
+        "ERROR",
+        "WARNING",
+        "INFO",
+        "DEBUG",
+        "DISABLED"
+      ],
+      "type": "string"
     },
     "M2tsAbsentInputAudioBehavior": {
       "description": "Placeholder documentation for M2tsAbsentInputAudioBehavior",
@@ -5105,7 +5193,7 @@
           "description": "When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used."
         },
         "AudioFramesPerPes": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "The number of audio frames to insert for each PES packet."
         },
         "AudioPids": {
@@ -5117,7 +5205,7 @@
           "description": "When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06."
         },
         "Bitrate": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "The output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate."
         },
         "BufferModel": {
@@ -5157,7 +5245,7 @@
           "description": "When videoAndFixedIntervals is selected, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. Only available when EBP Cablelabs segmentation markers are selected.  Partitions 1 and 2 will always follow the video interval."
         },
         "EbpLookaheadMs": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max10000",
           "description": "When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is \"stretched\" to the next marker.  The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate."
         },
         "EbpPlacement": {
@@ -5181,7 +5269,7 @@
           "description": "Packet Identifier (PID) for input source ETV Signal data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6)."
         },
         "FragmentTime": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin0",
           "description": "The length in seconds of each fragment. Only used with EBP markers."
         },
         "Klv": {
@@ -5193,11 +5281,11 @@
           "description": "Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6)."
         },
         "NullPacketBitrate": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin0",
           "description": "Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets."
         },
         "PatInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000",
           "description": "The number of milliseconds between instances of this table in the output transport stream.  Valid values are 0, 10..1000."
         },
         "PcrControl": {
@@ -5205,7 +5293,7 @@
           "description": "When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream."
         },
         "PcrPeriod": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max500",
           "description": "Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream."
         },
         "PcrPid": {
@@ -5213,7 +5301,7 @@
           "description": "Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6)."
         },
         "PmtInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000",
           "description": "The number of milliseconds between instances of this table in the output transport stream. Valid values are 0, 10..1000."
         },
         "PmtPid": {
@@ -5221,7 +5309,7 @@
           "description": "Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6)."
         },
         "ProgramNum": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The value of the program number field in the Program Map Table."
         },
         "RateMode": {
@@ -5249,7 +5337,7 @@
           "description": "The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted.\n\nWhen a segmentation style of \"resetCadence\" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of $segmentationTime seconds.\n\nWhen a segmentation style of \"maintainCadence\" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule."
         },
         "SegmentationTime": {
-          "$ref": "#/definitions/__double",
+          "$ref": "#/definitions/__doubleMin1",
           "description": "The length in seconds of each segment. Required unless markers is set to None_."
         },
         "TimedMetadataBehavior": {
@@ -5261,7 +5349,7 @@
           "description": "Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6)."
         },
         "TransportStreamId": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The value of the transport stream ID field in the Program Map Table."
         },
         "VideoPid": {
@@ -5299,7 +5387,7 @@
       "description": "Settings information for the .m3u8 container",
       "properties": {
         "AudioFramesPerPes": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "The number of audio frames to insert for each PES packet."
         },
         "AudioPids": {
@@ -5311,7 +5399,7 @@
           "description": "This parameter is unused and deprecated."
         },
         "PatInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000",
           "description": "The number of milliseconds between instances of this table in the output transport stream. A value of \\\"0\\\" writes out the PMT once per segment file."
         },
         "PcrControl": {
@@ -5319,7 +5407,7 @@
           "description": "When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream."
         },
         "PcrPeriod": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max500",
           "description": "Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream."
         },
         "PcrPid": {
@@ -5327,7 +5415,7 @@
           "description": "Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value."
         },
         "PmtInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max1000",
           "description": "The number of milliseconds between instances of this table in the output transport stream. A value of \\\"0\\\" writes out the PMT once per segment file."
         },
         "PmtPid": {
@@ -5335,7 +5423,7 @@
           "description": "Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value."
         },
         "ProgramNum": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The value of the program number field in the Program Map Table."
         },
         "Scte35Behavior": {
@@ -5350,8 +5438,12 @@
           "$ref": "#/definitions/M3u8TimedMetadataBehavior",
           "description": "When set to passthrough, timed metadata is passed through from input to output."
         },
+        "TimedMetadataPid": {
+          "$ref": "#/definitions/__string",
+          "description": "Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6)."
+        },
         "TransportStreamId": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65535",
           "description": "The value of the transport stream ID field in the Program Map Table."
         },
         "VideoPid": {
@@ -5414,10 +5506,10 @@
         },
         "CertificateMode": {
           "$ref": "#/definitions/SmoothGroupCertificateMode",
-          "description": "If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail unless those certificates are manually added to the OS trusted keystore."
+          "description": "If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail."
         },
         "ConnectionRetryInterval": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established."
         },
         "Destination": {
@@ -5437,11 +5529,11 @@
           "description": "When set to sendEos, send EOS signal to IIS server when stopping the event"
         },
         "FilecacheDuration": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Size in seconds of file cache for streaming outputs."
         },
         "FragmentLength": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1",
           "description": "Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate."
         },
         "InputLossAction": {
@@ -5449,11 +5541,11 @@
           "description": "Parameter that control output group behavior on input loss."
         },
         "NumRetries": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of retry attempts."
         },
         "RestartDelay": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration."
         },
         "SegmentationMode": {
@@ -5461,7 +5553,7 @@
           "description": "When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input streams."
         },
         "SendDelayMs": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max10000",
           "description": "Outputs that are \"output locked\" can use this delay. Assign a delay to the output that is \"secondary\".  Do not assign a delay to the \"primary\" output. The delay means that the primary output will always reach the downstream system before the secondary, which helps ensure that the downstream system always uses the primary output. (If there were no delay, the downstream system might flip-flop between whichever output happens to arrive first.) If the primary fails, the downstream system will switch to the secondary output. When the primary is restarted, the downstream system will switch back to the primary (because once again it is always arriving first)"
         },
         "SparseTrackType": {
@@ -5481,6 +5573,9 @@
           "description": "Type of timestamp date offset to use.\n- useEventStartDate: Use the date the event was started as the offset\n- useConfiguredOffset: Use an explicitly configured date as the offset"
         }
       },
+      "required": [
+        "Destination"
+      ],
       "type": "object"
     },
     "MsSmoothOutputSettings": {
@@ -5528,15 +5623,15 @@
       "description": "Output settings. There can be multiple outputs within a group.",
       "properties": {
         "AudioDescriptionNames": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "The names of the AudioDescriptions used as audio sources for this output."
         },
         "CaptionDescriptionNames": {
-          "$ref": "#/definitions/ListOf__string",
+          "$ref": "#/definitions/__listOf__string",
           "description": "The names of the CaptionDescriptions used as caption sources for this output."
         },
         "OutputName": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin1Max255",
           "description": "The name used to identify an output."
         },
         "OutputSettings": {
@@ -5548,6 +5643,9 @@
           "description": "The name of the VideoDescription used as the source for this output."
         }
       },
+      "required": [
+        "OutputSettings"
+      ],
       "type": "object"
     },
     "OutputDestination": {
@@ -5558,7 +5656,7 @@
           "description": "User-specified id. This is used in an output group or an output."
         },
         "Settings": {
-          "$ref": "#/definitions/ListOfOutputDestinationSettings",
+          "$ref": "#/definitions/__listOfOutputDestinationSettings",
           "description": "Destination settings for output; one for each redundant encoder."
         }
       },
@@ -5570,6 +5668,10 @@
         "PasswordParam": {
           "$ref": "#/definitions/__string",
           "description": "key used to extract the password from EC2 Parameter store"
+        },
+        "StreamName": {
+          "$ref": "#/definitions/__string",
+          "description": "Stream name for RTMP destinations (URLs of type rtmp://)"
         },
         "Url": {
           "$ref": "#/definitions/__string",
@@ -5586,7 +5688,7 @@
       "description": "Output groups for this Live Event. Output groups contain information about where streams should be distributed.",
       "properties": {
         "Name": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMax32",
           "description": "Custom output group name optionally defined by the user.  Only letters, numbers, and the underscore character allowed; only 32 characters allowed."
         },
         "OutputGroupSettings": {
@@ -5594,9 +5696,13 @@
           "description": "Settings associated with the output group."
         },
         "Outputs": {
-          "$ref": "#/definitions/ListOfOutput"
+          "$ref": "#/definitions/__listOfOutput"
         }
       },
+      "required": [
+        "Outputs",
+        "OutputGroupSettings"
+      ],
       "type": "object"
     },
     "OutputGroupSettings": {
@@ -5610,6 +5716,9 @@
         },
         "MsSmoothGroupSettings": {
           "$ref": "#/definitions/MsSmoothGroupSettings"
+        },
+        "RtmpGroupSettings": {
+          "$ref": "#/definitions/RtmpGroupSettings"
         },
         "UdpGroupSettings": {
           "$ref": "#/definitions/UdpGroupSettings"
@@ -5638,6 +5747,9 @@
         "MsSmoothOutputSettings": {
           "$ref": "#/definitions/MsSmoothOutputSettings"
         },
+        "RtmpOutputSettings": {
+          "$ref": "#/definitions/RtmpOutputSettings"
+        },
         "UdpOutputSettings": {
           "$ref": "#/definitions/UdpOutputSettings"
         }
@@ -5653,18 +5765,21 @@
       "description": "Placeholder documentation for RemixSettings",
       "properties": {
         "ChannelMappings": {
-          "$ref": "#/definitions/ListOfAudioChannelMapping",
+          "$ref": "#/definitions/__listOfAudioChannelMapping",
           "description": "Mapping of input channels to output channels, with appropriate gain adjustments."
         },
         "ChannelsIn": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max16",
           "description": "Number of input channels to be used."
         },
         "ChannelsOut": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max8",
           "description": "Number of output channels to be produced.\nValid values: 1, 2, 4, 6, 8"
         }
       },
+      "required": [
+        "ChannelMappings"
+      ],
       "type": "object"
     },
     "ResourceConflict": {
@@ -5683,6 +5798,87 @@
           "$ref": "#/definitions/__string"
         }
       },
+      "type": "object"
+    },
+    "RtmpCacheFullBehavior": {
+      "description": "Placeholder documentation for RtmpCacheFullBehavior",
+      "enum": [
+        "DISCONNECT_IMMEDIATELY",
+        "WAIT_FOR_SERVER"
+      ],
+      "type": "string"
+    },
+    "RtmpCaptionData": {
+      "description": "Placeholder documentation for RtmpCaptionData",
+      "enum": [
+        "ALL",
+        "FIELD1_608",
+        "FIELD1_AND_FIELD2_608"
+      ],
+      "type": "string"
+    },
+    "RtmpCaptionInfoDestinationSettings": {
+      "description": "Placeholder documentation for RtmpCaptionInfoDestinationSettings",
+      "properties": {},
+      "type": "object"
+    },
+    "RtmpGroupSettings": {
+      "description": "Placeholder documentation for RtmpGroupSettings",
+      "properties": {
+        "AuthenticationScheme": {
+          "$ref": "#/definitions/AuthenticationScheme",
+          "description": "Authentication scheme to use when connecting with CDN"
+        },
+        "CacheFullBehavior": {
+          "$ref": "#/definitions/RtmpCacheFullBehavior",
+          "description": "Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again."
+        },
+        "CacheLength": {
+          "$ref": "#/definitions/__integerMin30",
+          "description": "Cache length, in seconds, is used to calculate buffer size."
+        },
+        "CaptionData": {
+          "$ref": "#/definitions/RtmpCaptionData",
+          "description": "Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed."
+        },
+        "RestartDelay": {
+          "$ref": "#/definitions/__integerMin0",
+          "description": "If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart."
+        }
+      },
+      "type": "object"
+    },
+    "RtmpOutputCertificateMode": {
+      "description": "Placeholder documentation for RtmpOutputCertificateMode",
+      "enum": [
+        "SELF_SIGNED",
+        "VERIFY_AUTHENTICITY"
+      ],
+      "type": "string"
+    },
+    "RtmpOutputSettings": {
+      "description": "Placeholder documentation for RtmpOutputSettings",
+      "properties": {
+        "CertificateMode": {
+          "$ref": "#/definitions/RtmpOutputCertificateMode",
+          "description": "If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail."
+        },
+        "ConnectionRetryInterval": {
+          "$ref": "#/definitions/__integerMin1",
+          "description": "Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost."
+        },
+        "Destination": {
+          "$ref": "#/definitions/OutputLocationRef",
+          "description": "The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers."
+        },
+        "NumRetries": {
+          "$ref": "#/definitions/__integerMin0",
+          "description": "Number of retry attempts."
+        }
+      },
+      "required": [
+        "Destination"
+      ],
       "type": "object"
     },
     "Scte20Convert608To708": {
@@ -5706,7 +5902,7 @@
           "description": "If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded."
         },
         "Source608ChannelNumber": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max4",
           "description": "Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough."
         }
       },
@@ -5721,7 +5917,7 @@
       "description": "Placeholder documentation for Scte27SourceSettings",
       "properties": {
         "Pid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1",
           "description": "The pid field is used in conjunction with the caption selector languageCode field as follows:\n  - Specify PID and Language: Extracts captions from that PID; the language is \"informational\".\n  - Specify PID and omit Language: Extracts the specified PID.\n  - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be.\n  - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through."
         }
       },
@@ -5747,7 +5943,7 @@
       "description": "Placeholder documentation for Scte35SpliceInsert",
       "properties": {
         "AdAvailOffset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative1000Max1000",
           "description": "When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages."
         },
         "NoRegionalBlackoutFlag": {
@@ -5781,7 +5977,7 @@
       "description": "Placeholder documentation for Scte35TimeSignalApos",
       "properties": {
         "AdAvailOffset": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMinNegative1000Max1000",
           "description": "When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages."
         },
         "NoRegionalBlackoutFlag": {
@@ -5876,6 +6072,9 @@
           "$ref": "#/definitions/M3u8Settings"
         }
       },
+      "required": [
+        "M3u8Settings"
+      ],
       "type": "object"
     },
     "StartChannelRequest": {
@@ -5891,11 +6090,11 @@
           "description": "The unique arn of the channel."
         },
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination",
+          "$ref": "#/definitions/__listOfOutputDestination",
           "description": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n"
         },
         "EgressEndpoints": {
-          "$ref": "#/definitions/ListOfChannelEgressEndpoint",
+          "$ref": "#/definitions/__listOfChannelEgressEndpoint",
           "description": "The endpoints where outgoing connections initiate from"
         },
         "EncoderSettings": {
@@ -5906,11 +6105,15 @@
           "description": "The unique id of the channel."
         },
         "InputAttachments": {
-          "$ref": "#/definitions/ListOfInputAttachment",
+          "$ref": "#/definitions/__listOfInputAttachment",
           "description": "List of input attachments for channel."
         },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level being written to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -5938,10 +6141,13 @@
           "description": "The URL of the license server used for protecting content."
         },
         "StaticKeyValue": {
-          "$ref": "#/definitions/__string",
+          "$ref": "#/definitions/__stringMin32Max32",
           "description": "Static key value as a 32 character hexadecimal string."
         }
       },
+      "required": [
+        "StaticKeyValue"
+      ],
       "type": "object"
     },
     "StopChannelRequest": {
@@ -5957,11 +6163,11 @@
           "description": "The unique arn of the channel."
         },
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination",
+          "$ref": "#/definitions/__listOfOutputDestination",
           "description": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n"
         },
         "EgressEndpoints": {
-          "$ref": "#/definitions/ListOfChannelEgressEndpoint",
+          "$ref": "#/definitions/__listOfChannelEgressEndpoint",
           "description": "The endpoints where outgoing connections initiate from"
         },
         "EncoderSettings": {
@@ -5972,11 +6178,15 @@
           "description": "The unique id of the channel."
         },
         "InputAttachments": {
-          "$ref": "#/definitions/ListOfInputAttachment",
+          "$ref": "#/definitions/__listOfInputAttachment",
           "description": "List of input attachments for channel."
         },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level being written to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -6019,10 +6229,13 @@
           "description": "Identifies the source for the timecode that will be associated with the events outputs.\n-Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using \"Start at 0\" (zerobased).\n-System Clock (systemclock): Use the UTC time.\n-Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00."
         },
         "SyncThreshold": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin1Max1000000",
           "description": "Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified."
         }
       },
+      "required": [
+        "Source"
+      ],
       "type": "object"
     },
     "TimecodeConfigSource": {
@@ -6082,7 +6295,7 @@
           "description": "Indicates ID3 frame that has the timecode."
         },
         "TimedMetadataId3Period": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0",
           "description": "Timed Metadata interval in seconds."
         }
       },
@@ -6092,7 +6305,7 @@
       "description": "Placeholder documentation for UdpOutputSettings",
       "properties": {
         "BufferMsec": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max10000",
           "description": "UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc."
         },
         "ContainerSettings": {
@@ -6107,6 +6320,10 @@
           "description": "Settings for enabling and adjusting Forward Error Correction on UDP outputs."
         }
       },
+      "required": [
+        "Destination",
+        "ContainerSettings"
+      ],
       "type": "object"
     },
     "UdpTimedMetadataId3Frame": {
@@ -6125,7 +6342,7 @@
           "$ref": "#/definitions/__string"
         },
         "ValidationErrors": {
-          "$ref": "#/definitions/ListOfValidationError",
+          "$ref": "#/definitions/__listOfValidationError",
           "description": "A collection of validation error responses from attempting to create a channel with a bouquet of settings."
         }
       },
@@ -6135,16 +6352,23 @@
       "description": "Placeholder documentation for UpdateChannel",
       "properties": {
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination",
+          "$ref": "#/definitions/__listOfOutputDestination",
           "description": "A list of output destinations for this channel."
         },
         "EncoderSettings": {
           "$ref": "#/definitions/EncoderSettings",
           "description": "The encoder settings for this channel."
         },
+        "InputAttachments": {
+          "$ref": "#/definitions/__listOfInputAttachment"
+        },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification",
           "description": "Specification of input for this channel (max. bitrate, resolution, codec, etc.)"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level to write to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -6161,16 +6385,23 @@
       "description": "A request to update a channel.",
       "properties": {
         "Destinations": {
-          "$ref": "#/definitions/ListOfOutputDestination",
+          "$ref": "#/definitions/__listOfOutputDestination",
           "description": "A list of output destinations for this channel."
         },
         "EncoderSettings": {
           "$ref": "#/definitions/EncoderSettings",
           "description": "The encoder settings for this channel."
         },
+        "InputAttachments": {
+          "$ref": "#/definitions/__listOfInputAttachment"
+        },
         "InputSpecification": {
           "$ref": "#/definitions/InputSpecification",
           "description": "Specification of input for this channel (max. bitrate, resolution, codec, etc.)"
+        },
+        "LogLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The log level to write to CloudWatch Logs."
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -6197,6 +6428,96 @@
       "properties": {
         "Channel": {
           "$ref": "#/definitions/Channel"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInput": {
+      "description": "Placeholder documentation for UpdateInput",
+      "properties": {
+        "Destinations": {
+          "$ref": "#/definitions/__listOfInputDestinationRequest",
+          "description": "Destination settings for PUSH type inputs."
+        },
+        "InputSecurityGroups": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "A list of security groups referenced by IDs to attach to the input."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the input."
+        },
+        "Sources": {
+          "$ref": "#/definitions/__listOfInputSourceRequest",
+          "description": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInputRequest": {
+      "description": "A request to update an input.",
+      "properties": {
+        "Destinations": {
+          "$ref": "#/definitions/__listOfInputDestinationRequest",
+          "description": "Destination settings for PUSH type inputs."
+        },
+        "InputSecurityGroups": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "A list of security groups referenced by IDs to attach to the input."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the input."
+        },
+        "Sources": {
+          "$ref": "#/definitions/__listOfInputSourceRequest",
+          "description": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInputResponse": {
+      "description": "Placeholder documentation for UpdateInputResponse",
+      "properties": {
+        "Input": {
+          "$ref": "#/definitions/Input"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInputResultModel": {
+      "description": "Placeholder documentation for UpdateInputResultModel",
+      "properties": {
+        "Input": {
+          "$ref": "#/definitions/Input"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInputSecurityGroupRequest": {
+      "description": "The request to update some combination of the Input Security Group name and the IPv4 CIDRs the Input Security Group should allow.",
+      "properties": {
+        "WhitelistRules": {
+          "$ref": "#/definitions/__listOfInputWhitelistRuleCidr",
+          "description": "List of IPv4 CIDR addresses to whitelist"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInputSecurityGroupResponse": {
+      "description": "Placeholder documentation for UpdateInputSecurityGroupResponse",
+      "properties": {
+        "SecurityGroup": {
+          "$ref": "#/definitions/InputSecurityGroup"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInputSecurityGroupResultModel": {
+      "description": "Placeholder documentation for UpdateInputSecurityGroupResultModel",
+      "properties": {
+        "SecurityGroup": {
+          "$ref": "#/definitions/InputSecurityGroup"
         }
       },
       "type": "object"
@@ -6246,7 +6567,7 @@
           "description": "When set to \"stretchToOutput\", automatically configures the output position to stretch the video to the specified output resolution. This option will override any position value."
         },
         "Sharpness": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max100",
           "description": "Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being performed and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content."
         },
         "Width": {
@@ -6254,6 +6575,9 @@
           "description": "Output video width (in pixels). Leave out to use source video width.  If left out, height must also be left out. Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary."
         }
       },
+      "required": [
+        "Name"
+      ],
       "type": "object"
     },
     "VideoDescriptionRespondToAfd": {
@@ -6312,7 +6636,7 @@
       "description": "Placeholder documentation for VideoSelectorPid",
       "properties": {
         "Pid": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max8191",
           "description": "Selects a specific PID from within a video source."
         }
       },
@@ -6322,7 +6646,7 @@
       "description": "Placeholder documentation for VideoSelectorProgramId",
       "properties": {
         "ProgramId": {
-          "$ref": "#/definitions/__integer",
+          "$ref": "#/definitions/__integerMin0Max65536",
           "description": "Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default."
         }
       },
@@ -6354,17 +6678,482 @@
       "format": "double",
       "type": "number"
     },
+    "__doubleMin0": {
+      "description": "Placeholder documentation for __doubleMin0",
+      "format": "double",
+      "type": "number"
+    },
+    "__doubleMin1": {
+      "description": "Placeholder documentation for __doubleMin1",
+      "format": "double",
+      "type": "number"
+    },
+    "__doubleMinNegative59Max0": {
+      "description": "Placeholder documentation for __doubleMinNegative59Max0",
+      "format": "double",
+      "type": "number"
+    },
     "__integer": {
       "description": "Placeholder documentation for __integer",
+      "type": "integer"
+    },
+    "__integerMin0": {
+      "description": "Placeholder documentation for __integerMin0",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max10": {
+      "description": "Placeholder documentation for __integerMin0Max10",
+      "maximum": 10,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max100": {
+      "description": "Placeholder documentation for __integerMin0Max100",
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max1000": {
+      "description": "Placeholder documentation for __integerMin0Max1000",
+      "maximum": 1000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max10000": {
+      "description": "Placeholder documentation for __integerMin0Max10000",
+      "maximum": 10000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max1000000": {
+      "description": "Placeholder documentation for __integerMin0Max1000000",
+      "maximum": 1000000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max128": {
+      "description": "Placeholder documentation for __integerMin0Max128",
+      "maximum": 128,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max15": {
+      "description": "Placeholder documentation for __integerMin0Max15",
+      "maximum": 15,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max255": {
+      "description": "Placeholder documentation for __integerMin0Max255",
+      "maximum": 255,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max30": {
+      "description": "Placeholder documentation for __integerMin0Max30",
+      "maximum": 30,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max3600": {
+      "description": "Placeholder documentation for __integerMin0Max3600",
+      "maximum": 3600,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max500": {
+      "description": "Placeholder documentation for __integerMin0Max500",
+      "maximum": 500,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max600": {
+      "description": "Placeholder documentation for __integerMin0Max600",
+      "maximum": 600,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max65535": {
+      "description": "Placeholder documentation for __integerMin0Max65535",
+      "maximum": 65535,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max65536": {
+      "description": "Placeholder documentation for __integerMin0Max65536",
+      "maximum": 65536,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max7": {
+      "description": "Placeholder documentation for __integerMin0Max7",
+      "maximum": 7,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin0Max8191": {
+      "description": "Placeholder documentation for __integerMin0Max8191",
+      "maximum": 8191,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "__integerMin1": {
+      "description": "Placeholder documentation for __integerMin1",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1000": {
+      "description": "Placeholder documentation for __integerMin1000",
+      "minimum": 1000,
+      "type": "integer"
+    },
+    "__integerMin1000Max30000": {
+      "description": "Placeholder documentation for __integerMin1000Max30000",
+      "maximum": 30000,
+      "minimum": 1000,
+      "type": "integer"
+    },
+    "__integerMin1Max1000000": {
+      "description": "Placeholder documentation for __integerMin1Max1000000",
+      "maximum": 1000000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max16": {
+      "description": "Placeholder documentation for __integerMin1Max16",
+      "maximum": 16,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max20": {
+      "description": "Placeholder documentation for __integerMin1Max20",
+      "maximum": 20,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max31": {
+      "description": "Placeholder documentation for __integerMin1Max31",
+      "maximum": 31,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max32": {
+      "description": "Placeholder documentation for __integerMin1Max32",
+      "maximum": 32,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max4": {
+      "description": "Placeholder documentation for __integerMin1Max4",
+      "maximum": 4,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max5": {
+      "description": "Placeholder documentation for __integerMin1Max5",
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max6": {
+      "description": "Placeholder documentation for __integerMin1Max6",
+      "maximum": 6,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max8": {
+      "description": "Placeholder documentation for __integerMin1Max8",
+      "maximum": 8,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin25Max10000": {
+      "description": "Placeholder documentation for __integerMin25Max10000",
+      "maximum": 10000,
+      "minimum": 25,
+      "type": "integer"
+    },
+    "__integerMin25Max2000": {
+      "description": "Placeholder documentation for __integerMin25Max2000",
+      "maximum": 2000,
+      "minimum": 25,
+      "type": "integer"
+    },
+    "__integerMin3": {
+      "description": "Placeholder documentation for __integerMin3",
+      "minimum": 3,
+      "type": "integer"
+    },
+    "__integerMin30": {
+      "description": "Placeholder documentation for __integerMin30",
+      "minimum": 30,
+      "type": "integer"
+    },
+    "__integerMin4Max20": {
+      "description": "Placeholder documentation for __integerMin4Max20",
+      "maximum": 20,
+      "minimum": 4,
+      "type": "integer"
+    },
+    "__integerMin96Max600": {
+      "description": "Placeholder documentation for __integerMin96Max600",
+      "maximum": 600,
+      "minimum": 96,
+      "type": "integer"
+    },
+    "__integerMinNegative1000Max1000": {
+      "description": "Placeholder documentation for __integerMinNegative1000Max1000",
+      "maximum": 1000,
+      "minimum": -1000,
+      "type": "integer"
+    },
+    "__integerMinNegative60Max6": {
+      "description": "Placeholder documentation for __integerMinNegative60Max6",
+      "maximum": 6,
+      "minimum": -60,
+      "type": "integer"
+    },
+    "__integerMinNegative60Max60": {
+      "description": "Placeholder documentation for __integerMinNegative60Max60",
+      "maximum": 60,
+      "minimum": -60,
+      "type": "integer"
+    },
+    "__listOfAudioChannelMapping": {
+      "description": "Placeholder documentation for __listOfAudioChannelMapping",
+      "items": {
+        "$ref": "#/definitions/AudioChannelMapping"
+      },
+      "type": "array"
+    },
+    "__listOfAudioDescription": {
+      "description": "Placeholder documentation for __listOfAudioDescription",
+      "items": {
+        "$ref": "#/definitions/AudioDescription"
+      },
+      "type": "array"
+    },
+    "__listOfAudioSelector": {
+      "description": "Placeholder documentation for __listOfAudioSelector",
+      "items": {
+        "$ref": "#/definitions/AudioSelector"
+      },
+      "type": "array"
+    },
+    "__listOfCaptionDescription": {
+      "description": "Placeholder documentation for __listOfCaptionDescription",
+      "items": {
+        "$ref": "#/definitions/CaptionDescription"
+      },
+      "type": "array"
+    },
+    "__listOfCaptionLanguageMapping": {
+      "description": "Placeholder documentation for __listOfCaptionLanguageMapping",
+      "items": {
+        "$ref": "#/definitions/CaptionLanguageMapping"
+      },
+      "type": "array"
+    },
+    "__listOfCaptionSelector": {
+      "description": "Placeholder documentation for __listOfCaptionSelector",
+      "items": {
+        "$ref": "#/definitions/CaptionSelector"
+      },
+      "type": "array"
+    },
+    "__listOfChannelEgressEndpoint": {
+      "description": "Placeholder documentation for __listOfChannelEgressEndpoint",
+      "items": {
+        "$ref": "#/definitions/ChannelEgressEndpoint"
+      },
+      "type": "array"
+    },
+    "__listOfChannelSummary": {
+      "description": "Placeholder documentation for __listOfChannelSummary",
+      "items": {
+        "$ref": "#/definitions/ChannelSummary"
+      },
+      "type": "array"
+    },
+    "__listOfHlsAdMarkers": {
+      "description": "Placeholder documentation for __listOfHlsAdMarkers",
+      "items": {
+        "$ref": "#/definitions/HlsAdMarkers"
+      },
+      "type": "array"
+    },
+    "__listOfInput": {
+      "description": "Placeholder documentation for __listOfInput",
+      "items": {
+        "$ref": "#/definitions/Input"
+      },
+      "type": "array"
+    },
+    "__listOfInputAttachment": {
+      "description": "Placeholder documentation for __listOfInputAttachment",
+      "items": {
+        "$ref": "#/definitions/InputAttachment"
+      },
+      "type": "array"
+    },
+    "__listOfInputChannelLevel": {
+      "description": "Placeholder documentation for __listOfInputChannelLevel",
+      "items": {
+        "$ref": "#/definitions/InputChannelLevel"
+      },
+      "type": "array"
+    },
+    "__listOfInputDestination": {
+      "description": "Placeholder documentation for __listOfInputDestination",
+      "items": {
+        "$ref": "#/definitions/InputDestination"
+      },
+      "type": "array"
+    },
+    "__listOfInputDestinationRequest": {
+      "description": "Placeholder documentation for __listOfInputDestinationRequest",
+      "items": {
+        "$ref": "#/definitions/InputDestinationRequest"
+      },
+      "type": "array"
+    },
+    "__listOfInputSecurityGroup": {
+      "description": "Placeholder documentation for __listOfInputSecurityGroup",
+      "items": {
+        "$ref": "#/definitions/InputSecurityGroup"
+      },
+      "type": "array"
+    },
+    "__listOfInputSource": {
+      "description": "Placeholder documentation for __listOfInputSource",
+      "items": {
+        "$ref": "#/definitions/InputSource"
+      },
+      "type": "array"
+    },
+    "__listOfInputSourceRequest": {
+      "description": "Placeholder documentation for __listOfInputSourceRequest",
+      "items": {
+        "$ref": "#/definitions/InputSourceRequest"
+      },
+      "type": "array"
+    },
+    "__listOfInputWhitelistRule": {
+      "description": "Placeholder documentation for __listOfInputWhitelistRule",
+      "items": {
+        "$ref": "#/definitions/InputWhitelistRule"
+      },
+      "type": "array"
+    },
+    "__listOfInputWhitelistRuleCidr": {
+      "description": "Placeholder documentation for __listOfInputWhitelistRuleCidr",
+      "items": {
+        "$ref": "#/definitions/InputWhitelistRuleCidr"
+      },
+      "type": "array"
+    },
+    "__listOfOutput": {
+      "description": "Placeholder documentation for __listOfOutput",
+      "items": {
+        "$ref": "#/definitions/Output"
+      },
+      "type": "array"
+    },
+    "__listOfOutputDestination": {
+      "description": "Placeholder documentation for __listOfOutputDestination",
+      "items": {
+        "$ref": "#/definitions/OutputDestination"
+      },
+      "type": "array"
+    },
+    "__listOfOutputDestinationSettings": {
+      "description": "Placeholder documentation for __listOfOutputDestinationSettings",
+      "items": {
+        "$ref": "#/definitions/OutputDestinationSettings"
+      },
+      "type": "array"
+    },
+    "__listOfOutputGroup": {
+      "description": "Placeholder documentation for __listOfOutputGroup",
+      "items": {
+        "$ref": "#/definitions/OutputGroup"
+      },
+      "type": "array"
+    },
+    "__listOfValidationError": {
+      "description": "Placeholder documentation for __listOfValidationError",
+      "items": {
+        "$ref": "#/definitions/ValidationError"
+      },
+      "type": "array"
+    },
+    "__listOfVideoDescription": {
+      "description": "Placeholder documentation for __listOfVideoDescription",
+      "items": {
+        "$ref": "#/definitions/VideoDescription"
+      },
+      "type": "array"
+    },
+    "__listOf__string": {
+      "description": "Placeholder documentation for __listOf__string",
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "__long": {
+      "description": "Placeholder documentation for __long",
       "type": "integer"
     },
     "__string": {
       "description": "Placeholder documentation for __string",
       "type": "string"
     },
-    "__timestamp": {
-      "description": "Placeholder documentation for __timestamp",
-      "format": "date-time",
+    "__stringMax32": {
+      "description": "Placeholder documentation for __stringMax32",
+      "maxLength": 32,
+      "type": "string"
+    },
+    "__stringMin1": {
+      "description": "Placeholder documentation for __stringMin1",
+      "minLength": 1,
+      "type": "string"
+    },
+    "__stringMin1Max255": {
+      "description": "Placeholder documentation for __stringMin1Max255",
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "__stringMin1Max256": {
+      "description": "Placeholder documentation for __stringMin1Max256",
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "__stringMin32Max32": {
+      "description": "Placeholder documentation for __stringMin32Max32",
+      "maxLength": 32,
+      "minLength": 32,
+      "type": "string"
+    },
+    "__stringMin34Max34": {
+      "description": "Placeholder documentation for __stringMin34Max34",
+      "maxLength": 34,
+      "minLength": 34,
+      "type": "string"
+    },
+    "__stringMin3Max3": {
+      "description": "Placeholder documentation for __stringMin3Max3",
+      "maxLength": 3,
+      "minLength": 3,
+      "type": "string"
+    },
+    "__stringMin6Max6": {
+      "description": "Placeholder documentation for __stringMin6Max6",
+      "maxLength": 6,
+      "minLength": 6,
       "type": "string"
     }
   }

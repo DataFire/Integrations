@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/compute/resource-manager/Microsoft.Compute/stable/2017-12-01/compute.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/compute/resource-manager/Microsoft.Compute/stable/2017-12-01/compute.json",
         "version": "2.0"
       }
     ],
@@ -74,6 +74,29 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.Compute/operations": {
+      "get": {
+        "description": "Gets a list of compute operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ComputeOperationListResult"
+            }
+          }
+        },
+        "tags": [
+          "ComputeOperations"
+        ],
+        "x-ms-pageable": {}
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/images": {
       "get": {
         "description": "Gets the list of Images in the subscription. Use nextLink property in the response to get the next page of Images. Do this till nextLink is null to fetch all the Images.",
@@ -100,7 +123,7 @@
         "x-ms-examples": {
           "List all virtual machine images in a subscription.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "subscriptionId": "{subscription-id}"
             },
             "responses": {
@@ -969,6 +992,52 @@
           "AvailabilitySets"
         ]
       },
+      "patch": {
+        "description": "Update an availability set.",
+        "operationId": "AvailabilitySets_Update",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the availability set.",
+            "in": "path",
+            "name": "availabilitySetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Update Availability Set operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AvailabilitySetUpdate"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AvailabilitySet"
+            }
+          }
+        },
+        "tags": [
+          "AvailabilitySets"
+        ]
+      },
       "put": {
         "description": "Create or update an availability set.",
         "operationId": "AvailabilitySets_CreateOrUpdate",
@@ -1123,7 +1192,7 @@
         "x-ms-examples": {
           "List all virtual machine images in a resource group.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "{subscription-id}"
             },
@@ -1269,7 +1338,7 @@
         "x-ms-examples": {
           "Get information about a virtual machine image.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "imageName": "myImage",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "{subscription-id}"
@@ -1317,6 +1386,59 @@
             }
           }
         }
+      },
+      "patch": {
+        "description": "Update an image.",
+        "operationId": "Images_Update",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the image.",
+            "in": "path",
+            "name": "imageName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Update Image operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ImageUpdate"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Image"
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Image"
+            }
+          }
+        },
+        "tags": [
+          "Images"
+        ],
+        "x-ms-long-running-operation": true
       },
       "put": {
         "description": "Create or update an image.",
@@ -1372,7 +1494,7 @@
         "x-ms-examples": {
           "Create a virtual machine image from a blob.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "imageName": "myImage",
               "parameters": {
                 "location": "West US",
@@ -1390,6 +1512,26 @@
               "subscriptionId": "{subscription-id}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
+                  "location": "westus",
+                  "name": "myImage",
+                  "properties": {
+                    "provisioningState": "Creating",
+                    "storageProfile": {
+                      "dataDisks": [],
+                      "osDisk": {
+                        "blobUri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                        "caching": "ReadWrite",
+                        "osState": "Generalized",
+                        "osType": "Linux"
+                      }
+                    }
+                  },
+                  "type": "Microsoft.Compute/images"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
@@ -1414,7 +1556,7 @@
           },
           "Create a virtual machine image from a managed disk.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "imageName": "myImage",
               "parameters": {
                 "location": "West US",
@@ -1434,6 +1576,28 @@
               "subscriptionId": "{subscription-id}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
+                  "location": "westus",
+                  "name": "myImage",
+                  "properties": {
+                    "provisioningState": "Creating",
+                    "storageProfile": {
+                      "dataDisks": [],
+                      "osDisk": {
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                          "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk"
+                        },
+                        "osState": "Generalized",
+                        "osType": "Linux"
+                      }
+                    }
+                  },
+                  "type": "Microsoft.Compute/images"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
@@ -1460,7 +1624,7 @@
           },
           "Create a virtual machine image from a snapshot.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "imageName": "myImage",
               "parameters": {
                 "location": "West US",
@@ -1480,6 +1644,28 @@
               "subscriptionId": "{subscription-id}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
+                  "location": "westus",
+                  "name": "myImage",
+                  "properties": {
+                    "provisioningState": "Creating",
+                    "storageProfile": {
+                      "dataDisks": [],
+                      "osDisk": {
+                        "caching": "ReadWrite",
+                        "osState": "Generalized",
+                        "osType": "Linux",
+                        "snapshot": {
+                          "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot"
+                        }
+                      }
+                    }
+                  },
+                  "type": "Microsoft.Compute/images"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
@@ -1506,7 +1692,7 @@
           },
           "Create a virtual machine image from an existing virtual machine.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "imageName": "myImage",
               "parameters": {
                 "location": "West US",
@@ -1520,6 +1706,31 @@
               "subscriptionId": "{subscription-id}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
+                  "location": "westus",
+                  "name": "myImage",
+                  "properties": {
+                    "provisioningState": "Creating",
+                    "sourceVirtualMachine": {
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+                    },
+                    "storageProfile": {
+                      "dataDisks": [],
+                      "osDisk": {
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myVM_OsDisk_1_6dc293b7d811433196903acf92665022"
+                        },
+                        "osState": "Generalized",
+                        "osType": "Linux"
+                      }
+                    }
+                  },
+                  "type": "Microsoft.Compute/images"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
@@ -1549,7 +1760,7 @@
           },
           "Create a virtual machine image that includes a data disk from a blob.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "imageName": "myImage",
               "parameters": {
                 "location": "West US",
@@ -1573,6 +1784,31 @@
               "subscriptionId": "{subscription-id}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
+                  "location": "westus",
+                  "name": "myImage",
+                  "properties": {
+                    "provisioningState": "Creating",
+                    "storageProfile": {
+                      "dataDisks": [
+                        {
+                          "blobUri": "https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd",
+                          "lun": 1
+                        }
+                      ],
+                      "osDisk": {
+                        "blobUri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                        "caching": "ReadWrite",
+                        "osState": "Generalized",
+                        "osType": "Linux"
+                      }
+                    }
+                  },
+                  "type": "Microsoft.Compute/images"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
@@ -1602,7 +1838,7 @@
           },
           "Create a virtual machine image that includes a data disk from a managed disk.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "imageName": "myImage",
               "parameters": {
                 "location": "West US",
@@ -1630,6 +1866,35 @@
               "subscriptionId": "{subscription-id}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
+                  "location": "westus",
+                  "name": "myImage",
+                  "properties": {
+                    "provisioningState": "Creating",
+                    "storageProfile": {
+                      "dataDisks": [
+                        {
+                          "lun": 1,
+                          "managedDisk": {
+                            "id": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk2"
+                          }
+                        }
+                      ],
+                      "osDisk": {
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                          "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk"
+                        },
+                        "osState": "Generalized",
+                        "osType": "Linux"
+                      }
+                    }
+                  },
+                  "type": "Microsoft.Compute/images"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
@@ -1663,7 +1928,7 @@
           },
           "Create a virtual machine image that includes a data disk from a snapshot.": {
             "parameters": {
-              "api-version": "2017-03-30",
+              "api-version": "2017-12-01",
               "imageName": "myImage",
               "parameters": {
                 "location": "West US",
@@ -1691,6 +1956,35 @@
               "subscriptionId": "{subscription-id}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
+                  "location": "westus",
+                  "name": "myImage",
+                  "properties": {
+                    "provisioningState": "Creating",
+                    "storageProfile": {
+                      "dataDisks": [
+                        {
+                          "lun": 1,
+                          "snapshot": {
+                            "id": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot2"
+                          }
+                        }
+                      ],
+                      "osDisk": {
+                        "caching": "ReadWrite",
+                        "osState": "Generalized",
+                        "osType": "Linux",
+                        "snapshot": {
+                          "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot"
+                        }
+                      }
+                    }
+                  },
+                  "type": "Microsoft.Compute/images"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage",
@@ -2066,6 +2360,76 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "d6e9ab29-f8c9-4792-978c-ae2c07b98f17",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "image": {
+                            "uri": "https://{existing-storage-account-name}.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/{existing-generalized-os-image-blob-name}.vhd"
+                          },
+                          "name": "osDisk",
+                          "osType": "Windows"
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -2208,6 +2572,81 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "77b7df9a-32fe-45e3-8911-60ac9c9b9c64",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "offer": "WindowsServer",
+                          "publisher": "MicrosoftWindowsServer",
+                          "sku": "2016-Datacenter",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "name": "osDisk",
+                          "vhdContainers": [
+                            "http://{existing-storage-account-name}.blob.core.windows.net/vhds"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -2347,6 +2786,76 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "afa2afa8-9e49-48fb-9d18-c86323b5d064",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "linuxConfiguration": {
+                          "disablePasswordAuthentication": false
+                        },
+                        "secrets": []
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/nsgcustom"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -2489,6 +2998,85 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "plan": {
+                    "name": "standard-data-science-vm",
+                    "product": "standard-data-science-vm",
+                    "publisher": "microsoft-ads"
+                  },
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "b9e23088-6ffc-46e0-9e02-b0a6eeef47db",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "offer": "standard-data-science-vm",
+                          "publisher": "microsoft-ads",
+                          "sku": "standard-data-science-vm",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -2640,6 +3228,85 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "a0134477-b9d9-484b-b0e3-205c1c089ffa",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "applicationGatewayBackendAddressPools": [
+                                      {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/nsgExistingAppGw/backendAddressPools/appGatewayBackendPool"
+                                      }
+                                    ],
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "offer": "WindowsServer",
+                          "publisher": "MicrosoftWindowsServer",
+                          "sku": "2016-Datacenter",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -2796,6 +3463,90 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "ec0b21ca-51ec-414b-9323-f236ffc21479",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "loadBalancerBackendAddressPools": [
+                                      {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLb/backendAddressPools/lbBackendPool"
+                                      }
+                                    ],
+                                    "loadBalancerInboundNatPools": [
+                                      {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLb/inboundNatPools/lbNatPool"
+                                      }
+                                    ],
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "offer": "WindowsServer",
+                          "publisher": "MicrosoftWindowsServer",
+                          "sku": "2016-Datacenter",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -2953,6 +3704,86 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "d053ec5a-8da6-495f-ab13-38216503c6d7",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "diagnosticsProfile": {
+                        "bootDiagnostics": {
+                          "enabled": true,
+                          "storageUri": "http://nsgdiagnostic.blob.core.windows.net"
+                        }
+                      },
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "offer": "WindowsServer",
+                          "publisher": "MicrosoftWindowsServer",
+                          "sku": "2016-Datacenter",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -3112,6 +3943,100 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "8042c376-4690-4c47-9fa2-fbdad70e32fa",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "dataDisks": [
+                          {
+                            "caching": "None",
+                            "createOption": "Empty",
+                            "diskSizeGB": 1023,
+                            "lun": 0,
+                            "managedDisk": {
+                              "storageAccountType": "Standard_LRS"
+                            }
+                          },
+                          {
+                            "caching": "None",
+                            "createOption": "Empty",
+                            "diskSizeGB": 1023,
+                            "lun": 1,
+                            "managedDisk": {
+                              "storageAccountType": "Standard_LRS"
+                            }
+                          }
+                        ],
+                        "imageReference": {
+                          "offer": "WindowsServer",
+                          "publisher": "MicrosoftWindowsServer",
+                          "sku": "2016-Datacenter",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D2_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -3273,6 +4198,80 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "ffb27c5c-39a5-4d4e-b307-b32598689813",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "offer": "WindowsServer",
+                          "publisher": "MicrosoftWindowsServer",
+                          "sku": "2016-Datacenter",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -3414,6 +4413,80 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "19fd38a2-f50a-42c6-9dc7-3f9cf3791225",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "secrets": [],
+                        "windowsConfiguration": {
+                          "enableAutomaticUpdates": true,
+                          "provisionVMAgent": true
+                        }
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "offer": "WindowsServer",
+                          "publisher": "MicrosoftWindowsServer",
+                          "sku": "2016-Datacenter",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Premium_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_DS1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -3565,6 +4638,87 @@
               "vmScaleSetName": "{vmss-name}"
             },
             "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
+                  "location": "westus",
+                  "name": "{vmss-name}",
+                  "properties": {
+                    "overprovision": true,
+                    "provisioningState": "Creating",
+                    "singlePlacementGroup": true,
+                    "uniqueId": "fb73af19-0090-467c-9ced-b00bceab1c45",
+                    "upgradePolicy": {
+                      "mode": "Manual"
+                    },
+                    "virtualMachineProfile": {
+                      "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                          {
+                            "name": "{vmss-name}",
+                            "properties": {
+                              "dnsSettings": {
+                                "dnsServers": []
+                              },
+                              "enableAcceleratedNetworking": false,
+                              "enableIPForwarding": true,
+                              "ipConfigurations": [
+                                {
+                                  "name": "{vmss-name}",
+                                  "properties": {
+                                    "privateIPAddressVersion": "IPv4",
+                                    "subnet": {
+                                      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/nsgExistingVnet/subnets/nsgExistingSubnet"
+                                    }
+                                  }
+                                }
+                              ],
+                              "primary": true
+                            }
+                          }
+                        ]
+                      },
+                      "osProfile": {
+                        "adminUsername": "{your-username}",
+                        "computerNamePrefix": "{vmss-name}",
+                        "linuxConfiguration": {
+                          "disablePasswordAuthentication": true,
+                          "ssh": {
+                            "publicKeys": [
+                              {
+                                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1",
+                                "path": "/home/{your-username}/.ssh/authorized_keys"
+                              }
+                            ]
+                          }
+                        },
+                        "secrets": []
+                      },
+                      "storageProfile": {
+                        "imageReference": {
+                          "offer": "UbuntuServer",
+                          "publisher": "Canonical",
+                          "sku": "16.04-LTS",
+                          "version": "latest"
+                        },
+                        "osDisk": {
+                          "caching": "ReadWrite",
+                          "createOption": "FromImage",
+                          "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sku": {
+                    "capacity": 3,
+                    "name": "Standard_D1_v2",
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.Compute/virtualMachineScaleSets"
+                }
+              },
               "201": {
                 "body": {
                   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}",
@@ -4142,10 +5296,156 @@
         "x-ms-long-running-operation": true
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/osUpgradeHistory": {
+      "get": {
+        "description": "Gets list of OS upgrades on a VM scale set instance.",
+        "operationId": "VirtualMachineScaleSets_GetOSUpgradeHistory",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the VM scale set.",
+            "in": "path",
+            "name": "vmScaleSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineScaleSetListOSUpgradeHistory"
+            }
+          }
+        },
+        "tags": [
+          "VirtualMachineScaleSets"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/performMaintenance": {
+      "post": {
+        "description": "Perform maintenance on one or more virtual machines in a VM scale set.",
+        "operationId": "VirtualMachineScaleSets_PerformMaintenance",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the VM scale set.",
+            "in": "path",
+            "name": "vmScaleSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A list of virtual machine instance IDs from the VM scale set.",
+            "in": "body",
+            "name": "vmInstanceIDs",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineScaleSetVMInstanceIDs"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OperationStatusResponse"
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          }
+        },
+        "tags": [
+          "VirtualMachineScaleSets"
+        ],
+        "x-ms-long-running-operation": true
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/poweroff": {
       "post": {
         "description": "Power off (stop) one or more virtual machines in a VM scale set. Note that resources are still attached and you are getting charged for the resources. Instead, use deallocate to release resources and avoid charges.",
         "operationId": "VirtualMachineScaleSets_PowerOff",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the VM scale set.",
+            "in": "path",
+            "name": "vmScaleSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A list of virtual machine instance IDs from the VM scale set.",
+            "in": "body",
+            "name": "vmInstanceIDs",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineScaleSetVMInstanceIDs"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OperationStatusResponse"
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          }
+        },
+        "tags": [
+          "VirtualMachineScaleSets"
+        ],
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/redeploy": {
+      "post": {
+        "description": "Redeploy one or more virtual machines in a VM scale set.",
+        "operationId": "VirtualMachineScaleSets_Redeploy",
         "parameters": [
           {
             "description": "The name of the resource group.",
@@ -4779,10 +6079,110 @@
         ]
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/performMaintenance": {
+      "post": {
+        "description": "Performs maintenance on a virtual machine in a VM scale set.",
+        "operationId": "VirtualMachineScaleSetVMs_PerformMaintenance",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the VM scale set.",
+            "in": "path",
+            "name": "vmScaleSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The instance ID of the virtual machine.",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OperationStatusResponse"
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          }
+        },
+        "tags": [
+          "VirtualMachineScaleSetVMs"
+        ],
+        "x-ms-long-running-operation": true
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/poweroff": {
       "post": {
         "description": "Power off (stop) a virtual machine in a VM scale set. Note that resources are still attached and you are getting charged for the resources. Instead, use deallocate to release resources and avoid charges.",
         "operationId": "VirtualMachineScaleSetVMs_PowerOff",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the VM scale set.",
+            "in": "path",
+            "name": "vmScaleSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The instance ID of the virtual machine.",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OperationStatusResponse"
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          }
+        },
+        "tags": [
+          "VirtualMachineScaleSetVMs"
+        ],
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/redeploy": {
+      "post": {
+        "description": "Redeploys a virtual machine in a VM scale set.",
+        "operationId": "VirtualMachineScaleSetVMs_Redeploy",
         "parameters": [
           {
             "description": "The name of the resource group.",
@@ -5159,6 +6559,59 @@
         "tags": [
           "VirtualMachines"
         ]
+      },
+      "patch": {
+        "description": "The operation to update a virtual machine.",
+        "operationId": "VirtualMachines_Update",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the virtual machine.",
+            "in": "path",
+            "name": "vmName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Update Virtual Machine operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineUpdate"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VirtualMachine"
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/VirtualMachine"
+            }
+          }
+        },
+        "tags": [
+          "VirtualMachines"
+        ],
+        "x-ms-long-running-operation": true
       },
       "put": {
         "description": "The operation to create or update a virtual machine.",
@@ -7053,6 +8506,52 @@
         "x-ms-long-running-operation": true
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions": {
+      "get": {
+        "description": "The operation to get all extensions of a Virtual Machine.",
+        "operationId": "VirtualMachines_GetExtensions",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the virtual machine containing the extension.",
+            "in": "path",
+            "name": "vmName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The expand expression to apply on the operation.",
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineExtensionsListResult"
+            }
+          }
+        },
+        "tags": [
+          "VirtualMachineExtensions"
+        ]
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName}": {
       "delete": {
         "description": "The operation to delete the extension.",
@@ -7156,6 +8655,60 @@
           "VirtualMachineExtensions"
         ]
       },
+      "patch": {
+        "description": "The operation to update the extension.",
+        "operationId": "VirtualMachineExtensions_Update",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the virtual machine where the extension should be updated.",
+            "in": "path",
+            "name": "vmName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the virtual machine extension.",
+            "in": "path",
+            "name": "vmExtensionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Update Virtual Machine Extension operation.",
+            "in": "body",
+            "name": "extensionParameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineExtensionUpdate"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineExtension"
+            }
+          }
+        },
+        "tags": [
+          "VirtualMachineExtensions"
+        ],
+        "x-ms-long-running-operation": true
+      },
       "put": {
         "description": "The operation to create or update the extension.",
         "operationId": "VirtualMachineExtensions_CreateOrUpdate",
@@ -7168,7 +8721,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the virtual machine where the extension should be create or updated.",
+            "description": "The name of the virtual machine where the extension should be created or updated.",
             "in": "path",
             "name": "vmName",
             "required": true,
@@ -7649,6 +9202,15 @@
         }
       }
     },
+    "AutoOSUpgradePolicy": {
+      "description": "The configuration parameters used for performing automatic OS upgrade.",
+      "properties": {
+        "disableAutoRollback": {
+          "description": "Whether OS image rollback feature should be disabled. Default value is false.",
+          "type": "boolean"
+        }
+      }
+    },
     "AvailabilitySet": {
       "allOf": [
         {
@@ -7709,6 +9271,24 @@
         }
       }
     },
+    "AvailabilitySetUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UpdateResource"
+        }
+      ],
+      "description": "Specifies information about the availability set that the virtual machine should be assigned to. Only tags may be updated.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/AvailabilitySetProperties",
+          "x-ms-client-flatten": true
+        },
+        "sku": {
+          "$ref": "#/definitions/Sku",
+          "description": "Sku of the availability set"
+        }
+      }
+    },
     "BootDiagnostics": {
       "description": "Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> For Linux Virtual Machines, you can easily view the output of your console log. <br><br> For both Windows and Linux virtual machines, Azure also enables you to see a screenshot of the VM from the hypervisor.",
       "properties": {
@@ -7757,8 +9337,65 @@
         }
       }
     },
+    "ComputeOperationListResult": {
+      "description": "The List Compute Operation operation response.",
+      "properties": {
+        "value": {
+          "description": "The list of compute operations",
+          "items": {
+            "$ref": "#/definitions/ComputeOperationValue"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
+    },
+    "ComputeOperationValue": {
+      "description": "Describes the properties of a Compute Operation value.",
+      "properties": {
+        "display": {
+          "$ref": "#/definitions/ComputeOperationValueDisplay",
+          "x-ms-client-flatten": true
+        },
+        "name": {
+          "description": "The name of the compute operation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "origin": {
+          "description": "The origin of the compute operation.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "ComputeOperationValueDisplay": {
+      "description": "Describes the properties of a Compute Operation Value Display.",
+      "properties": {
+        "description": {
+          "description": "The description of the operation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "operation": {
+          "description": "The display name of the compute operation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "provider": {
+          "description": "The resource provider for the operation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "resource": {
+          "description": "The display name of the resource the operation applies to.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
     "CreateOption": {
-      "description": "Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \\u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.",
+      "description": "Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach**  This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage**  This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.",
       "enum": [
         "FromImage",
         "Empty",
@@ -7766,7 +9403,7 @@
       ],
       "type": "string",
       "x-ms-enum": {
-        "modelAsString": false,
+        "modelAsString": true,
         "name": "DiskCreateOptionTypes"
       }
     },
@@ -7779,7 +9416,7 @@
         },
         "createOption": {
           "$ref": "#/definitions/CreateOption",
-          "description": "Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \\u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described."
+          "description": "Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach**  This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage**  This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described."
         },
         "diskSizeGB": {
           "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB",
@@ -7881,7 +9518,7 @@
       "description": "Specifies the hardware settings for the virtual machine.",
       "properties": {
         "vmSize": {
-          "description": "Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](virtualmachines-list-sizes-availability-set.md) <br><br> [List all available virtual machine sizes in a region](virtualmachines-list-sizes-region.md) <br><br> [List all available virtual machine sizes for resizing](virtualmachines-list-sizes-for-resizing.md)",
+          "description": "Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)",
           "enum": [
             "Basic_A0",
             "Basic_A1",
@@ -8262,11 +9899,26 @@
         "osDisk": {
           "$ref": "#/definitions/ImageOSDisk",
           "description": "Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)."
+        },
+        "zoneResilient": {
+          "description": "Specifies whether an image is zone resilient or not. Default is false. Zone resilient images can be created only in regions that provide Zone Redundant Storage (ZRS).",
+          "type": "boolean"
         }
-      },
-      "required": [
-        "osDisk"
-      ]
+      }
+    },
+    "ImageUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UpdateResource"
+        }
+      ],
+      "description": "The source user image virtual hard disk. Only tags may be updated.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/ImageProperties",
+          "x-ms-client-flatten": true
+        }
+      }
     },
     "InnerError": {
       "description": "Inner error details.",
@@ -8548,7 +10200,7 @@
         },
         "createOption": {
           "$ref": "#/definitions/CreateOption",
-          "description": "Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \\u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described."
+          "description": "Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach**  This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage**  This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described."
         },
         "diskSizeGB": {
           "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB",
@@ -8804,6 +10456,28 @@
       ],
       "x-ms-azure-resource": true
     },
+    "RollbackStatusInfo": {
+      "description": "Information about rollback on failed VM instances after a OS Upgrade operation",
+      "properties": {
+        "failedRolledbackInstanceCount": {
+          "description": "The number of instances which failed to rollback.",
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "rollbackError": {
+          "$ref": "#/definitions/ApiError",
+          "description": "Error Details if OS rollback failed.",
+          "readOnly": true
+        },
+        "successfullyRolledbackInstanceCount": {
+          "description": "The number of instances which have been successfully rolled back.",
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      }
+    },
     "RollingUpgradePolicy": {
       "description": "The configuration parameters used while performing a rolling upgrade.",
       "properties": {
@@ -8998,7 +10672,7 @@
       ],
       "type": "string",
       "x-ms-enum": {
-        "modelAsString": false,
+        "modelAsString": true,
         "name": "StorageAccountTypes"
       }
     },
@@ -9062,9 +10736,109 @@
       },
       "x-ms-azure-resource": true
     },
+    "UpgradeOperationHistoricalStatusInfo": {
+      "description": "Virtual Machine Scale Set OS Upgrade History operation response.",
+      "properties": {
+        "location": {
+          "description": "Resource location",
+          "readOnly": true,
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/UpgradeOperationHistoricalStatusInfoProperties",
+          "description": "Information about the properties of the upgrade operation.",
+          "readOnly": true
+        },
+        "type": {
+          "description": "Resource type",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "UpgradeOperationHistoricalStatusInfoProperties": {
+      "description": "Describes each OS upgrade on the Virtual Machine Scale Set.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ApiError",
+          "description": "Error Details for this upgrade if there are any.",
+          "readOnly": true
+        },
+        "progress": {
+          "$ref": "#/definitions/RollingUpgradeProgressInfo",
+          "description": "Counts of the VM's in each state.",
+          "readOnly": true
+        },
+        "rollbackInfo": {
+          "$ref": "#/definitions/RollbackStatusInfo",
+          "description": "Information about OS rollback if performed",
+          "readOnly": true
+        },
+        "runningStatus": {
+          "$ref": "#/definitions/UpgradeOperationHistoryStatus",
+          "description": "Information about the overall status of the upgrade operation.",
+          "readOnly": true
+        },
+        "startedBy": {
+          "description": "Invoker of the Upgrade Operation",
+          "enum": [
+            "Unknown",
+            "User",
+            "Platform"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "UpgradeOperationInvoker"
+          }
+        },
+        "targetImageReference": {
+          "$ref": "#/definitions/ImageReference",
+          "description": "Image Reference details",
+          "readOnly": true
+        }
+      }
+    },
+    "UpgradeOperationHistoryStatus": {
+      "description": "Information about the current running state of the overall upgrade.",
+      "properties": {
+        "code": {
+          "description": "Code indicating the current status of the upgrade.",
+          "enum": [
+            "RollingForward",
+            "Cancelled",
+            "Completed",
+            "Faulted"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "UpgradeState"
+          }
+        },
+        "endTime": {
+          "description": "End time of the upgrade.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start time of the upgrade.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
     "UpgradePolicy": {
       "description": "Describes an upgrade policy - automatic, manual, or rolling.",
       "properties": {
+        "autoOSUpgradePolicy": {
+          "$ref": "#/definitions/AutoOSUpgradePolicy",
+          "description": "Configuration parameters used for performing automatic OS Upgrade."
+        },
         "automaticOSUpgrade": {
           "description": "Whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the image becomes available.",
           "type": "boolean"
@@ -9429,6 +11203,65 @@
         "typeHandlerVersion": {
           "description": "Specifies the version of the script handler.",
           "type": "string"
+        }
+      }
+    },
+    "VirtualMachineExtensionUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UpdateResource"
+        }
+      ],
+      "description": "Describes a Virtual Machine Extension.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/VirtualMachineExtensionUpdateProperties",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "VirtualMachineExtensionUpdateProperties": {
+      "description": "Describes the properties of a Virtual Machine Extension.",
+      "properties": {
+        "autoUpgradeMinorVersion": {
+          "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
+          "type": "boolean"
+        },
+        "forceUpdateTag": {
+          "description": "How the extension handler should be forced to update even if the extension configuration has not changed.",
+          "type": "string"
+        },
+        "protectedSettings": {
+          "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.",
+          "type": "object"
+        },
+        "publisher": {
+          "description": "The name of the extension handler publisher.",
+          "type": "string"
+        },
+        "settings": {
+          "description": "Json formatted public settings for the extension.",
+          "type": "object"
+        },
+        "type": {
+          "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\".",
+          "type": "string"
+        },
+        "typeHandlerVersion": {
+          "description": "Specifies the version of the script handler.",
+          "type": "string"
+        }
+      }
+    },
+    "VirtualMachineExtensionsListResult": {
+      "description": "The List Extension operation response",
+      "properties": {
+        "value": {
+          "description": "The list of extensions",
+          "items": {
+            "$ref": "#/definitions/VirtualMachineExtension"
+          },
+          "type": "array"
         }
       }
     },
@@ -9977,6 +11810,25 @@
         }
       }
     },
+    "VirtualMachineScaleSetListOSUpgradeHistory": {
+      "description": "List of Virtual Machine Scale Set OS Upgrade History operation response.",
+      "properties": {
+        "nextLink": {
+          "description": "The uri to fetch the next page of OS Upgrade History. Call ListNext() with this to fetch the next page of history of upgrades.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of OS upgrades performed on the virtual machine scale set.",
+          "items": {
+            "$ref": "#/definitions/UpgradeOperationHistoricalStatusInfo"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "VirtualMachineScaleSetListResult": {
       "description": "The List Virtual Machine operation response.",
       "properties": {
@@ -10136,7 +11988,7 @@
         },
         "createOption": {
           "$ref": "#/definitions/CreateOption",
-          "description": "Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described."
+          "description": "Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage**  This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described."
         },
         "image": {
           "$ref": "#/definitions/VirtualHardDisk",
@@ -10221,6 +12073,11 @@
           "description": "Specifies whether the Virtual Machine Scale Set should be overprovisioned.",
           "type": "boolean"
         },
+        "platformFaultDomainCount": {
+          "description": "Fault Domain count for each placement group.",
+          "format": "int32",
+          "type": "integer"
+        },
         "provisioningState": {
           "description": "The provisioning state, which only appears in the response.",
           "readOnly": true,
@@ -10242,6 +12099,10 @@
         "virtualMachineProfile": {
           "$ref": "#/definitions/VirtualMachineScaleSetVMProfile",
           "description": "The virtual machine profile."
+        },
+        "zoneBalance": {
+          "description": "Whether to force stictly even Virtual Machine distribution cross x-zones in case there is zone outage.",
+          "type": "boolean"
         }
       }
     },
@@ -10770,6 +12631,10 @@
           },
           "type": "array"
         },
+        "maintenanceRedeployStatus": {
+          "$ref": "#/definitions/MaintenanceRedeployStatus",
+          "description": "The Maintenance Operation status on the virtual machine."
+        },
         "placementGroupId": {
           "description": "The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.",
           "type": "string"
@@ -10831,6 +12696,18 @@
         "diagnosticsProfile": {
           "$ref": "#/definitions/DiagnosticsProfile",
           "description": "Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15."
+        },
+        "evictionPolicy": {
+          "description": "Specifies the eviction policy for virtual machines in a low priority scale set. <br><br>Minimum api-version: 2017-10-30-preview",
+          "enum": [
+            "Deallocate",
+            "Delete"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "VirtualMachineEvictionPolicyTypes"
+          }
         },
         "extensionProfile": {
           "$ref": "#/definitions/VirtualMachineScaleSetExtensionProfile",
@@ -10978,6 +12855,35 @@
           "format": "int32",
           "readOnly": true,
           "type": "integer"
+        }
+      }
+    },
+    "VirtualMachineUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UpdateResource"
+        }
+      ],
+      "description": "Describes a Virtual Machine Update.",
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/VirtualMachineIdentity",
+          "description": "The identity of the virtual machine, if configured."
+        },
+        "plan": {
+          "$ref": "#/definitions/Plan",
+          "description": "Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**."
+        },
+        "properties": {
+          "$ref": "#/definitions/VirtualMachineProperties",
+          "x-ms-client-flatten": true
+        },
+        "zones": {
+          "description": "The virtual machine zones.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       }
     },

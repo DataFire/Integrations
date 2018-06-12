@@ -208,8 +208,7 @@ apigee_marketcheck_cars.dealerSearch({
   * start `number`: Offset for the search results. Default is 1.
 
 #### Output
-* output `array`
-  * items [Dealer](#dealer)
+* output [DealersResponse](#dealersresponse)
 
 ### getDepreciation
 [MOCK] Model resale value based on depreciation
@@ -379,6 +378,7 @@ apigee_marketcheck_cars.getListingVDP({
 * input `object`
   * api_key `string`: The API Authentication Key. Mandatory with all API calls.
   * id **required** `string`: Listing id to get the vehicle details page (VDP) HTML
+  * html `string`: Get only HTML for given listings VDP page
 
 #### Output
 * output [ListingVDP](#listingvdp)
@@ -503,8 +503,11 @@ apigee_marketcheck_cars.search({}, context)
   * latitude `number`: Latitude component of location
   * longitude `number`: Longitude component of location
   * radius `integer`: Radius around the search location
+  * zip `string`: car search bases on zipcode
   * car_type `string` (values: new, used, certified): Car type. Allowed values are - new / used / certified
   * seller_type `string`: Seller type to filter cars on. Valid filter values are those that our Search facets API returns for unique seller types. You can pass in multiple seller type values comma separated.
+  * carfax_1_owner `string`: Indicates whether car has had only one owner or not
+  * carfax_clean_title `string`: Indicates whether car has had any accidents or not
   * year `string`: Car year - 1980 onwards. Valid filter values are those that our Search facets API returns for unique years. You can pass in multiple year values comma separated.
   * make `string`: Car Make - should be a standard OEM Make name. Valid filter values are those that our Search facets API returns for unique make. You can pass in multiple make values separated by comma. e.g. ford,audi
   * model `string`: Car model to search. Valid filter values are those that our Search facets API returns for unique model. You can pass in multiple model values comma separated for e.g f-150,Mustang.
@@ -549,6 +552,8 @@ apigee_marketcheck_cars.search({}, context)
   * trim_r `string`: Filter trim on custom possible matches
   * dom_active_range `string`: Active Days on Market range to filter cars with the DOM within the given range. Range to be given in the format - min-max e.g. 10-50
   * dom_180_range `string`: Last 180 Days on Market range to filter cars with the DOM within the given range. Range to be given in the format - min-max e.g. 10-50
+  * options `string`: Tokenizer search on options for multiple options use | as seperator
+  * features `string`: Tokenizer search on features for multiple options use | as seperator
 
 #### Output
 * output [SearchResponse](#searchresponse)
@@ -776,6 +781,12 @@ apigee_marketcheck_cars.getSummaryReport({
   * street `string`: Street of the dealer
   * zip `string`: Zip of the dealer
 
+### DealersResponse
+* DealersResponse `object`: Dealers Response
+  * dealers `array`
+    * items [Dealer](#dealer)
+  * num_found `number`: number of dealers found
+
 ### DepreciationPoint
 * DepreciationPoint `object`
   * similar_models `array`
@@ -920,8 +931,13 @@ apigee_marketcheck_cars.getSummaryReport({
 
 ### PopularityItem
 * PopularityItem `object`
-  * count `number`: Popularity item count
-  * item `string`: Popularity item
+  * color `string`: Color depending upon left and right analysis numbers
+  * delta_percent `number`: Delta percent
+  * difference `number`: Difference depending upon left and right analysis
+  * left `number`: Left side rating for above description (2016 ford F-150 Lariat)
+  * right `number`: Right side rating for above description (All Other Cars)
+  * text `string`: Description for which popularity should be show eg: 2016 ford F-150 Lariat vs All Other Cars
+  * thumbs `string`: Thumbs up/down depending upon left and right analysis numbers
 
 ### RatingComponents
 * RatingComponents `object`

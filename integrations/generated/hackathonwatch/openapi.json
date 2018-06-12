@@ -21,7 +21,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "swagger",
         "url": "http://www.hackathonwatch.com/api/swagger_doc",

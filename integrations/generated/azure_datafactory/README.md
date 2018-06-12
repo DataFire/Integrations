@@ -64,6 +64,29 @@ azure_datafactory.Factories_List({
 #### Output
 * output [FactoryListResponse](#factorylistresponse)
 
+### Factories_ConfigureFactoryRepo
+Updates a factory's repo information.
+
+
+```js
+azure_datafactory.Factories_ConfigureFactoryRepo({
+  "subscriptionId": "",
+  "locationId": "",
+  "api-version": "",
+  "factoryRepoUpdate": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription identifier.
+  * locationId **required** `string`: The location identifier.
+  * api-version **required** `string`: The API version.
+  * factoryRepoUpdate **required** [FactoryRepoUpdate](#factoryrepoupdate)
+
+#### Output
+* output [Factory](#factory)
+
 ### Factories_ListByResourceGroup
 Lists factories.
 
@@ -1361,8 +1384,11 @@ azure_datafactory.Triggers_ListRuns({
 ### DatasetResource
 * DatasetResource `object`: Dataset resource type.
   * properties **required** `object`: The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
+    * annotations `array`: List of tags that can be used for describing the Dataset.
+      * items `object`
     * description `string`: Dataset description.
     * linkedServiceName **required** `object`: Linked service reference type.
+      * parameters `object`: An object mapping parameter names to argument values.
       * referenceName **required** `string`: Reference LinkedService name.
       * type **required** `string` (values: LinkedServiceReference): Linked service reference type.
     * parameters `object`: Definition of all parameters for an entity.
@@ -1413,11 +1439,28 @@ azure_datafactory.Triggers_ListRuns({
   * createTime `string`: Time the factory was created in ISO8601 format.
   * provisioningState `string`: Factory provisioning state, example Succeeded.
   * version `string`: Version of the factory.
+  * vstsConfiguration [FactoryVSTSConfiguration](#factoryvstsconfiguration)
+
+### FactoryRepoUpdate
+* FactoryRepoUpdate `object`: Factory's VSTS repo information.
+  * factoryResourceId `string`: The factory resource id.
+  * resourceGroupName `string`: The resource group name.
+  * vstsConfiguration [FactoryVSTSConfiguration](#factoryvstsconfiguration)
 
 ### FactoryUpdateParameters
 * FactoryUpdateParameters `object`: Parameters for updating a factory resource.
   * identity [FactoryIdentity](#factoryidentity)
   * tags `object`: The resource tags.
+
+### FactoryVSTSConfiguration
+* FactoryVSTSConfiguration `object`: Factory's VSTS repo information.
+  * accountName `string`: VSTS account name.
+  * collaborationBranch `string`: VSTS collaboration branch.
+  * lastCommitId `string`: VSTS last commit id.
+  * projectName `string`: VSTS project name.
+  * repositoryName `string`: VSTS repository name.
+  * rootFolder `string`: VSTS root folder.
+  * tenantId `string`: VSTS tenant id.
 
 ### IntegrationRuntimeListResponse
 * IntegrationRuntimeListResponse `object`: A list of integration runtime resources.
@@ -1463,17 +1506,21 @@ azure_datafactory.Triggers_ListRuns({
 
 ### LinkedServiceReference
 * LinkedServiceReference `object`: Linked service reference type.
+  * parameters `object`: An object mapping parameter names to argument values.
   * referenceName **required** `string`: Reference LinkedService name.
   * type **required** `string` (values: LinkedServiceReference): Linked service reference type.
 
 ### LinkedServiceResource
 * LinkedServiceResource `object`: Linked service resource type.
   * properties **required** `object`: The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
+    * annotations `array`: List of tags that can be used for describing the Dataset.
+      * items `object`
     * connectVia `object`: Integration runtime reference type.
       * parameters `object`: An object mapping parameter names to argument values.
       * referenceName **required** `string`: Reference integration runtime name.
       * type **required** `string` (values: IntegrationRuntimeReference): Type of integration runtime.
     * description `string`: Linked service description.
+    * parameters `object`: Definition of all parameters for an entity.
     * type **required** `string`: Type of linked service.
   * etag `string`: Etag identifies change in the resource.
   * id `string`: The resource identifier.
@@ -1538,7 +1585,7 @@ azure_datafactory.Triggers_ListRuns({
 ### ParameterSpecification
 * ParameterSpecification `object`: Definition of a single parameter for an entity.
   * defaultValue `object`: Default value of parameter.
-  * type **required** `string` (values: Object, String, Int, Float, Bool, Array): Parameter type.
+  * type **required** `string` (values: Object, String, Int, Float, Bool, Array, SecureString): Parameter type.
 
 ### ParameterValueSpecification
 * ParameterValueSpecification `object`: An object mapping parameter names to argument values.
@@ -1568,6 +1615,8 @@ azure_datafactory.Triggers_ListRuns({
         * description `string`: Activity description.
         * name **required** `string`: Activity name.
         * type **required** `string`: Type of activity.
+    * annotations `array`: List of tags that can be used for describing the Pipeline.
+      * items `object`
     * concurrency `integer`: The max number of concurrent runs for the pipeline.
     * description `string`: The description of the pipeline.
     * parameters `object`: Definition of all parameters for an entity.

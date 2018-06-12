@@ -15,12 +15,11 @@ let azure_sql_backups = require('@datafire/azure_sql_backups').create({
   redirect_uri: ""
 });
 
-azure_sql_backups.RestorePoints_ListByDatabase({
+azure_sql_backups.RecoverableDatabases_ListByServer({
   "api-version": "",
   "subscriptionId": "",
   "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
+  "serverName": ""
 }).then(data => {
   console.log(data);
 });
@@ -31,31 +30,6 @@ azure_sql_backups.RestorePoints_ListByDatabase({
 Provides read functionality for Azure SQL Database Backups
 
 ## Actions
-
-### RestorePoints_ListByDatabase
-Gets a list of database restore points.
-
-
-```js
-azure_sql_backups.RestorePoints_ListByDatabase({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The API version to use for the request.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
-  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-  * serverName **required** `string`: The name of the server.
-  * databaseName **required** `string`: The name of the database to get available restore points.
-
-#### Output
-* output [RestorePointListResult](#restorepointlistresult)
 
 ### RecoverableDatabases_ListByServer
 Gets a list of recoverable databases
@@ -157,12 +131,6 @@ azure_sql_backups.RestorableDroppedDatabases_Get({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### RecoverableDatabase
 * RecoverableDatabase `object`: A recoverable database
   * properties [RecoverableDatabaseProperties](#recoverabledatabaseproperties)
@@ -181,12 +149,6 @@ azure_sql_backups.RestorableDroppedDatabases_Get({
   * elasticPoolName `string`: The elastic pool name of the database
   * lastAvailableBackupDate `string`: The last available backup date of the database (ISO8601 format)
   * serviceLevelObjective `string`: The service level objective name of the database
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
 
 ### RestorableDroppedDatabase
 * RestorableDroppedDatabase `object`: A restorable dropped database
@@ -211,31 +173,5 @@ azure_sql_backups.RestorableDroppedDatabases_Get({
   * elasticPoolName `string`: The elastic pool name of the database
   * maxSizeBytes `string`: The max size in bytes of the database
   * serviceLevelObjective `string`: The service level objective name of the database
-
-### RestorePoint
-* RestorePoint `object`: A database restore point.
-  * properties [RestorePointProperties](#restorepointproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### RestorePointListResult
-* RestorePointListResult `object`: The response to a list database restore points request.
-  * value **required** `array`: The list of database restore points.
-    * items [RestorePoint](#restorepoint)
-
-### RestorePointProperties
-* RestorePointProperties `object`: Represents the properties of a database restore point.
-  * earliestRestoreDate `string`: Earliest restore time (ISO8601 format). Populated when restorePointType = DISCRETE. Null otherwise.
-  * restorePointCreationDate `string`: Restore point creation time (ISO8601 format). Populated when restorePointType = CONTINUOUS. Null otherwise.
-  * restorePointType `string` (values: DISCRETE, CONTINUOUS): The restore point type of the database restore point.
-
-### TrackedResource
-* TrackedResource `object`: ARM tracked top level resource.
-  * location **required** `string`: Resource location.
-  * tags `object`: Resource tags.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
 
 

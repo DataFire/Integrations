@@ -46,7 +46,7 @@ azure_automation_schedule.Schedule_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -56,15 +56,15 @@ azure_automation_schedule.Schedule_ListByAutomationAccount({
   * nextLink `string`: Gets or sets the next link.
   * value `array`: Gets or sets a list of schedules.
     * items `object`: Definition of the schedule.
-      * id `string`: Gets or sets the id of the resource.
-      * name `string`: Gets or sets the name of the schedule.
+      * id `string`: Gets the id of the resource.
+      * name `string`: Gets name of the schedule.
       * properties `object`: Definition of schedule parameters.
         * advancedSchedule `object`: The properties of the create Advanced Schedule.
           * monthDays `array`: Days of the month that the job should execute on. Must be between 1 and 31.
             * items `integer`
           * monthlyOccurrences `array`: Occurrences of days within a month.
             * items `object`: The properties of the create advanced schedule monthly occurrence.
-              * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.
+              * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
               * occurrence `integer`: Occurrence of the week within the month. Must be between 1 and 5
           * weekDays `array`: Days of the week that the job should execute on.
             * items `string`
@@ -80,6 +80,7 @@ azure_automation_schedule.Schedule_ListByAutomationAccount({
         * startTime `string`: Gets or sets the start time of the schedule.
         * startTimeOffsetMinutes `number`: Gets the start time's offset in minutes.
         * timeZone `string`: Gets or sets the time zone of the schedule.
+      * type `string`: Resource type
 
 ### Schedule_Delete
 Delete the schedule identified by schedule name.
@@ -97,7 +98,7 @@ azure_automation_schedule.Schedule_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * scheduleName **required** `string`: The schedule name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -122,7 +123,7 @@ azure_automation_schedule.Schedule_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * scheduleName **required** `string`: The schedule name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -130,15 +131,15 @@ azure_automation_schedule.Schedule_Get({
 
 #### Output
 * output `object`: Definition of the schedule.
-  * id `string`: Gets or sets the id of the resource.
-  * name `string`: Gets or sets the name of the schedule.
+  * id `string`: Gets the id of the resource.
+  * name `string`: Gets name of the schedule.
   * properties `object`: Definition of schedule parameters.
     * advancedSchedule `object`: The properties of the create Advanced Schedule.
       * monthDays `array`: Days of the month that the job should execute on. Must be between 1 and 31.
         * items `integer`
       * monthlyOccurrences `array`: Occurrences of days within a month.
         * items `object`: The properties of the create advanced schedule monthly occurrence.
-          * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.
+          * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
           * occurrence `integer`: Occurrence of the week within the month. Must be between 1 and 5
       * weekDays `array`: Days of the week that the job should execute on.
         * items `string`
@@ -154,6 +155,7 @@ azure_automation_schedule.Schedule_Get({
     * startTime `string`: Gets or sets the start time of the schedule.
     * startTimeOffsetMinutes `number`: Gets the start time's offset in minutes.
     * timeZone `string`: Gets or sets the time zone of the schedule.
+  * type `string`: Resource type
 
 ### Schedule_Update
 Update the schedule identified by schedule name.
@@ -172,11 +174,11 @@ azure_automation_schedule.Schedule_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * scheduleName **required** `string`: The schedule name.
   * parameters **required** `object`: The parameters supplied to the update schedule operation.
-    * name **required** `string`: Gets or sets the name of the schedule.
+    * name `string`: Gets or sets the name of the schedule.
     * properties `object`: The parameters supplied to the update schedule operation.
       * description `string`: Gets or sets the description of the schedule.
       * isEnabled `boolean`: Gets or sets a value indicating whether this schedule is enabled.
@@ -185,15 +187,15 @@ azure_automation_schedule.Schedule_Update({
 
 #### Output
 * output `object`: Definition of the schedule.
-  * id `string`: Gets or sets the id of the resource.
-  * name `string`: Gets or sets the name of the schedule.
+  * id `string`: Gets the id of the resource.
+  * name `string`: Gets name of the schedule.
   * properties `object`: Definition of schedule parameters.
     * advancedSchedule `object`: The properties of the create Advanced Schedule.
       * monthDays `array`: Days of the month that the job should execute on. Must be between 1 and 31.
         * items `integer`
       * monthlyOccurrences `array`: Occurrences of days within a month.
         * items `object`: The properties of the create advanced schedule monthly occurrence.
-          * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.
+          * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
           * occurrence `integer`: Occurrence of the week within the month. Must be between 1 and 5
       * weekDays `array`: Days of the week that the job should execute on.
         * items `string`
@@ -209,6 +211,7 @@ azure_automation_schedule.Schedule_Update({
     * startTime `string`: Gets or sets the start time of the schedule.
     * startTimeOffsetMinutes `number`: Gets the start time's offset in minutes.
     * timeZone `string`: Gets or sets the time zone of the schedule.
+  * type `string`: Resource type
 
 ### Schedule_CreateOrUpdate
 Create a schedule.
@@ -227,7 +230,7 @@ azure_automation_schedule.Schedule_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * scheduleName **required** `string`: The schedule name.
   * parameters **required** `object`: The parameters supplied to the create or update schedule operation.
@@ -238,7 +241,7 @@ azure_automation_schedule.Schedule_CreateOrUpdate({
           * items `integer`
         * monthlyOccurrences `array`: Occurrences of days within a month.
           * items `object`: The properties of the create advanced schedule monthly occurrence.
-            * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.
+            * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
             * occurrence `integer`: Occurrence of the week within the month. Must be between 1 and 5
         * weekDays `array`: Days of the week that the job should execute on.
           * items `string`
@@ -252,15 +255,15 @@ azure_automation_schedule.Schedule_CreateOrUpdate({
 
 #### Output
 * output `object`: Definition of the schedule.
-  * id `string`: Gets or sets the id of the resource.
-  * name `string`: Gets or sets the name of the schedule.
+  * id `string`: Gets the id of the resource.
+  * name `string`: Gets name of the schedule.
   * properties `object`: Definition of schedule parameters.
     * advancedSchedule `object`: The properties of the create Advanced Schedule.
       * monthDays `array`: Days of the month that the job should execute on. Must be between 1 and 31.
         * items `integer`
       * monthlyOccurrences `array`: Occurrences of days within a month.
         * items `object`: The properties of the create advanced schedule monthly occurrence.
-          * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday,thursday, friday, saturday, sunday.
+          * day `string` (values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
           * occurrence `integer`: Occurrence of the week within the month. Must be between 1 and 5
       * weekDays `array`: Days of the week that the job should execute on.
         * items `string`
@@ -276,6 +279,7 @@ azure_automation_schedule.Schedule_CreateOrUpdate({
     * startTime `string`: Gets or sets the start time of the schedule.
     * startTimeOffsetMinutes `number`: Gets the start time's offset in minutes.
     * timeZone `string`: Gets or sets the time zone of the schedule.
+  * type `string`: Resource type
 
 
 

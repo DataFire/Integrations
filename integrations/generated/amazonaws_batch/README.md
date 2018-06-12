@@ -248,6 +248,7 @@ amazonaws_batch.RegisterJobDefinition({
   * jobDefinitionName **required** [String](#string)
   * parameters [ParametersMap](#parametersmap)
   * retryStrategy [RetryStrategy](#retrystrategy)
+  * timeout [JobTimeout](#jobtimeout)
   * type **required** [JobDefinitionType](#jobdefinitiontype)
 
 #### Output
@@ -275,6 +276,7 @@ amazonaws_batch.SubmitJob({
   * jobQueue **required** [String](#string)
   * parameters [ParametersMap](#parametersmap)
   * retryStrategy [RetryStrategy](#retrystrategy)
+  * timeout [JobTimeout](#jobtimeout)
 
 #### Output
 * output [SubmitJobResponse](#submitjobresponse)
@@ -621,6 +623,7 @@ amazonaws_batch.UpdateJobQueue({
   * retryStrategy [RetryStrategy](#retrystrategy)
   * revision **required** [Integer](#integer)
   * status [String](#string)
+  * timeout [JobTimeout](#jobtimeout)
   * type **required** [String](#string)
 
 ### JobDefinitionList
@@ -656,6 +659,7 @@ amazonaws_batch.UpdateJobQueue({
   * status **required** [JobStatus](#jobstatus)
   * statusReason [String](#string)
   * stoppedAt [Long](#long)
+  * timeout [JobTimeout](#jobtimeout)
 
 ### JobDetailList
 * JobDetailList `array`
@@ -693,6 +697,10 @@ amazonaws_batch.UpdateJobQueue({
 ### JobSummaryList
 * JobSummaryList `array`
   * items [JobSummary](#jobsummary)
+
+### JobTimeout
+* JobTimeout `object`: An object representing a job timeout configuration.
+  * attemptDurationSeconds [Integer](#integer)
 
 ### KeyValuePair
 * KeyValuePair `object`: A key-value pair object.
@@ -737,6 +745,7 @@ amazonaws_batch.UpdateJobQueue({
   * jobDefinitionName **required** [String](#string)
   * parameters [ParametersMap](#parametersmap)
   * retryStrategy [RetryStrategy](#retrystrategy)
+  * timeout [JobTimeout](#jobtimeout)
   * type **required** [JobDefinitionType](#jobdefinitiontype)
 
 ### RegisterJobDefinitionResponse
@@ -770,6 +779,7 @@ amazonaws_batch.UpdateJobQueue({
   * jobQueue **required** [String](#string)
   * parameters [ParametersMap](#parametersmap)
   * retryStrategy [RetryStrategy](#retrystrategy)
+  * timeout [JobTimeout](#jobtimeout)
 
 ### SubmitJobResponse
 * SubmitJobResponse `object`

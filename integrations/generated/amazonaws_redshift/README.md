@@ -576,6 +576,7 @@ amazonaws_redshift.DescribeClusterSnapshots({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
+  * ClusterExists [BooleanOptional](#booleanoptional)
   * ClusterIdentifier [String](#string)
   * EndTime [TStamp](#tstamp)
   * Marker [String](#string)
@@ -1382,6 +1383,7 @@ amazonaws_redshift.RotateEncryptionKey({
 ### AvailabilityZone
 * AvailabilityZone `object`: Describes an availability zone.
   * Name [String](#string)
+  * SupportedPlatforms [SupportedPlatformsList](#supportedplatformslist)
 
 ### AvailabilityZoneList
 * AvailabilityZoneList `array`
@@ -1860,6 +1862,7 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### DescribeClusterSnapshotsMessage
 * DescribeClusterSnapshotsMessage `object`: <p/>
+  * ClusterExists [BooleanOptional](#booleanoptional)
   * ClusterIdentifier [String](#string)
   * EndTime [TStamp](#tstamp)
   * Marker [String](#string)
@@ -2470,6 +2473,7 @@ amazonaws_redshift.RotateEncryptionKey({
   * RecurringCharges [RecurringChargeList](#recurringchargelist)
   * ReservedNodeId [String](#string)
   * ReservedNodeOfferingId [String](#string)
+  * ReservedNodeOfferingType [ReservedNodeOfferingType](#reservednodeofferingtype)
   * StartTime [TStamp](#tstamp)
   * State [String](#string)
   * UsagePrice [Double](#double)
@@ -2493,6 +2497,7 @@ amazonaws_redshift.RotateEncryptionKey({
   * OfferingType [String](#string)
   * RecurringCharges [RecurringChargeList](#recurringchargelist)
   * ReservedNodeOfferingId [String](#string)
+  * ReservedNodeOfferingType [ReservedNodeOfferingType](#reservednodeofferingtype)
   * UsagePrice [Double](#double)
 
 ### ReservedNodeOfferingList
@@ -2501,6 +2506,9 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### ReservedNodeOfferingNotFoundFault
 * ReservedNodeOfferingNotFoundFault `object`: Specified offering does not exist.
+
+### ReservedNodeOfferingType
+* ReservedNodeOfferingType `string` (values: Regular, Upgradable)
 
 ### ReservedNodeOfferingsMessage
 * ReservedNodeOfferingsMessage `object`: <p/>
@@ -2758,6 +2766,14 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### SubscriptionSeverityNotFoundFault
 * SubscriptionSeverityNotFoundFault `object`: The value specified for the event severity was not one of the allowed values, or it specified a severity that does not apply to the specified source type. The allowed values are ERROR and INFO.
+
+### SupportedPlatform
+* SupportedPlatform `object`: A list of supported platforms for orderable clusters.
+  * Name [String](#string)
+
+### SupportedPlatformsList
+* SupportedPlatformsList `array`
+  * items [SupportedPlatform](#supportedplatform)
 
 ### TStamp
 * TStamp `string`

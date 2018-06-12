@@ -3072,7 +3072,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * UserPoolId [UserPoolIdType](#userpoolidtype)
 
 ### IdentityProviderTypeType
-* IdentityProviderTypeType `string` (values: SAML, Facebook, Google, LoginWithAmazon)
+* IdentityProviderTypeType `string` (values: SAML, Facebook, Google, LoginWithAmazon, OIDC)
 
 ### IdpIdentifierType
 * IdpIdentifierType `string`
@@ -3961,6 +3961,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * UserPoolType `object`: A container for information about the user pool.
   * AdminCreateUserConfig [AdminCreateUserConfigType](#admincreateuserconfigtype)
   * AliasAttributes [AliasAttributesListType](#aliasattributeslisttype)
+  * Arn [ArnType](#arntype)
   * AutoVerifiedAttributes [VerifiedAttributesListType](#verifiedattributeslisttype)
   * CreationDate [DateType](#datetype)
   * DeviceConfiguration [DeviceConfigurationType](#deviceconfigurationtype)

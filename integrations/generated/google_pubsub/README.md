@@ -1,6 +1,6 @@
 # @datafire/google_pubsub
 
-Client library for Google Cloud Pub/Sub
+Client library for Cloud Pub/Sub
 
 ## Installation and Usage
 ```bash
@@ -71,8 +71,12 @@ google_pubsub.oauthRefresh(null, context)
   * expiration `string`
 
 ### projects.snapshots.patch
-Updates an existing snapshot. Note that certain properties of a
-snapshot are not modifiable.
+Updates an existing snapshot.<br><br>
+Lists the names of the snapshots on this topic.<br><br>
+<b>ALPHA:</b> This feature is part of an alpha release. This API might be
+changed in backward-incompatible ways and is not recommended for production
+use. It is not subject to any SLA or deprecation policy.
+Note that certain properties of a snapshot are not modifiable.
 
 
 ```js
@@ -102,20 +106,35 @@ google_pubsub.projects.snapshots.patch({
 #### Output
 * output [Snapshot](#snapshot)
 
-### projects.topics.create
-Creates the given topic with the given name.
+### projects.snapshots.create
+Creates a snapshot from the requested subscription.<br><br>
+Lists the names of the snapshots on this topic.<br><br>
+<b>ALPHA:</b> This feature is part of an alpha release. This API might be
+changed in backward-incompatible ways and is not recommended for production
+use. It is not subject to any SLA or deprecation policy.
+If the snapshot already exists, returns `ALREADY_EXISTS`.
+If the requested subscription doesn't exist, returns `NOT_FOUND`.
+If the backlog in the subscription is too old -- and the resulting snapshot
+would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
+See also the `Snapshot.expire_time` field. If the name is not provided in
+the request, the server will assign a random
+name for this snapshot on the same project as the subscription, conforming
+to the [resource name format](https://cloud.google.com/pubsub/docs/overview#names).
+The generated
+name is populated in the returned Snapshot object. Note that for REST API
+requests, you must specify a name in the request.
 
 
 ```js
-google_pubsub.projects.topics.create({
+google_pubsub.projects.snapshots.create({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Topic](#topic)
-  * name **required** `string`: The name of the topic. It must have the format
+  * body [CreateSnapshotRequest](#createsnapshotrequest)
+  * name **required** `string`: Optional user-provided name for this snapshot.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -131,10 +150,14 @@ google_pubsub.projects.topics.create({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [Topic](#topic)
+* output [Snapshot](#snapshot)
 
 ### projects.snapshots.list
-Lists the existing snapshots.
+Lists the existing snapshots.<br><br>
+Lists the names of the snapshots on this topic.<br><br>
+<b>ALPHA:</b> This feature is part of an alpha release. This API might be
+changed in backward-incompatible ways and is not recommended for production
+use. It is not subject to any SLA or deprecation policy.
 
 
 ```js
@@ -229,14 +252,14 @@ google_pubsub.projects.topics.list({
 #### Output
 * output [ListTopicsResponse](#listtopicsresponse)
 
-### projects.topics.getIamPolicy
+### projects.snapshots.getIamPolicy
 Gets the access control policy for a resource.
 Returns an empty policy if the resource exists and does not have a policy
 set.
 
 
 ```js
-google_pubsub.projects.topics.getIamPolicy({
+google_pubsub.projects.snapshots.getIamPolicy({
   "resource": ""
 }, context)
 ```
@@ -261,13 +284,13 @@ google_pubsub.projects.topics.getIamPolicy({
 #### Output
 * output [Policy](#policy)
 
-### projects.topics.setIamPolicy
+### projects.snapshots.setIamPolicy
 Sets the access control policy on the specified resource. Replaces any
 existing policy.
 
 
 ```js
-google_pubsub.projects.topics.setIamPolicy({
+google_pubsub.projects.snapshots.setIamPolicy({
   "resource": ""
 }, context)
 ```
@@ -293,7 +316,7 @@ google_pubsub.projects.topics.setIamPolicy({
 #### Output
 * output [Policy](#policy)
 
-### projects.topics.testIamPermissions
+### projects.snapshots.testIamPermissions
 Returns permissions that a caller has on the specified resource.
 If the resource does not exist, this will return an empty set of
 permissions, not a NOT_FOUND error.
@@ -304,7 +327,7 @@ may "fail open" without warning.
 
 
 ```js
-google_pubsub.projects.topics.testIamPermissions({
+google_pubsub.projects.snapshots.testIamPermissions({
   "resource": ""
 }, context)
 ```
@@ -331,7 +354,12 @@ google_pubsub.projects.topics.testIamPermissions({
 * output [TestIamPermissionsResponse](#testiampermissionsresponse)
 
 ### projects.snapshots.delete
-Removes an existing snapshot. All messages retained in the snapshot
+Removes an existing snapshot. <br><br>
+Lists the names of the snapshots on this topic.<br><br>
+<b>ALPHA:</b> This feature is part of an alpha release. This API might be
+changed in backward-incompatible ways and is not recommended for production
+use. It is not subject to any SLA or deprecation policy.
+When the snapshot is deleted, all messages retained in the snapshot
 are immediately dropped. After a snapshot is deleted, a new one may be
 created with the same name, but the new one has no association with the old
 snapshot or its subscription, unless the same subscription is specified.
@@ -364,7 +392,11 @@ google_pubsub.projects.snapshots.delete({
 * output [Empty](#empty)
 
 ### projects.snapshots.get
-Gets the configuration details of a snapshot.
+Gets the configuration details of a snapshot.<br><br>
+Lists the names of the snapshots on this topic.<br><br>
+<b>ALPHA:</b> This feature is part of an alpha release. This API might be
+changed in backward-incompatible ways and is not recommended for production
+use. It is not subject to any SLA or deprecation policy.
 
 
 ```js
@@ -601,7 +633,11 @@ google_pubsub.projects.subscriptions.pull({
 
 ### projects.subscriptions.seek
 Seeks an existing subscription to a point in time or to a given snapshot,
-whichever is provided in the request.
+whichever is provided in the request.<br><br>
+Lists the names of the snapshots on this topic.<br><br>
+<b>ALPHA:</b> This feature is part of an alpha release. This API might be
+changed in backward-incompatible ways and is not recommended for production
+use. It is not subject to any SLA or deprecation policy.
 
 
 ```js
@@ -696,7 +732,10 @@ google_pubsub.projects.topics.get({
 * output [Topic](#topic)
 
 ### projects.topics.snapshots.list
-Lists the names of the snapshots on this topic.
+Lists the names of the snapshots on this topic.<br><br>
+<b>ALPHA:</b> This feature is part of an alpha release. This API might be
+changed in backward-incompatible ways and is not recommended for production
+use. It is not subject to any SLA or deprecation policy.
 
 
 ```js
@@ -808,14 +847,14 @@ google_pubsub.projects.topics.publish({
   * role `string`: Role that is assigned to `members`.
 
 ### CreateSnapshotRequest
-* CreateSnapshotRequest `object`: Request for the `CreateSnapshot` method.
+* CreateSnapshotRequest `object`: Request for the `CreateSnapshot` method.<br><br>
   * subscription `string`: The subscription whose backlog the snapshot retains.
 
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
 
 ### ListSnapshotsResponse
-* ListSnapshotsResponse `object`: Response for the `ListSnapshots` method.
+* ListSnapshotsResponse `object`: Response for the `ListSnapshots` method.<br><br>
   * nextPageToken `string`: If not empty, indicates that there may be more snapshot that match the
   * snapshots `array`: The resulting snapshots.
     * items [Snapshot](#snapshot)
@@ -827,7 +866,7 @@ google_pubsub.projects.topics.publish({
     * items [Subscription](#subscription)
 
 ### ListTopicSnapshotsResponse
-* ListTopicSnapshotsResponse `object`: Response for the `ListTopicSnapshots` method.
+* ListTopicSnapshotsResponse `object`: Response for the `ListTopicSnapshots` method.<br><br>
   * nextPageToken `string`: If not empty, indicates that there may be more snapshots that match
   * snapshots `array`: The names of the snapshots that match the request.
     * items `string`
@@ -899,7 +938,7 @@ google_pubsub.projects.topics.publish({
   * message [PubsubMessage](#pubsubmessage)
 
 ### SeekRequest
-* SeekRequest `object`: Request for the `Seek` method.
+* SeekRequest `object`: Request for the `Seek` method.<br><br>
   * snapshot `string`: The snapshot to seek to. The snapshot's topic must be the same as that of
   * time `string`: The time to seek to.
 
@@ -911,7 +950,7 @@ google_pubsub.projects.topics.publish({
   * policy [Policy](#policy)
 
 ### Snapshot
-* Snapshot `object`: A snapshot resource.
+* Snapshot `object`: A snapshot resource.<br><br>
   * expireTime `string`: The snapshot is guaranteed to exist up until this time.
   * name `string`: The name of the snapshot.
   * topic `string`: The name of the topic from which this snapshot is retaining messages.
@@ -940,7 +979,7 @@ google_pubsub.projects.topics.publish({
   * name `string`: The name of the topic. It must have the format
 
 ### UpdateSnapshotRequest
-* UpdateSnapshotRequest `object`: Request for the UpdateSnapshot method.
+* UpdateSnapshotRequest `object`: Request for the UpdateSnapshot method.<br><br>
   * snapshot [Snapshot](#snapshot)
   * updateMask `string`: Indicates which fields in the provided snapshot to update.
 

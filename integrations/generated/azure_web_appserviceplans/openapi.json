@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/web/resource-manager/Microsoft.Web/stable/2016-09-01/AppServicePlans.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2016-09-01/AppServicePlans.json",
         "version": "2.0"
       }
     ],
@@ -4362,6 +4362,11 @@
                                 },
                                 "type": "array"
                               },
+                              "http20Enabled": {
+                                "default": true,
+                                "description": "Http20Enabled: configures a web site to allow clients to connect over http2.0",
+                                "type": "boolean"
+                              },
                               "httpLoggingEnabled": {
                                 "description": "<code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.",
                                 "type": "boolean"
@@ -4481,6 +4486,19 @@
                                 "x-ms-enum": {
                                   "modelAsString": false,
                                   "name": "ManagedPipelineMode"
+                                }
+                              },
+                              "minTlsVersion": {
+                                "description": "MinTlsVersion: configures the minimum version of TLS required for SSL requests",
+                                "enum": [
+                                  "1.0",
+                                  "1.1",
+                                  "1.2"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "SupportedTlsVersions"
                                 }
                               },
                               "netFrameworkVersion": {

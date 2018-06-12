@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "A data platform for customers to create, manage, share and query data.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "BigQuery",
     "version": "v2",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/bigquery/v2/rest",
@@ -52,7 +47,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/bigquery": "View and manage your data in Google BigQuery",
@@ -63,22 +58,6 @@
         "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
         "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/bigquery": "View and manage your data in Google BigQuery",
-        "https://www.googleapis.com/auth/bigquery.insertdata": "Insert data into Google BigQuery",
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/devstorage.full_control": "Manage your data and permissions in Google Cloud Storage",
-        "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
-        "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -135,13 +114,13 @@
       "type": "boolean"
     },
     "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
       "in": "query",
       "name": "quotaUser",
       "type": "string"
     },
     "userIp": {
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "description": "Deprecated. Please use quotaUser instead.",
       "in": "query",
       "name": "userIp",
       "type": "string"
@@ -195,24 +174,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -294,24 +264,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -374,16 +335,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -428,16 +383,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -477,24 +426,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -564,16 +504,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -620,16 +554,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -683,24 +611,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -770,16 +689,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -825,16 +738,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -887,24 +794,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -981,16 +879,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1044,16 +936,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1126,24 +1012,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1245,24 +1122,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery.insertdata"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery.insertdata"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1284,10 +1152,22 @@
             "type": "boolean"
           },
           {
+            "description": "Max value for job creation time, in milliseconds since the POSIX epoch. If set, only jobs created before or at this timestamp are returned",
+            "in": "query",
+            "name": "maxCreationTime",
+            "type": "string"
+          },
+          {
             "description": "Maximum number of results to return",
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "Min value for job creation time, in milliseconds since the POSIX epoch. If set, only jobs created after or at this timestamp are returned",
+            "in": "query",
+            "name": "minCreationTime",
+            "type": "string"
           },
           {
             "description": "Page token, returned by a previous call, to request the next page of results",
@@ -1340,24 +1220,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1423,40 +1294,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.full_control"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/devstorage.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.read_only"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/devstorage.read_only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/devstorage.read_write"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/devstorage.read_write"
             ]
           }
@@ -1479,7 +1335,7 @@
             "type": "string"
           },
           {
-            "description": "[Experimental] The geographic location of the job. Required except for US and EU.",
+            "description": "[Experimental] The geographic location of the job. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.",
             "in": "query",
             "name": "location",
             "type": "string"
@@ -1504,24 +1360,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1590,7 +1437,7 @@
             "type": "string"
           },
           {
-            "description": "[Experimental] The geographic location of the job. Required except for US and EU.",
+            "description": "[Experimental] The geographic location of the job. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.",
             "in": "query",
             "name": "location",
             "type": "string"
@@ -1615,16 +1462,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1689,24 +1530,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1729,7 +1561,7 @@
             "type": "string"
           },
           {
-            "description": "[Experimental] The geographic location where the job should run. Required except for US and EU.",
+            "description": "[Experimental] The geographic location where the job should run. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.",
             "in": "query",
             "name": "location",
             "type": "string"
@@ -1778,24 +1610,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1853,24 +1676,15 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform.read-only"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           }
@@ -1978,6 +1792,18 @@
         "readRowkeyAsString": {
           "description": "[Optional] If field is true, then the rowkey column families will be read and converted to string. Otherwise they are read with BYTES type values and users need to manually cast them with CAST if necessary. The default value is false.",
           "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Clustering": {
+      "properties": {
+        "fields": {
+          "description": "[Repeated] One or more fields on which data should be clustered. Only top-level, non-repeated, simple-type fields are supported. The order of the fields will determine how clusters will be generated, so it is important.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -2097,7 +1923,7 @@
           "type": "string"
         },
         "location": {
-          "description": "The geographic location where the dataset should reside. Possible values include EU and US. The default value is US.",
+          "description": "The geographic location where the dataset should reside. The default value is US. See details at https://cloud.google.com/bigquery/docs/dataset-locations.",
           "type": "string"
         },
         "selfLink": {
@@ -2175,6 +2001,19 @@
       },
       "type": "object"
     },
+    "DestinationTableProperties": {
+      "properties": {
+        "description": {
+          "description": "[Optional] The description for the destination table. This will only be used if the destination table is newly created. If the table already exists and a value different than the current description is provided, the job will fail.",
+          "type": "string"
+        },
+        "friendlyName": {
+          "description": "[Optional] The friendly name for the destination table. This will only be used if the destination table is newly created. If the table already exists and a value different than the current friendly name is provided, the job will fail.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "EncryptionConfiguration": {
       "properties": {
         "kmsKeyName": {
@@ -2232,10 +2071,23 @@
           "format": "double",
           "type": "number"
         },
+        "endMs": {
+          "description": "Stage end time represented as milliseconds since epoch.",
+          "format": "int64",
+          "type": "string"
+        },
         "id": {
           "description": "Unique ID for stage within plan.",
           "format": "int64",
           "type": "string"
+        },
+        "inputStages": {
+          "description": "IDs for stages that are inputs to this stage.",
+          "items": {
+            "format": "int64",
+            "type": "string"
+          },
+          "type": "array"
         },
         "name": {
           "description": "Human-readable name for stage.",
@@ -2283,6 +2135,11 @@
         },
         "shuffleOutputBytesSpilled": {
           "description": "Total number of bytes written to shuffle and spilled to disk.",
+          "format": "int64",
+          "type": "string"
+        },
+        "startMs": {
+          "description": "Stage start time represented as milliseconds since epoch.",
           "format": "int64",
           "type": "string"
         },
@@ -2484,6 +2341,10 @@
     },
     "GoogleSheetsOptions": {
       "properties": {
+        "range": {
+          "description": "[Experimental] [Optional] Range of a sheet to query from. Only used when non-empty. Typical format: !:",
+          "type": "string"
+        },
         "skipLeadingRows": {
           "description": "[Optional] The number of rows at the top of a sheet that BigQuery will skip when reading the data. The default value is 0. This property is useful if you have header rows that should be skipped. When autodetect is on, behavior is the following: * skipLeadingRows unspecified - Autodetect tries to detect headers in the first row. If they are not detected, the row is read as data. Otherwise data is read starting from the second row. * skipLeadingRows is 0 - Instructs autodetect that there are no headers and data should be read starting from the first row. * skipLeadingRows = N > 0 - Autodetect skips N-1 rows and tries to detect headers in row N. If headers are not detected, row N is just skipped. Otherwise row N is used to extract column names for the detected schema.",
           "format": "int64",
@@ -2588,7 +2449,7 @@
     "JobConfigurationExtract": {
       "properties": {
         "compression": {
-          "description": "[Optional] The compression type to use for exported files. Possible values include GZIP and NONE. The default value is NONE.",
+          "description": "[Optional] The compression type to use for exported files. Possible values include GZIP, DEFLATE, SNAPPY, and NONE. The default value is NONE. DEFLATE and SNAPPY are only supported for Avro.",
           "type": "string"
         },
         "destinationFormat": {
@@ -2633,8 +2494,12 @@
           "type": "boolean"
         },
         "autodetect": {
-          "description": "Indicates if we should automatically infer the options and schema for CSV and JSON sources.",
+          "description": "[Optional] Indicates if we should automatically infer the options and schema for CSV and JSON sources.",
           "type": "boolean"
+        },
+        "clustering": {
+          "$ref": "#/definitions/Clustering",
+          "description": "[Experimental] Clustering specification for the destination table. Must be specified with time-based partitioning, data in the table will be first partitioned and subsequently clustered."
         },
         "createDisposition": {
           "description": "[Optional] Specifies whether the job is allowed to create new tables. The following values are supported: CREATE_IF_NEEDED: If the table does not exist, BigQuery creates the table. CREATE_NEVER: The table must already exist. If it does not, a 'notFound' error is returned in the job result. The default value is CREATE_IF_NEEDED. Creation, truncation and append actions occur as one atomic update upon job completion.",
@@ -2642,11 +2507,15 @@
         },
         "destinationEncryptionConfiguration": {
           "$ref": "#/definitions/EncryptionConfiguration",
-          "description": "[Experimental] Custom encryption configuration (e.g., Cloud KMS keys)."
+          "description": "Custom encryption configuration (e.g., Cloud KMS keys)."
         },
         "destinationTable": {
           "$ref": "#/definitions/TableReference",
           "description": "[Required] The destination table to load the data into."
+        },
+        "destinationTableProperties": {
+          "$ref": "#/definitions/DestinationTableProperties",
+          "description": "[Experimental] [Optional] Properties with which to create the destination table if it is new."
         },
         "encoding": {
           "description": "[Optional] The character encoding of the data. The supported values are UTF-8 or ISO-8859-1. The default value is UTF-8. BigQuery decodes the data after the raw, binary data has been split using the values of the quote and fieldDelimiter properties.",
@@ -2707,7 +2576,7 @@
           "type": "integer"
         },
         "sourceFormat": {
-          "description": "[Optional] The format of the data files. For CSV files, specify \"CSV\". For datastore backups, specify \"DATASTORE_BACKUP\". For newline-delimited JSON, specify \"NEWLINE_DELIMITED_JSON\". For Avro, specify \"AVRO\". The default value is CSV.",
+          "description": "[Optional] The format of the data files. For CSV files, specify \"CSV\". For datastore backups, specify \"DATASTORE_BACKUP\". For newline-delimited JSON, specify \"NEWLINE_DELIMITED_JSON\". For Avro, specify \"AVRO\". For parquet, specify \"PARQUET\". For orc, specify \"ORC\". The default value is CSV.",
           "type": "string"
         },
         "sourceUris": {
@@ -2719,7 +2588,7 @@
         },
         "timePartitioning": {
           "$ref": "#/definitions/TimePartitioning",
-          "description": "If specified, configures time-based partitioning for the destination table."
+          "description": "Time-based partitioning specification for the destination table."
         },
         "writeDisposition": {
           "description": "[Optional] Specifies the action that occurs if the destination table already exists. The following values are supported: WRITE_TRUNCATE: If the table already exists, BigQuery overwrites the table data. WRITE_APPEND: If the table already exists, BigQuery appends the data to the table. WRITE_EMPTY: If the table already exists and contains data, a 'duplicate' error is returned in the job result. The default value is WRITE_APPEND. Each action is atomic and only occurs if BigQuery is able to complete the job successfully. Creation, truncation and append actions occur as one atomic update upon job completion.",
@@ -2735,6 +2604,10 @@
           "description": "[Optional] If true and query uses legacy SQL dialect, allows the query to produce arbitrarily large result tables at a slight cost in performance. Requires destinationTable to be set. For standard SQL queries, this flag is ignored and large results are always allowed. However, you must still set destinationTable when result size exceeds the allowed maximum response size.",
           "type": "boolean"
         },
+        "clustering": {
+          "$ref": "#/definitions/Clustering",
+          "description": "[Experimental] Clustering specification for the destination table. Must be specified with time-based partitioning, data in the table will be first partitioned and subsequently clustered."
+        },
         "createDisposition": {
           "description": "[Optional] Specifies whether the job is allowed to create new tables. The following values are supported: CREATE_IF_NEEDED: If the table does not exist, BigQuery creates the table. CREATE_NEVER: The table must already exist. If it does not, a 'notFound' error is returned in the job result. The default value is CREATE_IF_NEEDED. Creation, truncation and append actions occur as one atomic update upon job completion.",
           "type": "string"
@@ -2745,7 +2618,7 @@
         },
         "destinationEncryptionConfiguration": {
           "$ref": "#/definitions/EncryptionConfiguration",
-          "description": "[Experimental] Custom encryption configuration (e.g., Cloud KMS keys)."
+          "description": "Custom encryption configuration (e.g., Cloud KMS keys)."
         },
         "destinationTable": {
           "$ref": "#/definitions/TableReference",
@@ -2806,9 +2679,10 @@
         },
         "timePartitioning": {
           "$ref": "#/definitions/TimePartitioning",
-          "description": "If specified, configures time-based partitioning for the destination table."
+          "description": "Time-based partitioning specification for the destination table."
         },
         "useLegacySql": {
+          "default": true,
           "description": "Specifies whether to use BigQuery's legacy SQL dialect for this query. The default value is true. If set to false, the query will use BigQuery's standard SQL: https://cloud.google.com/bigquery/sql-reference/ When useLegacySql is set to false, the value of flattenResults is ignored; query will be run as if flattenResults is false.",
           "type": "boolean"
         },
@@ -2839,7 +2713,7 @@
         },
         "destinationEncryptionConfiguration": {
           "$ref": "#/definitions/EncryptionConfiguration",
-          "description": "[Experimental] Custom encryption configuration (e.g., Cloud KMS keys)."
+          "description": "Custom encryption configuration (e.g., Cloud KMS keys)."
         },
         "destinationTable": {
           "$ref": "#/definitions/TableReference",
@@ -2934,8 +2808,8 @@
           "type": "string"
         },
         "location": {
-          "$ref": "#/definitions/Location",
-          "description": "[Experimental] The geographic location of the job. Required except for US and EU."
+          "description": "[Experimental] The geographic location of the job. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.",
+          "type": "string"
         },
         "projectId": {
           "description": "[Required] The ID of the project containing this job.",
@@ -3029,6 +2903,24 @@
           },
           "type": "array"
         },
+        "reservationUsage": {
+          "description": "[Output-only] Job resource usage breakdown by reservation.",
+          "items": {
+            "properties": {
+              "name": {
+                "description": "[Output-only] Reservation name or \"unreserved\" for on-demand resources usage.",
+                "type": "string"
+              },
+              "slotMs": {
+                "description": "[Output-only] Slot-milliseconds the job spent in the given reservation.",
+                "format": "int64",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
         "schema": {
           "$ref": "#/definitions/TableSchema",
           "description": "[Output-only] The schema of the results. Present only for successful dry run of non-legacy SQL queries."
@@ -3038,7 +2930,7 @@
           "type": "string"
         },
         "timeline": {
-          "description": "[Output-only] Describes a timeline of job execution.",
+          "description": "[Output-only] [Experimental] Describes a timeline of job execution.",
           "items": {
             "$ref": "#/definitions/QueryTimelineSample"
           },
@@ -3051,6 +2943,11 @@
         },
         "totalBytesProcessed": {
           "description": "[Output-only] Total bytes processed for the job.",
+          "format": "int64",
+          "type": "string"
+        },
+        "totalPartitionsProcessed": {
+          "description": "[Output-only] Total number of partitions processed from all partitioned tables referenced in the job.",
           "format": "int64",
           "type": "string"
         },
@@ -3140,9 +3037,6 @@
       "type": "object"
     },
     "JsonValue": {},
-    "Location": {
-      "type": "string"
-    },
     "ProjectList": {
       "properties": {
         "etag": {
@@ -3296,8 +3190,8 @@
           "type": "string"
         },
         "location": {
-          "$ref": "#/definitions/Location",
-          "description": "[Experimental] The geographic location where the job should run. Required except for US and EU."
+          "description": "[Experimental] The geographic location where the job should run. Required except for US and EU.",
+          "type": "string"
         },
         "maxResults": {
           "description": "[Optional] The maximum number of rows of data to return per page of results. Setting this flag to a small value such as 1000 and then paging through results might improve reliability when the query result set is large. In addition to this limit, responses are also limited to 10 MB. By default, there is no maximum row count, and only the byte limit applies.",
@@ -3402,22 +3296,22 @@
     },
     "QueryTimelineSample": {
       "properties": {
-        "activeInputs": {
-          "description": "Total number of active workers. This does not correspond directly to slot usage. This is the largest value observed since the last sample.",
-          "format": "int32",
-          "type": "integer"
+        "activeUnits": {
+          "description": "Total number of units currently being processed by workers. This does not correspond directly to slot usage. This is the largest value observed since the last sample.",
+          "format": "int64",
+          "type": "string"
         },
-        "completedInputs": {
+        "completedUnits": {
           "description": "Total parallel units of work completed by this query.",
-          "format": "int32",
-          "type": "integer"
+          "format": "int64",
+          "type": "string"
         },
         "elapsedMs": {
           "description": "Milliseconds elapsed since the start of query execution.",
           "format": "int64",
           "type": "string"
         },
-        "pendingInputs": {
+        "pendingUnits": {
           "description": "Total parallel units of work remaining for the active stages.",
           "format": "int64",
           "type": "string"
@@ -3452,6 +3346,10 @@
     },
     "Table": {
       "properties": {
+        "clustering": {
+          "$ref": "#/definitions/Clustering",
+          "description": "[Experimental] Clustering specification for the table. Must be specified with time-based partitioning, data in the table will be first partitioned and subsequently clustered."
+        },
         "creationTime": {
           "description": "[Output-only] The time when this table was created, in milliseconds since the epoch.",
           "format": "int64",
@@ -3463,7 +3361,7 @@
         },
         "encryptionConfiguration": {
           "$ref": "#/definitions/EncryptionConfiguration",
-          "description": "[Experimental] Custom encryption configuration (e.g., Cloud KMS keys)."
+          "description": "Custom encryption configuration (e.g., Cloud KMS keys)."
         },
         "etag": {
           "description": "[Output-only] A hash of this resource.",
@@ -3540,7 +3438,7 @@
         },
         "timePartitioning": {
           "$ref": "#/definitions/TimePartitioning",
-          "description": "If specified, configures time-based partitioning for this table."
+          "description": "Time-based partitioning specification for this table."
         },
         "type": {
           "description": "[Output-only] Describes the table type. The following values are supported: TABLE: A normal BigQuery table. VIEW: A virtual table defined by a SQL query. EXTERNAL: A table that references data stored in an external storage system, such as Google Cloud Storage. The default value is TABLE.",
@@ -3706,6 +3604,10 @@
           "description": "Tables in the requested dataset.",
           "items": {
             "properties": {
+              "clustering": {
+                "$ref": "#/definitions/Clustering",
+                "description": "[Experimental] Clustering specification for this table, if configured."
+              },
               "creationTime": {
                 "description": "The time when this table was created, in milliseconds since the epoch.",
                 "format": "int64",
@@ -3742,7 +3644,7 @@
               },
               "timePartitioning": {
                 "$ref": "#/definitions/TimePartitioning",
-                "description": "The time-based partitioning for this table."
+                "description": "The time-based partitioning specification for this table, if configured."
               },
               "type": {
                 "description": "The type of table. Possible values are: TABLE, VIEW.",
@@ -3815,13 +3717,18 @@
     "TimePartitioning": {
       "properties": {
         "expirationMs": {
-          "description": "[Optional] Number of milliseconds for which to keep the storage for a partition.",
+          "description": "[Optional] Number of milliseconds for which to keep the storage for partitions in the table. The storage in a partition will have an expiration time of its partition time plus this value.",
           "format": "int64",
           "type": "string"
         },
         "field": {
-          "description": "[Experimental] [Optional] If not set, the table is partitioned by pseudo column '_PARTITIONTIME'; if set, the table is partitioned by this field. The field must be a top-level TIMESTAMP or DATE field. Its mode must be NULLABLE or REQUIRED.",
+          "description": "[Experimental] [Optional] If not set, the table is partitioned by pseudo column, referenced via either '_PARTITIONTIME' as TIMESTAMP type, or '_PARTITIONDATE' as DATE type. If field is specified, the table is instead partitioned by this field. The field must be a top-level TIMESTAMP or DATE field. Its mode must be NULLABLE or REQUIRED.",
           "type": "string"
+        },
+        "requirePartitionFilter": {
+          "default": false,
+          "description": "[Experimental] [Optional] If set to true, queries over this table require a partition filter that can be used for partition elimination to be specified.",
+          "type": "boolean"
         },
         "type": {
           "description": "[Required] The only type supported is DAY, which will generate one partition per day.",

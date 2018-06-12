@@ -12,12 +12,7 @@
       "url": "https://google.com"
     },
     "description": "Registers, manages, indexes, and searches beacons.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Proximity Beacon",
+    "title": "Proximity Beacon",
     "version": "v1beta1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
@@ -32,7 +27,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://proximitybeacon.googleapis.com/$discovery/rest?version=v1beta1",
@@ -53,21 +48,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/userlocation.beacon.registry": "View and modify your beacons"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/userlocation.beacon.registry": "View and modify your beacons"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -297,9 +282,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
         ],
@@ -421,9 +403,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
         ],
@@ -447,9 +426,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
@@ -523,9 +499,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
@@ -608,9 +581,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
         ],
@@ -692,9 +662,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
         ],
@@ -732,9 +699,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
@@ -822,9 +786,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
         ],
@@ -870,9 +831,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
@@ -959,9 +917,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
@@ -1050,9 +1005,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
         ],
@@ -1116,9 +1068,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
@@ -1242,9 +1191,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
         ],
@@ -1326,9 +1272,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
         ],
@@ -1409,9 +1352,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
@@ -1500,9 +1440,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/userlocation.beacon.registry"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/userlocation.beacon.registry"
             ]
           }
@@ -1682,7 +1619,7 @@
           "type": "integer"
         },
         "month": {
-          "description": "Month of year. Must be from 1 to 12.",
+          "description": "Month of year. Must be from 1 to 12, or 0 if specifying a date without a\nmonth.",
           "format": "int32",
           "type": "integer"
         },

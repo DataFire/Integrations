@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/webhook.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/webhook.json",
         "version": "2.0"
       }
     ],
@@ -67,12 +67,15 @@
         "operationId": "Webhook_ListByAutomationAccount",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -116,23 +119,44 @@
                 "value": {
                   "description": "Gets or sets a list of webhooks.",
                   "items": {
+                    "allOf": [
+                      {
+                        "allOf": [
+                          {
+                            "description": "The core properties of ARM resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource Id for the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                      }
+                    ],
                     "description": "Definition of the webhook type.",
                     "properties": {
-                      "id": {
-                        "description": "Gets or sets the id of the resource.",
-                        "type": "string"
-                      },
-                      "name": {
-                        "description": "Gets or sets the name of the webhook.",
-                        "type": "string"
-                      },
                       "properties": {
                         "description": "Definition of the webhook properties",
                         "properties": {
                           "creationTime": {
                             "description": "Gets or sets the creation time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "description": {
                             "description": "Gets or sets the description.",
@@ -141,7 +165,8 @@
                           "expiryTime": {
                             "description": "Gets or sets the expiry time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "isEnabled": {
                             "default": false,
@@ -151,12 +176,18 @@
                           "lastInvokedTime": {
                             "description": "Gets or sets the last invoked time.",
                             "format": "date-time",
+                            "type": "string",
+                            "x-nullable": true
+                          },
+                          "lastModifiedBy": {
+                            "description": "Details of the user who last modified the Webhook",
                             "type": "string"
                           },
                           "lastModifiedTime": {
                             "description": "Gets or sets the last modified time.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": "string",
+                            "x-nullable": false
                           },
                           "parameters": {
                             "additionalProperties": {
@@ -231,11 +262,15 @@
                         "creationTime": "2017-03-29T22:18:14.6651862+00:00",
                         "expiryTime": "2018-03-29T22:18:13.7002872+00:00",
                         "isEnabled": true,
+                        "lastInvokedTime": null,
                         "lastModifiedBy": "",
                         "lastModifiedTime": "2017-03-29T22:18:14.6651862+00:00",
+                        "parameters": null,
+                        "runOn": null,
                         "runbook": {
                           "name": "TestRunbook"
-                        }
+                        },
+                        "uri": null
                       }
                     }
                   ]
@@ -245,6 +280,7 @@
             }
           }
         },
+        "x-ms-odata": "./definitions.json#/definitions/Webhook",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -259,12 +295,15 @@
         "operationId": "Webhook_GenerateUri",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -315,7 +354,23 @@
         },
         "tags": [
           "Webhook"
-        ]
+        ],
+        "x-ms-examples": {
+          "Generate webhook uri": {
+            "parameters": {
+              "api-version": "2015-10-31",
+              "automationAccountName": "myAutomationAccount33",
+              "resourceGroupName": "rg",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": "https://s13events.azure-automation.net/webhooks?token=O6n03K%2b1%2bSLPH50m4x9%2fcbcqtAu2tJDTvr8QHnbJ1kw%3d",
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/webhooks/{webhookName}": {
@@ -327,12 +382,15 @@
         "operationId": "Webhook_Delete",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -411,12 +469,15 @@
         "operationId": "Webhook_Get",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -451,23 +512,44 @@
           "200": {
             "description": "OK",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the webhook type.",
               "properties": {
-                "id": {
-                  "description": "Gets or sets the id of the resource.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets or sets the name of the webhook.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of the webhook properties",
                   "properties": {
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -476,7 +558,8 @@
                     "expiryTime": {
                       "description": "Gets or sets the expiry time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "isEnabled": {
                       "default": false,
@@ -486,12 +569,18 @@
                     "lastInvokedTime": {
                       "description": "Gets or sets the last invoked time.",
                       "format": "date-time",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "lastModifiedBy": {
+                      "description": "Details of the user who last modified the Webhook",
                       "type": "string"
                     },
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "parameters": {
                       "additionalProperties": {
@@ -561,8 +650,11 @@
                     "creationTime": "2017-03-29T22:18:14.6651862+00:00",
                     "expiryTime": "2018-03-29T22:18:13.7002872+00:00",
                     "isEnabled": true,
+                    "lastInvokedTime": null,
                     "lastModifiedBy": "",
                     "lastModifiedTime": "2017-03-29T22:18:14.6651862+00:00",
+                    "parameters": null,
+                    "runOn": null,
                     "runbook": {
                       "name": "TestRunbook"
                     },
@@ -583,12 +675,15 @@
         "operationId": "Webhook_Update",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -640,10 +735,7 @@
                     }
                   }
                 }
-              },
-              "required": [
-                "name"
-              ]
+              }
             }
           },
           {
@@ -665,23 +757,44 @@
           "200": {
             "description": "OK",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the webhook type.",
               "properties": {
-                "id": {
-                  "description": "Gets or sets the id of the resource.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets or sets the name of the webhook.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of the webhook properties",
                   "properties": {
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -690,7 +803,8 @@
                     "expiryTime": {
                       "description": "Gets or sets the expiry time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "isEnabled": {
                       "default": false,
@@ -700,12 +814,18 @@
                     "lastInvokedTime": {
                       "description": "Gets or sets the last invoked time.",
                       "format": "date-time",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "lastModifiedBy": {
+                      "description": "Details of the user who last modified the Webhook",
                       "type": "string"
                     },
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "parameters": {
                       "additionalProperties": {
@@ -782,8 +902,11 @@
                     "creationTime": "2017-03-30T21:52:01.272378+00:00",
                     "expiryTime": "2018-03-30T23:03:14.5752078+00:00",
                     "isEnabled": false,
+                    "lastInvokedTime": null,
                     "lastModifiedBy": "",
                     "lastModifiedTime": "2017-03-30T23:03:14.9069441+00:00",
+                    "parameters": null,
+                    "runOn": null,
                     "runbook": {
                       "name": "TestRunbook"
                     },
@@ -804,12 +927,15 @@
         "operationId": "Webhook_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The resource group name.",
+            "description": "Name of an Azure Resource group.",
             "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._]+$",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The automation account name.",
@@ -843,7 +969,8 @@
                     "expiryTime": {
                       "description": "Gets or sets the expiry time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "isEnabled": {
                       "description": "Gets or sets the value of the enabled flag of webhook.",
@@ -901,23 +1028,44 @@
           "200": {
             "description": "OK",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the webhook type.",
               "properties": {
-                "id": {
-                  "description": "Gets or sets the id of the resource.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets or sets the name of the webhook.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of the webhook properties",
                   "properties": {
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -926,7 +1074,8 @@
                     "expiryTime": {
                       "description": "Gets or sets the expiry time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "isEnabled": {
                       "default": false,
@@ -936,12 +1085,18 @@
                     "lastInvokedTime": {
                       "description": "Gets or sets the last invoked time.",
                       "format": "date-time",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "lastModifiedBy": {
+                      "description": "Details of the user who last modified the Webhook",
                       "type": "string"
                     },
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "parameters": {
                       "additionalProperties": {
@@ -975,23 +1130,44 @@
           "201": {
             "description": "Created",
             "schema": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+                }
+              ],
               "description": "Definition of the webhook type.",
               "properties": {
-                "id": {
-                  "description": "Gets or sets the id of the resource.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets or sets the name of the webhook.",
-                  "type": "string"
-                },
                 "properties": {
                   "description": "Definition of the webhook properties",
                   "properties": {
                     "creationTime": {
                       "description": "Gets or sets the creation time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "description": {
                       "description": "Gets or sets the description.",
@@ -1000,7 +1176,8 @@
                     "expiryTime": {
                       "description": "Gets or sets the expiry time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "isEnabled": {
                       "default": false,
@@ -1010,12 +1187,18 @@
                     "lastInvokedTime": {
                       "description": "Gets or sets the last invoked time.",
                       "format": "date-time",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "lastModifiedBy": {
+                      "description": "Details of the user who last modified the Webhook",
                       "type": "string"
                     },
                     "lastModifiedTime": {
                       "description": "Gets or sets the last modified time.",
                       "format": "date-time",
-                      "type": "string"
+                      "type": "string",
+                      "x-nullable": false
                     },
                     "parameters": {
                       "additionalProperties": {
@@ -1096,13 +1279,17 @@
                     "creationTime": "2017-03-29T22:18:14.6651862+00:00",
                     "expiryTime": "2018-03-29T22:18:13.7002872+00:00",
                     "isEnabled": true,
+                    "lastInvokedTime": null,
                     "lastModifiedBy": "",
                     "lastModifiedTime": "2017-03-29T22:18:14.6651862+00:00",
+                    "parameters": null,
+                    "runOn": null,
                     "runbook": {
                       "name": "TestRunbook"
                     },
                     "uri": ""
-                  }
+                  },
+                  "type": "Microsoft.Automation/AutomationAccounts/Webhooks"
                 },
                 "headers": {}
               },
@@ -1114,13 +1301,17 @@
                     "creationTime": "2017-03-29T22:18:14.6651862+00:00",
                     "expiryTime": "2018-03-29T22:18:13.7002872+00:00",
                     "isEnabled": true,
+                    "lastInvokedTime": null,
                     "lastModifiedBy": "",
                     "lastModifiedTime": "2017-03-29T22:18:14.6651862+00:00",
+                    "parameters": null,
+                    "runOn": null,
                     "runbook": {
                       "name": "TestRunbook"
                     },
                     "uri": ""
-                  }
+                  },
+                  "type": "Microsoft.Automation/AutomationAccounts/Webhooks"
                 },
                 "headers": {}
               }

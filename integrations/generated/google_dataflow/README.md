@@ -1,6 +1,6 @@
 # @datafire/google_dataflow
 
-Client library for Google Dataflow
+Client library for Dataflow
 
 ## Installation and Usage
 ```bash
@@ -1093,6 +1093,7 @@ google_dataflow.projects.templates.launch({
   * eventType `string` (values: TYPE_UNKNOWN, TARGET_NUM_WORKERS_CHANGED, CURRENT_NUM_WORKERS_CHANGED, ACTUATION_FAILURE, NO_CHANGE): The type of autoscaling event to report.
   * targetNumWorkers `string`: The target number of workers the worker pool wants to resize to use.
   * time `string`: The time this event was emitted to indicate a new target or current
+  * workerPool `string`: A short and friendly name for the worker pool this event refers to,
 
 ### AutoscalingSettings
 * AutoscalingSettings `object`: Settings for WorkerPool autoscaling.
@@ -1138,7 +1139,7 @@ google_dataflow.projects.templates.launch({
 ### CounterMetadata
 * CounterMetadata `object`: CounterMetadata includes all static non-name non-value counter attributes.
   * description `string`: Human-readable description of the counter semantics.
-  * kind `string` (values: INVALID, SUM, MAX, MIN, MEAN, OR, AND, SET, DISTRIBUTION): Counter aggregation kind.
+  * kind `string` (values: INVALID, SUM, MAX, MIN, MEAN, OR, AND, SET, DISTRIBUTION, LATEST_VALUE): Counter aggregation kind.
   * otherUnits `string`: A string referring to the unit type.
   * standardUnits `string` (values: BYTES, BYTES_PER_SEC, MILLISECONDS, MICROSECONDS, NANOSECONDS, TIMESTAMP_MSEC, TIMESTAMP_USEC, TIMESTAMP_NSEC): System defined Units, see above enum.
 
@@ -1169,6 +1170,7 @@ google_dataflow.projects.templates.launch({
   * floatingPointList [FloatingPointList](#floatingpointlist)
   * floatingPointMean [FloatingPointMean](#floatingpointmean)
   * integer [SplitInt64](#splitint64)
+  * integerGauge [IntegerGauge](#integergauge)
   * integerList [IntegerList](#integerlist)
   * integerMean [IntegerMean](#integermean)
   * nameAndKind [NameAndKind](#nameandkind)
@@ -1323,6 +1325,11 @@ google_dataflow.projects.templates.launch({
   * originalName `string`: System-defined name for this output in the original workflow graph.
   * systemName `string`: System-defined name of this output.
 
+### IntegerGauge
+* IntegerGauge `object`: A metric value representing temporal values of a variable.
+  * timestamp `string`: The time at which this value was measured. Measured as msecs from epoch.
+  * value [SplitInt64](#splitint64)
+
 ### IntegerList
 * IntegerList `object`: A metric value representing a list of integers.
   * elements `array`: Elements of the list.
@@ -1472,7 +1479,7 @@ google_dataflow.projects.templates.launch({
 
 ### NameAndKind
 * NameAndKind `object`: Basic metadata about a counter.
-  * kind `string` (values: INVALID, SUM, MAX, MIN, MEAN, OR, AND, SET, DISTRIBUTION): Counter aggregation kind.
+  * kind `string` (values: INVALID, SUM, MAX, MIN, MEAN, OR, AND, SET, DISTRIBUTION, LATEST_VALUE): Counter aggregation kind.
   * name `string`: Name of the counter.
 
 ### Package
@@ -1591,7 +1598,9 @@ google_dataflow.projects.templates.launch({
   * bypassTempDirValidation `boolean`: Whether to bypass the safety checks for the job's temporary directory.
   * machineType `string`: The machine type to use for the job. Defaults to the value from the
   * maxWorkers `integer`: The maximum number of Google Compute Engine instances to be made
+  * network `string`: Network to which VMs will be assigned.  If empty or unspecified,
   * serviceAccountEmail `string`: The email address of the service account to run the job as.
+  * subnetwork `string`: Subnetwork to which VMs will be assigned, if desired.  Expected to be of
   * tempLocation `string`: The Cloud Storage path to use for temporary files.
   * zone `string`: The Compute Engine [availability
 
@@ -1926,11 +1935,18 @@ google_dataflow.projects.templates.launch({
 * WorkerHealthReportResponse `object`: WorkerHealthReportResponse contains information returned to the worker
   * reportInterval `string`: A positive value indicates the worker should change its reporting interval
 
+### WorkerLifecycleEvent
+* WorkerLifecycleEvent `object`: A report of an event in a worker's lifecycle.
+  * containerStartTime `string`: The start time of this container. All events will report this so that
+  * event `string` (values: UNKNOWN_EVENT, OS_START, CONTAINER_START, NETWORK_UP, STAGING_FILES_DOWNLOAD_START, STAGING_FILES_DOWNLOAD_FINISH, SDK_INSTALL_START, SDK_INSTALL_FINISH): The event being reported.
+  * metadata `object`: Other stats that can accompany an event. E.g.
+
 ### WorkerMessage
 * WorkerMessage `object`: WorkerMessage provides information to the backend about a worker.
   * labels `object`: Labels are used to group WorkerMessages.
   * time `string`: The timestamp of the worker_message.
   * workerHealthReport [WorkerHealthReport](#workerhealthreport)
+  * workerLifecycleEvent [WorkerLifecycleEvent](#workerlifecycleevent)
   * workerMessageCode [WorkerMessageCode](#workermessagecode)
   * workerMetrics [ResourceUtilizationReport](#resourceutilizationreport)
   * workerShutdownNotice [WorkerShutdownNotice](#workershutdownnotice)

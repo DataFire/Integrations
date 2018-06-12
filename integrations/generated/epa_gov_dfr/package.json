@@ -1,6 +1,6 @@
 {
   "name": "@datafire/epa_gov_dfr",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for U.S. EPA Enforcement and Compliance History Online (ECHO) - Detailed Facility Report (DFR)",
   "repository": {

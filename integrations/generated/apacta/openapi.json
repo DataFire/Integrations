@@ -3265,6 +3265,10 @@
                   "format": "uuid",
                   "type": "string"
                 },
+                "created_or_modified_gte": {
+                  "format": "date",
+                  "type": "string"
+                },
                 "date_from": {
                   "format": "date",
                   "type": "string"

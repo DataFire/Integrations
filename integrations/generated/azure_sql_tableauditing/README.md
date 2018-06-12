@@ -295,18 +295,6 @@ azure_sql_tableauditing.DatabaseConnectionPolicies_CreateOrUpdate({
   * storageAccountSubscriptionId `string`: The table storage subscription Id.
   * storageTableEndpoint `string`: The storage table endpoint.
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### ServerTableAuditingPolicy
 * ServerTableAuditingPolicy `object`: A server table auditing policy.
   * kind `string`: Resource kind.

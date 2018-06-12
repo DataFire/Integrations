@@ -68,8 +68,9 @@ google_slides.oauthRefresh(null, context)
   * expiration `string`
 
 ### presentations.create
-Creates a new presentation using the title given in the request. Other
-fields in the request are ignored.
+Creates a new presentation using the title given in the request. If a
+presentationId is provided, uses it as the ID of the new presentation.
+Otherwise, a new presentationId is generated.
 Returns the created presentation.
 
 
@@ -163,7 +164,8 @@ google_slides.presentations.pages.get({
 Generates a thumbnail of the latest version of the specified page in the
 presentation and returns a URL to the thumbnail image.
 
-This request counts as an expensive read request for quota purposes.
+This request counts as an [expensive read request](/slides/limits) for
+quota purposes.
 
 
 ```js
@@ -278,6 +280,7 @@ google_slides.presentations.batchUpdate({
   * presentationId `string`: The presentation the updates were applied to.
   * replies `array`: The reply of the updates.  This maps 1:1 with the updates, although
     * items [Response](#response)
+  * writeControl [WriteControl](#writecontrol)
 
 ### Bullet
 * Bullet `object`: Describes the bullet of a paragraph.
@@ -447,6 +450,7 @@ google_slides.presentations.batchUpdate({
 * Image `object`: A PageElement kind representing an
   * contentUrl `string`: An URL to an image with a default lifetime of 30 minutes.
   * imageProperties [ImageProperties](#imageproperties)
+  * sourceUrl `string`: The source URL is the URL used to insert the image. The source URL can be
 
 ### ImageProperties
 * ImageProperties `object`: The properties of the Image.
@@ -500,7 +504,7 @@ google_slides.presentations.batchUpdate({
 ### Line
 * Line `object`: A PageElement kind representing a
   * lineProperties [LineProperties](#lineproperties)
-  * lineType `string` (values: TYPE_UNSPECIFIED, STRAIGHT_CONNECTOR_1, BENT_CONNECTOR_2, BENT_CONNECTOR_3, BENT_CONNECTOR_4, BENT_CONNECTOR_5, CURVED_CONNECTOR_2, CURVED_CONNECTOR_3, CURVED_CONNECTOR_4, CURVED_CONNECTOR_5): The type of the line.
+  * lineType `string` (values: TYPE_UNSPECIFIED, STRAIGHT_CONNECTOR_1, BENT_CONNECTOR_2, BENT_CONNECTOR_3, BENT_CONNECTOR_4, BENT_CONNECTOR_5, CURVED_CONNECTOR_2, CURVED_CONNECTOR_3, CURVED_CONNECTOR_4, CURVED_CONNECTOR_5, STRAIGHT_LINE): The type of the line.
 
 ### LineFill
 * LineFill `object`: The fill of the line.
@@ -701,6 +705,12 @@ google_slides.presentations.batchUpdate({
 * ReplaceAllTextResponse `object`: The result of replacing text.
   * occurrencesChanged `integer`: The number of occurrences changed by replacing all text.
 
+### ReplaceImageRequest
+* ReplaceImageRequest `object`: Replaces an existing image with a new image.
+  * imageObjectId `string`: The ID of the existing image that will be replaced.
+  * imageReplaceMethod `string` (values: IMAGE_REPLACE_METHOD_UNSPECIFIED, CENTER_INSIDE, CENTER_CROP): The replacement method.
+  * url `string`: The URL of the new image.
+
 ### Request
 * Request `object`: A single kind of update to apply to a presentation.
   * createImage [CreateImageRequest](#createimagerequest)
@@ -726,6 +736,7 @@ google_slides.presentations.batchUpdate({
   * replaceAllShapesWithImage [ReplaceAllShapesWithImageRequest](#replaceallshapeswithimagerequest)
   * replaceAllShapesWithSheetsChart [ReplaceAllShapesWithSheetsChartRequest](#replaceallshapeswithsheetschartrequest)
   * replaceAllText [ReplaceAllTextRequest](#replacealltextrequest)
+  * replaceImage [ReplaceImageRequest](#replaceimagerequest)
   * ungroupObjects [UngroupObjectsRequest](#ungroupobjectsrequest)
   * unmergeTableCells [UnmergeTableCellsRequest](#unmergetablecellsrequest)
   * updateImageProperties [UpdateImagePropertiesRequest](#updateimagepropertiesrequest)
@@ -813,8 +824,8 @@ google_slides.presentations.batchUpdate({
 
 ### SlideProperties
 * SlideProperties `object`: The properties of Page that are only
-  * layoutObjectId `string`: The object ID of the layout that this slide is based on.
-  * masterObjectId `string`: The object ID of the master that this slide is based on.
+  * layoutObjectId `string`: The object ID of the layout that this slide is based on. This property is
+  * masterObjectId `string`: The object ID of the master that this slide is based on. This property is
   * notesPage [Page](#page)
 
 ### SolidFill
@@ -1068,7 +1079,11 @@ google_slides.presentations.batchUpdate({
 
 ### VideoProperties
 * VideoProperties `object`: The properties of the Video.
+  * autoPlay `boolean`: Whether to enable video autoplay when the page is displayed in present
+  * end `integer`: The time at which to end playback, measured in seconds from the beginning
+  * mute `boolean`: Whether to mute the audio during video playback. Defaults to false.
   * outline [Outline](#outline)
+  * start `integer`: The time at which to start playback, measured in seconds from the beginning
 
 ### WeightedFontFamily
 * WeightedFontFamily `object`: Represents a font family and weight used to style a TextRun.

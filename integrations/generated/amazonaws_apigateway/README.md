@@ -438,6 +438,7 @@ amazonaws_apigateway.CreateRestApi({
   * endpointConfiguration [EndpointConfiguration](#endpointconfiguration)
   * minimumCompressionSize [NullableInteger](#nullableinteger)
   * name **required** [String](#string)
+  * policy [String](#string)
   * version [String](#string)
 
 #### Output
@@ -2189,7 +2190,7 @@ amazonaws_apigateway.UpdateVpcLink({}, context)
   * type [AuthorizerType](#authorizertype)
 
 ### AuthorizerType
-* AuthorizerType `string` (values: TOKEN, REQUEST, COGNITO_USER_POOLS): [Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.
+* AuthorizerType `string` (values: TOKEN, REQUEST, COGNITO_USER_POOLS): The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.
 
 ### Authorizers
 * Authorizers `object`: <p>Represents a collection of <a>Authorizer</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable custom authorization</a> </div>
@@ -2340,6 +2341,7 @@ amazonaws_apigateway.UpdateVpcLink({}, context)
   * endpointConfiguration [EndpointConfiguration](#endpointconfiguration)
   * minimumCompressionSize [NullableInteger](#nullableinteger)
   * name **required** [String](#string)
+  * policy [String](#string)
   * version [String](#string)
 
 ### CreateStageRequest
@@ -2669,7 +2671,7 @@ amazonaws_apigateway.UpdateVpcLink({}, context)
 * GetStagesRequest `object`: Requests API Gateway to get information about one or more <a>Stage</a> resources.
 
 ### GetTagsRequest
-* GetTagsRequest `object`: Gets the Tags collection for a given resource.
+* GetTagsRequest `object`: Gets the <a>Tags</a> collection for a given resource.
 
 ### GetUsagePlanKeyRequest
 * GetUsagePlanKeyRequest `object`: The GET request to get a usage plan key of a given key identifier.
@@ -3089,6 +3091,7 @@ amazonaws_apigateway.UpdateVpcLink({}, context)
   * id [String](#string)
   * minimumCompressionSize [NullableInteger](#nullableinteger)
   * name [String](#string)
+  * policy [String](#string)
   * version [String](#string)
   * warnings [ListOfString](#listofstring)
 
@@ -3159,11 +3162,11 @@ amazonaws_apigateway.UpdateVpcLink({}, context)
 * String `string`
 
 ### TagResourceRequest
-* TagResourceRequest `object`: Adds or updates Tags on a gievn resource.
+* TagResourceRequest `object`: Adds or updates a tag on a given resource.
   * tags **required** [MapOfStringToString](#mapofstringtostring)
 
 ### Tags
-* Tags `object`: A collection of Tags associated with a given resource.
+* Tags `object`: The collection of tags. Each tag element is associated with a given resource.
   * tags [MapOfStringToString](#mapofstringtostring)
 
 ### Template
@@ -3224,7 +3227,7 @@ amazonaws_apigateway.UpdateVpcLink({}, context)
   * message [String](#string)
 
 ### UntagResourceRequest
-* UntagResourceRequest `object`: Removes Tags from a given resource.
+* UntagResourceRequest `object`: Removes a tag from a given resource.
 
 ### UpdateAccountRequest
 * UpdateAccountRequest `object`: Requests API Gateway to change information about the current <a>Account</a> resource.

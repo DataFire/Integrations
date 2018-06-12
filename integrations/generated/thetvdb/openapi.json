@@ -422,7 +422,7 @@
           "200": {
             "description": "An array of results that match the provided query.",
             "schema": {
-              "$ref": "#/definitions/SeriesSearchData"
+              "$ref": "#/definitions/SeriesSearchResults"
             }
           },
           "401": {
@@ -1470,6 +1470,9 @@
         "id": {
           "type": "integer"
         },
+        "language": {
+          "$ref": "#/definitions/EpisodeLanguageInfo"
+        },
         "lastUpdated": {
           "type": "integer"
         },
@@ -1601,6 +1604,17 @@
             "type": "string"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "EpisodeLanguageInfo": {
+      "properties": {
+        "episodeName": {
+          "type": "string"
+        },
+        "overview": {
+          "type": "string"
         }
       },
       "type": "object"
@@ -1764,7 +1778,7 @@
           "type": "string"
         },
         "seriesId": {
-          "type": "integer"
+          "type": "string"
         },
         "seriesName": {
           "type": "string"
@@ -2019,7 +2033,7 @@
         }
       }
     },
-    "SeriesSearchData": {
+    "SeriesSearchResult": {
       "properties": {
         "aliases": {
           "items": {
@@ -2050,6 +2064,16 @@
         }
       },
       "type": "object"
+    },
+    "SeriesSearchResults": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/SeriesSearchResult"
+          },
+          "type": "array"
+        }
+      }
     },
     "Token": {
       "properties": {

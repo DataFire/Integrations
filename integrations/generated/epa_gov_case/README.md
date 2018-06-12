@@ -575,7 +575,7 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
   * ResultVolDisclosure **required** `string`: A flag that indicates the Enforcement Action was the result of a self disclosure.
   * TotalComplianceActionCost **required** `string`: The estimated dollar value of injunctive relief and other physical/nonphysical costs of returning to compliance, from all settlements at a case. Injunctive relief represents the actions a defendant is ordered to undertake to achieve and maintain compliance, such as installing a new pollution control device to reduce air pollution, or preventing emissions of a pollutant in the first place.
   * TotalCostRecovery **required** `string`: The amount of the cost recovery ordered or agreed to be repaid by the responsible parties, cost recovery whole dollar amount awarded by the Court and due the the Superfund. For administrative cases, it is the cost recovery whole dollar amount of the Final Order.
-  * TotalFederalPenalty **required** `string`: For civil judicial enforcement actions, this amount is the federal penalty assessed against the defendant(s)� as specified in the final entered Consent Decree or Court Order. For administrative enforcement actions, it is the penalty assessed in the Consent/Final Order. It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities. Interest payments associated with a penalty paid over time are not included in this amount.
+  * TotalFederalPenalty **required** `string`: For civil judicial enforcement actions, this amount is the federal penalty assessed against the defendant(s)  as specified in the final entered Consent Decree or Court Order. For administrative enforcement actions, it is the penalty assessed in the Consent/Final Order. It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities. Interest payments associated with a penalty paid over time are not included in this amount.
   * TotalSEPCost **required** `string`: The total value of all SEPs for all settlements at the enforcement case.
   * TotalStatePenalty **required** `string`: The total dollar penalty amount from all settlements to be paid to a state or local enforcement authority that is party to a concluded enforcement action.
   * Violations **required** `string`: ???
@@ -642,13 +642,13 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
 
 ### crs1_Facilities
 * crs1_Facilities `object`: This section provides detailed facility and address information on all of the facilities associated with the civil enforcement case.
-  * FRSNumber **required** `string`: The identification number assigned to a facility in the�Facility Registry Service (FRS)�to uniquely identify a facility site.
+  * FRSNumber **required** `string`: The identification number assigned to a facility in the Facility Registry Service (FRS) to uniquely identify a facility site.
   * FacilityAddress **required** `string`: The address that describes the physical (geographic) location of the front door or main entrance of a Facility site, including urban-style street address or rural address.
   * FacilityCity **required** `string`: The city in which the facility is located
   * FacilityName **required** `string`: The name of the facility.
   * FacilityState **required** `string`: The state in which the facility is located
   * FacilityZip **required** `string`: The zip code of the area in which the facility is located
-  * NAICSCodes **required** `string`: A 6-digit code to classify industrial establishments. For detailed information about NAICS, please refer to the U.S. Census Bureau�NAICS�webpage.
+  * NAICSCodes **required** `string`: A 6-digit code to classify industrial establishments. For detailed information about NAICS, please refer to the U.S. Census Bureau NAICS webpage.
   * SICCodes **required** `string`: The Standard Industrial Classification codes applicable to the facility
 
 ### crs1_FinalOrderStatuses
@@ -683,7 +683,7 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
 
 ### crs1_ProgramLinks
 * crs1_ProgramLinks `object`: Crosswalk between programs and facilities (identified by FRS ID).
-  * FRSNumber **required** `string`: The identification number assigned to a facility in the�Facility Registry Service (FRS)�to uniquely identify a facility site.
+  * FRSNumber **required** `string`: The identification number assigned to a facility in the Facility Registry Service (FRS) to uniquely identify a facility site.
   * Program **required** `string`: The source database for the EPA programs information.
   * ProgramID **required** `string`: Unique identifier for the EPA program.
 

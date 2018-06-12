@@ -1,23 +1,17 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "apps.gov.bc.ca",
-  "basePath": "/pub/geocoder",
   "info": {
     "contact": {
-      "email": "DataBCBA@gov.bc.ca",
+      "email": "IDDDBCLS@Victoria1.gov.bc.ca",
       "name": "DataBC",
-      "url": "https://forms.gov.bc.ca/databc-contact-us/"
+      "url": "https://data.gov.bc.ca/"
     },
-    "description": "This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. CORS is enabled for gov.bc.ca only. Please read our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>",
+    "description": "This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. Two endpoints are provided for this API: one is public (apps.gov.bc.ca/pub/geocoder), the other is restricted (geocoder.api.gov.bc.ca) and requires an API key. For the public endpoint CORS is only enabled for gov.bc.ca, whereas the restricted endpoint allows CORS for all domains. Please read our [data collection notice](https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice).  \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers. \n\n[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and provide the ability to make up to 2 requests per second. Production government applications may use organization API keys which are further described in [the Developer guide](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys).",
     "license": {
       "name": "Open Government License - British Columbia",
-      "url": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/open-government-license-bc"
+      "url": "https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61"
     },
-    "termsOfService": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/api-terms-of-use-for-ogl-information",
+    "termsOfService": "https://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
     "title": "Geocoder",
     "version": "2.0.0",
     "x-apisguru-categories": [
@@ -28,9 +22,13 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder.json",
-        "version": "2.0"
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.6.2"
+        },
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder-combined.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -41,34 +39,14 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Physical Address Geocoder Web Site",
-    "url": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/geographic-data-and-services/geocoder"
-  },
-  "produces": [
-    "application/json",
-    "application/vnd.geo+json",
-    "application/vnd.google-earth.kml+xml",
-    "application/xhtml+xml",
-    "application/gml+xml",
-    "text/csv",
-    "application/zip"
-  ],
-  "tags": [
-    {
-      "name": "sites"
-    },
-    {
-      "name": "intersections"
-    },
-    {
-      "name": "occupants"
-    }
+  "host": "geocoder.api.gov.bc.ca",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/addresses.{outputFormat}": {
       "get": {
-        "description": "Represents the set of geocoded and standardized sites and intersections whose address best matches a given query address.",
         "parameters": [
           {
             "default": "json",
@@ -82,13 +60,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Examples: 525 Superior Street, Victoria, BC<br>301-780 Blanshard St, Victoria, BC<br>Johnson St and Government St, Victoria, BC.<br> Civic or intersection address as a single string. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#addressString target=\"_blank\">addressString</a>",
+            "description": "Civic or intersection address as a single string. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#addressString target=\"_blank\">addressString</a>",
+            "example": "525 Superior Street, Victoria, BC",
             "in": "query",
             "name": "addressString",
             "required": false,
@@ -140,7 +120,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -148,7 +127,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
             "in": "query",
             "name": "autoComplete",
@@ -156,7 +134,6 @@
             "type": "boolean"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -374,17 +351,16 @@
             "description": "A list of matching sites or intersections and their physical locations. See <a href='https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#resource-representations-in-http-responses' target=\"_blank\">addresses response</a>"
           }
         },
-        "summary": "Geocode an address",
         "tags": [
           "sites",
           "intersections"
         ],
-        "operationId": "addresses.outputFormat.get"
+        "description": "Represents the set of geocoded and standardized sites and intersections whose address best matches a given query address.",
+        "summary": "Geocode an address"
       }
     },
     "/intersections/near.{outputFormat}": {
       "get": {
-        "description": "Represents intersections near a given point",
         "parameters": [
           {
             "default": "json",
@@ -398,13 +374,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Example: -122.377,50.121  The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "description": "The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
@@ -465,16 +443,15 @@
             "description": "A list of selected intersections near a given point. Each intersection is in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
           }
         },
-        "summary": "Find intersections near to a geographic point",
         "tags": [
           "intersections"
         ],
-        "operationId": "intersections.near.outputFormat.get"
+        "description": "Represents intersections near a given point",
+        "summary": "Find intersections near to a geographic point"
       }
     },
     "/intersections/nearest.{outputFormat}": {
       "get": {
-        "description": "Represents the closest intersection to a given point",
         "parameters": [
           {
             "default": "json",
@@ -488,6 +465,7 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
@@ -495,6 +473,7 @@
           },
           {
             "description": "Example: -122.377,50.121  The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
@@ -547,16 +526,15 @@
             "description": "The nearest intersection in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
           }
         },
-        "summary": "Find nearest intersection to a geographic point",
         "tags": [
           "intersections"
         ],
-        "operationId": "intersections.nearest.outputFormat.get"
+        "description": "Represents the closest intersection to a given point",
+        "summary": "Find nearest intersection to a geographic point"
       }
     },
     "/intersections/within.{outputFormat}": {
       "get": {
-        "description": "Represents all intersections within a given area",
         "parameters": [
           {
             "default": "json",
@@ -570,13 +548,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+            "description": "A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+            "example": "-119.51,49.48,-119.53,49.50",
             "in": "query",
             "name": "bbox",
             "required": true,
@@ -630,16 +610,15 @@
             "description": "A list of selected intersections within the given area. Each intersection is in Each intersection is in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
           }
         },
-        "summary": "Find intersections in a geographic area",
         "tags": [
           "intersections"
         ],
-        "operationId": "intersections.within.outputFormat.get"
+        "description": "Represents all intersections within a given area",
+        "summary": "Find intersections in a geographic area"
       }
     },
     "/intersections/{intersectionID}.{outputFormat}": {
       "get": {
-        "description": "Represents a individual intersection",
         "parameters": [
           {
             "description": "A unique intersection identifier",
@@ -660,6 +639,7 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
@@ -689,16 +669,15 @@
             "description": "The Intersection with the requested intersectionID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
           }
         },
-        "summary": "Get an intersection by its unique ID",
         "tags": [
           "intersections"
         ],
-        "operationId": "intersections.intersectionID.outputFormat.get"
+        "description": "Represents a individual intersection",
+        "summary": "Get an intersection by its unique ID"
       }
     },
     "/occupants/addresses.{outputFormat}": {
       "get": {
-        "description": "Represents the set of occupants whose addresses best match a given query address. Every occupant has an associated site which has a standardized address and a coordinate location on the Earth.",
         "parameters": [
           {
             "default": "json",
@@ -712,13 +691,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Examples: Redfish Elementary --<br>Redfish Elementary -- Balfour<br>Redfish Elementary School -- 265 Bryan Rd, Balfour, BC<br>Occupant name followed by a frontGate delimiter ('--') followed by an optional address",
+            "description": "Occupant name followed by a frontGate delimiter ('--') followed by an optional address",
+            "example": "Redfish Elementary --",
             "in": "query",
             "name": "addressString",
             "required": false,
@@ -769,14 +750,12 @@
             "type": "string"
           },
           {
-            "default": false,
             "description": "If true, include unmatched address details such as site name in results.",
             "in": "query",
             "name": "echo",
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -784,7 +763,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
             "in": "query",
             "name": "autoComplete",
@@ -792,7 +770,6 @@
             "type": "boolean"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1011,16 +988,15 @@
             "description": "A list of matching occupants, sites, and their physical locations. Response document will contain one <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#about-query-representation\" target=\"_blank\">About Query Representation</a> and one <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a> for each matching occupant."
           }
         },
-        "summary": "Geocode an address and identify site occupants",
         "tags": [
           "occupants"
         ],
-        "operationId": "occupants.addresses.outputFormat.get"
+        "description": "Represents the set of occupants whose addresses best match a given query address. Every occupant has an associated site which has a standardized address and a coordinate location on the Earth.",
+        "summary": "Geocode an address and identify site occupants"
       }
     },
     "/occupants/near.{outputFormat}": {
       "get": {
-        "description": "Represents occupants near a given point in order of closest to farthest",
         "parameters": [
           {
             "default": "json",
@@ -1034,13 +1010,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Example: -122.377,50.121  The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "description": "The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
@@ -1103,7 +1081,6 @@
             "type": "string"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1111,7 +1088,6 @@
             "type": "boolean"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1124,16 +1100,15 @@
             "description": "A list of selected occupants that are near a given point in order of closest to farther. Each occupant is returned as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
           }
         },
-        "summary": "Find occupants of sites near to a geographic point",
         "tags": [
           "occupants"
         ],
-        "operationId": "occupants.near.outputFormat.get"
+        "description": "Represents occupants near a given point in order of closest to farthest",
+        "summary": "Find occupants of sites near to a geographic point"
       }
     },
     "/occupants/nearest.{outputFormat}": {
       "get": {
-        "description": "Represents the closest occupant to a given point",
         "parameters": [
           {
             "default": "json",
@@ -1147,13 +1122,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Example: -122.377,50.121  The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "description": "The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
@@ -1208,7 +1185,6 @@
             "type": "string"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1216,7 +1192,6 @@
             "type": "boolean"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1229,16 +1204,15 @@
             "description": "The nearest occupant in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
           }
         },
-        "summary": "Find occupants of the site nearest to a geographic point",
         "tags": [
           "occupants"
         ],
-        "operationId": "occupants.nearest.outputFormat.get"
+        "description": "Represents the closest occupant to a given point",
+        "summary": "Find occupants of the site nearest to a geographic point"
       }
     },
     "/occupants/within.{outputFormat}": {
       "get": {
-        "description": "Represents all occupants within a given area",
         "parameters": [
           {
             "default": "json",
@@ -1252,13 +1226,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+            "description": "A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+            "example": "-123.14,49.28,-123.13,49.29",
             "in": "query",
             "name": "bbox",
             "required": true,
@@ -1314,7 +1290,6 @@
             "type": "string"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1322,7 +1297,6 @@
             "type": "boolean"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1335,16 +1309,15 @@
             "description": "A list of selected occupants within the given area. Each occupant is returned in a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
           }
         },
-        "summary": "Find occupants of sites in a geographic area",
         "tags": [
           "occupants"
         ],
-        "operationId": "occupants.within.outputFormat.get"
+        "description": "Represents all occupants within a given area",
+        "summary": "Find occupants of sites in a geographic area"
       }
     },
     "/occupants/{occupantID}.{outputFormat}": {
       "get": {
-        "description": "Represents an individual occupant",
         "parameters": [
           {
             "description": "Occupant identifier",
@@ -1365,6 +1338,7 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
@@ -1405,7 +1379,6 @@
             "type": "string"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1413,7 +1386,6 @@
             "type": "boolean"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1426,16 +1398,56 @@
             "description": "The occupant with the requested occupantID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgovapi-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
           }
         },
-        "summary": "Get an occupant (of a site) by its unique ID",
         "tags": [
           "occupants"
         ],
-        "operationId": "occupants.occupantID.outputFormat.get"
+        "description": "Represents an individual occupant",
+        "summary": "Get an occupant (of a site) by its unique ID"
+      }
+    },
+    "/parcels/pids/{siteID}.{outputFormat}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "A unique, but not immutable, site identifier.",
+            "in": "path",
+            "name": "siteID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "json",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "enum": [
+              "json",
+              "geojson",
+              "xhtml",
+              "kml",
+              "gml",
+              "csv",
+              "shpz"
+            ],
+            "example": "json",
+            "in": "path",
+            "name": "outputFormat",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A comma-separated string containing all the parcel identifiers associated with the requested siteID"
+          }
+        },
+        "tags": [
+          "parcels"
+        ],
+        "description": "Represents all parcel identifiers associated with an individual site",
+        "summary": "Get a comma-separated string of all pids for a given site"
       }
     },
     "/sites/near.{outputFormat}": {
       "get": {
-        "description": "Represents sites near a given point in the order of closest to farthest",
         "parameters": [
           {
             "default": "json",
@@ -1449,13 +1461,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Example: -122.377,50.121  The point (x,y) from which the nearby sites will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "description": "The point (x,y) from which the nearby sites will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
+            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
@@ -1511,7 +1525,6 @@
             "type": "string"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1519,7 +1532,6 @@
             "type": "integer"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1527,7 +1539,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, excludes sites that are units of a parent site",
             "in": "query",
             "name": "excludeUnits",
@@ -1535,7 +1546,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, excludes sites without a civic address",
             "in": "query",
             "name": "onlyCivic",
@@ -1548,16 +1558,15 @@
             "description": "A list of selected sites that are near a given point in order of closest to farther. Each site in the response document is structured as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
           }
         },
-        "summary": "Find sites near to a geographic point",
         "tags": [
           "sites"
         ],
-        "operationId": "sites.near.outputFormat.get"
+        "description": "Represents sites near a given point in the order of closest to farthest",
+        "summary": "Find sites near to a geographic point"
       }
     },
     "/sites/nearest.{outputFormat}": {
       "get": {
-        "description": "Represents the site nearest a given point",
         "parameters": [
           {
             "default": "json",
@@ -1571,13 +1580,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Example: -122.377,50.121  Centre point of search. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#point target=\"_blank\">point</a>",
+            "description": "Centre point of search. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#point target=\"_blank\">point</a>",
+            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
@@ -1625,7 +1636,6 @@
             "type": "string"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1633,7 +1643,6 @@
             "type": "integer"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1641,7 +1650,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, excludes sites that are units of a parent site",
             "in": "query",
             "name": "excludeUnits",
@@ -1649,7 +1657,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, excludes sites without a civic address",
             "in": "query",
             "name": "onlyCivic",
@@ -1662,16 +1669,15 @@
             "description": "The nearest site in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
           }
         },
-        "summary": "Find the site nearest to a geographic point",
         "tags": [
           "sites"
         ],
-        "operationId": "sites.nearest.outputFormat.get"
+        "description": "Represents the site nearest a given point",
+        "summary": "Find the site nearest to a geographic point"
       }
     },
     "/sites/within.{outputFormat}": {
       "get": {
-        "description": "Represents sites within a given area",
         "parameters": [
           {
             "default": "json",
@@ -1685,13 +1691,15 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+            "description": "A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+            "example": "-119.51,49.48,-119.53,49.50",
             "in": "query",
             "name": "bbox",
             "required": true,
@@ -1740,7 +1748,6 @@
             "type": "string"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1748,7 +1755,6 @@
             "type": "integer"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1756,7 +1762,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, excludes sites that are units of a parent site",
             "in": "query",
             "name": "excludeUnits",
@@ -1764,7 +1769,6 @@
             "type": "boolean"
           },
           {
-            "default": false,
             "description": "If true, excludes sites without a civic address",
             "in": "query",
             "name": "onlyCivic",
@@ -1777,16 +1781,15 @@
             "description": "A list of selected sites within a given area. Each site in the response document is structured as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
           }
         },
-        "summary": "Find sites in a geographic area",
         "tags": [
           "sites"
         ],
-        "operationId": "sites.within.outputFormat.get"
+        "description": "Represents sites within a given area",
+        "summary": "Find sites in a geographic area"
       }
     },
     "/sites/{siteID}.{outputFormat}": {
       "get": {
-        "description": "Represents an individual site",
         "parameters": [
           {
             "description": "A unique, but not immutable, site identifier.",
@@ -1807,6 +1810,7 @@
               "csv",
               "shpz"
             ],
+            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
@@ -1847,7 +1851,6 @@
             "type": "string"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1855,7 +1858,6 @@
             "type": "boolean"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1868,16 +1870,15 @@
             "description": "The site with the requested siteID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
           }
         },
-        "summary": "Get a site by its unique ID",
         "tags": [
           "sites"
         ],
-        "operationId": "sites.siteID.outputFormat.get"
+        "description": "Represents an individual site",
+        "summary": "Get a site by its unique ID"
       }
     },
     "/sites/{siteID}/subsites.{outputFormat}": {
       "get": {
-        "description": "Represents all subsites of a given site",
         "parameters": [
           {
             "description": "A unique, but not immutable, site identifier.",
@@ -1938,7 +1939,6 @@
             "type": "string"
           },
           {
-            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1946,7 +1946,6 @@
             "type": "boolean"
           },
           {
-            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1959,12 +1958,44 @@
             "description": "Returns all subsites of a given site in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
           }
         },
-        "summary": "Represents all subsites of a given site",
         "tags": [
           "sites"
         ],
-        "operationId": "sites.siteID.subsites.outputFormat.get"
+        "description": "Represents all subsites of a given site",
+        "summary": "Represents all subsites of a given site"
       }
     }
-  }
+  },
+  "definitions": {},
+  "securityDefinitions": {
+    "apikey": {
+      "in": "header",
+      "name": "apikey",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "sites"
+    },
+    {
+      "name": "intersections"
+    },
+    {
+      "name": "occupants"
+    },
+    {
+      "name": "parcels"
+    }
+  ],
+  "externalDocs": {
+    "description": "BC Address Geocoder",
+    "url": "https://www2.gov.bc.ca/gov/content?id=118DD57CD9674D57BDBD511C2E78DC0D"
+  },
+  "x-components": {}
 }

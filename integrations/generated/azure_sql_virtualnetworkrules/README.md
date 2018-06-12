@@ -135,18 +135,6 @@ azure_sql_virtualnetworkrules.VirtualNetworkRules_CreateOrUpdate({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### VirtualNetworkRule
 * VirtualNetworkRule `object`: A virtual network rule.
   * properties [VirtualNetworkRuleProperties](#virtualnetworkruleproperties)

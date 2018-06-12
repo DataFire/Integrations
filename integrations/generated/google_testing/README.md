@@ -1,6 +1,6 @@
 # @datafire/google_testing
 
-Client library for Google Cloud Testing
+Client library for Cloud Testing
 
 ## Installation and Usage
 ```bash
@@ -15,9 +15,7 @@ let google_testing = require('@datafire/google_testing').create({
   redirect_uri: ""
 });
 
-google_testing.projects.testMatrices.create({
-  "projectId": ""
-}).then(data => {
+google_testing.applicationDetailService.getApkDetails({}).then(data => {
   console.log(data);
 });
 ```
@@ -68,6 +66,34 @@ google_testing.oauthRefresh(null, context)
   * token_type `string`
   * scope `string`
   * expiration `string`
+
+### applicationDetailService.getApkDetails
+Request the details of an Android application APK.
+
+
+```js
+google_testing.applicationDetailService.getApkDetails({}, context)
+```
+
+#### Input
+* input `object`
+  * body [FileReference](#filereference)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [GetApkDetailsResponse](#getapkdetailsresponse)
 
 ### projects.testMatrices.create
 Request to run a matrix of tests according to the given specifications.
@@ -205,7 +231,7 @@ google_testing.testEnvironmentCatalog.get({
 
 #### Input
 * input `object`
-  * environmentType **required** `string` (values: ENVIRONMENT_TYPE_UNSPECIFIED, ANDROID, NETWORK_CONFIGURATION): The type of environment that should be listed.
+  * environmentType **required** `string` (values: ENVIRONMENT_TYPE_UNSPECIFIED, ANDROID, NETWORK_CONFIGURATION, PROVIDED_SOFTWARE): The type of environment that should be listed.
   * projectId `string`: For authorization, the cloud project requesting the TestEnvironmentCatalog.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
@@ -291,6 +317,7 @@ google_testing.testEnvironmentCatalog.get({
     * items `string`
   * tags `array`: Tags for this dimension.
     * items `string`
+  * videoRecordingNotSupported `boolean`: True if and only if tests with this model DO NOT have video output.
 
 ### AndroidRoboTest
 * AndroidRoboTest `object`: A test of an android application that explores the application on a virtual
@@ -301,6 +328,7 @@ google_testing.testEnvironmentCatalog.get({
   * maxSteps `integer`: The max number of steps Robo can execute.
   * roboDirectives `array`: A set of directives Robo should apply during the crawl.
     * items [RoboDirective](#robodirective)
+  * roboScript [FileReference](#filereference)
   * startingIntents `array`: The intents used to launch the app for the crawl.
     * items [RoboStartingIntent](#robostartingintent)
 
@@ -331,6 +359,24 @@ google_testing.testEnvironmentCatalog.get({
     * items `string`
   * versionString `string`: A string representing this version of the Android OS.
 
+### Apk
+* Apk `object`: An Android package file to install.
+  * location [FileReference](#filereference)
+  * packageName `string`: The java package for the APK to be installed.
+
+### ApkDetail
+* ApkDetail `object`: Android application details based on application manifest and apk archive
+  * apkManifest [ApkManifest](#apkmanifest)
+
+### ApkManifest
+* ApkManifest `object`: An Android app manifest. See
+  * applicationLabel `string`: User-readable name for the application.
+  * intentFilters `array`
+    * items [IntentFilter](#intentfilter)
+  * maxSdkVersion `integer`: Maximum API level on which the application is designed to run.
+  * minSdkVersion `integer`: Minimum API level required for the application to run.
+  * packageName `string`: Full Java-style package name for this application, e.g.
+
 ### CancelTestMatrixResponse
 * CancelTestMatrixResponse `object`: Response containing the current state of the specified test matrix.
   * testState `string` (values: TEST_STATE_UNSPECIFIED, VALIDATING, PENDING, RUNNING, FINISHED, ERROR, UNSUPPORTED_ENVIRONMENT, INCOMPATIBLE_ENVIRONMENT, INCOMPATIBLE_ARCHITECTURE, CANCELLED, INVALID): The current rolled-up state of the test matrix.
@@ -349,12 +395,13 @@ google_testing.testEnvironmentCatalog.get({
 ### Date
 * Date `object`: Represents a whole calendar date, e.g. date of birth. The time of day and
   * day `integer`: Day of month. Must be from 1 to 31 and valid for the year and month, or 0
-  * month `integer`: Month of year. Must be from 1 to 12.
+  * month `integer`: Month of year. Must be from 1 to 12, or 0 if specifying a date without a
   * year `integer`: Year of date. Must be from 1 to 9999, or 0 if specifying a date without
 
 ### DeviceFile
 * DeviceFile `object`: A single device file description.
   * obbFile [ObbFile](#obbfile)
+  * regularFile [RegularFile](#regularfile)
 
 ### Distribution
 * Distribution `object`: Data about the relative number of devices running a
@@ -379,12 +426,24 @@ google_testing.testEnvironmentCatalog.get({
 * FileReference `object`: A reference to a file, used for user inputs.
   * gcsPath `string`: A path to a file in Google Cloud Storage.
 
+### GetApkDetailsResponse
+* GetApkDetailsResponse `object`: Response containing the details of the specified Android application APK.
+  * apkDetail [ApkDetail](#apkdetail)
+
 ### GoogleAuto
 * GoogleAuto `object`: Enables automatic Google account login.
 
 ### GoogleCloudStorage
 * GoogleCloudStorage `object`: A storage location within Google cloud storage (GCS).
   * gcsPath `string`: The path to a directory in GCS that will
+
+### IntentFilter
+* IntentFilter `object`: The <intent-filter> section of an <activity> tag.
+  * actionNames `array`: The android:name value of the <action> tag
+    * items `string`
+  * categoryNames `array`: The android:name value of the <category> tag
+    * items `string`
+  * mimeType `string`: The android:mimeType value of the <data> tag
 
 ### LauncherActivityIntent
 * LauncherActivityIntent `object`: Specifies an intent that starts the main launcher activity.
@@ -420,6 +479,15 @@ google_testing.testEnvironmentCatalog.get({
   * tags `array`: Tags for this dimension.
     * items `string`
 
+### ProvidedSoftwareCatalog
+* ProvidedSoftwareCatalog `object`: The currently provided software environment on the devices under test.
+  * orchestratorVersion `string`: A string representing the current version of Android Test Orchestrator that
+
+### RegularFile
+* RegularFile `object`: A file or directory to install on the device before the test starts
+  * content [FileReference](#filereference)
+  * devicePath `string`: Where to put the content on the device. Must be an absolute, whitelisted
+
 ### ResultStorage
 * ResultStorage `object`: Locations where the results of running the test are stored.
   * googleCloudStorage [GoogleCloudStorage](#googlecloudstorage)
@@ -449,11 +517,13 @@ google_testing.testEnvironmentCatalog.get({
   * errorMessage `string`: If the TestState is ERROR, then this string will contain human-readable
   * progressMessages `array`: Human-readable, detailed descriptions of the test's progress.
     * items `string`
+  * videoRecordingDisabled `boolean`: Indicates that video will not be recorded for this execution either because
 
 ### TestEnvironmentCatalog
 * TestEnvironmentCatalog `object`: A description of a test environment.
   * androidDeviceCatalog [AndroidDeviceCatalog](#androiddevicecatalog)
   * networkConfigurationCatalog [NetworkConfigurationCatalog](#networkconfigurationcatalog)
+  * softwareCatalog [ProvidedSoftwareCatalog](#providedsoftwarecatalog)
 
 ### TestExecution
 * TestExecution `object`: Specifies a single test to be executed in a single environment.
@@ -471,7 +541,7 @@ google_testing.testEnvironmentCatalog.get({
 * TestMatrix `object`: A group of one or more TestExecutions, built by taking a
   * clientInfo [ClientInfo](#clientinfo)
   * environmentMatrix [EnvironmentMatrix](#environmentmatrix)
-  * invalidMatrixDetails `string` (values: INVALID_MATRIX_DETAILS_UNSPECIFIED, DETAILS_UNAVAILABLE, MALFORMED_APK, MALFORMED_TEST_APK, NO_MANIFEST, NO_PACKAGE_NAME, TEST_SAME_AS_APP, NO_INSTRUMENTATION, NO_SIGNATURE, INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE, NO_TEST_RUNNER_CLASS, NO_LAUNCHER_ACTIVITY, FORBIDDEN_PERMISSIONS, INVALID_ROBO_DIRECTIVES, TEST_LOOP_INTENT_FILTER_NOT_FOUND, SCENARIO_LABEL_NOT_DECLARED, SCENARIO_LABEL_MALFORMED, SCENARIO_NOT_DECLARED, DEVICE_ADMIN_RECEIVER, TEST_ONLY_APK): Describes why the matrix is considered invalid.
+  * invalidMatrixDetails `string` (values: INVALID_MATRIX_DETAILS_UNSPECIFIED, DETAILS_UNAVAILABLE, MALFORMED_APK, MALFORMED_TEST_APK, NO_MANIFEST, NO_PACKAGE_NAME, TEST_SAME_AS_APP, NO_INSTRUMENTATION, NO_SIGNATURE, INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE, NO_TEST_RUNNER_CLASS, NO_LAUNCHER_ACTIVITY, FORBIDDEN_PERMISSIONS, INVALID_ROBO_DIRECTIVES, TEST_LOOP_INTENT_FILTER_NOT_FOUND, SCENARIO_LABEL_NOT_DECLARED, SCENARIO_LABEL_MALFORMED, SCENARIO_NOT_DECLARED, DEVICE_ADMIN_RECEIVER, TEST_ONLY_APK, MALFORMED_IPA, NO_CODE_APK, INVALID_INPUT_APK): Describes why the matrix is considered invalid.
   * projectId `string`: The cloud project that owns the test matrix.
   * resultStorage [ResultStorage](#resultstorage)
   * state `string` (values: TEST_STATE_UNSPECIFIED, VALIDATING, PENDING, RUNNING, FINISHED, ERROR, UNSUPPORTED_ENVIRONMENT, INCOMPATIBLE_ENVIRONMENT, INCOMPATIBLE_ARCHITECTURE, CANCELLED, INVALID): Indicates the current progress of the test matrix (e.g., FINISHED)
@@ -482,8 +552,10 @@ google_testing.testEnvironmentCatalog.get({
   * timestamp `string`: The time this test matrix was initially created.
 
 ### TestSetup
-* TestSetup `object`: A description of how to set up the device prior to running the test
+* TestSetup `object`: A description of how to set up the Android device prior to running the test.
   * account [Account](#account)
+  * additionalApks `array`: APKs to install in addition to those being directly tested.
+    * items [Apk](#apk)
   * directoriesToPull `array`: List of directories on the device to upload to GCS at the end of the test;
     * items `string`
   * environmentVariables `array`: Environment variables to set for the test (only applicable for

@@ -232,7 +232,7 @@
     },
     "/metrics/bytes-difference/absolute/aggregate/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of absolute bytes\ndifference sums. You can filter by editors-type (all-editor-types, anonymous, group-bot,\nname-bot, user) and page-type (all-page-types, content, non-content). You can choose\nbetween daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of absolute bytes\ndifference sums. You can filter by editors-type (all-editor-types, anonymous, group-bot,\nname-bot, user) and page-type (all-page-types, content, non-content). You can choose\nbetween daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org. If you're interested in the aggregation of all projects, use\nall-projects.\n",
@@ -320,7 +320,7 @@
     },
     "/metrics/bytes-difference/net/aggregate/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of bytes difference net\nsums. You can filter by editors-type (all-editor-types, anonymous, group-bot, name-bot,\nuser) and page-type (all-page-types, content or non-content). You can choose between\ndaily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of bytes difference net\nsums. You can filter by editors-type (all-editor-types, anonymous, group-bot, name-bot,\nuser) and page-type (all-page-types, content or non-content). You can choose between\ndaily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org. If you're interested in the aggregation of all projects, use\nall-projects.\n",
@@ -408,7 +408,7 @@
     },
     "/metrics/edited-pages/aggregate/{project}/{editor-type}/{page-type}/{activity-level}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of its edited-pages counts.\nYou can filter by editor-type (all-editor-types, anonymous, group-bot, name-bot, user),\npage-type (all-page-types, content or non-content) or activity-level (1..4-edits,\n5..24-edits, 25..99-edits, 100..-edits). You can choose between daily and monthly\ngranularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of its edited-pages counts.\nYou can filter by editor-type (all-editor-types, anonymous, group-bot, name-bot, user),\npage-type (all-page-types, content or non-content) or activity-level (1..4-edits,\n5..24-edits, 25..99-edits, 100..-edits). You can choose between daily and monthly\ngranularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff.  For projects like commons without language codes, use commons.wikimedia.\nFor projects like www.mediawiki.org, you can use that full string, or just use\nmediawiki or mediawiki.org.\n",
@@ -510,7 +510,7 @@
     },
     "/metrics/edited-pages/new/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of its new pages counts.\nYou can filter by editor type (all-editor-types, anonymous, group-bot, name-bot, user)\nor page-type (all-page-types, content or non-content). You can choose between daily and\nmonthly granularity as well.\nThe new pages value is computed as follow:\n  [number of created pages] - [number of deleted pages] + [number of restored pages]\nfor the chosen filters.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of its new pages counts.\nYou can filter by editor type (all-editor-types, anonymous, group-bot, name-bot, user)\nor page-type (all-page-types, content or non-content). You can choose between daily and\nmonthly granularity as well.\nThe new pages value is computed as follow:\n  [number of created pages] - [number of deleted pages] + [number of restored pages]\nfor the chosen filters.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff.  For projects like commons without language codes, use commons.wikimedia.\nFor projects like www.mediawiki.org, you can use that full string, or just use\nmediawiki or mediawiki.org. If you're interested in the aggregation of all\nprojects, use all-projects.\n",
@@ -598,7 +598,7 @@
     },
     "/metrics/edited-pages/top-by-absolute-bytes-difference/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby absolute bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby absolute bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -686,7 +686,7 @@
     },
     "/metrics/edited-pages/top-by-edits/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby edits count. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby edits count. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -774,7 +774,7 @@
     },
     "/metrics/edited-pages/top-by-net-bytes-difference/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby net bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby net bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -862,7 +862,7 @@
     },
     "/metrics/editors/aggregate/{project}/{editor-type}/{page-type}/{activity-level}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of its editors counts.\nYou can filter by editory-type (all-editor-types, anonymous, group-bot, name-bot, user),\npage-type (all-page-types, content or non-content) or activity-level (1..4-edits,\n5..24-edits, 25..99-edits or 100..-edits). You can choose between daily and monthly\ngranularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of its editors counts.\nYou can filter by editory-type (all-editor-types, anonymous, group-bot, name-bot, user),\npage-type (all-page-types, content or non-content) or activity-level (1..4-edits,\n5..24-edits, 25..99-edits or 100..-edits). You can choose between daily and monthly\ngranularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff.  For projects like commons without language codes, use commons.wikimedia.\nFor projects like www.mediawiki.org, you can use that full string, or just use\nmediawiki or mediawiki.org.\n",
@@ -964,7 +964,7 @@
     },
     "/metrics/editors/top-by-absolute-bytes-difference/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nabsolute bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well. The user_id returned is either the\nmediawiki user_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nabsolute bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well. The user_id returned is either the\nmediawiki user_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -1052,7 +1052,7 @@
     },
     "/metrics/editors/top-by-edits/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nedits count. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well. The user_id returned is either the\nmediawiki user_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nedits count. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well. The user_id returned is either the\nmediawiki user_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -1140,7 +1140,7 @@
     },
     "/metrics/editors/top-by-net-bytes-difference/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nnet bytes-difference. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well. The user_id returned is either the mediawiki\nuser_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nnet bytes-difference. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well. The user_id returned is either the mediawiki\nuser_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -1228,7 +1228,7 @@
     },
     "/metrics/edits/aggregate/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of edits counts.\nYou can filter by editors-type (all-editor-types, anonymous, bot, registered) and\npage-type (all-page-types, content or non-content). You can choose between daily and\nmonthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of edits counts.\nYou can filter by editors-type (all-editor-types, anonymous, bot, registered) and\npage-type (all-page-types, content or non-content). You can choose between daily and\nmonthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff.  For projects like commons without language codes, use commons.wikimedia.\nFor projects like www.mediawiki.org, you can use that full string, or just use\nmediawiki or mediawiki.org. If you're interested in the aggregation of\nall projects, use all-projects.\n",
@@ -1742,7 +1742,7 @@
     },
     "/metrics/registered-users/new/{project}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of its newly registered\nusers counts. You can choose between daily and monthly granularity. The newly registered\nusers value is computed with self-created users only, not auto-login created ones.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of its newly registered\nusers counts. You can choose between daily and monthly granularity. The newly registered\nusers value is computed with self-created users only, not auto-login created ones.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff.  For projects like commons without language codes, use commons.wikimedia.\nFor projects like www.mediawiki.org, you can use that full string, or just use\nmediawiki or mediawiki.org. If you're interested in the aggregation of\nall projects, use all.\n",
@@ -2066,7 +2066,7 @@
         "operationId": "transform.list.pair.from.to.get"
       }
     },
-    "/transform/list/tool/{tool}/": {
+    "/transform/list/tool/{tool}": {
       "get": {
         "description": "Fetches the list of tools and all of the language pairs it can translate\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
         "parameters": [
@@ -2105,7 +2105,113 @@
         ],
         "x-monitor": false,
         "operationId": "transform.list.tool.tool.get"
-      }
+      },
+      "parameters": []
+    },
+    "/transform/list/tool/{tool}/{from}": {
+      "get": {
+        "description": "Fetches the list of tools and all of the language pairs it can translate\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+        "parameters": [
+          {
+            "description": "The tool category to list tools and language pairs for",
+            "enum": [
+              "mt",
+              "dictionary"
+            ],
+            "in": "path",
+            "name": "tool",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The source language code",
+            "in": "path",
+            "name": "from",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "the list of language pairs available for a given translation tool",
+            "schema": {
+              "$ref": "#/definitions/cx_list_pairs_for_tool"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/problem"
+            }
+          }
+        },
+        "summary": "Lists the tools and language pairs available for the given tool category",
+        "tags": [
+          "Transform"
+        ],
+        "x-monitor": false,
+        "operationId": "transform.list.tool.tool.from.get"
+      },
+      "parameters": []
+    },
+    "/transform/list/tool/{tool}/{from}/{to}": {
+      "get": {
+        "description": "Fetches the list of tools and all of the language pairs it can translate\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+        "parameters": [
+          {
+            "description": "The tool category to list tools and language pairs for",
+            "enum": [
+              "mt",
+              "dictionary"
+            ],
+            "in": "path",
+            "name": "tool",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The source language code",
+            "in": "path",
+            "name": "from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The target language code",
+            "in": "path",
+            "name": "to",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "the list of language pairs available for a given translation tool",
+            "schema": {
+              "$ref": "#/definitions/cx_list_pairs_for_tool"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/problem"
+            }
+          }
+        },
+        "summary": "Lists the tools and language pairs available for the given tool category",
+        "tags": [
+          "Transform"
+        ],
+        "x-monitor": false,
+        "operationId": "transform.list.tool.tool.from.to.get"
+      },
+      "parameters": []
     },
     "/transform/word/from/{from_lang}/to/{to_lang}/{word}": {
       "get": {

@@ -20,7 +20,26 @@ amazonaws_serverlessrepo.ListApplications({}).then(data => {
 
 ## Description
 
-AWS Serverless Repository
+<p>The AWS Serverless Application Repository makes it easy for developers and enterprises to quickly find
+ and deploy serverless applications in the AWS Cloud. For more information about serverless applications,
+ see Serverless Computing and Applications on the AWS website.</p><p>The AWS Serverless Application Repository is deeply integrated with the AWS Lambda console, so that developers of 
+ all levels can get started with serverless computing without needing to learn anything new. You can use category 
+ keywords to browse for applications such as web and mobile backends, data processing applications, or chatbots. 
+ You can also search for applications by name, publisher, or event source. To use an application, you simply choose it, 
+ configure any required fields, and deploy it with a few clicks. </p><p>You can also easily publish applications, sharing them publicly with the community at large, or privately
+ within your team or across your organization. To publish a serverless application (or app), you can use the
+ AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS SDKs to upload the code. Along with the
+ code, you upload a simple manifest file, also known as the AWS Serverless Application Model (AWS SAM) template.
+ For more information about AWS SAM, see AWS Serverless Application Model (AWS SAM) on the AWS Labs
+ GitHub repository.</p><p>The AWS Serverless Application Repository Developer Guide contains more information about the two developer
+ experiences available:</p><ul>
+ <li>
+ <p>Consuming Applications – Browse for applications and view information about them, including
+ source code and readme files. Also install, configure, and deploy applications of your choosing. </p>
+ <p>Publishing Applications – Configure and upload applications to make them available to other
+ developers, and publish new versions of applications. </p>
+ </li>
+ </ul>
 
 ## Actions
 
@@ -34,6 +53,8 @@ amazonaws_serverlessrepo.ListApplications({}, context)
 
 #### Input
 * input `object`
+  * MaxItems `string`
+  * NextToken `string`
 
 #### Output
 * output [ListApplicationsResponse](#listapplicationsresponse)
@@ -50,7 +71,8 @@ amazonaws_serverlessrepo.CreateApplication({}, context)
 * input `object`
   * Author [__string](#__string)
   * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * LicenseBody [__string](#__string)
   * LicenseUrl [__string](#__string)
   * Name [__string](#__string)
@@ -61,6 +83,23 @@ amazonaws_serverlessrepo.CreateApplication({}, context)
   * SpdxLicenseId [__string](#__string)
   * TemplateBody [__string](#__string)
   * TemplateUrl [__string](#__string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteApplication
+
+
+
+```js
+amazonaws_serverlessrepo.DeleteApplication({
+  "applicationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationId **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -97,7 +136,8 @@ amazonaws_serverlessrepo.UpdateApplication({
   * applicationId **required** `string`
   * Author [__string](#__string)
   * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * ReadmeBody [__string](#__string)
   * ReadmeUrl [__string](#__string)
 
@@ -117,7 +157,7 @@ amazonaws_serverlessrepo.CreateCloudFormationChangeSet({
 #### Input
 * input `object`
   * applicationId **required** `string`
-  * ParameterOverrides [ListOfParameterValue](#listofparametervalue)
+  * ParameterOverrides [__listOfParameterValue](#__listofparametervalue)
   * SemanticVersion [__string](#__string)
   * StackName [__string](#__string)
 
@@ -154,7 +194,7 @@ amazonaws_serverlessrepo.PutApplicationPolicy({
 #### Input
 * input `object`
   * applicationId **required** `string`
-  * Statements [ListOfApplicationPolicyStatement](#listofapplicationpolicystatement)
+  * Statements [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
 
 #### Output
 * output [PutApplicationPolicyResponse](#putapplicationpolicyresponse)
@@ -171,6 +211,8 @@ amazonaws_serverlessrepo.ListApplicationVersions({
 
 #### Input
 * input `object`
+  * MaxItems `string`
+  * NextToken `string`
   * applicationId **required** `string`
 
 #### Output
@@ -204,46 +246,48 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 
 ### Application
 * Application `object`: Details about the application.
-  * ApplicationId [__string](#__string)
-  * Author [__string](#__string)
+  * ApplicationId **required** [__string](#__string)
+  * Author **required** [__string](#__string)
   * CreationTime [__string](#__string)
-  * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * Description **required** [__string](#__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * LicenseUrl [__string](#__string)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * ReadmeUrl [__string](#__string)
   * SpdxLicenseId [__string](#__string)
   * Version [Version](#version)
 
 ### ApplicationPage
 * ApplicationPage `object`: List of application details.
-  * Applications [ListOfApplicationSummary](#listofapplicationsummary)
+  * Applications **required** [__listOfApplicationSummary](#__listofapplicationsummary)
   * NextToken [__string](#__string)
 
 ### ApplicationPolicy
 * ApplicationPolicy `object`: Policy statements applied to the application.
-  * Statements [ListOfApplicationPolicyStatement](#listofapplicationpolicystatement)
+  * Statements **required** [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
 
 ### ApplicationPolicyStatement
 * ApplicationPolicyStatement `object`: Policy statement applied to the application.
-  * Actions [ListOf__string](#listof__string)
-  * Principals [ListOf__string](#listof__string)
+  * Actions **required** [__listOf__string](#__listof__string)
+  * Principals **required** [__listOf__string](#__listof__string)
   * StatementId [__string](#__string)
 
 ### ApplicationSummary
 * ApplicationSummary `object`: Summary of details about the application.
-  * ApplicationId [__string](#__string)
-  * Author [__string](#__string)
+  * ApplicationId **required** [__string](#__string)
+  * Author **required** [__string](#__string)
   * CreationTime [__string](#__string)
-  * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
-  * Name [__string](#__string)
+  * Description **required** [__string](#__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
+  * Name **required** [__string](#__string)
   * SpdxLicenseId [__string](#__string)
 
 ### ApplicationVersionPage
 * ApplicationVersionPage `object`: List of version summaries for the application.
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionSummary](#listofversionsummary)
+  * Versions **required** [__listOfVersionSummary](#__listofversionsummary)
 
 ### BadRequestException
 * BadRequestException `object`: One of the parameters in the request is invalid.
@@ -252,10 +296,10 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 
 ### ChangeSetDetails
 * ChangeSetDetails `object`: Details of the change set.
-  * ApplicationId [__string](#__string)
-  * ChangeSetId [__string](#__string)
-  * SemanticVersion [__string](#__string)
-  * StackId [__string](#__string)
+  * ApplicationId **required** [__string](#__string)
+  * ChangeSetId **required** [__string](#__string)
+  * SemanticVersion **required** [__string](#__string)
+  * StackId **required** [__string](#__string)
 
 ### ConflictException
 * ConflictException `object`: The resource already exists.
@@ -264,12 +308,13 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 
 ### CreateApplicationInput
 * CreateApplicationInput `object`: Create application request.
-  * Author [__string](#__string)
-  * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * Author **required** [__string](#__string)
+  * Description **required** [__string](#__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * LicenseBody [__string](#__string)
   * LicenseUrl [__string](#__string)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * ReadmeBody [__string](#__string)
   * ReadmeUrl [__string](#__string)
   * SemanticVersion [__string](#__string)
@@ -282,7 +327,8 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 * CreateApplicationRequest `object`
   * Author [__string](#__string)
   * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * LicenseBody [__string](#__string)
   * LicenseUrl [__string](#__string)
   * Name [__string](#__string)
@@ -300,7 +346,8 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
   * Author [__string](#__string)
   * CreationTime [__string](#__string)
   * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * LicenseUrl [__string](#__string)
   * Name [__string](#__string)
   * ReadmeUrl [__string](#__string)
@@ -323,20 +370,20 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 * CreateApplicationVersionResponse `object`
   * ApplicationId [__string](#__string)
   * CreationTime [__string](#__string)
-  * ParameterDefinitions [ListOfParameterDefinition](#listofparameterdefinition)
+  * ParameterDefinitions [__listOfParameterDefinition](#__listofparameterdefinition)
   * SemanticVersion [__string](#__string)
   * SourceCodeUrl [__string](#__string)
   * TemplateUrl [__string](#__string)
 
 ### CreateCloudFormationChangeSetInput
 * CreateCloudFormationChangeSetInput `object`: Create application ChangeSet request.
-  * ParameterOverrides [ListOfParameterValue](#listofparametervalue)
+  * ParameterOverrides [__listOfParameterValue](#__listofparametervalue)
   * SemanticVersion [__string](#__string)
-  * StackName [__string](#__string)
+  * StackName **required** [__string](#__string)
 
 ### CreateCloudFormationChangeSetRequest
-* CreateCloudFormationChangeSetRequest `object`: Create application ChangeSet request
-  * ParameterOverrides [ListOfParameterValue](#listofparametervalue)
+* CreateCloudFormationChangeSetRequest `object`
+  * ParameterOverrides [__listOfParameterValue](#__listofparametervalue)
   * SemanticVersion [__string](#__string)
   * StackName [__string](#__string)
 
@@ -346,6 +393,9 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
   * ChangeSetId [__string](#__string)
   * SemanticVersion [__string](#__string)
   * StackId [__string](#__string)
+
+### DeleteApplicationRequest
+* DeleteApplicationRequest `object`
 
 ### ForbiddenException
 * ForbiddenException `object`: The client is not authenticated.
@@ -357,7 +407,7 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 
 ### GetApplicationPolicyResponse
 * GetApplicationPolicyResponse `object`
-  * Statements [ListOfApplicationPolicyStatement](#listofapplicationpolicystatement)
+  * Statements [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
 
 ### GetApplicationRequest
 * GetApplicationRequest `object`
@@ -368,7 +418,8 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
   * Author [__string](#__string)
   * CreationTime [__string](#__string)
   * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * LicenseUrl [__string](#__string)
   * Name [__string](#__string)
   * ReadmeUrl [__string](#__string)
@@ -386,39 +437,15 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 ### ListApplicationVersionsResponse
 * ListApplicationVersionsResponse `object`
   * NextToken [__string](#__string)
-  * Versions [ListOfVersionSummary](#listofversionsummary)
+  * Versions [__listOfVersionSummary](#__listofversionsummary)
 
 ### ListApplicationsRequest
 * ListApplicationsRequest `object`
 
 ### ListApplicationsResponse
 * ListApplicationsResponse `object`
-  * Applications [ListOfApplicationSummary](#listofapplicationsummary)
+  * Applications [__listOfApplicationSummary](#__listofapplicationsummary)
   * NextToken [__string](#__string)
-
-### ListOfApplicationPolicyStatement
-* ListOfApplicationPolicyStatement `array`
-  * items [ApplicationPolicyStatement](#applicationpolicystatement)
-
-### ListOfApplicationSummary
-* ListOfApplicationSummary `array`
-  * items [ApplicationSummary](#applicationsummary)
-
-### ListOfParameterDefinition
-* ListOfParameterDefinition `array`
-  * items [ParameterDefinition](#parameterdefinition)
-
-### ListOfParameterValue
-* ListOfParameterValue `array`
-  * items [ParameterValue](#parametervalue)
-
-### ListOfVersionSummary
-* ListOfVersionSummary `array`
-  * items [VersionSummary](#versionsummary)
-
-### ListOf__string
-* ListOf__string `array`
-  * items [__string](#__string)
 
 ### MaxItems
 * MaxItems `integer`
@@ -431,7 +458,7 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 ### ParameterDefinition
 * ParameterDefinition `object`: Parameters supported by the application.
   * AllowedPattern [__string](#__string)
-  * AllowedValues [ListOf__string](#listof__string)
+  * AllowedValues [__listOf__string](#__listof__string)
   * ConstraintDescription [__string](#__string)
   * DefaultValue [__string](#__string)
   * Description [__string](#__string)
@@ -439,23 +466,23 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
   * MaxValue [__integer](#__integer)
   * MinLength [__integer](#__integer)
   * MinValue [__integer](#__integer)
-  * Name [__string](#__string)
+  * Name **required** [__string](#__string)
   * NoEcho [__boolean](#__boolean)
-  * ReferencedByResources [ListOf__string](#listof__string)
+  * ReferencedByResources **required** [__listOf__string](#__listof__string)
   * Type [__string](#__string)
 
 ### ParameterValue
 * ParameterValue `object`: Parameter value of the application.
-  * Name [__string](#__string)
-  * Value [__string](#__string)
+  * Name **required** [__string](#__string)
+  * Value **required** [__string](#__string)
 
 ### PutApplicationPolicyRequest
-* PutApplicationPolicyRequest `object`: Put policy request
-  * Statements [ListOfApplicationPolicyStatement](#listofapplicationpolicystatement)
+* PutApplicationPolicyRequest `object`
+  * Statements [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
 
 ### PutApplicationPolicyResponse
 * PutApplicationPolicyResponse `object`
-  * Statements [ListOfApplicationPolicyStatement](#listofapplicationpolicystatement)
+  * Statements [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
 
 ### TooManyRequestsException
 * TooManyRequestsException `object`: The client is sending more than the allowed number of requests per unit time.
@@ -466,7 +493,8 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 * UpdateApplicationInput `object`: Update application request.
   * Author [__string](#__string)
   * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * ReadmeBody [__string](#__string)
   * ReadmeUrl [__string](#__string)
 
@@ -474,7 +502,8 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 * UpdateApplicationRequest `object`
   * Author [__string](#__string)
   * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * ReadmeBody [__string](#__string)
   * ReadmeUrl [__string](#__string)
 
@@ -484,7 +513,8 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
   * Author [__string](#__string)
   * CreationTime [__string](#__string)
   * Description [__string](#__string)
-  * Labels [ListOf__string](#listof__string)
+  * HomePageUrl [__string](#__string)
+  * Labels [__listOf__string](#__listof__string)
   * LicenseUrl [__string](#__string)
   * Name [__string](#__string)
   * ReadmeUrl [__string](#__string)
@@ -493,18 +523,18 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 
 ### Version
 * Version `object`: Application version details.
-  * ApplicationId [__string](#__string)
-  * CreationTime [__string](#__string)
-  * ParameterDefinitions [ListOfParameterDefinition](#listofparameterdefinition)
-  * SemanticVersion [__string](#__string)
+  * ApplicationId **required** [__string](#__string)
+  * CreationTime **required** [__string](#__string)
+  * ParameterDefinitions **required** [__listOfParameterDefinition](#__listofparameterdefinition)
+  * SemanticVersion **required** [__string](#__string)
   * SourceCodeUrl [__string](#__string)
-  * TemplateUrl [__string](#__string)
+  * TemplateUrl **required** [__string](#__string)
 
 ### VersionSummary
 * VersionSummary `object`: Application version summary.
-  * ApplicationId [__string](#__string)
-  * CreationTime [__string](#__string)
-  * SemanticVersion [__string](#__string)
+  * ApplicationId **required** [__string](#__string)
+  * CreationTime **required** [__string](#__string)
+  * SemanticVersion **required** [__string](#__string)
   * SourceCodeUrl [__string](#__string)
 
 ### __boolean
@@ -516,10 +546,34 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 ### __integer
 * __integer `integer`
 
+### __listOfApplicationPolicyStatement
+* __listOfApplicationPolicyStatement `array`
+  * items [ApplicationPolicyStatement](#applicationpolicystatement)
+
+### __listOfApplicationSummary
+* __listOfApplicationSummary `array`
+  * items [ApplicationSummary](#applicationsummary)
+
+### __listOfParameterDefinition
+* __listOfParameterDefinition `array`
+  * items [ParameterDefinition](#parameterdefinition)
+
+### __listOfParameterValue
+* __listOfParameterValue `array`
+  * items [ParameterValue](#parametervalue)
+
+### __listOfVersionSummary
+* __listOfVersionSummary `array`
+  * items [VersionSummary](#versionsummary)
+
+### __listOf__string
+* __listOf__string `array`
+  * items [__string](#__string)
+
+### __long
+* __long `integer`
+
 ### __string
 * __string `string`
-
-### __timestamp
-* __timestamp `string`
 
 

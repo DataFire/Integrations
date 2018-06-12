@@ -803,7 +803,7 @@ jumpseller.hooks.id.json.put({
   * items [Hook](#hook)
 
 ### jsapps.json.post
-Create a Store Settings
+Create a Store JSApp
 
 
 ```js
@@ -2039,72 +2039,6 @@ jumpseller.promotions.id.json.put({
 * output `array`
   * items [Promotion](#promotion)
 
-### settings.json.post
-Create a Store Settings
-
-
-```js
-jumpseller.settings.json.post({
-  "login": "",
-  "authtoken": "",
-  "body": {}
-}, context)
-```
-
-#### Input
-* input `object`
-  * login **required** `string`: API OAuth login.
-  * authtoken **required** `string`: API OAuth token.
-  * body **required** [SettingEdit](#settingedit)
-
-#### Output
-* output [Setting](#setting)
-
-### settings.name.json.get
-Retrieve Store Information
-
-
-```js
-jumpseller.settings.name.json.get({
-  "login": "",
-  "authtoken": "",
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * login **required** `string`: API OAuth login.
-  * authtoken **required** `string`: API OAuth token.
-  * name **required** `string`: Name of the Store Setting
-
-#### Output
-* output [Setting](#setting)
-
-### settings.name.json.put
-Modify an existing Store Setting.
-
-
-```js
-jumpseller.settings.name.json.put({
-  "login": "",
-  "authtoken": "",
-  "name": "",
-  "body": {}
-}, context)
-```
-
-#### Input
-* input `object`
-  * login **required** `string`: API OAuth login.
-  * authtoken **required** `string`: API OAuth token.
-  * name **required** `string`: Name of the Store Setting
-  * body **required** [SettingEdit](#settingedit)
-
-#### Output
-* output `array`
-  * items [Setting](#setting)
-
 ### store.info.json.get
 Retrieve Store Information
 
@@ -2143,6 +2077,69 @@ jumpseller.store.languages.json.get({
 #### Output
 * output `array`
   * items [Language](#language)
+
+### taxes.json.get
+Retrieve all Taxes.
+
+
+```js
+jumpseller.taxes.json.get({
+  "login": "",
+  "authtoken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+
+#### Output
+* output `array`
+  * items [Tax](#tax)
+
+### taxes.json.post
+Create a new Tax.
+
+
+```js
+jumpseller.taxes.json.post({
+  "login": "",
+  "authtoken": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * body **required** [TaxEdit](#taxedit)
+
+#### Output
+* output `array`
+  * items [Tax](#tax)
+
+### taxes.id.json.get
+Retrieve a single Tax information.
+
+
+```js
+jumpseller.taxes.id.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Tax
+
+#### Output
+* output [Tax](#tax)
 
 
 
@@ -2401,6 +2398,7 @@ jumpseller.store.languages.json.get({
   * shipping_address [ShippingAddress](#shippingaddress)
   * shipping_method_id `integer`: Shipping method e.g. Royal Mail
   * shipping_method_name `string`: Shipping method e.g. Royal Mail
+  * shipping_tax `number`: Shipping Tax value for the given order
   * status `string` (values: Abandoned, Canceled, Pending Payment, Paid): Status of the Order
   * subtotal `number`: Subtotal value for the given Order. Excluding taxes, shipping and discounts
   * tax `number`: Tax value for the given order
@@ -2455,7 +2453,7 @@ jumpseller.store.languages.json.get({
 
 ### ProductCustomField
 * ProductCustomField `object`
-  * field [ProductCustomFieldFields](#productcustomfieldfields)
+  * field_value [ProductCustomFieldFields](#productcustomfieldfields)
 
 ### ProductCustomFieldFields
 * ProductCustomFieldFields `object`
@@ -2496,6 +2494,7 @@ jumpseller.store.languages.json.get({
   * created_at `string`: Date of product creation
   * description `string`: Description of the product
   * diameter `number`: Diameter of the product
+  * discount `number`: Discount of the product
   * featured `boolean`: True if the product is featured
   * height `number`: Height of the product
   * id `integer`: Unique identifier of the product
@@ -2618,25 +2617,6 @@ jumpseller.store.languages.json.get({
   * code `string`
   * name `string`
 
-### Setting
-* Setting `object`
-  * setting [SettingFields](#settingfields)
-
-### SettingEdit
-* SettingEdit `object`
-  * setting [SettingEditFields](#settingeditfields)
-
-### SettingEditFields
-* SettingEditFields `object`
-  * name **required** `string`: Store Setting Name
-  * value `string`: Store Setting Value
-
-### SettingFields
-* SettingFields `object`
-  * id `integer`: Unique identifier of the Store Setting
-  * name `string`: Store Setting Name
-  * value `string`: Store Setting Value
-
 ### ShippingAddress
 * ShippingAddress `object`
   * address `string`: Address of the Customer's Shipping Address
@@ -2663,6 +2643,33 @@ jumpseller.store.languages.json.get({
   * name `string`: Store Name
   * timezone `string`: Store Timezone
   * url `string`: Store URL
+
+### Tax
+* Tax `object`
+  * field [TaxFields](#taxfields)
+
+### TaxEdit
+* TaxEdit `object`
+  * field [TaxEditFields](#taxeditfields)
+
+### TaxEditFields
+* TaxEditFields `object`
+  * category_id `integer`: Unique identifier of the category of the Tax
+  * country `string`: Country where the Tax applies
+  * fixed `boolean`: True if the tax has a fixed valued amount
+  * region `string`: Region where the Tax applies
+  * shipping `boolean`: True if the tax should be applied to shipping costs
+  * tax_amount `number`: Tax value for the given Tax
+
+### TaxFields
+* TaxFields `object`
+  * category_id `integer`: Unique identifier of the category of the Tax
+  * country `string`: Country name where the Tax applies
+  * fixed `boolean`: True if the tax has a fixed valued amount
+  * id `integer`: Unique identifier of the Tax
+  * region `string`: Region name where the Tax applies
+  * shipping `boolean`: True if the tax should be applied to shipping costs
+  * tax_amount `number`: Tax value for the given Tax
 
 ### Variant
 * Variant `object`

@@ -12,7 +12,7 @@ let wmata_rail_realtime = require('@datafire/wmata_rail_realtime').create({
   apiKeyQuery: ""
 });
 
-wmata_rail_realtime.GetPrediction.StationCodes.get({
+wmata_rail_realtime.547636a6f918230da8553640({
   "StationCodes": ""
 }).then(data => {
   console.log(data);
@@ -25,7 +25,7 @@ Real-time rail prediction methods.
 
 ## Actions
 
-### GetPrediction.StationCodes.get
+### 547636a6f918230da8553640
 <h4 class="text-primary">Description</h4>
 
 <p>Returns next train arrival information for one or more stations. Will return
@@ -152,7 +152,7 @@ StationCodes parameter.</td>
 
 
 ```js
-wmata_rail_realtime.GetPrediction.StationCodes.get({
+wmata_rail_realtime.547636a6f918230da8553640({
   "StationCodes": ""
 }, context)
 ```
@@ -164,7 +164,7 @@ wmata_rail_realtime.GetPrediction.StationCodes.get({
 #### Output
 *Output schema unknown*
 
-### json.GetPrediction.StationCodes.get
+### 547636a6f918230da855363f
 <h4 class="text-primary">Description</h4>
 
 <p>Returns next train arrival information for one or more stations. Will return
@@ -291,7 +291,7 @@ StationCodes parameter.</td>
 
 
 ```js
-wmata_rail_realtime.json.GetPrediction.StationCodes.get({
+wmata_rail_realtime.547636a6f918230da855363f({
   "StationCodes": ""
 }, context)
 ```

@@ -60,7 +60,7 @@
     "/h5/metadata/campaign-missions": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Campaign Missions\" to \"Halo 5 - Campaign Missions\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.campaign_missions.get",
+        "operationId": "58ace18c2109180bdcacc421",
         "parameters": [
           {
             "default": "en",
@@ -77,13 +77,14 @@
               "application/json": "// A listing of campaign missions supported in the title. There is no significance to the\n// ordering.\n[\n  {\n    // The order of the mission in the story. The first mission is #1.\n    \"missionNumber\": \"int\",\n\n    // A localized name suitable for display.\n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users.\n    \"description\": \"string\",\n\n    // An image that is used as the background art for this mission.\n    \"imageUrl\": \"string\",\n\n    // The team for the mission. One of the following values:\n    //   - BlueTeam\n    //   - OsirisTeam\n    \"type\": \"string\",\n\n    // The ID that uniquely identifies this campaign mission.\n    \"id\": \"guid\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Campaign Missions"
       }
     },
     "/h5/metadata/commendations": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Commendations\" to \"Halo 5 - Commendations\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.commendations.get",
+        "operationId": "58ace18c2109180bdcacc422",
         "parameters": [
           {
             "default": "en",
@@ -100,13 +101,14 @@
               "application/json": "// A list of commendations for the title. There is no significance to the ordering.\n[\n  {\n    // Indicates the type of commendation. This is one of the two following options:\n    //   - \"Progressive\"\n    //   - \"Meta\"\n    // Progressive commendations have a series of increasingly difficult thresholds\n    // (levels) a player must cross to receive increasingly greater rewards.\n    // Meta commendations are unlocked when a player has completed one or more other\n    // commendation levels. We model this by giving meta commendations one level with\n    // dependencies rather than a threshold.\n    \"type\": \"string\",\n\n    // A localized name for the commendation, suitable for display to users. The text is\n    // title cased. \n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users.\n    \"description\": \"string\",\n\n    // An image that is used as the icon for this commendation.\n    \"iconImageUrl\": \"string\",\n\n    // One or more levels that model what a player must do to earn rewards and complete\n    // the commendation.\n    \"levels\": [\n      {\n        // The reward the player will receive for earning this level.\n        \"reward\": {\n\n          // The amount of XP that will be awarded.\n          \"xp\": \"int\",\n\n          // The set of requisition packs (if any) that will be awarded.\n          \"requisitionPacks\": [\n            {\n              // A localized name for the pack, suitable for display to users. The text\n              // is title cased. \n              \"name\": \"string\",\n\n              // A localized description, suitable for display to users.\n              \"description\": \"string\",\n\n              // A large image for the pack.\n              \"largeImageUrl\": \"string\",\n\n              // A medium image for the pack.\n              \"mediumImageUrl\": \"string\",\n\n              // A small image for the pack.\n              \"smallImageUrl\": \"string\",\n\n              // Internal use. Whether the item should be featured ahead of others.\n              \"isFeatured\": \"boolean\",\n\n              // Internal use. Whether the item should be labeled as \"new!\"\n              \"isNew\": \"boolean\",\n\n              // If the pack is purchasable via credits, this value contains the number\n              // of credits a player must spend to acquire one pack. This value is zero\n              // when isPurchasableWithCredits is false.\n              \"creditPrice\": \"int\",\n\n              // If the pack is currently available for purchase by spending credits,\n              // then this value is true.\n              \"isPurchasableWithCredits\": \"boolean\",\n\n              // If the pack might be obtainable through the Xbox Live Marketplace, then\n              // this value is true.\n              \"isPurchasableFromMarketplace\": \"boolean\",\n\n              // If this pack might be obtainable through the Xbox Live Marketplace, this\n              // is the product ID. Note: Pricing and availability within the Xbox Live\n              // marketplace is controlled independently of this value. The presence of\n              // an Id in this field is not a guarantee the product is purchasable. There\n              // may be geographic restrictions restricting purchase in certain regions,\n              // or the item may not be currently purchasable at all.\n              \"xboxMarketplaceProductId\": \"guid\",\n\n              // If this pack might be obtainable through the Xbox Live Marketplace, this\n              // is the URL to the product.\n              \"xboxMarketplaceProductUrl\": \"string\",\n\n              // Internal use. The order in which packs are shown for merchandising\n              // purposes.\n              \"merchandisingOrder\": \"int\",\n\n              // Internal use. Indicates the visual treatment of the pack. This is one of\n              // the following options:\n              //   - None\n              //   - New\n              //   - Hot\n              //   - LeavingSoon\n              //   - MaximumValue\n              //   - LimitedTime\n              //   - Featured\n              //   - BestSeller\n              //   - Popular\n              \"flair\": \"string\",\n\n              // The ID that uniquely identifies this pack.\n              \"id\": \"guid\",\n\n              // Internal use only. Do not use.\n              \"contentId\": \"guid\"\n            }\n          ],\n\n          // The ID that uniquely identifies this reward.\n          \"id\": \"guid\",\n\n          // Internal use only. Do not use.\n          \"contentId\": \"guid\"\n        },\n\n        // For progressive commendations this indicates the threshold that the player\n        // must meet or exceed to consider the commendation level \"completed\". For meta\n        // commendations, this value is always zero.\n        \"threshold\": \"int\",\n\n        // The ID that uniquely identifies this commendation level.\n        \"id\": \"guid\",\n\n        // Internal use only. Do not use.\n        \"contentId\": \"guid\"\n      }\n    ],\n\n    // For meta commendations, the commendation is considered \"completed\" when all\n    // required levels have been \"completed\". This list contains one or more Level Ids\n    // from other commendations. For progressive commendations, this list is empty.\n    \"requiredLevels\": [\n      {\n        // The threshold that the player must meet or exceed in order to consider the\n        // level requirement met.\n        \"threshold\": \"int\",\n\n        // The ID of the commendation level that must be met in order to consider the\n        // level requirement met.\n        \"id\": \"guid\",\n\n        // Internal use only. Do not use.\n        \"contentId\": \"guid\"\n      }\n    ],\n\n    // The reward the player will receive for earning this commendation.\n    \"reward\": {\n\n      // The amount of XP that will be awarded.\n      \"xp\": \"int\",\n\n      // The set of requisition packs (if any) that will be awarded.\n      \"requisitionPacks\": [\n        {\n          // A localized name for the pack, suitable for display to users. The text is\n          // title cased. \n          \"name\": \"string\",\n\n          // A localized description, suitable for display to users.\n          \"description\": \"Your achievement on the field of battle will not go unrewarded.\",\n\n          // A large image for the pack.\n          \"largeImageUrl\": \"string\",\n\n          // A medium image for the pack.\n          \"mediumImageUrl\": \"string\",\n\n          // A small image for the pack.\n          \"smallImageUrl\": \"string\",\n\n          // Internal use. Whether the item should be featured ahead of others.\n          \"isFeatured\": \"boolean\",\n\n          // Internal use. Whether the item should be labeled as \"new!\"\n          \"isNew\": \"boolean\",\n\n          // If the pack is purchasable via credits, this value contains the number of\n          // credits a player must spend to acquire one pack. This value is zero when\n          // isPurchasableWithCredits is false.\n          \"creditPrice\": \"int\",\n\n          // If the pack is currently available for purchase by spending credits, then\n          // this value is true.\n          \"isPurchasableWithCredits\": \"boolean\",\n\n          // If the pack might be obtainable through the Xbox Live Marketplace, then this\n          // value is true.\n          \"isPurchasableFromMarketplace\": \"boolean\",\n\n          // If this pack might be obtainable through the Xbox Live Marketplace, this is\n          // the product ID. Note: Pricing and availability within the Xbox Live\n          // marketplace is controlled independently of this value. The presence of an Id\n          // in this field is not a guarantee the product is purchasable. There may be\n          // geographic restrictions restricting purchase in certain regions, or the item\n          // may not be currently purchasable at all.\n          \"xboxMarketplaceProductId\": \"guid\",\n\n          // If this pack might be obtainable through the Xbox Live Marketplace, this is\n          // the URL to the product.\n          \"xboxMarketplaceProductUrl\": \"string\",\n\n          // Internal use. The order in which packs are shown for merchandising purposes.\n          \"merchandisingOrder\": \"int\",\n\n          // Internal use. Indicates the visual treatment of the pack. This is one of the\n          // following options:\n          //   - None\n          //   - New\n          //   - Hot\n          //   - LeavingSoon\n          //   - MaximumValue\n          //   - LimitedTime\n          //   - Featured\n          //   - BestSeller\n          //   - Popular\n          \"flair\": \"string\",\n\n          // The ID that uniquely identifies this pack.\n          \"id\": \"guid\",\n\n          // Internal use only. Do not use.\n          \"contentId\": \"guid\"\n        }\n      ],\n\n      // The ID that uniquely identifies this reward.\n      \"id\": \"guid\",\n\n      // Internal use only. Do not use.\n      \"contentId\": \"guid\"\n    },\n\n    // Information about how this commendation should be categorized when shown to users.\n    \"category\": {\n\n      // A localized name for the category, suitable for display to users. The text is\n      // title cased.\n      \"name\": \"string\",\n\n      // An image that is used as the icon for this category.\n      \"iconImageUrl\": \"string\",\n\n      // Internal use. The order in which the category should be displayed relative to\n      // other categories. The lower the value, the more important the category - more\n      // important categories should be shown before or ahead of less important\n      // categories.\n      \"order\": \"int\",\n\n      // The ID that uniquely identifies this category.\n      \"id\": \"guid\",\n\n      // Internal use only. Do not use.\n      \"contentId\": \"guid\"\n    },\n\n    // Whether this commendation is enabled or not.\n    \"enabled\": \"boolean\",\n\n    // The ID that uniquely identifies this commendation.\n    \"id\": \"guid\",\n\n      // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Commendations"
       }
     },
     "/h5/metadata/csr-designations": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"CSR Designations\" to \"Halo 5 - CSR Designations\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.csr_designations.get",
+        "operationId": "58ace18c2109180bdcacc423",
         "parameters": [
           {
             "default": "en",
@@ -123,13 +125,14 @@
               "application/json": "// A list of CSR designations for the title. CSR stands for Competitive Skill Rank. CSR\n// is organized into a series of designations, each with a set of tiers within the\n// designation. The designations are: Bronze, Silver, Gold, Platinum, Diamond, Onyx, and\n// Champion. Within each designation are tiers, for example, Bronze 1, Bronze 2, Bronze\n// 3, etc. The Onyx and Champion designations are special. They only have one tier. For\n// non-Champion players, we keep the raw CSR value and absolute ranking hidden and show\n// the CSR tier. For Onyx and Champion players, we display the raw CSR value. For\n// Champion players, we show a leaderboard ranking. To determine what CSR a player has\n// earned, view the Service Record stats for that player. There is no significance to the\n// ordering.\n[\n  {\n    // A localized name for the designation, suitable for display to users. The text is\n    // title cased. \n    \"name\": \"string\",\n\n    // An image to use as the background for the designation.\n    \"bannerImageUrl\": \"string\",\n\n    // An array of \"CSR Tier\" entries, one for each tier this designation supports.\n    \"tiers\": [\n      {\n        // An image to use as the icon for th tier.\n        \"iconImageUrl\": \"string\",\n\n        // An ID that identifies the tier.\n        \"id\": \"int\",\n\n        // Internal use only. Do not use.\n        \"contentId\": \"guid\"\n      }\n    ],\n\n    // An ID that identifies the designation. It happens to be the same as the\n    // designation ordering. This value is the same across all languages. Note that Id =\n    // 0 indicates the player has an \"Unranked\" designation. The player must complete\n    // additional matches before being assigned an official CSR designation.\n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - CSR Designations"
       }
     },
     "/h5/metadata/enemies": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Enemies\" to \"Halo 5 - Enemies\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Corrected documentation typo. The field \"largeIconImageUrl\" was incorrectly named \"lageIconImageUrl\".</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.enemies.get",
+        "operationId": "58ace18c2109180bdcacc424",
         "parameters": [
           {
             "default": "en",
@@ -146,13 +149,14 @@
               "application/json": "// A list of enemies for the title. There is no significance to the ordering.\n[\n  {\n    // The faction that this enemy is affiliated with. One of the following options:\n    //   - UNSC\n    //   - Covenant\n    //   - Promethean\n    \"faction\": \"string\",\n\n    // A localized name for the object, suitable for display to users. The text is title\n    // cased. \n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users. Note: This may be null.\n    \"description\": \"string\",\n\n    // A reference to a large image for icon use. This may be null if there is no image\n    // defined.\n    \"largeIconImageUrl\": \"string\",\n\n    // A reference to a small image for icon use. This may be null if there is no image\n    // defined.\n    \"smallIconImageUrl\": \"string\",\n\n    // The ID that uniquely identifies this enemy.\n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Enemies"
       }
     },
     "/h5/metadata/flexible-stats": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Flexible Stats\" to \"Halo 5 - Flexible Stats\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.flexible_stats.get",
+        "operationId": "58ace18c2109180bdcacc425",
         "parameters": [
           {
             "default": "en",
@@ -169,13 +173,14 @@
               "application/json": "// A list of defined flexible stat entries for the title. There is no significance to the\n// ordering.\n[\n  {\n    // A localized name for the data point, suitable for display to users. The text is\n    // title cased.\n    \"name\": \"string\",\n\n    // The type of stat this represents, it is one of the following options:\n    //   - Count\n    //   - Duration\n    \"type\": \"string\",\n\n    // The ID that uniquely identifies this stat.\n    \"id\": \"guid\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Flexible Stats"
       }
     },
     "/h5/metadata/game-base-variants": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Game Base Variants\" to \"Halo 5 - Game Base Variants\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.game_base_variants.get",
+        "operationId": "58ace18c2109180bdcacc426",
         "parameters": [
           {
             "default": "en",
@@ -192,13 +197,14 @@
               "application/json": "// A list of game base variants for the title. There is no mechanism to determine which\n// game base variants are currently available for play. To determine which game base\n// variants a specific player has played, view the Service Record stats for that\n// player.There is no significance to the ordering.\n[\n  {\n    // A localized name for the game base variant, suitable for display to users. The\n    // text is title cased.\n    \"name\": null,\n\n    // Internal use. The internal non-localized name for the the game base variant.\n    \"internalName\": \"string\",\n\n    // An image to use as the game base variant for the designation.\n    \"iconUrl\": \"string\",\n\n    // A list that indicates what game modes this base variant is available within.\n    // Options are:\n    //   - Arena\n    //   - Campaign\n    //   - Custom\n    //   - Warzone\n    \"supportedGameModes\": [\n      \"string\"\n    ],\n\n    // The ID that uniquely identifies this game base variant.\n    \"id\": \"guid\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Game Base Variants"
       }
     },
     "/h5/metadata/game-variants/{id}": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Game Variants\" to \"Halo 5 - Game Variant\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.game_variants.id.get",
+        "operationId": "58ace18c2109180bdcacc427",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Game Variant.",
@@ -232,13 +238,14 @@
           "404": {
             "description": "Specified Game Variant was not found."
           }
-        }
+        },
+        "summary": "Halo 5 - Game Variant"
       }
     },
     "/h5/metadata/impulses": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Impulses\" to \"Halo 5 - Impulses\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.impulses.get",
+        "operationId": "58ace18c2109180bdcacc428",
         "parameters": [
           {
             "default": "en",
@@ -255,13 +262,14 @@
               "application/json": "// A list of impulses (essentially invisible medals) for the title. There is no\n// significance to the ordering.\n[\n  {\n    // Internal use. The non-localized name of the impulse.\n    \"internalName\": \"string\",\n\n    // The ID that uniquely identifies this impulse.\n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Impulses"
       }
     },
     "/h5/metadata/map-variants/{id}": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Map Variants\" to \"Halo 5 - Map Variant\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.map_variants.id.get",
+        "operationId": "58ace18c2109180bdcacc429",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Map Variant.",
@@ -295,13 +303,14 @@
           "404": {
             "description": "Specified Map Variant was not found."
           }
-        }
+        },
+        "summary": "Halo 5 - Map Variant"
       }
     },
     "/h5/metadata/maps": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Maps\" to \"Halo 5 - Maps\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.maps.get",
+        "operationId": "58ace18c2109180bdcacc42a",
         "parameters": [
           {
             "default": "en",
@@ -318,13 +327,14 @@
               "application/json": "// A list of maps for the title. There is no significance to the ordering.\n[\n  {\n    // A localized name, suitable for display to users.\n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users.\n    \"description\": \"string\",\n\n    // This lists all the game modes to which this map is available. Options are:\n    //   - Arena\n    //   - Campaign\n    //   - Custom\n    //   - Warzone\n    \"supportedGameModes\": [\n      \"string\"\n    ],\n\n    // A reference to an image. This may be null if there is no image defined.\n    \"imageUrl\": \"string\",\n\n    // The ID that uniquely identifies this map.\n    \"id\": \"guid\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Maps"
       }
     },
     "/h5/metadata/medals": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Medals\" to \"Halo 5 - Medals\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.medals.get",
+        "operationId": "58ace18c2109180bdcacc42b",
         "parameters": [
           {
             "default": "en",
@@ -341,13 +351,14 @@
               "application/json": "// A list of medals for the title. There is no significance to the ordering.\n[\n  {\n    // A localized name for the medal, suitable for display to users.\n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users. \n    \"description\": \"string\",\n\n    // The type of this medal. It will be one of the following options:\n    //   - Unknown\n    //   - Multi-kill\n    //   - Spree\n    //   - Style\n    //   - Vehicle\n    //   - Breakout\n    //   - Objective\n    \"classification\": \"string\",\n\n    // The anticipated difficulty, relative to all other medals of this classification.\n    // The difficulty is ordered from easiest to most difficult.\n    \"difficulty\": \"int\",\n\n    // The location on the sprite sheet for the medal.\n    \"spriteLocation\": {\n\n      // A reference to an image that contains all the sprites.\n      \"spriteSheetUri\": \"string\",\n\n      // The X coordinate where the top-left corner of the sprite is located.\n      \"left\": \"int\",\n\n      // The Y coordinate where the top-left corner of the sprite is located.\n      \"top\": \"int\",\n\n      // The width of the full sprite sheet (in pixels). The dimensions of the full sheet\n      // are included so that the sheet can be resized.\n      \"width\": \"int\",\n\n      // The height of the full sprite sheet (in pixels). The dimensions of the full\n      // sheet are included so that the sheet can be resized.\n      \"height\": \"int\",\n\n      // The width of this sprite (in pixels).\n      \"spriteWidth\": \"int\",\n\n      // The height of this sprite (in pixels).\n      \"spriteHeight\": \"int\"\n    },\n\n    // The ID that uniquely identifies this map medal.\n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Medals"
       }
     },
     "/h5/metadata/playlists": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Playlists\" to \"Halo 5 - Playlists\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.playlists.get",
+        "operationId": "58ace18c2109180bdcacc42c",
         "parameters": [
           {
             "default": "en",
@@ -364,13 +375,14 @@
               "application/json": "// A list of playlists for the title. To determine which playlists a specific player has\n// played within, view the Service Record stats for that player. There is no significance\n// to the ordering.\n[\n  {\n    // A localized name for the playlist, suitable for display to users. The text is\n    // title cased.\n    \"name\": \"string\",\n\n    // A localized description for the playlist, suitable for display to users.\n    \"description\": \"string\",\n\n    // Indicates if a CSR (competitive skill rank) is shown for players who participate\n    // in this playlist.\n    \"isRanked\": \"boolean\",\n\n    // An image used to illustrate this playlist.\n    \"imageUrl\": \"string\",    \n\n    // The game mode played in this playlist. Options are:\n    //   - Arena\n    //   - Campaign\n    //   - Custom\n    //   - Warzone\n    \"gameMode\": \"string\",\n\n    // Indicates if this playlist is currently available for play.\n    \"isActive\": \"boolean\",\n\n    // The ID that uniquely identifies this playlist.\n    \"id\": \"guid\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Playlists"
       }
     },
     "/h5/metadata/requisition-packs/{id}": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Requisition Packs\" to \"Halo 5 - Requisition Pack\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.requisition_packs.id.get",
+        "operationId": "58ace18c2109180bdcacc42e",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Requisition Pack.",
@@ -417,13 +429,14 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "summary": "Halo 5 - Requisition Pack"
       }
     },
     "/h5/metadata/requisitions/{id}": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Requisitions\" to \"Halo 5 - Requisition\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.requisitions.id.get",
+        "operationId": "58ace18c2109180bdcacc42d",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Requisition.",
@@ -450,13 +463,14 @@
           "404": {
             "description": "Specified Requisition was not found."
           }
-        }
+        },
+        "summary": "Halo 5 - Requisition"
       }
     },
     "/h5/metadata/seasons": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Seasons\" to \"Halo 5 - Seasons\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.seasons.get",
+        "operationId": "58ace18c2109180bdcacc42f",
         "parameters": [
           {
             "default": "en",
@@ -473,13 +487,14 @@
               "application/json": "// A list of seasons for the title. There is no significance to the ordering.\n[\n  {\n    // One or more playlists that are available in this season.\n    \"playlists\": [\n      {\n        // A localized name for the playlist, suitable for display to users. The text is\n        // title cased.\n        \"name\": \"string\",\n\n        // A localized description for the playlist, suitable for display to users.\n        \"description\": \"string\",\n\n        // Indicates if a CSR (competitive skill rank) is shown for players who\n        // participate in this playlist.\n        \"isRanked\": \"boolean\",\n\n        // An image used to illustrate this playlist.\n        \"imageUrl\": \"string\",\n\n        // The game mode played in this playlist. Options are:\n        //   - Arena\n        //   - Campaign\n        //   - Custom\n        //   - Warzone\n        \"gameMode\": \"string\",\n\n        // Indicates if this playlist is currently available for play.\n        \"isActive\": \"boolean\",\n\n        // The ID that uniquely identifies this playlist.\n        \"id\": \"guid\",\n\n        // Internal use only. Do not use.\n        \"contentId\": \"guid\"\n      }\n    ],\n\n    // An icon used to represent this season.\n    \"iconUrl\": \"string\",\n\n    // A localized name for the season, suitable for display to users.\n    \"name\": \"string\",\n\n    // The start date and time of this season. This is expressed as an ISO 8601 combined\n    // Date and Time.\n    \"startDate\": \"string\",\n\n    // The end date and time of this season. This is expressed as an ISO 8601 combined\n    // Date and Time.\n    \"endDate\": \"string\",\n\n    // Indicates if this season is currently active.\n    \"isActive\": \"boolean\",\n\n    // The ID that uniquely identifies this season.\n    \"id\": \"guid\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Seasons"
       }
     },
     "/h5/metadata/skulls": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Skulls\" to \"Halo 5 - Skulls\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.skulls.get",
+        "operationId": "58ace18c2109180bdcacc430",
         "parameters": [
           {
             "default": "en",
@@ -496,13 +511,14 @@
               "application/json": "// A list of skulls for the title. There is no significance to the ordering.\n[\n  {\n    // A localized name, suitable for display to users. The text is title cased.\n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users.\n    \"description\": \"string\",\n\n    // A reference to the image for the skull.\n    \"imageUrl\": \"string\",\n\n    // Indicates what mission this skull can be located within. Null when the skull is\n    // not found in a mission. Missions are available via the Metadata API.\n    \"missionId\": \"guid\",\n\n    // The ID that uniquely identifies this skull.\n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Skulls"
       }
     },
     "/h5/metadata/spartan-ranks": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Spartan Ranks\" to \"Halo 5 - Spartan Ranks\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.spartan_ranks.get",
+        "operationId": "58ace18c2109180bdcacc431",
         "parameters": [
           {
             "default": "en",
@@ -519,13 +535,14 @@
               "application/json": "// A list of Spartan Ranks for the title. There is no significance to the ordering.\n[\n  {\n    // The amount of XP required to enter this rank.\n    \"startXp\": \"int\",\n\n    // The reward the player will receive for earning this Spartan Rank.\n    \"reward\": {\n\n      // The amount of XP that will be awarded.\n      \"xp\": \"int\",\n\n      // The set of requisition packs (if any) that will be awarded.\n      \"requisitionPacks\": [\n        {\n          // A localized name for the pack, suitable for display to users. The text is\n          // title cased. \n          \"name\": \"string\",\n\n          // A localized description, suitable for display to users.\n          \"description\": \"Your achievement on the field of battle will not go unrewarded.\",\n\n          // A large image for the pack.\n          \"largeImageUrl\": \"string\",\n\n          // A medium image for the pack.\n          \"mediumImageUrl\": \"string\",\n\n          // A small image for the pack.\n          \"smallImageUrl\": \"string\",\n\n          // Internal use. Whether the item should be featured ahead of others.\n          \"isFeatured\": \"boolean\",\n\n          // Internal use. Whether the item should be labeled as \"new!\"\n          \"isNew\": \"boolean\",\n\n          // If the pack is purchasable via credits, this value contains the number of\n          // credits a player must spend to acquire one pack. This value is zero when\n          // isPurchasableWithCredits is false.\n          \"creditPrice\": \"int\",\n\n          // If the pack is currently available for purchase by spending credits, then\n          // this value is true.\n          \"isPurchasableWithCredits\": \"boolean\",\n\n          // If the pack might be obtainable through the Xbox Live Marketplace, then this\n          // value is true.\n          \"isPurchasableFromMarketplace\": \"boolean\",\n\n          // If this pack might be obtainable through the Xbox Live Marketplace, this is\n          // the product ID. Note: Pricing and availability within the Xbox Live\n          // marketplace is controlled independently of this value. The presence of an Id\n          // in this field is not a guarantee the product is purchasable. There may be\n          // geographic restrictions restricting purchase in certain regions, or the item\n          // may not be currently purchasable at all.\n          \"xboxMarketplaceProductId\": \"guid\",\n\n          // If this pack might be obtainable through the Xbox Live Marketplace, this is\n          // the URL to the product.\n          \"xboxMarketplaceProductUrl\": \"string\",\n\n          // Internal use. The order in which packs are shown for merchandising purposes.\n          \"merchandisingOrder\": \"int\",\n\n          // Internal use. Indicates the visual treatment of the pack. This is one of the\n          // following options:\n          //   - None\n          //   - New\n          //   - Hot\n          //   - LeavingSoon\n          //   - MaximumValue\n          //   - LimitedTime\n          //   - Featured\n          //   - BestSeller\n          //   - Popular\n          \"flair\": \"string\",\n\n          // The ID that uniquely identifies this pack.\n          \"id\": \"guid\",\n\n          // Internal use only. Do not use.\n          \"contentId\": \"guid\"\n        }\n      ],\n\n      // The ID that uniquely identifies this reward.\n      \"id\": \"guid\",\n\n      // Internal use only. Do not use.\n      \"contentId\": \"guid\"\n    },\n\n    // The ID that uniquely identifies this Spartan Rank. \n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Spartan Ranks"
       }
     },
     "/h5/metadata/team-colors": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Team Colors\" to \"Halo 5 - Team Colors\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.team_colors.get",
+        "operationId": "58ace18c2109180bdcacc432",
         "parameters": [
           {
             "default": "en",
@@ -542,13 +559,14 @@
               "application/json": "// A listing of team colors supported in the title. There is no significance to the\n// ordering.\n[\n  {\n    // A localized name, suitable for display to users.\n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users.\n    \"description\": \"string\",\n\n    // A seven-character string representing the team color in \"RGB Hex\" notation. This\n    // notation uses a \"#\" followed by a hex triplet.\n    \"color\": \"string\",\n\n    // A reference to an image for icon use. This may be null if there is no image\n    // defined.\n    \"iconUrl\": \"string\",\n\n    // The ID that uniquely identifies this color. This will be the same as the team's ID\n    // in responses from the Stats API.\n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Team Colors"
       }
     },
     "/h5/metadata/vehicles": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Vehicles\" to \"Halo 5 - Vehicles\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.vehicles.get",
+        "operationId": "58ace18c2109180bdcacc433",
         "parameters": [
           {
             "default": "en",
@@ -565,13 +583,14 @@
               "application/json": "// A list of vehicles for the title. There is no significance to the ordering.\n[\n  {\n    // A localized name for the object, suitable for display to users. The text is title\n    // cased.\n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users.\n    \"description\": \"string\",\n\n    // A reference to a large image for icon use. This may be null if there is no image\n    // defined.\n    \"largeIconImageUrl\": \"string\",\n\n    // A reference to a small image for icon use. This may be null if there is no image\n    // defined.\n    \"smallIconImageUrl\": \"string\",\n\n    // Indicates whether the vehicle is usable by a player.\n    \"isUsableByPlayer\": \"boolean\",\n\n    // The ID that uniquely identifies this vehicle.\n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Vehicles"
       }
     },
     "/h5/metadata/weapons": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Weapons\" to \"Halo 5 - Weapons\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 26, 2016:</strong></p>\n    <ul>\n        <li>Corrected documentation issue. The documentation for the \"type\" field was incorrect.</li>\n    </ul>\n</div>\n",
-        "operationId": "h5.metadata.weapons.get",
+        "operationId": "58ace18c2109180bdcacc434",
         "parameters": [
           {
             "default": "en",
@@ -588,13 +607,14 @@
               "application/json": "// A listing of weapons supported in the title. There is no significance to the ordering.\n[\n  {\n    // A localized name for the object, suitable for display to users. The text is title\n    // cased.\n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users.\n    \"description\": \"string\",\n\n    // The type of the weapon. Options are:\n    //   - Grenade\n    //   - Turret\n    //   - Vehicle\n    //   - Standard\n    //   - Power\n    \"type\": \"string\",\n\n    // A reference to a large image for icon use. This may be null if there is no image\n    // defined.\n    \"largeIconImageUrl\": \"string\",\n\n    // A reference to a small image for icon use. This may be null if there is no image\n    // defined.\n    \"smallIconImageUrl\": \"string\",\n\n    // Indicates whether the weapon is usable by a player.\n    \"isUsableByPlayer\": \"boolean\",\n\n    // The ID that uniquely identifies the weapon.\n    \"id\": \"int\",\n\n    // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
             }
           }
-        }
+        },
+        "summary": "Halo 5 - Weapons"
       }
     },
     "/hw2/campaign-levels": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.campaign_levels.get",
+        "operationId": "58ace18c2109180bdcacc435",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -990,13 +1010,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Campaign Levels"
       }
     },
     "/hw2/campaign-logs": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.campaign_logs.get",
+        "operationId": "58ace18c2109180bdcacc436",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1047,13 +1068,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Campaign Logs"
       }
     },
     "/hw2/card-keywords": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 22, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.card_keywords.get",
+        "operationId": "58ae45962109180bdcacc4eb",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1139,13 +1161,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Card Keywords"
       }
     },
     "/hw2/cards": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.cards.get",
+        "operationId": "58ace18c2109180bdcacc438",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1168,13 +1191,14 @@
               "application/json": "{\n  // Pagination information.\n  \"Paging\": {\n\n    // Index of the first item in this response in the collection of all available items\n    // of this type.\n    \"StartAt\": \"int\",\n\n    // Count of items returned in this response.\n    \"InlineCount\": \"int\",\n\n    // Count of all available items of this type.\n    \"TotalCount\": \"int\"\n  },\n\n  // Contents.\n  \"ContentItems\": [\n    {\n      // Internal use.\n      \"Id\": \"int\",\n\n      // Name of the content type.\n      \"Type\": \"HW2Card\",\n\n      // Contains the information for the content type.\n      \"View\": {\n\n        // Internal use.\n        \"Status\": \"Published\",\n\n        // Information common to all content types.\n        \"Common\": {\n\n          // Internal use.\n          \"Owner\": \"string\",\n\n          // Date the content was created. This is expressed as an ISO 8601 combined Date\n          // and Time.\n          \"CreatedUtc\": \"string\",\n\n          // Date the content was last modified. This is expressed as an ISO 8601\n          // combined Date and Time.\n          \"ModifiedUtc\": \"string\",\n\n          // Date the content was last published. This is expressed as an ISO 8601\n          // combined Date and Time.\n          \"PublishedUtc\": \"string\",\n\n          // Internal use.\n          \"Container\": \"int\"\n        },\n\n        // ID that identifies this content item in the Metadata API. This ID is also used\n        // by the Game and Stats API to identify this Card.\n        \"Identity\": \"guid\",\n\n        // Non-localized title of the content item.\n        \"Title\": \"string\",\n\n        // Information about the Card.\n        \"HW2Card\": {\n\n          // Rarity of the Card. This field will contain one of the following values:\n          //   Unknown = 0,\n          //   Common = 1,\n          //   Uncommon = 2,\n          //   Rare = 3,\n          //   Legendary = 4\n          \"Rarity\": \"int\",\n\n          // Internal use.\n          \"Entitlement\": {\n\n            \"Id\": \"int\",\n\n            \"Type\": \"Entitlement\",\n\n            \"Identity\": \"guid\"\n          },\n\n          // Internal use.\n          \"EntitlementRequired\": \"bool\",\n\n          // Internal use.\n          \"ExcludeFromCardGeneration\": \"bool\",\n\n          // Faction this Card is associated with. This field will contain one of the\n          // following values:\n          //   \"Unknown\",\n          //   \"UNSC\",\n          //   \"Banished\"\n          \"Faction\": \"string\",\n\n          // Leader this Card is associated with, if applicable. Leaders are available\n          // via the Metadata API.\n          \"Leader\": {\n\n            // Internal use.\n            \"Id\": \"int\",\n\n            // Name of the content type.            \n            \"Type\": \"HW2Leader\",\n\n            // ID that identifies this content item in the Metadata API.\n            \"Identity\": \"guid\"\n          },\n\n          // Image of the foreground of the Card.\n          \"ForegroundImage\": {\n\n            // Internal use.\n            \"Id\": \"int\",\n\n            // Name of the content type.\n            \"Type\": \"Image\",\n\n            // Contains the information for the content type.\n            \"View\": {\n\n              // Internal use.\n              \"Status\": \"string\",\n\n              // Information common to all content types.\n              \"Common\": {\n\n                // Internal use.\n                \"Owner\": \"string\",\n\n                // Date the content was created. This is expressed as an ISO 8601\n                // combined Date and Time.\n                \"CreatedUtc\": \"string\",\n\n                // Date the content was last modified. This is expressed as an ISO 8601\n                // combined Date and Time.\n                \"ModifiedUtc\": \"string\",\n\n                // Date the content was last published. This is expressed as an ISO 8601\n                // combined Date and Time.\n                \"PublishedUtc\": \"string\",\n\n                // Internal use.\n                \"Container\": \"int\"\n              },\n\n              // ID that identifies this content item in the Metadata API.\n              \"Identity\": \"guid\",\n\n              // Non-localized title of the content item.\n              \"Title\": \"string\",\n\n              // Information about the location of the Image.\n              \"Media\": {\n\n                // URL of the Image.\n                \"MediaUrl\": \"string\",\n\n                // Type of the Image.\n                \"MimeType\": \"string\",\n\n                // Caption for the Image.\n                \"Caption\": \"string\",\n\n                // Alternate text for the Image.\n                \"AlternateText\": \"string\",\n\n                // Internal use.\n                \"FolderPath\": \"string\",\n\n                // Internal use.\n                \"FileName\": \"string\"\n              },\n\n              // Information about the Image.\n              \"Image\": {\n\n                // Width of the Image.\n                \"Width\": \"int\",\n\n                // Height of the image.\n                \"Height\": \"int\"\n              }\n            }\n          },\n\n          // Localized information for the content itme that changes depending on the\n          // \"Accept-Language\" Request Header.\n          \"DisplayInfo\": {\n\n            // Internal use.\n            \"Id\": \"int\",\n\n            // Name of the content type.\n            \"Type\": \"HW2CardDisplayInfo\",\n\n            // Contains the information for the content type.\n            \"View\": {\n\n              // Internal use.\n              \"Status\": \"string\",\n\n              // Information common to all content types.\n              \"Common\": {\n\n                // Internal use.\n                \"Owner\": \"string\",\n\n                // Date the content was created. This is expressed as an ISO 8601\n                // combined Date and Time.\n                \"CreatedUtc\": \"string\",\n\n                // Date the content was last modified. This is expressed as an ISO 8601\n                // combined Date and Time.\n                \"ModifiedUtc\": \"string\",\n\n                // Date the content was last published. This is expressed as an ISO 8601\n                // combined Date and Time.\n                \"PublishedUtc\": \"string\",\n\n                // Internal use.\n                \"Container\": \"int\"\n              },\n\n              // ID that identifies this content item in the Metadata API.\n              \"Identity\": \"guid\",\n\n              // Non-localized title of the content item.\n              \"Title\": \"string\",\n\n              // Internal use.\n              \"BatchLocalization\": {\n\n                \"IsLocked\": \"bool\"\n              },\n\n              // Localization information.\n              \"Localization\": {\n\n                // Localization culture.\n                \"Culture\": \"string\",\n\n                // Internal use.\n                \"MasterContentItemId\": \"guid\"\n              },\n\n              // Localized information for the Card.\n              \"HW2CardDisplayInfo\": {\n\n                // Localized name of the Card.\n                \"Name\": \"string\",\n\n                // Localized description of the Card.\n                \"Description\": \"string\",\n\n                // Localized subtype description of the Card.\n                \"SubtypeDescription\": \"string\",\n\n                // Localized name of the special ability of the Game Object produced by\n                // the Card, if applicable.\n                \"SpecialAbilityName\": string\n                // Localized description of the special ability of the Game Object\n                // produced by the Card, if applicable.\n                \"SpecialAbilityDescription\": \"string\"\n              }\n            }\n          },\n\n          // Game Object spawned by this card. Game Objects are available via the\n          // Metadata API.\n          \"GameObject\": {\n\n            // Internal use.\n            \"Id\": \"int\",\n\n            // Name of the content type.   \n            \"Type\": \"HW2Object\",\n\n            // ID that identifies this content item in the Metadata API.\n            \"Identity\": \"guid\",\n\n            // Internal use.\n            \"Autoroute\": \"string\"\n          },\n\n          // Last Stand number, if applicable.\n          \"LastStandNumber\": \"int\",\n\n          // Energy cost required to play this Card.\n          \"EnergyCost\": \"int\",\n\n          // Type of the card. This field will contain one of the following values:\n          //   Unit\n          //   Power\n          \"PlayType\": \"string\",\n\n          // Internal use.\n          \"Keywords\": [{\n            \"Id\": \"int\",\n\n            \"Type\": \"HW2CardKeyword\",\n\n            \"Identity\": \"guid\",\n\n            \"Autoroute\": \"string\"\n          }]\n        },\n\n        // Internal use.\n        \"Autoroute\": \"string\"\n      },\n\n      // Internal use.\n      \"Links\": [{\n        \"Absolute\": \"bool\",\n\n        \"Relation\": \"string\",\n\n        \"URI\": \"string\"\n      }],\n\n      // Internal use.\n      \"ChildrenCount\": \"int\"\n    }\n  ]\n}\n"
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Cards"
       }
     },
     "/hw2/csr-designations": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 22, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.csr_designations.get",
+        "operationId": "58ae45962109180bdcacc4ec",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1308,13 +1332,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - CSR Designations"
       }
     },
     "/hw2/difficulties": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.difficulties.get",
+        "operationId": "58ace18c2109180bdcacc43a",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1399,13 +1424,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Difficulties"
       }
     },
     "/hw2/game-object-categories": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.game_object_categories.get",
+        "operationId": "58ace18c2109180bdcacc43b",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1454,13 +1480,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Game Object Categories"
       }
     },
     "/hw2/game-objects": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.game_objects.get",
+        "operationId": "58ace18c2109180bdcacc43c",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1587,13 +1614,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Game Objects"
       }
     },
     "/hw2/leader-powers": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.leader_powers.get",
+        "operationId": "58ace18c2109180bdcacc43d",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1680,13 +1708,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Leader Powers"
       }
     },
     "/hw2/leaders": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.leaders.get",
+        "operationId": "58ace18c2109180bdcacc43e",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1867,13 +1896,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Leaders"
       }
     },
     "/hw2/maps": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.maps.get",
+        "operationId": "58ace18c2109180bdcacc43f",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1986,13 +2016,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Maps"
       }
     },
     "/hw2/packs": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.packs.get",
+        "operationId": "58ace18c2109180bdcacc440",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2255,13 +2286,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Packs"
       }
     },
     "/hw2/playlists": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.playlists.get",
+        "operationId": "58ace18c2109180bdcacc441",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2565,13 +2597,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Playlists"
       }
     },
     "/hw2/seasons": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.seasons.get",
+        "operationId": "58ace18c2109180bdcacc442",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2665,13 +2698,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Seasons"
       }
     },
     "/hw2/spartan-ranks": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 27, 2017:</strong></p>\n    <ul>\n        <li>Updated documentation to clarify the relationship between the Spartan Rank content item and the Spartan Rank Display Info content item.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.spartan_ranks.get",
+        "operationId": "58ace18c2109180bdcacc443",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2762,13 +2796,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Spartan Ranks"
       }
     },
     "/hw2/techs": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "hw2.techs.get",
+        "operationId": "58ace18c2109180bdcacc444",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2855,7 +2890,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Halo Wars 2 - Techs"
       }
     }
   }

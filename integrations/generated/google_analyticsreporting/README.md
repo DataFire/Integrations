@@ -1,6 +1,6 @@
 # @datafire/google_analyticsreporting
 
-Client library for Google Analytics Reporting
+Client library for Analytics Reporting
 
 ## Installation and Usage
 ```bash

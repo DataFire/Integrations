@@ -1481,84 +1481,6 @@ google_classroom.courses.teachers.get({
 #### Output
 * output [Teacher](#teacher)
 
-### courses.topics.list
-Returns the list of topics that the requester is permitted to view.
-
-This method returns the following error codes:
-
-* `PERMISSION_DENIED` if the requesting user is not permitted to access
-the requested course or for access errors.
-* `INVALID_ARGUMENT` if the request is malformed.
-* `NOT_FOUND` if the requested course does not exist.
-
-
-```js
-google_classroom.courses.topics.list({
-  "courseId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * courseId **required** `string`: Identifier of the course.
-  * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
-  * pageToken `string`: nextPageToken
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [ListTopicResponse](#listtopicresponse)
-
-### courses.topics.get
-Returns a topic.
-
-This method returns the following error codes:
-
-* `PERMISSION_DENIED` if the requesting user is not permitted to access the
-requested course or topic, or for access errors.
-* `INVALID_ARGUMENT` if the request is malformed.
-* `NOT_FOUND` if the requested course or topic does not exist.
-
-
-```js
-google_classroom.courses.topics.get({
-  "courseId": "",
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * courseId **required** `string`: Identifier of the course.
-  * id **required** `string`: Identifier of the topic.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Topic](#topic)
-
 ### courses.delete
 Deletes a course.
 
@@ -2493,7 +2415,7 @@ google_classroom.userProfiles.get({
 ### Date
 * Date `object`: Represents a whole calendar date, e.g. date of birth. The time of day and
   * day `integer`: Day of month. Must be from 1 to 31 and valid for the year and month, or 0
-  * month `integer`: Month of year. Must be from 1 to 12.
+  * month `integer`: Month of year. Must be from 1 to 12, or 0 if specifying a date without a
   * year `integer`: Year of date. Must be from 1 to 9999, or 0 if specifying a date without
 
 ### DriveFile
@@ -2629,12 +2551,6 @@ google_classroom.userProfiles.get({
   * teachers `array`: Teachers who match the list request.
     * items [Teacher](#teacher)
 
-### ListTopicResponse
-* ListTopicResponse `object`: Response when listing topics.
-  * nextPageToken `string`: Token identifying the next page of results to return. If empty, no further
-  * topic `array`: Topic items that match the request.
-    * items [Topic](#topic)
-
 ### Material
 * Material `object`: Material attached to course work.
   * driveFile [SharedDriveFile](#shareddrivefile)
@@ -2752,13 +2668,6 @@ google_classroom.userProfiles.get({
   * minutes `integer`: Minutes of hour of day. Must be from 0 to 59.
   * nanos `integer`: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
   * seconds `integer`: Seconds of minutes of the time. Must normally be from 0 to 59. An API may
-
-### Topic
-* Topic `object`: Topic created by a teacher for the course
-  * courseId `string`: Identifier of the course.
-  * name `string`: The name of the topic, generated by the user.
-  * topicId `string`: Unique identifier for the topic.
-  * updateTime `string`: The time the topic was last updated by the system.
 
 ### TurnInStudentSubmissionRequest
 * TurnInStudentSubmissionRequest `object`: Request to turn in a student submission.

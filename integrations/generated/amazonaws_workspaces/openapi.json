@@ -164,7 +164,262 @@
         }
       ],
       "post": {
-        "description": "Creates tags for the specified WorkSpace.",
+        "description": "Associates the specified IP access control group with the specified directory.",
+        "operationId": "AssociateIpGroups",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateIpGroupsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateIpGroupsResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "483": {
+            "description": "InvalidResourceStateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "OperationNotSupportedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotSupportedException"
+            }
+          }
+        }
+      }
+    },
+    "/#AuthorizeIpRules": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Adds one or more rules to the specified IP access control group.</p> <p>This action gives users permission to access their WorkSpaces from the CIDR address ranges specified in the rules.</p>",
+        "operationId": "AuthorizeIpRules",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AuthorizeIpRulesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AuthorizeIpRulesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "483": {
+            "description": "InvalidResourceStateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateIpGroup": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates an IP access control group.</p> <p>An IP access control group provides you with the ability to control the IP addresses from which users are allowed to access their WorkSpaces. To specify the CIDR address ranges, add rules to your IP access control group and then associate the group with your directory. You can add rules when you create the group or at any time using <a>AuthorizeIpRules</a>.</p> <p>There is a default IP access control group associated with your directory. If you don't associate an IP access control group with your directory, the default group is used. The default group includes a default rule that allows users to access their WorkSpaces from anywhere. You cannot modify the default IP access control group for your directory.</p>",
+        "operationId": "CreateIpGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateIpGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateIpGroupResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "483": {
+            "description": "ResourceCreationFailedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceCreationFailedException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateTags": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates the specified tags for the specified WorkSpace.",
         "operationId": "CreateTags",
         "parameters": [
           {
@@ -269,6 +524,83 @@
         }
       }
     },
+    "/#DeleteIpGroup": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deletes the specified IP access control group.</p> <p>You cannot delete an IP access control group that is associated with a directory.</p>",
+        "operationId": "DeleteIpGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteIpGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteIpGroupResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceAssociatedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAssociatedException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        }
+      }
+    },
     "/#DeleteTags": {
       "parameters": [
         {
@@ -300,7 +632,7 @@
         }
       ],
       "post": {
-        "description": "Deletes the specified tags from a WorkSpace.",
+        "description": "Deletes the specified tags from the specified WorkSpace.",
         "operationId": "DeleteTags",
         "parameters": [
           {
@@ -329,6 +661,71 @@
             "description": "InvalidParameterValuesException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeIpGroups": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes one or more of your IP access control groups.",
+        "operationId": "DescribeIpGroups",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeIpGroupsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeIpGroupsResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
             }
           }
         }
@@ -365,7 +762,7 @@
         }
       ],
       "post": {
-        "description": "Describes the tags for the specified WorkSpace.",
+        "description": "Describes the specified tags for the specified WorkSpace.",
         "operationId": "DescribeTags",
         "parameters": [
           {
@@ -663,6 +1060,83 @@
         }
       }
     },
+    "/#DisassociateIpGroups": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disassociates the specified IP access control group from the specified directory.",
+        "operationId": "DisassociateIpGroups",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateIpGroupsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateIpGroupsResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidResourceStateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        }
+      }
+    },
     "/#ModifyWorkspaceProperties": {
       "parameters": [
         {
@@ -758,6 +1232,77 @@
         }
       }
     },
+    "/#ModifyWorkspaceState": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Sets the state of the specified WorkSpace.</p> <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to reboot, stop, start, or rebuild. An AutoStop WorkSpace in this state is not stopped. Users can log into a WorkSpace in the <code>ADMIN_MAINTENANCE</code> state.</p>",
+        "operationId": "ModifyWorkspaceState",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModifyWorkspaceStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ModifyWorkspaceStateResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "InvalidResourceStateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
     "/#RebootWorkspaces": {
       "parameters": [
         {
@@ -789,7 +1334,7 @@
         }
       ],
       "post": {
-        "description": "<p>Reboots the specified WorkSpaces.</p> <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code>, <code>IMPAIRED</code>, or <code>INOPERABLE</code>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>",
+        "description": "<p>Reboots the specified WorkSpaces.</p> <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code> or <code>UNHEALTHY</code>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>",
         "operationId": "RebootWorkspaces",
         "parameters": [
           {
@@ -842,7 +1387,7 @@
         }
       ],
       "post": {
-        "description": "<p>Rebuilds the specified WorkSpaces.</p> <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code> or <code>ERROR</code>.</p> <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see <a href=\"http://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html\">Rebuild a WorkSpace</a>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.</p>",
+        "description": "<p>Rebuilds the specified WorkSpace.</p> <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>, <code>ERROR</code>, or <code>UNHEALTHY</code>.</p> <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see <a href=\"http://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html\">Rebuild a WorkSpace</a>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.</p>",
         "operationId": "RebuildWorkspaces",
         "parameters": [
           {
@@ -859,6 +1404,83 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/RebuildWorkspacesResult"
+            }
+          }
+        }
+      }
+    },
+    "/#RevokeIpRules": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Removes one or more rules from the specified IP access control group.",
+        "operationId": "RevokeIpRules",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RevokeIpRulesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RevokeIpRulesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidResourceStateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
             }
           }
         }
@@ -1022,6 +1644,89 @@
           }
         }
       }
+    },
+    "/#UpdateRulesOfIpGroup": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Replaces the current rules of the specified IP access control group with the specified rules.",
+        "operationId": "UpdateRulesOfIpGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateRulesOfIpGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateRulesOfIpGroupResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "483": {
+            "description": "InvalidResourceStateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1040,6 +1745,48 @@
     },
     "Alias": {
       "type": "string"
+    },
+    "AssociateIpGroupsRequest": {
+      "properties": {
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "The ID of the directory."
+        },
+        "GroupIds": {
+          "$ref": "#/definitions/IpGroupIdList",
+          "description": "The IDs of one or more IP access control groups."
+        }
+      },
+      "required": [
+        "DirectoryId",
+        "GroupIds"
+      ],
+      "type": "object"
+    },
+    "AssociateIpGroupsResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "AuthorizeIpRulesRequest": {
+      "properties": {
+        "GroupId": {
+          "$ref": "#/definitions/IpGroupId",
+          "description": "The ID of the group."
+        },
+        "UserRules": {
+          "$ref": "#/definitions/IpRuleList",
+          "description": "The rules to add to the group."
+        }
+      },
+      "required": [
+        "GroupId",
+        "UserRules"
+      ],
+      "type": "object"
+    },
+    "AuthorizeIpRulesResult": {
+      "properties": {},
+      "type": "object"
     },
     "BooleanObject": {
       "type": "boolean"
@@ -1096,15 +1843,44 @@
       ],
       "type": "string"
     },
+    "CreateIpGroupRequest": {
+      "properties": {
+        "GroupDesc": {
+          "$ref": "#/definitions/IpGroupDesc",
+          "description": "The description of the group."
+        },
+        "GroupName": {
+          "$ref": "#/definitions/IpGroupName",
+          "description": "The name of the group."
+        },
+        "UserRules": {
+          "$ref": "#/definitions/IpRuleList",
+          "description": "The rules to add to the group."
+        }
+      },
+      "required": [
+        "GroupName"
+      ],
+      "type": "object"
+    },
+    "CreateIpGroupResult": {
+      "properties": {
+        "GroupId": {
+          "$ref": "#/definitions/IpGroupId",
+          "description": "The ID of the group."
+        }
+      },
+      "type": "object"
+    },
     "CreateTagsRequest": {
       "properties": {
         "ResourceId": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The ID of the resource."
+          "description": "The ID of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>."
         },
         "Tags": {
           "$ref": "#/definitions/TagList",
-          "description": "The tags. Each resource can have a maximum of 50 tags."
+          "description": "The tags. Each WorkSpace can have a maximum of 50 tags."
         }
       },
       "required": [
@@ -1121,7 +1897,7 @@
       "properties": {
         "Workspaces": {
           "$ref": "#/definitions/WorkspaceRequestList",
-          "description": "Information about the WorkSpaces to create."
+          "description": "The WorkSpaces to create. You can specify up to 25 WorkSpaces."
         }
       },
       "required": [
@@ -1171,11 +1947,27 @@
       },
       "type": "object"
     },
+    "DeleteIpGroupRequest": {
+      "properties": {
+        "GroupId": {
+          "$ref": "#/definitions/IpGroupId",
+          "description": "The ID of the IP access control group."
+        }
+      },
+      "required": [
+        "GroupId"
+      ],
+      "type": "object"
+    },
+    "DeleteIpGroupResult": {
+      "properties": {},
+      "type": "object"
+    },
     "DeleteTagsRequest": {
       "properties": {
         "ResourceId": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The ID of the resource."
+          "description": "The ID of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>."
         },
         "TagKeys": {
           "$ref": "#/definitions/TagKeyList",
@@ -1192,11 +1984,41 @@
       "properties": {},
       "type": "object"
     },
+    "DescribeIpGroupsRequest": {
+      "properties": {
+        "GroupIds": {
+          "$ref": "#/definitions/IpGroupIdList",
+          "description": "The IDs of one or more IP access control groups."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/Limit",
+          "description": "The maximum number of items to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The token for the next set of results. (You received this token from a previous call.)"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeIpGroupsResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame."
+        },
+        "Result": {
+          "$ref": "#/definitions/WorkspacesIpGroupsList",
+          "description": "Information about the IP access control groups."
+        }
+      },
+      "type": "object"
+    },
     "DescribeTagsRequest": {
       "properties": {
         "ResourceId": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The ID of the resource."
+          "description": "The ID of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>."
         }
       },
       "required": [
@@ -1277,7 +2099,7 @@
         },
         "WorkspaceIds": {
           "$ref": "#/definitions/WorkspaceIdList",
-          "description": "The identifiers of the WorkSpaces."
+          "description": "The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces."
         }
       },
       "type": "object"
@@ -1360,6 +2182,27 @@
     },
     "DirectoryName": {
       "type": "string"
+    },
+    "DisassociateIpGroupsRequest": {
+      "properties": {
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "The ID of the directory."
+        },
+        "GroupIds": {
+          "$ref": "#/definitions/IpGroupIdList",
+          "description": "The IDs of one or more IP access control groups."
+        }
+      },
+      "required": [
+        "DirectoryId",
+        "GroupIds"
+      ],
+      "type": "object"
+    },
+    "DisassociateIpGroupsResult": {
+      "properties": {},
+      "type": "object"
     },
     "DnsIpAddresses": {
       "items": {
@@ -1456,7 +2299,7 @@
       "type": "object"
     },
     "InvalidResourceStateException": {
-      "description": "The state of the WorkSpace is not valid for this operation.",
+      "description": "The state of the resource is not valid for this operation.",
       "properties": {
         "message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -1466,6 +2309,54 @@
     },
     "IpAddress": {
       "type": "string"
+    },
+    "IpGroupDesc": {
+      "type": "string"
+    },
+    "IpGroupId": {
+      "pattern": "wsipg-[0-9a-z]{8,63}$",
+      "type": "string"
+    },
+    "IpGroupIdList": {
+      "items": {
+        "$ref": "#/definitions/IpGroupId"
+      },
+      "type": "array"
+    },
+    "IpGroupName": {
+      "type": "string"
+    },
+    "IpRevokedRuleList": {
+      "items": {
+        "$ref": "#/definitions/IpRule"
+      },
+      "type": "array"
+    },
+    "IpRule": {
+      "type": "string"
+    },
+    "IpRuleDesc": {
+      "type": "string"
+    },
+    "IpRuleItem": {
+      "description": "Information about a rule for an IP access control group.",
+      "properties": {
+        "ipRule": {
+          "$ref": "#/definitions/IpRule",
+          "description": "The IP address range, in CIDR notation."
+        },
+        "ruleDesc": {
+          "$ref": "#/definitions/IpRuleDesc",
+          "description": "The description."
+        }
+      },
+      "type": "object"
+    },
+    "IpRuleList": {
+      "items": {
+        "$ref": "#/definitions/IpRuleItem"
+      },
+      "type": "array"
     },
     "Limit": {
       "maximum": 25,
@@ -1528,12 +2419,42 @@
       "properties": {},
       "type": "object"
     },
+    "ModifyWorkspaceStateRequest": {
+      "properties": {
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The ID of the WorkSpace."
+        },
+        "WorkspaceState": {
+          "$ref": "#/definitions/TargetWorkspaceState",
+          "description": "The WorkSpace state."
+        }
+      },
+      "required": [
+        "WorkspaceId",
+        "WorkspaceState"
+      ],
+      "type": "object"
+    },
+    "ModifyWorkspaceStateResult": {
+      "properties": {},
+      "type": "object"
+    },
     "NonEmptyString": {
       "minLength": 1,
       "type": "string"
     },
     "OperationInProgressException": {
       "description": "The properties of this WorkSpace are currently being modified. Try again in a moment.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "OperationNotSupportedException": {
+      "description": "This operation is not supported.",
       "properties": {
         "message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -1551,7 +2472,7 @@
       "properties": {
         "WorkspaceId": {
           "$ref": "#/definitions/WorkspaceId",
-          "description": "The identifier of the WorkSpace."
+          "description": "The ID of the WorkSpace."
         }
       },
       "required": [
@@ -1571,7 +2492,7 @@
       "properties": {
         "RebootWorkspaceRequests": {
           "$ref": "#/definitions/RebootWorkspaceRequests",
-          "description": "The WorkSpaces to reboot."
+          "description": "The WorkSpaces to reboot. You can specify up to 25 WorkSpaces."
         }
       },
       "required": [
@@ -1593,7 +2514,7 @@
       "properties": {
         "WorkspaceId": {
           "$ref": "#/definitions/WorkspaceId",
-          "description": "The identifier of the WorkSpace."
+          "description": "The ID of the WorkSpace."
         }
       },
       "required": [
@@ -1613,7 +2534,7 @@
       "properties": {
         "RebuildWorkspaceRequests": {
           "$ref": "#/definitions/RebuildWorkspaceRequests",
-          "description": "The WorkSpaces to rebuild."
+          "description": "The WorkSpace to rebuild. You can specify a single WorkSpace."
         }
       },
       "required": [
@@ -1625,7 +2546,7 @@
       "properties": {
         "FailedRequests": {
           "$ref": "#/definitions/FailedRebuildWorkspaceRequests",
-          "description": "Information about the WorkSpaces that could not be rebuilt."
+          "description": "Information about the WorkSpace if it could not be rebuilt."
         }
       },
       "type": "object"
@@ -1634,6 +2555,33 @@
       "maxLength": 20,
       "minLength": 1,
       "type": "string"
+    },
+    "ResourceAlreadyExistsException": {
+      "description": "The specified resource already exists.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceAssociatedException": {
+      "description": "The resource is associated with a directory.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceCreationFailedException": {
+      "description": "The resource could not be created.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
     },
     "ResourceLimitExceededException": {
       "description": "Your resource limits have been exceeded.",
@@ -1671,6 +2619,27 @@
           "description": "The exception error message."
         }
       },
+      "type": "object"
+    },
+    "RevokeIpRulesRequest": {
+      "properties": {
+        "GroupId": {
+          "$ref": "#/definitions/IpGroupId",
+          "description": "The ID of the group."
+        },
+        "UserRules": {
+          "$ref": "#/definitions/IpRevokedRuleList",
+          "description": "The rules to remove from the group."
+        }
+      },
+      "required": [
+        "GroupId",
+        "UserRules"
+      ],
+      "type": "object"
+    },
+    "RevokeIpRulesResult": {
+      "properties": {},
       "type": "object"
     },
     "RootStorage": {
@@ -1722,7 +2691,7 @@
       "properties": {
         "StartWorkspaceRequests": {
           "$ref": "#/definitions/StartWorkspaceRequests",
-          "description": "The WorkSpaces to start."
+          "description": "The WorkSpaces to start. You can specify up to 25 WorkSpaces."
         }
       },
       "required": [
@@ -1761,7 +2730,7 @@
       "properties": {
         "StopWorkspaceRequests": {
           "$ref": "#/definitions/StopWorkspaceRequests",
-          "description": "The WorkSpaces to stop."
+          "description": "The WorkSpaces to stop. You can specify up to 25 WorkSpaces."
         }
       },
       "required": [
@@ -1826,12 +2795,19 @@
       "maxLength": 255,
       "type": "string"
     },
+    "TargetWorkspaceState": {
+      "enum": [
+        "AVAILABLE",
+        "ADMIN_MAINTENANCE"
+      ],
+      "type": "string"
+    },
     "TerminateRequest": {
       "description": "Information used to terminate a WorkSpace.",
       "properties": {
         "WorkspaceId": {
           "$ref": "#/definitions/WorkspaceId",
-          "description": "The identifier of the WorkSpace."
+          "description": "The ID of the WorkSpace."
         }
       },
       "required": [
@@ -1851,7 +2827,7 @@
       "properties": {
         "TerminateWorkspaceRequests": {
           "$ref": "#/definitions/TerminateWorkspaceRequests",
-          "description": "The WorkSpaces to terminate."
+          "description": "The WorkSpaces to terminate. You can specify up to 25 WorkSpaces."
         }
       },
       "required": [
@@ -1879,6 +2855,27 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
+      "type": "object"
+    },
+    "UpdateRulesOfIpGroupRequest": {
+      "properties": {
+        "GroupId": {
+          "$ref": "#/definitions/IpGroupId",
+          "description": "The ID of the group."
+        },
+        "UserRules": {
+          "$ref": "#/definitions/IpRuleList",
+          "description": "One or more rules."
+        }
+      },
+      "required": [
+        "GroupId",
+        "UserRules"
+      ],
+      "type": "object"
+    },
+    "UpdateRulesOfIpGroupResult": {
+      "properties": {},
       "type": "object"
     },
     "UserName": {
@@ -2031,7 +3028,7 @@
       "type": "array"
     },
     "WorkspaceDirectory": {
-      "description": "Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.",
+      "description": "Information about an AWS Directory Service directory for use with Amazon WorkSpaces.",
       "properties": {
         "Alias": {
           "$ref": "#/definitions/Alias",
@@ -2080,6 +3077,10 @@
         "WorkspaceSecurityGroupId": {
           "$ref": "#/definitions/SecurityGroupId",
           "description": "The identifier of the security group that is assigned to new WorkSpaces."
+        },
+        "ipGroupIds": {
+          "$ref": "#/definitions/IpGroupIdList",
+          "description": "The identifiers of the IP access control groups associated with the directory."
         }
       },
       "type": "object"
@@ -2209,6 +3210,7 @@
         "STARTING",
         "REBUILDING",
         "MAINTENANCE",
+        "ADMIN_MAINTENANCE",
         "TERMINATING",
         "TERMINATED",
         "SUSPENDED",
@@ -2218,6 +3220,34 @@
         "ERROR"
       ],
       "type": "string"
+    },
+    "WorkspacesIpGroup": {
+      "description": "Information about an IP access control group.",
+      "properties": {
+        "groupDesc": {
+          "$ref": "#/definitions/IpGroupDesc",
+          "description": "The description of the group."
+        },
+        "groupId": {
+          "$ref": "#/definitions/IpGroupId",
+          "description": "The ID of the group."
+        },
+        "groupName": {
+          "$ref": "#/definitions/IpGroupName",
+          "description": "The name of the group."
+        },
+        "userRules": {
+          "$ref": "#/definitions/IpRuleList",
+          "description": "The rules."
+        }
+      },
+      "type": "object"
+    },
+    "WorkspacesIpGroupsList": {
+      "items": {
+        "$ref": "#/definitions/WorkspacesIpGroup"
+      },
+      "type": "array"
     }
   }
 }

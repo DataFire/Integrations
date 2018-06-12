@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Automates Android zero-touch enrollment for device resellers, customers, and EMMs.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Android Device Provisioning Partner",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://androiddeviceprovisioning.googleapis.com/$discovery/rest?version=v1",
@@ -156,7 +151,7 @@
         "operationId": "customers.list",
         "parameters": [
           {
-            "description": "The maximum number of customers to show in a page of results.\nA number between 1 and 1000 (inclusive).",
+            "description": "The maximum number of customers to show in a page of results.\nA number between 1 and 100 (inclusive).",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
@@ -265,7 +260,7 @@
         }
       ],
       "post": {
-        "description": "Update the metadata.",
+        "description": "Updates reseller metadata associated with the device.",
         "operationId": "partners.devices.metadata",
         "parameters": [
           {
@@ -276,7 +271,7 @@
             }
           },
           {
-            "description": "ID of the partner.",
+            "description": "Required. The ID of the reseller partner.",
             "in": "path",
             "name": "deviceId",
             "required": true,
@@ -284,7 +279,7 @@
             "x-reservedExpansion": true
           },
           {
-            "description": "The owner of the newly set metadata. Set this to the partner ID.",
+            "description": "Required. The owner of the newly set metadata. Set this to the partner ID.",
             "in": "path",
             "name": "metadataOwnerId",
             "required": true,
@@ -311,7 +306,7 @@
         "operationId": "partners.customers.list",
         "parameters": [
           {
-            "description": "The ID of the partner.",
+            "description": "Required. The ID of the reseller partner.",
             "in": "path",
             "name": "partnerId",
             "required": true,
@@ -416,7 +411,7 @@
         }
       ],
       "post": {
-        "description": "Claim the device identified by device identifier.",
+        "description": "Claims a device for a customer and adds it to zero-touch enrollment. If the\ndevice is already claimed by another customer, the call returns an error.",
         "operationId": "partners.devices.claim",
         "parameters": [
           {
@@ -427,7 +422,7 @@
             }
           },
           {
-            "description": "ID of the partner.",
+            "description": "Required. The ID of the reseller partner.",
             "in": "path",
             "name": "partnerId",
             "required": true,
@@ -491,7 +486,7 @@
         }
       ],
       "post": {
-        "description": "Claim devices asynchronously.",
+        "description": "Claims a batch of devices for a customer asynchronously. Adds the devices\nto zero-touch enrollment. To learn more, read [Long‑running batch\noperations](/zero-touch/guides/how-it-works#operations).",
         "operationId": "partners.devices.claimAsync",
         "parameters": [
           {
@@ -502,7 +497,7 @@
             }
           },
           {
-            "description": "Partner ID.",
+            "description": "Required. The ID of the reseller partner.",
             "in": "path",
             "name": "partnerId",
             "required": true,
@@ -566,7 +561,7 @@
         }
       ],
       "post": {
-        "description": "Find devices by device identifier.",
+        "description": "Finds devices by hardware identifiers, such as IMEI.",
         "operationId": "partners.devices.findByIdentifier",
         "parameters": [
           {
@@ -577,7 +572,7 @@
             }
           },
           {
-            "description": "ID of the partner.",
+            "description": "Required. The ID of the reseller partner.",
             "in": "path",
             "name": "partnerId",
             "required": true,
@@ -641,7 +636,7 @@
         }
       ],
       "post": {
-        "description": "Find devices by ownership.",
+        "description": "Finds devices claimed for customers. The results only contain devices\nregistered to the reseller that's identified by the `partnerId` argument.\nThe customer's devices purchased from other resellers don't appear in the\nresults.",
         "operationId": "partners.devices.findByOwner",
         "parameters": [
           {
@@ -652,7 +647,7 @@
             }
           },
           {
-            "description": "ID of the partner.",
+            "description": "Required. The ID of the reseller partner.",
             "in": "path",
             "name": "partnerId",
             "required": true,
@@ -716,7 +711,7 @@
         }
       ],
       "post": {
-        "description": "Unclaim the device identified by the `device_id` or the `deviceIdentifier`.",
+        "description": "Unclaims a device from a customer and removes it from zero-touch\nenrollment.",
         "operationId": "partners.devices.unclaim",
         "parameters": [
           {
@@ -727,7 +722,7 @@
             }
           },
           {
-            "description": "ID of the partner.",
+            "description": "Required. The ID of the reseller partner.",
             "in": "path",
             "name": "partnerId",
             "required": true,
@@ -791,7 +786,7 @@
         }
       ],
       "post": {
-        "description": "Unclaim devices asynchronously.",
+        "description": "Unclaims a batch of devices for a customer asynchronously. Removes the\ndevices from zero-touch enrollment. To learn more, read [Long‑running batch\noperations](/zero-touch/guides/how-it-works#operations).",
         "operationId": "partners.devices.unclaimAsync",
         "parameters": [
           {
@@ -802,7 +797,7 @@
             }
           },
           {
-            "description": "Partner ID.",
+            "description": "Required. The reseller partner ID.",
             "in": "path",
             "name": "partnerId",
             "required": true,
@@ -866,7 +861,7 @@
         }
       ],
       "post": {
-        "description": "Set metadata in batch asynchronously.",
+        "description": "Updates the reseller metadata attached to a batch of devices. This method\nupdates devices asynchronously and returns an `Operation` that can be used\nto track progress. Read [Long‑running batch\noperations](/zero-touch/guides/how-it-works#operations).",
         "operationId": "partners.devices.updateMetadataAsync",
         "parameters": [
           {
@@ -877,7 +872,7 @@
             }
           },
           {
-            "description": "Partner ID.",
+            "description": "Required. The reseller partner ID.",
             "in": "path",
             "name": "partnerId",
             "required": true,
@@ -925,11 +920,11 @@
         ]
       },
       "get": {
-        "description": "Get a device.",
-        "operationId": "partners.devices.get",
+        "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+        "operationId": "operations.get",
         "parameters": [
           {
-            "description": "Resource name in `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.",
+            "description": "The name of the operation resource.",
             "in": "path",
             "name": "name",
             "required": true,
@@ -941,12 +936,12 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Device"
+              "$ref": "#/definitions/Operation"
             }
           }
         },
         "tags": [
-          "partners"
+          "operations"
         ]
       },
       "parameters": [
@@ -1583,16 +1578,16 @@
       "description": "Request message to claim a device on behalf of a customer.",
       "properties": {
         "customerId": {
-          "description": "The customer to claim for.",
+          "description": "Required. The ID of the customer for whom the device is being claimed.",
           "format": "int64",
           "type": "string"
         },
         "deviceIdentifier": {
           "$ref": "#/definitions/DeviceIdentifier",
-          "description": "The device identifier of the device to claim."
+          "description": "Required. The device identifier of the device to claim."
         },
         "sectionType": {
-          "description": "The section to claim.",
+          "description": "Required. The section type of the device's provisioning record.",
           "enum": [
             "SECTION_TYPE_UNSPECIFIED",
             "SECTION_TYPE_ZERO_TOUCH"
@@ -1618,10 +1613,10 @@
       "type": "object"
     },
     "ClaimDevicesRequest": {
-      "description": "Request to claim devices asynchronously in batch.",
+      "description": "Request to claim devices asynchronously in batch. Claiming a device adds the\ndevice to zero-touch enrollment and shows the device in the customer's view\nof the portal.",
       "properties": {
         "claims": {
-          "description": "List of claims.",
+          "description": "Required. A list of device claims.",
           "items": {
             "$ref": "#/definitions/PartnerClaim"
           },
@@ -1659,6 +1654,16 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "termsStatus": {
+          "description": "Output only. Whether any user from the company has accepted the latest\nTerms of Service (ToS). See\nTermsStatus.",
+          "enum": [
+            "TERMS_STATUS_UNSPECIFIED",
+            "TERMS_STATUS_NOT_ACCEPTED",
+            "TERMS_STATUS_ACCEPTED",
+            "TERMS_STATUS_STALE"
+          ],
+          "type": "string"
         }
       },
       "type": "object"
@@ -1918,15 +1923,15 @@
       "type": "object"
     },
     "DevicesLongRunningOperationMetadata": {
-      "description": "Long running operation metadata.",
+      "description": "Tracks the status of a long-running operation to asynchronously update a\nbatch of reseller metadata attached to devices. To learn more, read\n[Long‑running batch operations](/zero-touch/guides/how-it-works#operations).",
       "properties": {
         "devicesCount": {
-          "description": "Number of devices parsed in your requests.",
+          "description": "The number of metadata updates in the operation. This might be different\nfrom the number of updates in the request if the API can't parse some of\nthe updates.",
           "format": "int32",
           "type": "integer"
         },
         "processingStatus": {
-          "description": "The overall processing status.",
+          "description": "The processing status of the operation.",
           "enum": [
             "BATCH_PROCESS_STATUS_UNSPECIFIED",
             "BATCH_PROCESS_PENDING",
@@ -1936,7 +1941,7 @@
           "type": "string"
         },
         "progress": {
-          "description": "Processing progress from 0 to 100.",
+          "description": "The processing progress of the operation. Measured as a number from 0 to\n100. A value of 10O doesnt always mean the operation completed—check for\nthe inclusion of a `done` field.",
           "format": "int32",
           "type": "integer"
         }
@@ -1944,17 +1949,17 @@
       "type": "object"
     },
     "DevicesLongRunningOperationResponse": {
-      "description": "Long running operation response.",
+      "description": "Tracks the status of a long-running operation to claim, unclaim, or attach\nmetadata to devices. To learn more, read\n[Long‑running batch operations](/zero-touch/guides/how-it-works#operations).",
       "properties": {
         "perDeviceStatus": {
-          "description": "Processing status for each device.\nOne `PerDeviceStatus` per device. The order is the same as in your requests.",
+          "description": "The processing status for each device in the operation.\nOne `PerDeviceStatus` per device. The list order matches the items in the\noriginal request.",
           "items": {
             "$ref": "#/definitions/OperationPerDevice"
           },
           "type": "array"
         },
         "successCount": {
-          "description": "Number of succeesfully processed ones.",
+          "description": "A summary of how many items in the operation the server processed\nsuccessfully. Updated as the operation progresses.",
           "format": "int32",
           "type": "integer"
         }
@@ -1962,7 +1967,7 @@
       "type": "object"
     },
     "Dpc": {
-      "description": "An EMM's DPC ([device policy controller](/android/work/dpc/build-dpc)).\nZero-touch enrollment installs a DPC (listed in the `Configuration`) on a\ndevice to maintain the customer's mobile policies. All the DPCs listed by the\nAPI support zero-touch enrollment and are available in Google Play.",
+      "description": "An EMM's DPC ([device policy\ncontroller](http://developer.android.com/work/dpc/build-dpc.html)).\nZero-touch enrollment installs a DPC (listed in the `Configuration`) on a\ndevice to maintain the customer's mobile policies. All the DPCs listed by the\nAPI support zero-touch enrollment and are available in Google Play.",
       "properties": {
         "dpcName": {
           "description": "Output only. The title of the DPC app in Google Play. For example, _Google\nApps Device Policy_. Useful in an application's user interface.",
@@ -1989,15 +1994,15 @@
       "properties": {
         "deviceIdentifier": {
           "$ref": "#/definitions/DeviceIdentifier",
-          "description": "The device identifier to search."
+          "description": "Required. The device identifier to search for."
         },
         "limit": {
-          "description": "Number of devices to show.",
+          "description": "Required. The maximum number of devices to show in a page of results. Must\nbe between 1 and 100 inclusive.",
           "format": "int64",
           "type": "string"
         },
         "pageToken": {
-          "description": "Page token.",
+          "description": "A token specifying which result page to return.",
           "type": "string"
         }
       },
@@ -2014,7 +2019,7 @@
           "type": "array"
         },
         "nextPageToken": {
-          "description": "Page token of the next page.",
+          "description": "A token used to access the next page of results. Omitted if no further\nresults are available.",
           "type": "string"
         }
       },
@@ -2024,7 +2029,7 @@
       "description": "Request to find devices by customers.",
       "properties": {
         "customerId": {
-          "description": "List of customer IDs to search for.",
+          "description": "Required. The list of customer IDs to search for.",
           "items": {
             "format": "int64",
             "type": "string"
@@ -2032,16 +2037,16 @@
           "type": "array"
         },
         "limit": {
-          "description": "The number of devices to show in the result.",
+          "description": "Required. The maximum number of devices to show in a page of results. Must\nbe between 1 and 100 inclusive.",
           "format": "int64",
           "type": "string"
         },
         "pageToken": {
-          "description": "Page token.",
+          "description": "A token specifying which result page to return.",
           "type": "string"
         },
         "sectionType": {
-          "description": "The section type.",
+          "description": "Required. The section type of the device's provisioning record.",
           "enum": [
             "SECTION_TYPE_UNSPECIFIED",
             "SECTION_TYPE_ZERO_TOUCH"
@@ -2055,14 +2060,14 @@
       "description": "Response containing found devices.",
       "properties": {
         "devices": {
-          "description": "Devices found.",
+          "description": "The customer's devices.",
           "items": {
             "$ref": "#/definitions/Device"
           },
           "type": "array"
         },
         "nextPageToken": {
-          "description": "Page token of the next page.",
+          "description": "A token used to access the next page of results.\nOmitted if no further results are available.",
           "type": "string"
         }
       },
@@ -2072,7 +2077,7 @@
       "description": "Response message of all customers related to this partner.",
       "properties": {
         "customers": {
-          "description": "List of customers related to this partner.",
+          "description": "List of customers related to this reseller partner.",
           "items": {
             "$ref": "#/definitions/Company"
           },
@@ -2114,23 +2119,23 @@
       "type": "object"
     },
     "OperationPerDevice": {
-      "description": "Operation the server received for every device.",
+      "description": "A task for each device in the operation. Corresponds to each device\nchange in the request.",
       "properties": {
         "claim": {
           "$ref": "#/definitions/PartnerClaim",
-          "description": "Request to claim a device."
+          "description": "A copy of the original device-claim request received by the server."
         },
         "result": {
           "$ref": "#/definitions/PerDeviceStatusInBatch",
-          "description": "Processing result for every device."
+          "description": "The processing result for each device."
         },
         "unclaim": {
           "$ref": "#/definitions/PartnerUnclaim",
-          "description": "Request to unclaim a device."
+          "description": "A copy of the original device-unclaim request received by the server."
         },
         "updateMetadata": {
           "$ref": "#/definitions/UpdateMetadataArguments",
-          "description": "Request to set metadata for a device."
+          "description": "A copy of the original metadata-update request received by the server."
         }
       },
       "type": "object"
@@ -2139,20 +2144,20 @@
       "description": "Identifies one claim request.",
       "properties": {
         "customerId": {
-          "description": "Customer ID to claim for.",
+          "description": "Required. The ID of the customer for whom the device is being claimed.",
           "format": "int64",
           "type": "string"
         },
         "deviceIdentifier": {
           "$ref": "#/definitions/DeviceIdentifier",
-          "description": "Device identifier of the device."
+          "description": "Required. Device identifier of the device."
         },
         "deviceMetadata": {
           "$ref": "#/definitions/DeviceMetadata",
-          "description": "Metadata to set at claim."
+          "description": "Required. The metadata to attach to the device at claim."
         },
         "sectionType": {
-          "description": "Section type to claim.",
+          "description": "Required. The section type of the device's provisioning record.",
           "enum": [
             "SECTION_TYPE_UNSPECIFIED",
             "SECTION_TYPE_ZERO_TOUCH"
@@ -2175,7 +2180,7 @@
           "description": "Device identifier of the device."
         },
         "sectionType": {
-          "description": "Section type to unclaim.",
+          "description": "Required. The section type of the device's provisioning record.",
           "enum": [
             "SECTION_TYPE_UNSPECIFIED",
             "SECTION_TYPE_ZERO_TOUCH"
@@ -2186,23 +2191,23 @@
       "type": "object"
     },
     "PerDeviceStatusInBatch": {
-      "description": "Stores the processing result for each device.",
+      "description": "Captures the processing status for each device in the operation.",
       "properties": {
         "deviceId": {
-          "description": "Device ID of the device if process succeeds.",
+          "description": "If processing succeeds, the device ID of the device.",
           "format": "int64",
           "type": "string"
         },
         "errorIdentifier": {
-          "description": "Error identifier.",
+          "description": "If processing fails, the error type.",
           "type": "string"
         },
         "errorMessage": {
-          "description": "Error message.",
+          "description": "If processing fails, a developer message explaining what went wrong.",
           "type": "string"
         },
         "status": {
-          "description": "Process result.",
+          "description": "The result status of the device after processing.",
           "enum": [
             "SINGLE_DEVICE_STATUS_UNSPECIFIED",
             "SINGLE_DEVICE_STATUS_UNKNOWN_ERROR",
@@ -2256,7 +2261,7 @@
           "description": "The device identifier you used when you claimed this device."
         },
         "sectionType": {
-          "description": "The section type to unclaim for.",
+          "description": "Required. The section type of the device's provisioning record.",
           "enum": [
             "SECTION_TYPE_UNSPECIFIED",
             "SECTION_TYPE_ZERO_TOUCH"
@@ -2270,7 +2275,7 @@
       "description": "Request to unclaim devices asynchronously in batch.",
       "properties": {
         "unclaims": {
-          "description": "List of devices to unclaim.",
+          "description": "Required. The list of devices to unclaim.",
           "items": {
             "$ref": "#/definitions/PartnerUnclaim"
           },
@@ -2283,7 +2288,7 @@
       "description": "Request to update device metadata in batch.",
       "properties": {
         "updates": {
-          "description": "List of metadata updates.",
+          "description": "Required. The list of metadata updates.",
           "items": {
             "$ref": "#/definitions/UpdateMetadataArguments"
           },
@@ -2297,7 +2302,7 @@
       "properties": {
         "deviceMetadata": {
           "$ref": "#/definitions/DeviceMetadata",
-          "description": "The metdata to set."
+          "description": "Required. The metdata to attach to the device."
         }
       },
       "type": "object"
@@ -2316,7 +2321,7 @@
         },
         "deviceMetadata": {
           "$ref": "#/definitions/DeviceMetadata",
-          "description": "The metadata to update."
+          "description": "Required. The metadata to update."
         }
       },
       "type": "object"

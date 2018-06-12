@@ -1,6 +1,6 @@
 # @datafire/google_servicecontrol
 
-Client library for Google Service Control
+Client library for Service Control
 
 ## Installation and Usage
 ```bash
@@ -111,19 +111,22 @@ google_servicecontrol.services.allocateQuota({
 * output [AllocateQuotaResponse](#allocatequotaresponse)
 
 ### services.check
-Checks an operation with Google Service Control to decide whether
-the given operation should proceed. It should be called before the
-operation is executed.
+Checks whether an operation on a service should be allowed to proceed
+based on the configuration of the service and related policies. It must be
+called before the operation is executed.
 
 If feasible, the client should cache the check results and reuse them for
-60 seconds. In case of server errors, the client can rely on the cached
-results for longer time.
+60 seconds. In case of any server errors, the client should rely on the
+cached results for much longer time to avoid outage.
+WARNING: There is general 60s delay for the configuration and policy
+propagation, therefore callers MUST NOT depend on the `Check` method having
+the latest policy information.
 
 NOTE: the CheckRequest has the size limit of 64KB.
 
 This method requires the `servicemanagement.services.check` permission
 on the specified service. For more information, see
-[Google Cloud IAM](https://cloud.google.com/iam).
+[Cloud IAM](https://cloud.google.com/iam).
 
 
 ```js
@@ -383,7 +386,7 @@ google_servicecontrol.services.startReconciliation({
 
 ### CheckError
 * CheckError `object`: Defines the errors to be returned in
-  * code `string` (values: ERROR_CODE_UNSPECIFIED, NOT_FOUND, PERMISSION_DENIED, RESOURCE_EXHAUSTED, BUDGET_EXCEEDED, DENIAL_OF_SERVICE_DETECTED, LOAD_SHEDDING, ABUSER_DETECTED, SERVICE_NOT_ACTIVATED, VISIBILITY_DENIED, BILLING_DISABLED, PROJECT_DELETED, PROJECT_INVALID, IP_ADDRESS_BLOCKED, REFERER_BLOCKED, CLIENT_APP_BLOCKED, API_TARGET_BLOCKED, API_KEY_INVALID, API_KEY_EXPIRED, API_KEY_NOT_FOUND, SPATULA_HEADER_INVALID, LOAS_ROLE_INVALID, NO_LOAS_PROJECT, LOAS_PROJECT_DISABLED, SECURITY_POLICY_VIOLATED, NAMESPACE_LOOKUP_UNAVAILABLE, SERVICE_STATUS_UNAVAILABLE, BILLING_STATUS_UNAVAILABLE, QUOTA_CHECK_UNAVAILABLE, LOAS_PROJECT_LOOKUP_UNAVAILABLE, CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE, SECURITY_POLICY_BACKEND_UNAVAILABLE): The error code.
+  * code `string` (values: ERROR_CODE_UNSPECIFIED, NOT_FOUND, PERMISSION_DENIED, RESOURCE_EXHAUSTED, BUDGET_EXCEEDED, DENIAL_OF_SERVICE_DETECTED, LOAD_SHEDDING, ABUSER_DETECTED, SERVICE_NOT_ACTIVATED, VISIBILITY_DENIED, BILLING_DISABLED, PROJECT_DELETED, PROJECT_INVALID, IP_ADDRESS_BLOCKED, REFERER_BLOCKED, CLIENT_APP_BLOCKED, API_TARGET_BLOCKED, API_KEY_INVALID, API_KEY_EXPIRED, API_KEY_NOT_FOUND, SPATULA_HEADER_INVALID, LOAS_ROLE_INVALID, NO_LOAS_PROJECT, LOAS_PROJECT_DISABLED, SECURITY_POLICY_VIOLATED, INVALID_CREDENTIAL, NAMESPACE_LOOKUP_UNAVAILABLE, SERVICE_STATUS_UNAVAILABLE, BILLING_STATUS_UNAVAILABLE, QUOTA_CHECK_UNAVAILABLE, LOAS_PROJECT_LOOKUP_UNAVAILABLE, CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE, SECURITY_POLICY_BACKEND_UNAVAILABLE): The error code.
   * detail `string`: Free-form text providing details on the error cause of the error.
   * subject `string`: Subject to whom this error applies. See the specific code enum for more
 

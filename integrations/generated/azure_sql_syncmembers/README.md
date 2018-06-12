@@ -242,18 +242,6 @@ azure_sql_syncmembers.SyncMembers_ListMemberSchemas({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource `object`: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### SyncFullSchemaProperties
 * SyncFullSchemaProperties `object`: Properties of the database full schema.
   * lastUpdateTime `string`: Last update time of the database schema.

@@ -1,6 +1,6 @@
 # @datafire/google_language
 
-Client library for Google Cloud Natural Language
+Client library for Cloud Natural Language
 
 ## Installation and Usage
 ```bash
@@ -314,7 +314,7 @@ google_language.documents.classifyText({}, context)
 ### ClassificationCategory
 * ClassificationCategory `object`: Represents a category returned from the text classifier.
   * confidence `number`: The classifier's confidence of the category. Number represents how certain
-  * name `string`: The name of the category representing the document.
+  * name `string`: The name of the category representing the document, from the [predefined
 
 ### ClassifyTextRequest
 * ClassifyTextRequest `object`: The document classification request message.

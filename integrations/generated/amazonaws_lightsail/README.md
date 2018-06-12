@@ -2166,7 +2166,7 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
   * name [string](#string)
 
 ### InvalidInputException
-* InvalidInputException `object`: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain-related APIs are only available in the N. Virginia (us-east-1) Region. Please set your Region configuration to us-east-1 to create, view, or edit these resources.</p> </note>
+* InvalidInputException `object`: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain-related APIs are only available in the N. Virginia (us-east-1) Region. Please set your AWS Region configuration to us-east-1 to create, view, or edit these resources.</p> </note>
   * code [string](#string)
   * docs [string](#string)
   * message [string](#string)
@@ -2243,7 +2243,7 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 * LoadBalancerState `string` (values: active, provisioning, active_impaired, failed, unknown)
 
 ### LoadBalancerTlsCertificate
-* LoadBalancerTlsCertificate `object`: <p>Describes a load balancer TLS/SSL certificate.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
+* LoadBalancerTlsCertificate `object`: <p>Describes a load balancer SSL/TLS certificate.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
   * arn [NonEmptyString](#nonemptystring)
   * createdAt [IsoDate](#isodate)
   * domainName [DomainName](#domainname)
@@ -2273,7 +2273,7 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 * LoadBalancerTlsCertificateDomainStatus `string` (values: PENDING_VALIDATION, FAILED, SUCCESS)
 
 ### LoadBalancerTlsCertificateDomainValidationOption
-* LoadBalancerTlsCertificateDomainValidationOption `object`: Contains information about the domain names on a TLS/SSL certificate that you will use to validate domain ownership.
+* LoadBalancerTlsCertificateDomainValidationOption `object`: Contains information about the domain names on an SSL/TLS certificate that you will use to validate domain ownership.
   * domainName [DomainName](#domainname)
   * validationStatus [LoadBalancerTlsCertificateDomainStatus](#loadbalancertlscertificatedomainstatus)
 
@@ -2282,7 +2282,7 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
   * items [LoadBalancerTlsCertificateDomainValidationOption](#loadbalancertlscertificatedomainvalidationoption)
 
 ### LoadBalancerTlsCertificateDomainValidationRecord
-* LoadBalancerTlsCertificateDomainValidationRecord `object`: Describes the validation record of each domain name in the TLS/SSL certificate.
+* LoadBalancerTlsCertificateDomainValidationRecord `object`: Describes the validation record of each domain name in the SSL/TLS certificate.
   * domainName [DomainName](#domainname)
   * name [NonEmptyString](#nonemptystring)
   * type [NonEmptyString](#nonemptystring)
@@ -2315,7 +2315,7 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 * LoadBalancerTlsCertificateStatus `string` (values: PENDING_VALIDATION, ISSUED, INACTIVE, EXPIRED, VALIDATION_TIMED_OUT, REVOKED, FAILED, UNKNOWN)
 
 ### LoadBalancerTlsCertificateSummary
-* LoadBalancerTlsCertificateSummary `object`: Provides a summary of TLS/SSL certificate metadata.
+* LoadBalancerTlsCertificateSummary `object`: Provides a summary of SSL/TLS certificate metadata.
   * isAttached [boolean](#boolean)
   * name [ResourceName](#resourcename)
 
@@ -2403,7 +2403,7 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
   * items [Operation](#operation)
 
 ### OperationStatus
-* OperationStatus `string` (values: NotStarted, Started, Failed, Completed)
+* OperationStatus `string` (values: NotStarted, Started, Failed, Completed, Succeeded)
 
 ### OperationType
 * OperationType `string` (values: DeleteInstance, CreateInstance, StopInstance, StartInstance, RebootInstance, OpenInstancePublicPorts, PutInstancePublicPorts, CloseInstancePublicPorts, AllocateStaticIp, ReleaseStaticIp, AttachStaticIp, DetachStaticIp, UpdateDomainEntry, DeleteDomainEntry, CreateDomain, DeleteDomain, CreateInstanceSnapshot, DeleteInstanceSnapshot, CreateInstancesFromSnapshot, CreateLoadBalancer, DeleteLoadBalancer, AttachInstancesToLoadBalancer, DetachInstancesFromLoadBalancer, UpdateLoadBalancerAttribute, CreateLoadBalancerTlsCertificate, DeleteLoadBalancerTlsCertificate, AttachLoadBalancerTlsCertificate, CreateDisk, DeleteDisk, AttachDisk, DetachDisk, CreateDiskSnapshot, DeleteDiskSnapshot, CreateDiskFromSnapshot)
@@ -2473,7 +2473,7 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
   * items [Region](#region)
 
 ### RegionName
-* RegionName `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1, eu-central-1, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2)
+* RegionName `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, eu-central-1, eu-west-1, eu-west-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2)
 
 ### ReleaseStaticIpRequest
 * ReleaseStaticIpRequest `object`

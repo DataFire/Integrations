@@ -714,6 +714,12 @@ bbci.user.watching.get({
   * type **required** `string` (values: added)
   * urn **required** `string`
 
+### autoplay
+* autoplay `object`
+  * episode **required** [episode](#episode)
+  * source **required** `string` (values: precs, receng, next, watching)
+  * type **required** `string` (values: autoplay)
+
 ### broadcast
 * broadcast `object`
   * available_on_hd_service `string`
@@ -915,6 +921,8 @@ bbci.user.watching.get({
       * items [programme](#programme)
     * page **required** `number`
     * per_page **required** `number`
+  * autoplay `array`
+    * items [autoplay](#autoplay)
   * broadcasts `object`
     * channel **required** [channel](#channel)
     * count **required** `number`

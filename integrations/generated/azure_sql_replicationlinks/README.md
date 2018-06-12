@@ -169,12 +169,6 @@ azure_sql_replicationlinks.ReplicationLinks_FailoverAllowDataLoss({
 
 ## Definitions
 
-### ProxyResource
-* ProxyResource: ARM proxy resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
 ### ReplicationLink
 * ReplicationLink `object`: Represents a database replication link.
   * location `string`: Location of the server that contains this firewall rule.
@@ -201,11 +195,5 @@ azure_sql_replicationlinks.ReplicationLinks_FailoverAllowDataLoss({
   * replicationState `string` (values: PENDING, SEEDING, CATCH_UP, SUSPENDED): The replication state for the replication link.
   * role `string` (values: Primary, Secondary, NonReadableSecondary, Source, Copy): The role of the database in the replication link.
   * startTime `string`: The start time for the replication link.
-
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
 
 

@@ -21,8 +21,8 @@ This API allows you to receive a feed of jobs from WorkBC's Job Board. Please se
 ## Actions
 
 ### Industries.get
-The Industries endpoint returns all the Industries and related sub industries 
-defined in WorkBC's Job Board. The response includes the id and caption for 
+The Industries endpoint returns all the Industries and related sub industries
+defined in WorkBC's Job Board. The response includes the id and caption for
 each industry and each sub industry.
 
 

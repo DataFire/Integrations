@@ -633,6 +633,7 @@ gettyimages.Downloads_PostDownloads({
   * height `string`: <remarks>
   * product_id `integer`: <remarks>
   * product_type `string` (values: easyaccess, editorialsubscription, imagepack, premiumaccess, royaltyfreesubscription, credit_pack): <remarks>
+  * use_team_credits `boolean`: Specifies whether to download the image with iStock Team Credits. Only applicable to iStock API keys authenticated with a user that has Team Credits. Blank is the same as False.
 
 #### Output
 * output [System.Object](#system.object)
@@ -698,6 +699,7 @@ gettyimages.Downloads_PostVideoDownloads({
   * auto_download `boolean`: <remarks>
   * product_id `integer`: <remarks>
   * size `string`: Specifies the size to be downloaded.
+  * use_team_credits `boolean`: Specifies whether to download the image with iStock Team Credits. Only applicable to iStock API keys authenticated with a user that has Team Credits. Blank is the same as False.
 
 #### Output
 * output [System.Object](#system.object)
@@ -1133,6 +1135,31 @@ gettyimages.Images_GetSimilarImages({
 
 #### Output
 * output [GettyImages.Models.Search.SearchResults[GettyImages.Models.Search.ImageSearchItem]](#gettyimages.models.search.searchresults[gettyimages.models.search.imagesearchitem])
+
+### Orders_GetOrder
+This endpoint returns detailed order metadata for a specified order.
+Use of this endpoint requires configuration changes to your API key. 
+Please contact [developersupport@gettyimages.com](mailto:developersupport@gettyimages.com) to learn more.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html)
+page for more information on how to sign up for an API key.
+
+
+```js
+gettyimages.Orders_GetOrder({
+  "Authorization": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * Authorization **required** `string`: Provide access token in the format of 'Bearer {token}'.
+  * Accept-Language `string`: Provide a header to specify the language of result values.
+  * id **required** `integer`: An order id.
+
+#### Output
+* output [GettyImages.Models.Orders.OrderDetail](#gettyimages.models.orders.orderdetail)
 
 ### Products_GetProducts
 This endpoint returns all products available to the username used during authentication. As such, this endpoint requires the use of
@@ -1793,6 +1820,7 @@ The **detail_set** query string parameter fields value represents a large batch 
         "allowed_use",
         "artist",
         "asset_family",
+		"call_for_image",
         "caption",
         "clip_length",
         "collection_code",
@@ -1942,6 +1970,7 @@ detailed view of videos. The following fields are provided for every video in yo
         "allowed_use",
         "artist",
         "asset_family", 
+		"call_for_image",
         "caption", 
         "clip_length",
         "collection_code",
@@ -2080,6 +2109,7 @@ The **detail_set** query string parameter fields value represents a large batch 
         "allowed_use",
         "artist",
         "asset_family", 
+		"call_for_image",
         "caption", 
         "clip_length",
         "collection_code",
@@ -2255,6 +2285,7 @@ The **detail_set** query string parameter fields value represents a large batch 
         "allowed_use",
         "artist",
         "asset_family",
+		"call_for_image",
         "caption",
         "clip_length",
         "collection_code",
@@ -2387,6 +2418,7 @@ The **detail_set** query string parameter fields value represents a large batch 
         "allowed_use",
         "artist",
         "asset_family",
+		"call_for_image",
         "caption",
         "clip_length",
         "collection_code",
@@ -2643,6 +2675,7 @@ gettyimages.Videos_GetSimilarVideos({
   * keywords `array`
     * items [GettyImages.Models.Artists.Keyword](#gettyimages.models.artists.keyword)
   * license_model `string`
+  * max_dimensions [GettyImages.Models.MaxDimensions](#gettyimages.models.maxdimensions)
   * title `string`
 
 ### GettyImages.Models.Artists.ImageSearchResults
@@ -2923,6 +2956,26 @@ gettyimages.Videos_GetSimilarVideos({
   * height `integer`
   * width `integer`
 
+### GettyImages.Models.Orders.AssetIdFromOrder
+* GettyImages.Models.Orders.AssetIdFromOrder `object`
+  * id `string`
+
+### GettyImages.Models.Orders.OrderDetail
+* GettyImages.Models.Orders.OrderDetail `object`
+  * assets `array`
+    * items [GettyImages.Models.Orders.AssetIdFromOrder](#gettyimages.models.orders.assetidfromorder)
+  * end_client `string`
+  * id `string`
+  * notes [GettyImages.Models.Orders.OrderNotes](#gettyimages.models.orders.ordernotes)
+  * order_date `string`
+
+### GettyImages.Models.Orders.OrderNotes
+* GettyImages.Models.Orders.OrderNotes `object`
+  * licensee_name `string`
+  * ordered_by `string`
+  * project_title `string`
+  * purchase_order_number `string`
+
 ### GettyImages.Models.Products.DownloadRequirements
 * GettyImages.Models.Products.DownloadRequirements `object`
   * is_note_required `boolean`
@@ -2954,6 +3007,7 @@ gettyimages.Videos_GetSimilarVideos({
   * overage [GettyImages.Models.Products.OverageDetails](#gettyimages.models.products.overagedetails)
   * premium_access_download_requirements [GettyImages.Models.Products.DownloadRequirements](#gettyimages.models.products.downloadrequirements)
   * status `string` (values: active, inactive)
+  * team_credits `integer`
   * type `string` (values: easyaccess, editorialsubscription, imagepack, premiumaccess, royaltyfreesubscription, creditpack)
 
 ### GettyImages.Models.Products.ProductsResult
@@ -3236,6 +3290,7 @@ gettyimages.Videos_GetSimilarVideos({
   * color_type `string`
   * copyright `string`
   * date_created `string`
+  * date_submitted `string`
   * display_sizes `array`
     * items [GettyImages.Models.Videos.VideoDetailDisplaySize](#gettyimages.models.videos.videodetaildisplaysize)
   * download_sizes `array`
@@ -3325,9 +3380,11 @@ gettyimages.Videos_GetSimilarVideos({
 ### PartnerChannel
 * PartnerChannel `object`: partner_channel
   * asset_family `string`: Specifies the asset family for the channel (e.g. "editorial" or "creative")
+  * asset_type `string`: Specifies channel's asset type (i.e. "image", "film")
   * channel_id `integer`: Specifies the identification number for the channel
   * channel_type `string`: Specifies the channel type (i.e. "New," "Updated" or "Deleted")
   * notification_count `integer`: Specifies the current count of notifications pending in the channel
+  * oldest_notification_date_utc `string`: Specifies the date of the oldest notification currently in the channel in UTC
   * start_date `string`
 
 ### PartnerChannelList

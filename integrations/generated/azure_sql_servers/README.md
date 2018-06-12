@@ -171,21 +171,12 @@ azure_sql_servers.Servers_CreateOrUpdate({
 
 ## Definitions
 
-### Resource
-* Resource `object`: ARM resource.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### ResourceIdentity
-* ResourceIdentity `object`: Azure Active Directory identity configuration for a resource.
-  * principalId `string`: The Azure Active Directory principal id.
-  * tenantId `string`: The Azure Active Directory tenant id.
-  * type `string` (values: SystemAssigned): The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-
 ### Server
 * Server `object`: An Azure SQL Database server.
-  * identity [ResourceIdentity](#resourceidentity)
+  * identity `object`: Azure Active Directory identity configuration for a resource.
+    * principalId `string`: The Azure Active Directory principal id.
+    * tenantId `string`: The Azure Active Directory tenant id.
+    * type `string` (values: SystemAssigned): The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
   * kind `string`: Kind of sql server. This is metadata used for the Azure portal experience.
   * properties [ServerProperties](#serverproperties)
   * location **required** `string`: Resource location.
@@ -212,13 +203,5 @@ azure_sql_servers.Servers_CreateOrUpdate({
 * ServerUpdate `object`: An update request for an Azure SQL Database server.
   * properties [ServerProperties](#serverproperties)
   * tags `object`: Resource tags.
-
-### TrackedResource
-* TrackedResource `object`: ARM tracked top level resource.
-  * location **required** `string`: Resource location.
-  * tags `object`: Resource tags.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
 
 

@@ -46,7 +46,7 @@ azure_automation_connectiontype.ConnectionType_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -64,6 +64,7 @@ azure_automation_connectiontype.ConnectionType_ListByAutomationAccount({
         * fieldDefinitions `object`: Gets the field definitions of the connection type.
         * isGlobal `boolean`: Gets or sets a Boolean value to indicate if the connection type is global.
         * lastModifiedTime `string`: Gets or sets the last modified time.
+      * type `string`: Resource type
 
 ### ConnectionType_Delete
 Delete the connectiontype.
@@ -81,7 +82,7 @@ azure_automation_connectiontype.ConnectionType_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * connectionTypeName **required** `string`: The name of connectiontype.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -106,7 +107,7 @@ azure_automation_connectiontype.ConnectionType_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * connectionTypeName **required** `string`: The name of connectiontype.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -122,6 +123,7 @@ azure_automation_connectiontype.ConnectionType_Get({
     * fieldDefinitions `object`: Gets the field definitions of the connection type.
     * isGlobal `boolean`: Gets or sets a Boolean value to indicate if the connection type is global.
     * lastModifiedTime `string`: Gets or sets the last modified time.
+  * type `string`: Resource type
 
 ### ConnectionType_CreateOrUpdate
 Create a connectiontype.
@@ -140,7 +142,7 @@ azure_automation_connectiontype.ConnectionType_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * connectionTypeName **required** `string`: The parameters supplied to the create or update connectiontype operation.
   * parameters **required** `object`: The parameters supplied to the create or update connection type operation.
@@ -161,6 +163,7 @@ azure_automation_connectiontype.ConnectionType_CreateOrUpdate({
     * fieldDefinitions `object`: Gets the field definitions of the connection type.
     * isGlobal `boolean`: Gets or sets a Boolean value to indicate if the connection type is global.
     * lastModifiedTime `string`: Gets or sets the last modified time.
+  * type `string`: Resource type
 
 
 

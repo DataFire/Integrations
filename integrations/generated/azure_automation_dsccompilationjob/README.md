@@ -46,7 +46,7 @@ azure_automation_dsccompilationjob.DscCompilationJob_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -57,7 +57,6 @@ azure_automation_dsccompilationjob.DscCompilationJob_ListByAutomationAccount({
   * nextLink `string`: Gets or sets the next link.
   * value `array`: Gets or sets a list of Dsc Compilation jobs.
     * items `object`: Definition of the Dsc Compilation job.
-      * id `string`: Gets the id of the resource.
       * properties `object`: Definition of Dsc Compilation job properties.
         * configuration `object`: The Dsc configuration property associated with the entity.
           * name `string`: Gets or sets the name of the Dsc configuration.
@@ -68,10 +67,16 @@ azure_automation_dsccompilationjob.DscCompilationJob_ListByAutomationAccount({
         * lastModifiedTime `string`: Gets the last modified time of the job.
         * lastStatusModifiedTime `string`: Gets the last status modified time of the job.
         * parameters `object`: Gets or sets the parameters of the job.
+        * provisioningState `object`: The provisioning state property.
+          * provisioningState `string` (values: Failed, Succeeded, Suspended, Processing): The provisioning state of the resource.
+        * runOn `string`: Gets or sets the runOn which specifies the group name where the job is to be executed.
         * startTime `string`: Gets the start time of the job.
         * startedBy `string`: Gets the compilation job started by.
         * status `string` (values: New, Activating, Running, Completed, Failed, Stopped, Blocked, Suspended, Disconnected, Suspending, Stopping, Resuming, Removing): Gets or sets the status of the job.
         * statusDetails `string`: Gets or sets the status details of the job.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### DscCompilationJob_Get
 Retrieve the Dsc configuration compilation job identified by job id.
@@ -89,7 +94,7 @@ azure_automation_dsccompilationjob.DscCompilationJob_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * compilationJobId **required** `string`: The Dsc configuration compilation job id.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -97,7 +102,6 @@ azure_automation_dsccompilationjob.DscCompilationJob_Get({
 
 #### Output
 * output `object`: Definition of the Dsc Compilation job.
-  * id `string`: Gets the id of the resource.
   * properties `object`: Definition of Dsc Compilation job properties.
     * configuration `object`: The Dsc configuration property associated with the entity.
       * name `string`: Gets or sets the name of the Dsc configuration.
@@ -108,10 +112,16 @@ azure_automation_dsccompilationjob.DscCompilationJob_Get({
     * lastModifiedTime `string`: Gets the last modified time of the job.
     * lastStatusModifiedTime `string`: Gets the last status modified time of the job.
     * parameters `object`: Gets or sets the parameters of the job.
+    * provisioningState `object`: The provisioning state property.
+      * provisioningState `string` (values: Failed, Succeeded, Suspended, Processing): The provisioning state of the resource.
+    * runOn `string`: Gets or sets the runOn which specifies the group name where the job is to be executed.
     * startTime `string`: Gets the start time of the job.
     * startedBy `string`: Gets the compilation job started by.
     * status `string` (values: New, Activating, Running, Completed, Failed, Stopped, Blocked, Suspended, Disconnected, Suspending, Stopping, Resuming, Removing): Gets or sets the status of the job.
     * statusDetails `string`: Gets or sets the status details of the job.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### DscCompilationJob_Create
 Creates the Dsc compilation job of the configuration.
@@ -130,7 +140,7 @@ azure_automation_dsccompilationjob.DscCompilationJob_Create({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * compilationJobId **required** `string`: The the DSC configuration Id.
   * parameters **required** `object`: The parameters supplied to the create compilation job operation.
@@ -147,7 +157,6 @@ azure_automation_dsccompilationjob.DscCompilationJob_Create({
 
 #### Output
 * output `object`: Definition of the Dsc Compilation job.
-  * id `string`: Gets the id of the resource.
   * properties `object`: Definition of Dsc Compilation job properties.
     * configuration `object`: The Dsc configuration property associated with the entity.
       * name `string`: Gets or sets the name of the Dsc configuration.
@@ -158,10 +167,52 @@ azure_automation_dsccompilationjob.DscCompilationJob_Create({
     * lastModifiedTime `string`: Gets the last modified time of the job.
     * lastStatusModifiedTime `string`: Gets the last status modified time of the job.
     * parameters `object`: Gets or sets the parameters of the job.
+    * provisioningState `object`: The provisioning state property.
+      * provisioningState `string` (values: Failed, Succeeded, Suspended, Processing): The provisioning state of the resource.
+    * runOn `string`: Gets or sets the runOn which specifies the group name where the job is to be executed.
     * startTime `string`: Gets the start time of the job.
     * startedBy `string`: Gets the compilation job started by.
     * status `string` (values: New, Activating, Running, Completed, Failed, Stopped, Blocked, Suspended, Disconnected, Suspending, Stopping, Resuming, Removing): Gets or sets the status of the job.
     * statusDetails `string`: Gets or sets the status details of the job.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
+
+### DscCompilationJobStream_ListByJob
+Retrieve all the job streams for the compilation Job.
+
+
+```js
+azure_automation_dsccompilationjob.DscCompilationJobStream_ListByJob({
+  "resourceGroupName": "",
+  "automationAccountName": "",
+  "jobId": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The automation account name.
+  * jobId **required** `string`: The job id.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output `object`: The response model for the list job stream operation.
+  * nextLink `string`: Gets or sets the next link.
+  * value `array`: A list of job streams.
+    * items `object`: Definition of the job stream.
+      * id `string`: Gets or sets the id of the resource.
+      * properties `object`: Definition of the job stream.
+        * jobStreamId `string`: Gets or sets the id of the job stream.
+        * streamText `string`: Gets or sets the stream text.
+        * streamType `string` (values: Progress, Output, Warning, Error, Debug, Verbose, Any): Gets or sets the stream type.
+        * summary `string`: Gets or sets the summary.
+        * time `string`: Gets or sets the creation time of the job.
+        * value `object`: Gets or sets the values of the job stream.
 
 ### DscCompilationJob_GetStream
 Retrieve the job stream identified by job stream id.
@@ -180,7 +231,7 @@ azure_automation_dsccompilationjob.DscCompilationJob_GetStream({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * jobId **required** `string`: The job id.
   * jobStreamId **required** `string`: The job stream id.

@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Provides management methods for configuring service producer resources on Google Cloud.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Service Consumer Management",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.0"
+          "version": "2.6.2"
         },
         "format": "google",
         "url": "https://serviceconsumermanagement.googleapis.com/$discovery/rest?version=v1",
@@ -49,23 +44,12 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/service.management": "Manage your Google API service configuration"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/service.management": "Manage your Google API service configuration"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -183,11 +167,11 @@
   "paths": {
     "/v1/{name}": {
       "delete": {
-        "description": "Deletes a long-running operation. This method indicates that the client is\nno longer interested in the operation result. It does not cancel the\noperation. If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.",
-        "operationId": "operations.delete",
+        "description": "Delete a tenancy unit.  Before the tenancy unit is deleted, there should be\nno tenant resources in it.\nOperation<response: Empty>.",
+        "operationId": "services.tenancyUnits.delete",
         "parameters": [
           {
-            "description": "The name of the operation resource to be deleted.",
+            "description": "Name of the tenancy unit to be deleted.",
             "in": "path",
             "name": "name",
             "required": true,
@@ -199,7 +183,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Empty"
+              "$ref": "#/definitions/Operation"
             }
           }
         },
@@ -207,22 +191,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/service.management"
             ]
           }
         ],
         "tags": [
-          "operations"
+          "services"
         ]
       },
       "get": {
@@ -250,16 +228,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -384,16 +356,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/service.management"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/service.management"
             ]
           }
@@ -477,9 +443,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -490,7 +453,7 @@
     },
     "/v1/{parent}/tenancyUnits": {
       "get": {
-        "description": "Find tenancy unit for a service and consumer.\nThis method should not be used in producers' runtime path, e.g. finding\nthe tenant project number when creating VMs. Producers should persist\nthe tenant project information after the project is created.",
+        "description": "Find the tenancy unit for a service and consumer.\nThis method should not be used in producers' runtime path, for example\nfinding the tenant project number when creating VMs. Producers should\npersist the tenant project information after the project is created.",
         "operationId": "services.tenancyUnits.list",
         "parameters": [
           {
@@ -531,9 +494,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -615,9 +575,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -669,7 +626,7 @@
         }
       ],
       "post": {
-        "description": "Add a new tenant project to the tenancy unit.\nThere can be at most 512 tenant projects in a tenancy units.\nIf there are previously failed AddTenantProject calls, you might need to\ncall RemoveTenantProject first to clean them before you can make another\nAddTenantProject with the same tag.\nOperation<response: Empty>.",
+        "description": "Add a new tenant project to the tenancy unit.\nThere can be at most 512 tenant projects in a tenancy unit.\nIf there are previously failed `AddTenantProject` calls, you might need to\ncall `RemoveTenantProject` first to clean them before you can make another\n`AddTenantProject` with the same tag.\nOperation<response: Empty>.",
         "operationId": "services.tenancyUnits.addProject",
         "parameters": [
           {
@@ -700,9 +657,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -717,7 +671,7 @@
         "operationId": "services.search",
         "parameters": [
           {
-            "description": "The maximum number of results returned by this request. Currently, the\ndefault maximum is set to 1000. If page_size is not provided or provided a\nnumber larger than 1000, it will be automatically set to 1000.\n\nOptional.",
+            "description": "The maximum number of results returned by this request. Currently, the\ndefault maximum is set to 1000. If page_size is not provided or the size\nprovided is a number larger than 1000, it will be automatically set to\n1000.\n\nOptional.",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
@@ -737,7 +691,7 @@
             "x-reservedExpansion": true
           },
           {
-            "description": "Set a query `{expression}` for querying tenancy units. Your `{expression}`\nmust be in the format: `field_name=literal_string`. The `field_name` is the\nname of the field you want to compare. Supported fields are\n`tenant_resources.tag` and`tenant_resources.resource`.\n\nFor example, to search tenancy units that contain at least one tenant\nresource with given tag 'xyz', use query `tenant_resources.tag=xyz`.\nTo search tenancy units that contain at least one tenant resource with\ngiven resource name 'projects/123456', use query\n`tenant_resources.resource=projects/123456`.\n\nMultiple expressions can be joined with `AND`s. Tenancy units must match\nall expressions to be included in the result set. For example,\n`tenant_resources.tag=xyz AND tenant_resources.resource=projects/123456`\n\nOptional.",
+            "description": "Set a query `{expression}` for querying tenancy units. Your `{expression}`\nmust be in the format: `field_name=literal_string`. The `field_name` is the\nname of the field you want to compare. Supported fields are\n`tenant_resources.tag` and `tenant_resources.resource`.\n\nFor example, to search tenancy units that contain at least one tenant\nresource with given tag 'xyz', use query `tenant_resources.tag=xyz`.\nTo search tenancy units that contain at least one tenant resource with\ngiven resource name 'projects/123456', use query\n`tenant_resources.resource=projects/123456`.\n\nMultiple expressions can be joined with `AND`s. Tenancy units must match\nall expressions to be included in the result set. For example,\n`tenant_resources.tag=xyz AND tenant_resources.resource=projects/123456`\n\nOptional.",
             "in": "query",
             "name": "query",
             "type": "string"
@@ -754,9 +708,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -810,7 +761,7 @@
   },
   "definitions": {
     "AddTenantProjectRequest": {
-      "description": "Request to add a newly created and configured tenant project to tenancy\nunit.",
+      "description": "Request to add a newly created and configured tenant project to a tenancy\nunit.",
       "properties": {
         "projectConfig": {
           "$ref": "#/definitions/TenantProjectConfig",
@@ -934,12 +885,8 @@
       "description": "Authentication rules for the service.\n\nBy default, if a method has any authentication requirements, every request\nmust include a valid credential matching one of the requirements.\nIt's an error to include more than one kind of credential in a single\nrequest.\n\nIf a method doesn't have any auth requirements, request credentials will be\nignored.",
       "properties": {
         "allowWithoutCredential": {
-          "description": "Whether to allow requests without a credential. The credential can be\nan OAuth token, Google cookies (first-party auth) or EndUserCreds.\n\nFor requests without credentials, if the service control environment is\nspecified, each incoming request **must** be associated with a service\nconsumer. This can be done by passing an API key that belongs to a consumer\nproject.",
+          "description": "If true, the service accepts API keys without any other credential.",
           "type": "boolean"
-        },
-        "customAuth": {
-          "$ref": "#/definitions/CustomAuthRequirements",
-          "description": "Configuration for custom authentication."
         },
         "oauth": {
           "$ref": "#/definitions/OAuthRequirements",
@@ -1034,7 +981,7 @@
       "type": "object"
     },
     "BillingConfig": {
-      "description": "Describes billing configuration for new a Tenant Project",
+      "description": "Describes billing configuration for a new tenant project.",
       "properties": {
         "billingAccount": {
           "description": "Name of the billing account.\nFor example `billingAccounts/012345-567890-ABCDEF`.",
@@ -1066,7 +1013,7 @@
       "type": "object"
     },
     "Context": {
-      "description": "`Context` defines which contexts an API requests.\n\nExample:\n\n    context:\n      rules:\n      - selector: \"*\"\n        requested:\n        - google.rpc.context.ProjectContext\n        - google.rpc.context.OriginContext\n\nThe above specifies that all methods in the API request\n`google.rpc.context.ProjectContext` and\n`google.rpc.context.OriginContext`.\n\nAvailable context types are defined in package\n`google.rpc.context`.",
+      "description": "`Context` defines which contexts an API requests.\n\nExample:\n\n    context:\n      rules:\n      - selector: \"*\"\n        requested:\n        - google.rpc.context.ProjectContext\n        - google.rpc.context.OriginContext\n\nThe above specifies that all methods in the API request\n`google.rpc.context.ProjectContext` and\n`google.rpc.context.OriginContext`.\n\nAvailable context types are defined in package\n`google.rpc.context`.\n\nThis also provides mechanism to whitelist any protobuf message extension that\ncan be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and\n“x-goog-ext-<extension_id>-jspb” format. For example, list any service\nspecific protobuf types that can appear in grpc metadata as follows in your\nyaml file:\n\nExample:\n\n    context:\n      rules:\n       - selector: \"google.example.library.v1.LibraryService.CreateBook\"\n         allowed_request_extensions:\n         - google.foo.v1.NewExtension\n         allowed_response_extensions:\n         - google.foo.v1.NewExtension\n\nYou can also specify extension ID instead of fully qualified extension name\nhere.",
       "properties": {
         "rules": {
           "description": "A list of RPC context rules that apply to individual API methods.\n\n**NOTE:** All service configuration rules follow \"last one wins\" order.",
@@ -1081,6 +1028,20 @@
     "ContextRule": {
       "description": "A context rule provides information about the context for an individual API\nelement.",
       "properties": {
+        "allowedRequestExtensions": {
+          "description": "A list of full type names or extension IDs of extensions allowed in grpc\nside channel from client to backend.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "allowedResponseExtensions": {
+          "description": "A list of full type names or extension IDs of extensions allowed in grpc\nside channel from backend to client.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "provided": {
           "description": "A list of full type names of provided contexts.",
           "items": {
@@ -1116,17 +1077,7 @@
       "description": "Request to create a tenancy unit for a consumer of a service.",
       "properties": {
         "tenancyUnitId": {
-          "description": "Optional producer provided identifier of the tenancy unit\nMust be no longer than 40 characters and preferably URI friendly\nIf it is not provided, UID for the tenancy unit will be auto generated\nIt must be unique across a service.\nIf the tenancy unit already exists for the service and consumer pair,\nCreateTenancyUnit will return existing tenancy unit if provided identifier\nis identical or empty, otherwise the call will fail.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "CustomAuthRequirements": {
-      "description": "Configuration for a custom authentication provider.",
-      "properties": {
-        "provider": {
-          "description": "A configuration string containing connection information for the\nauthentication provider, typically formatted as a SmartService string\n(go/smartservice).",
+          "description": "Optional producer provided identifier of the tenancy unit.\nMust be no longer than 40 characters and preferably URI friendly.\nIf it is not provided, a UID for the tenancy unit will be auto generated.\nIt must be unique across a service.\nIf the tenancy unit already exists for the service and consumer pair,\n`CreateTenancyUnit` will return the existing tenancy unit if the provided\nidentifier is identical or empty, otherwise the call will fail.",
           "type": "string"
         }
       },
@@ -1181,7 +1132,7 @@
       "type": "object"
     },
     "Documentation": {
-      "description": "`Documentation` provides the information for describing a service.\n\nExample:\n<pre><code>documentation:\n  summary: >\n    The Google Calendar API gives access\n    to most calendar features.\n  pages:\n  - name: Overview\n    content: &#40;== include google/foo/overview.md ==&#41;\n  - name: Tutorial\n    content: &#40;== include google/foo/tutorial.md ==&#41;\n    subpages;\n    - name: Java\n      content: &#40;== include google/foo/tutorial_java.md ==&#41;\n  rules:\n  - selector: google.calendar.Calendar.Get\n    description: >\n      ...\n  - selector: google.calendar.Calendar.Put\n    description: >\n      ...\n</code></pre>\nDocumentation is provided in markdown syntax. In addition to\nstandard markdown features, definition lists, tables and fenced\ncode blocks are supported. Section headers can be provided and are\ninterpreted relative to the section nesting of the context where\na documentation fragment is embedded.\n\nDocumentation from the IDL is merged with documentation defined\nvia the config at normalization time, where documentation provided\nby config rules overrides IDL provided.\n\nA number of constructs specific to the API platform are supported\nin documentation text.\n\nIn order to reference a proto element, the following\nnotation can be used:\n<pre><code>&#91;fully.qualified.proto.name]&#91;]</code></pre>\nTo override the display text used for the link, this can be used:\n<pre><code>&#91;display text]&#91;fully.qualified.proto.name]</code></pre>\nText can be excluded from doc using the following notation:\n<pre><code>&#40;-- internal comment --&#41;</code></pre>\nComments can be made conditional using a visibility label. The below\ntext will be only rendered if the `BETA` label is available:\n<pre><code>&#40;--BETA: comment for BETA users --&#41;</code></pre>\nA few directives are available in documentation. Note that\ndirectives must appear on a single line to be properly\nidentified. The `include` directive includes a markdown file from\nan external source:\n<pre><code>&#40;== include path/to/file ==&#41;</code></pre>\nThe `resource_for` directive marks a message to be the resource of\na collection in REST view. If it is not specified, tools attempt\nto infer the resource from the operations in a collection:\n<pre><code>&#40;== resource_for v1.shelves.books ==&#41;</code></pre>\nThe directive `suppress_warning` does not directly affect documentation\nand is documented together with service config validation.",
+      "description": "`Documentation` provides the information for describing a service.\n\nExample:\n<pre><code>documentation:\n  summary: >\n    The Google Calendar API gives access\n    to most calendar features.\n  pages:\n  - name: Overview\n    content: &#40;== include google/foo/overview.md ==&#41;\n  - name: Tutorial\n    content: &#40;== include google/foo/tutorial.md ==&#41;\n    subpages;\n    - name: Java\n      content: &#40;== include google/foo/tutorial_java.md ==&#41;\n  rules:\n  - selector: google.calendar.Calendar.Get\n    description: >\n      ...\n  - selector: google.calendar.Calendar.Put\n    description: >\n      ...\n</code></pre>\nDocumentation is provided in markdown syntax. In addition to\nstandard markdown features, definition lists, tables and fenced\ncode blocks are supported. Section headers can be provided and are\ninterpreted relative to the section nesting of the context where\na documentation fragment is embedded.\n\nDocumentation from the IDL is merged with documentation defined\nvia the config at normalization time, where documentation provided\nby config rules overrides IDL provided.\n\nA number of constructs specific to the API platform are supported\nin documentation text.\n\nIn order to reference a proto element, the following\nnotation can be used:\n<pre><code>&#91;fully.qualified.proto.name]&#91;]</code></pre>\nTo override the display text used for the link, this can be used:\n<pre><code>&#91;display text]&#91;fully.qualified.proto.name]</code></pre>\nText can be excluded from doc using the following notation:\n<pre><code>&#40;-- internal comment --&#41;</code></pre>\n\nA few directives are available in documentation. Note that\ndirectives must appear on a single line to be properly\nidentified. The `include` directive includes a markdown file from\nan external source:\n<pre><code>&#40;== include path/to/file ==&#41;</code></pre>\nThe `resource_for` directive marks a message to be the resource of\na collection in REST view. If it is not specified, tools attempt\nto infer the resource from the operations in a collection:\n<pre><code>&#40;== resource_for v1.shelves.books ==&#41;</code></pre>\nThe directive `suppress_warning` does not directly affect documentation\nand is documented together with service config validation.",
       "properties": {
         "documentationRootUrl": {
           "description": "The URL to the root of documentation.",
@@ -1546,7 +1497,7 @@
           "type": "string"
         },
         "tenancyUnits": {
-          "description": "Tenancy Units matching the request.",
+          "description": "Tenancy units matching the request.",
           "items": {
             "$ref": "#/definitions/TenancyUnit"
           },
@@ -1969,7 +1920,7 @@
       "description": "Translates to IAM Policy bindings (without auditing at this level)",
       "properties": {
         "members": {
-          "description": "Uses the same format as in IAM policy.\n`member` must include both prefix and id. E.g., `user:{emailId}`,\n`serviceAccount:{emailId}`, `group:{emailId}`.",
+          "description": "Uses the same format as in IAM policy.\n`member` must include both prefix and ID. For example, `user:{emailId}`,\n`serviceAccount:{emailId}`, `group:{emailId}`.",
           "items": {
             "type": "string"
           },
@@ -2221,10 +2172,6 @@
         "usage": {
           "$ref": "#/definitions/Usage",
           "description": "Configuration controlling usage of this service."
-        },
-        "visibility": {
-          "$ref": "#/definitions/Visibility",
-          "description": "API visibility configuration."
         }
       },
       "type": "object"
@@ -2233,11 +2180,11 @@
       "description": "Describes service account configuration for the tenant project.",
       "properties": {
         "accountId": {
-          "description": "ID of the IAM service account to be created in tenant project.\nThe email format of the service account will be\n\"<account-id>@<tenant-project-id>.iam.gserviceaccount.com\".\nThis account id has to be unique within tenant project and producers\nhave to guarantee it.",
+          "description": "ID of the IAM service account to be created in tenant project.\nThe email format of the service account will be\n\"<account-id>@<tenant-project-id>.iam.gserviceaccount.com\".\nThis account id has to be unique within tenant project and producers\nhave to guarantee it. And it must be 6-30 characters long, and matches the\nregular expression `[a-z]([-a-z0-9]*[a-z0-9])`.",
           "type": "string"
         },
         "tenantProjectRoles": {
-          "description": "Roles for the service account above on tenant project.",
+          "description": "Roles for the associated service account for the tenant project.",
           "items": {
             "type": "string"
           },
@@ -2349,7 +2296,7 @@
       "description": "Representation of a tenancy unit.",
       "properties": {
         "consumer": {
-          "description": "@OutputOnly Cloud resource One Platform Name of the consumer of this\nservice. For example 'projects/123456'.",
+          "description": "@OutputOnly Cloud resource name of the consumer of this service.\nFor example 'projects/123456'.",
           "type": "string"
         },
         "createTime": {
@@ -2366,7 +2313,7 @@
           "type": "string"
         },
         "tenantResources": {
-          "description": "Resources constituting the tenancy unit.\nThere can be at most 512 tenant resources in a tenancy units.",
+          "description": "Resources constituting the tenancy unit.\nThere can be at most 512 tenant resources in a tenancy unit.",
           "items": {
             "$ref": "#/definitions/TenantResource"
           },
@@ -2380,7 +2327,7 @@
       "properties": {
         "billingConfig": {
           "$ref": "#/definitions/BillingConfig",
-          "description": "Billing account properties.\nIt may be specified explicitly, or created from the specified group\nduring provisioning"
+          "description": "Billing account properties.\nIt might be specified explicitly, or created from the specified group\nduring provisioning"
         },
         "folder": {
           "description": "Folder where project in this tenancy unit must be located\nThis folder must have been previously created with proper\npermissions for the caller to create and configure a project in it.\nValid folder resource names have the format `folders/{folder_number}`\n(for example, `folders/123456`).",
@@ -2398,7 +2345,7 @@
           "description": "Configuration for IAM service account on tenant project."
         },
         "services": {
-          "description": "Google Cloud API names of services that will be activated on this project\nduring provisioning.  If any of these services can not be activated,\naddTenantProject method will fail.\nFor example: 'compute.googleapis.com','cloudfunctions.googleapis.com'",
+          "description": "Google Cloud API names of services that will be activated on this project\nduring provisioning.  If any of these services can not be activated,\nrequest will fail.\nFor example: 'compute.googleapis.com','cloudfunctions.googleapis.com'",
           "items": {
             "type": "string"
           },
@@ -2412,10 +2359,10 @@
       "type": "object"
     },
     "TenantProjectPolicy": {
-      "description": "Describes policy settings that need to be applied to a newly\ncreated Tenant Project.",
+      "description": "Describes policy settings that need to be applied to a newly\ncreated tenant project.",
       "properties": {
         "policyBindings": {
-          "description": "Additional policy bindings to be applied on the tenant\nproject.\nAt least one owner must be set in the bindings. Among the list of members\nas owners, at least one of them must be either `user` or `group` based.",
+          "description": "Policy bindings to be applied to the tenant project, in addition to the\n'roles/owner' role granted to the Service Consumer Management service\naccount.\nAt least one binding must have the role `roles/owner`. Among the list of\nmembers for `roles/owner`, at least one of them must be either `user` or\n`group` type.",
           "items": {
             "$ref": "#/definitions/PolicyBinding"
           },
@@ -2428,7 +2375,7 @@
       "description": "Resource constituting the TenancyUnit.",
       "properties": {
         "resource": {
-          "description": "@OutputOnly Identifier of the tenant resource.\nFor cloud projects it is in the form 'projects/{number}'.\nFor example 'projects/123456'.",
+          "description": "@OutputOnly Identifier of the tenant resource.\nFor cloud projects, it is in the form 'projects/{number}'.\nFor example 'projects/123456'.",
           "type": "string"
         },
         "status": {
@@ -2530,33 +2477,6 @@
         "skipServiceControl": {
           "description": "If true, the selected method should skip service control and the control\nplane features, such as quota and billing, will not be available.\nThis flag is used by Google Cloud Endpoints to bypass checks for internal\nmethods, such as service health check methods.",
           "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "Visibility": {
-      "description": "`Visibility` defines restrictions for the visibility of service\nelements.  Restrictions are specified using visibility labels\n(e.g., TRUSTED_TESTER) that are elsewhere linked to users and projects.\n\nUsers and projects can have access to more than one visibility label. The\neffective visibility for multiple labels is the union of each label's\nelements, plus any unrestricted elements.\n\nIf an element and its parents have no restrictions, visibility is\nunconditionally granted.\n\nExample:\n\n    visibility:\n      rules:\n      - selector: google.calendar.Calendar.EnhancedSearch\n        restriction: TRUSTED_TESTER\n      - selector: google.calendar.Calendar.Delegate\n        restriction: GOOGLE_INTERNAL\n\nHere, all methods are publicly visible except for the restricted methods\nEnhancedSearch and Delegate.",
-      "properties": {
-        "rules": {
-          "description": "A list of visibility rules that apply to individual API elements.\n\n**NOTE:** All service configuration rules follow \"last one wins\" order.",
-          "items": {
-            "$ref": "#/definitions/VisibilityRule"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "VisibilityRule": {
-      "description": "A visibility rule provides visibility configuration for an individual API\nelement.",
-      "properties": {
-        "restriction": {
-          "description": "A comma-separated list of visibility labels that apply to the `selector`.\nAny of the listed labels can be used to grant the visibility.\n\nIf a rule has multiple labels, removing one of the labels but not all of\nthem can break clients.\n\nExample:\n\n    visibility:\n      rules:\n      - selector: google.calendar.Calendar.EnhancedSearch\n        restriction: GOOGLE_INTERNAL, TRUSTED_TESTER\n\nRemoving GOOGLE_INTERNAL from this restriction will break clients that\nrely on this method and only had access to it through GOOGLE_INTERNAL.",
-          "type": "string"
-        },
-        "selector": {
-          "description": "Selects methods, messages, fields, enums, etc. to which this rule applies.\n\nRefer to selector for syntax details.",
-          "type": "string"
         }
       },
       "type": "object"

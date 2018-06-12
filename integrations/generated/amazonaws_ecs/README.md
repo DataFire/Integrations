@@ -66,6 +66,7 @@ amazonaws_ecs.CreateService({
   * platformVersion [String](#string)
   * role [String](#string)
   * serviceName **required** [String](#string)
+  * serviceRegistries [ServiceRegistries](#serviceregistries)
   * taskDefinition **required** [String](#string)
 
 #### Output
@@ -711,7 +712,7 @@ amazonaws_ecs.UpdateService({
   * subnets **required** [StringList](#stringlist)
 
 ### BlockedException
-* BlockedException `object`: Your AWS account has been blocked. <a href="http://aws.amazon.com/contact-us/">Contact AWS Customer Support</a> for more information.
+* BlockedException `object`: Your AWS account has been blocked. <a href="http://aws.amazon.com/contact-us/">Contact AWS Support</a> for more information.
 
 ### Boolean
 * Boolean `boolean`
@@ -774,6 +775,7 @@ amazonaws_ecs.UpdateService({
 * Container `object`: A Docker container that is part of a task.
   * containerArn [String](#string)
   * exitCode [BoxedInteger](#boxedinteger)
+  * healthStatus [HealthStatus](#healthstatus)
   * lastStatus [String](#string)
   * name [String](#string)
   * networkBindings [NetworkBindings](#networkbindings)
@@ -794,6 +796,7 @@ amazonaws_ecs.UpdateService({
   * environment [EnvironmentVariables](#environmentvariables)
   * essential [BoxedBoolean](#boxedboolean)
   * extraHosts [HostEntryList](#hostentrylist)
+  * healthCheck [HealthCheck](#healthcheck)
   * hostname [String](#string)
   * image [String](#string)
   * links [StringList](#stringlist)
@@ -891,6 +894,7 @@ amazonaws_ecs.UpdateService({
   * platformVersion [String](#string)
   * role [String](#string)
   * serviceName **required** [String](#string)
+  * serviceRegistries [ServiceRegistries](#serviceregistries)
   * taskDefinition **required** [String](#string)
 
 ### CreateServiceResponse
@@ -1064,6 +1068,17 @@ amazonaws_ecs.UpdateService({
 * Failures `array`
   * items [Failure](#failure)
 
+### HealthCheck
+* HealthCheck `object`: An object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile).
+  * command **required** [StringList](#stringlist)
+  * interval [BoxedInteger](#boxedinteger)
+  * retries [BoxedInteger](#boxedinteger)
+  * startPeriod [BoxedInteger](#boxedinteger)
+  * timeout [BoxedInteger](#boxedinteger)
+
+### HealthStatus
+* HealthStatus `string` (values: HEALTHY, UNHEALTHY, UNKNOWN)
+
 ### HostEntry
 * HostEntry `object`: Hostnames and IP address entries that are added to the <code>/etc/hosts</code> file of a container via the <code>extraHosts</code> parameter of its <a>ContainerDefinition</a>. 
   * hostname **required** [String](#string)
@@ -1101,6 +1116,8 @@ amazonaws_ecs.UpdateService({
   * capabilities [KernelCapabilities](#kernelcapabilities)
   * devices [DevicesList](#deviceslist)
   * initProcessEnabled [BoxedBoolean](#boxedboolean)
+  * sharedMemorySize [BoxedInteger](#boxedinteger)
+  * tmpfs [TmpfsList](#tmpfslist)
 
 ### ListAttributesRequest
 * ListAttributesRequest `object`
@@ -1194,7 +1211,7 @@ amazonaws_ecs.UpdateService({
   * taskArns [StringList](#stringlist)
 
 ### LoadBalancer
-* LoadBalancer `object`: Details on a load balancer that is used with a service.
+* LoadBalancer `object`: <p>Details on a load balancer that is used with a service.</p> <p>Services with tasks that use the <code>awsvpc</code> network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers; Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose <code>ip</code> as the target type, not <code>instance</code>, because tasks that use the <code>awsvpc</code> network mode are associated with an elastic network interface, not an Amazon EC2 instance.</p>
   * containerName [String](#string)
   * containerPort [BoxedInteger](#boxedinteger)
   * loadBalancerName [String](#string)
@@ -1405,6 +1422,7 @@ amazonaws_ecs.UpdateService({
   * runningCount [Integer](#integer)
   * serviceArn [String](#string)
   * serviceName [String](#string)
+  * serviceRegistries [ServiceRegistries](#serviceregistries)
   * status [String](#string)
   * taskDefinition [String](#string)
 
@@ -1423,6 +1441,17 @@ amazonaws_ecs.UpdateService({
 
 ### ServiceNotFoundException
 * ServiceNotFoundException `object`: The specified service could not be found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster-specific and region-specific.
+
+### ServiceRegistries
+* ServiceRegistries `array`
+  * items [ServiceRegistry](#serviceregistry)
+
+### ServiceRegistry
+* ServiceRegistry `object`: Details of the service registry.
+  * containerName [String](#string)
+  * containerPort [BoxedInteger](#boxedinteger)
+  * port [BoxedInteger](#boxedinteger)
+  * registryArn [String](#string)
 
 ### Services
 * Services `array`
@@ -1516,6 +1545,7 @@ amazonaws_ecs.UpdateService({
   * desiredStatus [String](#string)
   * executionStoppedAt [Timestamp](#timestamp)
   * group [String](#string)
+  * healthStatus [HealthStatus](#healthstatus)
   * lastStatus [String](#string)
   * launchType [LaunchType](#launchtype)
   * memory [String](#string)
@@ -1554,7 +1584,7 @@ amazonaws_ecs.UpdateService({
 * TaskDefinitionFamilyStatus `string` (values: ACTIVE, INACTIVE, ALL)
 
 ### TaskDefinitionPlacementConstraint
-* TaskDefinitionPlacementConstraint `object`: <p>An object representing a constraint on task placement in the task definition.</p> <p>If you are using the Fargate launch type, task placement contraints are not supported.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+* TaskDefinitionPlacementConstraint `object`: <p>An object representing a constraint on task placement in the task definition.</p> <p>If you are using the Fargate launch type, task placement constraints are not supported.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
   * expression [String](#string)
   * type [TaskDefinitionPlacementConstraintType](#taskdefinitionplacementconstrainttype)
 
@@ -1580,6 +1610,16 @@ amazonaws_ecs.UpdateService({
 
 ### Timestamp
 * Timestamp `string`
+
+### Tmpfs
+* Tmpfs `object`: The container path, mount options, and size of the tmpfs mount.
+  * containerPath **required** [String](#string)
+  * mountOptions [StringList](#stringlist)
+  * size **required** [Integer](#integer)
+
+### TmpfsList
+* TmpfsList `array`
+  * items [Tmpfs](#tmpfs)
 
 ### TransportProtocol
 * TransportProtocol `string` (values: tcp, udp)

@@ -1,6 +1,6 @@
 # @datafire/google_serviceuser
 
-Client library for Google Service User
+Client library for Service User
 
 ## Installation and Usage
 ```bash
@@ -241,7 +241,7 @@ google_serviceuser.projects.services.list({
 
 ### AuthenticationRule
 * AuthenticationRule `object`: Authentication rules for the service.
-  * allowWithoutCredential `boolean`: Whether to allow requests without a credential. The credential can be
+  * allowWithoutCredential `boolean`: If true, the service accepts API keys without any other credential.
   * customAuth [CustomAuthRequirements](#customauthrequirements)
   * oauth [OAuthRequirements](#oauthrequirements)
   * requirements `array`: Requirements for additional authentication providers.
@@ -282,6 +282,10 @@ google_serviceuser.projects.services.list({
 
 ### ContextRule
 * ContextRule `object`: A context rule provides information about the context for an individual API
+  * allowedRequestExtensions `array`: A list of full type names or extension IDs of extensions allowed in grpc
+    * items `string`
+  * allowedResponseExtensions `array`: A list of full type names or extension IDs of extensions allowed in grpc
+    * items `string`
   * provided `array`: A list of full type names of provided contexts.
     * items `string`
   * requested `array`: A list of full type names of requested contexts.
@@ -612,7 +616,6 @@ google_serviceuser.projects.services.list({
   * types `array`: A list of all proto message types included in this API service.
     * items [Type](#type)
   * usage [Usage](#usage)
-  * visibility [Visibility](#visibility)
 
 ### SourceContext
 * SourceContext `object`: `SourceContext` represents information about the source of a
@@ -677,15 +680,5 @@ google_serviceuser.projects.services.list({
   * allowUnregisteredCalls `boolean`: If true, the selected method allows unregistered calls, e.g. calls
   * selector `string`: Selects the methods to which this rule applies. Use '*' to indicate all
   * skipServiceControl `boolean`: If true, the selected method should skip service control and the control
-
-### Visibility
-* Visibility `object`: `Visibility` defines restrictions for the visibility of service
-  * rules `array`: A list of visibility rules that apply to individual API elements.
-    * items [VisibilityRule](#visibilityrule)
-
-### VisibilityRule
-* VisibilityRule `object`: A visibility rule provides visibility configuration for an individual API
-  * restriction `string`: A comma-separated list of visibility labels that apply to the `selector`.
-  * selector `string`: Selects methods, messages, fields, enums, etc. to which this rule applies.
 
 

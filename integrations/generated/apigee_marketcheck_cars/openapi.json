@@ -488,10 +488,8 @@
           "200": {
             "description": "List of dealers for the search",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Dealer"
-              },
-              "type": "array"
+              "$ref": "#/definitions/DealersResponse",
+              "type": "object"
             }
           },
           "default": {
@@ -789,7 +787,8 @@
           "200": {
             "description": "Listing for the given id",
             "schema": {
-              "$ref": "#/definitions/Listing"
+              "$ref": "#/definitions/Listing",
+              "type": "object"
             }
           },
           "default": {
@@ -896,6 +895,14 @@
             "in": "path",
             "name": "id",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Get only HTML for given listings VDP page",
+            "format": "string",
+            "in": "query",
+            "name": "html",
+            "required": false,
             "type": "string"
           }
         ],
@@ -1243,6 +1250,13 @@
             "type": "integer"
           },
           {
+            "description": "car search bases on zipcode",
+            "in": "query",
+            "name": "zip",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Car type. Allowed values are - new / used / certified",
             "enum": [
               "new",
@@ -1259,6 +1273,22 @@
             "format": "string",
             "in": "query",
             "name": "seller_type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Indicates whether car has had only one owner or not",
+            "format": "string",
+            "in": "query",
+            "name": "carfax_1_owner",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Indicates whether car has had any accidents or not",
+            "format": "string",
+            "in": "query",
+            "name": "carfax_clean_title",
             "required": false,
             "type": "string"
           },
@@ -1590,6 +1620,22 @@
             "name": "dom_180_range",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Tokenizer search on options for multiple options use | as seperator",
+            "format": "string",
+            "in": "query",
+            "name": "options",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Tokenizer search on features for multiple options use | as seperator",
+            "format": "string",
+            "in": "query",
+            "name": "features",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1811,7 +1857,8 @@
           "$ref": "#/definitions/Build"
         },
         "dealer": {
-          "$ref": "#/definitions/Dealer"
+          "$ref": "#/definitions/Dealer",
+          "type": "object"
         },
         "distance": {
           "description": "Distance of the car's location from the specified user lcoation",
@@ -2319,6 +2366,23 @@
       },
       "type": "object"
     },
+    "DealersResponse": {
+      "description": "Dealers Response",
+      "properties": {
+        "dealers": {
+          "items": {
+            "$ref": "#/definitions/Dealer",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "num_found": {
+          "description": "number of dealers found",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
     "DepreciationPoint": {
       "properties": {
         "similar_models": {
@@ -2509,7 +2573,8 @@
           "type": "object"
         },
         "dealer": {
-          "$ref": "#/definitions/Dealer"
+          "$ref": "#/definitions/Dealer",
+          "type": "object"
         },
         "dom": {
           "description": "Days on Market value for the car based on current and historical listings found in the Marketcheck database for this car",
@@ -2782,12 +2847,32 @@
     },
     "PopularityItem": {
       "properties": {
-        "count": {
-          "description": "Popularity item count",
+        "color": {
+          "description": "Color depending upon left and right analysis numbers",
+          "type": "string"
+        },
+        "delta_percent": {
+          "description": "Delta percent",
           "type": "number"
         },
-        "item": {
-          "description": "Popularity item",
+        "difference": {
+          "description": "Difference depending upon left and right analysis",
+          "type": "number"
+        },
+        "left": {
+          "description": "Left side rating for above description (2016 ford F-150 Lariat)",
+          "type": "number"
+        },
+        "right": {
+          "description": "Right side rating for above description (All Other Cars)",
+          "type": "number"
+        },
+        "text": {
+          "description": "Description for which popularity should be show eg: 2016 ford F-150 Lariat vs All Other Cars",
+          "type": "string"
+        },
+        "thumbs": {
+          "description": "Thumbs up/down depending upon left and right analysis numbers",
           "type": "string"
         }
       },

@@ -34,7 +34,7 @@ oceandrivers.compareStation({
 
 #### Input
 * input `object`
-  * stationName **required** `string`: Weather station to compare, values: cnareanl|cmsap|boyaenderrocat|areopuertopalma
+  * stationName **required** `string`: Weather station to compare, values: cnareanl|rcnp | cmsap|boyaenderrocat|areopuertopalma
 
 #### Output
 *Output schema unknown*
@@ -54,6 +54,42 @@ oceandrivers.getAemetStation({
 * input `object`
   * stationName **required** `string`: station name currently: aeropuertopalma | caboblanco 
   * period **required** `string`: Period of time to get the data. Options: lastdata lastday
+
+#### Output
+*Output schema unknown*
+
+### getEasywind
+Get data from the easywind weather stations<br/>None
+
+
+```js
+oceandrivers.getEasywind({
+  "easywindId": "",
+  "period": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * easywindId **required** `string`: currently: 'EW013'|'EW008'
+  * period **required** `string`: Period of time to get the data latestdata|latesthour|latestday
+
+#### Output
+*Output schema unknown*
+
+### getEventStations
+Get stations in an event<br/>None
+
+
+```js
+oceandrivers.getEventStations({
+  "eventId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * eventId **required** `string`: currently: 'trofeoprincesasofia'
 
 #### Output
 *Output schema unknown*

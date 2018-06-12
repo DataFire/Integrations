@@ -182,6 +182,25 @@ postmarkapp_server.sendEmailBatch({
 #### Output
 * output [SendEmailBatchResponse](#sendemailbatchresponse)
 
+### sendEmailBatchWithTemplates
+Send a batch of email using templates.
+
+
+```js
+postmarkapp_server.sendEmailBatchWithTemplates({
+  "X-Postmark-Server-Token": "",
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
+  * body **required** [SendEmailTemplatedBatchRequest](#sendemailtemplatedbatchrequest)
+
+#### Output
+* output [SendEmailBatchResponse](#sendemailbatchresponse)
+
 ### sendEmailWithTemplate
 Send an email using a Template
 
@@ -869,14 +888,14 @@ Delete a Template
 ```js
 postmarkapp_server.deleteTemplate({
   "X-Postmark-Server-Token": "",
-  "templateid": 0
+  "templateIdOrAlias": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * templateid **required** `integer`: The ID for the Template you wish to delete.
+  * templateIdOrAlias **required** `string`: The 'TemplateID' or 'Alias' value for the Template you wish to delete.
 
 #### Output
 * output [TemplateDetailResponse](#templatedetailresponse)
@@ -888,14 +907,14 @@ Get a Template
 ```js
 postmarkapp_server.getSingleTemplate({
   "X-Postmark-Server-Token": "",
-  "templateid": 0
+  "templateIdOrAlias": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * templateid **required** `integer`: The ID for the Template you wish to retrieve.
+  * templateIdOrAlias **required** `string`: The 'TemplateID' or 'Alias' value for the Template you wish to retrieve.
 
 #### Output
 * output [TemplateDetailResponse](#templatedetailresponse)
@@ -907,7 +926,7 @@ Update a Template
 ```js
 postmarkapp_server.updateTemplate({
   "X-Postmark-Server-Token": "",
-  "templateid": 0,
+  "templateIdOrAlias": "",
   "body": null
 }, context)
 ```
@@ -915,7 +934,7 @@ postmarkapp_server.updateTemplate({
 #### Input
 * input `object`
   * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * templateid **required** `integer`: The ID for the Template you wish to update.
+  * templateIdOrAlias **required** `string`: The 'TemplateID' or 'Alias' value for the Template you wish to update.
   * body **required** [EditTemplateRequest](#edittemplaterequest)
 
 #### Output
@@ -1159,6 +1178,7 @@ postmarkapp_server.editTagTrigger({
 
 ### CreateTemplateRequest
 * CreateTemplateRequest `object`: The contents required for creating a new template.
+  * Alias `string`: The optional string identifier for referring to this Template (numbers, letters, and '.', '-', '_' characters, starts with a letter).
   * HtmlBody `string`: The HTML template definition for this Template.
   * Name **required** `string`: The friendly display name for the template.
   * Subject **required** `string`: The Subject template definition for this Template.
@@ -1197,10 +1217,10 @@ postmarkapp_server.editTagTrigger({
 
 ### EditTemplateRequest
 * EditTemplateRequest `object`: The contents required for creating a new template.
+  * Alias `string`: The optional string identifier for referring to this Template (numbers, letters, and '.', '-', '_' characters, starts with a letter).
   * HtmlBody `string`: The HTML template definition for this Template.
   * Name `string`: The friendly display name for the template.
   * Subject `string`: The Subject template definition for this Template.
-  * TemplateId **required** `integer`: The ID for the template you wish to modify.
   * TextBody `string`: The Text template definition for this Template.
 
 ### EmailNameAddressPair
@@ -1210,14 +1230,18 @@ postmarkapp_server.editTagTrigger({
 
 ### EmailWithTemplateRequest
 * EmailWithTemplateRequest `object`
+  * Attachments [AttachmentCollection](#attachmentcollection)
   * Bcc `string`
-  * ClickHookUrl `string`: Webhook url allowing real-time notification when tracked links are clicked.
-  * From `string`
+  * Cc `string`
+  * From **required** `string`
+  * Headers [HeaderCollection](#headercollection)
   * InlineCss `boolean`
   * ReplyTo `string`
-  * TemplateId `integer`
-  * TemplateModel `object`
-  * To `string`
+  * Tag `string`
+  * TemplateAlias **required** `string`: Required if 'TemplateId' is not specified.
+  * TemplateId **required** `integer`: Required if 'TemplateAlias' is not specified.
+  * TemplateModel **required** `object`
+  * To **required** `string`
   * TrackLinks `string` (values: None, HtmlAndText, HtmlOnly, TextOnly): Replace links in content to enable "click tracking" stats. Default is 'null', which uses the server's LinkTracking setting'.
   * TrackOpens `boolean`: Activate open tracking for this email.
 
@@ -1373,7 +1397,6 @@ postmarkapp_server.editTagTrigger({
     * items [EmailNameAddressPair](#emailnameaddresspair)
   * Cc `array`
     * items [EmailNameAddressPair](#emailnameaddresspair)
-  * ClickHookUrl `string`
   * From `string`
   * MessageID `string`
   * ReceivedAt `string`
@@ -1395,7 +1418,6 @@ postmarkapp_server.editTagTrigger({
   * Body `string`
   * Cc `array`
     * items [EmailNameAddressPair](#emailnameaddresspair)
-  * ClickHookUrl `string`
   * From `string`
   * HtmlBody `string`
   * MessageEvents `array`
@@ -1456,7 +1478,6 @@ postmarkapp_server.editTagTrigger({
   * Attachments [AttachmentCollection](#attachmentcollection)
   * Bcc `string`: Bcc recipient email address. Multiple addresses are comma seperated. Max 50.
   * Cc `string`: Recipient email address. Multiple addresses are comma seperated. Max 50.
-  * ClickHookUrl `string`: Webhook url allowing real-time notification when tracked links are clicked.
   * From `string`: The sender email address. Must have a registered and confirmed Sender Signature.
   * Headers [HeaderCollection](#headercollection)
   * HtmlBody `string`: If no TextBody specified HTML email message
@@ -1475,6 +1496,11 @@ postmarkapp_server.editTagTrigger({
   * MessageID `string`
   * SubmittedAt `string`
   * To `string`
+
+### SendEmailTemplatedBatchRequest
+* SendEmailTemplatedBatchRequest `object`
+  * Messages `array`
+    * items [EmailWithTemplateRequest](#emailwithtemplaterequest)
 
 ### SentCountsResponse
 * SentCountsResponse `object`: The result of a get sent counts operation.
@@ -1515,6 +1541,7 @@ postmarkapp_server.editTagTrigger({
 ### TemplateDetailResponse
 * TemplateDetailResponse `object`
   * Active `boolean`: Indicates that this template may be used for sending email.
+  * Alias `string`: The user-supplied alias for this template.
   * AssociatedServerId `integer`: The ID of the Server with which this template is associated.
   * HtmlBody `string`: The content to use for the HtmlBody when this template is used to send email.
   * Name `string`: The display name for the template.
@@ -1531,6 +1558,7 @@ postmarkapp_server.editTagTrigger({
 ### TemplateRecordResponse
 * TemplateRecordResponse `object`
   * Active `boolean`: True if this template is currently available for use.
+  * Alias `string`: The user-supplied alias for this template.
   * Name `string`: The display name for this template.
   * TemplateId `number`: The associated ID for this template.
 

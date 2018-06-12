@@ -1552,6 +1552,9 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 ### InvalidFileExistsBehaviorException
 * InvalidFileExistsBehaviorException `object`: An invalid fileExistsBehavior option was specified to determine how AWS CodeDeploy handles files or directories that already exist in a deployment target location but weren't part of the previous successful deployment. Valid values include "DISALLOW", "OVERWRITE", and "RETAIN".
 
+### InvalidGitHubAccountTokenException
+* InvalidGitHubAccountTokenException `object`: The GitHub token is not valid.
+
 ### InvalidGitHubAccountTokenNameException
 * InvalidGitHubAccountTokenNameException `object`: The format of the specified GitHub account connection name is invalid.
 

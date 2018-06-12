@@ -84,11 +84,11 @@ azure_automation_account.AutomationAccount_List({
           * family `string`: Gets or sets the SKU family.
           * name **required** `string` (values: Free, Basic): Gets or sets the SKU name of the account.
         * state `string` (values: Ok, Unavailable, Suspended): Gets status of account.
-      * id `string`: Resource Id
-      * location **required** `string`: Resource location
-      * name `string`: Resource name
-      * tags `object`: Resource tags
-      * type `string`: Resource type
+      * location `string`: The Azure Region where the resource lives
+      * tags `object`: Resource tags.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### AutomationAccount_ListByResourceGroup
 Retrieve a list of accounts within a given resource group.
@@ -124,11 +124,11 @@ azure_automation_account.AutomationAccount_ListByResourceGroup({
           * family `string`: Gets or sets the SKU family.
           * name **required** `string` (values: Free, Basic): Gets or sets the SKU name of the account.
         * state `string` (values: Ok, Unavailable, Suspended): Gets status of account.
-      * id `string`: Resource Id
-      * location **required** `string`: Resource location
-      * name `string`: Resource name
-      * tags `object`: Resource tags
-      * type `string`: Resource type
+      * location `string`: The Azure Region where the resource lives
+      * tags `object`: Resource tags.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### AutomationAccount_Delete
 Delete an automation account.
@@ -186,11 +186,11 @@ azure_automation_account.AutomationAccount_Get({
       * family `string`: Gets or sets the SKU family.
       * name **required** `string` (values: Free, Basic): Gets or sets the SKU name of the account.
     * state `string` (values: Ok, Unavailable, Suspended): Gets status of account.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### AutomationAccount_Update
 Update an automation account.
@@ -213,7 +213,7 @@ azure_automation_account.AutomationAccount_Update({
   * parameters **required** `object`: The parameters supplied to the update automation account operation.
     * location `string`: Gets or sets the location of the resource.
     * name `string`: Gets or sets the name of the resource.
-    * properties **required** `object`: The parameters supplied to the update account properties.
+    * properties `object`: The parameters supplied to the update account properties.
       * sku `object`: The account SKU.
         * capacity `integer`: Gets or sets the SKU capacity.
         * family `string`: Gets or sets the SKU family.
@@ -235,11 +235,11 @@ azure_automation_account.AutomationAccount_Update({
       * family `string`: Gets or sets the SKU family.
       * name **required** `string` (values: Free, Basic): Gets or sets the SKU name of the account.
     * state `string` (values: Ok, Unavailable, Suspended): Gets status of account.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### AutomationAccount_CreateOrUpdate
 Create or update automation account.
@@ -284,11 +284,39 @@ azure_automation_account.AutomationAccount_CreateOrUpdate({
       * family `string`: Gets or sets the SKU family.
       * name **required** `string` (values: Free, Basic): Gets or sets the SKU name of the account.
     * state `string` (values: Ok, Unavailable, Suspended): Gets status of account.
-  * id `string`: Resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
+
+### Keys_ListByAutomationAccount
+Retrieve the automation keys for an account.
+
+
+```js
+azure_automation_account.Keys_ListByAutomationAccount({
+  "resourceGroupName": "",
+  "automationAccountName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
+  * automationAccountName **required** `string`: The automation account name.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output `object`
+  * value `array`: Lists the automation keys.
+    * items `object`: Automation key which is used to register a DSC Node
+      * keyName `string` (values: primary, secondary): Automation key name.
+      * permissions `string` (values: Full): Automation key permissions.
+      * value `string`: Value of the Automation Key used for registration.
 
 ### Statistics_ListByAutomationAccount
 Retrieve the statistics for the account.

@@ -21,7 +21,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/current/specification/cognitiveservices/data-plane/CustomSearch/stable/v1.0/CustomSearch.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/CustomSearch/stable/v1.0/CustomSearch.json",
         "version": "2.0"
       }
     ],
@@ -125,8 +125,9 @@
           },
           {
             "description": "The identifier for the custom search configuration",
-            "format": "int32",
+            "format": "int64",
             "in": "query",
+            "minimum": 0,
             "name": "customConfig",
             "required": true,
             "type": "integer",
@@ -248,6 +249,7 @@
             "parameters": {
               "Ocp-Apim-Subscription-Key": "{API key}",
               "X-BingApis-SDK": "true",
+              "customConfig": 123456,
               "q": "cortana"
             },
             "responses": {

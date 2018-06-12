@@ -730,7 +730,7 @@
     },
     "/orgunits/{orgid}/projects/{projectid}/participants/${participantId}": {
       "delete": {
-        "description": "Deletes a participant. The user itself will still remain but any state related to the project will be deleted. \nIt might not be possible due to constraints from the products in the project to delete the participant. However\nthis can only be determined at the time of the delete. If a delete fails the participant will have their inError\nflag set.\n",
+        "description": "Deletes a participant. The user itself will still remain but any state related to the project will be deleted.\nIt might not be possible due to constraints from the products in the project to delete the participant. However\nthis can only be determined at the time of the delete. If a delete fails the participant will have their inError\nflag set.\n",
         "parameters": [
           {
             "description": "Id of the organization unit",

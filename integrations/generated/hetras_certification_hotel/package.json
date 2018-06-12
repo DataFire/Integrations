@@ -1,6 +1,6 @@
 {
   "name": "@datafire/hetras_certification_hotel",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for hetras Hotel API Version 0",
   "repository": {

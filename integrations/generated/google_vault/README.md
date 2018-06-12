@@ -1,6 +1,6 @@
 # @datafire/google_vault
 
-Client library for Google Vault
+Client library for G Suite Vault
 
 ## Installation and Usage
 ```bash
@@ -239,6 +239,7 @@ google_vault.matters.holds.list({
   * matterId **required** `string`: The matter ID.
   * pageSize `integer`: The number of holds to return in the response, between 0 and 100 inclusive.
   * pageToken `string`: The pagination token as returned in the response.
+  * view `string` (values: HOLD_VIEW_UNSPECIFIED, BASIC_HOLD, FULL_HOLD): Specifies which parts of the Hold to return.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -334,6 +335,7 @@ google_vault.matters.holds.get({
 * input `object`
   * holdId **required** `string`: The hold ID.
   * matterId **required** `string`: The matter ID.
+  * view `string` (values: HOLD_VIEW_UNSPECIFIED, BASIC_HOLD, FULL_HOLD): Specifies which parts of the Hold to return.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -667,6 +669,7 @@ google_vault.matters.undelete({
 * CorpusQuery `object`: Corpus specific queries.
   * driveQuery [HeldDriveQuery](#helddrivequery)
   * groupsQuery [HeldGroupsQuery](#heldgroupsquery)
+  * hangoutsChatQuery [HeldHangoutsChatQuery](#heldhangoutschatquery)
   * mailQuery [HeldMailQuery](#heldmailquery)
 
 ### Empty
@@ -678,7 +681,7 @@ google_vault.matters.undelete({
   * holdTime `string`: When the account was put on hold.
 
 ### HeldDriveQuery
-* HeldDriveQuery `object`: Query options for drive holds.
+* HeldDriveQuery `object`: Query options for Drive holds.
   * includeTeamDriveFiles `boolean`: If true, include files in Team Drives in the hold.
 
 ### HeldGroupsQuery
@@ -686,6 +689,10 @@ google_vault.matters.undelete({
   * endTime `string`: The end time range for the search query. These timestamps are in GMT and
   * startTime `string`: The start time range for the search query. These timestamps are in GMT and
   * terms `string`: The search terms for the hold.
+
+### HeldHangoutsChatQuery
+* HeldHangoutsChatQuery `object`: Query options for hangouts chat holds.
+  * includeRooms `boolean`: If true, include rooms the user has participated in.
 
 ### HeldMailQuery
 * HeldMailQuery `object`: Query options for mail holds.
@@ -696,13 +703,13 @@ google_vault.matters.undelete({
 ### HeldOrgUnit
 * HeldOrgUnit `object`: A organizational unit being held in a particular hold.
   * holdTime `string`: When the org unit was put on hold. This property is immutable.
-  * orgUnitId `string`: The org unit's immutable ID as provided by the admin SDK.
+  * orgUnitId `string`: The org unit's immutable ID as provided by the Admin SDK.
 
 ### Hold
 * Hold `object`: Represents a hold within Vault. A hold restricts purging of
   * accounts `array`: If set, the hold applies to the enumerated accounts and org_unit must be
     * items [HeldAccount](#heldaccount)
-  * corpus `string` (values: CORPUS_TYPE_UNSPECIFIED, DRIVE, MAIL, GROUPS): The corpus to be searched.
+  * corpus `string` (values: CORPUS_TYPE_UNSPECIFIED, DRIVE, MAIL, GROUPS, HANGOUTS_CHAT): The corpus to be searched.
   * holdId `string`: The unique immutable ID of the hold. Assigned during creation.
   * name `string`: The name of the hold.
   * orgUnit [HeldOrgUnit](#heldorgunit)

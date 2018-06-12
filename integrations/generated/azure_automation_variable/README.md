@@ -46,7 +46,7 @@ azure_automation_variable.Variable_ListByAutomationAccount({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -56,14 +56,15 @@ azure_automation_variable.Variable_ListByAutomationAccount({
   * nextLink `string`: Gets or sets the next link.
   * value `array`: Gets or sets a list of variables.
     * items `object`: Definition of the varible.
-      * id `string`: Gets or sets the id of the resource.
-      * name `string`: Gets or sets the name of the variable.
       * properties `object`: Definition of the varible properties
         * creationTime `string`: Gets or sets the creation time.
         * description `string`: Gets or sets the description.
         * isEncrypted `boolean`: Gets or sets the encrypted flag of the variable.
         * lastModifiedTime `string`: Gets or sets the last modified time.
         * value `string`: Gets or sets the value of the variable.
+      * id `string`: Fully qualified resource Id for the resource
+      * name `string`: The name of the resource
+      * type `string`: The type of the resource.
 
 ### Variable_Delete
 Delete the variable.
@@ -81,7 +82,7 @@ azure_automation_variable.Variable_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * variableName **required** `string`: The name of variable.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -106,7 +107,7 @@ azure_automation_variable.Variable_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * variableName **required** `string`: The name of variable.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -114,14 +115,15 @@ azure_automation_variable.Variable_Get({
 
 #### Output
 * output `object`: Definition of the varible.
-  * id `string`: Gets or sets the id of the resource.
-  * name `string`: Gets or sets the name of the variable.
   * properties `object`: Definition of the varible properties
     * creationTime `string`: Gets or sets the creation time.
     * description `string`: Gets or sets the description.
     * isEncrypted `boolean`: Gets or sets the encrypted flag of the variable.
     * lastModifiedTime `string`: Gets or sets the last modified time.
     * value `string`: Gets or sets the value of the variable.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Variable_Update
 Update a variable.
@@ -140,11 +142,11 @@ azure_automation_variable.Variable_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * variableName **required** `string`: The variable name.
   * parameters **required** `object`: The parameters supplied to the update variable operation.
-    * name **required** `string`: Gets or sets the name of the variable.
+    * name `string`: Gets or sets the name of the variable.
     * properties `object`: The properties of the update variable
       * description `string`: Gets or sets the description of the variable.
       * value `string`: Gets or sets the value of the variable.
@@ -153,14 +155,15 @@ azure_automation_variable.Variable_Update({
 
 #### Output
 * output `object`: Definition of the varible.
-  * id `string`: Gets or sets the id of the resource.
-  * name `string`: Gets or sets the name of the variable.
   * properties `object`: Definition of the varible properties
     * creationTime `string`: Gets or sets the creation time.
     * description `string`: Gets or sets the description.
     * isEncrypted `boolean`: Gets or sets the encrypted flag of the variable.
     * lastModifiedTime `string`: Gets or sets the last modified time.
     * value `string`: Gets or sets the value of the variable.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### Variable_CreateOrUpdate
 Create a variable.
@@ -179,7 +182,7 @@ azure_automation_variable.Variable_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The resource group name.
+  * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The automation account name.
   * variableName **required** `string`: The variable name.
   * parameters **required** `object`: The parameters supplied to the create or update variable operation.
@@ -193,14 +196,15 @@ azure_automation_variable.Variable_CreateOrUpdate({
 
 #### Output
 * output `object`: Definition of the varible.
-  * id `string`: Gets or sets the id of the resource.
-  * name `string`: Gets or sets the name of the variable.
   * properties `object`: Definition of the varible properties
     * creationTime `string`: Gets or sets the creation time.
     * description `string`: Gets or sets the description.
     * isEncrypted `boolean`: Gets or sets the encrypted flag of the variable.
     * lastModifiedTime `string`: Gets or sets the last modified time.
     * value `string`: Gets or sets the value of the variable.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 
 
