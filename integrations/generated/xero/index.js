@@ -2,6 +2,8 @@
 let datafire = require('datafire');
 let openapi = require('./openapi.json');
 let xero = module.exports = datafire.Integration.fromOpenAPI(openapi, "xero", function(reqOpts, context) {
+  reqOpts.headers = reqOpts.headers || {};
+  reqOpts.headers.Accept = reqOpts.headers.Accept || 'application/json';
   reqOpts.oauth = {
     consumer_key: context.accounts.xero.consumer_key,
     consumer_secret: context.accounts.xero.consumer_secret,
