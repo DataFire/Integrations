@@ -14912,7 +14912,15 @@
     "id": "betfair",
     "title": "Betfair: Exchange Streaming",
     "description": "API to receive streamed updates. This is an ssl socket connection of CRLF delimited json messages (see RequestMessage & ...",
-    "security": {},
+    "security": {
+      "betfair": {
+        "integration": "betfair",
+        "fields": {
+          "ApplicationKey": "API key",
+          "Session": "API key"
+        }
+      }
+    },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/betfair.jpeg"
     },
@@ -14921,7 +14929,7 @@
     "tags": [
       "entertainment"
     ],
-    "latestVersion": "4.0.0"
+    "latestVersion": "4.1.0"
   },
   "bhagavadgita": {
     "id": "bhagavadgita",
@@ -20445,7 +20453,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gmail.png"
     },
-    "actionCount": 64,
+    "actionCount": 65,
     "directory": "generated",
     "tags": [
       "email",
@@ -27776,7 +27784,16 @@
   "twitter": {
     "id": "twitter",
     "title": "Twitter",
-    "security": {},
+    "security": {
+      "twitter": {
+        "fields": {
+          "consumer_key": "",
+          "consumer_secret": "",
+          "token": "",
+          "token_secret": ""
+        }
+      }
+    },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twitter.jpeg"
     },
@@ -28661,7 +28678,16 @@
     "id": "xero",
     "title": "Xero Accounting",
     "description": "The Xero Accounting API is a RESTful web service and uses the OAuth (v1.0a) protocol to authenticate 3rd party applicati...",
-    "security": {},
+    "security": {
+      "xero": {
+        "fields": {
+          "consumer_key": "",
+          "consumer_secret": "",
+          "token": "",
+          "token_secret": ""
+        }
+      }
+    },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/xero.jpg"
     },
@@ -28670,7 +28696,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "4.0.0"
+    "latestVersion": "4.1.0"
   },
   "xkcd": {
     "id": "xkcd",
