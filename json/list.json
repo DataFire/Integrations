@@ -24276,7 +24276,14 @@
     "id": "magento",
     "title": "Magento Enterprise",
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
-    "security": {},
+    "security": {
+      "magento": {
+        "integration": "magento",
+        "fields": {
+          "Bearer": "Your Magento auth token. Be sure to include the prefix 'Bearer '"
+        }
+      }
+    },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magento.png"
     },
@@ -24285,7 +24292,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "5.0.0"
+    "latestVersion": "5.0.1"
   },
   "magick_nu": {
     "id": "magick_nu",
@@ -27316,7 +27323,15 @@
     "id": "stripe",
     "title": "Stripe",
     "description": "The Stripe REST API. Please see https://stripe.com/docs/api for more details.",
-    "security": {},
+    "security": {
+      "stripe": {
+        "integration": "stripe",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password"
+        }
+      }
+    },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/stripe.jpeg"
     },
@@ -27325,7 +27340,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "4.0.0"
+    "latestVersion": "4.0.1"
   },
   "surrey_ca_open511": {
     "id": "surrey_ca_open511",
