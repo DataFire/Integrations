@@ -24172,5 +24172,10 @@
       "x-expandableFields": [],
       "x-resourceId": "usage_record"
     }
+  },
+  "securityDefinitions": {
+    "Basic": {
+      "type": "basic"
+    }
   }
 }
