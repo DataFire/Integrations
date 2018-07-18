@@ -9,7 +9,8 @@ npm install --save @datafire/traccar
 ```js
 let traccar = require('@datafire/traccar').create({
   username: "",
-  password: ""
+  password: "",
+  host: ""
 });
 
 traccar.users.get({}).then(data => {

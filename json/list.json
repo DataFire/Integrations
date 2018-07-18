@@ -27586,7 +27586,8 @@
         "integration": "traccar",
         "fields": {
           "username": "Your username",
-          "password": "Your password"
+          "password": "Your password",
+          "host": "The host for your Traccar instance"
         }
       }
     },
@@ -27598,7 +27599,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "5.0.0"
+    "latestVersion": "5.0.1"
   },
   "transavia": {
     "id": "transavia",
