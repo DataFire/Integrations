@@ -39,9 +39,11 @@
   },
   "produces": [],
   "securityDefinitions": {
-    "basicAuth": {
-      "description": "HTTP/HTTPS Basic Authentication. The authentication uses the Wavecell AccountId as username",
-      "type": "basic"
+    "BearerTokenHeader": {
+      "name": "Authorization",
+      "in": "header",
+      "type": "apiKey",
+      "description": "Your Wavecell auth token. Be sure to include the prefix 'Bearer '"
     }
   },
   "paths": {

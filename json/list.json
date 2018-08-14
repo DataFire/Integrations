@@ -28136,8 +28136,7 @@
       "wavecell": {
         "integration": "wavecell",
         "fields": {
-          "username": "Your username",
-          "password": "Your password"
+          "BearerTokenHeader": "Your Wavecell auth token. Be sure to include the prefix 'Bearer '"
         }
       }
     },
@@ -28150,7 +28149,7 @@
     "tags": [
       "messaging"
     ],
-    "latestVersion": "5.0.0"
+    "latestVersion": "6.0.0"
   },
   "wealthport": {
     "id": "wealthport",

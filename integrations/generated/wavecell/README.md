@@ -8,8 +8,7 @@ npm install --save @datafire/wavecell
 ```
 ```js
 let wavecell = require('@datafire/wavecell').create({
-  username: "",
-  password: ""
+  BearerTokenHeader: ""
 });
 
 wavecell.SmsV1StatusGet(null).then(data => {
