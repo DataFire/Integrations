@@ -1,10 +1,11 @@
 ## Hubspot Integraiton
 
-## Description
-able to retrive data from Company API and Contacts API
+
 ``` 
 npm install hubspot
 ```
+## Description
+able to retrive data from Company API and Contacts API
 
 ## Action:
 ## Company
