@@ -1,0 +1,11 @@
+{
+  "name": "hubspot_integration",
+  "version": "1.0.0",
+  "description": "Integrate with Hubspot",
+  "main": "hubspot.js",
+  "author": "Lincoln Lo",
+  "license": "MIT",
+  "dependencies": {
+    "hubspot": "^1.3.2"
+  }
+}
