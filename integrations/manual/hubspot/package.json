@@ -1,8 +1,8 @@
 {
-  "name": "hubspot_integration",
+  "name": "@datafire/hubspot",
   "version": "1.0.0",
   "description": "Integrate with Hubspot",
-  "main": "hubspot.js",
+  "main": "index.js",
   "author": "Lincoln Lo",
   "license": "MIT",
   "dependencies": {

@@ -1,4 +1,4 @@
-## Hubspot Integraiton
+## @datafire/hubspot
 
 
 ``` 
