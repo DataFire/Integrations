@@ -3,11 +3,22 @@ let datafire = require('datafire');
 //run: npm install hubspot
 const hub = require('hubspot');
 
+let hubspot = module.exports = new datafire.Integration({
+    id: "hubspot",
+    title: "hubspot",
+    description: "Integrate with Hubspot",
+});
+
 // OAuth 2.0 Authorization Code Grant Type
 // Code url: "https://app.hubspot.com/oauth/authorize"
 // access Token/refresh token url: "https://api.hubapi.com/oauth/v1/token"
 hubspot.security = {
     hubspot: {
+        oauth: {
+          type: 'oauth2',
+          authorizationUrl: 'https://app.hubspot.com/oauth/authorize',
+          tokenUrl: 'https://api.hubapi.com/oauth/v1/token',
+        },
         fields: {
             access_token: 'An OAuth access token',
             refresh_token: 'An OAuth refresh token (optional)',
@@ -18,14 +29,7 @@ hubspot.security = {
     }
 }
 
-let hubspot = module.exports = new Integration({
-    id: "hubspot",
-    title: "hubspot",
-    description: "Integrate with Hubspot",
-});
-
-
-hub.addAction('getAllCompanies', new datafire.Action({
+hubspot.addAction('getAllCompanies', new datafire.Action({
     inputs: [{
         name: "limit",
         description: "The number of records to return. Defaults to 100, has a maximum value of 250.",
@@ -47,7 +51,7 @@ hub.addAction('getAllCompanies', new datafire.Action({
     }
 }));
 
-hub.addAction('getCompanyById', new datafire.Action({
+hubspot.addAction('getCompanyById', new datafire.Action({
     inputs: [{
         name: "id",
         description: "company Id",
@@ -58,7 +62,7 @@ hub.addAction('getCompanyById', new datafire.Action({
     }
 }));
 
-hub.addAction('getRecentlyCreatedCompanies', new datafire.Action({
+hubspot.addAction('getRecentlyCreatedCompanies', new datafire.Action({
     inputs: [{
         name: "offset",
         description: "Used to page through the results. If there are more records in your portal than the limit= parameter, you will need to use the offset returned in the first request to get the next set of results.",
@@ -78,7 +82,7 @@ hub.addAction('getRecentlyCreatedCompanies', new datafire.Action({
     }
 }));
 
-hub.addAction('getRecentlyModifiedCompanies', new datafire.Action({
+hubspot.addAction('getRecentlyModifiedCompanies', new datafire.Action({
     inputs: [{
         name: "offset",
         description: "Used to page through the results. If there are more records in your portal than the limit= parameter, you will need to use the offset returned in the first request to get the next set of results.",
@@ -100,7 +104,7 @@ hub.addAction('getRecentlyModifiedCompanies', new datafire.Action({
 }));
 
 
-hub.addAction('getCompanyByDomain', new datafire.Action({
+hubspot.addAction('getCompanyByDomain', new datafire.Action({
     inputs: [{
         name: "domain",
         description: "domain of the company",
@@ -111,7 +115,7 @@ hub.addAction('getCompanyByDomain', new datafire.Action({
     }
 }));
 
-hub.addAction('getComapnyContacts', new datafire.Action({
+hubspot.addAction('getComapnyContacts', new datafire.Action({
     inputs: [{
         name: "company_Id",
         description: "your company id",
@@ -136,7 +140,7 @@ hub.addAction('getComapnyContacts', new datafire.Action({
     }
 }));
 
-hub.addAction('getContactIds', new datafire.Action({
+hubspot.addAction('getContactIds', new datafire.Action({
     inputs: [{
         name: "company_Id",
         description: "your company id",
@@ -163,13 +167,13 @@ hub.addAction('getContactIds', new datafire.Action({
 // Company Properties API
 
 
-hub.addAction('getAllCompanyProperties', new datafire.Action({
+hubspot.addAction('getAllCompanyProperties', new datafire.Action({
     handler: input => {
         return hub.companies.properties.get();
     }
 }));
 
-hub.addAction('getCompanyPropertyByName', new datafire.Action({
+hubspot.addAction('getCompanyPropertyByName', new datafire.Action({
     inputs: [{
         name: "property_name",
         description: "The API name of the property that you wish to see metadata for.",
@@ -180,7 +184,7 @@ hub.addAction('getCompanyPropertyByName', new datafire.Action({
     }
 }));
 
-hub.addAction('getCompanyPropertyGroups', new datafire.Action({
+hubspot.addAction('getCompanyPropertyGroups', new datafire.Action({
     inputs: [{
         name: "include_properties",
         description: "True or False, Returns all of the properties for each company property group.",
@@ -193,7 +197,7 @@ hub.addAction('getCompanyPropertyGroups', new datafire.Action({
 
 // Contacts API  ** All properties to display are selected by default ** this can be changed by adding property array to specfic which feild you want to see. i.e. property: ["firstname", "lastmodifieddate"]
 
-hub.addAction('getAllContacts', new datafire.Action({
+hubspot.addAction('getAllContacts', new datafire.Action({
     inputs: [{
         name: "count",
         description: "This parameter lets you specify the amount of contacts to return in your API call. The default for this parameter (if it isn't specified) is 20 contacts. The maximum amount of contacts you can have returned to you via this parameter is 100.",
@@ -234,7 +238,7 @@ hub.addAction('getAllContacts', new datafire.Action({
 }));
 
 
-hub.addAction('getContactByEmail', new datafire.Action({
+hubspot.addAction('getContactByEmail', new datafire.Action({
     inputs: [{
         name: "email",
         description: "The email address for the contact that you're searching for.",
@@ -245,7 +249,7 @@ hub.addAction('getContactByEmail', new datafire.Action({
     }
 }));
 
-hub.addAction('getContactById', new datafire.Action({
+hubspot.addAction('getContactById', new datafire.Action({
     inputs: [{
         name: "id",
         description: "Unique identifier for a particular contact. In HubSpot's contact system, contact ID's are called vid",
@@ -256,7 +260,7 @@ hub.addAction('getContactById', new datafire.Action({
     }
 }));
 
-hub.addAction('getContactByToken', new datafire.Action({
+hubspot.addAction('getContactByToken', new datafire.Action({
     inputs: [{
         name: "utk",
         description: "The user token (HubSpot cookie) for the contact that you're searching for.",
@@ -267,7 +271,7 @@ hub.addAction('getContactByToken', new datafire.Action({
     }
 }));
 
-hub.addAction('getRecentlyCreatedContact', new datafire.Action({
+hubspot.addAction('getRecentlyCreatedContact', new datafire.Action({
     inputs: [{
         name: "property_mode",
         description: "One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is value_and_history",
@@ -294,7 +298,7 @@ hub.addAction('getRecentlyCreatedContact', new datafire.Action({
     }
 }));
 
-hub.addAction('getRecentlyModifiedContacts', new datafire.Action({
+hubspot.addAction('getRecentlyModifiedContacts', new datafire.Action({
     inputs: [{
         name: "count",
         description: "This parameter lets you specify the amount of contacts to return in your API call. The default for this parameter (if it isn't specified) is 20 contacts. The maximum amount of contacts you can have returned to you via this parameter is 100.",
@@ -339,7 +343,7 @@ hub.addAction('getRecentlyModifiedContacts', new datafire.Action({
     }
 }));
 
-hub.addAction('getContactById', new datafire.Action({
+hubspot.addAction('getContactById', new datafire.Action({
     inputs: [{
         name: "id",
         description: "Unique identifier for a particular contact. In HubSpot's contact system, contact ID's are called vid",
@@ -350,13 +354,13 @@ hub.addAction('getContactById', new datafire.Action({
     }
 }));
 
-hub.addAction('getAllContactProperties', new datafire.Action({
+hubspot.addAction('getAllContactProperties', new datafire.Action({
     handler: input => {
         return hub.contacts.properties.get(cb);
     }
 }));
 
-hub.addAction('getContactPropertiesByName', new datafire.Action({
+hubspot.addAction('getContactPropertiesByName', new datafire.Action({
     inputs: [{
         name: "name",
         description: "Contact property name",
