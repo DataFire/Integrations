@@ -6,6 +6,7 @@
   "author": "Lincoln Lo",
   "license": "MIT",
   "dependencies": {
-    "hubspot": "^1.3.2"
+    "hubspot": "^1.3.2",
+    "datafire": "^2.0.0"
   }
 }

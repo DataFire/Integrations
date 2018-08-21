@@ -18,6 +18,22 @@ hubspot.security = {
           type: 'oauth2',
           authorizationUrl: 'https://app.hubspot.com/oauth/authorize',
           tokenUrl: 'https://api.hubapi.com/oauth/v1/token',
+          scopes: {
+            "automation": "Workflows API",
+            "business-intelligence": "Analytics APINote: There will be limited functionality with the Analytics API without a paid Marketing subscription.",
+            "contacts": "Contacts, Companies, and Deals, along with the associated property APIs, Engagements API, Owners API",
+            "content": "All COS APIs, Calendar API, Email and Email Events APIs",
+            "e-commerce": "Products API and Line Items API",
+            "files": "File Manager API",
+            "forms": "Forms API - Note: Forms access also requires the contacts scope.",
+            "hubdb": "HubDB API",
+            "integration-sync": "Ecommerce Bridge API",
+            "reports": "Keywords API",
+            "social": "Social Media API",
+            "tickets": "Tickets API",
+            "timeline": "Timelines API",
+            "transactional-email": "Transactional Email API"
+          },
         },
         fields: {
             access_token: 'An OAuth access token',
