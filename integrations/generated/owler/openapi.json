@@ -767,7 +767,7 @@
             },
             "name": "company_id",
             "required": true,
-            "type": "array"
+            "type": "string"
           },
           {
             "default": "10",
