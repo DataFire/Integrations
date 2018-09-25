@@ -2,13 +2,11 @@ let datafire = require('datafire');
 //https://www.npmjs.com/package/hubspot
 //run: npm install hubspot
 const Hubspot = require('hubspot');
-
 let hubspot = module.exports = new datafire.Integration({
     id: "hubspot",
     title: "hubspot",
     description: "Integrate with Hubspot",
 });
-
 // OAuth 2.0 Authorization Code Grant Type
 // Code url: "https://app.hubspot.com/oauth/authorize"
 // access Token/refresh token url: "https://api.hubapi.com/oauth/v1/token"
@@ -44,7 +42,6 @@ hubspot.security = {
         },
     }
 }
-
 hubspot.addAction('getAllCompanies', new datafire.Action({
     inputs: [{
         title: "limit",
@@ -58,7 +55,7 @@ hubspot.addAction('getAllCompanies', new datafire.Action({
         default: ""
     }],
     handler: (input, context) => {
-        let options = {
+        let companyOptions = {
             limit: input.limit,
             offset: input.offset,
             properties: ["name", "website"] // all avaiable properties to display
@@ -66,7 +63,6 @@ hubspot.addAction('getAllCompanies', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.get(companyOptions);
     }
 }));
-
 hubspot.addAction('getCompanyById', new datafire.Action({
     inputs: [{
         title: "id",
@@ -77,7 +73,6 @@ hubspot.addAction('getCompanyById', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getById(input.id);
     }
 }));
-
 hubspot.addAction('getRecentlyCreatedCompanies', new datafire.Action({
     inputs: [{
         title: "offset",
@@ -97,7 +92,6 @@ hubspot.addAction('getRecentlyCreatedCompanies', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getRecentlyCreated(options);
     }
 }));
-
 hubspot.addAction('getRecentlyModifiedCompanies', new datafire.Action({
     inputs: [{
         title: "offset",
@@ -107,7 +101,7 @@ hubspot.addAction('getRecentlyModifiedCompanies', new datafire.Action({
     }, {
         title: "count",
         description: "Specifies the number of companies to be returned. Default: 100",
-        type: "string",
+        type: "integer",
         default: 100,
     }],
     handler: (input, context) => {
@@ -118,8 +112,6 @@ hubspot.addAction('getRecentlyModifiedCompanies', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getRecentlyModified(options);
     }
 }));
-
-
 hubspot.addAction('getCompanyByDomain', new datafire.Action({
     inputs: [{
         title: "domain",
@@ -130,65 +122,61 @@ hubspot.addAction('getCompanyByDomain', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getByDomain(input.domain);
     }
 }));
-
-hubspot.addAction('getComapnyContacts', new datafire.Action({
+hubspot.addAction('getComapnyContactsByCompanyId', new datafire.Action({
     inputs: [{
-        title: "company_Id",
+        title: "id",
         description: "your company id",
         type: "integer",
     }, {
         title: "vidOffset",
         description: "The vid to offset the query by.",
-        type: 'integer',
+        type: 'string',
         default: ""
     }, {
         title: "count",
-        description: "Specifies the number of contacts to be returned. Supports a maximum value of 600.",
+        description: "Specifies the number of contacts to be returned. Supports a maximum value of 600. Default is 600",
         maximum: 600,
-        type: "integer"
+        type: "integer",
+        default: 600
     }],
     handler: (input, context) => {
         let options = {
             Count: input.count,
             VidOffset: input.vidOffset
         }
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getContacts(input.company_Id, options);
+        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getContacts(input.id, options);
     }
 }));
-
-hubspot.addAction('getContactIds', new datafire.Action({
+hubspot.addAction('getContactIdsByCompanyId', new datafire.Action({
     inputs: [{
-        title: "company_Id",
+        title: "id",
         description: "your company id",
         type: "integer",
     }, {
         title: "vidOffset",
         description: "The vid to offset the query by.",
-        type: 'integer',
-        default: ""
+        type: 'string',
+        default: "",
     }, {
         title: "count",
-        description: "Specifies the number of contacts to be returned. Supports a maximum value of 600.",
-        type: "integer"
+        description: "Specifies the number of contacts to be returned. Supports a maximum value of 600. Default is 600",
+        type: "integer",
+        default: 600
     }],
     handler: (input, context) => {
         let options = {
             Count: input.count,
             VidOffset: input.vidOffset
         }
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getContactIds(input.company_Id, options);
+        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getContactIds(input.id, options);
     }
 }));
-
-// Company Properties API
-
-
+ // Company Properties API
 hubspot.addAction('getAllCompanyProperties', new datafire.Action({
     handler: (input, context) => {
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.properties.get();
     }
 }));
-
 hubspot.addAction('getCompanyPropertyByName', new datafire.Action({
     inputs: [{
         title: "property_name",
@@ -199,20 +187,18 @@ hubspot.addAction('getCompanyPropertyByName', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.properties.getByName(input.property_name);
     }
 }));
-
 hubspot.addAction('getCompanyPropertyGroups', new datafire.Action({
     inputs: [{
         title: "include_properties",
-        description: "True or False, Returns all of the properties for each company property group.",
+        description: "True or False, Returns all of the properties for each company property group.Default is true",
         type: "boolean",
+        default: true,
     },],
     handler: (input, context) => {
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.properties.groups.get(input.include_properties);
     }
 }));
-
-// Contacts API  ** All properties to display are selected by default ** this can be changed by adding property array to specfic which feild you want to see. i.e. property: ["firstname", "lastmodifieddate"]
-
+ // Contacts API  ** All properties to display are selected by default ** this can be changed by adding property array to specfic which feild you want to see. i.e. property: ["firstname", "lastmodifieddate"]
 hubspot.addAction('getAllContacts', new datafire.Action({
     inputs: [{
         title: "count",
@@ -252,8 +238,6 @@ hubspot.addAction('getAllContacts', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.get(options);
     }
 }));
-
-
 hubspot.addAction('getContactByEmail', new datafire.Action({
     inputs: [{
         title: "email",
@@ -264,18 +248,16 @@ hubspot.addAction('getContactByEmail', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getByEmail(input.email);
     }
 }));
-
 hubspot.addAction('getContactById', new datafire.Action({
     inputs: [{
         title: "id",
         description: "Unique identifier for a particular contact. In HubSpot's contact system, contact ID's are called vid",
-        type: "string",
+        type: 'integer',
     }],
     handler: (input, context) => {
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getById(input.id);
     }
 }));
-
 hubspot.addAction('getContactByToken', new datafire.Action({
     inputs: [{
         title: "utk",
@@ -286,7 +268,6 @@ hubspot.addAction('getContactByToken', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getByToken(input.utk);
     }
 }));
-
 hubspot.addAction('getRecentlyCreatedContact', new datafire.Action({
     inputs: [{
         title: "property_mode",
@@ -313,7 +294,6 @@ hubspot.addAction('getRecentlyCreatedContact', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getRecentlyCreated(options);
     }
 }));
-
 hubspot.addAction('getRecentlyModifiedContacts', new datafire.Action({
     inputs: [{
         title: "count",
@@ -323,12 +303,12 @@ hubspot.addAction('getRecentlyModifiedContacts', new datafire.Action({
     }, {
         title: "time_offset",
         description: "Used in conjunction with the vidOffset paramter to page through the recent contacts. Every call to this endpoint will return a time-offset value. This value is used in the timeOffset parameter of the next call to get the next page of contacts.",
-        type: "integer",
+        type: "string",
         default: ""
     }, {
         title: "contact_offset",
         description: "Used in conjunction with the timeOffset paramter to page through the recent contacts. Every call to this endpoint will return a vid-offset value. This value is used in the vidOffset parameter of the next call to get the next page of contacts.",
-        type: "integer",
+        type: "string",
         default: ""
     }, {
         title: "property_mode",
@@ -358,27 +338,14 @@ hubspot.addAction('getRecentlyModifiedContacts', new datafire.Action({
         return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getRecentlyModified(options);
     }
 }));
-
-hubspot.addAction('getContactById', new datafire.Action({
-    inputs: [{
-        title: "id",
-        description: "Unique identifier for a particular contact. In HubSpot's contact system, contact ID's are called vid",
-        type: "string",
-    }],
-    handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getById(input.id);
-    }
-}));
-
 hubspot.addAction('getAllContactProperties', new datafire.Action({
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.properties.get(cb);
+        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.properties.get();
     }
 }));
-
 hubspot.addAction('getContactPropertiesByName', new datafire.Action({
     inputs: [{
-        title: "name",
+        title: "property_name",
         description: "Contact property name",
         type: "string",
     }],
