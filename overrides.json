@@ -2763,6 +2763,11 @@
   "hillbillysoftware_shinobi": {
     "title": "Shinobi"
   },
+  "hubspot": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/71/HubSpot_Logo.png"
+    }
+  },
   "je_apis": {
     "title": "Just Eat Tenant"
   },
