@@ -7,7 +7,9 @@ Client library for Magento Enterprise
 npm install --save @datafire/magento
 ```
 ```js
-let magento = require('@datafire/magento').create();
+let magento = require('@datafire/magento').create({
+  Bearer: ""
+});
 
 magento.salesTransactionRepositoryV1GetListGet({}).then(data => {
   console.log(data);

@@ -7,7 +7,12 @@ Client library for Twitter
 npm install --save @datafire/twitter
 ```
 ```js
-let twitter = require('@datafire/twitter').create();
+let twitter = require('@datafire/twitter').create({
+  consumer_key: "",
+  consumer_secret: "",
+  token: "",
+  token_secret: ""
+});
 
 twitter.users.suggestions({}).then(data => {
   console.log(data);

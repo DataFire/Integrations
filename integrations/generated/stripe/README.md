@@ -7,7 +7,10 @@ Client library for Stripe
 npm install --save @datafire/stripe
 ```
 ```js
-let stripe = require('@datafire/stripe').create();
+let stripe = require('@datafire/stripe').create({
+  username: "",
+  password: ""
+});
 
 stripe.AllTransfers({}).then(data => {
   console.log(data);

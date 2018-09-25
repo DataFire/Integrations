@@ -1699,6 +1699,25 @@ google_gmail.users.watch({
 #### Output
 * output [WatchResponse](#watchresponse)
 
+### buildMessage
+
+
+
+```js
+google_gmail.buildMessage({}, context)
+```
+
+#### Input
+* input `object`
+  * to `string`, `array`
+    * items `string`
+  * from `string`
+  * subject `string`
+  * body `string`
+
+#### Output
+* output `string`: RFC 2822 formatted and base64url encoded message
+
 
 
 ## Definitions

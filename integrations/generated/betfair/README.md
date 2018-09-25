@@ -7,7 +7,10 @@ Client library for Betfair: Exchange Streaming
 npm install --save @datafire/betfair
 ```
 ```js
-let betfair = require('@datafire/betfair').create();
+let betfair = require('@datafire/betfair').create({
+  ApplicationKey: "",
+  Session: ""
+});
 
 betfair.request.post({
   "RequestMessage": null

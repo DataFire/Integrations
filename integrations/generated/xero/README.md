@@ -7,7 +7,12 @@ Client library for Accounting
 npm install --save @datafire/xero
 ```
 ```js
-let xero = require('@datafire/xero').create();
+let xero = require('@datafire/xero').create({
+  consumer_key: "",
+  consumer_secret: "",
+  token: "",
+  token_secret: ""
+});
 
 xero.Users.get({}).then(data => {
   console.log(data);
