@@ -2774,6 +2774,11 @@
   "landregistry_gov_uk_deed": {
     "title": "UK Land Registry"
   },
+  "ldap": {
+    "logo":{
+      "url": "https://i0.wp.com/ldap.com/wp-content/uploads/2018/04/ldapdotcom-white-background-with-text-1024x341.png"
+    }
+  },
   "letmc_basic_tier": {
     "title": "LetMC Basic"
   },

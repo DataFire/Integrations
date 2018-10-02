@@ -30,6 +30,7 @@
     "ical-generator": "^0.2.10",
     "ical-parser": "^1.2.0",
     "imap": "^0.8.19",
+    "ldapjs": "^1.0.2",
     "lucybot-documentation-starter": "^1.0.1",
     "marked": "^0.3.14",
     "mkdirp": "^0.5.1",
