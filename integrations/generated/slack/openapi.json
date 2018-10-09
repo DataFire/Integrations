@@ -8803,7 +8803,7 @@
             "description": "File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`.",
             "in": "formData",
             "name": "file",
-            "type": "string"
+            "type": "file"
           }
         ],
         "responses": {
