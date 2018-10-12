@@ -5050,10 +5050,16 @@
             "description": "Attributes of \"Cards Attachments\" to be added.",
             "in": "body",
             "name": "body",
-            "required": true,
+            "required": false,
             "schema": {
               "$ref": "#/definitions/cards_attachments"
             }
+          },
+          {
+            "name": "file",
+            "type": "file",
+            "in": "formData",
+            "description": "File contents"
           }
         ],
         "responses": {

@@ -11,4 +11,14 @@ module.exports = (spec) => {
   removeParameter(spec, 'key');
   removeParameter(spec, 'token');
   delete spec.securityDefinitions.trello_auth;
+
+  let op = spec.paths['/cards/{idCard}/attachments'].post;
+  op.parameters.push({
+    name: 'file',
+    type: 'file',
+    in: 'formData',
+    description: "File contents",
+  })
+  let bodyParam = op.parameters.filter(p => p.in === 'body').pop();
+  bodyParam.required = false;
 }
