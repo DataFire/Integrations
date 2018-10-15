@@ -1911,15 +1911,15 @@ addCardsAttachmentsByIdCard()
 
 ```js
 trello.addCardsAttachmentsByIdCard({
-  "idCard": "",
-  "body": {}
+  "idCard": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * idCard **required** `string`: card id or shortlink
-  * body **required** [cards_attachments](#cards_attachments)
+  * body [cards_attachments](#cards_attachments)
+  * file `string`, `object`: File contents
 
 #### Output
 *Output schema unknown*

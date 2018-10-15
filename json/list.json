@@ -1276,6 +1276,30 @@
     ],
     "latestVersion": "5.0.0"
   },
+  "amazonaws_dlm": {
+    "id": "amazonaws_dlm",
+    "title": "Amazon Data Lifecycle Manager",
+    "description": "With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, w...",
+    "security": {
+      "amazonaws_dlm": {
+        "integration": "amazonaws_dlm",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dlm.jpeg"
+    },
+    "actionCount": 5,
+    "directory": "generated",
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
     "title": "AWS Database Migration Service",
@@ -2341,6 +2365,30 @@
     ],
     "latestVersion": "5.0.0"
   },
+  "amazonaws_macie": {
+    "id": "amazonaws_macie",
+    "title": "Amazon Macie",
+    "description": "Amazon Macie is a security service that uses machine learning to automatically discover, classify, and protect sensitive...",
+    "security": {
+      "amazonaws_macie": {
+        "integration": "amazonaws_macie",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_macie.jpeg"
+    },
+    "actionCount": 7,
+    "directory": "generated",
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
     "title": "AWS Marketplace Commerce Analytics",
@@ -3308,6 +3356,30 @@
       "aws"
     ],
     "latestVersion": "5.0.0"
+  },
+  "amazonaws_signer": {
+    "id": "amazonaws_signer",
+    "title": "AWS Signer",
+    "description": "You can use Code Signing for Amazon FreeRTOS (AWS Signer) to sign code that you created for any of the IoT devices that ...",
+    "security": {
+      "amazonaws_signer": {
+        "integration": "amazonaws_signer",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_signer.jpeg"
+    },
+    "actionCount": 9,
+    "directory": "generated",
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "2.0.0"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -24647,6 +24719,22 @@
     ],
     "latestVersion": "4.0.0"
   },
+  "moderatecontent": {
+    "id": "moderatecontent",
+    "title": "Image Moderation",
+    "description": "Our FREE API blocks images with nudity. Build from the ground up, accurate models, best in class support, great price.",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/moderatecontent.png"
+    },
+    "actionCount": 1,
+    "directory": "generated",
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "moonmoonmoonmoon": {
     "id": "moonmoonmoonmoon",
     "title": "Moon by Ai Weiwei & Olafur Eliasson",
@@ -25512,6 +25600,28 @@
     ],
     "latestVersion": "5.0.0"
   },
+  "openapi_space": {
+    "id": "openapi_space",
+    "title": "OpenAPI space",
+    "description": "This is the API for OpenAPI space.",
+    "security": {
+      "openapi_space": {
+        "integration": "openapi_space",
+        "fields": {
+          "AuthToken": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/openapi_space.png"
+    },
+    "actionCount": 15,
+    "directory": "generated",
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "openbanking_org_uk": {
     "id": "openbanking_org_uk",
     "title": "openbanking.org Open Data",
@@ -26337,6 +26447,28 @@
     "tags": [],
     "latestVersion": "4.0.0"
   },
+  "redirection": {
+    "id": "redirection",
+    "title": "redirection.io",
+    "description": "API documentation for redirection.io",
+    "security": {
+      "redirection": {
+        "integration": "redirection",
+        "fields": {
+          "apiKey": "Value for the Authorization header"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/redirection.jpeg"
+    },
+    "actionCount": 73,
+    "directory": "generated",
+    "tags": [
+      "hosting"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "redmine": {
     "id": "redmine",
     "title": "Redmine",
@@ -26923,7 +27055,7 @@
       "collaboration",
       "messaging"
     ],
-    "latestVersion": "5.0.0"
+    "latestVersion": "5.0.1"
   },
   "slicebox_local": {
     "id": "slicebox_local",
@@ -27639,6 +27771,43 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "trashnothing": {
+    "id": "trashnothing",
+    "title": "trash nothing!",
+    "description": "This is the REST API for trashnothing.com.",
+    "security": {
+      "trashnothing": {
+        "integration": "trashnothing",
+        "fields": {
+          "api_key": "Provides access to specific public API endpoints which don't require user authorization. <br /><br /> The API currently allows api key access to list, search and retrieve posts (for public posts and posts on open archive groups) and to list, search and retrieve groups. <br /><br /> NOTE: Some API endpoints behave differently when requests are made using api keys instead of oauth (because api key requests have no user associated with them).  Check the documentation for each endpoint for a description of the differences.\n",
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://trashnothing.com/oauth2/authorize",
+          "description": "This OAuth2 flow is designed for server side apps and is not enabled by default for new apps. If you would like to use this flow for your app, contact us through the [trash nothing! Developer page](https://trashnothing.com/developer).\n",
+          "flow": "accessCode",
+          "scopes": {
+            "basic": "Provides full access to a user's account"
+          },
+          "tokenUrl": "https://trashnothing.com/oauth2/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/trashnothing.png"
+    },
+    "actionCount": 50,
+    "directory": "generated",
+    "tags": [
+      "social"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "trello": {
     "id": "trello",
     "title": "Trello",
@@ -27660,7 +27829,7 @@
     "tags": [
       "collaboration"
     ],
-    "latestVersion": "5.0.0"
+    "latestVersion": "5.0.1"
   },
   "tumblr": {
     "id": "tumblr",

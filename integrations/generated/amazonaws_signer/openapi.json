@@ -1,0 +1,1547 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "signer.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "You can use Code Signing for Amazon FreeRTOS (AWS Signer) to sign code that you created for any of the IoT devices that Amazon Web Services supports. AWS Signer is integrated with Amazon FreeRTOS, AWS Certificate Manager, and AWS CloudTrail. Amazon FreeRTOS customers can use AWS Signer to sign code images before making them available for microcontrollers. You can use ACM to import third-party certificates to be used by AWS Signer. For general information about using AWS Signer, see the <a href=\"http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html\">Code Signing for Amazon FreeRTOS Developer Guide</a>.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Signer",
+    "version": "2017-08-25",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/signer-2017-08-25.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "signer",
+    "x-datafire": {
+      "name": "amazonaws_signer",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/signer/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/signing-jobs": {
+      "get": {
+        "description": "Lists all your signing jobs. You can use the <code>maxResults</code> parameter to limit the number of signing jobs that are returned in the response. If additional jobs remain to be listed, AWS Signer returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that AWS Signer returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned. ",
+        "operationId": "ListSigningJobs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListSigningJobsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSigningJobsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Initiates a signing job to be performed on the code provided. Signing jobs are viewable by the <code>ListSigningJobs</code> operation for two years after they are performed. Note the following requirements: </p> <ul> <li> <p> You must create an Amazon S3 source bucket. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html\">Create a Bucket</a> in the <i>Amazon S3 Getting Started Guide</i>. </p> </li> <li> <p>Your S3 source bucket must be version enabled.</p> </li> <li> <p>You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to write your signed code.</p> </li> <li> <p>You specify the name of the source and destination buckets when calling the <code>StartSigningJob</code> operation.</p> </li> <li> <p>You must also specify a request token that identifies your request to AWS Signer. </p> </li> </ul> <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call <code>StartSigningJob</code>.</p> <p>For a Java example that shows how to use this action, see <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/\">http://docs.aws.amazon.com/acm/latest/userguide/</a> </p>",
+        "operationId": "StartSigningJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartSigningJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartSigningJobResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/signing-jobs/{jobId}": {
+      "get": {
+        "description": "Returns information about a specific code signing job. You specify the job by using the <code>jobId</code> value that is returned by the <a>StartSigningJob</a> operation. ",
+        "operationId": "DescribeSigningJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeSigningJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSigningJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "x-waiters": [
+          {
+            "acceptors": [
+              {
+                "argument": "status",
+                "expected": "Succeeded",
+                "matcher": "path",
+                "state": "success"
+              },
+              {
+                "argument": "status",
+                "expected": "Failed",
+                "matcher": "path",
+                "state": "failure"
+              },
+              {
+                "expected": "ResourceNotFoundException",
+                "matcher": "error",
+                "state": "failure"
+              }
+            ],
+            "delay": 20,
+            "maxAttempts": 25,
+            "operation": "DescribeSigningJob"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/signing-platforms": {
+      "get": {
+        "description": "Lists all signing platforms available in AWS Signer that match the request parameters. If additional jobs remain to be listed, AWS Signer returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that AWS Signer returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned.",
+        "operationId": "ListSigningPlatforms",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListSigningPlatformsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSigningPlatformsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/signing-platforms/{platformId}": {
+      "get": {
+        "description": "Returns information on a specific signing platform.",
+        "operationId": "GetSigningPlatform",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSigningPlatformRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "platformId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "platformId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSigningPlatformResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/signing-profiles": {
+      "get": {
+        "description": "Lists all available signing profiles in your AWS account. Returns only profiles with an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is set to <code>true</code>. If additional jobs remain to be listed, AWS Signer returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that AWS Signer returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned.",
+        "operationId": "ListSigningProfiles",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListSigningProfilesRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSigningProfilesResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/signing-profiles/{profileName}": {
+      "delete": {
+        "description": "Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>. A canceled profile is still viewable with the <code>ListSigningProfiles</code> operation, but it cannot perform new signing jobs, and is deleted two years after cancelation.",
+        "operationId": "CancelSigningProfile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancelSigningProfileRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns information on a specific signing profile.",
+        "operationId": "GetSigningProfile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSigningProfileRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSigningProfileResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Creates a signing profile. A signing profile is an AWS Signer template that can be used to carry out a pre-defined signing job. For more information, see <a href=\"http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html\">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a> ",
+        "operationId": "PutSigningProfile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutSigningProfileRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutSigningProfileResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "BucketName": {
+      "type": "string"
+    },
+    "CancelSigningProfileRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "Category": {
+      "enum": [
+        "AWSIoT"
+      ],
+      "type": "string"
+    },
+    "CertificateArn": {
+      "type": "string"
+    },
+    "ClientRequestToken": {
+      "type": "string"
+    },
+    "CompletedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "CreatedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DescribeSigningJobRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeSigningJobResponse": {
+      "properties": {
+        "completedAt": {
+          "$ref": "#/definitions/CompletedAt",
+          "description": "Date and time that the signing job was completed."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "Date and time that the signing job was created."
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The ID of the signing job on output."
+        },
+        "overrides": {
+          "$ref": "#/definitions/SigningPlatformOverrides",
+          "description": "A list of any overrides that were applied to the signing operation."
+        },
+        "platformId": {
+          "$ref": "#/definitions/PlatformId",
+          "description": "The microcontroller platform to which your signed code image will be distributed."
+        },
+        "profileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The name of the profile that initiated the signing operation."
+        },
+        "requestedBy": {
+          "$ref": "#/definitions/RequestedBy",
+          "description": "The IAM principal that requested the signing job."
+        },
+        "signedObject": {
+          "$ref": "#/definitions/SignedObject",
+          "description": "Name of the S3 bucket where the signed code image is saved by AWS Signer."
+        },
+        "signingMaterial": {
+          "$ref": "#/definitions/SigningMaterial",
+          "description": "Amazon Resource Name (ARN) of your code signing certificate."
+        },
+        "signingParameters": {
+          "$ref": "#/definitions/SigningParameters",
+          "description": "Map of user-assigned key-value pairs used during signing. These values contain any information that you specified for use in your signing job. "
+        },
+        "source": {
+          "$ref": "#/definitions/Source",
+          "description": "The object that contains the name of your S3 bucket or your raw code."
+        },
+        "status": {
+          "$ref": "#/definitions/SigningStatus",
+          "description": "Status of the signing job."
+        },
+        "statusReason": {
+          "$ref": "#/definitions/StatusReason",
+          "description": "String value that contains the status reason."
+        }
+      },
+      "type": "object"
+    },
+    "Destination": {
+      "description": "Points to an <code>S3Destination</code> object that contains information about your S3 bucket.",
+      "properties": {
+        "s3": {
+          "$ref": "#/definitions/S3Destination",
+          "description": "The <code>S3Destination</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "DisplayName": {
+      "type": "string"
+    },
+    "EncryptionAlgorithm": {
+      "enum": [
+        "RSA",
+        "ECDSA"
+      ],
+      "type": "string"
+    },
+    "EncryptionAlgorithmOptions": {
+      "description": "The encryption algorithm options that are available to an AWS Signer job.",
+      "properties": {
+        "allowedValues": {
+          "$ref": "#/definitions/EncryptionAlgorithms",
+          "description": "The set of accepted encryption algorithms that are allowed in an AWS Signer job."
+        },
+        "defaultValue": {
+          "$ref": "#/definitions/EncryptionAlgorithm",
+          "description": "The default encryption algorithm that is used by an AWS Signer job."
+        }
+      },
+      "required": [
+        "allowedValues",
+        "defaultValue"
+      ],
+      "type": "object"
+    },
+    "EncryptionAlgorithms": {
+      "items": {
+        "$ref": "#/definitions/EncryptionAlgorithm"
+      },
+      "type": "array"
+    },
+    "GetSigningPlatformRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSigningPlatformResponse": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/Category",
+          "description": "The category type of the target signing platform."
+        },
+        "displayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The display name of the target signing platform."
+        },
+        "maxSizeInMB": {
+          "$ref": "#/definitions/MaxSizeInMB",
+          "description": "The maximum size (in MB) of the payload that can be signed by the target platform."
+        },
+        "partner": {
+          "$ref": "#/definitions/String",
+          "description": "A list of partner entities that use the target signing platform."
+        },
+        "platformId": {
+          "$ref": "#/definitions/PlatformId",
+          "description": "The ID of the target signing platform."
+        },
+        "signingConfiguration": {
+          "$ref": "#/definitions/SigningConfiguration",
+          "description": "A list of configurations applied to the target platform at signing."
+        },
+        "signingImageFormat": {
+          "$ref": "#/definitions/SigningImageFormat",
+          "description": "The format of the target platform's signing image."
+        },
+        "target": {
+          "$ref": "#/definitions/String",
+          "description": "The validation template that is used by the target signing platform."
+        }
+      },
+      "type": "object"
+    },
+    "GetSigningProfileRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSigningProfileResponse": {
+      "properties": {
+        "overrides": {
+          "$ref": "#/definitions/SigningPlatformOverrides",
+          "description": "A list of overrides applied by the target signing profile for signing operations."
+        },
+        "platformId": {
+          "$ref": "#/definitions/PlatformId",
+          "description": "The ID of the platform that is used by the target signing profile."
+        },
+        "profileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The name of the target signing profile."
+        },
+        "signingMaterial": {
+          "$ref": "#/definitions/SigningMaterial",
+          "description": "The ARN of the certificate that the target profile uses for signing operations."
+        },
+        "signingParameters": {
+          "$ref": "#/definitions/SigningParameters",
+          "description": "A map of key-value pairs for signing operations that is attached to the target signing profile."
+        },
+        "status": {
+          "$ref": "#/definitions/SigningProfileStatus",
+          "description": "The status of the target signing profile."
+        }
+      },
+      "type": "object"
+    },
+    "HashAlgorithm": {
+      "enum": [
+        "SHA1",
+        "SHA256"
+      ],
+      "type": "string"
+    },
+    "HashAlgorithmOptions": {
+      "description": "The hash algorithms that are available to an AWS Signer job.",
+      "properties": {
+        "allowedValues": {
+          "$ref": "#/definitions/HashAlgorithms",
+          "description": "The set of accepted hash algorithms allowed in an AWS Signer job."
+        },
+        "defaultValue": {
+          "$ref": "#/definitions/HashAlgorithm",
+          "description": "The default hash algorithm that is used in an AWS Signer job."
+        }
+      },
+      "required": [
+        "allowedValues",
+        "defaultValue"
+      ],
+      "type": "object"
+    },
+    "HashAlgorithms": {
+      "items": {
+        "$ref": "#/definitions/HashAlgorithm"
+      },
+      "type": "array"
+    },
+    "ImageFormat": {
+      "enum": [
+        "JSON"
+      ],
+      "type": "string"
+    },
+    "ImageFormats": {
+      "items": {
+        "$ref": "#/definitions/ImageFormat"
+      },
+      "type": "array"
+    },
+    "InternalServiceErrorException": {},
+    "JobId": {
+      "type": "string"
+    },
+    "Key": {
+      "type": "string"
+    },
+    "ListSigningJobsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListSigningJobsResponse": {
+      "properties": {
+        "jobs": {
+          "$ref": "#/definitions/SigningJobs",
+          "description": "A list of your signing jobs."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "String for specifying the next set of paginated results."
+        }
+      },
+      "type": "object"
+    },
+    "ListSigningPlatformsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListSigningPlatformsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Value for specifying the next set of paginated results to return."
+        },
+        "platforms": {
+          "$ref": "#/definitions/SigningPlatforms",
+          "description": "A list of all platforms that match the request parameters."
+        }
+      },
+      "type": "object"
+    },
+    "ListSigningProfilesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListSigningProfilesResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Value for specifying the next set of paginated results to return."
+        },
+        "profiles": {
+          "$ref": "#/definitions/SigningProfiles",
+          "description": "A list of profiles that are available in the AWS account. This includes profiles with the status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set to <code>true</code>."
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 25,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MaxSizeInMB": {
+      "type": "integer"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "PlatformId": {
+      "type": "string"
+    },
+    "Prefix": {
+      "type": "string"
+    },
+    "ProfileName": {
+      "maxLength": 20,
+      "minLength": 2,
+      "pattern": "^[a-zA-Z0-9_]{2,}",
+      "type": "string"
+    },
+    "PutSigningProfileRequest": {
+      "properties": {
+        "overrides": {
+          "$ref": "#/definitions/SigningPlatformOverrides",
+          "description": "A subfield of <code>platform</code>. This specifies any different configuration options that you want to apply to the chosen platform (such as a different <code>hash-algorithm</code> or <code>signing-algorithm</code>)."
+        },
+        "platformId": {
+          "$ref": "#/definitions/PlatformId",
+          "description": "The ID of the signing profile to be created."
+        },
+        "signingMaterial": {
+          "$ref": "#/definitions/SigningMaterial",
+          "description": "The AWS Certificate Manager certificate that will be used to sign code with the new signing profile."
+        },
+        "signingParameters": {
+          "$ref": "#/definitions/SigningParameters",
+          "description": "Map of key-value pairs for signing. These can include any information that you want to use during signing."
+        }
+      },
+      "required": [
+        "signingMaterial",
+        "platformId"
+      ],
+      "type": "object"
+    },
+    "PutSigningProfileResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/string",
+          "description": "The Amazon Resource Name (ARN) of the signing profile created."
+        }
+      },
+      "type": "object"
+    },
+    "RequestedBy": {
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "S3Destination": {
+      "description": "The name and prefix of the S3 bucket where AWS Signer saves your signed objects.",
+      "properties": {
+        "bucketName": {
+          "$ref": "#/definitions/BucketName",
+          "description": "Name of the S3 bucket."
+        },
+        "prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "An Amazon S3 prefix that you can use to limit responses to those that begin with the specified prefix."
+        }
+      },
+      "type": "object"
+    },
+    "S3SignedObject": {
+      "description": "The S3 bucket name and key where AWS Signer saved your signed code image.",
+      "properties": {
+        "bucketName": {
+          "$ref": "#/definitions/BucketName",
+          "description": "Name of the S3 bucket."
+        },
+        "key": {
+          "$ref": "#/definitions/key",
+          "description": "Key name that uniquely identifies a signed code image in your bucket."
+        }
+      },
+      "type": "object"
+    },
+    "S3Source": {
+      "description": "Information about the S3 bucket where you saved your unsigned code.",
+      "properties": {
+        "bucketName": {
+          "$ref": "#/definitions/BucketName",
+          "description": "Name of the S3 bucket."
+        },
+        "key": {
+          "$ref": "#/definitions/Key",
+          "description": "Key name of the bucket object that contains your unsigned code."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "Version of your source image in your version enabled S3 bucket."
+        }
+      },
+      "required": [
+        "bucketName",
+        "key",
+        "version"
+      ],
+      "type": "object"
+    },
+    "SignedObject": {
+      "description": "Points to an <code>S3SignedObject</code> object that contains information about your signed code image.",
+      "properties": {
+        "s3": {
+          "$ref": "#/definitions/S3SignedObject",
+          "description": "The <code>S3SignedObject</code>."
+        }
+      },
+      "type": "object"
+    },
+    "SigningConfiguration": {
+      "description": "The configuration of an AWS Signer operation.",
+      "properties": {
+        "encryptionAlgorithmOptions": {
+          "$ref": "#/definitions/EncryptionAlgorithmOptions",
+          "description": "The encryption algorithm options that are available for an AWS Signer job."
+        },
+        "hashAlgorithmOptions": {
+          "$ref": "#/definitions/HashAlgorithmOptions",
+          "description": "The hash algorithm options that are available for an AWS Signer job."
+        }
+      },
+      "required": [
+        "encryptionAlgorithmOptions",
+        "hashAlgorithmOptions"
+      ],
+      "type": "object"
+    },
+    "SigningConfigurationOverrides": {
+      "description": "A signing configuration that overrides the default encryption or hash algorithm of a signing job.",
+      "properties": {
+        "encryptionAlgorithm": {
+          "$ref": "#/definitions/EncryptionAlgorithm",
+          "description": "A specified override of the default encryption algorithm that is used in an AWS Signer job."
+        },
+        "hashAlgorithm": {
+          "$ref": "#/definitions/HashAlgorithm",
+          "description": "A specified override of the default hash algorithm that is used in an AWS Signer job."
+        }
+      },
+      "type": "object"
+    },
+    "SigningImageFormat": {
+      "description": "The image format of an AWS Signer platform or profile.",
+      "properties": {
+        "defaultFormat": {
+          "$ref": "#/definitions/ImageFormat",
+          "description": "The default format of an AWS Signer signing image."
+        },
+        "supportedFormats": {
+          "$ref": "#/definitions/ImageFormats",
+          "description": "The supported formats of an AWS Signer signing image."
+        }
+      },
+      "required": [
+        "supportedFormats",
+        "defaultFormat"
+      ],
+      "type": "object"
+    },
+    "SigningJob": {
+      "description": "Contains information about a signing job.",
+      "properties": {
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The date and time that the signing job was created."
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The ID of the signing job."
+        },
+        "signedObject": {
+          "$ref": "#/definitions/SignedObject",
+          "description": "A <code>SignedObject</code> structure that contains information about a signing job's signed code image."
+        },
+        "signingMaterial": {
+          "$ref": "#/definitions/SigningMaterial",
+          "description": "A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of the certificate used for the signing job."
+        },
+        "source": {
+          "$ref": "#/definitions/Source",
+          "description": "A <code>Source</code> that contains information about a signing job's code image source."
+        },
+        "status": {
+          "$ref": "#/definitions/SigningStatus",
+          "description": "The status of the signing job."
+        }
+      },
+      "type": "object"
+    },
+    "SigningJobs": {
+      "items": {
+        "$ref": "#/definitions/SigningJob"
+      },
+      "type": "array"
+    },
+    "SigningMaterial": {
+      "description": "The ACM certificate that is used to sign your code.",
+      "properties": {
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code."
+        }
+      },
+      "required": [
+        "certificateArn"
+      ],
+      "type": "object"
+    },
+    "SigningParameterKey": {
+      "type": "string"
+    },
+    "SigningParameterValue": {
+      "type": "string"
+    },
+    "SigningParameters": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/SigningParameterKey"
+          },
+          "value": {
+            "$ref": "#/definitions/SigningParameterValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "SigningPlatform": {
+      "description": "Contains information about the signing configurations and parameters that is used to perform an AWS Signer job.",
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/Category",
+          "description": "The category of an AWS Signer platform."
+        },
+        "displayName": {
+          "$ref": "#/definitions/String",
+          "description": "The display name of an AWS Signer platform."
+        },
+        "maxSizeInMB": {
+          "$ref": "#/definitions/MaxSizeInMB",
+          "description": "The maximum size (in MB) of code that can be signed by a AWS Signer platform."
+        },
+        "partner": {
+          "$ref": "#/definitions/String",
+          "description": "Any partner entities linked to an AWS Signer platform."
+        },
+        "platformId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of an AWS Signer platform."
+        },
+        "signingConfiguration": {
+          "$ref": "#/definitions/SigningConfiguration",
+          "description": "The configuration of an AWS Signer platform. This includes the designated hash algorithm and encryption algorithm of a signing platform."
+        },
+        "signingImageFormat": {
+          "$ref": "#/definitions/SigningImageFormat",
+          "description": "The signing image format that is used by an AWS Signer platform."
+        },
+        "target": {
+          "$ref": "#/definitions/String",
+          "description": "The types of targets that can be signed by an AWS Signer platform."
+        }
+      },
+      "type": "object"
+    },
+    "SigningPlatformOverrides": {
+      "description": "Any overrides that are applied to the signing configuration of an AWS Signer platform.",
+      "properties": {
+        "signingConfiguration": {
+          "$ref": "#/definitions/SigningConfigurationOverrides"
+        }
+      },
+      "type": "object"
+    },
+    "SigningPlatforms": {
+      "items": {
+        "$ref": "#/definitions/SigningPlatform"
+      },
+      "type": "array"
+    },
+    "SigningProfile": {
+      "description": "Contains information about the ACM certificates and AWS Signer configuration parameters that can be used by a given AWS Signer user.",
+      "properties": {
+        "platformId": {
+          "$ref": "#/definitions/PlatformId",
+          "description": "The ID of a platform that is available for use by a signing profile."
+        },
+        "profileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The name of the AWS Signer profile."
+        },
+        "signingMaterial": {
+          "$ref": "#/definitions/SigningMaterial",
+          "description": "The ACM certificate that is available for use by a signing profile."
+        },
+        "signingParameters": {
+          "$ref": "#/definitions/SigningParameters",
+          "description": "The parameters that are available for use by an AWS Signer user."
+        },
+        "status": {
+          "$ref": "#/definitions/SigningProfileStatus",
+          "description": "The status of an AWS Signer profile."
+        }
+      },
+      "type": "object"
+    },
+    "SigningProfileStatus": {
+      "enum": [
+        "Active",
+        "Canceled"
+      ],
+      "type": "string"
+    },
+    "SigningProfiles": {
+      "items": {
+        "$ref": "#/definitions/SigningProfile"
+      },
+      "type": "array"
+    },
+    "SigningStatus": {
+      "enum": [
+        "InProgress",
+        "Failed",
+        "Succeeded"
+      ],
+      "type": "string"
+    },
+    "Source": {
+      "description": "An <code>S3Source</code> object that contains information about the S3 bucket where you saved your unsigned code.",
+      "properties": {
+        "s3": {
+          "$ref": "#/definitions/S3Source",
+          "description": "The <code>S3Source</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "StartSigningJobRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "String that identifies the signing request. All calls after the first that use this token return the same response as the first call."
+        },
+        "destination": {
+          "$ref": "#/definitions/Destination",
+          "description": "The S3 bucket in which to save your signed object. The destination contains the name of your bucket and an optional prefix."
+        },
+        "profileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The name of the signing profile."
+        },
+        "source": {
+          "$ref": "#/definitions/Source",
+          "description": "The S3 bucket that contains the object to sign or a BLOB that contains your raw code."
+        }
+      },
+      "required": [
+        "source",
+        "destination",
+        "clientRequestToken"
+      ],
+      "type": "object"
+    },
+    "StartSigningJobResponse": {
+      "properties": {
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The ID of your signing job."
+        }
+      },
+      "type": "object"
+    },
+    "StatusReason": {
+      "type": "string"
+    },
+    "String": {
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "ValidationException": {},
+    "Version": {
+      "type": "string"
+    },
+    "bool": {
+      "type": "boolean"
+    },
+    "key": {
+      "type": "string"
+    },
+    "string": {
+      "type": "string"
+    }
+  }
+}

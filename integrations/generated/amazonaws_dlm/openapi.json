@@ -1,0 +1,838 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "dlm.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html\">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Data Lifecycle Manager",
+    "version": "2018-01-12",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/dlm-2018-01-12.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "dlm",
+    "x-datafire": {
+      "name": "amazonaws_dlm",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/dlm/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/policies": {
+      "get": {
+        "description": "<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>",
+        "operationId": "GetLifecyclePolicies",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePoliciesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePoliciesResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.",
+        "operationId": "CreateLifecyclePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateLifecyclePolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateLifecyclePolicyResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/policies/{policyId}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "patch": {
+        "description": "Updates the specified lifecycle policy.",
+        "operationId": "UpdateLifecyclePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateLifecyclePolicyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "policyId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateLifecyclePolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/policies/{policyId}/": {
+      "delete": {
+        "description": "Deletes the specified lifecycle policy and halts the automated operations that the policy specified.",
+        "operationId": "DeleteLifecyclePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLifecyclePolicyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "policyId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLifecyclePolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Gets detailed information about the specified lifecycle policy.",
+        "operationId": "GetLifecyclePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePolicyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "policyId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "Count": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "CreateLifecyclePolicyRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/PolicyDescription",
+          "description": "A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported."
+        },
+        "ExecutionRoleArn": {
+          "$ref": "#/definitions/ExecutionRoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+        },
+        "PolicyDetails": {
+          "$ref": "#/definitions/PolicyDetails",
+          "description": "<p>The configuration details of the lifecycle policy.</p> <p>Target tags cannot be re-used across lifecycle policies.</p>"
+        },
+        "State": {
+          "$ref": "#/definitions/SettablePolicyStateValues",
+          "description": "The desired activation state of the lifecycle policy after creation."
+        }
+      },
+      "required": [
+        "ExecutionRoleArn",
+        "Description",
+        "State",
+        "PolicyDetails"
+      ],
+      "type": "object"
+    },
+    "CreateLifecyclePolicyResponse": {
+      "properties": {
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The identifier of the lifecycle policy."
+        }
+      },
+      "type": "object"
+    },
+    "CreateRule": {
+      "description": "Specifies when to create snapshots of EBS volumes.",
+      "properties": {
+        "Interval": {
+          "$ref": "#/definitions/Interval",
+          "description": "The interval. The supported values are 12 and 24."
+        },
+        "IntervalUnit": {
+          "$ref": "#/definitions/IntervalUnitValues",
+          "description": "The interval unit."
+        },
+        "Times": {
+          "$ref": "#/definitions/TimesList",
+          "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>"
+        }
+      },
+      "required": [
+        "Interval",
+        "IntervalUnit"
+      ],
+      "type": "object"
+    },
+    "DeleteLifecyclePolicyRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteLifecyclePolicyResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ExecutionRoleArn": {
+      "type": "string"
+    },
+    "GetLifecyclePoliciesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetLifecyclePoliciesResponse": {
+      "properties": {
+        "Policies": {
+          "$ref": "#/definitions/LifecyclePolicySummaryList",
+          "description": "Summary information about the lifecycle policies."
+        }
+      },
+      "type": "object"
+    },
+    "GetLifecyclePolicyRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetLifecyclePolicyResponse": {
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/LifecyclePolicy",
+          "description": "Detailed information about the lifecycle policy."
+        }
+      },
+      "type": "object"
+    },
+    "GettablePolicyStateValues": {
+      "enum": [
+        "ENABLED",
+        "DISABLED",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "Interval": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "IntervalUnitValues": {
+      "enum": [
+        "HOURS"
+      ],
+      "type": "string"
+    },
+    "InvalidRequestException": {},
+    "LifecyclePolicy": {
+      "description": "Detailed information about a lifecycle policy.",
+      "properties": {
+        "DateCreated": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The local date and time when the lifecycle policy was created."
+        },
+        "DateModified": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The local date and time when the lifecycle policy was last modified."
+        },
+        "Description": {
+          "$ref": "#/definitions/PolicyDescription",
+          "description": "The description of the lifecycle policy."
+        },
+        "ExecutionRoleArn": {
+          "$ref": "#/definitions/ExecutionRoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+        },
+        "PolicyDetails": {
+          "$ref": "#/definitions/PolicyDetails",
+          "description": "The configuration of the lifecycle policy"
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The identifier of the lifecycle policy."
+        },
+        "State": {
+          "$ref": "#/definitions/GettablePolicyStateValues",
+          "description": "The activation state of the lifecycle policy."
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicySummary": {
+      "description": "Summary information about a lifecycle policy.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/PolicyDescription",
+          "description": "The description of the lifecycle policy."
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/PolicyId",
+          "description": "The identifier of the lifecycle policy."
+        },
+        "State": {
+          "$ref": "#/definitions/GettablePolicyStateValues",
+          "description": "The activation state of the lifecycle policy."
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicySummaryList": {
+      "items": {
+        "$ref": "#/definitions/LifecyclePolicySummary"
+      },
+      "type": "array"
+    },
+    "LimitExceededException": {},
+    "PolicyDescription": {
+      "maxLength": 500,
+      "minLength": 0,
+      "type": "string"
+    },
+    "PolicyDetails": {
+      "description": "Specifies the configuration of a lifecycle policy.",
+      "properties": {
+        "ResourceTypes": {
+          "$ref": "#/definitions/ResourceTypeValuesList",
+          "description": "The resource type."
+        },
+        "Schedules": {
+          "$ref": "#/definitions/ScheduleList",
+          "description": "The schedule of policy-defined actions."
+        },
+        "TargetTags": {
+          "$ref": "#/definitions/TargetTagList",
+          "description": "The single tag that identifies targeted resources for this policy."
+        }
+      },
+      "type": "object"
+    },
+    "PolicyId": {
+      "type": "string"
+    },
+    "PolicyIdList": {
+      "items": {
+        "$ref": "#/definitions/PolicyId"
+      },
+      "type": "array"
+    },
+    "ResourceNotFoundException": {},
+    "ResourceTypeValues": {
+      "enum": [
+        "VOLUME"
+      ],
+      "type": "string"
+    },
+    "ResourceTypeValuesList": {
+      "items": {
+        "$ref": "#/definitions/ResourceTypeValues"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "RetainRule": {
+      "description": "Specifies the number of snapshots to keep for each EBS volume.",
+      "properties": {
+        "Count": {
+          "$ref": "#/definitions/Count",
+          "description": "The number of snapshots to keep for each volume, up to a maximum of 1000."
+        }
+      },
+      "required": [
+        "Count"
+      ],
+      "type": "object"
+    },
+    "Schedule": {
+      "description": "Specifies a schedule.",
+      "properties": {
+        "CreateRule": {
+          "$ref": "#/definitions/CreateRule",
+          "description": "The create rule."
+        },
+        "Name": {
+          "$ref": "#/definitions/ScheduleName",
+          "description": "The name of the schedule."
+        },
+        "RetainRule": {
+          "$ref": "#/definitions/RetainRule",
+          "description": "The retain rule."
+        },
+        "TagsToAdd": {
+          "$ref": "#/definitions/TagsToAddList",
+          "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags."
+        }
+      },
+      "type": "object"
+    },
+    "ScheduleList": {
+      "items": {
+        "$ref": "#/definitions/Schedule"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ScheduleName": {
+      "maxLength": 500,
+      "minLength": 0,
+      "type": "string"
+    },
+    "SettablePolicyStateValues": {
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string"
+    },
+    "String": {
+      "type": "string"
+    },
+    "Tag": {
+      "description": "Specifies a tag for a resource.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/String",
+          "description": "The tag key."
+        },
+        "Value": {
+          "$ref": "#/definitions/String",
+          "description": "The tag value."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "TagFilter": {
+      "type": "string"
+    },
+    "TagsToAddFilterList": {
+      "items": {
+        "$ref": "#/definitions/TagFilter"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagsToAddList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TargetTagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TargetTagsFilterList": {
+      "items": {
+        "$ref": "#/definitions/TagFilter"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "Time": {
+      "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+      "type": "string"
+    },
+    "TimesList": {
+      "items": {
+        "$ref": "#/definitions/Time"
+      },
+      "maxItems": 1,
+      "type": "array"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UpdateLifecyclePolicyRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/PolicyDescription",
+          "description": "A description of the lifecycle policy."
+        },
+        "ExecutionRoleArn": {
+          "$ref": "#/definitions/ExecutionRoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+        },
+        "PolicyDetails": {
+          "$ref": "#/definitions/PolicyDetails",
+          "description": "<p>The configuration of the lifecycle policy.</p> <p>Target tags cannot be re-used across policies.</p>"
+        },
+        "State": {
+          "$ref": "#/definitions/SettablePolicyStateValues",
+          "description": "The desired activation state of the lifecycle policy after creation."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateLifecyclePolicyResponse": {
+      "properties": {},
+      "type": "object"
+    }
+  }
+}
