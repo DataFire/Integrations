@@ -63,13 +63,17 @@ describe("SMTP", () => {
       expect(lastMessage.session.envelope.mailFrom).to.deep.equal({address: 'me@example.com', args: false});
       expect(lastMessage.session.envelope.rcptTo).to.deep.equal([{address: 'you@example.com', args: false}]);
       let lines = lastMessage.message.split('\r\n');
-	  expect(lines[0]).to.equal('Content-Type: text/plain');
-	  expect(lines[1]).to.equal('From: me@example.com');
-      expect(lines[2]).to.equal('To: you@example.com');
-      expect(lines[3]).to.equal('Subject: hi there');
-	  expect(lines[8]).to.equal('');
-      expect(lines[9]).to.equal('hello!');
-      expect(lines[10]).to.equal('');
+      let from = lines.filter(l => l.startsWith('From:')).pop();
+      let to = lines.filter(l => l.startsWith('To:')).pop();
+      let subj = lines.filter(l => l.startsWith('Subject:')).pop();
+      let firstBlank = lines.indexOf('');
+      let lastBlank = lines.lastIndexOf('');
+      let message = lines.slice(firstBlank + 1, lastBlank).join('\n');
+
+	  expect(from).to.equal('From: me@example.com');
+      expect(to).to.equal('To: you@example.com');
+      expect(subj).to.equal('Subject: hi there');
+      expect(message).to.equal('hello!');
     });
   });
 
