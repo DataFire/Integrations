@@ -630,7 +630,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudfront.svg"
     },
-    "actionCount": 46,
+    "actionCount": 45,
     "directory": "generated",
     "tags": [
       "cloud",
@@ -1284,7 +1284,9 @@
       "amazonaws_dlm": {
         "integration": "amazonaws_dlm",
         "fields": {
-          "hmac": "Amazon Signature authorization v4"
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
         }
       }
     },
@@ -1298,7 +1300,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "5.0.0"
   },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
@@ -2373,7 +2375,9 @@
       "amazonaws_macie": {
         "integration": "amazonaws_macie",
         "fields": {
-          "hmac": "Amazon Signature authorization v4"
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
         }
       }
     },
@@ -2387,7 +2391,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "5.0.0"
   },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
@@ -3169,7 +3173,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_s3.svg"
     },
-    "actionCount": 77,
+    "actionCount": 78,
     "directory": "generated",
     "tags": [
       "cloud",
@@ -3365,7 +3369,9 @@
       "amazonaws_signer": {
         "integration": "amazonaws_signer",
         "fields": {
-          "hmac": "Amazon Signature authorization v4"
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
         }
       }
     },
@@ -3379,7 +3385,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "5.0.0"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -29245,7 +29251,7 @@
     },
     "actionCount": 1,
     "directory": "manual",
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "swaggerui": {
     "id": "swaggerui",

@@ -3,8 +3,11 @@
 const datafire = require('datafire');
 const smtp = require('../integrations/manual/smtp').actions;
 const expect = require('chai').expect;
+const fs = require('fs');
 const SMTPServer = require('smtp-server').SMTPServer;
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+const TEMP_DATABASE = './fennel.sqlite';
 
 const CREDS = {
   host: 'localhost',
@@ -34,7 +37,12 @@ const server = new SMTPServer({
 
 describe("SMTP", () => {
   before(done => server.listen(CREDS.port, done));
-  after(done => server.close(done));
+  after(done => {
+    if (fs.existsSync(TEMP_DATABASE)) {
+      fs.unlinkSync(TEMP_DATABASE);
+    }
+    return server.close(done)
+  });
 
   it('should send a message', () => {
     let context = new datafire.Context({
@@ -43,11 +51,10 @@ describe("SMTP", () => {
       }
     });
     return smtp.send({
-      envelope: {
-        from: 'me@example.com',
-        to: ['you@example.com'],
-      },
-      message: 'hello!',
+      from: 'me@example.com',
+      to: ['you@example.com'],
+      subject: 'hi there',
+      text: 'hello!',
     }, context)
     .then(data => {
       expect(data.accepted).to.deep.equal(['you@example.com']);
@@ -55,7 +62,42 @@ describe("SMTP", () => {
       expect(lastMessage).to.not.equal(null);
       expect(lastMessage.session.envelope.mailFrom).to.deep.equal({address: 'me@example.com', args: false});
       expect(lastMessage.session.envelope.rcptTo).to.deep.equal([{address: 'you@example.com', args: false}]);
-      expect(lastMessage.message).to.equal('hello!\r\n');
+      let lines = lastMessage.message.split('\r\n');
+	  expect(lines[0]).to.equal('Content-Type: text/plain');
+	  expect(lines[1]).to.equal('From: me@example.com');
+      expect(lines[2]).to.equal('To: you@example.com');
+      expect(lines[3]).to.equal('Subject: hi there');
+	  expect(lines[8]).to.equal('');
+      expect(lines[9]).to.equal('hello!');
+      expect(lines[10]).to.equal('');
     });
+  });
+
+  it('should send attachments', () => {
+    let context = new datafire.Context({
+      accounts: {
+        smtp: CREDS,
+      }
+    });
+    return smtp.send({
+      from: 'me@example.com',
+      to: ['you@example.com'],
+      text: 'this is the message body',
+      attachments: [{
+        content: 'this is an attachment',
+        filename: 'hello.txt',
+      }]
+    }, context)
+    .then(data => {
+      expect(data.accepted).to.deep.equal(['you@example.com']);
+      expect(data.response).to.equal('250 OK: message queued');
+      expect(lastMessage).to.not.equal(null);
+      let lines = lastMessage.message.split('\r\n');
+      let lastLine = lines.pop();
+      lastLine = lines.pop();
+      lastLine = lines.pop();
+      let contents = new Buffer(lastLine, 'base64').toString('utf8');
+      expect(contents).to.equal('this is an attachment');
+    })
   })
 })

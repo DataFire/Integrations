@@ -1,7 +1,7 @@
 "use strict";
 const datafire = require('datafire');
 const SMTPConnection = require('nodemailer/lib/smtp-connection');
-
+const MailComposer = require('nodemailer/lib/mail-composer');
 
 const smtp = module.exports = new datafire.Integration({
   id: 'smtp',
@@ -21,18 +21,69 @@ const smtp = module.exports = new datafire.Integration({
 
 smtp.addAction('send', {
   inputs: [{
+    title: 'from',
+    type: 'string',
+    description: "Email address of the sender",
+  }, {
+    title: 'to',
+    type: 'array',
+    description: "Email addresses of the recipients",
+    items: {type: 'string'},
+  }, {
+    title: 'cc',
+    type: 'array',
+    description: "Email addresses of CC recipients",
+    items: {type: 'string'},
+    default: [],
+  }, {
+    title: 'bcc',
+    type: 'array',
+    description: "Email addresses of BCC recipients",
+    items: {type: 'string'},
+    default: [],
+  }, {
+    title: 'subject',
+    type: 'string',
+    description: "The subject of the email",
+    default: '',
+  }, {
+    title: 'text',
+    type: 'string',
+    description: "Plaintext content of the email message",
+    default: '',
+  }, {
+    title: 'html',
+    type: 'string',
+    description: "HTML content of the email message",
+    default: '',
+  }, {
+    title: 'attachments',
+    type: 'array',
+    default: [],
+    items: {
+      type: 'object',
+      properties: {
+        filename: {type: 'string'},
+        cid: {type: 'string', description: "optional content ID"},
+        content: {type: 'string', description: "File contents"},
+        encoding: {type: 'string', enum: ['ascii', 'utf8', 'utf16le', 'base64', 'binary', 'hex']},
+        contentType: {type: 'string'},
+        contentDisposition: {type: 'string', default: 'attachment'},
+      }
+    }
+  }, {
     title: 'envelope',
     type: 'object',
-    required: ['from', 'to'],
+    default: {},
     properties: {
       from: {
         type: 'string',
-        description: "The address of the message's sender",
+        description: "From header for the email",
       },
       to: {
         type: 'array',
         items: {type: 'string'},
-        description: "The addresses of all recipients",
+        description: "To header for the email",
       },
       size: {
         type: 'integer',
@@ -65,10 +116,6 @@ smtp.addAction('send', {
         }
       }
     }
-  }, {
-    title: 'message',
-    type: 'string',
-    description: "The message to send. All newlines are converted to \\r\\n and all dots are escaped automatically.",
   }],
   outputSchema: {
     type: 'object',
@@ -100,9 +147,10 @@ smtp.addAction('send', {
           user: context.accounts.smtp.username,
           pass: context.accounts.smtp.password,
         };
+        let message = new MailComposer(input);
         conn.login(auth, err => {
           if (err) return finish(err);
-          conn.send(input.envelope, input.message, finish);
+          conn.send(input, message.compile().createReadStream(), finish);
         })
       })
     })
