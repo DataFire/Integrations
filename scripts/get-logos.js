@@ -23,16 +23,27 @@ iterate(function(dir, name, integ) {
 
 async.series(Object.keys(logos).map(name => {
   return function(acb) {
-    console.log(name, logos[name]);
+    function done(err) {
+      if (err) {
+        console.log("ERROR", err, name, logos[name]);
+        process.exit(0);
+      } else {
+        console.log('done', name, logos[name]);
+      }
+      acb();
+    }
     let extname = logos[name].match(/\.(\w+)$/)[1];
     let filename = OUTDIR + '/' + name + '.' + extname;
-    if (fs.existsSync(filename)) return acb();
+    //if (fs.existsSync(filename)) return acb();
     request.get(logos[name], (err, resp, body) => {
-      if (err) throw err;
-      if (resp.statusCode >= 300) throw new Error("Error fetching logo for " + name + ": " + resp.statusCode);
+      err = err || (resp.statusCode >= 300 ? resp.statusCode : null);
+      if (err) {
+        done(err);
+        done = null;
+      }
     })
     .pipe(fs.createWriteStream(filename))
-    .on('close', acb);
+    .on('close', () => done && done());
   }
 }), function(err) {
   if (err) throw err;

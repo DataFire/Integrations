@@ -1,7 +1,12 @@
 {
   "amazonaws_acm": {
     "logo": {
-      "url": "http://aws-guide.com/static/icons//certificate-manager.png"
+      "url": "https://www1.amazonian.io/wp-content/uploads/2016/07/Security-Identity_ACM.200px.png"
+    }
+  },
+  "amazonaws_a4b": {
+    "logo": {
+      "url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2017/11/30/IMAGE-1-LOGO-1024x121.png"
     }
   },
   "amazonaws_api_pricing": {
@@ -372,6 +377,16 @@
   "amazonaws_workspaces": {
     "logo": {
       "url": "https://app.datafire.io/img/aws/amazonaws_workspaces.svg"
+    }
+  },
+  "apigee_marketcheck_cars": {
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_MarketcheckAPIs_profile_image.jpeg"
+    }
+  },
+  "aucklandmuseum": {
+    "logo": {
+      "url": "http://www.aucklandmuseum.com/client/img/aucklandmuseum/am_logo_fb.png"
     }
   },
   "bbc_rss": {
@@ -798,7 +813,7 @@
   },
   "google_tasks": {
     "logo": {
-      "url": "https://9to5google.files.wordpress.com/2018/03/google_tasks_leaked_icon.jpg"
+      "url": "https://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
     },
     "title": "Google Tasks"
   },
@@ -886,7 +901,7 @@
   },
   "kaltura": {
     "logo": {
-      "url": "http://logosrated.net/wp-content/uploads/parser/Kaltura-Logo-1.jpg"
+      "url": "https://www.multichannel.com/.image/t_share/MTU0MDYzNjQ2MDYzNzMyNDc1/kaltura-logo-new-400x300jpg.jpg"
     }
   },
   "linkedin": {
@@ -903,7 +918,7 @@
   },
   "lyft": {
     "logo": {
-      "url": "http://iosicongallery.com/img/512/lyft-2016-02-02.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lyft_logo.svg/1200px-Lyft_logo.svg.png"
     }
   },
   "magento": {
@@ -933,6 +948,11 @@
     "title": "Myspace",
     "logo": {
       "url": "https://cdn0.iconfinder.com/data/icons/black-icon-social-media/512/099336-myspace-logo.png"
+    }
+  },
+  "netatmo": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Logo-Netatmo-WEB.png"
     }
   },
   "nextcaller": {
@@ -1144,7 +1164,7 @@
   },
   "thenounproject": {
     "logo": {
-      "url": "https://upload.wikimedia.org/wikipedia/en/c/c2/The_Noun_Project_logo.jpg"
+      "url": "https://pbs.twimg.com/profile_images/615948858892267520/nVvwwEYd_400x400.png"
     }
   },
   "thetvdb": {
@@ -1167,11 +1187,14 @@
   "tumblr": {
     "title": "Tumblr",
     "logo": {
-      "url": "https://assets.tumblr.com/images/logo_page/blue-t.png"
+      "url": "https://image.flaticon.com/icons/svg/60/60548.svg"
     }
   },
   "tvmaze": {
-    "title": "TVmaze"
+    "title": "TVmaze",
+    "logo": {
+      "url": "https://static.tvmaze.com/images/tvm-header-logo.png"
+    }
   },
   "twilio": {
     "logo": {
@@ -2160,10 +2183,16 @@
     "title": "Healthcare.gov"
   },
   "hetras_certification_booking": {
-    "title": "Hetras Booking"
+    "title": "Hetras Booking",
+    "logo": {
+      "url": "http://www.hoteltechnologyindex.com/wp-content/uploads/2016/09/HETRAS-300x212.png"
+    }
   },
   "hetras_certification_hotel": {
-    "title": "Hetras Hotels"
+    "title": "Hetras Hotels",
+    "logo": {
+      "url": "http://www.hoteltechnologyindex.com/wp-content/uploads/2016/09/HETRAS-300x212.png"
+    }
   },
   "ijenko": {
     "title": "Ijenko IoE² IoT"
@@ -2408,12 +2437,12 @@
   },
   "getgo_gototraining": {
     "logo": {
-      "url": "https://pbs.twimg.com/profile_images/458688380683816960/9UvK0gMT_400x400.png"
+      "url": "https://yourwebinarguru.com/wp-content/uploads/2017/10/GoToTraining-logo.jpg"
     }
   },
   "getgo_gotowebinar": {
     "logo": {
-      "url": "https://pbs.twimg.com/profile_images/458688380683816960/9UvK0gMT_400x400.png"
+      "url": "http://seekvectorlogo.com/wp-content/uploads/2018/02/gotowebinar-vector-logo.png"
     }
   },
   "giphy": {
@@ -2423,7 +2452,7 @@
   },
   "illumidesk": {
     "logo": {
-      "url": "https://www.illumidesk.com/assets/55wvu2pd.png"
+      "url": "https://cdn.landen.co/461fxwsy03g8/assets/mjcphq40.jpg"
     }
   },
   "learnifier": {
@@ -2475,6 +2504,11 @@
   },
   "apache_qakka": {
     "title": "Apache Qakka"
+  },
+  "apacta": {
+    "logo": {
+      "url": "https://apacta.com/wp-content/uploads/2016/01/Sk%C3%A6rmbillede-2017-04-03-kl.-19.27.07.png"
+    }
   },
   "api2cart": {
     "title": "API2Cart"
@@ -2650,7 +2684,10 @@
   },
   "evetech": {
     "title": "EVE Online",
-    "description": "EVE Online"
+    "description": "EVE Online",
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/EVE_online_logo.svg/2000px-EVE_online_logo.svg.png"
+    }
   },
   "fantasydata_cbb_v3_scores": {
     "title": "FantasyData CBB v3 Scores"
@@ -2751,6 +2788,11 @@
   "flickr": {
     "title": "Flickr"
   },
+  "freesound": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Freesound_project_website_logo.png"
+    }
+  },
   "gov_bc_ca_gwells": {
     "title": "British Columbia Registers of Well Drillers and Well Pump Installers"
   },
@@ -2812,8 +2854,18 @@
   "payments_service_gov_uk_payments": {
     "title": "GOV.UK Pay"
   },
+  "pims": {
+    "logo": {
+      "url": "https://www.programmableweb.com/sites/default/files/styles/facebook_scale_width_200/public/Pims%20API%20Image.jpg"
+    }
+  },
   "spinitron": {
     "title": "Spinitron"
+  },
+  "tfl_gov_uk": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Underground.svg/2000px-Underground.svg.png"
+    }
   },
   "tyk": {
     "title": "Tyk Gateway"
@@ -2829,5 +2881,15 @@
   },
   "walmart_price": {
     "title": "Walmart Price"
+  },
+  "zalando": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/en/archive/a/ac/20180602191124%21Zalando-Logo.svg"
+    }
+  },
+  "zoomconnect": {
+    "logo": {
+      "url": "https://www.zoomconnect.com/assets/logo.png"
+    }
   }
 }
