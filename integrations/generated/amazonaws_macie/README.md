@@ -8,15 +8,13 @@ npm install --save @datafire/amazonaws_macie
 ```
 ```js
 let amazonaws_macie = require('@datafire/amazonaws_macie').create({
-  hmac: ""
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: ""
 });
 
 amazonaws_macie.AssociateMemberAccount({
-  "body": {
-    "memberAccountId": ""
-  },
-  "Action": "",
-  "Version": ""
+  "memberAccountId": ""
 }).then(data => {
   console.log(data);
 });
@@ -29,211 +27,126 @@ amazonaws_macie.AssociateMemberAccount({
 ## Actions
 
 ### AssociateMemberAccount
-Associates a specified AWS account with Amazon Macie as a member account.
+
 
 
 ```js
 amazonaws_macie.AssociateMemberAccount({
-  "body": {
-    "memberAccountId": ""
-  },
-  "Action": "",
-  "Version": ""
+  "memberAccountId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [AssociateMemberAccountRequest](#associatememberaccountrequest)
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * memberAccountId **required** [AWSAccountId](#awsaccountid)
 
 #### Output
 *Output schema unknown*
 
 ### AssociateS3Resources
-Associates specified S3 resources with Amazon Macie for monitoring and data classification. If memberAccountId isn't specified, the action associates specified S3 resources with Macie for the current master account. If memberAccountId is specified, the action associates specified S3 resources with Macie for the specified member account. 
+
 
 
 ```js
 amazonaws_macie.AssociateS3Resources({
-  "body": {
-    "s3Resources": []
-  },
-  "Action": "",
-  "Version": ""
+  "s3Resources": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [AssociateS3ResourcesRequest](#associates3resourcesrequest)
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * memberAccountId [AWSAccountId](#awsaccountid)
+  * s3Resources **required** [S3ResourcesClassification](#s3resourcesclassification)
 
 #### Output
 * output [AssociateS3ResourcesResult](#associates3resourcesresult)
 
 ### DisassociateMemberAccount
-Removes the specified member account from Amazon Macie.
+
 
 
 ```js
 amazonaws_macie.DisassociateMemberAccount({
-  "body": {
-    "memberAccountId": ""
-  },
-  "Action": "",
-  "Version": ""
+  "memberAccountId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [DisassociateMemberAccountRequest](#disassociatememberaccountrequest)
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * memberAccountId **required** [AWSAccountId](#awsaccountid)
 
 #### Output
 *Output schema unknown*
 
 ### DisassociateS3Resources
-Removes specified S3 resources from being monitored by Amazon Macie. If memberAccountId isn't specified, the action removes specified S3 resources from Macie for the current master account. If memberAccountId is specified, the action removes specified S3 resources from Macie for the specified member account.
+
 
 
 ```js
 amazonaws_macie.DisassociateS3Resources({
-  "body": {
-    "associatedS3Resources": []
-  },
-  "Action": "",
-  "Version": ""
+  "associatedS3Resources": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [DisassociateS3ResourcesRequest](#disassociates3resourcesrequest)
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * associatedS3Resources **required** [S3Resources](#s3resources)
+  * memberAccountId [AWSAccountId](#awsaccountid)
 
 #### Output
 * output [DisassociateS3ResourcesResult](#disassociates3resourcesresult)
 
 ### ListMemberAccounts
-Lists all Amazon Macie member accounts for the current Amazon Macie master account.
+
 
 
 ```js
-amazonaws_macie.ListMemberAccounts({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_macie.ListMemberAccounts({}, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [ListMemberAccountsRequest](#listmemberaccountsrequest)
-  * maxResults `string`: Pagination limit
-  * nextToken `string`: Pagination token
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * maxResults `string`
+  * nextToken `string`
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
 
 #### Output
 * output [ListMemberAccountsResult](#listmemberaccountsresult)
 
 ### ListS3Resources
-Lists all the S3 resources associated with Amazon Macie. If memberAccountId isn't specified, the action lists the S3 resources associated with Amazon Macie for the current master account. If memberAccountId is specified, the action lists the S3 resources associated with Amazon Macie for the specified member account. 
+
 
 
 ```js
-amazonaws_macie.ListS3Resources({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_macie.ListS3Resources({}, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [ListS3ResourcesRequest](#lists3resourcesrequest)
-  * maxResults `string`: Pagination limit
-  * nextToken `string`: Pagination token
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * maxResults `string`
+  * nextToken `string`
+  * maxResults [MaxResults](#maxresults)
+  * memberAccountId [AWSAccountId](#awsaccountid)
+  * nextToken [NextToken](#nexttoken)
 
 #### Output
 * output [ListS3ResourcesResult](#lists3resourcesresult)
 
 ### UpdateS3Resources
-Updates the classification types for the specified S3 resources. If memberAccountId isn't specified, the action updates the classification types of the S3 resources associated with Amazon Macie for the current master account. If memberAccountId is specified, the action updates the classification types of the S3 resources associated with Amazon Macie for the specified member account. 
+
 
 
 ```js
 amazonaws_macie.UpdateS3Resources({
-  "body": {
-    "s3ResourcesUpdate": []
-  },
-  "Action": "",
-  "Version": ""
+  "s3ResourcesUpdate": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [UpdateS3ResourcesRequest](#updates3resourcesrequest)
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * memberAccountId [AWSAccountId](#awsaccountid)
+  * s3ResourcesUpdate **required** [S3ResourcesClassificationUpdate](#s3resourcesclassificationupdate)
 
 #### Output
 * output [UpdateS3ResourcesResult](#updates3resourcesresult)

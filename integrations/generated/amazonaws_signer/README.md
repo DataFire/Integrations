@@ -8,14 +8,12 @@ npm install --save @datafire/amazonaws_signer
 ```
 ```js
 let amazonaws_signer = require('@datafire/amazonaws_signer').create({
-  hmac: ""
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: ""
 });
 
-amazonaws_signer.ListSigningJobs({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}).then(data => {
+amazonaws_signer.ListSigningJobs({}).then(data => {
   console.log(data);
 });
 ```
@@ -27,279 +25,164 @@ You can use Code Signing for Amazon FreeRTOS (AWS Signer) to sign code that you 
 ## Actions
 
 ### ListSigningJobs
-Lists all your signing jobs. You can use the <code>maxResults</code> parameter to limit the number of signing jobs that are returned in the response. If additional jobs remain to be listed, AWS Signer returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that AWS Signer returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned. 
+
 
 
 ```js
-amazonaws_signer.ListSigningJobs({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_signer.ListSigningJobs({}, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [ListSigningJobsRequest](#listsigningjobsrequest)
-  * maxResults `string`: Pagination limit
-  * nextToken `string`: Pagination token
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * maxResults `string`
+  * nextToken `string`
 
 #### Output
 * output [ListSigningJobsResponse](#listsigningjobsresponse)
 
 ### StartSigningJob
-<p>Initiates a signing job to be performed on the code provided. Signing jobs are viewable by the <code>ListSigningJobs</code> operation for two years after they are performed. Note the following requirements: </p> <ul> <li> <p> You must create an Amazon S3 source bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Create a Bucket</a> in the <i>Amazon S3 Getting Started Guide</i>. </p> </li> <li> <p>Your S3 source bucket must be version enabled.</p> </li> <li> <p>You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to write your signed code.</p> </li> <li> <p>You specify the name of the source and destination buckets when calling the <code>StartSigningJob</code> operation.</p> </li> <li> <p>You must also specify a request token that identifies your request to AWS Signer. </p> </li> </ul> <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call <code>StartSigningJob</code>.</p> <p>For a Java example that shows how to use this action, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/">http://docs.aws.amazon.com/acm/latest/userguide/</a> </p>
+
 
 
 ```js
 amazonaws_signer.StartSigningJob({
-  "body": {
-    "source": {},
-    "destination": {},
-    "clientRequestToken": ""
-  },
-  "Action": "",
-  "Version": ""
+  "source": {},
+  "destination": {},
+  "clientRequestToken": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [StartSigningJobRequest](#startsigningjobrequest)
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * clientRequestToken **required** [ClientRequestToken](#clientrequesttoken)
+  * destination **required** [Destination](#destination)
+  * profileName [ProfileName](#profilename)
+  * source **required** [Source](#source)
 
 #### Output
 * output [StartSigningJobResponse](#startsigningjobresponse)
 
 ### DescribeSigningJob
-Returns information about a specific code signing job. You specify the job by using the <code>jobId</code> value that is returned by the <a>StartSigningJob</a> operation. 
+
 
 
 ```js
 amazonaws_signer.DescribeSigningJob({
-  "body": {},
-  "jobId": "",
-  "Action": "",
-  "Version": ""
+  "jobId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [DescribeSigningJobRequest](#describesigningjobrequest)
   * jobId **required** `string`
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
 
 #### Output
 * output [DescribeSigningJobResponse](#describesigningjobresponse)
 
 ### ListSigningPlatforms
-Lists all signing platforms available in AWS Signer that match the request parameters. If additional jobs remain to be listed, AWS Signer returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that AWS Signer returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned.
+
 
 
 ```js
-amazonaws_signer.ListSigningPlatforms({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_signer.ListSigningPlatforms({}, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [ListSigningPlatformsRequest](#listsigningplatformsrequest)
-  * maxResults `string`: Pagination limit
-  * nextToken `string`: Pagination token
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * maxResults `string`
+  * nextToken `string`
 
 #### Output
 * output [ListSigningPlatformsResponse](#listsigningplatformsresponse)
 
 ### GetSigningPlatform
-Returns information on a specific signing platform.
+
 
 
 ```js
 amazonaws_signer.GetSigningPlatform({
-  "body": {},
-  "platformId": "",
-  "Action": "",
-  "Version": ""
+  "platformId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [GetSigningPlatformRequest](#getsigningplatformrequest)
   * platformId **required** `string`
-  * platformId_query `string`
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
 
 #### Output
 * output [GetSigningPlatformResponse](#getsigningplatformresponse)
 
 ### ListSigningProfiles
-Lists all available signing profiles in your AWS account. Returns only profiles with an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is set to <code>true</code>. If additional jobs remain to be listed, AWS Signer returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that AWS Signer returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned.
+
 
 
 ```js
-amazonaws_signer.ListSigningProfiles({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_signer.ListSigningProfiles({}, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [ListSigningProfilesRequest](#listsigningprofilesrequest)
-  * maxResults `string`: Pagination limit
-  * nextToken `string`: Pagination token
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * maxResults `string`
+  * nextToken `string`
 
 #### Output
 * output [ListSigningProfilesResponse](#listsigningprofilesresponse)
 
 ### CancelSigningProfile
-Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>. A canceled profile is still viewable with the <code>ListSigningProfiles</code> operation, but it cannot perform new signing jobs, and is deleted two years after cancelation.
+
 
 
 ```js
 amazonaws_signer.CancelSigningProfile({
-  "body": {},
-  "profileName": "",
-  "Action": "",
-  "Version": ""
+  "profileName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [CancelSigningProfileRequest](#cancelsigningprofilerequest)
   * profileName **required** `string`
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
 
 #### Output
 *Output schema unknown*
 
 ### GetSigningProfile
-Returns information on a specific signing profile.
+
 
 
 ```js
 amazonaws_signer.GetSigningProfile({
-  "body": {},
-  "profileName": "",
-  "Action": "",
-  "Version": ""
+  "profileName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [GetSigningProfileRequest](#getsigningprofilerequest)
   * profileName **required** `string`
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
 
 #### Output
 * output [GetSigningProfileResponse](#getsigningprofileresponse)
 
 ### PutSigningProfile
-Creates a signing profile. A signing profile is an AWS Signer template that can be used to carry out a pre-defined signing job. For more information, see <a href="http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a> 
+
 
 
 ```js
 amazonaws_signer.PutSigningProfile({
-  "body": {
-    "signingMaterial": {
-      "certificateArn": ""
-    },
-    "platformId": ""
-  },
   "profileName": "",
-  "Action": "",
-  "Version": ""
+  "signingMaterial": {
+    "certificateArn": ""
+  },
+  "platformId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [PutSigningProfileRequest](#putsigningprofilerequest)
   * profileName **required** `string`
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * overrides [SigningPlatformOverrides](#signingplatformoverrides)
+  * platformId **required** [PlatformId](#platformid)
+  * signingMaterial **required** [SigningMaterial](#signingmaterial)
+  * signingParameters [SigningParameters](#signingparameters)
 
 #### Output
 * output [PutSigningProfileResponse](#putsigningprofileresponse)

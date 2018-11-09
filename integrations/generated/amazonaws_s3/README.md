@@ -363,6 +363,34 @@ amazonaws_s3.RestoreObject({
 #### Output
 * output [RestoreObjectOutput](#restoreobjectoutput)
 
+### SelectObjectContent
+
+
+
+```js
+amazonaws_s3.SelectObjectContent({
+  "Bucket": "",
+  "Key": "",
+  "Expression": "",
+  "ExpressionType": "",
+  "InputSerialization": {},
+  "OutputSerialization": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
+  * Key **required** `string`
+  * Expression **required** [Expression](#expression)
+  * ExpressionType **required** [ExpressionType](#expressiontype)
+  * InputSerialization **required** [InputSerialization](#inputserialization)
+  * OutputSerialization **required** [OutputSerialization](#outputserialization)
+  * RequestProgress [RequestProgress](#requestprogress)
+
+#### Output
+* output [SelectObjectContentOutput](#selectobjectcontentoutput)
+
 ### DeleteObjectTagging
 
 

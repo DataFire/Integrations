@@ -8,14 +8,12 @@ npm install --save @datafire/amazonaws_dlm
 ```
 ```js
 let amazonaws_dlm = require('@datafire/amazonaws_dlm').create({
-  hmac: ""
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: ""
 });
 
-amazonaws_dlm.GetLifecyclePolicies({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}).then(data => {
+amazonaws_dlm.GetLifecyclePolicies({}).then(data => {
   console.log(data);
 });
 ```
@@ -27,152 +25,93 @@ amazonaws_dlm.GetLifecyclePolicies({
 ## Actions
 
 ### GetLifecyclePolicies
-<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
+
 
 
 ```js
-amazonaws_dlm.GetLifecyclePolicies({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_dlm.GetLifecyclePolicies({}, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [GetLifecyclePoliciesRequest](#getlifecyclepoliciesrequest)
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
 
 #### Output
 * output [GetLifecyclePoliciesResponse](#getlifecyclepoliciesresponse)
 
 ### CreateLifecyclePolicy
-Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.
+
 
 
 ```js
 amazonaws_dlm.CreateLifecyclePolicy({
-  "body": {
-    "ExecutionRoleArn": "",
-    "Description": "",
-    "State": "",
-    "PolicyDetails": {}
-  },
-  "Action": "",
-  "Version": ""
+  "ExecutionRoleArn": "",
+  "Description": "",
+  "State": "",
+  "PolicyDetails": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [CreateLifecyclePolicyRequest](#createlifecyclepolicyrequest)
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * Description **required** [PolicyDescription](#policydescription)
+  * ExecutionRoleArn **required** [ExecutionRoleArn](#executionrolearn)
+  * PolicyDetails **required** [PolicyDetails](#policydetails)
+  * State **required** [SettablePolicyStateValues](#settablepolicystatevalues)
 
 #### Output
 * output [CreateLifecyclePolicyResponse](#createlifecyclepolicyresponse)
 
 ### UpdateLifecyclePolicy
-Updates the specified lifecycle policy.
+
 
 
 ```js
 amazonaws_dlm.UpdateLifecyclePolicy({
-  "body": {},
-  "policyId": "",
-  "Action": "",
-  "Version": ""
+  "policyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [UpdateLifecyclePolicyRequest](#updatelifecyclepolicyrequest)
   * policyId **required** `string`
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
+  * Description [PolicyDescription](#policydescription)
+  * ExecutionRoleArn [ExecutionRoleArn](#executionrolearn)
+  * PolicyDetails [PolicyDetails](#policydetails)
+  * State [SettablePolicyStateValues](#settablepolicystatevalues)
 
 #### Output
 * output [UpdateLifecyclePolicyResponse](#updatelifecyclepolicyresponse)
 
 ### DeleteLifecyclePolicy
-Deletes the specified lifecycle policy and halts the automated operations that the policy specified.
+
 
 
 ```js
 amazonaws_dlm.DeleteLifecyclePolicy({
-  "body": {},
-  "policyId": "",
-  "Action": "",
-  "Version": ""
+  "policyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [DeleteLifecyclePolicyRequest](#deletelifecyclepolicyrequest)
   * policyId **required** `string`
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
 
 #### Output
 * output [DeleteLifecyclePolicyResponse](#deletelifecyclepolicyresponse)
 
 ### GetLifecyclePolicy
-Gets detailed information about the specified lifecycle policy.
+
 
 
 ```js
 amazonaws_dlm.GetLifecyclePolicy({
-  "body": {},
-  "policyId": "",
-  "Action": "",
-  "Version": ""
+  "policyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body **required** [GetLifecyclePolicyRequest](#getlifecyclepolicyrequest)
   * policyId **required** `string`
-  * Action **required** `string`
-  * Version **required** `string`
-  * X-Amz-Content-Sha256 `string`
-  * X-Amz-Date `string`
-  * X-Amz-Algorithm `string`
-  * X-Amz-Credential `string`
-  * X-Amz-Security-Token `string`
-  * X-Amz-Signature `string`
-  * X-Amz-SignedHeaders `string`
 
 #### Output
 * output [GetLifecyclePolicyResponse](#getlifecyclepolicyresponse)

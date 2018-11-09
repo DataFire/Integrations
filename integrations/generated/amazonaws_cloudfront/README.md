@@ -728,23 +728,6 @@ amazonaws_cloudfront.UpdatePublicKey({
 #### Output
 * output [UpdatePublicKeyResult](#updatepublickeyresult)
 
-### DeleteServiceLinkedRole
-
-
-
-```js
-amazonaws_cloudfront.DeleteServiceLinkedRole({
-  "RoleName": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * RoleName **required** `string`
-
-#### Output
-*Output schema unknown*
-
 ### ListStreamingDistributions
 
 

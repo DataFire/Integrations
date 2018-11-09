@@ -1,0 +1,2190 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "chime.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Amazon Chime is a communications service that transforms online meetings with a secure, easy-to-use application that you can trust. Amazon Chime works seamlessly across your devices so that you can stay connected. You can use Amazon Chime for online meetings, video conferencing, calls, and chat. You can also share content, both inside and outside your organization. Amazon Chime frees you to work productively from anywhere. </p> <p>The Amazon Chime API is designed for administrators to use to perform key tasks, such as creating and managing Amazon Chime accounts and users. This guide provides detailed information about the Amazon Chime API.</p> <p>Use host name <code>service.chime.aws.amazon.com</code> when working with the Amazon Chime API.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Chime",
+    "version": "2018-05-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/chime-2018-05-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "chime",
+    "x-datafire": {
+      "name": "amazonaws_chime",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/chime/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/console/accounts": {
+      "get": {
+        "description": "Lists the Amazon Chime accounts under the administrator's AWS account. You can filter accounts by account name prefix. To find out which Amazon Chime account a user belongs to, you can filter by the user's email address, which returns one account result.",
+        "operationId": "ListAccounts",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAccountsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAccountsResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates an Amazon Chime account under the administrator's AWS account. Only <code>Team</code> account types are currently supported for this action. For more information about different account types, see <a href=\"http://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html\">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.",
+        "operationId": "CreateAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAccountResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}": {
+      "delete": {
+        "description": "<p>Deletes the specified Amazon Chime account. You must suspend all users before deleting a <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action to do so.</p> <p>For <code>EnterpriseLWA</code> and <code>EnterpriseAD</code> accounts, you must release the claimed domains for your Amazon Chime account before deletion. As soon as you release the domain, all users under that account are suspended.</p> <p>Deleted accounts appear in your <code>Disabled</code> accounts list for 90 days. To restore a deleted account from your <code>Disabled</code> accounts list, you must contact AWS Support.</p> <p>After 90 days, deleted accounts are permanently removed from your <code>Disabled</code> accounts list.</p>",
+        "operationId": "DeleteAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteAccountRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteAccountResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves details for the specified Amazon Chime account, such as account type and supported licenses.",
+        "operationId": "GetAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAccountRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAccountResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates account details for the specified Amazon Chime account. Currently, only account name updates are supported for this action.",
+        "operationId": "UpdateAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAccountRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAccountResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}/settings": {
+      "get": {
+        "description": "Retrieves account settings for the specified Amazon Chime account ID, such as remote control and dial out settings. For more information about these settings, see <a href=\"http://docs.aws.amazon.com/chime/latest/ag/policies.html\">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.",
+        "operationId": "GetAccountSettings",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAccountSettingsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAccountSettingsResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates the settings for the specified Amazon Chime account. You can update settings for remote control of shared screens, or for the dial-out option. For more information about these settings, see <a href=\"http://docs.aws.amazon.com/chime/latest/ag/policies.html\">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.",
+        "operationId": "UpdateAccountSettings",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAccountSettingsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAccountSettingsResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}/users": {
+      "get": {
+        "description": "Lists the users that belong to the specified Amazon Chime account.",
+        "operationId": "ListUsers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListUsersRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListUsersResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users for the specified Amazon Chime account. Currently, only <code>LicenseType</code> updates are supported for this action.",
+        "operationId": "BatchUpdateUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchUpdateUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchUpdateUserResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}/users/{userId}": {
+      "get": {
+        "description": "Retrieves details for the specified user ID, such as primary email address, license type, and personal meeting PIN.",
+        "operationId": "GetUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetUserResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates user details for a specified user ID. Currently, only <code>LicenseType</code> updates are supported for this action.",
+        "operationId": "UpdateUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateUserResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}/users/{userId}?operation=logout": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Logs out the specified user from all of the devices they are currently logged into.",
+        "operationId": "LogoutUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LogoutUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LogoutUserResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}/users/{userId}?operation=reset-personal-pin": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns the <a>User</a> object with the updated personal meeting PIN.",
+        "operationId": "ResetPersonalPIN",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ResetPersonalPINRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResetPersonalPINResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}/users?operation=add": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Sends email invites to as many as 50 users, inviting them to the specified Amazon Chime <code>Team</code> account. Only <code>Team</code> account types are currently supported for this action. ",
+        "operationId": "InviteUsers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InviteUsersRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InviteUsersResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}/users?operation=suspend": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon Chime account. For more information about different account types, see <a href=\"http://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html\">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p> <p>Users suspended from a <code>Team</code> account are dissociated from the account, but they can continue to use Amazon Chime as free users. To remove the suspension from suspended <code>Team</code> account users, invite them to the <code>Team</code> account again. You can use the <a>InviteUsers</a> action to do so.</p> <p>Users suspended from an <code>EnterpriseLWA</code> account are immediately signed out of Amazon Chime and are no longer able to sign in. To remove the suspension from suspended <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action. </p> <p>To sign out users without suspending them, use the <a>LogoutUser</a> action.</p>",
+        "operationId": "BatchSuspendUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchSuspendUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchSuspendUserResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/console/accounts/{accountId}/users?operation=unsuspend": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Removes the suspension from up to 50 previously suspended users for the specified Amazon Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code> accounts can be unsuspended using this action. For more information about different account types, see <a href=\"http://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html\">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p> <p>Previously suspended users who are unsuspended using this action are returned to <code>Registered</code> status. Users who are not previously suspended are ignored.</p>",
+        "operationId": "BatchUnsuspendUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchUnsuspendUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchUnsuspendUserResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "484": {
+            "description": "ThrottledClientException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledClientException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Account": {
+      "description": "The Amazon Chime account details. An AWS account can have multiple Amazon Chime accounts.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Chime account ID."
+        },
+        "AccountType": {
+          "$ref": "#/definitions/AccountType",
+          "description": "The Amazon Chime account type. For more information about different account types, see <a href=\"http://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html\">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>."
+        },
+        "AwsAccountId": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS account ID."
+        },
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/Iso8601Timestamp",
+          "description": "The Amazon Chime account creation timestamp, in ISO 8601 format."
+        },
+        "DefaultLicense": {
+          "$ref": "#/definitions/License",
+          "description": "The default license for the Amazon Chime account."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Chime account name."
+        },
+        "SupportedLicenses": {
+          "$ref": "#/definitions/LicenseList",
+          "description": "Supported licenses for the Amazon Chime account."
+        }
+      },
+      "required": [
+        "AwsAccountId",
+        "AccountId",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "AccountList": {
+      "items": {
+        "$ref": "#/definitions/Account"
+      },
+      "type": "array"
+    },
+    "AccountName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "AccountSettings": {
+      "description": "Settings related to the Amazon Chime account. This includes settings that start or stop remote control of shared screens, or start or stop the dial-out option in the Amazon Chime web application. For more information about these settings, see <a href=\"http://docs.aws.amazon.com/chime/latest/ag/policies.html\">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.",
+      "properties": {
+        "DisableRemoteControl": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Setting that stops or starts remote control of shared screens during meetings."
+        },
+        "EnableDialOut": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Setting that allows meeting participants to choose the <b>Call me at a phone number</b> option. For more information, see <a href=\"http://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html\">Join a Meeting without the Amazon Chime App</a>."
+        }
+      },
+      "type": "object"
+    },
+    "AccountType": {
+      "enum": [
+        "Team",
+        "EnterpriseDirectory",
+        "EnterpriseLWA",
+        "EnterpriseOIDC"
+      ],
+      "type": "string"
+    },
+    "BadRequestException": {},
+    "BatchSuspendUserRequest": {
+      "properties": {
+        "UserIdList": {
+          "$ref": "#/definitions/UserIdList",
+          "description": "The request containing the user IDs to suspend."
+        }
+      },
+      "required": [
+        "UserIdList"
+      ],
+      "type": "object"
+    },
+    "BatchSuspendUserResponse": {
+      "properties": {
+        "UserErrors": {
+          "$ref": "#/definitions/UserErrorList",
+          "description": "If the <a>BatchSuspendUser</a> action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages."
+        }
+      },
+      "type": "object"
+    },
+    "BatchUnsuspendUserRequest": {
+      "properties": {
+        "UserIdList": {
+          "$ref": "#/definitions/UserIdList",
+          "description": "The request containing the user IDs to unsuspend."
+        }
+      },
+      "required": [
+        "UserIdList"
+      ],
+      "type": "object"
+    },
+    "BatchUnsuspendUserResponse": {
+      "properties": {
+        "UserErrors": {
+          "$ref": "#/definitions/UserErrorList",
+          "description": "If the <a>BatchUnsuspendUser</a> action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages."
+        }
+      },
+      "type": "object"
+    },
+    "BatchUpdateUserRequest": {
+      "properties": {
+        "UpdateUserRequestItems": {
+          "$ref": "#/definitions/UpdateUserRequestItemList",
+          "description": "The request containing the user IDs and details to update."
+        }
+      },
+      "required": [
+        "UpdateUserRequestItems"
+      ],
+      "type": "object"
+    },
+    "BatchUpdateUserResponse": {
+      "properties": {
+        "UserErrors": {
+          "$ref": "#/definitions/UserErrorList",
+          "description": "If the <a>BatchUpdateUser</a> action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages."
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "ConflictException": {},
+    "CreateAccountRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/AccountName",
+          "description": "The name of the Amazon Chime account."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "CreateAccountResponse": {
+      "properties": {
+        "Account": {
+          "$ref": "#/definitions/Account",
+          "description": "The Amazon Chime account details."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteAccountRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteAccountResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "EmailAddress": {
+      "format": "password",
+      "pattern": ".+@.+\\..+",
+      "type": "string"
+    },
+    "EmailStatus": {
+      "enum": [
+        "NotSent",
+        "Sent",
+        "Failed"
+      ],
+      "type": "string"
+    },
+    "ErrorCode": {
+      "enum": [
+        "Unauthorized",
+        "Forbidden",
+        "NotFound",
+        "BadRequest",
+        "Conflict",
+        "ServiceFailure",
+        "ServiceUnavailable",
+        "Unprocessable",
+        "Throttled",
+        "PreconditionFailed"
+      ],
+      "type": "string"
+    },
+    "ForbiddenException": {},
+    "GetAccountRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetAccountResponse": {
+      "properties": {
+        "Account": {
+          "$ref": "#/definitions/Account",
+          "description": "The Amazon Chime account details."
+        }
+      },
+      "type": "object"
+    },
+    "GetAccountSettingsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetAccountSettingsResponse": {
+      "properties": {
+        "AccountSettings": {
+          "$ref": "#/definitions/AccountSettings",
+          "description": "The Amazon Chime account settings."
+        }
+      },
+      "type": "object"
+    },
+    "GetUserRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The user details."
+        }
+      },
+      "type": "object"
+    },
+    "Invite": {
+      "description": "Invitation object returned after emailing users to invite them to join the Amazon Chime <code>Team</code> account.",
+      "properties": {
+        "EmailAddress": {
+          "$ref": "#/definitions/EmailAddress",
+          "description": "The email address to which the invite is sent."
+        },
+        "EmailStatus": {
+          "$ref": "#/definitions/EmailStatus",
+          "description": "The status of the invite email."
+        },
+        "InviteId": {
+          "$ref": "#/definitions/String",
+          "description": "The invite ID."
+        },
+        "Status": {
+          "$ref": "#/definitions/InviteStatus",
+          "description": "The status of the invite."
+        }
+      },
+      "type": "object"
+    },
+    "InviteList": {
+      "items": {
+        "$ref": "#/definitions/Invite"
+      },
+      "type": "array"
+    },
+    "InviteStatus": {
+      "enum": [
+        "Pending",
+        "Accepted",
+        "Failed"
+      ],
+      "type": "string"
+    },
+    "InviteUsersRequest": {
+      "properties": {
+        "UserEmailList": {
+          "$ref": "#/definitions/UserEmailList",
+          "description": "The user email addresses to which to send the invite."
+        }
+      },
+      "required": [
+        "UserEmailList"
+      ],
+      "type": "object"
+    },
+    "InviteUsersResponse": {
+      "properties": {
+        "Invites": {
+          "$ref": "#/definitions/InviteList",
+          "description": "The invite details."
+        }
+      },
+      "type": "object"
+    },
+    "Iso8601Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "License": {
+      "enum": [
+        "Basic",
+        "Plus",
+        "Pro",
+        "ProTrial"
+      ],
+      "type": "string"
+    },
+    "LicenseList": {
+      "items": {
+        "$ref": "#/definitions/License"
+      },
+      "type": "array"
+    },
+    "ListAccountsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListAccountsResponse": {
+      "properties": {
+        "Accounts": {
+          "$ref": "#/definitions/AccountList",
+          "description": "List of Amazon Chime accounts and account details."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The token to use to retrieve the next page of results."
+        }
+      },
+      "type": "object"
+    },
+    "ListUsersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListUsersResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The token to use to retrieve the next page of results."
+        },
+        "Users": {
+          "$ref": "#/definitions/UserList",
+          "description": "List of users and user details."
+        }
+      },
+      "type": "object"
+    },
+    "LogoutUserRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "LogoutUserResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "NonEmptyString": {
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "NotFoundException": {},
+    "ProfileServiceMaxResults": {
+      "maximum": 200,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "RegistrationStatus": {
+      "enum": [
+        "Unregistered",
+        "Registered",
+        "Suspended"
+      ],
+      "type": "string"
+    },
+    "ResetPersonalPINRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ResetPersonalPINResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The user details and new personal meeting PIN."
+        }
+      },
+      "type": "object"
+    },
+    "SensitiveString": {
+      "format": "password",
+      "type": "string"
+    },
+    "ServiceFailureException": {},
+    "ServiceUnavailableException": {},
+    "String": {
+      "type": "string"
+    },
+    "ThrottledClientException": {},
+    "UnauthorizedClientException": {},
+    "UnprocessableEntityException": {},
+    "UpdateAccountRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/AccountName",
+          "description": "The new name for the specified Amazon Chime account."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateAccountResponse": {
+      "properties": {
+        "Account": {
+          "$ref": "#/definitions/Account",
+          "description": "The updated Amazon Chime account details."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateAccountSettingsRequest": {
+      "properties": {
+        "AccountSettings": {
+          "$ref": "#/definitions/AccountSettings",
+          "description": "The Amazon Chime account settings to update."
+        }
+      },
+      "required": [
+        "AccountSettings"
+      ],
+      "type": "object"
+    },
+    "UpdateAccountSettingsResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateUserRequest": {
+      "properties": {
+        "LicenseType": {
+          "$ref": "#/definitions/License",
+          "description": "The user license type to update. This must be a supported license type for the Amazon Chime account that the user belongs to."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateUserRequestItem": {
+      "description": "The user ID and user fields to update, used with the <a>BatchUpdateUser</a> action.",
+      "properties": {
+        "LicenseType": {
+          "$ref": "#/definitions/License",
+          "description": "The user license type."
+        },
+        "UserId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The user ID."
+        }
+      },
+      "required": [
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "UpdateUserRequestItemList": {
+      "items": {
+        "$ref": "#/definitions/UpdateUserRequestItem"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
+    "UpdateUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The updated user details."
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "description": "The user on the Amazon Chime account.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Chime account ID."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/SensitiveString",
+          "description": "The display name of the user."
+        },
+        "InvitedOn": {
+          "$ref": "#/definitions/Iso8601Timestamp",
+          "description": "Date and time when the user is invited to the Amazon Chime account, in ISO 8601 format."
+        },
+        "LicenseType": {
+          "$ref": "#/definitions/License",
+          "description": "The license type for the user."
+        },
+        "PersonalPIN": {
+          "$ref": "#/definitions/String",
+          "description": "The user's personal meeting PIN."
+        },
+        "PrimaryEmail": {
+          "$ref": "#/definitions/EmailAddress",
+          "description": "The primary email address of the user."
+        },
+        "RegisteredOn": {
+          "$ref": "#/definitions/Iso8601Timestamp",
+          "description": "Date and time when the user is registered, in ISO 8601 format."
+        },
+        "UserId": {
+          "$ref": "#/definitions/String",
+          "description": "The user ID."
+        },
+        "UserInvitationStatus": {
+          "$ref": "#/definitions/InviteStatus",
+          "description": "The user invite status."
+        },
+        "UserRegistrationStatus": {
+          "$ref": "#/definitions/RegistrationStatus",
+          "description": "The user registration status."
+        }
+      },
+      "required": [
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "UserEmailList": {
+      "items": {
+        "$ref": "#/definitions/EmailAddress"
+      },
+      "maxItems": 50,
+      "type": "array"
+    },
+    "UserError": {
+      "description": "The list of errors returned when errors are encountered during the <a>BatchSuspendUser</a>, <a>BatchUnsuspendUser</a>, or <a>BatchUpdateUser</a> actions. This includes user IDs, error codes, and error messages.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message."
+        },
+        "UserId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The user ID for which the action failed."
+        }
+      },
+      "type": "object"
+    },
+    "UserErrorList": {
+      "items": {
+        "$ref": "#/definitions/UserError"
+      },
+      "type": "array"
+    },
+    "UserIdList": {
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "maxItems": 50,
+      "type": "array"
+    },
+    "UserList": {
+      "items": {
+        "$ref": "#/definitions/User"
+      },
+      "type": "array"
+    }
+  }
+}

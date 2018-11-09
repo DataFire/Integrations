@@ -221,8 +221,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_a4b.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_a4b.png"
     },
     "actionCount": 49,
     "directory": "generated",
@@ -529,6 +528,32 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ce.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "5.0.0"
+  },
+  "amazonaws_chime": {
+    "id": "amazonaws_chime",
+    "title": "Amazon Chime",
+    "description": "Amazon Chime is a communications service that transforms online meetings with a secure, easy-to-use application that you...",
+    "security": {
+      "amazonaws_chime": {
+        "integration": "amazonaws_chime",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_chime.jpeg"
+    },
+    "actionCount": 16,
     "directory": "generated",
     "tags": [
       "cloud",
@@ -3923,7 +3948,6 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apacta.png"
     },
     "actionCount": 136,
@@ -3963,8 +3987,7 @@
     "description": "Access the New, Used and Certified cars inventories for all Car Dealers in US. The data is sourced from online listings ...",
     "security": {},
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apigee_marketcheck_cars.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apigee_marketcheck_cars.jpeg"
     },
     "actionCount": 27,
     "directory": "generated",
@@ -4111,7 +4134,6 @@
     "description": "This is technical documentation for the Auckland Museum API",
     "security": {},
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/aucklandmuseum.png"
     },
     "actionCount": 6,
@@ -16834,8 +16856,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/evetech.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/evetech.png"
     },
     "actionCount": 207,
     "directory": "generated",
@@ -17852,7 +17873,6 @@
     "description": "With the Freesound APIv2 you can browse, search, and retrieve information about Freesound users, packs, and the sounds t...",
     "security": {},
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/freesound.png"
     },
     "actionCount": 2,
@@ -17968,7 +17988,7 @@
     "description": "The GoToTraining API enables developers to use the stable and robust GoToTraining functionality as the basis for online ...",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/getgo_gototraining.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/getgo_gototraining.jpg"
     },
     "actionCount": 22,
     "directory": "generated",
@@ -18077,6 +18097,34 @@
       "location"
     ],
     "latestVersion": "5.0.0"
+  },
+  "gitea": {
+    "id": "gitea",
+    "title": "Gitea API.",
+    "description": "This documentation describes the Gitea API.",
+    "security": {
+      "gitea": {
+        "integration": "gitea",
+        "fields": {
+          "AccessToken": "API key",
+          "AuthorizationHeaderToken": "API key",
+          "username": "Your username",
+          "password": "Your password",
+          "SudoHeader": "Sudo API request as the user provided as the key. Admin privileges are required.",
+          "SudoParam": "Sudo API request as the user provided as the key. Admin privileges are required.",
+          "Token": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gitea.jpeg"
+    },
+    "actionCount": 160,
+    "directory": "generated",
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "2.0.0"
   },
   "github": {
     "id": "github",
@@ -23555,7 +23603,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/illumidesk.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/illumidesk.jpg"
     },
     "actionCount": 144,
     "directory": "generated",
@@ -25545,6 +25593,30 @@
     ],
     "latestVersion": "5.0.0"
   },
+  "obono_at": {
+    "id": "obono_at",
+    "title": "obono RKSV",
+    "description": "Provides a RESTful API for interacting with virtual cash registers and creating receipts that are conform with the Regis...",
+    "security": {
+      "obono_at": {
+        "integration": "obono_at",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password",
+          "jwt": "A JSON Web Token (JWT) used for access control and authorization."
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/obono_at.jpeg"
+    },
+    "actionCount": 14,
+    "directory": "generated",
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "oceandrivers": {
     "id": "oceandrivers",
     "title": "ODWeather",
@@ -26079,8 +26151,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FF9800",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pims.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pims.jpg"
     },
     "actionCount": 22,
     "directory": "generated",
@@ -26511,6 +26582,21 @@
       "open data"
     ],
     "latestVersion": "5.0.0"
+  },
+  "reloadly": {
+    "id": "reloadly",
+    "title": "Reloadly REST APIs",
+    "description": "The Reloadly APIs are HTTP-based RESTful APIs that use OAuth 2.0 for authorization. API request and response bodies are ...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reloadly.jpeg"
+    },
+    "actionCount": 14,
+    "directory": "generated",
+    "tags": [
+      "telecom"
+    ],
+    "latestVersion": "2.0.0"
   },
   "reverb": {
     "id": "reverb",
@@ -27645,7 +27731,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tfl_gov_uk.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tfl_gov_uk.png"
     },
     "actionCount": 85,
     "directory": "generated",
@@ -27661,7 +27747,7 @@
     "description": "Icons for Everything",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.png"
     },
     "actionCount": 13,
     "directory": "generated",
@@ -27859,7 +27945,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tumblr.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tumblr.svg"
     },
     "actionCount": 18,
     "directory": "generated",
@@ -27902,7 +27988,6 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tvmaze.png"
     },
     "actionCount": 28,
@@ -28950,7 +29035,7 @@
     "description": "The shop API empowers developers to build amazing new apps or websites using Zalando shop data and services.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zalando.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zalando.svg"
     },
     "actionCount": 20,
     "directory": "generated",
