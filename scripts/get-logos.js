@@ -34,7 +34,7 @@ async.series(Object.keys(logos).map(name => {
     }
     let extname = logos[name].match(/\.(\w+)$/)[1];
     let filename = OUTDIR + '/' + name + '.' + extname;
-    //if (fs.existsSync(filename)) return acb();
+    if (args.new && fs.existsSync(filename)) return acb();
     request.get(logos[name], (err, resp, body) => {
       err = err || (resp.statusCode >= 300 ? resp.statusCode : null);
       if (err) {
