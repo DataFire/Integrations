@@ -29315,7 +29315,29 @@
     },
     "actionCount": 6,
     "directory": "manual",
-    "latestVersion": "2.1.0"
+    "latestVersion": "2.1.1"
+  },
+  "onedb": {
+    "id": "onedb",
+    "title": "OneDB",
+    "description": "An open source backend-as-a-service",
+    "security": {
+      "onedb": {
+        "fields": {
+          "host": "The host to connect to, e.g. https://one-db.datafire.io",
+          "core_host": "The host to use for core data, like namespaces and schemas",
+          "username": "The email address of the account to use",
+          "password": "The password of the account to use",
+          "access_token": "An access token to use in place of email and password"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/onedb.svg"
+    },
+    "actionCount": 7,
+    "directory": "manual",
+    "latestVersion": "1.0.0"
   },
   "smtp": {
     "id": "smtp",
