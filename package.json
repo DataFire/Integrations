@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "An integration registry for DataFire",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "postinstall": "./scripts/install.sh"
   },
   "repository": {
     "type": "git",
