@@ -23925,6 +23925,45 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "jira": {
+    "id": "jira",
+    "title": "Jira",
+    "description": "The Jira Cloud Platform REST API",
+    "security": {
+      "jira": {
+        "integration": "jira",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password",
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://auth.atlassian.com/authorize?prompt=true&audience=api.atlassian.com",
+          "flow": "accessCode",
+          "scopes": {
+            "manage:jira-configuration": "Take Jira administration actions (for example, create projects and custom fields, view workflows, and manage issue link types)",
+            "manage:jira-project": "Create and edit project settings and create new project-level objects (for example, versions and components)",
+            "read:jira-user": "View user information in Jira that the user has access to, including usernames, email addresses, and avatars",
+            "read:jira-work": "Read Jira project and issue data, search for issues and objects associated with issues like attachments and worklogs",
+            "write:jira-work": "Create and edit issues in Jira, post comments as the user, create worklogs, and delete issues"
+          },
+          "tokenUrl": "https://auth.atlassian.com/oauth/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/jira.png"
+    },
+    "actionCount": 319,
+    "directory": "generated",
+    "tags": [],
+    "latestVersion": "2.0.0"
+  },
   "jumpseller": {
     "id": "jumpseller",
     "title": "Jumpseller API",
