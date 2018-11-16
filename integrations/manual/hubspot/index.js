@@ -7,6 +7,14 @@ let hubspot = module.exports = new datafire.Integration({
     title: "hubspot",
     description: "Integrate with Hubspot",
 });
+
+function getClient(context) {
+  return new Hubspot({
+    accessToken: context.accounts.hubspot.access_token,
+    apiKey: context.accounts.hubspot.api_key,
+  })
+}
+
 // OAuth 2.0 Authorization Code Grant Type
 // Code url: "https://app.hubspot.com/oauth/authorize"
 // access Token/refresh token url: "https://api.hubapi.com/oauth/v1/token"
@@ -34,6 +42,7 @@ hubspot.security = {
           },
         },
         fields: {
+            api_key: "Your HubSpot API Key",
             access_token: 'An OAuth access token',
             refresh_token: 'An OAuth refresh token (optional)',
             client_id: 'An OAuth client ID (optional)',
@@ -60,7 +69,7 @@ hubspot.addAction('getAllCompanies', new datafire.Action({
             offset: input.offset,
             properties: ["name", "website"] // all avaiable properties to display
         };
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.get(companyOptions);
+        return getClient(context).companies.get(companyOptions);
     }
 }));
 hubspot.addAction('getCompanyById', new datafire.Action({
@@ -70,7 +79,7 @@ hubspot.addAction('getCompanyById', new datafire.Action({
         type: "integer",
     }],
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getById(input.id);
+        return getClient(context).companies.getById(input.id);
     }
 }));
 hubspot.addAction('getRecentlyCreatedCompanies', new datafire.Action({
@@ -89,7 +98,7 @@ hubspot.addAction('getRecentlyCreatedCompanies', new datafire.Action({
             count: input.count,
             offset: input.offset,
         };
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getRecentlyCreated(options);
+        return getClient(context).companies.getRecentlyCreated(options);
     }
 }));
 hubspot.addAction('getRecentlyModifiedCompanies', new datafire.Action({
@@ -109,7 +118,7 @@ hubspot.addAction('getRecentlyModifiedCompanies', new datafire.Action({
             count: input.count,
             offset: input.offset,
         };
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getRecentlyModified(options);
+        return getClient(context).companies.getRecentlyModified(options);
     }
 }));
 hubspot.addAction('getCompanyByDomain', new datafire.Action({
@@ -119,7 +128,7 @@ hubspot.addAction('getCompanyByDomain', new datafire.Action({
         type: "string",
     },],
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getByDomain(input.domain);
+        return getClient(context).companies.getByDomain(input.domain);
     }
 }));
 hubspot.addAction('getComapnyContactsByCompanyId', new datafire.Action({
@@ -144,7 +153,7 @@ hubspot.addAction('getComapnyContactsByCompanyId', new datafire.Action({
             Count: input.count,
             VidOffset: input.vidOffset
         }
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getContacts(input.id, options);
+        return getClient(context).companies.getContacts(input.id, options);
     }
 }));
 hubspot.addAction('getContactIdsByCompanyId', new datafire.Action({
@@ -168,13 +177,13 @@ hubspot.addAction('getContactIdsByCompanyId', new datafire.Action({
             Count: input.count,
             VidOffset: input.vidOffset
         }
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.getContactIds(input.id, options);
+        return getClient(context).companies.getContactIds(input.id, options);
     }
 }));
  // Company Properties API
 hubspot.addAction('getAllCompanyProperties', new datafire.Action({
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.properties.get();
+        return getClient(context).companies.properties.get();
     }
 }));
 hubspot.addAction('getCompanyPropertyByName', new datafire.Action({
@@ -184,7 +193,7 @@ hubspot.addAction('getCompanyPropertyByName', new datafire.Action({
         type: "string",
     },],
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.properties.getByName(input.property_name);
+        return getClient(context).companies.properties.getByName(input.property_name);
     }
 }));
 hubspot.addAction('getCompanyPropertyGroups', new datafire.Action({
@@ -195,7 +204,7 @@ hubspot.addAction('getCompanyPropertyGroups', new datafire.Action({
         default: true,
     },],
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).companies.properties.groups.get(input.include_properties);
+        return getClient(context).companies.properties.groups.get(input.include_properties);
     }
 }));
  // Contacts API  ** All properties to display are selected by default ** this can be changed by adding property array to specfic which feild you want to see. i.e. property: ["firstname", "lastmodifieddate"]
@@ -235,7 +244,7 @@ hubspot.addAction('getAllContacts', new datafire.Action({
             formSubmissionMode: input.form_submission_mode,
             showListMemberships: input.list_memberships
         }
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.get(options);
+        return getClient(context).contacts.get(options);
     }
 }));
 hubspot.addAction('getContactByEmail', new datafire.Action({
@@ -245,7 +254,7 @@ hubspot.addAction('getContactByEmail', new datafire.Action({
         type: "string",
     }],
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getByEmail(input.email);
+        return getClient(context).contacts.getByEmail(input.email);
     }
 }));
 hubspot.addAction('getContactById', new datafire.Action({
@@ -255,7 +264,7 @@ hubspot.addAction('getContactById', new datafire.Action({
         type: 'integer',
     }],
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getById(input.id);
+        return getClient(context).contacts.getById(input.id);
     }
 }));
 hubspot.addAction('getContactByToken', new datafire.Action({
@@ -265,7 +274,7 @@ hubspot.addAction('getContactByToken', new datafire.Action({
         type: "string",
     }],
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getByToken(input.utk);
+        return getClient(context).contacts.getByToken(input.utk);
     }
 }));
 hubspot.addAction('getRecentlyCreatedContact', new datafire.Action({
@@ -291,7 +300,7 @@ hubspot.addAction('getRecentlyCreatedContact', new datafire.Action({
             formSubmissionMode: input.form_submission_mode,
             showListMemberships: input.list_memberships,
         };
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getRecentlyCreated(options);
+        return getClient(context).contacts.getRecentlyCreated(options);
     }
 }));
 hubspot.addAction('getRecentlyModifiedContacts', new datafire.Action({
@@ -335,12 +344,12 @@ hubspot.addAction('getRecentlyModifiedContacts', new datafire.Action({
             formSubmissionMode: input.form_submission_mode,
             showListMemberships: input.list_memberships
         }
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.getRecentlyModified(options);
+        return getClient(context).contacts.getRecentlyModified(options);
     }
 }));
 hubspot.addAction('getAllContactProperties', new datafire.Action({
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.properties.get();
+        return getClient(context).contacts.properties.get();
     }
 }));
 hubspot.addAction('getContactPropertiesByName', new datafire.Action({
@@ -350,6 +359,6 @@ hubspot.addAction('getContactPropertiesByName', new datafire.Action({
         type: "string",
     }],
     handler: (input, context) => {
-        return new Hubspot({accessToken: context.accounts.hubspot.access_token}).contacts.properties.get(input.name);
+        return getClient(context).contacts.properties.get(input.name);
     }
 }));
