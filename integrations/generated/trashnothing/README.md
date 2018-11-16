@@ -250,7 +250,11 @@ trashnothing.upload_photo({
 
 #### Input
 * input `object`
-  * photo **required** `string`: Photo to upload.
+  * photo **required** `string`, `object`: Photo to upload.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * upload_key **required** `string`: A client created identifier used to associate a photo or set of photos with a post (a  random number will work - must be <= 32 characters).
   * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
 

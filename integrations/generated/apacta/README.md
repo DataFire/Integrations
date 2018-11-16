@@ -723,7 +723,11 @@ apacta.expense_files.post({
 
 #### Input
 * input `object`
-  * file **required** `string`
+  * file **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * description `string`
 
 #### Output
@@ -2295,7 +2299,11 @@ apacta.projects.project_id.project_files.post({
 #### Input
 * input `object`
   * project_id **required** `string`
-  * file **required** `string`
+  * file **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `object`

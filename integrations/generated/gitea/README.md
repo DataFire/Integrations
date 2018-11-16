@@ -1984,7 +1984,11 @@ gitea.repoCreateReleaseAttachment({
   * repo **required** `string`: name of the repo
   * id **required** `integer`: id of the release
   * name `string`: name of the attachment
-  * attachment **required** `string`: attachment to upload
+  * attachment **required** `string`, `object`: attachment to upload
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [Attachment](#attachment)

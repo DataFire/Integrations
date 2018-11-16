@@ -2083,7 +2083,11 @@ illumidesk.projects_project_files_create({
 * input `object`
   * project **required** `string`: Project unique identifier.
   * namespace **required** `string`: User or team name.
-  * file `string`: File to send, to create new file. This parameter is only used with form data and may include multiple files.
+  * file `string`, `object`: File to send, to create new file. This parameter is only used with form data and may include multiple files.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * base64_data `string`: Fila data, represented as base64.
   * name `string`: File name. May include path when creating file with base64 field.
   * path `string`: File path. Defaults to (/).
@@ -2151,7 +2155,11 @@ illumidesk.projects_project_files_update({
   * project **required** `string`: Project unique identifer.
   * namespace **required** `string`: User or team name.
   * id **required** `string`: File unique identifier.
-  * file `string`: File to send, to create new file. This parameter is only used with form data and may include multiple files.
+  * file `string`, `object`: File to send, to create new file. This parameter is only used with form data and may include multiple files.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * base64_data `string`: Fila data, represented as base64.
   * name `string`: File name. May include path when creating file with base64 field.
   * path `string`: File path. Defaults to (/).
@@ -2176,7 +2184,11 @@ illumidesk.projects_project_files_replace({
   * project **required** `string`: Project unique identifer.
   * namespace **required** `string`: User or team name.
   * id **required** `string`: File unique identifier.
-  * file `string`: File to send, to create new file. This parameter is only used with form data and may include multiple files.
+  * file `string`, `object`: File to send, to create new file. This parameter is only used with form data and may include multiple files.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * base64_data `string`: Fila data, represented as base64.
   * name `string`: File name. May include path when creating file with base64 field.
   * path `string`: File path. Defaults to (/).

@@ -682,7 +682,11 @@ flickr.uploadPhoto({
 #### Input
 * input `object`
   * api_key **required** `string`
-  * photo **required** `string`
+  * photo **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * title `string`
   * description `string`
   * tags `string`

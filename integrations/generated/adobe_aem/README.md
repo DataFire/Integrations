@@ -305,7 +305,11 @@ adobe_aem.postPackageServiceJson({
   * _charset_ `string`
   * force `boolean`
   * recursive `boolean`
-  * package `string`
+  * package `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `string`

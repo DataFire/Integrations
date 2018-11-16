@@ -49,7 +49,11 @@ walmart_price.updatePrice({
 #### Input
 * input `object`
   * feedType **required** `string` (values: price, promo): Feed Type
-  * file **required** `string`: Feed File to upload
+  * file **required** `string`, `object`: Feed File to upload
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * WM_CONSUMER.CHANNEL.TYPE **required** `string` (values: SWAGGER_CHANNEL_TYPE): Channel Type
   * WM_CONSUMER.ID **required** `string`: Your Consumer ID
   * WM_SEC.TIMESTAMP **required** `string`: Epoch timestamp

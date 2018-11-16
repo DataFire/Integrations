@@ -492,7 +492,11 @@ kaltura.annotation.addFromBulk({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaCuePointListResponse](#kalturacuepointlistresponse)
@@ -1497,7 +1501,11 @@ kaltura.attachmentAsset.setContent({
   * contentResource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resource][resources] `array`
   * contentResource[resource][resource][content] `string`: Textual content
@@ -1508,7 +1516,11 @@ kaltura.attachmentAsset.setContent({
   * contentResource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resources] `array`
   * contentResource[resource][content] `string`: Textual content
@@ -1519,7 +1531,11 @@ kaltura.attachmentAsset.setContent({
   * contentResource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resources] `array`
   * contentResource[content] `string`: Textual content
@@ -1530,7 +1546,11 @@ kaltura.attachmentAsset.setContent({
   * contentResource[dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[localFilePath] `string`: Full path to the local file
   * contentResource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[fileData] `string`: Represents the $_FILE
+  * contentResource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
 
 #### Output
@@ -1902,7 +1922,11 @@ kaltura.baseEntry.addContent({
   * resource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resource][resources] `array`
   * resource[resource][resource][content] `string`: Textual content
@@ -1913,7 +1937,11 @@ kaltura.baseEntry.addContent({
   * resource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resources] `array`
   * resource[resource][content] `string`: Textual content
@@ -1924,7 +1952,11 @@ kaltura.baseEntry.addContent({
   * resource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][localFilePath] `string`: Full path to the local file
   * resource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resources] `array`
   * resource[url] `string`: Remote URL, FTP, HTTP or HTTPS
@@ -1944,7 +1976,11 @@ kaltura.baseEntry.addContent({
   * resource[dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[localFilePath] `string`: Full path to the local file
   * resource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[fileData] `string`: Represents the $_FILE
+  * resource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
 
 #### Output
@@ -2850,7 +2886,11 @@ kaltura.baseEntry.updateContent({
   * resource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resource][resources] `array`
   * resource[resource][resource][content] `string`: Textual content
@@ -2861,7 +2901,11 @@ kaltura.baseEntry.updateContent({
   * resource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resources] `array`
   * resource[resource][content] `string`: Textual content
@@ -2872,7 +2916,11 @@ kaltura.baseEntry.updateContent({
   * resource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][localFilePath] `string`: Full path to the local file
   * resource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resources] `array`
   * resource[url] `string`: Remote URL, FTP, HTTP or HTTPS
@@ -2892,7 +2940,11 @@ kaltura.baseEntry.updateContent({
   * resource[dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[localFilePath] `string`: Full path to the local file
   * resource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[fileData] `string`: Represents the $_FILE
+  * resource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * conversionProfileId `integer`: The conversion profile id to be used on the entry
   * advancedOptions[keepManualThumbnails] `integer`: If true manually created thumbnails will not be deleted on entry replacement
@@ -2961,7 +3013,11 @@ kaltura.baseEntry.updateThumbnailJpeg({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * entryId **required** `string`: Media entry id
-  * fileData **required** `string`: Jpeg file data
+  * fileData **required** `string`, `object`: Jpeg file data
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaBaseEntry](#kalturabaseentry)
@@ -2980,7 +3036,11 @@ kaltura.baseEntry.upload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`: The file data
+  * fileData **required** `string`, `object`: The file data
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `string`
@@ -5507,7 +5567,11 @@ kaltura.bulkUpload.add({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * conversionProfileId **required** `integer`: Convertion profile id to use for converting the current bulk (-1 to use partner's default)
-  * csvFileData **required** `string`: bulk upload file
+  * csvFileData **required** `string`, `object`: bulk upload file
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * bulkUploadType `string` (values: bulkUploadCsv.CSV, bulkUploadFilter.FILTER, bulkUploadXml.XML, dropFolderXmlBulkUpload.DROP_FOLDER_XML, scheduleBulkUpload.ICAL, scheduleDropFolder.DROP_FOLDER_ICAL): Enum Type: `KalturaBulkUploadType`
   * uploadedBy `string`
   * fileName `string`: Friendly name of the file, used to be recognized later in the logs.
@@ -6354,7 +6418,11 @@ kaltura.captionAsset.setContent({
   * contentResource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resource][resources] `array`
   * contentResource[resource][resource][content] `string`: Textual content
@@ -6365,7 +6433,11 @@ kaltura.captionAsset.setContent({
   * contentResource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resources] `array`
   * contentResource[resource][content] `string`: Textual content
@@ -6376,7 +6448,11 @@ kaltura.captionAsset.setContent({
   * contentResource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resources] `array`
   * contentResource[content] `string`: Textual content
@@ -6387,7 +6463,11 @@ kaltura.captionAsset.setContent({
   * contentResource[dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[localFilePath] `string`: Full path to the local file
   * contentResource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[fileData] `string`: Represents the $_FILE
+  * contentResource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
 
 #### Output
@@ -7230,7 +7310,11 @@ kaltura.category.addFromBulkUpload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * bulkUploadData[fileName] `string`: Friendly name of the file, used to be recognized later in the logs.
   * bulkUploadData[objectData][objectType] `string` (values: KalturaBulkUploadCategoryData, KalturaBulkUploadCategoryEntryData, KalturaBulkUploadCategoryUserData, KalturaBulkUploadEntryData, KalturaBulkUploadUserData)
   * bulkUploadData[objectData][conversionProfileId] `integer`: Selected profile id for all bulk entries
@@ -7792,7 +7876,11 @@ kaltura.categoryUser.addFromBulkUpload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * bulkUploadData[fileName] `string`: Friendly name of the file, used to be recognized later in the logs.
   * bulkUploadData[objectData][objectType] `string` (values: KalturaBulkUploadCategoryData, KalturaBulkUploadCategoryEntryData, KalturaBulkUploadCategoryUserData, KalturaBulkUploadEntryData, KalturaBulkUploadUserData)
   * bulkUploadData[objectData][conversionProfileId] `integer`: Selected profile id for all bulk entries
@@ -9426,7 +9514,11 @@ kaltura.genericDistributionProviderAction.addMrssTransformFromFile({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * id **required** `integer`: the id of the generic distribution provider action
-  * xslFile **required** `string`: XSL MRSS transformation file
+  * xslFile **required** `string`, `object`: XSL MRSS transformation file
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaGenericDistributionProviderAction](#kalturagenericdistributionprovideraction)
@@ -9468,7 +9560,11 @@ kaltura.genericDistributionProviderAction.addMrssValidateFromFile({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * id **required** `integer`: the id of the generic distribution provider action
-  * xsdFile **required** `string`: XSD MRSS validatation file
+  * xsdFile **required** `string`, `object`: XSD MRSS validatation file
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaGenericDistributionProviderAction](#kalturagenericdistributionprovideraction)
@@ -9510,7 +9606,11 @@ kaltura.genericDistributionProviderAction.addResultsTransformFromFile({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * id **required** `integer`: the id of the generic distribution provider action
-  * transformFile **required** `string`: transformation file xsl, xPath or regex
+  * transformFile **required** `string`, `object`: transformation file xsl, xPath or regex
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaGenericDistributionProviderAction](#kalturagenericdistributionprovideraction)
@@ -10154,7 +10254,11 @@ kaltura.cuePoint.addFromBulk({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaCuePointListResponse](#kalturacuepointlistresponse)
@@ -11679,7 +11783,11 @@ kaltura.documents.updateContent({
   * resource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resource][resources] `array`
   * resource[resource][resource][content] `string`: Textual content
@@ -11690,7 +11798,11 @@ kaltura.documents.updateContent({
   * resource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resources] `array`
   * resource[resource][content] `string`: Textual content
@@ -11701,7 +11813,11 @@ kaltura.documents.updateContent({
   * resource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][localFilePath] `string`: Full path to the local file
   * resource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resources] `array`
   * resource[url] `string`: Remote URL, FTP, HTTP or HTTPS
@@ -11721,7 +11837,11 @@ kaltura.documents.updateContent({
   * resource[dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[localFilePath] `string`: Full path to the local file
   * resource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[fileData] `string`: Represents the $_FILE
+  * resource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * conversionProfileId `integer`: The conversion profile id to be used on the entry
 
@@ -11742,7 +11862,11 @@ kaltura.documents.upload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`: The file data
+  * fileData **required** `string`, `object`: The file data
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `string`
@@ -14484,7 +14608,11 @@ kaltura.fileAsset.setContent({
   * contentResource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resource][resources] `array`
   * contentResource[resource][resource][content] `string`: Textual content
@@ -14495,7 +14623,11 @@ kaltura.fileAsset.setContent({
   * contentResource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resources] `array`
   * contentResource[resource][content] `string`: Textual content
@@ -14506,7 +14638,11 @@ kaltura.fileAsset.setContent({
   * contentResource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resources] `array`
   * contentResource[content] `string`: Textual content
@@ -14517,7 +14653,11 @@ kaltura.fileAsset.setContent({
   * contentResource[dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[localFilePath] `string`: Full path to the local file
   * contentResource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[fileData] `string`: Represents the $_FILE
+  * contentResource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
 
 #### Output
@@ -15143,7 +15283,11 @@ kaltura.flavorAsset.setContent({
   * contentResource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resource][resources] `array`
   * contentResource[resource][resource][content] `string`: Textual content
@@ -15154,7 +15298,11 @@ kaltura.flavorAsset.setContent({
   * contentResource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resources] `array`
   * contentResource[resource][content] `string`: Textual content
@@ -15165,7 +15313,11 @@ kaltura.flavorAsset.setContent({
   * contentResource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resources] `array`
   * contentResource[content] `string`: Textual content
@@ -15176,7 +15328,11 @@ kaltura.flavorAsset.setContent({
   * contentResource[dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[localFilePath] `string`: Full path to the local file
   * contentResource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[fileData] `string`: Represents the $_FILE
+  * contentResource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
 
 #### Output
@@ -18180,7 +18336,11 @@ kaltura.liveStream.appendRecording({
   * resource[dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[localFilePath] `string`: Full path to the local file
   * resource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[fileData] `string`: Represents the $_FILE
+  * resource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * duration **required** `number`: in seconds
   * isLastChunk `boolean`: Is this the last recorded chunk in the current session (i.e. following a stream stop event)
@@ -18547,7 +18707,11 @@ kaltura.liveStream.setRecordedContent({
   * resource[dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[localFilePath] `string`: Full path to the local file
   * resource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[fileData] `string`: Represents the $_FILE
+  * resource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * duration **required** `number`: in seconds
   * recordedEntryId `string`: Recorded entry Id
@@ -18696,7 +18860,11 @@ kaltura.liveStream.updateOfflineThumbnailJpeg({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * entryId **required** `string`: live stream entry id
-  * fileData **required** `string`: Jpeg file data
+  * fileData **required** `string`, `object`: Jpeg file data
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaLiveStreamEntry](#kalturalivestreamentry)
@@ -18856,7 +19024,11 @@ kaltura.media.addContent({
   * resource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resource][resources] `array`
   * resource[resource][resource][content] `string`: Textual content
@@ -18867,7 +19039,11 @@ kaltura.media.addContent({
   * resource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resources] `array`
   * resource[resource][content] `string`: Textual content
@@ -18878,7 +19054,11 @@ kaltura.media.addContent({
   * resource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][localFilePath] `string`: Full path to the local file
   * resource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resources] `array`
   * resource[url] `string`: Remote URL, FTP, HTTP or HTTPS
@@ -18898,7 +19078,11 @@ kaltura.media.addContent({
   * resource[dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[localFilePath] `string`: Full path to the local file
   * resource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[fileData] `string`: Represents the $_FILE
+  * resource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
 
 #### Output
@@ -19586,7 +19770,11 @@ kaltura.media.bulkUploadAdd({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * bulkUploadData[fileName] `string`: Friendly name of the file, used to be recognized later in the logs.
   * bulkUploadData[objectData][objectType] `string` (values: KalturaBulkUploadCategoryData, KalturaBulkUploadCategoryEntryData, KalturaBulkUploadCategoryUserData, KalturaBulkUploadEntryData, KalturaBulkUploadUserData)
   * bulkUploadData[objectData][conversionProfileId] `integer`: Selected profile id for all bulk entries
@@ -20251,7 +20439,11 @@ kaltura.media.updateContent({
   * resource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resource][resources] `array`
   * resource[resource][resource][content] `string`: Textual content
@@ -20262,7 +20454,11 @@ kaltura.media.updateContent({
   * resource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][resource][localFilePath] `string`: Full path to the local file
   * resource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resource][resources] `array`
   * resource[resource][content] `string`: Textual content
@@ -20273,7 +20469,11 @@ kaltura.media.updateContent({
   * resource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[resource][localFilePath] `string`: Full path to the local file
   * resource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[resource][fileData] `string`: Represents the $_FILE
+  * resource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * resource[resources] `array`
   * resource[url] `string`: Remote URL, FTP, HTTP or HTTPS
@@ -20293,7 +20493,11 @@ kaltura.media.updateContent({
   * resource[dropFolderFileId] `integer`: Id of the drop folder file object
   * resource[localFilePath] `string`: Full path to the local file
   * resource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * resource[fileData] `string`: Represents the $_FILE
+  * resource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * conversionProfileId `integer`: The conversion profile id to be used on the entry
   * advancedOptions[keepManualThumbnails] `integer`: If true manually created thumbnails will not be deleted on entry replacement
@@ -20389,7 +20593,11 @@ kaltura.media.updateThumbnailJpeg({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * entryId **required** `string`: Media entry id
-  * fileData **required** `string`: Jpeg file data
+  * fileData **required** `string`, `object`: Jpeg file data
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaMediaEntry](#kalturamediaentry)
@@ -20408,7 +20616,11 @@ kaltura.media.upload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`: The file data
+  * fileData **required** `string`, `object`: The file data
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `string`
@@ -20547,7 +20759,11 @@ kaltura.metadata.addFromFile({
   * metadataProfileId **required** `integer`
   * objectType **required** `string` (values: adCuePointMetadata.AdCuePoint, annotationMetadata.Annotation, codeCuePointMetadata.CodeCuePoint, quiz.AnswerCuePoint, quiz.QuestionCuePoint, thumbCuePointMetadata.thumbCuePoint, 1, 2, 3, 4, 5): Enum Type: `KalturaMetadataObjectType`
   * objectId **required** `string`
-  * xmlFile **required** `string`: XML metadata
+  * xmlFile **required** `string`, `object`: XML metadata
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaMetadata](#kalturametadata)
@@ -20792,7 +21008,11 @@ kaltura.metadata.updateFromFile({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * id **required** `integer`
-  * xmlFile `string`: XML metadata
+  * xmlFile `string`, `object`: XML metadata
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaMetadata](#kalturametadata)
@@ -20813,7 +21033,11 @@ kaltura.metadata.updateFromXSL({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * id **required** `integer`
-  * xslFile **required** `string`
+  * xslFile **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaMetadata](#kalturametadata)
@@ -21005,8 +21229,16 @@ kaltura.metadataProfile.addFromFile({
   * metadataProfile[description] `string`
   * metadataProfile[createMode] `integer` (values: 1, 2, 3): Enum Type: `KalturaMetadataProfileCreateMode`
   * metadataProfile[disableReIndexing] `boolean`
-  * xsdFile **required** `string`: XSD metadata definition
-  * viewsFile `string`: UI views definition
+  * xsdFile **required** `string`, `object`: XSD metadata definition
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
+  * viewsFile `string`, `object`: UI views definition
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaMetadataProfile](#kalturametadataprofile)
@@ -21249,7 +21481,11 @@ kaltura.metadataProfile.updateDefinitionFromFile({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * id **required** `integer`
-  * xsdFile **required** `string`: XSD metadata definition
+  * xsdFile **required** `string`, `object`: XSD metadata definition
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaMetadataProfile](#kalturametadataprofile)
@@ -21270,7 +21506,11 @@ kaltura.metadataProfile.updateTransformationFromFile({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * id **required** `integer`
-  * xsltFile **required** `string`: XSLT file, will be executed on every metadata add/update
+  * xsltFile **required** `string`, `object`: XSLT file, will be executed on every metadata add/update
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaMetadataProfile](#kalturametadataprofile)
@@ -21291,7 +21531,11 @@ kaltura.metadataProfile.updateViewsFromFile({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * id **required** `integer`
-  * viewsFile **required** `string`: UI views file
+  * viewsFile **required** `string`, `object`: UI views file
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaMetadataProfile](#kalturametadataprofile)
@@ -25104,7 +25348,11 @@ kaltura.scheduleEvent.addFromBulkUpload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * bulkUploadData[fileName] `string`: Friendly name of the file, used to be recognized later in the logs.
   * bulkUploadData[objectData][objectType] `string` (values: KalturaBulkUploadCategoryData, KalturaBulkUploadCategoryEntryData, KalturaBulkUploadCategoryUserData, KalturaBulkUploadEntryData, KalturaBulkUploadUserData)
   * bulkUploadData[objectData][conversionProfileId] `integer`: Selected profile id for all bulk entries
@@ -25582,7 +25830,11 @@ kaltura.scheduleResource.addFromBulkUpload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * bulkUploadData[fileName] `string`: Friendly name of the file, used to be recognized later in the logs.
   * bulkUploadData[objectData][objectType] `string` (values: KalturaBulkUploadCategoryData, KalturaBulkUploadCategoryEntryData, KalturaBulkUploadCategoryUserData, KalturaBulkUploadEntryData, KalturaBulkUploadUserData)
   * bulkUploadData[objectData][conversionProfileId] `integer`: Selected profile id for all bulk entries
@@ -27764,7 +28016,11 @@ kaltura.thumbAsset.addFromImage({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * entryId **required** `string`
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [KalturaThumbAsset](#kalturathumbasset)
@@ -28299,7 +28555,11 @@ kaltura.thumbAsset.setContent({
   * contentResource[resource][resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resource][resources] `array`
   * contentResource[resource][resource][content] `string`: Textual content
@@ -28310,7 +28570,11 @@ kaltura.thumbAsset.setContent({
   * contentResource[resource][resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resource][resources] `array`
   * contentResource[resource][content] `string`: Textual content
@@ -28321,7 +28585,11 @@ kaltura.thumbAsset.setContent({
   * contentResource[resource][dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[resource][localFilePath] `string`: Full path to the local file
   * contentResource[resource][keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[resource][fileData] `string`: Represents the $_FILE
+  * contentResource[resource][fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[resource][token] `string`: Token that returned from upload.upload action or uploadToken.add action.
   * contentResource[resources] `array`
   * contentResource[content] `string`: Textual content
@@ -28332,7 +28600,11 @@ kaltura.thumbAsset.setContent({
   * contentResource[dropFolderFileId] `integer`: Id of the drop folder file object
   * contentResource[localFilePath] `string`: Full path to the local file
   * contentResource[keepOriginalFile] `boolean`: Should keep original file (false = mv, true = cp)
-  * contentResource[fileData] `string`: Represents the $_FILE
+  * contentResource[fileData] `string`, `object`: Represents the $_FILE
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * contentResource[token] `string`: Token that returned from upload.upload action or uploadToken.add action.
 
 #### Output
@@ -29085,7 +29357,11 @@ kaltura.upload.upload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`: The file data
+  * fileData **required** `string`, `object`: The file data
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `string`
@@ -29248,7 +29524,11 @@ kaltura.uploadToken.upload({
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
   * uploadTokenId **required** `string`
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * resume `boolean`
   * finalChunk `boolean`
   * resumeAt `number`
@@ -29316,7 +29596,11 @@ kaltura.user.addFromBulkUpload({
 * input `object`
   * ks `string`
   * format `integer` (values: 1, 2, 3): The format of the response
-  * fileData **required** `string`
+  * fileData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * bulkUploadData[fileName] `string`: Friendly name of the file, used to be recognized later in the logs.
   * bulkUploadData[objectData][objectType] `string` (values: KalturaBulkUploadCategoryData, KalturaBulkUploadCategoryEntryData, KalturaBulkUploadCategoryUserData, KalturaBulkUploadEntryData, KalturaBulkUploadUserData)
   * bulkUploadData[objectData][conversionProfileId] `integer`: Selected profile id for all bulk entries

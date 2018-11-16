@@ -2166,7 +2166,11 @@ figshare.institution_hrfeed_upload({}, context)
 
 #### Input
 * input `object`
-  * hrfeed `string`: You can find an example in the Hr Feed section
+  * hrfeed `string`, `object`: You can find an example in the Hr Feed section
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [ResponseMessage](#responsemessage)

@@ -1322,7 +1322,11 @@ slack.files_upload({}, context)
   * filename `string`: Filename of file.
   * content `string`: File contents via a POST variable. If omitting this parameter, you must provide a `file`.
   * token `string`: Authentication token. Requires scope: `files:write:user`
-  * file `string`: File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`.
+  * file `string`, `object`: File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `object`: Schema for successful response files.upload method

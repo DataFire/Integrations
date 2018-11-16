@@ -1866,7 +1866,11 @@ zuora.POST_Attachments({
   * description `string`: Description of the attachment document.
   * associatedObjectType **required** `string`: Specify one of the following values: Account, Subscription, or Invoice.
   * associatedObjectKey **required** `string`: For the Subscription type, specify the Subscription Number. An attachment is tied to the Subscription Number and thus viewable with every subscription version.
-  * file **required** `string`: The file to be attached. Files with the following extensions are supported: .pdf, .csv, .png, .xlsx, .xls, .doc, .docx, .msg, .jpg, .txt, .htm, .html, .eml, .pptx, .gif, .rtf, .xml, .jpeg, .log, .cls
+  * file **required** `string`, `object`: The file to be attached. Files with the following extensions are supported: .pdf, .csv, .png, .xlsx, .xls, .doc, .docx, .msg, .jpg, .txt, .htm, .html, .eml, .pptx, .gif, .rtf, .xml, .jpeg, .log, .cls
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [POSTAttachmentResponseType](#postattachmentresponsetype)
@@ -2096,7 +2100,11 @@ zuora.POST_MassUpdater({
 #### Input
 * input `object`
   * Zuora-Entity-Ids `string`: An entity ID. If you have [Zuora Multi-entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity) enabled and the OAuth token is valid for more than one entity, you must use this header to specify which entity to perform the operation in. If the OAuth token is only valid for a single entity, or you do not have Zuora Multi-entity enabled, you do not need to set this header.
-  * file **required** `string`: File containing data about the mass action you want to perform. The file requirements are the same as when uploading a file through the Mass Updater in the Zuora UI. The file must be a .csv file or a zipped .csv file.
+  * file **required** `string`, `object`: File containing data about the mass action you want to perform. The file requirements are the same as when uploading a file through the Mass Updater in the Zuora UI. The file must be a .csv file or a zipped .csv file.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * params **required** `string`: Container for the following fields. You must format this parameter as a JSON object.
 
 #### Output
@@ -4620,7 +4628,11 @@ zuora.Object_POSTImport({
   * Zuora-Track-Id `string`: A custom identifier for tracing the API call. If you set a value for this header, Zuora returns the same value in the response headers. This header enables you to associate your system process identifiers with Zuora API calls, to assist with troubleshooting in the event of an issue.
   * ImportType **required** `string` (values: Usage, Payment, Quote, TaxationDetail, UpdateAccountingCode, CreateRevenueSchedule, UpdateRevenueSchedule, DeleteRevenueSchedule, ImportFXRate, MPU): The type of data to import.
   * Name **required** `string`: A descriptive name for the import.
-  * File **required** `string`: The data to import.
+  * File **required** `string`, `object`: The data to import.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [ProxyPostImport](#proxypostimport)
@@ -8523,7 +8535,11 @@ zuora.POST_Usage({
 #### Input
 * input `object`
   * Zuora-Entity-Ids `string`: An entity ID. If you have [Zuora Multi-entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity) enabled and the OAuth token is valid for more than one entity, you must use this header to specify which entity to perform the operation in. If the OAuth token is only valid for a single entity, or you do not have Zuora Multi-entity enabled, you do not need to set this header.
-  * file **required** `string`: The usage data to import.
+  * file **required** `string`, `object`: The usage data to import.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [POSTUsageResponseType](#postusageresponsetype)

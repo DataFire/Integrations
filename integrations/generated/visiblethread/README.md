@@ -111,7 +111,11 @@ visiblethread.uploadDictionary({
 
 #### Input
 * input `object`
-  * file **required** `string`: The uploaded CSV dictionary
+  * file **required** `string`, `object`: The uploaded CSV dictionary
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 *Output schema unknown*
@@ -146,7 +150,11 @@ visiblethread.uploadDoc({
 
 #### Input
 * input `object`
-  * file **required** `string`: The uploaded file data
+  * file **required** `string`, `object`: The uploaded file data
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * longSentenceWordCount `integer`: Optional setting what constitutes a long sentence (default 25)
   * veryLongSentenceWordCount `integer`: Optional setting what constitutes a very long sentence (default 30)
 

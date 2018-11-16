@@ -212,7 +212,11 @@ microsoft_cognitiveservices_training.CreateImagesFromData({
 * input `object`
   * projectId **required** `string`: The project id
   * tagIds `array`: The tags ids with which to tag each image. Limited to 20
-  * imageData **required** `string`
+  * imageData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * Training-Key **required** `string`
 
 #### Output
@@ -589,7 +593,11 @@ microsoft_cognitiveservices_training.QuickTestImage({
 * input `object`
   * projectId **required** `string`: The project id
   * iterationId `string`: Optional. Specifies the id of a particular iteration to evaluate against.
-  * imageData **required** `string`
+  * imageData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * Training-Key **required** `string`
 
 #### Output

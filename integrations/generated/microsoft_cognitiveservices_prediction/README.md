@@ -41,7 +41,11 @@ microsoft_cognitiveservices_prediction.PredictImage({
   * projectId **required** `string`: The project id
   * iterationId `string`: Optional. Specifies the id of a particular iteration to evaluate against.
   * application `string`: Optional. Specifies the name of application using the endpoint
-  * imageData **required** `string`
+  * imageData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * Prediction-Key **required** `string`
 
 #### Output
@@ -64,7 +68,11 @@ microsoft_cognitiveservices_prediction.PredictImageWithNoStore({
   * projectId **required** `string`: The project id
   * iterationId `string`: Optional. Specifies the id of a particular iteration to evaluate against.
   * application `string`: Optional. Specifies the name of application using the endpoint
-  * imageData **required** `string`
+  * imageData **required** `string`, `object`
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * Prediction-Key **required** `string`
 
 #### Output

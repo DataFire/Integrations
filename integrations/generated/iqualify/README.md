@@ -613,7 +613,11 @@ iqualify.offerings.offeringId.assessments.assessmentId.documents.post({
 * input `object`
   * offeringId **required** `string`: offering's id
   * assessmentId **required** `string`: assessment's id
-  * file **required** `string`: Assessment document
+  * file **required** `string`, `object`: Assessment document
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [Document](#document)
@@ -711,7 +715,11 @@ iqualify.offerings.offeringId.cover_image.put({
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * file **required** `string`: Cover image, required size is 1280x380px
+  * file **required** `string`, `object`: Cover image, required size is 1280x380px
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [OfferingResponse](#offeringresponse)
@@ -911,7 +919,11 @@ iqualify.offerings.offeringId.study_plan.put({
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * file **required** `string`: Study plan
+  * file **required** `string`, `object`: Study plan
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [OfferingResponse](#offeringresponse)

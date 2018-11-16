@@ -51,7 +51,11 @@ browshot.CreateBatch({
 #### Input
 * input `object`
   * instance_id **required** `integer`: instance ID to use
-  * file `string`: text file to use
+  * file `string`, `object`: text file to use
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * size `string` (values: screen, page): screenshots size - "screen" (default) or "page"
   * name `string`: name of the batch
   * width `integer`: thumbnail width.

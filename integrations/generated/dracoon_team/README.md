@@ -1879,7 +1879,11 @@ dracoon_team.uploadFile({
 #### Input
 * input `object`
   * upload_id **required** `string`: Upload channel ID
-  * file `string`: File
+  * file `string`, `object`: File
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * Content-Range `string`: Content-Range
   * X-Sds-Auth-Token **required** `string`: Authentication token
 
@@ -4289,7 +4293,11 @@ dracoon_team.uploadShare({
 * input `object`
   * access_key **required** `string`: Access key
   * upload_id **required** `string`: Upload channel ID
-  * file `string`: File
+  * file `string`, `object`: File
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * Content-Range `string`: Content-Range
   * X-Sds-Date-Format `string`: Date time format (cf. [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt)):
 
@@ -6073,7 +6081,11 @@ dracoon_team.uploadFileByToken({
 #### Input
 * input `object`
   * token **required** `string`: Upload token
-  * file `string`: File
+  * file `string`, `object`: File
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * Content-Range `string`: Content-Range
 
 #### Output

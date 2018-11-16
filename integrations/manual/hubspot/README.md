@@ -8,6 +8,7 @@ npm install --save @datafire/hubspot
 ```
 ```js
 let hubspot = require('@datafire/hubspot').create({
+  api_key: "",
   access_token: "",
   refresh_token: "",
   client_id: "",

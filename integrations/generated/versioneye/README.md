@@ -662,7 +662,11 @@ versioneye.postProjects({
 
 #### Input
 * input `object`
-  * upload **required** `string`: Project file - [maven.pom, Gemfile ...]
+  * upload **required** `string`, `object`: Project file - [maven.pom, Gemfile ...]
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * visibility `string`: By default 'public'. If 'public' everybody can see the project.
   * name `string`: The name of the VersionEye project. By default it is the filename.
   * orga_name `string`: The name of the organisation this project should be assigned to.
@@ -799,7 +803,11 @@ versioneye.postProjectsProjectKey({
 #### Input
 * input `object`
   * project_key **required** `string`: Project ID
-  * project_file **required** `string`: Project file - [maven.pom, Gemfile ...]
+  * project_file **required** `string`, `object`: Project file - [maven.pom, Gemfile ...]
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 *Output schema unknown*

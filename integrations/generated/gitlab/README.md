@@ -6288,7 +6288,11 @@ gitlab.postV3ProjectsIdUploads({
 #### Input
 * input `object`
   * id **required** `string`: The ID of a project
-  * file **required** `string`: The file to be uploaded
+  * file **required** `string`, `object`: The file to be uploaded
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 *Output schema unknown*

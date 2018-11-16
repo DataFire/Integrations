@@ -1920,6 +1920,10 @@ trello.addCardsAttachmentsByIdCard({
   * idCard **required** `string`: card id or shortlink
   * body [cards_attachments](#cards_attachments)
   * file `string`, `object`: File contents
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 *Output schema unknown*

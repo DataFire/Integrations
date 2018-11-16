@@ -500,7 +500,11 @@ callfire.postFileCampaignSound({
 #### Input
 * input `object`
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
-  * file **required** `string`: A sound file encoded in binary form
+  * file **required** `string`, `object`: A sound file encoded in binary form
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * name `string`: Optional name of a sound file, if the name is empty than it will be taken from a file
 
 #### Output
@@ -800,7 +804,11 @@ callfire.createContactListFromFile({
 
 #### Input
 * input `object`
-  * file **required** `string`: CSV file to be uploaded
+  * file **required** `string`, `object`: CSV file to be uploaded
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * name `string`: A name of a contact list
   * useCustomFields `boolean`: A flag to indicate how to define property names for contacts. If true, uses the field and property names exactly as defined. If false will assign custom properties and fields to A, B, C, etc
 
@@ -1265,7 +1273,11 @@ callfire.createMedia({
 
 #### Input
 * input `object`
-  * file **required** `string`: Binary media file
+  * file **required** `string`, `object`: Binary media file
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * name `string`: A name of a media file
 
 #### Output

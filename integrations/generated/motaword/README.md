@@ -124,7 +124,11 @@ motaword.updateGlobalGlossary({
 
 #### Input
 * input `object`
-  * glossary **required** `string`: Glossary file. Currently supported formats: .xlsx, .tbx
+  * glossary **required** `string`, `object`: Glossary file. Currently supported formats: .xlsx, .tbx
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `object`
@@ -193,9 +197,21 @@ motaword.createProject({
   * target_languages[] **required** `array`
   * callback_url `string`: Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'.
   * custom `array`: Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value.
-  * documents[] `string`: Optional. You can add as many files as you want in documents[] parameter. Or you add your documents later in separate calls.
-  * styleguides[] `string`: Optional. You can add as many files as you want in styleguides[] parameter. Or you add your style guides later in separate calls.
-  * glossaries[] `string`: Optional. Only one glossary is supported at the moment.
+  * documents[] `string`, `object`: Optional. You can add as many files as you want in documents[] parameter. Or you add your documents later in separate calls.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
+  * styleguides[] `string`, `object`: Optional. You can add as many files as you want in styleguides[] parameter. Or you add your style guides later in separate calls.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
+  * glossaries[] `string`, `object`: Optional. Only one glossary is supported at the moment.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `object`
@@ -576,7 +592,11 @@ motaword.createDocument({
 #### Input
 * input `object`
   * projectId **required** `integer`: Project ID
-  * documents[] **required** `string`: You can add as many files as you want in documents[] parameter.
+  * documents[] **required** `string`, `object`: You can add as many files as you want in documents[] parameter.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * schemes[] `string`: JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.
 
 #### Output
@@ -636,7 +656,11 @@ motaword.updateDocument({
 * input `object`
   * projectId **required** `integer`: Project ID
   * documentId **required** `integer`: Document ID
-  * documents `string`: Single file data. The name is plural to provide a consistent naming convention.
+  * documents `string`, `object`: Single file data. The name is plural to provide a consistent naming convention.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * schemes `string`: JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.
 
 #### Output
@@ -692,7 +716,11 @@ motaword.createGlossary({
 #### Input
 * input `object`
   * projectId **required** `integer`: Project ID
-  * glossaries **required** `string`: You can only add one glossary, even though the name suggests multiple glossaries. This may be updated in the future to support multiple glossaries.
+  * glossaries **required** `string`, `object`: You can only add one glossary, even though the name suggests multiple glossaries. This may be updated in the future to support multiple glossaries.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [Glossary](#glossary)
@@ -752,7 +780,11 @@ motaword.updateGlossary({
 * input `object`
   * projectId **required** `integer`: Project ID
   * glossaryId **required** `integer`: Glossary ID
-  * glossaries **required** `string`: Single file data. The name is plural to provide a consistent naming convention.
+  * glossaries **required** `string`, `object`: Single file data. The name is plural to provide a consistent naming convention.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [Glossary](#glossary)
@@ -807,7 +839,11 @@ motaword.createStyleGuide({
 #### Input
 * input `object`
   * projectId **required** `integer`: Project ID
-  * styleguides[] **required** `string`: You can add as many files as you want in styleguides[] parameter.
+  * styleguides[] **required** `string`, `object`: You can add as many files as you want in styleguides[] parameter.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [StyleGuide](#styleguide)
@@ -867,7 +903,11 @@ motaword.updateStyleGuide({
 * input `object`
   * projectId **required** `integer`: Project ID
   * styleGuideId **required** `integer`: Style guide ID
-  * styleguides **required** `string`: Single file data. The name is plural to provide a consistent naming convention.
+  * styleguides **required** `string`, `object`: Single file data. The name is plural to provide a consistent naming convention.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [StyleGuide](#styleguide)
@@ -917,7 +957,11 @@ motaword.updateGlobalStyleGuide({
 
 #### Input
 * input `object`
-  * styleguide **required** `string`: Style guide file. Currently supported formats: .pdf, .docx, .txt
+  * styleguide **required** `string`, `object`: Style guide file. Currently supported formats: .pdf, .docx, .txt
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `object`

@@ -83,7 +83,11 @@ box_upload.uploadFile({
 
 #### Input
 * input `object`
-  * file **required** `string`: File to upload
+  * file **required** `string`, `object`: File to upload
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * attributes **required** `string`: File attributes
 
 #### Output
@@ -221,7 +225,11 @@ box_upload.uploadFileVersion({
   * FILE_ID **required** `string`
   * If-Match `string`: This is in the ‘etag’ field of the file object
   * attributes `string`: File attributes
-  * file **required** `string`: File to upload
+  * file **required** `string`, `object`: File to upload
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [FileList](#filelist)

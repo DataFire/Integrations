@@ -2043,7 +2043,11 @@ zoom_us.userPicture({
 #### Input
 * input `object`
   * userId **required** `string`: The user ID or email address
-  * pic_file **required** `string`: User picture file, must be a jpg/jpeg file
+  * pic_file **required** `string`, `object`: User picture file, must be a jpg/jpeg file
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 *Output schema unknown*

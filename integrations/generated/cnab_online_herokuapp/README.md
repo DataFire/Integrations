@@ -35,7 +35,11 @@ cnab_online_herokuapp.file.post({
 
 #### Input
 * input `object`
-  * file **required** `string`: Arquivo CNAB
+  * file **required** `string`, `object`: Arquivo CNAB
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output `object`

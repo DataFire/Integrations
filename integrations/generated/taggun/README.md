@@ -55,7 +55,11 @@ taggun.postApiArticleV1VerboseFile({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * file `string`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
+  * file `string`, `object`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
   * incognito `boolean`: Set true to avoid saving the receipt in storage
   * ipAddress `string`: IP Address of the end user
@@ -77,7 +81,11 @@ taggun.postApiReceiptV1MatchFile({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * file `string`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
+  * file `string`, `object`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
   * incognito `boolean`: Set true to avoid saving the receipt in storage
   * ipAddress `string`: IP Address of the end user
@@ -120,7 +128,11 @@ taggun.postApiReceiptV1SimpleFile({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * file `string`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
+  * file `string`, `object`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
   * incognito `boolean`: Set true to avoid saving the receipt in storage
   * ipAddress `string`: IP Address of the end user
@@ -196,7 +208,11 @@ taggun.postApiReceiptV1VerboseFile({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * file `string`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
+  * file `string`, `object`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
   * incognito `boolean`: Set true to avoid saving the receipt in storage
   * ipAddress `string`: IP Address of the end user

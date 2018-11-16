@@ -36,7 +36,11 @@ cloudmersive_ocr.ImageOcr_Post({
 
 #### Input
 * input `object`
-  * imageFile **required** `string`: Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
+  * imageFile **required** `string`, `object`: Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [ImageToTextResponse](#imagetotextresponse)

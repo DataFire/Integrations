@@ -830,7 +830,11 @@ zoomconnect.voice.single_audio.post({
 
 #### Input
 * input `object`
-  * file **required** `string`: audio file to play, supports MP3 or WAV format
+  * file **required** `string`, `object`: audio file to play, supports MP3 or WAV format
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
   * recipientNumber **required** `string`: the phone number of the recipient to send to
   * campaign `string`: optional campaign name
   * dataField `string`: optional extra data

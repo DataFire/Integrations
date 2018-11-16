@@ -450,7 +450,11 @@ slicebox_local.images.post({
 
 #### Input
 * input `object`
-  * dataset **required** `string`: The dataset file
+  * dataset **required** `string`, `object`: The dataset file
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [image](#image)
@@ -757,7 +761,11 @@ slicebox_local.import.sessions.id.images.post({
 #### Input
 * input `object`
   * id **required** `integer`: ID of session
-  * dataset **required** `string`: The dataset file
+  * dataset **required** `string`, `object`: The dataset file
+    * content `string`
+    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
+    * contentType `string`
+    * filename `string`
 
 #### Output
 * output [image](#image)
