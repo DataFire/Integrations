@@ -29269,6 +29269,7 @@
           }
         },
         "fields": {
+          "api_key": "Your HubSpot API Key",
           "access_token": "An OAuth access token",
           "refresh_token": "An OAuth refresh token (optional)",
           "client_id": "An OAuth client ID (optional)",
@@ -29282,7 +29283,7 @@
     },
     "actionCount": 18,
     "directory": "manual",
-    "latestVersion": "1.0.0"
+    "latestVersion": "1.1.0"
   },
   "imap": {
     "id": "imap",
