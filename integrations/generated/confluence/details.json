@@ -1,0 +1,4864 @@
+{
+  "id": "confluence",
+  "title": "Confluence",
+  "description": "The Confluence Cloud REST API",
+  "security": {
+    "confluence": {
+      "integration": "confluence",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "actionCount": 113,
+  "actions": [
+    {
+      "id": "audit.get",
+      "title": "audit.get",
+      "description": "Returns all records in the audit log, optionally for a certain date range. \nThis contains information about events like space exports, group membership \nchanges, app installations, etc. For more information, see \nAudit log \nin the Confluence administrator's guide.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "endDate": {
+            "type": "string",
+            "description": "Filters the results to the records on or before the endDate. \nThe endDate must be specified as a timestamp."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Filters the results to records that have string property values \nmatching the searchString."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned records."
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Filters the results to the records on or after the startDate. \nThe startDate must be specified as a timestamp."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "audit.post",
+      "title": "audit.post",
+      "description": "Creates a record in the audit log.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "affectedObject": {
+                "type": "object"
+              },
+              "associatedObjects": {
+                "description": "Objects that were associated with the event. For example, if the event \nwas a space permission change then the associated object would be the \nspace.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "author": {
+                "description": "The user that actioned the event. If author is not specified, then all \nauthor properties will be set to null/empty, except for type which \nwill be set to 'user'.",
+                "type": "object"
+              },
+              "category": {
+                "description": "The category of the event, which is displayed in the 'Event type' column \non the audit log in the Confluence UI.",
+                "type": "string"
+              },
+              "changedValues": {
+                "description": "The values that were changed in the event.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "creationDate": {
+                "description": "The creation date-time of the audit record, as a timestamp. This is converted \nto a date-time display in the Confluence UI. If the creationDate is not \nspecified, then it will be set to the timestamp for the current date-time.",
+                "type": "integer"
+              },
+              "description": {
+                "description": "A long description of the event, which is displayed in the 'Description' \nfield on the audit log in the Confluence UI.",
+                "type": "string"
+              },
+              "remoteAddress": {
+                "description": "The IP address of the computer where the event was initiated from.",
+                "type": "string"
+              },
+              "summary": {
+                "description": "The summary of the event, which is displayed in the 'Change' column on \nthe audit log in the Confluence UI.",
+                "type": "string"
+              },
+              "sysAdmin": {
+                "description": "Indicates whether the event was actioned by a system administrator.",
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "audit.export.get",
+      "title": "audit.export.get",
+      "description": "Exports audit records as a CSV file or ZIP file.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "endDate": {
+            "type": "string",
+            "description": "Filters the exported results to the records on or before the endDate. \nThe endDate must be specified as a timestamp."
+          },
+          "format": {
+            "type": "string",
+            "description": "The format of the export file for the audit records."
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Filters the exported results to records that have string property values \nmatching the searchString."
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Filters the exported results to the records on or after the startDate. \nThe startDate must be specified as a timestamp."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "audit.retention.get",
+      "title": "audit.retention.get",
+      "description": "Returns the retention period for records in the audit log. The retention \nperiod is how long an audit record is kept for, from creation date until \nit is deleted.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "audit.retention.put",
+      "title": "audit.retention.put",
+      "description": "Sets the retention period for records in the audit log. The retention period \ncan be set to a maximum of 20 years.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "number": {
+                "description": "The number of units for the retention period.",
+                "type": "integer"
+              },
+              "units": {
+                "description": "The unit of time that the retention period is measured in.",
+                "enum": [
+                  "NANOS",
+                  "MICROS",
+                  "MILLIS",
+                  "SECONDS",
+                  "MINUTES",
+                  "HOURS",
+                  "HALF_DAYS",
+                  "DAYS",
+                  "WEEKS",
+                  "MONTHS"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "audit.since.get",
+      "title": "audit.since.get",
+      "description": "Returns records from the audit log, for a time period back from the current \ndate. For example, you can use this method to get the last 3 months of records.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "number": {
+            "type": "integer",
+            "description": "The number of units for the time period."
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Filters the results to records that have string property values \nmatching the searchString."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned records."
+          },
+          "units": {
+            "type": "string",
+            "description": "The unit of time that the time period is measured in."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.get",
+      "title": "content.get",
+      "description": "Returns all content in a Confluence instance.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: space, history, version.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of content objects to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "orderby": {
+            "type": "string",
+            "description": "Orders the content by a particular field. Specify the field and sort direction for \nthis parameter, as follows: 'fieldpath asc/desc'. For example, 'history.createdDate desc'."
+          },
+          "postingDay": {
+            "type": "string",
+            "description": "The posting date of the blog post to be returned. Required for\nblogpost type. Format: yyyy-mm-dd."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for its content."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned content."
+          },
+          "status": {
+            "type": "array",
+            "description": "Filter the results to a set of content based on their status. If set to any, \ncontent with any status is returned. Note, the historical status is currently \nnot supported."
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the page to be returned. Required for page type."
+          },
+          "trigger": {
+            "type": "string",
+            "description": "If set to viewed, the request will trigger a 'viewed' event for the content. \nWhen this event is triggered, the page/blogpost will appear on the 'Recently visited' \ntab of the user's Confluence dashboard."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of content to return."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.post",
+      "title": "content.post",
+      "description": "Creates a new piece of content or publishes an existing draft.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "ancestors": {
+                "description": "The parent content of the new content. Only one parent content \nid can be specified.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "body": {
+                "description": "The body of the new content. Does not apply to attachments. \nOnly one body format should be specified as the property for \nthis object, e.g. storage.",
+                "type": "object"
+              },
+              "id": {
+                "description": "The ID of the draft content. Required when publishing a draft.",
+                "type": "string"
+              },
+              "space": {
+                "description": "The space that the content is being created in.",
+                "type": "object"
+              },
+              "status": {
+                "description": "The status of the new content.",
+                "enum": [
+                  "current",
+                  "trashed",
+                  "historical",
+                  "draft"
+                ],
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of the new content. Custom content types defined by apps are also supported.",
+                "enum": [
+                  "page",
+                  "blogpost",
+                  "comment",
+                  "attachment"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the new content to expand. \nBy default, the following objects are expanded: space, history, version.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Filter the returned content by status."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.delete",
+      "title": "content.id.delete",
+      "description": "Moves a piece of content to the space's trash or purges it from the trash, \ndepending on the content's type and status:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be deleted."
+          },
+          "status": {
+            "type": "string",
+            "description": "Set this to trashed, if the content's status is trashed and you want to purge it."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.get",
+      "title": "content.id.get",
+      "description": "Returns a single piece of content, like a page or a blog post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "embeddedContentRender": {
+            "type": "string",
+            "description": "The version of embedded content (e.g. attachments) to render."
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: space, history, version.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be returned. If you don't know the content ID, \nuse Get content and filter the results."
+          },
+          "status": {
+            "type": "array",
+            "description": "Filter the results to a set of content based on their status. \nIf set to any, content with any status is returned. Note, the \nhistorical status is currently not supported."
+          },
+          "trigger": {
+            "type": "string",
+            "description": "If set to viewed, the request will trigger a 'viewed' event for the content. \nWhen this event is triggered, the page/blogpost will appear on the 'Recently visited' \ntab of the user's Confluence dashboard."
+          },
+          "version": {
+            "type": "integer",
+            "description": "The version number of the content to be returned."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.put",
+      "title": "content.id.put",
+      "description": "Updates a piece of content. Use this method to update the title or body \nof a piece of content, change the status, change the parent page, and more.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "ancestors": {
+                "description": "The new parent for the content. Only one parent content 'id' can be specified.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "body": {
+                "description": "The updated body of the content. Does not apply to attachments.\nIf you are not sure how to generate these formats, you can create a page in the \nConfluence application, retrieve the content using Get content, \nand expand the desired content format, e.g. expand=body.storage.",
+                "type": "object"
+              },
+              "status": {
+                "description": "The updated status of the content. Note, if you change the status of a page from \n'current' to 'draft' and it has an existing draft, the existing draft will be deleted \nin favour of the updated page.",
+                "enum": [
+                  "current",
+                  "trashed",
+                  "historical",
+                  "draft"
+                ],
+                "type": "string"
+              },
+              "title": {
+                "description": "The updated title of the content. If you are not changing this field, set this to the current title.",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of content. Set this to the current type of the content.",
+                "enum": [
+                  "page",
+                  "blogpost",
+                  "comment",
+                  "attachment"
+                ],
+                "type": "string"
+              },
+              "version": {
+                "description": "The new version for the updated content. Set this to the current version number incremented by one, unless you are changing the status to 'draft' which must have a version number of 1.",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "conflictPolicy": {
+            "type": "string",
+            "description": "The action that should be taken when conflicts are discovered. \nOnly used when publishing a draft page."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be updated."
+          },
+          "status": {
+            "type": "string",
+            "description": "The updated status of the content. Use this parameter to change the \nstatus of a piece of content without passing the entire request body."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.child.get",
+      "title": "content.id.child.get",
+      "description": "Returns a map of the direct children of a piece of content. A piece of content \nhas different types of child content, depending on its type. These are \nthe default parent-child content type relationships:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the children to expand, where:",
+            "enum": [
+              "attachment",
+              "comments",
+              "page"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its children."
+          },
+          "parentVersion": {
+            "type": "integer",
+            "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.child.type.get",
+      "title": "content.id.child.type.get",
+      "description": "Returns all children of a given type, for a piece of content. \nA piece of content has different types of child content, depending on its type:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the new content to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its children."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of content to return per page. Note,\nthis may be restricted by fixed system limits."
+          },
+          "parentVersion": {
+            "type": "integer",
+            "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned content."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of children to return."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.child.attachment.get",
+      "title": "content.id.child.attachment.get",
+      "description": "Returns the attachments for a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the \nattachments to expand. By default, the following objects are expanded: \nmetadata.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "filename": {
+            "type": "string",
+            "description": "Filter the results to attachments that match the filename."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its attachments."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of attachments to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "mediaType": {
+            "type": "string",
+            "description": "Filter the results to attachments that match the media type."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned attachments."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.child.attachment.post",
+      "title": "content.id.child.attachment.post",
+      "description": "Adds an attachment to a piece of content. This method only adds a new \nattachment. If you want to update an existing attachment, use \nCreate or update attachments.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to add the attachment to."
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the content that the attachment is being added to."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.child.attachment.put",
+      "title": "content.id.child.attachment.put",
+      "description": "Adds an attachment to a piece of content. If the attachment already exists \nfor the content, then the attachment is updated (i.e. a new version of the \nattachment is created).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to add the attachment to."
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the content that the attachment is being added to. \nThis should always be set to 'current'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.child.attachment.attachmentId.put",
+      "title": "content.id.child.attachment.attachmentId.put",
+      "description": "Updates the attachment properties, i.e. the non-binary data of an attachment \nlike the filename, media-type, comment, and parent container.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "attachmentId": {
+            "type": "string",
+            "description": "The ID of the attachment to update."
+          },
+          "body": {
+            "properties": {
+              "container": {
+                "description": "The new content to attach the attachment to.",
+                "type": "object"
+              },
+              "id": {
+                "description": "The ID of the attachment to be updated.",
+                "type": "string"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "title": {
+                "description": "The updated name of the attachment.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Set this to attachment.",
+                "enum": [
+                  "attachment"
+                ],
+                "type": "string"
+              },
+              "version": {
+                "description": "The attachment version. Set this to the current version number of the \nattachment. Note, the version number only needs to be incremented when \nupdating the actual attachment, not its properties.",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the attachment is attached to."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "attachmentId",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.child.attachment.attachmentId.data.post",
+      "title": "content.id.child.attachment.attachmentId.data.post",
+      "description": "Updates the binary data of an attachment, given the attachment ID, and \noptionally the comment and the minor edit field.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "attachmentId": {
+            "type": "string",
+            "description": "The ID of the attachment to update."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the attachment is attached to."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "attachmentId",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.child.comment.get",
+      "title": "content.id.child.comment.get",
+      "description": "Returns the comments on a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "depth": {
+            "type": "string",
+            "description": "Currently, this parameter is not used. \nComments are returned at the root level only."
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the \nattachments to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space",
+              "extensions.inlineProperties",
+              "extensions.resolution"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its comments."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of comments to return per page. Note,\nthis may be restricted by fixed system limits."
+          },
+          "location": {
+            "type": "array",
+            "description": "The location of the comments in the page. Multiple locations can be specified. \nIf no location is specified, comments from all locations are returned."
+          },
+          "parentVersion": {
+            "type": "integer",
+            "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned comments."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.descendant.get",
+      "title": "content.id.descendant.get",
+      "description": "Returns a map of the descendants of a piece of content. This is similar \nto Get content children, except that this \nmethod returns child pages at all levels, rather than just the direct \nchild pages.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the children to \nexpand, where:",
+            "enum": [
+              "attachment",
+              "comments",
+              "page"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its descendants."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.descendant.type.get",
+      "title": "content.id.descendant.type.get",
+      "description": "Returns all descendants of a given type, for a piece of content. This is \nsimilar to Get content children by type, \nexcept that this method returns child pages at all levels, rather than just \nthe direct child pages.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the new content to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its descendants."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of content to return per page. Note,\nthis may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned content."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of descendants to return."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.history.get",
+      "title": "content.id.history.get",
+      "description": "Returns the most recent update for a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content history to expand.",
+            "enum": [
+              "lastUpdated",
+              "previousVersion",
+              "contributors",
+              "nextVersion"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its history."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.history.version.macro.id.macroId.get",
+      "title": "content.id.history.version.macro.id.macroId.get",
+      "description": "Returns the body of a macro in storage format, for the given macro ID. \nThis includes information like the name of the macro, the body of the macro, \nand any macro parameters. This method is mainly used by Cloud apps.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID for the content that contains the macro."
+          },
+          "macroId": {
+            "type": "string",
+            "description": "The ID of the macro. This is usually passed by the app that the\nmacro is in. Otherwise, find the macro ID by querying the desired \ncontent and version, then expanding the body in storage format. \nFor example, '/content/196611/version/7?expand=content.body.storage'."
+          },
+          "version": {
+            "type": "integer",
+            "description": "The version of the content that contains the macro."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "macroId",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.label.delete",
+      "title": "content.id.label.delete",
+      "description": "Removes a label from a piece of content. This is similar to \nRemove label from content \nexcept that the label name is specified via a query parameter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the label will be removed from."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the label to be removed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.label.get",
+      "title": "content.id.label.get",
+      "description": "Returns the labels on a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its labels."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of labels to return per page. Note,\nthis may be restricted by fixed system limits."
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Filters the results to labels with the specified prefix. If this parameteris not specified, then labels with any prefix will be returned.",
+            "enum": [
+              "global",
+              "my",
+              "team"
+            ]
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned labels."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.label.post",
+      "title": "content.id.label.post",
+      "description": "Adds labels to a piece of content. Does not modify the existing labels.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that will have labels added to it."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.label.label.delete",
+      "title": "content.id.label.label.delete",
+      "description": "Removes a label from a piece of content. This is similar to \nRemove label from content using query parameter \nexcept that the label name is specified via a path parameter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the label will be removed from."
+          },
+          "label": {
+            "type": "string",
+            "description": "The name of the label to be removed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.notification.child_created.get",
+      "title": "content.id.notification.child_created.get",
+      "description": "Returns the watches for a page. A user that watches a page will receive \nreceive notifications when the page is updated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its watches."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of watches to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned watches."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.notification.created.get",
+      "title": "content.id.notification.created.get",
+      "description": "Returns all space watches for the space that the content is in. A user that \nwatches a space will receive receive notifications when any content in the \nspace is updated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its watches."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of watches to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned watches."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.pagehierarchy.copy.post",
+      "title": "content.id.pagehierarchy.copy.post",
+      "description": "Copy page hierarchy allows the copying of an entire hierarchy of pages and their associated properties, permissions and attachments.\n The id path parameter refers to the content id of the page to copy, and the new parent of this copied page is defined using the destinationPageId in the request body.\n The titleOptions object defines the rules of renaming page titles during the copy;\n for example, search and replace can be used in conjunction to rewrite the copied page titles.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "copyAttachments": {
+                "type": "boolean"
+              },
+              "copyLabels": {
+                "type": "boolean"
+              },
+              "copyPermissions": {
+                "type": "boolean"
+              },
+              "copyProperties": {
+                "type": "boolean"
+              },
+              "destinationPageId": {
+                "type": "string"
+              },
+              "originalPageId": {
+                "type": "string"
+              },
+              "titleOptions": {
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.property.get",
+      "title": "content.id.property.get",
+      "description": "Returns the properties for a piece of content. For more information \nabout content properties, see Content properties in the REST API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content to \nexpand. By default, the version object is expanded.",
+            "enum": [
+              "content",
+              "version"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its properties."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of properties to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned properties."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.property.post",
+      "title": "content.id.property.post",
+      "description": "Creates a property for an existing piece of content. For more information \nabout content properties, see Content properties in the REST API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "key": {
+                "description": "The key of the new property.",
+                "type": "string"
+              },
+              "value": {
+                "description": "The value of the property. This can be empty or a complex object. \nFor example,",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to add the property to."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.property.key.delete",
+      "title": "content.id.property.key.delete",
+      "description": "Deletes a content property. For more information about content properties, see \nContent properties in the REST API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the property belongs to."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the property."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.property.key.get",
+      "title": "content.id.property.key.get",
+      "description": "Returns a content property for a piece of content. For more information, see \nContent properties in the REST API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content to \nexpand. By default, the version object is expanded.",
+            "enum": [
+              "content",
+              "version"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for the property."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the content property."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.property.key.post",
+      "title": "content.id.property.key.post",
+      "description": "Creates a property for an existing piece of content. For more information \nabout content properties, see Content properties in the REST API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "value": {
+                "description": "The value of the property. This can be empty or a complex object. \nFor example,",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to add the property to."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the content property. Required."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.property.key.put",
+      "title": "content.id.property.key.put",
+      "description": "Updates an existing content property. This method will also create a new \nproperty for a piece of content, if the property key does not exist and \nthe property version is 1. For more information about content properties, see \nContent properties in the REST API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "value": {
+                "description": "The value of the property.",
+                "type": "object"
+              },
+              "version": {
+                "description": "The version number of the property.",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the property belongs to."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the property."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.delete",
+      "title": "content.id.restriction.delete",
+      "description": "Removes all restrictions (read and update) on a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions (returned in response) to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to remove restrictions from."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.get",
+      "title": "content.id.restriction.get",
+      "description": "Returns the restrictions on a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions to expand. By default, the following objects are expanded: \nrestrictions.user, restrictions.group.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its restrictions."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of users and the maximum number of groups, in the \nreturned restrictions, to return per page. Note, this may be restricted \nby fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the users and groups in the returned restrictions."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.post",
+      "title": "content.id.restriction.post",
+      "description": "Adds restrictions to a piece of content. Note, this does not change any \nexisting restrictions on the content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions (returned in response) to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to add restrictions to."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.put",
+      "title": "content.id.restriction.put",
+      "description": "Updates restrictions for a piece of content. This removes the existing \nrestrictions and replaces them with the restrictions in the request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions (returned in response) to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to update restrictions for."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.byOperation.get",
+      "title": "content.id.restriction.byOperation.get",
+      "description": "Returns restrictions on a piece of content by operation. This method is \nsimilar to Get restrictions except that \nthe operations are properties of the return object, rather than items in \na results array.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its restrictions."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.byOperation.operationKey.get",
+      "title": "content.id.restriction.byOperation.operationKey.get",
+      "description": "Returns the restictions on a piece of content for a given operation (read \nor update).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its restrictions."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of users and the maximum number of groups, in the \nreturned restrictions, to return per page. Note, this may be restricted \nby fixed system limits."
+          },
+          "operationKey": {
+            "type": "string",
+            "description": "The operation type of the restrictions to be returned."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the users and groups in the returned restrictions."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "operationKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.byOperation.operationKey.group.groupName.delete",
+      "title": "content.id.restriction.byOperation.operationKey.group.groupName.delete",
+      "description": "Removes a group from a content restriction. That is, remove read or update \npermission for the group for a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupName": {
+            "type": "string",
+            "description": "The name of the group to remove from the content restriction."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the restriction applies to."
+          },
+          "operationKey": {
+            "type": "string",
+            "description": "The operation that the restriction applies to."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupName",
+          "id",
+          "operationKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.byOperation.operationKey.group.groupName.get",
+      "title": "content.id.restriction.byOperation.operationKey.group.groupName.get",
+      "description": "Returns whether the specified content restriction applies to a group. \nFor example, if the 'admins' group has permission to read a page with an \nID of 123, then the following request will return true:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupName": {
+            "type": "string",
+            "description": "The name of the group to be queried for whether the content restriction \napplies to it."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the restriction applies to."
+          },
+          "operationKey": {
+            "type": "string",
+            "description": "The operation that the restriction applies to."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupName",
+          "id",
+          "operationKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.byOperation.operationKey.group.groupName.put",
+      "title": "content.id.restriction.byOperation.operationKey.group.groupName.put",
+      "description": "Adds a group to a content restriction. That is, grant read or update \npermission to the group for a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupName": {
+            "type": "string",
+            "description": "The name of the group to add to the content restriction."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the restriction applies to."
+          },
+          "operationKey": {
+            "type": "string",
+            "description": "The operation that the restriction applies to."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupName",
+          "id",
+          "operationKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.byOperation.operationKey.user.delete",
+      "title": "content.id.restriction.byOperation.operationKey.user.delete",
+      "description": "Removes a group from a content restriction. That is, remove read or update \npermission for the group for a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account ID of the user to remove from the content restriction."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the restriction applies to."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user to remove from the content restriction."
+          },
+          "operationKey": {
+            "type": "string",
+            "description": "The operation that the restriction applies to."
+          },
+          "userName": {
+            "type": "string",
+            "description": "The username of the user to remove from the content restriction."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "operationKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.byOperation.operationKey.user.get",
+      "title": "content.id.restriction.byOperation.operationKey.user.get",
+      "description": "Returns whether the specified content restriction applies to a user. \nFor example, if the user 'admin' has permission to read a page with an \nID of 123, then the following request will return true:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the restriction applies to."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+          },
+          "operationKey": {
+            "type": "string",
+            "description": "The operation that is restricted."
+          },
+          "userName": {
+            "type": "string",
+            "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "operationKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.restriction.byOperation.operationKey.user.put",
+      "title": "content.id.restriction.byOperation.operationKey.user.put",
+      "description": "Adds a user to a content restriction. That is, grant read or update \npermission to the user for a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account ID of the user to add to the content restriction."
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the restriction applies to."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user to add to the content restriction."
+          },
+          "operationKey": {
+            "type": "string",
+            "description": "The operation that the restriction applies to."
+          },
+          "userName": {
+            "type": "string",
+            "description": "The username of the user to add to the content restriction."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "operationKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.version.get",
+      "title": "content.id.version.get",
+      "description": "Returns the versions for a piece of content in descending order.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content to expand.",
+            "enum": [
+              "collaborators",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its versions."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of versions to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned versions."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.version.post",
+      "title": "content.id.version.post",
+      "description": "Restores a historical version to be the latest version. That is, a new version \nis created with the content of the historical version.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "operationKey": {
+                "description": "Set to 'RESTORE'.",
+                "enum": [
+                  "RESTORE"
+                ],
+                "type": "string"
+              },
+              "params": {
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the returned\ncontent to expand.",
+            "enum": [
+              "collaborators",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content for which the history will be restored."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.version.versionNumber.delete",
+      "title": "content.id.version.versionNumber.delete",
+      "description": "Delete a historical version. This does not delete the changes made to the \ncontent in that version, rather the changes for the deleted version are \nrolled up into the next version. Note, you cannot delete the current version.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the content that the version will be deleted from."
+          },
+          "versionNumber": {
+            "type": "integer",
+            "description": "The number of the version to be deleted. The version number starts \nfrom 1 up to current version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "versionNumber"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.id.version.versionNumber.get",
+      "title": "content.id.version.versionNumber.get",
+      "description": "Returns a version for a piece of content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content to \nexpand. By default, the content object is expanded.",
+            "enum": [
+              "collaborators",
+              "content"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the content to be queried for its version."
+          },
+          "versionNumber": {
+            "type": "integer",
+            "description": "The number of the version to be retrieved."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "versionNumber"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.blueprint.instance.draftId.post",
+      "title": "content.blueprint.instance.draftId.post",
+      "description": "Publishes a legacy draft of a page created from a blueprint. Legacy drafts \nwill eventually be removed in favour of shared drafts. For now, this method \nworks the same as Publish shared draft.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "ancestors": {
+                "description": "The new ancestor (i.e. parent page) for the content. If you have \nspecified an ancestor, you must also specify a space property \nin the request body for the space that the ancestor is in.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "space": {
+                "description": "The space for the content.",
+                "type": "object"
+              },
+              "status": {
+                "description": "The status of the content. Set this to current or omit it altogether.",
+                "enum": [
+                  "current"
+                ],
+                "type": "string"
+              },
+              "title": {
+                "description": "The title of the content. If you don't want to change the title, \nset this to the current title of the draft.",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of content. Set this to page.",
+                "enum": [
+                  "page"
+                ],
+                "type": "string"
+              },
+              "version": {
+                "description": "The version for the new content.",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "draftId": {
+            "type": "string",
+            "description": "The ID of the draft page that was created from a blueprint. \nYou can find the draftId in the Confluence application by \nopening the draft page and checking the page URL."
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the new content \nto expand when returned. By default, the following objects are expanded: \nbody.storage,history,space,version,ancestors",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the content to be updated, i.e. the draft. This is set \nto 'draft' by default, so you shouldn't need to specify it."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "draftId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.blueprint.instance.draftId.put",
+      "title": "content.blueprint.instance.draftId.put",
+      "description": "Publishes a shared draft of a page created from a blueprint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "ancestors": {
+                "description": "The new ancestor (i.e. parent page) for the content. If you have \nspecified an ancestor, you must also specify a space property \nin the request body for the space that the ancestor is in.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "space": {
+                "description": "The space for the content.",
+                "type": "object"
+              },
+              "status": {
+                "description": "The status of the content. Set this to current or omit it altogether.",
+                "enum": [
+                  "current"
+                ],
+                "type": "string"
+              },
+              "title": {
+                "description": "The title of the content. If you don't want to change the title, \nset this to the current title of the draft.",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of content. Set this to page.",
+                "enum": [
+                  "page"
+                ],
+                "type": "string"
+              },
+              "version": {
+                "description": "The version for the new content.",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "draftId": {
+            "type": "string",
+            "description": "The ID of the draft page that was created from a blueprint. \nYou can find the draftId in the Confluence application by \nopening the draft page and checking the page URL."
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the new content \nto expand when returned. By default, the following objects are expanded: \nbody.storage,history,space,version,ancestors",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the content to be updated, i.e. the draft. This is set \nto 'draft' by default, so you shouldn't need to specify it."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "draftId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "content.search.get",
+      "title": "content.search.get",
+      "description": "Returns the list of content that matches a Confluence Query Language \n(CQL) query. For information on CQL, see: \nAdvanced searching using CQL.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "cql": {
+            "type": "string",
+            "description": "The CQL string that is used to find the requested content."
+          },
+          "cqlcontext": {
+            "type": "string",
+            "description": "The space, content, and content status to execute the search against. \nSpecify this as an object with the following properties:",
+            "enum": [
+              "spaceKey",
+              "contentId",
+              "contentStatuses"
+            ]
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of content objects to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned content."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "contentbody.convert.to.post",
+      "title": "contentbody.convert.to.post",
+      "description": "Converts a content body from one format to another format.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "representation": {
+                "description": "The content format type. Set the value of this property to \nthe name of the format being used, e.g. 'storage'.",
+                "enum": [
+                  "view",
+                  "export_view",
+                  "styled_view",
+                  "storage",
+                  "editor2",
+                  "anonymous_export_view"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "description": "The body of the content in the relevant format.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "contentIdContext": {
+            "type": "string",
+            "description": "The content ID used to find the space for resolving embedded content \n(page includes, files, and links) in the content body. For example, \nif the source content contains the link <ac:link><ri:page ri:content-title=\"Example page\" /><ac:link> \nand the contentIdContext=123 parameter is provided, then the link \nwill be converted to a link to the \"Example page\" page in the same space \nthat has the content with ID=123. Note, spaceKeyContext will be ignored \nif this parameter is provided."
+          },
+          "embeddedContentRender": {
+            "type": "string",
+            "description": "Mode used for rendering embedded content, like attachments.",
+            "enum": [
+              "current",
+              "version-at-save"
+            ]
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the new content to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "spaceKeyContext": {
+            "type": "string",
+            "description": "The space key used for resolving embedded content (page includes, \nfiles, and links) in the content body. For example, if the source content \ncontains the link <ac:link><ri:page ri:content-title=\"Example page\" /><ac:link> \nand the spaceKeyContext=TEST parameter is provided, then the link \nwill be converted to a link to the \"Example page\" page in the \"TEST\" space."
+          },
+          "to": {
+            "type": "string",
+            "description": "The name of the target format for the content body."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "to"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "group.get",
+      "title": "group.get",
+      "description": "Returns all user groups. The returned groups are ordered alphabetically in\nascending order by group name.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of groups to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned groups."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "group.groupName.get",
+      "title": "group.groupName.get",
+      "description": "Returns a user group for a given group name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupName": {
+            "type": "string",
+            "description": "The name of the group. This is the same as the group name shown in \nthe Confluence administration console."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "group.groupName.member.get",
+      "title": "group.groupName.member.get",
+      "description": "Returns the users that are members of a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupName": {
+            "type": "string",
+            "description": "The name of the group to be queried for its members."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of users to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned users."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "longtask.get",
+      "title": "longtask.get",
+      "description": "Returns information about all active long-running tasks (e.g. space export), \nsuch as how long each task has been running and the percentage of each task \nthat has completed.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of tasks to return per page. Note, this may be\nrestricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned tasks."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "longtask.id.get",
+      "title": "longtask.id.get",
+      "description": "Returns information about an active long-running task (e.g. space export), \nsuch as how long it has been running and the percentage of the task that \nhas completed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the task."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "relation.relationName.from.sourceType.sourceKey.to.targetType.get",
+      "title": "relation.relationName.from.sourceType.sourceKey.to.targetType.get",
+      "description": "Returns all target entities that have a particular relationship to the \nsource entity. Note, relationships are one way.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the response \nobject to expand.",
+            "enum": [
+              "relationData",
+              "source",
+              "target"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of relationships to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "relationName": {
+            "type": "string",
+            "description": "The name of the relationship. This method supports relationships created via \nCreate relationship. \nNote, this method does not support 'favourite' relationships."
+          },
+          "sourceKey": {
+            "type": "string",
+            "description": "The identifier for the source entity:",
+            "enum": [
+              "sourceType"
+            ]
+          },
+          "sourceStatus": {
+            "type": "string",
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'."
+          },
+          "sourceType": {
+            "type": "string",
+            "description": "The source entity type of the relationship."
+          },
+          "sourceVersion": {
+            "type": "integer",
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned relationships."
+          },
+          "targetStatus": {
+            "type": "string",
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'."
+          },
+          "targetType": {
+            "type": "string",
+            "description": "The target entity type of the relationship."
+          },
+          "targetVersion": {
+            "type": "integer",
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "relationName",
+          "sourceKey",
+          "sourceType",
+          "targetType"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.delete",
+      "title": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.delete",
+      "description": "Deletes a relationship between two entities (user, space, content).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "relationName": {
+            "type": "string",
+            "description": "The name of the relationship."
+          },
+          "sourceKey": {
+            "type": "string",
+            "description": "The identifier for the source entity:",
+            "enum": [
+              "sourceType"
+            ]
+          },
+          "sourceStatus": {
+            "type": "string",
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'."
+          },
+          "sourceType": {
+            "type": "string",
+            "description": "The source entity type of the relationship. This must be 'user', if \nthe relationName is 'favourite'."
+          },
+          "sourceVersion": {
+            "type": "integer",
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'."
+          },
+          "targetKey": {
+            "type": "string",
+            "description": "The identifier for the target entity:",
+            "enum": [
+              "sourceType"
+            ]
+          },
+          "targetStatus": {
+            "type": "string",
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'."
+          },
+          "targetType": {
+            "type": "string",
+            "description": "The target entity type of the relationship. This must be 'space' or \n'content', if the relationName is 'favourite'."
+          },
+          "targetVersion": {
+            "type": "integer",
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "relationName",
+          "sourceKey",
+          "sourceType",
+          "targetKey",
+          "targetType"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.get",
+      "title": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.get",
+      "description": "Find whether a particular type of relationship exists from a source \nentity to a target entity. Note, relationships are one way.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the response \nobject to expand.",
+            "enum": [
+              "relationData",
+              "source",
+              "target"
+            ]
+          },
+          "relationName": {
+            "type": "string",
+            "description": "The name of the relationship. This method supports the 'favourite' \n(i.e. 'save for later') relationship as well as any other relationship \ntypes created via Create relationship."
+          },
+          "sourceKey": {
+            "type": "string",
+            "description": "The identifier for the source entity:",
+            "enum": [
+              "sourceType"
+            ]
+          },
+          "sourceStatus": {
+            "type": "string",
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'."
+          },
+          "sourceType": {
+            "type": "string",
+            "description": "The source entity type of the relationship. This must be 'user', if \nthe relationName is 'favourite'."
+          },
+          "sourceVersion": {
+            "type": "integer",
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'."
+          },
+          "targetKey": {
+            "type": "string",
+            "description": "The identifier for the target entity:",
+            "enum": [
+              "sourceType"
+            ]
+          },
+          "targetStatus": {
+            "type": "string",
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'."
+          },
+          "targetType": {
+            "type": "string",
+            "description": "The target entity type of the relationship. This must be 'space' or \n'content', if the relationName is 'favourite'."
+          },
+          "targetVersion": {
+            "type": "integer",
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "relationName",
+          "sourceKey",
+          "sourceType",
+          "targetKey",
+          "targetType"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.put",
+      "title": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.put",
+      "description": "Creates a relationship between two entities (user, space, content). The \n'favourite' relationship is supported by default, but you can use this method \nto create any type of relationship between two entities.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "relationName": {
+            "type": "string",
+            "description": "The name of the relationship. This method supports the 'favourite' \n(i.e. 'save for later') relationship. You can also specify any other \nvalue for this parameter to create a custom relationship type."
+          },
+          "sourceKey": {
+            "type": "string",
+            "description": "The identifier for the source entity:",
+            "enum": [
+              "sourceType"
+            ]
+          },
+          "sourceStatus": {
+            "type": "string",
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'."
+          },
+          "sourceType": {
+            "type": "string",
+            "description": "The source entity type of the relationship. This must be 'user', if \nthe relationName is 'favourite'."
+          },
+          "sourceVersion": {
+            "type": "integer",
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'."
+          },
+          "targetKey": {
+            "type": "string",
+            "description": "The identifier for the target entity:",
+            "enum": [
+              "sourceType"
+            ]
+          },
+          "targetStatus": {
+            "type": "string",
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'."
+          },
+          "targetType": {
+            "type": "string",
+            "description": "The target entity type of the relationship. This must be 'space' or \n'content', if the relationName is 'favourite'."
+          },
+          "targetVersion": {
+            "type": "integer",
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "relationName",
+          "sourceKey",
+          "sourceType",
+          "targetKey",
+          "targetType"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "relation.relationName.to.targetType.targetKey.from.sourceType.get",
+      "title": "relation.relationName.to.targetType.targetKey.from.sourceType.get",
+      "description": "Returns all target entities that have a particular relationship to the \nsource entity. Note, relationships are one way.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the response \nobject to expand.",
+            "enum": [
+              "relationData",
+              "source",
+              "target"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of relationships to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "relationName": {
+            "type": "string",
+            "description": "The name of the relationship. This method supports relationships created via \nCreate relationship. \nNote, this method does not support 'favourite' relationships."
+          },
+          "sourceStatus": {
+            "type": "string",
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'."
+          },
+          "sourceType": {
+            "type": "string",
+            "description": "The source entity type of the relationship."
+          },
+          "sourceVersion": {
+            "type": "integer",
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned relationships."
+          },
+          "targetKey": {
+            "type": "string",
+            "description": "The identifier for the target entity:",
+            "enum": [
+              "sourceType"
+            ]
+          },
+          "targetStatus": {
+            "type": "string",
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'."
+          },
+          "targetType": {
+            "type": "string",
+            "description": "The target entity type of the relationship."
+          },
+          "targetVersion": {
+            "type": "integer",
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "relationName",
+          "sourceType",
+          "targetKey",
+          "targetType"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "search.get",
+      "title": "search.get",
+      "description": "Searches for content using the \nConfluence Query Language (CQL)",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "cql": {
+            "type": "string",
+            "description": "The CQL query to be used for the search. See \nAdvanced Searching using CQL \nfor instructions on how to build a CQL query."
+          },
+          "cqlcontext": {
+            "type": "string",
+            "description": "The space, content, and content status to execute the search\nagainst.",
+            "enum": [
+              "spaceKey",
+              "contentId",
+              "contentStatuses"
+            ]
+          },
+          "includeArchivedSpaces": {
+            "type": "boolean",
+            "description": "Include content from archived spaces in the results."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of content objects to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned content."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "settings.lookandfeel.get",
+      "title": "settings.lookandfeel.get",
+      "description": "Returns the look and feel settings for the site or a single space. This \nincludes attributes such as the color scheme, padding, and border radius.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space for which the look and feel settings will be\nreturned. If this is not set, only the global look and feel settings\nare returned."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "settings.lookandfeel.custom.delete",
+      "title": "settings.lookandfeel.custom.delete",
+      "description": "Resets the custom look and feel settings for the site or a single space.\nThis changes the values of the custom settings to be the same as the \ndefault settings. It does not change which settings (default or custom) \nare selected. Note, the default space settings are inherited from the \ncurrent global settings.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space for which the look and feel settings will be\nreset. If this is not set, the global look and feel settings will \nbe reset."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "settings.lookandfeel.custom.post",
+      "title": "settings.lookandfeel.custom.post",
+      "description": "Updates the look and feel settings for the site or for a single space.\nIf custom settings exist, they are updated. If no custom settings exist, \nthen a set of custom settings is created.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "bordersAndDividers": {
+                "type": "object"
+              },
+              "content": {
+                "type": "object"
+              },
+              "header": {
+                "type": "object"
+              },
+              "headings": {
+                "type": "object"
+              },
+              "links": {
+                "type": "object"
+              },
+              "menus": {
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space for which the look and feel settings will be\nupdated. If this is not set, the global look and feel settings will \nbe updated."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "settings.lookandfeel.selected.put",
+      "title": "settings.lookandfeel.selected.put",
+      "description": "Sets the look and feel settings to either the default settings or the\ncustom settings, for the site or a single space. Note, the default \nspace settings are inherited from the current global settings.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "custom": {
+                "type": "object"
+              },
+              "global": {
+                "type": "object"
+              },
+              "selected": {
+                "description": "The look and feel scheme. If you set this to global, you must specify \nthe current global look and feel settings as a global object in this \nrequest. Similarly, if you set this to custom, you must specify the \ncurrent custom look and feel settings as a custom object in this request.",
+                "enum": [
+                  "global",
+                  "custom"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space for which the look and feel settings will be\nset. If this is not set, the global look and feel settings will be \nset."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "settings.systemInfo.get",
+      "title": "settings.systemInfo.get",
+      "description": "Returns the system information for the Confluence Cloud tenant. This\ninformation is used by Atlassian.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "settings.theme.get",
+      "title": "settings.theme.get",
+      "description": "Returns all themes, not including the default theme.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of themes to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned themes."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "settings.theme.themeKey.get",
+      "title": "settings.theme.themeKey.get",
+      "description": "Returns a theme. This includes information about the theme name,\ndescription, and icon.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "themeKey": {
+            "type": "string",
+            "description": "The key of the theme to be returned."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "themeKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "settings.theme.selected.get",
+      "title": "settings.theme.selected.get",
+      "description": "Returns the globally assigned theme.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.get",
+      "title": "space.get",
+      "description": "Returns all spaces. The returned spaces are ordered alphabetically in\nascending order by space key.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the spaces to\nexpand, where:",
+            "enum": [
+              "settings",
+              "metadata.labels",
+              "operations",
+              "lookAndFeel",
+              "permissions",
+              "icon",
+              "description.plain",
+              "description.view",
+              "theme",
+              "homepage"
+            ]
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Filter the results to the favourite spaces of the user specified by\nfavouriteUserKey. Note, 'favourite' spaces are also\nknown as 'saved for later' spaces."
+          },
+          "favouriteUserKey": {
+            "type": "string",
+            "description": "The userKey of the user, whose favourite spaces are used to filter\nthe results when using the favourite parameter."
+          },
+          "label": {
+            "type": "array",
+            "description": "Filter the results to spaces based on their label."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of spaces to return per page. Note, this may be\nrestricted by fixed system limits."
+          },
+          "spaceKey": {
+            "type": "array",
+            "description": "The key of the space to be returned. To return multiple spaces,\nspecify this parameter multiple times with different values."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned spaces."
+          },
+          "status": {
+            "type": "string",
+            "description": "Filter the results to spaces based on their status."
+          },
+          "type": {
+            "type": "string",
+            "description": "Filter the results to spaces based on their type."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.post",
+      "title": "space.post",
+      "description": "Creates a new space. Note, currently you cannot set space labels when\ncreating a space.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "description": {
+                "description": "The description of the new/updated space. Note, only the 'plain' representation \ncan be used for the description when creating or updating a space.",
+                "type": "object"
+              },
+              "key": {
+                "description": "The key for the new space. Format: See Space\nkeys.",
+                "type": "string"
+              },
+              "name": {
+                "description": "The name of the new space.",
+                "type": "string"
+              },
+              "permissions": {
+                "description": "The permissions for the new space. If no permissions are provided, the \nConfluence default space permissions\nare applied. Note, for security reasons, permissions cannot be changed\nvia the API after the space has been created, and must be changed via\nthe user interface instead.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space._private.post",
+      "title": "space._private.post",
+      "description": "Creates a new space that is only visible to the creator. This method is\nthe same as the Create space method with permissions\nset to the current user only. Note, currently you cannot set space\nlabels when creating a space.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "description": {
+                "description": "The description of the new/updated space. Note, only the 'plain' representation \ncan be used for the description when creating or updating a space.",
+                "type": "object"
+              },
+              "key": {
+                "description": "The key for the new space. Format: See Space\nkeys.",
+                "type": "string"
+              },
+              "name": {
+                "description": "The name of the new space.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.delete",
+      "title": "space.spaceKey.delete",
+      "description": "Deletes a space. Note, the space will be deleted in a long running task.\nTherefore, the space may not be deleted yet when this method has\nreturned. Clients should poll the status link that is returned in the\nresponse until the task completes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to delete."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.get",
+      "title": "space.spaceKey.get",
+      "description": "Returns a space. This includes information like the name, description,\nand permissions, but not the content in the space.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the space to\nexpand, where:",
+            "enum": [
+              "settings",
+              "metadata.labels",
+              "operations",
+              "lookAndFeel",
+              "permissions",
+              "icon",
+              "description.plain",
+              "description.view",
+              "theme",
+              "homepage"
+            ]
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be returned."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.put",
+      "title": "space.spaceKey.put",
+      "description": "Updates the name, description, or homepage of a space.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "description": {
+                "description": "The description of the new/updated space. Note, only the 'plain' representation \ncan be used for the description when creating or updating a space.",
+                "type": "object"
+              },
+              "homepage": {
+                "description": "The page to set as the homepage of the space.",
+                "type": "object"
+              },
+              "name": {
+                "description": "The name of the space.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to update."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.content.get",
+      "title": "space.spaceKey.content.get",
+      "description": "Returns all content in a space. The returned content is grouped by type\n(pages then blogposts), then ordered by content ID in ascending order.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "depth": {
+            "type": "string",
+            "description": "Filter the results to content at the root level of the space or all content."
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content\nto expand, where:",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of content objects to return per page. Note, this \nmay be restricted by fixed system limits."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for its content."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned content."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.content.type.get",
+      "title": "space.spaceKey.content.type.get",
+      "description": "Returns all content of a given type, in a space. The returned content is\nordered by content ID in ascending order.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "depth": {
+            "type": "string",
+            "description": "Filter the results to content at the root level of the space or all\ncontent."
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the content\nto expand, where:",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of content objects to return per page. Note, this \nmay be restricted by fixed system limits."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for its content."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned content."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of content to return."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey",
+          "type"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.property.get",
+      "title": "space.spaceKey.property.get",
+      "description": "Returns all properties for the given space. Space properties are a key-value storage associated with a space.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the space\nproperty to expand. By default, the version object is expanded.",
+            "enum": [
+              "version",
+              "space"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of properties to return per page. Note, this may be\nrestricted by fixed system limits."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for its properties."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned objects."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.property.post",
+      "title": "space.spaceKey.property.post",
+      "description": "Creates a new space property.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "key": {
+                "description": "The key of the new property.",
+                "type": "string"
+              },
+              "value": {
+                "description": "The value of the property. This can be empty or a complex object. \nFor example,",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space that the property will be created in."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.property.key.delete",
+      "title": "space.spaceKey.property.key.delete",
+      "description": "Deletes a space property.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The key of the property to be deleted."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space that the property is in."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.property.key.get",
+      "title": "space.spaceKey.property.key.get",
+      "description": "Returns a space property.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the space\nproperty to expand. By default, the version object is expanded.",
+            "enum": [
+              "version",
+              "space"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the space property."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space that the property is in."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.property.key.post",
+      "title": "space.spaceKey.property.key.post",
+      "description": "Creates a new space property. This is the same as POST\n/space/{spaceKey}/property but the key for the property is passed as a\npath parameter, rather than in the request body.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "value": {
+                "description": "The value of the property. This can be empty or a complex object. \nFor example,",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the property to be created."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space that the property will be created in."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.property.key.put",
+      "title": "space.spaceKey.property.key.put",
+      "description": "Updates a space property. Note, you cannot update the key of a space\nproperty, only the value.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "value": {
+                "description": "The value of the property.",
+                "type": "object"
+              },
+              "version": {
+                "description": "The version number of the property.",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the property to be updated."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space that the property is in."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.settings.get",
+      "title": "space.spaceKey.settings.get",
+      "description": "Returns the settings of a space. Currently only the\nrouteOverrideEnabled setting can be returned.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for its settings."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.settings.put",
+      "title": "space.spaceKey.settings.put",
+      "description": "Updates the settings for a space. Currently only the\nrouteOverrideEnabled setting can be updated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "routeOverrideEnabled": {
+                "description": "Defines whether an override for the space home should be used. This is\nused in conjunction with a space theme provided by an app. For\nexample, if this property is set to true, a theme can display a page\nother than the space homepage when users visit the root URL for a\nspace. This property allows apps to provide content-only theming\nwithout overriding the space home.",
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space whose settings will be updated."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.theme.delete",
+      "title": "space.spaceKey.theme.delete",
+      "description": "Resets the space theme. This means that the space will inherit the \nglobal look and feel settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to reset the theme for."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.theme.get",
+      "title": "space.spaceKey.theme.get",
+      "description": "Returns the theme selected for a space, if one is set. If no space \ntheme is set, this means that the space is inheriting the global look \nand feel settings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for its theme."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "space.spaceKey.theme.put",
+      "title": "space.spaceKey.theme.put",
+      "description": "Sets the theme for a space. Note, if you want to reset the space theme to \nthe default Confluence theme, use the 'Reset space theme' method instead \nof this method.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "themeKey": {
+                "description": "The key of the theme to be set as the space theme.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to set the theme for."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "template.post",
+      "title": "template.post",
+      "description": "Creates a new content template. Note, blueprint templates cannot be created via the REST API.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "body": {
+                "description": "This object is used when creating or updating content.",
+                "type": "object"
+              },
+              "description": {
+                "description": "A description of the new template.",
+                "type": "string"
+              },
+              "labels": {
+                "description": "Labels for the new template.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "name": {
+                "description": "The name of the new template.",
+                "type": "string"
+              },
+              "space": {
+                "description": "The key for the space of the new template. Only applies to space templates. \nIf the spaceKey is not specified, the template will be created as a global \ntemplate.",
+                "type": "object"
+              },
+              "templateType": {
+                "description": "The type of the new template. Set to page.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "template.put",
+      "title": "template.put",
+      "description": "Updates a content template. Note, blueprint templates cannot be updated\nvia the REST API.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "body": {
+                "description": "This object is used when creating or updating content.",
+                "type": "object"
+              },
+              "description": {
+                "description": "A description of the template.",
+                "type": "string"
+              },
+              "labels": {
+                "description": "Labels for the template.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "name": {
+                "description": "The name of the template. Set to the current name if this field is \nnot being updated.",
+                "type": "string"
+              },
+              "space": {
+                "description": "The key for the space of the template. Required if the template is a \nspace template. Set this to the current space.key.",
+                "type": "object"
+              },
+              "templateId": {
+                "description": "The ID of the template being updated.",
+                "type": "string"
+              },
+              "templateType": {
+                "description": "The type of the template. Set to page.",
+                "enum": [
+                  "page"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "template.contentTemplateId.delete",
+      "title": "template.contentTemplateId.delete",
+      "description": "Deletes a template. This results in different actions depending on the \ntype of template:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contentTemplateId": {
+            "type": "string",
+            "description": "The ID of the template to be deleted."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contentTemplateId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "template.contentTemplateId.get",
+      "title": "template.contentTemplateId.get",
+      "description": "Returns a content template. This includes information about template, \nlike the name, the space or blueprint that the template is in, the body \nof the template, and more.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contentTemplateId": {
+            "type": "string",
+            "description": "The ID of the content template to be returned."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contentTemplateId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "template.blueprint.get",
+      "title": "template.blueprint.get",
+      "description": "Returns all templates provided by blueprints. Use this method to retrieve \nall global blueprint templates or all blueprint templates in a space.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the template\nto expand.",
+            "enum": [
+              "body"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of templates to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for templates. If the spaceKey \nis not specified, global blueprint templates will be returned."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned templates."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "template.page.get",
+      "title": "template.page.get",
+      "description": "Returns all content templates. Use this method to retrieve all global\ncontent templates or all content templates in a space.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the template\nto expand.",
+            "enum": [
+              "body"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of templates to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for templates. If the spaceKey \nis not specified, global templates will be returned."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned templates."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.get",
+      "title": "user.get",
+      "description": "Returns a user. This includes information about the user, like the\ndisplay name, userKey, account ID, profile picture, and more.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user to be returned. Required, unless the \nusername or key is specified. The accountId uniquely identifies \na user across all Atlassian products."
+          },
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the user to\nexpand.",
+            "enum": [
+              "operations",
+              "details.personal",
+              "details.business"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "The userKey of the user to be returned. Required, unless the \nusername or accountId is specified. The key uniquely identifies \na user in a Confluence instance and does not change."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user to be returned. Required, unless the key \nor accountId is specified. The username uniquely identifies a \nuser in a Confluence instance but can change if the user is renamed."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.anonymous.get",
+      "title": "user.anonymous.get",
+      "description": "Returns information about how anonymous users are represented, like the\nprofile picture and display name.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the user to\nexpand.",
+            "enum": [
+              "operations"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.current.get",
+      "title": "user.current.get",
+      "description": "Returns the currently logged-in user. This includes information about\nthe user, like the display name, userKey, account ID, profile picture,\nand more.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "expand": {
+            "type": "array",
+            "description": "A multi-value parameter indicating which properties of the user to\nexpand.",
+            "enum": [
+              "operations",
+              "details.personal",
+              "details.business"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.memberof.get",
+      "title": "user.memberof.get",
+      "description": "Returns the groups that a user is a member of.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user to be queried. Required, unless the \nusername or key is specified. The accountId uniquely identifies \na user across all Atlassian products."
+          },
+          "key": {
+            "type": "string",
+            "description": "The userKey of the user to be queried. Required, unless the \nusername or accountId is specified. The key uniquely identifies \na user in a Confluence instance and does not change."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The maximum number of groups to return per page. \nNote, this may be restricted by fixed system limits."
+          },
+          "start": {
+            "type": "integer",
+            "description": "The starting index of the returned groups."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user to be queried. Required, unless the key \nor accountId is specified. The username uniquely identifies a \nuser in a Confluence instance but can change if the user is renamed."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.content.contentId.delete",
+      "title": "user.watch.content.contentId.delete",
+      "description": "Removes a user as a watcher from a piece of content. Choose the user by \ndoing one of the following:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "contentId": {
+            "type": "string",
+            "description": "The ID of the content to remove the watcher from."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contentId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.content.contentId.get",
+      "title": "user.watch.content.contentId.get",
+      "description": "Returns whether a user is watching a piece of content. Choose the user by \ndoing one of the following:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user to be queried for whether they are watching \nthe content. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          },
+          "contentId": {
+            "type": "string",
+            "description": "The ID of the content to be queried for whether the specified user is \nwatching it."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user to be queried for whether they are watching the \ncontent. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user to be queried for whether they are watching \nthe content. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contentId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.content.contentId.post",
+      "title": "user.watch.content.contentId.post",
+      "description": "Adds a user as a watcher to a piece of content. Choose the user by doing \none of the following:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request."
+          },
+          "contentId": {
+            "type": "string",
+            "description": "The ID of the content to add the watcher to."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user that will be added as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contentId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.label.labelName.delete",
+      "title": "user.watch.label.labelName.delete",
+      "description": "Removes a user as a watcher from a label. Choose the user by doing one of \nthe following:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "labelName": {
+            "type": "string",
+            "description": "The name of the label to remove the watcher from."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "labelName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.label.labelName.get",
+      "title": "user.watch.label.labelName.get",
+      "description": "Returns whether a user is watching a label. Choose the user by doing one \nof the following:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user to be queried for whether they are watching \nthe label. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user to be queried for whether they are watching the \nlabel. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          },
+          "labelName": {
+            "type": "string",
+            "description": "The name of the label to be queried for whether the specified user is \nwatching it."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user to be queried for whether they are watching \nthe label. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "labelName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.label.labelName.post",
+      "title": "user.watch.label.labelName.post",
+      "description": "Adds a user as a watcher to a label. Choose the user by doing one of the \nfollowing:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user that will be added as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "labelName": {
+            "type": "string",
+            "description": "The name of the label to add the watcher to."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "labelName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.space.spaceKey.delete",
+      "title": "user.watch.space.spaceKey.delete",
+      "description": "Removes a user as a watcher from a space. Choose the user by doing one of \nthe following:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to remove the watcher from."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.space.spaceKey.get",
+      "title": "user.watch.space.spaceKey.get",
+      "description": "Returns whether a user is watching a space. Choose the user by \ndoing one of the following:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user to be queried for whether they are watching \nthe space. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user to be queried for whether they are watching the \nspace. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to be queried for whether the specified user is \nwatching it."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user to be queried for whether they are watching \nthe space. Only one of username, key, accountId can be used to \nidentify the user in the request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    },
+    {
+      "id": "user.watch.space.spaceKey.post",
+      "title": "user.watch.space.spaceKey.post",
+      "description": "Adds a user as a watcher to a space. Choose the user by doing one of the \nfollowing:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The accountId of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request."
+          },
+          "key": {
+            "type": "string",
+            "description": "The key of the user that will be added as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request."
+          },
+          "spaceKey": {
+            "type": "string",
+            "description": "The key of the space to add the watcher to."
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "spaceKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "confluence": {
+          "integration": "confluence"
+        }
+      }
+    }
+  ]
+}

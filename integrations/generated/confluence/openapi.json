@@ -1,0 +1,5024 @@
+{
+  "basePath": "/rest/api",
+  "host": "myhost:port",
+  "info": {
+    "description": "The Confluence Cloud REST API",
+    "title": "Confluence",
+    "version": "v1",
+    "x-datafire": {
+      "name": "confluence",
+      "type": "openapi"
+    }
+  },
+  "paths": {
+    "/audit": {
+      "get": {
+        "description": "Returns all records in the audit log, optionally for a certain date range. \nThis contains information about events like space exports, group membership \nchanges, app installations, etc. For more information, see \nAudit log \nin the Confluence administrator's guide.",
+        "parameters": [
+          {
+            "description": "Filters the results to the records on or before the endDate. \nThe endDate must be specified as a timestamp.",
+            "in": "query",
+            "name": "endDate",
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "Filters the results to records that have string property values \nmatching the searchString.",
+            "in": "query",
+            "name": "searchString",
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned records.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "Filters the results to the records on or after the startDate. \nThe startDate must be specified as a timestamp.",
+            "in": "query",
+            "name": "startDate",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested records are returned."
+          }
+        },
+        "operationId": "audit.get"
+      },
+      "post": {
+        "description": "Creates a record in the audit log.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "affectedObject": {
+                  "type": "object"
+                },
+                "associatedObjects": {
+                  "description": "Objects that were associated with the event. For example, if the event \nwas a space permission change then the associated object would be the \nspace.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "author": {
+                  "description": "The user that actioned the event. If author is not specified, then all \nauthor properties will be set to null/empty, except for type which \nwill be set to 'user'.",
+                  "type": "object"
+                },
+                "category": {
+                  "description": "The category of the event, which is displayed in the 'Event type' column \non the audit log in the Confluence UI.",
+                  "type": "string"
+                },
+                "changedValues": {
+                  "description": "The values that were changed in the event.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "creationDate": {
+                  "description": "The creation date-time of the audit record, as a timestamp. This is converted \nto a date-time display in the Confluence UI. If the creationDate is not \nspecified, then it will be set to the timestamp for the current date-time.",
+                  "type": "integer"
+                },
+                "description": {
+                  "description": "A long description of the event, which is displayed in the 'Description' \nfield on the audit log in the Confluence UI.",
+                  "type": "string"
+                },
+                "remoteAddress": {
+                  "description": "The IP address of the computer where the event was initiated from.",
+                  "type": "string"
+                },
+                "summary": {
+                  "description": "The summary of the event, which is displayed in the 'Change' column on \nthe audit log in the Confluence UI.",
+                  "type": "string"
+                },
+                "sysAdmin": {
+                  "description": "Indicates whether the event was actioned by a system administrator.",
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the record is created in the audit log."
+          }
+        },
+        "operationId": "audit.post"
+      }
+    },
+    "/audit/export": {
+      "get": {
+        "description": "Exports audit records as a CSV file or ZIP file.",
+        "parameters": [
+          {
+            "description": "Filters the exported results to the records on or before the endDate. \nThe endDate must be specified as a timestamp.",
+            "in": "query",
+            "name": "endDate",
+            "type": "string"
+          },
+          {
+            "description": "The format of the export file for the audit records.",
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          },
+          {
+            "description": "Filters the exported results to records that have string property values \nmatching the searchString.",
+            "in": "query",
+            "name": "searchString",
+            "type": "string"
+          },
+          {
+            "description": "Filters the exported results to the records on or after the startDate. \nThe startDate must be specified as a timestamp.",
+            "in": "query",
+            "name": "startDate",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested export of the audit records is returned."
+          }
+        },
+        "operationId": "audit.export.get"
+      }
+    },
+    "/audit/retention": {
+      "get": {
+        "description": "Returns the retention period for records in the audit log. The retention \nperiod is how long an audit record is kept for, from creation date until \nit is deleted.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested retention period is returned."
+          }
+        },
+        "operationId": "audit.retention.get"
+      },
+      "put": {
+        "description": "Sets the retention period for records in the audit log. The retention period \ncan be set to a maximum of 20 years.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "number": {
+                  "description": "The number of units for the retention period.",
+                  "type": "integer"
+                },
+                "units": {
+                  "description": "The unit of time that the retention period is measured in.",
+                  "enum": [
+                    "NANOS",
+                    "MICROS",
+                    "MILLIS",
+                    "SECONDS",
+                    "MINUTES",
+                    "HOURS",
+                    "HALF_DAYS",
+                    "DAYS",
+                    "WEEKS",
+                    "MONTHS"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the retention period is updated."
+          }
+        },
+        "operationId": "audit.retention.put"
+      }
+    },
+    "/audit/since": {
+      "get": {
+        "description": "Returns records from the audit log, for a time period back from the current \ndate. For example, you can use this method to get the last 3 months of records.",
+        "parameters": [
+          {
+            "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The number of units for the time period.",
+            "in": "query",
+            "name": "number",
+            "type": "integer"
+          },
+          {
+            "description": "Filters the results to records that have string property values \nmatching the searchString.",
+            "in": "query",
+            "name": "searchString",
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned records.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "The unit of time that the time period is measured in.",
+            "in": "query",
+            "name": "units",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested records are returned."
+          }
+        },
+        "operationId": "audit.since.get"
+      }
+    },
+    "/content": {
+      "get": {
+        "description": "Returns all content in a Confluence instance.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: space, history, version.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of content objects to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "Orders the content by a particular field. Specify the field and sort direction for \nthis parameter, as follows: 'fieldpath asc/desc'. For example, 'history.createdDate desc'.",
+            "in": "query",
+            "name": "orderby",
+            "type": "string"
+          },
+          {
+            "description": "The posting date of the blog post to be returned. Required for\nblogpost type. Format: yyyy-mm-dd.",
+            "in": "query",
+            "name": "postingDay",
+            "type": "string"
+          },
+          {
+            "description": "The key of the space to be queried for its content.",
+            "in": "query",
+            "name": "spaceKey",
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned content.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "Filter the results to a set of content based on their status. If set to any, \ncontent with any status is returned. Note, the historical status is currently \nnot supported.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "status",
+            "type": "array"
+          },
+          {
+            "description": "The title of the page to be returned. Required for page type.",
+            "in": "query",
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "description": "If set to viewed, the request will trigger a 'viewed' event for the content. \nWhen this event is triggered, the page/blogpost will appear on the 'Recently visited' \ntab of the user's Confluence dashboard.",
+            "in": "query",
+            "name": "trigger",
+            "type": "string"
+          },
+          {
+            "description": "The type of content to return.",
+            "in": "query",
+            "name": "type",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested list of content is returned."
+          }
+        },
+        "operationId": "content.get"
+      },
+      "post": {
+        "description": "Creates a new piece of content or publishes an existing draft.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "ancestors": {
+                  "description": "The parent content of the new content. Only one parent content \nid can be specified.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "body": {
+                  "description": "The body of the new content. Does not apply to attachments. \nOnly one body format should be specified as the property for \nthis object, e.g. storage.",
+                  "type": "object"
+                },
+                "id": {
+                  "description": "The ID of the draft content. Required when publishing a draft.",
+                  "type": "string"
+                },
+                "space": {
+                  "description": "The space that the content is being created in.",
+                  "type": "object"
+                },
+                "status": {
+                  "description": "The status of the new content.",
+                  "enum": [
+                    "current",
+                    "trashed",
+                    "historical",
+                    "draft"
+                  ],
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the new content. Custom content types defined by apps are also supported.",
+                  "enum": [
+                    "page",
+                    "blogpost",
+                    "comment",
+                    "attachment"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the new content to expand. \nBy default, the following objects are expanded: space, history, version.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "Filter the returned content by status.",
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the content is created."
+          }
+        },
+        "operationId": "content.post"
+      }
+    },
+    "/content/{id}": {
+      "delete": {
+        "description": "Moves a piece of content to the space's trash or purges it from the trash, \ndepending on the content's type and status:",
+        "parameters": [
+          {
+            "description": "The ID of the content to be deleted.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Set this to trashed, if the content's status is trashed and you want to purge it.",
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the content is successfully trashed."
+          }
+        },
+        "operationId": "content.id.delete"
+      },
+      "get": {
+        "description": "Returns a single piece of content, like a page or a blog post.",
+        "parameters": [
+          {
+            "description": "The version of embedded content (e.g. attachments) to render.",
+            "in": "query",
+            "name": "embeddedContentRender",
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: space, history, version.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be returned. If you don't know the content ID, \nuse Get content and filter the results.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Filter the results to a set of content based on their status. \nIf set to any, content with any status is returned. Note, the \nhistorical status is currently not supported.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "status",
+            "type": "array"
+          },
+          {
+            "description": "If set to viewed, the request will trigger a 'viewed' event for the content. \nWhen this event is triggered, the page/blogpost will appear on the 'Recently visited' \ntab of the user's Confluence dashboard.",
+            "in": "query",
+            "name": "trigger",
+            "type": "string"
+          },
+          {
+            "description": "The version number of the content to be returned.",
+            "in": "query",
+            "name": "version",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content is returned."
+          }
+        },
+        "operationId": "content.id.get"
+      },
+      "put": {
+        "description": "Updates a piece of content. Use this method to update the title or body \nof a piece of content, change the status, change the parent page, and more.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "ancestors": {
+                  "description": "The new parent for the content. Only one parent content 'id' can be specified.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "body": {
+                  "description": "The updated body of the content. Does not apply to attachments.\nIf you are not sure how to generate these formats, you can create a page in the \nConfluence application, retrieve the content using Get content, \nand expand the desired content format, e.g. expand=body.storage.",
+                  "type": "object"
+                },
+                "status": {
+                  "description": "The updated status of the content. Note, if you change the status of a page from \n'current' to 'draft' and it has an existing draft, the existing draft will be deleted \nin favour of the updated page.",
+                  "enum": [
+                    "current",
+                    "trashed",
+                    "historical",
+                    "draft"
+                  ],
+                  "type": "string"
+                },
+                "title": {
+                  "description": "The updated title of the content. If you are not changing this field, set this to the current title.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of content. Set this to the current type of the content.",
+                  "enum": [
+                    "page",
+                    "blogpost",
+                    "comment",
+                    "attachment"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "description": "The new version for the updated content. Set this to the current version number incremented by one, unless you are changing the status to 'draft' which must have a version number of 1.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The action that should be taken when conflicts are discovered. \nOnly used when publishing a draft page.",
+            "in": "query",
+            "name": "conflictPolicy",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content to be updated.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The updated status of the content. Use this parameter to change the \nstatus of a piece of content without passing the entire request body.",
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the content is updated."
+          }
+        },
+        "operationId": "content.id.put"
+      }
+    },
+    "/content/{id}/child": {
+      "get": {
+        "description": "Returns a map of the direct children of a piece of content. A piece of content \nhas different types of child content, depending on its type. These are \nthe default parent-child content type relationships:",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the children to expand, where:",
+            "enum": [
+              "attachment",
+              "comments",
+              "page"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its children.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version.",
+            "in": "query",
+            "name": "parentVersion",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content children are returned."
+          }
+        },
+        "operationId": "content.id.child.get"
+      }
+    },
+    "/content/{id}/child/{type}": {
+      "get": {
+        "description": "Returns all children of a given type, for a piece of content. \nA piece of content has different types of child content, depending on its type:",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the new content to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its children.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of content to return per page. Note,\nthis may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version.",
+            "in": "query",
+            "name": "parentVersion",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned content.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "The type of children to return.",
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content is returned."
+          }
+        },
+        "operationId": "content.id.child.type.get"
+      }
+    },
+    "/content/{id}/child/attachment": {
+      "get": {
+        "description": "Returns the attachments for a piece of content.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the \nattachments to expand. By default, the following objects are expanded: \nmetadata.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "Filter the results to attachments that match the filename.",
+            "in": "query",
+            "name": "filename",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content to be queried for its attachments.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of attachments to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "Filter the results to attachments that match the media type.",
+            "in": "query",
+            "name": "mediaType",
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned attachments.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested attachments are returned."
+          }
+        },
+        "operationId": "content.id.child.attachment.get"
+      },
+      "post": {
+        "description": "Adds an attachment to a piece of content. This method only adds a new \nattachment. If you want to update an existing attachment, use \nCreate or update attachments.",
+        "parameters": [
+          {
+            "description": "The ID of the content to add the attachment to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the content that the attachment is being added to.",
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the attachments were added to the content."
+          }
+        },
+        "operationId": "content.id.child.attachment.post"
+      },
+      "put": {
+        "description": "Adds an attachment to a piece of content. If the attachment already exists \nfor the content, then the attachment is updated (i.e. a new version of the \nattachment is created).",
+        "parameters": [
+          {
+            "description": "The ID of the content to add the attachment to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the content that the attachment is being added to. \nThis should always be set to 'current'.",
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the attachments were added to the content."
+          }
+        },
+        "operationId": "content.id.child.attachment.put"
+      }
+    },
+    "/content/{id}/child/attachment/{attachmentId}": {
+      "put": {
+        "description": "Updates the attachment properties, i.e. the non-binary data of an attachment \nlike the filename, media-type, comment, and parent container.",
+        "parameters": [
+          {
+            "description": "The ID of the attachment to update.",
+            "in": "path",
+            "name": "attachmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "container": {
+                  "description": "The new content to attach the attachment to.",
+                  "type": "object"
+                },
+                "id": {
+                  "description": "The ID of the attachment to be updated.",
+                  "type": "string"
+                },
+                "metadata": {
+                  "type": "object"
+                },
+                "title": {
+                  "description": "The updated name of the attachment.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Set this to attachment.",
+                  "enum": [
+                    "attachment"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "description": "The attachment version. Set this to the current version number of the \nattachment. Note, the version number only needs to be incremented when \nupdating the actual attachment, not its properties.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The ID of the content that the attachment is attached to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the attachment is updated."
+          }
+        },
+        "operationId": "content.id.child.attachment.attachmentId.put"
+      }
+    },
+    "/content/{id}/child/attachment/{attachmentId}/data": {
+      "post": {
+        "description": "Updates the binary data of an attachment, given the attachment ID, and \noptionally the comment and the minor edit field.",
+        "parameters": [
+          {
+            "description": "The ID of the attachment to update.",
+            "in": "path",
+            "name": "attachmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content that the attachment is attached to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the attachment is updated."
+          }
+        },
+        "operationId": "content.id.child.attachment.attachmentId.data.post"
+      }
+    },
+    "/content/{id}/child/comment": {
+      "get": {
+        "description": "Returns the comments on a piece of content.",
+        "parameters": [
+          {
+            "description": "Currently, this parameter is not used. \nComments are returned at the root level only.",
+            "in": "query",
+            "name": "depth",
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the \nattachments to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space",
+              "extensions.inlineProperties",
+              "extensions.resolution"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its comments.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of comments to return per page. Note,\nthis may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The location of the comments in the page. Multiple locations can be specified. \nIf no location is specified, comments from all locations are returned.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "location",
+            "type": "array"
+          },
+          {
+            "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version.",
+            "in": "query",
+            "name": "parentVersion",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned comments.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested comments are returned."
+          }
+        },
+        "operationId": "content.id.child.comment.get"
+      }
+    },
+    "/content/{id}/descendant": {
+      "get": {
+        "description": "Returns a map of the descendants of a piece of content. This is similar \nto Get content children, except that this \nmethod returns child pages at all levels, rather than just the direct \nchild pages.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the children to \nexpand, where:",
+            "enum": [
+              "attachment",
+              "comments",
+              "page"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its descendants.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested descendants are returned."
+          }
+        },
+        "operationId": "content.id.descendant.get"
+      }
+    },
+    "/content/{id}/descendant/{type}": {
+      "get": {
+        "description": "Returns all descendants of a given type, for a piece of content. This is \nsimilar to Get content children by type, \nexcept that this method returns child pages at all levels, rather than just \nthe direct child pages.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the new content to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its descendants.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of content to return per page. Note,\nthis may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned content.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "The type of descendants to return.",
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content is returned."
+          }
+        },
+        "operationId": "content.id.descendant.type.get"
+      }
+    },
+    "/content/{id}/history": {
+      "get": {
+        "description": "Returns the most recent update for a piece of content.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content history to expand.",
+            "enum": [
+              "lastUpdated",
+              "previousVersion",
+              "contributors",
+              "nextVersion"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its history.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content history is returned."
+          }
+        },
+        "operationId": "content.id.history.get"
+      }
+    },
+    "/content/{id}/history/{version}/macro/id/{macroId}": {
+      "get": {
+        "description": "Returns the body of a macro in storage format, for the given macro ID. \nThis includes information like the name of the macro, the body of the macro, \nand any macro parameters. This method is mainly used by Cloud apps.",
+        "parameters": [
+          {
+            "description": "The ID for the content that contains the macro.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the macro. This is usually passed by the app that the\nmacro is in. Otherwise, find the macro ID by querying the desired \ncontent and version, then expanding the body in storage format. \nFor example, '/content/196611/version/7?expand=content.body.storage'.",
+            "in": "path",
+            "name": "macroId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the content that contains the macro.",
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested macro body is returned."
+          }
+        },
+        "operationId": "content.id.history.version.macro.id.macroId.get"
+      }
+    },
+    "/content/{id}/label": {
+      "delete": {
+        "description": "Removes a label from a piece of content. This is similar to \nRemove label from content \nexcept that the label name is specified via a query parameter.",
+        "parameters": [
+          {
+            "description": "The ID of the content that the label will be removed from.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the label to be removed.",
+            "in": "query",
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the label is removed. The response body will be empty."
+          }
+        },
+        "operationId": "content.id.label.delete"
+      },
+      "get": {
+        "description": "Returns the labels on a piece of content.",
+        "parameters": [
+          {
+            "description": "The ID of the content to be queried for its labels.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of labels to return per page. Note,\nthis may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "Filters the results to labels with the specified prefix. If this parameteris not specified, then labels with any prefix will be returned.",
+            "enum": [
+              "global",
+              "my",
+              "team"
+            ],
+            "in": "query",
+            "name": "prefix",
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned labels.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested labels are returned."
+          }
+        },
+        "operationId": "content.id.label.get"
+      },
+      "post": {
+        "description": "Adds labels to a piece of content. Does not modify the existing labels.",
+        "parameters": [
+          {
+            "description": "The ID of the content that will have labels added to it.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the labels are added to the content."
+          }
+        },
+        "operationId": "content.id.label.post"
+      }
+    },
+    "/content/{id}/label/{label}": {
+      "delete": {
+        "description": "Removes a label from a piece of content. This is similar to \nRemove label from content using query parameter \nexcept that the label name is specified via a path parameter.",
+        "parameters": [
+          {
+            "description": "The ID of the content that the label will be removed from.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the label to be removed.",
+            "in": "path",
+            "name": "label",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the label is removed. The response body will be empty."
+          }
+        },
+        "operationId": "content.id.label.label.delete"
+      }
+    },
+    "/content/{id}/notification/child-created": {
+      "get": {
+        "description": "Returns the watches for a page. A user that watches a page will receive \nreceive notifications when the page is updated.",
+        "parameters": [
+          {
+            "description": "The ID of the content to be queried for its watches.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of watches to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned watches.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested watches are returned."
+          }
+        },
+        "operationId": "content.id.notification.child_created.get"
+      }
+    },
+    "/content/{id}/notification/created": {
+      "get": {
+        "description": "Returns all space watches for the space that the content is in. A user that \nwatches a space will receive receive notifications when any content in the \nspace is updated.",
+        "parameters": [
+          {
+            "description": "The ID of the content to be queried for its watches.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of watches to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned watches.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested watches are returned."
+          }
+        },
+        "operationId": "content.id.notification.created.get"
+      }
+    },
+    "/content/{id}/pagehierarchy/copy": {
+      "post": {
+        "description": "Copy page hierarchy allows the copying of an entire hierarchy of pages and their associated properties, permissions and attachments.\n The id path parameter refers to the content id of the page to copy, and the new parent of this copied page is defined using the destinationPageId in the request body.\n The titleOptions object defines the rules of renaming page titles during the copy;\n for example, search and replace can be used in conjunction to rewrite the copied page titles.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "copyAttachments": {
+                  "type": "boolean"
+                },
+                "copyLabels": {
+                  "type": "boolean"
+                },
+                "copyPermissions": {
+                  "type": "boolean"
+                },
+                "copyProperties": {
+                  "type": "boolean"
+                },
+                "destinationPageId": {
+                  "type": "string"
+                },
+                "originalPageId": {
+                  "type": "string"
+                },
+                "titleOptions": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a full JSON representation of a long running task"
+          }
+        },
+        "operationId": "content.id.pagehierarchy.copy.post"
+      }
+    },
+    "/content/{id}/property": {
+      "get": {
+        "description": "Returns the properties for a piece of content. For more information \nabout content properties, see Content properties in the REST API.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content to \nexpand. By default, the version object is expanded.",
+            "enum": [
+              "content",
+              "version"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its properties.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of properties to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned properties.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested properties are returned."
+          }
+        },
+        "operationId": "content.id.property.get"
+      },
+      "post": {
+        "description": "Creates a property for an existing piece of content. For more information \nabout content properties, see Content properties in the REST API.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "key": {
+                  "description": "The key of the new property.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The value of the property. This can be empty or a complex object. \nFor example,",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The ID of the content to add the property to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the content property is created."
+          }
+        },
+        "operationId": "content.id.property.post"
+      }
+    },
+    "/content/{id}/property/{key}": {
+      "delete": {
+        "description": "Deletes a content property. For more information about content properties, see \nContent properties in the REST API.",
+        "parameters": [
+          {
+            "description": "The ID of the content that the property belongs to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the property.",
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the content property is deleted."
+          }
+        },
+        "operationId": "content.id.property.key.delete"
+      },
+      "get": {
+        "description": "Returns a content property for a piece of content. For more information, see \nContent properties in the REST API.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content to \nexpand. By default, the version object is expanded.",
+            "enum": [
+              "content",
+              "version"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for the property.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the content property.",
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the content property is returned."
+          }
+        },
+        "operationId": "content.id.property.key.get"
+      },
+      "post": {
+        "description": "Creates a property for an existing piece of content. For more information \nabout content properties, see Content properties in the REST API.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "value": {
+                  "description": "The value of the property. This can be empty or a complex object. \nFor example,",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The ID of the content to add the property to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the content property. Required.",
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the content property is created."
+          }
+        },
+        "operationId": "content.id.property.key.post"
+      },
+      "put": {
+        "description": "Updates an existing content property. This method will also create a new \nproperty for a piece of content, if the property key does not exist and \nthe property version is 1. For more information about content properties, see \nContent properties in the REST API.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "value": {
+                  "description": "The value of the property.",
+                  "type": "object"
+                },
+                "version": {
+                  "description": "The version number of the property.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The ID of the content that the property belongs to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the property.",
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the content property is created."
+          }
+        },
+        "operationId": "content.id.property.key.put"
+      }
+    },
+    "/content/{id}/restriction": {
+      "delete": {
+        "description": "Removes all restrictions (read and update) on a piece of content.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions (returned in response) to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to remove restrictions from.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the restrictions are removed."
+          }
+        },
+        "operationId": "content.id.restriction.delete"
+      },
+      "get": {
+        "description": "Returns the restrictions on a piece of content.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions to expand. By default, the following objects are expanded: \nrestrictions.user, restrictions.group.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its restrictions.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of users and the maximum number of groups, in the \nreturned restrictions, to return per page. Note, this may be restricted \nby fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the users and groups in the returned restrictions.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested restrictions are returned."
+          }
+        },
+        "operationId": "content.id.restriction.get"
+      },
+      "post": {
+        "description": "Adds restrictions to a piece of content. Note, this does not change any \nexisting restrictions on the content.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions (returned in response) to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to add restrictions to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested restrictions are added."
+          }
+        },
+        "operationId": "content.id.restriction.post"
+      },
+      "put": {
+        "description": "Updates restrictions for a piece of content. This removes the existing \nrestrictions and replaces them with the restrictions in the request.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions (returned in response) to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to update restrictions for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested restrictions are updated."
+          }
+        },
+        "operationId": "content.id.restriction.put"
+      }
+    },
+    "/content/{id}/restriction/byOperation": {
+      "get": {
+        "description": "Returns restrictions on a piece of content by operation. This method is \nsimilar to Get restrictions except that \nthe operations are properties of the return object, rather than items in \na results array.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its restrictions.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested restrictions are returned."
+          }
+        },
+        "operationId": "content.id.restriction.byOperation.get"
+      }
+    },
+    "/content/{id}/restriction/byOperation/{operationKey}": {
+      "get": {
+        "description": "Returns the restictions on a piece of content for a given operation (read \nor update).",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content \nrestrictions to expand.",
+            "enum": [
+              "restrictions.user",
+              "restrictions.group",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its restrictions.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of users and the maximum number of groups, in the \nreturned restrictions, to return per page. Note, this may be restricted \nby fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The operation type of the restrictions to be returned.",
+            "in": "path",
+            "name": "operationKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the users and groups in the returned restrictions.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested restrictions are returned."
+          }
+        },
+        "operationId": "content.id.restriction.byOperation.operationKey.get"
+      }
+    },
+    "/content/{id}/restriction/byOperation/{operationKey}/group/{groupName}": {
+      "delete": {
+        "description": "Removes a group from a content restriction. That is, remove read or update \npermission for the group for a piece of content.",
+        "parameters": [
+          {
+            "description": "The name of the group to remove from the content restriction.",
+            "in": "path",
+            "name": "groupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content that the restriction applies to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The operation that the restriction applies to.",
+            "in": "path",
+            "name": "operationKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the group is removed from the content restriction. The response \nbody will be empty."
+          }
+        },
+        "operationId": "content.id.restriction.byOperation.operationKey.group.groupName.delete"
+      },
+      "get": {
+        "description": "Returns whether the specified content restriction applies to a group. \nFor example, if the 'admins' group has permission to read a page with an \nID of 123, then the following request will return true:",
+        "parameters": [
+          {
+            "description": "The name of the group to be queried for whether the content restriction \napplies to it.",
+            "in": "path",
+            "name": "groupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content that the restriction applies to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The operation that the restriction applies to.",
+            "in": "path",
+            "name": "operationKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns true if the content restriction applies to the group. The response \nwill not return a response body."
+          }
+        },
+        "operationId": "content.id.restriction.byOperation.operationKey.group.groupName.get"
+      },
+      "put": {
+        "description": "Adds a group to a content restriction. That is, grant read or update \npermission to the group for a piece of content.",
+        "parameters": [
+          {
+            "description": "The name of the group to add to the content restriction.",
+            "in": "path",
+            "name": "groupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content that the restriction applies to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The operation that the restriction applies to.",
+            "in": "path",
+            "name": "operationKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the group is added to the content restriction. The response \nbody will be empty."
+          }
+        },
+        "operationId": "content.id.restriction.byOperation.operationKey.group.groupName.put"
+      }
+    },
+    "/content/{id}/restriction/byOperation/{operationKey}/user": {
+      "delete": {
+        "description": "Removes a group from a content restriction. That is, remove read or update \npermission for the group for a piece of content.",
+        "parameters": [
+          {
+            "description": "The account ID of the user to remove from the content restriction.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content that the restriction applies to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the user to remove from the content restriction.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The operation that the restriction applies to.",
+            "in": "path",
+            "name": "operationKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user to remove from the content restriction.",
+            "in": "query",
+            "name": "userName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the user is removed from the content restriction. The response \nbody will be empty."
+          }
+        },
+        "operationId": "content.id.restriction.byOperation.operationKey.user.delete"
+      },
+      "get": {
+        "description": "Returns whether the specified content restriction applies to a user. \nFor example, if the user 'admin' has permission to read a page with an \nID of 123, then the following request will return true:",
+        "parameters": [
+          {
+            "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content that the restriction applies to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the user to be queried for whether the content \nrestriction applies to it.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The operation that is restricted.",
+            "in": "path",
+            "name": "operationKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user to be queried for whether the content \nrestriction applies to it.",
+            "in": "query",
+            "name": "userName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return true if the content restriction applies to the user. The response \nbody will be empty."
+          }
+        },
+        "operationId": "content.id.restriction.byOperation.operationKey.user.get"
+      },
+      "put": {
+        "description": "Adds a user to a content restriction. That is, grant read or update \npermission to the user for a piece of content.",
+        "parameters": [
+          {
+            "description": "The account ID of the user to add to the content restriction.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content that the restriction applies to.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the user to add to the content restriction.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The operation that the restriction applies to.",
+            "in": "path",
+            "name": "operationKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user to add to the content restriction.",
+            "in": "query",
+            "name": "userName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the user is added to the content restriction. The response \nbody will be empty."
+          }
+        },
+        "operationId": "content.id.restriction.byOperation.operationKey.user.put"
+      }
+    },
+    "/content/{id}/version": {
+      "get": {
+        "description": "Returns the versions for a piece of content in descending order.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content to expand.",
+            "enum": [
+              "collaborators",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its versions.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of versions to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned versions.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested versions are returned."
+          }
+        },
+        "operationId": "content.id.version.get"
+      },
+      "post": {
+        "description": "Restores a historical version to be the latest version. That is, a new version \nis created with the content of the historical version.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "operationKey": {
+                  "description": "Set to 'RESTORE'.",
+                  "enum": [
+                    "RESTORE"
+                  ],
+                  "type": "string"
+                },
+                "params": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the returned\ncontent to expand.",
+            "enum": [
+              "collaborators",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content for which the history will be restored.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the version is restored."
+          }
+        },
+        "operationId": "content.id.version.post"
+      }
+    },
+    "/content/{id}/version/{versionNumber}": {
+      "delete": {
+        "description": "Delete a historical version. This does not delete the changes made to the \ncontent in that version, rather the changes for the deleted version are \nrolled up into the next version. Note, you cannot delete the current version.",
+        "parameters": [
+          {
+            "description": "The ID of the content that the version will be deleted from.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The number of the version to be deleted. The version number starts \nfrom 1 up to current version.",
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the version is deleted."
+          }
+        },
+        "operationId": "content.id.version.versionNumber.delete"
+      },
+      "get": {
+        "description": "Returns a version for a piece of content.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the content to \nexpand. By default, the content object is expanded.",
+            "enum": [
+              "collaborators",
+              "content"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The ID of the content to be queried for its version.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The number of the version to be retrieved.",
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the version is returned."
+          }
+        },
+        "operationId": "content.id.version.versionNumber.get"
+      }
+    },
+    "/content/blueprint/instance/{draftId}": {
+      "post": {
+        "description": "Publishes a legacy draft of a page created from a blueprint. Legacy drafts \nwill eventually be removed in favour of shared drafts. For now, this method \nworks the same as Publish shared draft.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "ancestors": {
+                  "description": "The new ancestor (i.e. parent page) for the content. If you have \nspecified an ancestor, you must also specify a space property \nin the request body for the space that the ancestor is in.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "space": {
+                  "description": "The space for the content.",
+                  "type": "object"
+                },
+                "status": {
+                  "description": "The status of the content. Set this to current or omit it altogether.",
+                  "enum": [
+                    "current"
+                  ],
+                  "type": "string"
+                },
+                "title": {
+                  "description": "The title of the content. If you don't want to change the title, \nset this to the current title of the draft.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of content. Set this to page.",
+                  "enum": [
+                    "page"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "description": "The version for the new content.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The ID of the draft page that was created from a blueprint. \nYou can find the draftId in the Confluence application by \nopening the draft page and checking the page URL.",
+            "in": "path",
+            "name": "draftId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the new content \nto expand when returned. By default, the following objects are expanded: \nbody.storage,history,space,version,ancestors",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The status of the content to be updated, i.e. the draft. This is set \nto 'draft' by default, so you shouldn't need to specify it.",
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the draft was successfully published."
+          }
+        },
+        "operationId": "content.blueprint.instance.draftId.post"
+      },
+      "put": {
+        "description": "Publishes a shared draft of a page created from a blueprint.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "ancestors": {
+                  "description": "The new ancestor (i.e. parent page) for the content. If you have \nspecified an ancestor, you must also specify a space property \nin the request body for the space that the ancestor is in.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "space": {
+                  "description": "The space for the content.",
+                  "type": "object"
+                },
+                "status": {
+                  "description": "The status of the content. Set this to current or omit it altogether.",
+                  "enum": [
+                    "current"
+                  ],
+                  "type": "string"
+                },
+                "title": {
+                  "description": "The title of the content. If you don't want to change the title, \nset this to the current title of the draft.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of content. Set this to page.",
+                  "enum": [
+                    "page"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "description": "The version for the new content.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The ID of the draft page that was created from a blueprint. \nYou can find the draftId in the Confluence application by \nopening the draft page and checking the page URL.",
+            "in": "path",
+            "name": "draftId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the new content \nto expand when returned. By default, the following objects are expanded: \nbody.storage,history,space,version,ancestors",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The status of the content to be updated, i.e. the draft. This is set \nto 'draft' by default, so you shouldn't need to specify it.",
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the draft was successfully published."
+          }
+        },
+        "operationId": "content.blueprint.instance.draftId.put"
+      }
+    },
+    "/content/search": {
+      "get": {
+        "description": "Returns the list of content that matches a Confluence Query Language \n(CQL) query. For information on CQL, see: \nAdvanced searching using CQL.",
+        "parameters": [
+          {
+            "description": "The CQL string that is used to find the requested content.",
+            "in": "query",
+            "name": "cql",
+            "type": "string"
+          },
+          {
+            "description": "The space, content, and content status to execute the search against. \nSpecify this as an object with the following properties:",
+            "enum": [
+              "spaceKey",
+              "contentId",
+              "contentStatuses"
+            ],
+            "in": "query",
+            "name": "cqlcontext",
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the content to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of content objects to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned content.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested list of content is returned."
+          }
+        },
+        "operationId": "content.search.get"
+      }
+    },
+    "/contentbody/convert/{to}": {
+      "post": {
+        "description": "Converts a content body from one format to another format.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "representation": {
+                  "description": "The content format type. Set the value of this property to \nthe name of the format being used, e.g. 'storage'.",
+                  "enum": [
+                    "view",
+                    "export_view",
+                    "styled_view",
+                    "storage",
+                    "editor2",
+                    "anonymous_export_view"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The body of the content in the relevant format.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The content ID used to find the space for resolving embedded content \n(page includes, files, and links) in the content body. For example, \nif the source content contains the link <ac:link><ri:page ri:content-title=\"Example page\" /><ac:link> \nand the contentIdContext=123 parameter is provided, then the link \nwill be converted to a link to the \"Example page\" page in the same space \nthat has the content with ID=123. Note, spaceKeyContext will be ignored \nif this parameter is provided.",
+            "in": "query",
+            "name": "contentIdContext",
+            "type": "string"
+          },
+          {
+            "description": "Mode used for rendering embedded content, like attachments.",
+            "enum": [
+              "current",
+              "version-at-save"
+            ],
+            "in": "query",
+            "name": "embeddedContentRender",
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the new content to expand.",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The space key used for resolving embedded content (page includes, \nfiles, and links) in the content body. For example, if the source content \ncontains the link <ac:link><ri:page ri:content-title=\"Example page\" /><ac:link> \nand the spaceKeyContext=TEST parameter is provided, then the link \nwill be converted to a link to the \"Example page\" page in the \"TEST\" space.",
+            "in": "query",
+            "name": "spaceKeyContext",
+            "type": "string"
+          },
+          {
+            "description": "The name of the target format for the content body.",
+            "in": "path",
+            "name": "to",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the content is converted."
+          }
+        },
+        "operationId": "contentbody.convert.to.post"
+      }
+    },
+    "/group": {
+      "get": {
+        "description": "Returns all user groups. The returned groups are ordered alphabetically in\nascending order by group name.",
+        "parameters": [
+          {
+            "description": "The maximum number of groups to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned groups.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested groups are returned."
+          }
+        },
+        "operationId": "group.get"
+      }
+    },
+    "/group/{groupName}": {
+      "get": {
+        "description": "Returns a user group for a given group name.",
+        "parameters": [
+          {
+            "description": "The name of the group. This is the same as the group name shown in \nthe Confluence administration console.",
+            "in": "path",
+            "name": "groupName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested group is returned."
+          }
+        },
+        "operationId": "group.groupName.get"
+      }
+    },
+    "/group/{groupName}/member": {
+      "get": {
+        "description": "Returns the users that are members of a group.",
+        "parameters": [
+          {
+            "description": "The name of the group to be queried for its members.",
+            "in": "path",
+            "name": "groupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of users to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned users.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested users are returned."
+          }
+        },
+        "operationId": "group.groupName.member.get"
+      }
+    },
+    "/longtask": {
+      "get": {
+        "description": "Returns information about all active long-running tasks (e.g. space export), \nsuch as how long each task has been running and the percentage of each task \nthat has completed.",
+        "parameters": [
+          {
+            "description": "The maximum number of tasks to return per page. Note, this may be\nrestricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned tasks.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested tasks are returned."
+          }
+        },
+        "operationId": "longtask.get"
+      }
+    },
+    "/longtask/{id}": {
+      "get": {
+        "description": "Returns information about an active long-running task (e.g. space export), \nsuch as how long it has been running and the percentage of the task that \nhas completed.",
+        "parameters": [
+          {
+            "description": "The ID of the task.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested task is returned."
+          }
+        },
+        "operationId": "longtask.id.get"
+      }
+    },
+    "/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}": {
+      "get": {
+        "description": "Returns all target entities that have a particular relationship to the \nsource entity. Note, relationships are one way.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the response \nobject to expand.",
+            "enum": [
+              "relationData",
+              "source",
+              "target"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of relationships to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The name of the relationship. This method supports relationships created via \nCreate relationship. \nNote, this method does not support 'favourite' relationships.",
+            "in": "path",
+            "name": "relationName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The identifier for the source entity:",
+            "enum": [
+              "sourceType"
+            ],
+            "in": "path",
+            "name": "sourceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'.",
+            "in": "query",
+            "name": "sourceStatus",
+            "type": "string"
+          },
+          {
+            "description": "The source entity type of the relationship.",
+            "in": "path",
+            "name": "sourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'.",
+            "in": "query",
+            "name": "sourceVersion",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned relationships.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'.",
+            "in": "query",
+            "name": "targetStatus",
+            "type": "string"
+          },
+          {
+            "description": "The target entity type of the relationship.",
+            "in": "path",
+            "name": "targetType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'.",
+            "in": "query",
+            "name": "targetVersion",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested relationships are returned."
+          }
+        },
+        "operationId": "relation.relationName.from.sourceType.sourceKey.to.targetType.get"
+      }
+    },
+    "/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}": {
+      "delete": {
+        "description": "Deletes a relationship between two entities (user, space, content).",
+        "parameters": [
+          {
+            "description": "The name of the relationship.",
+            "in": "path",
+            "name": "relationName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The identifier for the source entity:",
+            "enum": [
+              "sourceType"
+            ],
+            "in": "path",
+            "name": "sourceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'.",
+            "in": "query",
+            "name": "sourceStatus",
+            "type": "string"
+          },
+          {
+            "description": "The source entity type of the relationship. This must be 'user', if \nthe relationName is 'favourite'.",
+            "in": "path",
+            "name": "sourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'.",
+            "in": "query",
+            "name": "sourceVersion",
+            "type": "integer"
+          },
+          {
+            "description": "The identifier for the target entity:",
+            "enum": [
+              "sourceType"
+            ],
+            "in": "path",
+            "name": "targetKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'.",
+            "in": "query",
+            "name": "targetStatus",
+            "type": "string"
+          },
+          {
+            "description": "The target entity type of the relationship. This must be 'space' or \n'content', if the relationName is 'favourite'.",
+            "in": "path",
+            "name": "targetType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'.",
+            "in": "query",
+            "name": "targetVersion",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the relationship is deleted or the relationship didn't\nexist."
+          }
+        },
+        "operationId": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.delete"
+      },
+      "get": {
+        "description": "Find whether a particular type of relationship exists from a source \nentity to a target entity. Note, relationships are one way.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the response \nobject to expand.",
+            "enum": [
+              "relationData",
+              "source",
+              "target"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The name of the relationship. This method supports the 'favourite' \n(i.e. 'save for later') relationship as well as any other relationship \ntypes created via Create relationship.",
+            "in": "path",
+            "name": "relationName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The identifier for the source entity:",
+            "enum": [
+              "sourceType"
+            ],
+            "in": "path",
+            "name": "sourceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'.",
+            "in": "query",
+            "name": "sourceStatus",
+            "type": "string"
+          },
+          {
+            "description": "The source entity type of the relationship. This must be 'user', if \nthe relationName is 'favourite'.",
+            "in": "path",
+            "name": "sourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'.",
+            "in": "query",
+            "name": "sourceVersion",
+            "type": "integer"
+          },
+          {
+            "description": "The identifier for the target entity:",
+            "enum": [
+              "sourceType"
+            ],
+            "in": "path",
+            "name": "targetKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'.",
+            "in": "query",
+            "name": "targetStatus",
+            "type": "string"
+          },
+          {
+            "description": "The target entity type of the relationship. This must be 'space' or \n'content', if the relationName is 'favourite'.",
+            "in": "path",
+            "name": "targetType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'.",
+            "in": "query",
+            "name": "targetVersion",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the relationship exists."
+          }
+        },
+        "operationId": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.get"
+      },
+      "put": {
+        "description": "Creates a relationship between two entities (user, space, content). The \n'favourite' relationship is supported by default, but you can use this method \nto create any type of relationship between two entities.",
+        "parameters": [
+          {
+            "description": "The name of the relationship. This method supports the 'favourite' \n(i.e. 'save for later') relationship. You can also specify any other \nvalue for this parameter to create a custom relationship type.",
+            "in": "path",
+            "name": "relationName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The identifier for the source entity:",
+            "enum": [
+              "sourceType"
+            ],
+            "in": "path",
+            "name": "sourceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'.",
+            "in": "query",
+            "name": "sourceStatus",
+            "type": "string"
+          },
+          {
+            "description": "The source entity type of the relationship. This must be 'user', if \nthe relationName is 'favourite'.",
+            "in": "path",
+            "name": "sourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'.",
+            "in": "query",
+            "name": "sourceVersion",
+            "type": "integer"
+          },
+          {
+            "description": "The identifier for the target entity:",
+            "enum": [
+              "sourceType"
+            ],
+            "in": "path",
+            "name": "targetKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'.",
+            "in": "query",
+            "name": "targetStatus",
+            "type": "string"
+          },
+          {
+            "description": "The target entity type of the relationship. This must be 'space' or \n'content', if the relationName is 'favourite'.",
+            "in": "path",
+            "name": "targetType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'.",
+            "in": "query",
+            "name": "targetVersion",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the relationship is created."
+          }
+        },
+        "operationId": "relation.relationName.from.sourceType.sourceKey.to.targetType.targetKey.put"
+      }
+    },
+    "/relation/{relationName}/to/{targetType}/{targetKey}/from/{sourceType}": {
+      "get": {
+        "description": "Returns all target entities that have a particular relationship to the \nsource entity. Note, relationships are one way.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the response \nobject to expand.",
+            "enum": [
+              "relationData",
+              "source",
+              "target"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of relationships to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The name of the relationship. This method supports relationships created via \nCreate relationship. \nNote, this method does not support 'favourite' relationships.",
+            "in": "path",
+            "name": "relationName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the source. This parameter is only used when the\nsourceType is 'content'.",
+            "in": "query",
+            "name": "sourceStatus",
+            "type": "string"
+          },
+          {
+            "description": "The source entity type of the relationship.",
+            "in": "path",
+            "name": "sourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the source. This parameter is only used when the\nsourceType is 'content' and the sourceStatus is 'historical'.",
+            "in": "query",
+            "name": "sourceVersion",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned relationships.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "The identifier for the target entity:",
+            "enum": [
+              "sourceType"
+            ],
+            "in": "path",
+            "name": "targetKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The status of the target. This parameter is only used when the\ntargetType is 'content'.",
+            "in": "query",
+            "name": "targetStatus",
+            "type": "string"
+          },
+          {
+            "description": "The target entity type of the relationship.",
+            "in": "path",
+            "name": "targetType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the target. This parameter is only used when the\ntargetType is 'content' and the targetStatus is 'historical'.",
+            "in": "query",
+            "name": "targetVersion",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested relationships are returned."
+          }
+        },
+        "operationId": "relation.relationName.to.targetType.targetKey.from.sourceType.get"
+      }
+    },
+    "/search": {
+      "get": {
+        "description": "Searches for content using the \nConfluence Query Language (CQL)",
+        "parameters": [
+          {
+            "description": "The CQL query to be used for the search. See \nAdvanced Searching using CQL \nfor instructions on how to build a CQL query.",
+            "in": "query",
+            "name": "cql",
+            "type": "string"
+          },
+          {
+            "description": "The space, content, and content status to execute the search\nagainst.",
+            "enum": [
+              "spaceKey",
+              "contentId",
+              "contentStatuses"
+            ],
+            "in": "query",
+            "name": "cqlcontext",
+            "type": "string"
+          },
+          {
+            "description": "Include content from archived spaces in the results.",
+            "in": "query",
+            "name": "includeArchivedSpaces",
+            "type": "boolean"
+          },
+          {
+            "description": "The maximum number of content objects to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned content.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested results are returned."
+          }
+        },
+        "operationId": "search.get"
+      }
+    },
+    "/settings/lookandfeel": {
+      "get": {
+        "description": "Returns the look and feel settings for the site or a single space. This \nincludes attributes such as the color scheme, padding, and border radius.",
+        "parameters": [
+          {
+            "description": "The key of the space for which the look and feel settings will be\nreturned. If this is not set, only the global look and feel settings\nare returned.",
+            "in": "query",
+            "name": "spaceKey",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested look and feel settings are returned."
+          }
+        },
+        "operationId": "settings.lookandfeel.get"
+      }
+    },
+    "/settings/lookandfeel/custom": {
+      "delete": {
+        "description": "Resets the custom look and feel settings for the site or a single space.\nThis changes the values of the custom settings to be the same as the \ndefault settings. It does not change which settings (default or custom) \nare selected. Note, the default space settings are inherited from the \ncurrent global settings.",
+        "parameters": [
+          {
+            "description": "The key of the space for which the look and feel settings will be\nreset. If this is not set, the global look and feel settings will \nbe reset.",
+            "in": "query",
+            "name": "spaceKey",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the look and feel settings have been reset."
+          }
+        },
+        "operationId": "settings.lookandfeel.custom.delete"
+      },
+      "post": {
+        "description": "Updates the look and feel settings for the site or for a single space.\nIf custom settings exist, they are updated. If no custom settings exist, \nthen a set of custom settings is created.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "bordersAndDividers": {
+                  "type": "object"
+                },
+                "content": {
+                  "type": "object"
+                },
+                "header": {
+                  "type": "object"
+                },
+                "headings": {
+                  "type": "object"
+                },
+                "links": {
+                  "type": "object"
+                },
+                "menus": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The key of the space for which the look and feel settings will be\nupdated. If this is not set, the global look and feel settings will \nbe updated.",
+            "in": "query",
+            "name": "spaceKey",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the look and feel settings are updated."
+          }
+        },
+        "operationId": "settings.lookandfeel.custom.post"
+      }
+    },
+    "/settings/lookandfeel/selected": {
+      "put": {
+        "description": "Sets the look and feel settings to either the default settings or the\ncustom settings, for the site or a single space. Note, the default \nspace settings are inherited from the current global settings.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "custom": {
+                  "type": "object"
+                },
+                "global": {
+                  "type": "object"
+                },
+                "selected": {
+                  "description": "The look and feel scheme. If you set this to global, you must specify \nthe current global look and feel settings as a global object in this \nrequest. Similarly, if you set this to custom, you must specify the \ncurrent custom look and feel settings as a custom object in this request.",
+                  "enum": [
+                    "global",
+                    "custom"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The key of the space for which the look and feel settings will be\nset. If this is not set, the global look and feel settings will be \nset.",
+            "in": "query",
+            "name": "spaceKey",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the look and feel settings were set."
+          }
+        },
+        "operationId": "settings.lookandfeel.selected.put"
+      }
+    },
+    "/settings/systemInfo": {
+      "get": {
+        "description": "Returns the system information for the Confluence Cloud tenant. This\ninformation is used by Atlassian.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returned if the system information for the Confluence Cloud tenant\nis returned."
+          }
+        },
+        "operationId": "settings.systemInfo.get"
+      }
+    },
+    "/settings/theme": {
+      "get": {
+        "description": "Returns all themes, not including the default theme.",
+        "parameters": [
+          {
+            "description": "The maximum number of themes to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned themes.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested themes are returned."
+          }
+        },
+        "operationId": "settings.theme.get"
+      }
+    },
+    "/settings/theme/{themeKey}": {
+      "get": {
+        "description": "Returns a theme. This includes information about the theme name,\ndescription, and icon.",
+        "parameters": [
+          {
+            "description": "The key of the theme to be returned.",
+            "in": "path",
+            "name": "themeKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested theme is returned."
+          }
+        },
+        "operationId": "settings.theme.themeKey.get"
+      }
+    },
+    "/settings/theme/selected": {
+      "get": {
+        "description": "Returns the globally assigned theme.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returned if the global theme is returned."
+          }
+        },
+        "operationId": "settings.theme.selected.get"
+      }
+    },
+    "/space": {
+      "get": {
+        "description": "Returns all spaces. The returned spaces are ordered alphabetically in\nascending order by space key.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the spaces to\nexpand, where:",
+            "enum": [
+              "settings",
+              "metadata.labels",
+              "operations",
+              "lookAndFeel",
+              "permissions",
+              "icon",
+              "description.plain",
+              "description.view",
+              "theme",
+              "homepage"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "Filter the results to the favourite spaces of the user specified by\nfavouriteUserKey. Note, 'favourite' spaces are also\nknown as 'saved for later' spaces.",
+            "in": "query",
+            "name": "favourite",
+            "type": "boolean"
+          },
+          {
+            "description": "The userKey of the user, whose favourite spaces are used to filter\nthe results when using the favourite parameter.",
+            "in": "query",
+            "name": "favouriteUserKey",
+            "type": "string"
+          },
+          {
+            "description": "Filter the results to spaces based on their label.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "label",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of spaces to return per page. Note, this may be\nrestricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The key of the space to be returned. To return multiple spaces,\nspecify this parameter multiple times with different values.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "spaceKey",
+            "type": "array"
+          },
+          {
+            "description": "The starting index of the returned spaces.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "Filter the results to spaces based on their status.",
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "description": "Filter the results to spaces based on their type.",
+            "in": "query",
+            "name": "type",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested spaces are returned."
+          }
+        },
+        "operationId": "space.get"
+      },
+      "post": {
+        "description": "Creates a new space. Note, currently you cannot set space labels when\ncreating a space.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "description": {
+                  "description": "The description of the new/updated space. Note, only the 'plain' representation \ncan be used for the description when creating or updating a space.",
+                  "type": "object"
+                },
+                "key": {
+                  "description": "The key for the new space. Format: See Space\nkeys.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the new space.",
+                  "type": "string"
+                },
+                "permissions": {
+                  "description": "The permissions for the new space. If no permissions are provided, the \nConfluence default space permissions\nare applied. Note, for security reasons, permissions cannot be changed\nvia the API after the space has been created, and must be changed via\nthe user interface instead.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the space is created."
+          }
+        },
+        "operationId": "space.post"
+      }
+    },
+    "/space/_private": {
+      "post": {
+        "description": "Creates a new space that is only visible to the creator. This method is\nthe same as the Create space method with permissions\nset to the current user only. Note, currently you cannot set space\nlabels when creating a space.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "description": {
+                  "description": "The description of the new/updated space. Note, only the 'plain' representation \ncan be used for the description when creating or updating a space.",
+                  "type": "object"
+                },
+                "key": {
+                  "description": "The key for the new space. Format: See Space\nkeys.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the new space.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the space is created."
+          }
+        },
+        "operationId": "space._private.post"
+      }
+    },
+    "/space/{spaceKey}": {
+      "delete": {
+        "description": "Deletes a space. Note, the space will be deleted in a long running task.\nTherefore, the space may not be deleted yet when this method has\nreturned. Clients should poll the status link that is returned in the\nresponse until the task completes.",
+        "parameters": [
+          {
+            "description": "The key of the space to delete.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Returns a pointer to the status of the space deletion task."
+          }
+        },
+        "operationId": "space.spaceKey.delete"
+      },
+      "get": {
+        "description": "Returns a space. This includes information like the name, description,\nand permissions, but not the content in the space.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the space to\nexpand, where:",
+            "enum": [
+              "settings",
+              "metadata.labels",
+              "operations",
+              "lookAndFeel",
+              "permissions",
+              "icon",
+              "description.plain",
+              "description.view",
+              "theme",
+              "homepage"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The key of the space to be returned.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested space is returned."
+          }
+        },
+        "operationId": "space.spaceKey.get"
+      },
+      "put": {
+        "description": "Updates the name, description, or homepage of a space.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "description": {
+                  "description": "The description of the new/updated space. Note, only the 'plain' representation \ncan be used for the description when creating or updating a space.",
+                  "type": "object"
+                },
+                "homepage": {
+                  "description": "The page to set as the homepage of the space.",
+                  "type": "object"
+                },
+                "name": {
+                  "description": "The name of the space.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The key of the space to update.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the space is updated."
+          }
+        },
+        "operationId": "space.spaceKey.put"
+      }
+    },
+    "/space/{spaceKey}/content": {
+      "get": {
+        "description": "Returns all content in a space. The returned content is grouped by type\n(pages then blogposts), then ordered by content ID in ascending order.",
+        "parameters": [
+          {
+            "description": "Filter the results to content at the root level of the space or all content.",
+            "in": "query",
+            "name": "depth",
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the content\nto expand, where:",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of content objects to return per page. Note, this \nmay be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The key of the space to be queried for its content.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned content.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content is returned."
+          }
+        },
+        "operationId": "space.spaceKey.content.get"
+      }
+    },
+    "/space/{spaceKey}/content/{type}": {
+      "get": {
+        "description": "Returns all content of a given type, in a space. The returned content is\nordered by content ID in ascending order.",
+        "parameters": [
+          {
+            "description": "Filter the results to content at the root level of the space or all\ncontent.",
+            "in": "query",
+            "name": "depth",
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the content\nto expand, where:",
+            "enum": [
+              "childTypes.all",
+              "childTypes.attachment",
+              "childTypes.comment",
+              "childTypes.page",
+              "container",
+              "metadata.currentuser",
+              "metadata.properties",
+              "metadata.labels",
+              "metadata.frontend",
+              "operations",
+              "children.page",
+              "children.attachment",
+              "children.comment",
+              "restrictions.read.restrictions.user",
+              "restrictions.read.restrictions.group",
+              "restrictions.update.restrictions.user",
+              "restrictions.update.restrictions.group",
+              "history",
+              "history.lastUpdated",
+              "history.previousVersion",
+              "history.contributors",
+              "history.nextVersion",
+              "ancestors",
+              "body",
+              "version",
+              "descendants.page",
+              "descendants.attachment",
+              "descendants.comment",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of content objects to return per page. Note, this \nmay be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The key of the space to be queried for its content.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned content.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "The type of content to return.",
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content is returned."
+          }
+        },
+        "operationId": "space.spaceKey.content.type.get"
+      }
+    },
+    "/space/{spaceKey}/property": {
+      "get": {
+        "description": "Returns all properties for the given space. Space properties are a key-value storage associated with a space.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the space\nproperty to expand. By default, the version object is expanded.",
+            "enum": [
+              "version",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of properties to return per page. Note, this may be\nrestricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The key of the space to be queried for its properties.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned objects.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested space properties are returned."
+          }
+        },
+        "operationId": "space.spaceKey.property.get"
+      },
+      "post": {
+        "description": "Creates a new space property.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "key": {
+                  "description": "The key of the new property.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The value of the property. This can be empty or a complex object. \nFor example,",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The key of the space that the property will be created in.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the space property is created."
+          }
+        },
+        "operationId": "space.spaceKey.property.post"
+      }
+    },
+    "/space/{spaceKey}/property/{key}": {
+      "delete": {
+        "description": "Deletes a space property.",
+        "parameters": [
+          {
+            "description": "The key of the property to be deleted.",
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the space that the property is in.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the space property is deleted."
+          }
+        },
+        "operationId": "space.spaceKey.property.key.delete"
+      },
+      "get": {
+        "description": "Returns a space property.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the space\nproperty to expand. By default, the version object is expanded.",
+            "enum": [
+              "version",
+              "space"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The key of the space property.",
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the space that the property is in.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested space property is returned."
+          }
+        },
+        "operationId": "space.spaceKey.property.key.get"
+      },
+      "post": {
+        "description": "Creates a new space property. This is the same as POST\n/space/{spaceKey}/property but the key for the property is passed as a\npath parameter, rather than in the request body.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "value": {
+                  "description": "The value of the property. This can be empty or a complex object. \nFor example,",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The key of the property to be created.",
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the space that the property will be created in.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the space property is created."
+          }
+        },
+        "operationId": "space.spaceKey.property.key.post"
+      },
+      "put": {
+        "description": "Updates a space property. Note, you cannot update the key of a space\nproperty, only the value.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "value": {
+                  "description": "The value of the property.",
+                  "type": "object"
+                },
+                "version": {
+                  "description": "The version number of the property.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The key of the property to be updated.",
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the space that the property is in.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the space property is updated."
+          }
+        },
+        "operationId": "space.spaceKey.property.key.put"
+      }
+    },
+    "/space/{spaceKey}/settings": {
+      "get": {
+        "description": "Returns the settings of a space. Currently only the\nrouteOverrideEnabled setting can be returned.",
+        "parameters": [
+          {
+            "description": "The key of the space to be queried for its settings.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the space settings are returned."
+          }
+        },
+        "operationId": "space.spaceKey.settings.get"
+      },
+      "put": {
+        "description": "Updates the settings for a space. Currently only the\nrouteOverrideEnabled setting can be updated.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "routeOverrideEnabled": {
+                  "description": "Defines whether an override for the space home should be used. This is\nused in conjunction with a space theme provided by an app. For\nexample, if this property is set to true, a theme can display a page\nother than the space homepage when users visit the root URL for a\nspace. This property allows apps to provide content-only theming\nwithout overriding the space home.",
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The key of the space whose settings will be updated.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if space settings are updated."
+          }
+        },
+        "operationId": "space.spaceKey.settings.put"
+      }
+    },
+    "/space/{spaceKey}/theme": {
+      "delete": {
+        "description": "Resets the space theme. This means that the space will inherit the \nglobal look and feel settings",
+        "parameters": [
+          {
+            "description": "The key of the space to reset the theme for.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the theme was reset for the space."
+          }
+        },
+        "operationId": "space.spaceKey.theme.delete"
+      },
+      "get": {
+        "description": "Returns the theme selected for a space, if one is set. If no space \ntheme is set, this means that the space is inheriting the global look \nand feel settings.",
+        "parameters": [
+          {
+            "description": "The key of the space to be queried for its theme.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested theme is returned."
+          }
+        },
+        "operationId": "space.spaceKey.theme.get"
+      },
+      "put": {
+        "description": "Sets the theme for a space. Note, if you want to reset the space theme to \nthe default Confluence theme, use the 'Reset space theme' method instead \nof this method.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "themeKey": {
+                  "description": "The key of the theme to be set as the space theme.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "description": "The key of the space to set the theme for.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the theme was set for the space."
+          }
+        },
+        "operationId": "space.spaceKey.theme.put"
+      }
+    },
+    "/template": {
+      "post": {
+        "description": "Creates a new content template. Note, blueprint templates cannot be created via the REST API.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "body": {
+                  "description": "This object is used when creating or updating content.",
+                  "type": "object"
+                },
+                "description": {
+                  "description": "A description of the new template.",
+                  "type": "string"
+                },
+                "labels": {
+                  "description": "Labels for the new template.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "name": {
+                  "description": "The name of the new template.",
+                  "type": "string"
+                },
+                "space": {
+                  "description": "The key for the space of the new template. Only applies to space templates. \nIf the spaceKey is not specified, the template will be created as a global \ntemplate.",
+                  "type": "object"
+                },
+                "templateType": {
+                  "description": "The type of the new template. Set to page.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the template is created."
+          }
+        },
+        "operationId": "template.post"
+      },
+      "put": {
+        "description": "Updates a content template. Note, blueprint templates cannot be updated\nvia the REST API.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "body": {
+                  "description": "This object is used when creating or updating content.",
+                  "type": "object"
+                },
+                "description": {
+                  "description": "A description of the template.",
+                  "type": "string"
+                },
+                "labels": {
+                  "description": "Labels for the template.",
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "name": {
+                  "description": "The name of the template. Set to the current name if this field is \nnot being updated.",
+                  "type": "string"
+                },
+                "space": {
+                  "description": "The key for the space of the template. Required if the template is a \nspace template. Set this to the current space.key.",
+                  "type": "object"
+                },
+                "templateId": {
+                  "description": "The ID of the template being updated.",
+                  "type": "string"
+                },
+                "templateType": {
+                  "description": "The type of the template. Set to page.",
+                  "enum": [
+                    "page"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the template is updated."
+          }
+        },
+        "operationId": "template.put"
+      }
+    },
+    "/template/{contentTemplateId}": {
+      "delete": {
+        "description": "Deletes a template. This results in different actions depending on the \ntype of template:",
+        "parameters": [
+          {
+            "description": "The ID of the template to be deleted.",
+            "in": "path",
+            "name": "contentTemplateId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the template has been successfully been deleted."
+          }
+        },
+        "operationId": "template.contentTemplateId.delete"
+      },
+      "get": {
+        "description": "Returns a content template. This includes information about template, \nlike the name, the space or blueprint that the template is in, the body \nof the template, and more.",
+        "parameters": [
+          {
+            "description": "The ID of the content template to be returned.",
+            "in": "path",
+            "name": "contentTemplateId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested template is returned."
+          }
+        },
+        "operationId": "template.contentTemplateId.get"
+      }
+    },
+    "/template/blueprint": {
+      "get": {
+        "description": "Returns all templates provided by blueprints. Use this method to retrieve \nall global blueprint templates or all blueprint templates in a space.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the template\nto expand.",
+            "enum": [
+              "body"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of templates to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The key of the space to be queried for templates. If the spaceKey \nis not specified, global blueprint templates will be returned.",
+            "in": "query",
+            "name": "spaceKey",
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned templates.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested templates are returned."
+          }
+        },
+        "operationId": "template.blueprint.get"
+      }
+    },
+    "/template/page": {
+      "get": {
+        "description": "Returns all content templates. Use this method to retrieve all global\ncontent templates or all content templates in a space.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the template\nto expand.",
+            "enum": [
+              "body"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of templates to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The key of the space to be queried for templates. If the spaceKey \nis not specified, global templates will be returned.",
+            "in": "query",
+            "name": "spaceKey",
+            "type": "string"
+          },
+          {
+            "description": "The starting index of the returned templates.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested templates are returned."
+          }
+        },
+        "operationId": "template.page.get"
+      }
+    },
+    "/user": {
+      "get": {
+        "description": "Returns a user. This includes information about the user, like the\ndisplay name, userKey, account ID, profile picture, and more.",
+        "parameters": [
+          {
+            "description": "The accountId of the user to be returned. Required, unless the \nusername or key is specified. The accountId uniquely identifies \na user across all Atlassian products.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "A multi-value parameter indicating which properties of the user to\nexpand.",
+            "enum": [
+              "operations",
+              "details.personal",
+              "details.business"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          },
+          {
+            "description": "The userKey of the user to be returned. Required, unless the \nusername or accountId is specified. The key uniquely identifies \na user in a Confluence instance and does not change.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The username of the user to be returned. Required, unless the key \nor accountId is specified. The username uniquely identifies a \nuser in a Confluence instance but can change if the user is renamed.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested user is returned."
+          }
+        },
+        "operationId": "user.get"
+      }
+    },
+    "/user/anonymous": {
+      "get": {
+        "description": "Returns information about how anonymous users are represented, like the\nprofile picture and display name.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the user to\nexpand.",
+            "enum": [
+              "operations"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the anonymous user representation is returned."
+          }
+        },
+        "operationId": "user.anonymous.get"
+      }
+    },
+    "/user/current": {
+      "get": {
+        "description": "Returns the currently logged-in user. This includes information about\nthe user, like the display name, userKey, account ID, profile picture,\nand more.",
+        "parameters": [
+          {
+            "description": "A multi-value parameter indicating which properties of the user to\nexpand.",
+            "enum": [
+              "operations",
+              "details.personal",
+              "details.business"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "expand",
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the current user is returned."
+          }
+        },
+        "operationId": "user.current.get"
+      }
+    },
+    "/user/memberof": {
+      "get": {
+        "description": "Returns the groups that a user is a member of.",
+        "parameters": [
+          {
+            "description": "The accountId of the user to be queried. Required, unless the \nusername or key is specified. The accountId uniquely identifies \na user across all Atlassian products.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The userKey of the user to be queried. Required, unless the \nusername or accountId is specified. The key uniquely identifies \na user in a Confluence instance and does not change.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of groups to return per page. \nNote, this may be restricted by fixed system limits.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The starting index of the returned groups.",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "The username of the user to be queried. Required, unless the key \nor accountId is specified. The username uniquely identifies a \nuser in a Confluence instance but can change if the user is renamed.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested groups are returned."
+          }
+        },
+        "operationId": "user.memberof.get"
+      }
+    },
+    "/user/watch/content/{contentId}": {
+      "delete": {
+        "description": "Removes a user as a watcher from a piece of content. Choose the user by \ndoing one of the following:",
+        "parameters": [
+          {
+            "description": "The accountId of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content to remove the watcher from.",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The username of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the watcher was successfully deleted. No response body is \nreturned."
+          }
+        },
+        "operationId": "user.watch.content.contentId.delete"
+      },
+      "get": {
+        "description": "Returns whether a user is watching a piece of content. Choose the user by \ndoing one of the following:",
+        "parameters": [
+          {
+            "description": "The accountId of the user to be queried for whether they are watching \nthe content. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content to be queried for whether the specified user is \nwatching it.",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the user to be queried for whether they are watching the \ncontent. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The username of the user to be queried for whether they are watching \nthe content. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested watch status is returned."
+          }
+        },
+        "operationId": "user.watch.content.contentId.get"
+      },
+      "post": {
+        "description": "Adds a user as a watcher to a piece of content. Choose the user by doing \none of the following:",
+        "parameters": [
+          {
+            "description": "The accountId of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the content to add the watcher to.",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of the user that will be added as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The username of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the watcher was successfully created. No response body is \nreturned."
+          }
+        },
+        "operationId": "user.watch.content.contentId.post"
+      }
+    },
+    "/user/watch/label/{labelName}": {
+      "delete": {
+        "description": "Removes a user as a watcher from a label. Choose the user by doing one of \nthe following:",
+        "parameters": [
+          {
+            "description": "The accountId of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The key of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The name of the label to remove the watcher from.",
+            "in": "path",
+            "name": "labelName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the watcher was successfully deleted. No response body is \nreturned."
+          }
+        },
+        "operationId": "user.watch.label.labelName.delete"
+      },
+      "get": {
+        "description": "Returns whether a user is watching a label. Choose the user by doing one \nof the following:",
+        "parameters": [
+          {
+            "description": "The accountId of the user to be queried for whether they are watching \nthe label. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The key of the user to be queried for whether they are watching the \nlabel. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The name of the label to be queried for whether the specified user is \nwatching it.",
+            "in": "path",
+            "name": "labelName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user to be queried for whether they are watching \nthe label. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested watch status is returned."
+          }
+        },
+        "operationId": "user.watch.label.labelName.get"
+      },
+      "post": {
+        "description": "Adds a user as a watcher to a label. Choose the user by doing one of the \nfollowing:",
+        "parameters": [
+          {
+            "description": "The accountId of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The key of the user that will be added as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The name of the label to add the watcher to.",
+            "in": "path",
+            "name": "labelName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the watcher was successfully created. No response body is \nreturned."
+          }
+        },
+        "operationId": "user.watch.label.labelName.post"
+      }
+    },
+    "/user/watch/space/{spaceKey}": {
+      "delete": {
+        "description": "Removes a user as a watcher from a space. Choose the user by doing one of \nthe following:",
+        "parameters": [
+          {
+            "description": "The accountId of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The key of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The key of the space to remove the watcher from.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user that will be removed as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the watcher was successfully deleted. No response body is \nreturned."
+          }
+        },
+        "operationId": "user.watch.space.spaceKey.delete"
+      },
+      "get": {
+        "description": "Returns whether a user is watching a space. Choose the user by \ndoing one of the following:",
+        "parameters": [
+          {
+            "description": "The accountId of the user to be queried for whether they are watching \nthe space. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The key of the user to be queried for whether they are watching the \nspace. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The key of the space to be queried for whether the specified user is \nwatching it.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user to be queried for whether they are watching \nthe space. Only one of username, key, accountId can be used to \nidentify the user in the request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested watch status is returned."
+          }
+        },
+        "operationId": "user.watch.space.spaceKey.get"
+      },
+      "post": {
+        "description": "Adds a user as a watcher to a space. Choose the user by doing one of the \nfollowing:",
+        "parameters": [
+          {
+            "description": "The accountId of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "description": "The key of the user that will be added as a watcher. Only one of \nusername, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "description": "The key of the space to add the watcher to.",
+            "in": "path",
+            "name": "spaceKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The username of the user that will be added as a watcher. Only one \nof username, key, accountId can be used to identify the user in \nthe request.",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the watcher was successfully created. No response body is \nreturned."
+          }
+        },
+        "operationId": "user.watch.space.spaceKey.post"
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "HTTP Basic": {
+      "type": "basic"
+    }
+  },
+  "swagger": "2.0"
+}

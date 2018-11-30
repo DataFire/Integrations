@@ -14893,6 +14893,38 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "basecamp": {
+    "id": "basecamp",
+    "title": "Basecamp",
+    "description": "The Basecamp 3 API",
+    "security": {
+      "basecamp": {
+        "integration": "basecamp",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application",
+          "ApiKeyAuth": "a bearer token, including the prefix 'Bearer', e.g. 'Bearer abcde'",
+          "account_id": "Your Basecamp account ID"
+        },
+        "oauth": {
+          "flow": "accessCode",
+          "tokenUrl": "https://launchpad.37signals.com/authorization/token?type=web_server",
+          "type": "oauth2",
+          "authorizationUrl": "https://launchpad.37signals.com/authorization/new?type=web_server"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/basecamp.png"
+    },
+    "actionCount": 106,
+    "directory": "generated",
+    "tags": [],
+    "latestVersion": "2.0.0"
+  },
   "bbc": {
     "id": "bbc",
     "title": "BBC Nitro",
@@ -15927,6 +15959,28 @@
       "developer tools"
     ],
     "latestVersion": "3.0.0"
+  },
+  "confluence": {
+    "id": "confluence",
+    "title": "Confluence Server",
+    "description": "The Confluence Cloud REST API",
+    "security": {
+      "confluence": {
+        "integration": "confluence",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password",
+          "host": "The host for your Confluence Server"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/confluence.png"
+    },
+    "actionCount": 113,
+    "directory": "generated",
+    "tags": [],
+    "latestVersion": "2.0.0"
   },
   "consumerfinance_gov": {
     "id": "consumerfinance_gov",
