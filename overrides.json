@@ -486,14 +486,13 @@
   },
   "exavault": {
     "logo": {
-      "backgroundColor": "#222222",
       "url": "https://pbs.twimg.com/profile_images/3656927203/3c6f0053f6ffb1e0a36761f91d736504_400x400.png"
     }
   },
   "facebook": {
     "title": "Facebook",
     "logo": {
-      "url": "https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png"
+      "url": "http://www.logospike.com/wp-content/uploads/2014/11/Facebook_logo_vector-5.gif"
     }
   },
   "firebrowse": {
