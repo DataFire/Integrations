@@ -9,7 +9,8 @@ npm install --save @datafire/confluence
 ```js
 let confluence = require('@datafire/confluence').create({
   username: "",
-  password: ""
+  password: "",
+  host: ""
 });
 
 confluence.user.memberof.get({}).then(data => {
