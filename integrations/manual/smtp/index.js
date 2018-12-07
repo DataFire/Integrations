@@ -150,7 +150,9 @@ smtp.addAction('send', {
         let message = new MailComposer(input);
         conn.login(auth, err => {
           if (err) return finish(err);
-          conn.send(input, message.compile().createReadStream(), finish);
+          let envelope = Object.assign({}, input);
+          envelope.to = [input.to].concat(input.cc || []).concat(input.bcc || []);
+          conn.send(envelope, message.compile().createReadStream(), finish);
         })
       })
     })

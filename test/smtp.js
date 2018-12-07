@@ -16,12 +16,12 @@ const CREDS = {
   password: 'password',
 }
 
-let lastMessage = null;
-
+let messages = [];
 const server = new SMTPServer({
   secure: false,
   onData(stream, session, callback) {
-    lastMessage = {session: JSON.parse(JSON.stringify(session)), message: ''};
+    let lastMessage = {session: JSON.parse(JSON.stringify(session)), message: ''};
+    messages.push(lastMessage)
     stream.on('data', buf => {
       lastMessage.message += buf.toString();
     })
@@ -44,6 +44,10 @@ describe("SMTP", () => {
     return server.close(done)
   });
 
+  beforeEach(() => {
+    messages = [];
+  })
+
   it('should send a message', () => {
     let context = new datafire.Context({
       accounts: {
@@ -53,27 +57,37 @@ describe("SMTP", () => {
     return smtp.send({
       from: 'me@example.com',
       to: ['you@example.com'],
+      cc: ['someone@example.com'],
+      bcc: ['anonymous@example.com'],
       subject: 'hi there',
       text: 'hello!',
     }, context)
     .then(data => {
-      expect(data.accepted).to.deep.equal(['you@example.com']);
+      let recipients = ['you@example.com', 'someone@example.com', 'anonymous@example.com'];
+      expect(data.accepted).to.deep.equal(recipients);
       expect(data.response).to.equal('250 OK: message queued');
-      expect(lastMessage).to.not.equal(null);
-      expect(lastMessage.session.envelope.mailFrom).to.deep.equal({address: 'me@example.com', args: false});
-      expect(lastMessage.session.envelope.rcptTo).to.deep.equal([{address: 'you@example.com', args: false}]);
-      let lines = lastMessage.message.split('\r\n');
+      expect(messages.length).to.equal(1);
+      let message = messages.pop();
+      expect(message).to.not.equal(null);
+      expect(message.session.envelope.mailFrom).to.deep.equal({address: 'me@example.com', args: false});
+      expect(message.session.envelope.rcptTo).to.deep.equal(recipients.map(r => ({address: r, args: false})))
+      expect(message.message.indexOf('anonymous@')).to.equal(-1);
+      let lines = message.message.split('\r\n');
       let from = lines.filter(l => l.startsWith('From:')).pop();
       let to = lines.filter(l => l.startsWith('To:')).pop();
+      let cc = lines.filter(l => l.startsWith('Cc:')).pop();
+      let bcc = lines.filter(l => l.startsWith('Bcc:')).pop();
       let subj = lines.filter(l => l.startsWith('Subject:')).pop();
       let firstBlank = lines.indexOf('');
       let lastBlank = lines.lastIndexOf('');
-      let message = lines.slice(firstBlank + 1, lastBlank).join('\n');
+      let text = lines.slice(firstBlank + 1, lastBlank).join('\n');
 
-	  expect(from).to.equal('From: me@example.com');
+      expect(from).to.equal('From: me@example.com');
       expect(to).to.equal('To: you@example.com');
+      expect(cc).to.equal('Cc: someone@example.com');
+      expect(bcc).to.equal(undefined);
       expect(subj).to.equal('Subject: hi there');
-      expect(message).to.equal('hello!');
+      expect(text).to.equal('hello!');
     });
   });
 
@@ -95,6 +109,8 @@ describe("SMTP", () => {
     .then(data => {
       expect(data.accepted).to.deep.equal(['you@example.com']);
       expect(data.response).to.equal('250 OK: message queued');
+      expect(messages.length).to.equal(1);
+      let lastMessage = messages.pop();
       expect(lastMessage).to.not.equal(null);
       let lines = lastMessage.message.split('\r\n');
       let lastLine = lines.pop();
