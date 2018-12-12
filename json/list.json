@@ -4112,6 +4112,42 @@
     ],
     "latestVersion": "4.0.0"
   },
+  "asana": {
+    "id": "asana",
+    "title": "Asana",
+    "description": "ASANA Developers API",
+    "security": {
+      "asana": {
+        "integration": "asana",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "flow": "accessCode",
+          "tokenUrl": "https://app.asana.com/-/oauth_token",
+          "type": "oauth2",
+          "authorizationUrl": "https://app.asana.com/-/oauth_authorize",
+          "scopes": {
+            "default": "Provides access to all endpoints documented in our API reference. If no scopes are requested, this scope is assumed by default.",
+            "openid": "Provides access to OpenID Connect ID tokens and the OpenID Connect user info endpoint.",
+            "profile": "Provides access to the users name and profile photo through the OpenID Connect user info endpoint.",
+            "email": "Provides access to the users email through the OpenID Connect user info endpoint."
+          }
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/asana.png"
+    },
+    "actionCount": 100,
+    "directory": "generated",
+    "tags": [],
+    "latestVersion": "2.0.0"
+  },
   "ato_gov_au": {
     "id": "ato_gov_au",
     "title": "Australian Business Registries",

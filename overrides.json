@@ -1,4 +1,10 @@
 {
+  "asana": {
+    "title": "Asana",
+    "logo": {
+      "url": "https://blog.asana.com/wp-content/post-images/iVVcPRNeMQ4imFEzKBe2XR3UH-YDNr2ogqmrRXj6mu8.png"
+    }
+  },
   "basecamp": {
     "title": "Basecamp",
     "logo": {

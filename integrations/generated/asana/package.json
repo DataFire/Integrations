@@ -1,0 +1,26 @@
+{
+  "name": "@datafire/asana",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for ASANA Developers API",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "/home/ubuntu/downloads/ruediger_swagger/asana_swagger_11.json",
+    "type": "openapi"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}
