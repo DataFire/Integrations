@@ -53,7 +53,7 @@ You can also create integrations manually by writing JavaScript and using npm mo
 See the [HTTP](./integrations/manual/http) or [MongoDB](./integrations/manual/mongodb) integrations for examples.
 
 ## Integrations
-Currently 1047 integrations
+Currently 1067 integrations
 
 
 |title|README|link|description|
@@ -82,6 +82,7 @@ Currently 1047 integrations
 |AWS Batch|[README](integrations/generated/amazonaws_batch)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_batch)|AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch computing is a common way for developers,...|
 |AWS Budgets|[README](integrations/generated/amazonaws_budgets)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_budgets)|Budgets enable you to plan your service usage, service costs, and your RI utilization. You can also track how close your...|
 |AWS Cost Explorer Service|[README](integrations/generated/amazonaws_ce)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_ce)|The Cost Explorer API allows you to programmatically query your cost and usage data. You can query for aggregated data s...|
+|Amazon Chime|[README](integrations/generated/amazonaws_chime)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_chime)|Amazon Chime is a communications service that transforms online meetings with a secure, easy-to-use application that you...|
 |AWS Cloud9|[README](integrations/generated/amazonaws_cloud9)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_cloud9)|AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud...|
 |Amazon CloudDirectory|[README](integrations/generated/amazonaws_clouddirectory)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_clouddirectory)|Amazon Cloud Directory is a component of the AWS Directory Service that simplifies the development and management of clo...|
 |AWS CloudFormation|[README](integrations/generated/amazonaws_cloudformation)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_cloudformation)|AWS CloudFormation allows you to create and manage AWS infrastructure deployments predictably and repeatedly. You can us...|
@@ -111,6 +112,7 @@ Currently 1047 integrations
 |AWS Device Farm|[README](integrations/generated/amazonaws_devicefarm)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_devicefarm)|AWS Device Farm is a service that enables mobile app developers to test Android, iOS, and Fire OS apps on physical phone...|
 |AWS Direct Connect|[README](integrations/generated/amazonaws_directconnect)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_directconnect)|AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit...|
 |AWS Application Discovery Service|[README](integrations/generated/amazonaws_discovery)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_discovery)|AWS Application Discovery Service helps you plan application migration projects by automatically identifying servers, vi...|
+|Amazon Data Lifecycle Manager|[README](integrations/generated/amazonaws_dlm)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_dlm)|With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, w...|
 |AWS Database Migration Service|[README](integrations/generated/amazonaws_dms)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_dms)|AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-sour...|
 |AWS Directory Service|[README](integrations/generated/amazonaws_ds)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_ds)|AWS Directory Service is a web service that makes it easy for you to setup and run directories in the AWS cloud, or conn...|
 |Amazon DynamoDB|[README](integrations/generated/amazonaws_dynamodb)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_dynamodb)|Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless s...|
@@ -153,6 +155,7 @@ Currently 1047 integrations
 |Amazon Lightsail|[README](integrations/generated/amazonaws_lightsail)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_lightsail)|Amazon Lightsail is the easiest way to get started with AWS for developers who just need virtual private servers. Lights...|
 |Amazon CloudWatch Logs|[README](integrations/generated/amazonaws_logs)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_logs)|You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrai...|
 |Amazon Machine Learning|[README](integrations/generated/amazonaws_machinelearning)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_machinelearning)|Definition of the public APIs exposed by Amazon Machine Learning|
+|Amazon Macie|[README](integrations/generated/amazonaws_macie)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_macie)|Amazon Macie is a security service that uses machine learning to automatically discover, classify, and protect sensitive...|
 |AWS Marketplace Commerce Analytics|[README](integrations/generated/amazonaws_marketplacecommerceanalytics)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_marketplacecommerceanalytics)|Provides AWS Marketplace business intelligence data on-demand.|
 |AWS Elemental MediaConvert|[README](integrations/generated/amazonaws_mediaconvert)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_mediaconvert)|AWS Elemental MediaConvert|
 |AWS Elemental MediaLive|[README](integrations/generated/amazonaws_medialive)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_medialive)|API for AWS Elemental MediaLive|
@@ -191,6 +194,7 @@ Currently 1047 integrations
 |AWS Service Catalog|[README](integrations/generated/amazonaws_servicecatalog)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_servicecatalog)|AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS....|
 |Amazon Route 53 Auto Naming|[README](integrations/generated/amazonaws_servicediscovery)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_servicediscovery)|Amazon Route 53 auto naming lets you configure public or private namespaces that your microservice applications run in. ...|
 |AWS Shield|[README](integrations/generated/amazonaws_shield)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_shield)|This is the AWS Shield Advanced API Reference. This guide is for developers who need detailed information about the AWS ...|
+|AWS Signer|[README](integrations/generated/amazonaws_signer)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_signer)|You can use Code Signing for Amazon FreeRTOS (AWS Signer) to sign code that you created for any of the IoT devices that ...|
 |AWS Server Migration Service|[README](integrations/generated/amazonaws_sms)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_sms)|Amazon Server Migration Service automates the process of migrating servers to EC2.|
 |Amazon Import/Export Snowball|[README](integrations/generated/amazonaws_snowball)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_snowball)|AWS Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data b...|
 |Amazon Simple Notification Service|[README](integrations/generated/amazonaws_sns)|[DataFire.io](https://app.datafire.io/integrations/amazonaws_sns)|Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled appli...|
@@ -221,6 +225,7 @@ Currently 1047 integrations
 |Search Services|[README](integrations/generated/archive_search)|[DataFire.io](https://app.datafire.io/integrations/archive_search)|API for Internet Archive's Search-related services|
 |Wayback|[README](integrations/generated/archive_wayback)|[DataFire.io](https://app.datafire.io/integrations/archive_wayback)|API for Internet Archive's Wayback Machine|
 |ART19 Content|[README](integrations/generated/art19)|[DataFire.io](https://app.datafire.io/integrations/art19)|The ART19 Content API conforms to the JSON-API specification. Details and examples can be found at http://jsonapi.org. A...|
+|Asana|[README](integrations/generated/asana)|[DataFire.io](https://app.datafire.io/integrations/asana)|ASANA Developers API|
 |Australian Business Registries|[README](integrations/generated/ato_gov_au)|[DataFire.io](https://app.datafire.io/integrations/ato_gov_au)|The Business Registries API is built on HTTP. The API is RESTful. It has predictable resource URIs.|
 |Auckland Museum|[README](integrations/generated/aucklandmuseum)|[DataFire.io](https://app.datafire.io/integrations/aucklandmuseum)|This is technical documentation for the Auckland Museum API|
 |Authentiq Connect|[README](integrations/generated/authentiq)|[DataFire.io](https://app.datafire.io/integrations/authentiq)|Authentiq Connect OAuth 2.0 and OpenID Connect API reference.|
@@ -533,6 +538,7 @@ Currently 1047 integrations
 |Azure Web - Service|[README](integrations/generated/azure_web_service)|[DataFire.io](https://app.datafire.io/integrations/azure_web_service)|Use these APIs to manage Azure Websites resources through the Azure Resource Manager. All task operations conform to the...|
 |Azure Web - Top Level Domains|[README](integrations/generated/azure_web_topleveldomains)|[DataFire.io](https://app.datafire.io/integrations/azure_web_topleveldomains)||
 |Bandsintown|[README](integrations/generated/bandsintown)|[DataFire.io](https://app.datafire.io/integrations/bandsintown)|The Bandsintown API is designed for enterprise partners and artists with websites, media players, and/or mobile applicat...|
+|Basecamp|[README](integrations/generated/basecamp)|[DataFire.io](https://app.datafire.io/integrations/basecamp)|The Basecamp 3 API|
 |BBC Nitro|[README](integrations/generated/bbc)|[DataFire.io](https://app.datafire.io/integrations/bbc)|BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.|
 |BBC RSS|[README](integrations/generated/bbc_rss)|[DataFire.io](https://app.datafire.io/integrations/bbc_rss)||
 |BBC iPlayer Business Layer|[README](integrations/generated/bbci)|[DataFire.io](https://app.datafire.io/integrations/bbci)|The definitive iPlayer API.|
@@ -579,6 +585,7 @@ Currently 1047 integrations
 |CNAB Online|[README](integrations/generated/cnab_online_herokuapp)|[DataFire.io](https://app.datafire.io/integrations/cnab_online_herokuapp)|Processe arquivos de retorno CNAB|
 |CNN RSS|[README](integrations/generated/cnn_rss)|[DataFire.io](https://app.datafire.io/integrations/cnn_rss)||
 |CodeScan|[README](integrations/generated/code_scan)|[DataFire.io](https://app.datafire.io/integrations/code_scan)|Manage your Hosted CodeScan Service|
+|Confluence Server|[README](integrations/generated/confluence)|[DataFire.io](https://app.datafire.io/integrations/confluence)|The Confluence Cloud REST API|
 |Consumer Financial Protection Bureau|[README](integrations/generated/consumerfinance_gov)|[DataFire.io](https://app.datafire.io/integrations/consumerfinance_gov)|Learn more about home mortgage data, download the data yourself, or build new tools using our API.|
 |CORE|[README](integrations/generated/core_ac_uk)|[DataFire.io](https://app.datafire.io/integrations/core_ac_uk)|You can use the CORE API to access the|
 |Crossbrowsertesting.com Screenshot Comparisons|[README](integrations/generated/crossbrowsertesting)|[DataFire.io](https://app.datafire.io/integrations/crossbrowsertesting)|What's in this version:|
@@ -599,6 +606,8 @@ Currently 1047 integrations
 |DocuSign|[README](integrations/generated/docusign)|[DataFire.io](https://app.datafire.io/integrations/docusign)|The DocuSign REST API provides you with a powerful, convenient, and simple Web services API for interacting with DocuSig...|
 |domainsdb.info|[README](integrations/generated/domainsdb_info)|[DataFire.io](https://app.datafire.io/integrations/domainsdb_info)|Registered domains search checks the lists of registered domains for names containing particular words/phrases/numbers o...|
 |DRACOON|[README](integrations/generated/dracoon_team)|[DataFire.io](https://app.datafire.io/integrations/dracoon_team)|REST Web Services for DRACOON. Version. 4.5.0  - built at: 1517571015562|
+|Dropbox Content|[README](integrations/generated/dropbox_content)|[DataFire.io](https://app.datafire.io/integrations/dropbox_content)|Dropbox API|
+|Dropbox Data|[README](integrations/generated/dropbox_data)|[DataFire.io](https://app.datafire.io/integrations/dropbox_data)|Dropbox API|
 |DropX|[README](integrations/generated/dropx)|[DataFire.io](https://app.datafire.io/integrations/dropx)|dropX.io API provides programmatic access to the e-commerce intelligence data.|
 |dweet.io|[README](integrations/generated/dweet)|[DataFire.io](https://app.datafire.io/integrations/dweet)|Dweet.io allows users to share data from mobile, tablets, and pcs, and them to other devices and accounts across social ...|
 |eBay Browse|[README](integrations/generated/ebay_buy_browse)|[DataFire.io](https://app.datafire.io/integrations/ebay_buy_browse)|The Browse API has the following resources: item_summary: Lets shoppers search for specific items by keyword, GTIN, cate...|
@@ -673,6 +682,7 @@ Currently 1047 integrations
 |Getty Images|[README](integrations/generated/gettyimages)|[DataFire.io](https://app.datafire.io/integrations/gettyimages)|Build applications using the world's most powerful imagery|
 |Giphy|[README](integrations/generated/giphy)|[DataFire.io](https://app.datafire.io/integrations/giphy)|Giphy API|
 |Gisgraphy|[README](integrations/generated/gisgraphy)|[DataFire.io](https://app.datafire.io/integrations/gisgraphy)|Since 2006, Gisgraphy is a free, open source framework that offers the possibility to do geolocalisation and geocoding v...|
+|Gitea API.|[README](integrations/generated/gitea)|[DataFire.io](https://app.datafire.io/integrations/gitea)|This documentation describes the Gitea API.|
 |GitHub|[README](integrations/generated/github)|[DataFire.io](https://app.datafire.io/integrations/github)|Powerful collaboration, code review, and code management for open source and private projects.|
 |Gitlab|[README](integrations/generated/gitlab)|[DataFire.io](https://app.datafire.io/integrations/gitlab)|The platform for modern developers|
 |Abusive Experience Report|[README](integrations/generated/google_abusiveexperiencereport)|[DataFire.io](https://app.datafire.io/integrations/google_abusiveexperiencereport)|View Abusive Experience Report data, and get a list of sites that have a significant number of abusive experiences.|
@@ -838,6 +848,7 @@ Currently 1047 integrations
 |Shinobi|[README](integrations/generated/hillbillysoftware_shinobi)|[DataFire.io](https://app.datafire.io/integrations/hillbillysoftware_shinobi)||
 |HSBC UK|[README](integrations/generated/hsbc)|[DataFire.io](https://app.datafire.io/integrations/hsbc)||
 |HTTP|[README](integrations/manual/http)|[DataFire.io](https://app.datafire.io/integrations/http)|Make HTTP calls|
+|hubspot|[README](integrations/manual/hubspot)|[DataFire.io](https://app.datafire.io/integrations/hubspot)|Integrate with Hubspot|
 |Icons8|[README](integrations/generated/icons8)|[DataFire.io](https://app.datafire.io/integrations/icons8)|Icons8 API allows us to search and obtain our icons.|
 |IDT Beyond|[README](integrations/generated/idtbeyond)|[DataFire.io](https://app.datafire.io/integrations/idtbeyond)|Our active docs provide the ability to test out your account and to see the responses to your queries. The services are ...|
 |Ijenko IoE² IoT|[README](integrations/generated/ijenko)|[DataFire.io](https://app.datafire.io/integrations/ijenko)||
@@ -858,6 +869,7 @@ Currently 1047 integrations
 |iSendPro|[README](integrations/generated/isendpro)|[DataFire.io](https://app.datafire.io/integrations/isendpro)|[1] Liste des fonctionnalités :|
 |Internet Video Archive - Entertainment Express|[README](integrations/generated/iva_api)|[DataFire.io](https://app.datafire.io/integrations/iva_api)|Your Gateway to Building Incredible Movie, TV, and Game Content Discovery Experiences.|
 |Just Eat Tenant|[README](integrations/generated/je_apis)|[DataFire.io](https://app.datafire.io/integrations/je_apis)||
+|Jira|[README](integrations/generated/jira)|[DataFire.io](https://app.datafire.io/integrations/jira)|The Jira Cloud Platform REST API|
 |Jumpseller API|[README](integrations/generated/jumpseller)|[DataFire.io](https://app.datafire.io/integrations/jumpseller)|Explore all our endpoints with your own set of of access tokens. All changes affect your production Jumpseller store.|
 |Just Eat UK|[README](integrations/generated/just_eat)|[DataFire.io](https://app.datafire.io/integrations/just_eat)|Delivery Service APISome calls require HTTPS and an Authorization Key which will be provided by Just Eat.The key needs t...|
 |Kaltura VPaaS|[README](integrations/generated/kaltura)|[DataFire.io](https://app.datafire.io/integrations/kaltura)|The Kaltura VPaaS API|
@@ -865,6 +877,7 @@ Currently 1047 integrations
 |Kubernetes|[README](integrations/generated/kubernetes)|[DataFire.io](https://app.datafire.io/integrations/kubernetes)||
 |UK Land Registry|[README](integrations/generated/landregistry_gov_uk_deed)|[DataFire.io](https://app.datafire.io/integrations/landregistry_gov_uk_deed)|Land Registry Deed API|
 |LaunchDarkly|[README](integrations/generated/launchdarkly)|[DataFire.io](https://app.datafire.io/integrations/launchdarkly)|Build custom integrations with the LaunchDarkly REST API|
+|LDAP - Lightweight Directory Access Protocol|[README](integrations/manual/ldap)|[DataFire.io](https://app.datafire.io/integrations/ldap)|The Lightweight Directory Access Protocol is an open, vendor-neutral, industry standard application protocol for accessi...|
 |Learnifier|[README](integrations/generated/learnifier)|[DataFire.io](https://app.datafire.io/integrations/learnifier)||
 |LetMC Basic|[README](integrations/generated/letmc_basic_tier)|[DataFire.io](https://app.datafire.io/integrations/letmc_basic_tier)||
 |LetMC Customer Login|[README](integrations/generated/letmc_customer)|[DataFire.io](https://app.datafire.io/integrations/letmc_customer)||
@@ -897,6 +910,7 @@ Currently 1047 integrations
 |Microsoft Cognitive Services - Training|[README](integrations/generated/microsoft_cognitiveservices_training)|[DataFire.io](https://app.datafire.io/integrations/microsoft_cognitiveservices_training)||
 |Microsoft Video Search|[README](integrations/generated/microsoft_cognitiveservices_videosearch)|[DataFire.io](https://app.datafire.io/integrations/microsoft_cognitiveservices_videosearch)|The Video Search API lets you search on Bing for video that are relevant to the user's search query, for insights about ...|
 |Microsoft Web Search|[README](integrations/generated/microsoft_cognitiveservices_websearch)|[DataFire.io](https://app.datafire.io/integrations/microsoft_cognitiveservices_websearch)|The Web Search API lets you send a search query to Bing and get back search results that include links to webpages, imag...|
+|Image Moderation|[README](integrations/generated/moderatecontent)|[DataFire.io](https://app.datafire.io/integrations/moderatecontent)|Our FREE API blocks images with nudity. Build from the ground up, accurate models, best in class support, great price.|
 |MongoDB|[README](integrations/manual/mongodb)|[DataFire.io](https://app.datafire.io/integrations/mongodb)|Interact with MongoDB|
 |Moon by Ai Weiwei & Olafur Eliasson|[README](integrations/generated/moonmoonmoonmoon)|[DataFire.io](https://app.datafire.io/integrations/moonmoonmoonmoon)|Turn nothing into something – make a drawing, make a mark.|
 |MotaWord|[README](integrations/generated/motaword)|[DataFire.io](https://app.datafire.io/integrations/motaword)|Use MotaWord API to post and track your translation projects.|
@@ -936,10 +950,13 @@ Currently 1047 integrations
 |NYTimes Top Stories|[README](integrations/generated/nytimes_top_stories)|[DataFire.io](https://app.datafire.io/integrations/nytimes_top_stories)|The Top Stories API provides lists of articles and associated images by section.|
 |O2 Mobility|[README](integrations/generated/o2_cz_mobility)|[DataFire.io](https://app.datafire.io/integrations/o2_cz_mobility)|Transit API can be used to obtain time-aggregated data representing moving the people between various spatial points wit...|
 |O2 Socio-demo|[README](integrations/generated/o2_cz_sociodemo)|[DataFire.io](https://app.datafire.io/integrations/o2_cz_sociodemo)|Socio-demo API can be used to obtain time-aggregated data representing groups of people on the given location in the Cze...|
+|obono RKSV|[README](integrations/generated/obono_at)|[DataFire.io](https://app.datafire.io/integrations/obono_at)|Provides a RESTful API for interacting with virtual cash registers and creating receipts that are conform with the Regis...|
 |ODWeather|[README](integrations/generated/oceandrivers)|[DataFire.io](https://app.datafire.io/integrations/oceandrivers)|This is the api to access the ODWeather API information|
 |OMDb|[README](integrations/generated/omdbapi)|[DataFire.io](https://app.datafire.io/integrations/omdbapi)|The Open Movie Database. The OMDb API is a free web service to obtain movie information, all content and images on the s...|
+|OneDB|[README](integrations/manual/onedb)|[DataFire.io](https://app.datafire.io/integrations/onedb)|An open source backend-as-a-service|
 |Microsoft OneNote|[README](integrations/generated/onenote)|[DataFire.io](https://app.datafire.io/integrations/onenote)|Easily capture content into OneNote with this REST API.|
 |Swagger2OpenAPI Converter|[README](integrations/generated/openapi_converter_herokuapp)|[DataFire.io](https://app.datafire.io/integrations/openapi_converter_herokuapp)|Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions|
+|OpenAPI space|[README](integrations/generated/openapi_space)|[DataFire.io](https://app.datafire.io/integrations/openapi_space)|This is the API for OpenAPI space.|
 |openbanking.org Open Data|[README](integrations/generated/openbanking_org_uk)|[DataFire.io](https://app.datafire.io/integrations/openbanking_org_uk)|Latest Swagger specification for OpenData|
 |OpenCage Geocoder|[README](integrations/generated/opencagedata)|[DataFire.io](https://app.datafire.io/integrations/opencagedata)|Worldwide forward and reverse geocoding|
 |ODN|[README](integrations/generated/opendatanetwork)|[DataFire.io](https://app.datafire.io/integrations/opendatanetwork)|The Socrata OpenDataNetwork (ODN) REST API exposes public data, often continuosly updated and enhanced, from many thousa...|
@@ -985,8 +1002,10 @@ Currently 1047 integrations
 |Receptive|[README](integrations/generated/receptive)|[DataFire.io](https://app.datafire.io/integrations/receptive)||
 |Reddit|[README](integrations/generated/reddit)|[DataFire.io](https://app.datafire.io/integrations/reddit)|Reddit API|
 |Reddit RSS|[README](integrations/generated/reddit_rss)|[DataFire.io](https://app.datafire.io/integrations/reddit_rss)||
+|redirection.io|[README](integrations/generated/redirection)|[DataFire.io](https://app.datafire.io/integrations/redirection)|API documentation for redirection.io|
 |Redmine|[README](integrations/generated/redmine)|[DataFire.io](https://app.datafire.io/integrations/redmine)|Redmine exposes some of its data through a REST API. This API provides|
 |Refuge Restrooms|[README](integrations/generated/refugerestrooms)|[DataFire.io](https://app.datafire.io/integrations/refugerestrooms)|REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconformi...|
+|Reloadly REST APIs|[README](integrations/generated/reloadly)|[DataFire.io](https://app.datafire.io/integrations/reloadly)|The Reloadly APIs are HTTP-based RESTful APIs that use OAuth 2.0 for authorization. API request and response bodies are ...|
 |Reverb|[README](integrations/generated/reverb)|[DataFire.io](https://app.datafire.io/integrations/reverb)|reverb|
 |Rhapsody|[README](integrations/generated/rhapsody)|[DataFire.io](https://app.datafire.io/integrations/rhapsody)|Access Rhapsody technologies and content, including metadeta, search and music player.|
 |Ritc|[README](integrations/generated/ritc)|[DataFire.io](https://app.datafire.io/integrations/ritc)|Rules in the Cloud|
@@ -1044,6 +1063,7 @@ Currently 1047 integrations
 |traccar|[README](integrations/generated/traccar)|[DataFire.io](https://app.datafire.io/integrations/traccar)|Open Source GPS Tracking Platform|
 |Transavia Airports|[README](integrations/generated/transavia)|[DataFire.io](https://app.datafire.io/integrations/transavia)|Returns all airports|
 |TransitFeeds|[README](integrations/generated/transitfeeds)|[DataFire.io](https://app.datafire.io/integrations/transitfeeds)|API to view feed information and download feeds from TransitFeeds.com|
+|trash nothing!|[README](integrations/generated/trashnothing)|[DataFire.io](https://app.datafire.io/integrations/trashnothing)|This is the REST API for trashnothing.com.|
 |Trello|[README](integrations/generated/trello)|[DataFire.io](https://app.datafire.io/integrations/trello)|Trello’s boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible and rewarding w...|
 |Tumblr|[README](integrations/generated/tumblr)|[DataFire.io](https://app.datafire.io/integrations/tumblr)|Share photos, mobile apps, and social network using Tumblr's API's.|
 |Turbine Labs|[README](integrations/generated/turbinelabs)|[DataFire.io](https://app.datafire.io/integrations/turbinelabs)|Turbine Labs Public REST API|
