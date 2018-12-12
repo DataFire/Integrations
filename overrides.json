@@ -11,6 +11,18 @@
       "url": "http://www.gurusoftware.com/wp-content/uploads/2017/07/rzFvW-gC.png"
     }
   },
+  "dropbox_content": {
+    "title": "Dropbox Content",
+    "logo": {
+      "url": "http://logok.org/wp-content/uploads/2015/03/Dropbox-logo.png"
+    }
+  },
+  "dropbox_data": {
+    "title": "Dropbox Data",
+    "logo": {
+      "url": "http://logok.org/wp-content/uploads/2015/03/Dropbox-logo.png"
+    }
+  },
   "amazonaws_acm": {
     "logo": {
       "url": "https://www1.amazonian.io/wp-content/uploads/2016/07/Security-Identity_ACM.200px.png"

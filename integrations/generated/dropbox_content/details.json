@@ -1,0 +1,1592 @@
+{
+  "id": "dropbox_content",
+  "title": "Dropbox API",
+  "description": "Dropbox API",
+  "security": {
+    "dropbox_content": {
+      "integration": "dropbox_content",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "flow": "application",
+        "tokenUrl": "https://api.dropbox.com/1/oauth2/token",
+        "type": "oauth2",
+        "authorizationUrl": "https://www.dropbox.com/1/oauth2/authorize",
+        "scopes": {}
+      }
+    }
+  },
+  "actionCount": 17,
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "files.download_zip.post",
+      "title": "files.download_zip.post",
+      "description": "Download a folder from the user's Dropbox, as a zip file. The folder must be less than 20 GB in size and have fewer than 10,000 total files. The input cannot be a single file. Any single file must be less than 4GB in size.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"path\"]}"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "metadata"
+        ],
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "required": [
+              "id",
+              "name",
+              "path_display",
+              "path_lower",
+              "property_groups",
+              "sharing_info"
+            ],
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "path_display": {
+                "type": "string"
+              },
+              "path_lower": {
+                "type": "string"
+              },
+              "sharing_info": {
+                "required": [
+                  "no_access",
+                  "parent_shared_folder_id",
+                  "read_only",
+                  "traverse_only"
+                ],
+                "type": "object",
+                "properties": {
+                  "read_only": {
+                    "type": "boolean"
+                  },
+                  "parent_shared_folder_id": {
+                    "type": "string"
+                  },
+                  "traverse_only": {
+                    "type": "boolean"
+                  },
+                  "no_access": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "property_groups": {
+                "items": {
+                  "required": [
+                    "fields",
+                    "template_id"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "fields": {
+                      "items": {
+                        "required": [
+                          "name",
+                          "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    },
+                    "template_id": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "oauth2.token.post",
+      "title": "oauth2.token.post",
+      "description": "This endpoint only applies to apps using the authorization code flow . An app calls this endpoint to acquire a bearer token once the user has authorized the app. Calls to /oauth2/token need to be authenticated using the apps's key and secret. These can either be passed as application/x-www-form-urlencoded POST parameters (see parameters below) or via HTTP basic authentication . If basic authentication is used, the app key should be provided as the username, and the app secret should be provided as the password.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The code acquired by directing users to ."
+          },
+          "grant_type": {
+            "type": "string",
+            "description": "The grant type, which must be ."
+          },
+          "client_id": {
+            "type": "string",
+            "description": "If credentials are passed in parameters, this parameter should be present and should be the app's key (found in the )."
+          },
+          "client_secret": {
+            "type": "string",
+            "description": "If credentials are passed in parameters, this parameter should be present and should be the app's secret."
+          },
+          "redirect_uri": {
+            "type": "string",
+            "description": "Only used to validate that it matches the original , not used to redirect again."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "access_token",
+          "account_id",
+          "token_type",
+          "uid"
+        ],
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "account_id": {
+            "type": "string"
+          },
+          "uid": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "files.upload_session.finish.post",
+      "title": "files.upload_session.finish.post",
+      "description": "Finish an upload session and save the uploaded data to the given file path. A single request should not upload more than 150 MB. The maximum size of a file one can upload to an upload session is 350 GB. Calls to this endpoint will count as data transport calls for any Dropbox Business teams with a limit on the number of data transport calls allowed per month. For more information, see the Data transport limit page .",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"cursor\", \"commit\"]}"
+          },
+          "file": {
+            "type": [
+              "string",
+              "object"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "ascii",
+                  "utf8",
+                  "utf16le",
+                  "base64",
+                  "binary",
+                  "hex"
+                ]
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "client_modified",
+          "content_hash",
+          "has_explicit_shared_members",
+          "id",
+          "name",
+          "path_display",
+          "path_lower",
+          "property_groups",
+          "rev",
+          "server_modified",
+          "sharing_info",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "client_modified": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "path_display": {
+            "type": "string"
+          },
+          "has_explicit_shared_members": {
+            "type": "boolean"
+          },
+          "path_lower": {
+            "type": "string"
+          },
+          "server_modified": {
+            "type": "string"
+          },
+          "sharing_info": {
+            "required": [
+              "modified_by",
+              "parent_shared_folder_id",
+              "read_only"
+            ],
+            "type": "object",
+            "properties": {
+              "read_only": {
+                "type": "boolean"
+              },
+              "parent_shared_folder_id": {
+                "type": "string"
+              },
+              "modified_by": {
+                "type": "string"
+              }
+            }
+          },
+          "property_groups": {
+            "items": {
+              "required": [
+                "fields",
+                "template_id"
+              ],
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "items": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "template_id": {
+                  "type": "string"
+                }
+              }
+            },
+            "type": "array"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "files.get_preview.post",
+      "title": "files.get_preview.post",
+      "description": "Get a preview for a file. Currently, PDF previews are generated for files with the following extensions: .ai, .doc, .docm, .docx, .eps, .odp, .odt, .pps, .ppsm, .ppsx, .ppt, .pptm, .pptx, .rtf. HTML previews are generated for files with the following extensions: .csv, .ods, .xls, .xlsm, .xlsx. Other formats will return an unsupported extension error.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"path\", \"rev deprecated\"]}"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "client_modified",
+          "content_hash",
+          "has_explicit_shared_members",
+          "id",
+          "name",
+          "path_display",
+          "path_lower",
+          "property_groups",
+          "rev",
+          "server_modified",
+          "sharing_info",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "client_modified": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "path_display": {
+            "type": "string"
+          },
+          "has_explicit_shared_members": {
+            "type": "boolean"
+          },
+          "path_lower": {
+            "type": "string"
+          },
+          "server_modified": {
+            "type": "string"
+          },
+          "sharing_info": {
+            "required": [
+              "modified_by",
+              "parent_shared_folder_id",
+              "read_only"
+            ],
+            "type": "object",
+            "properties": {
+              "read_only": {
+                "type": "boolean"
+              },
+              "parent_shared_folder_id": {
+                "type": "string"
+              },
+              "modified_by": {
+                "type": "string"
+              }
+            }
+          },
+          "property_groups": {
+            "items": {
+              "required": [
+                "fields",
+                "template_id"
+              ],
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "items": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "template_id": {
+                  "type": "string"
+                }
+              }
+            },
+            "type": "array"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "oauth2.authorize.get",
+      "title": "oauth2.authorize.get",
+      "description": "This starts the OAuth 2.0 authorization flow. This isn't an API call—it's the web page that lets the user sign in to Dropbox and authorize your app. After the user decides whether or not to authorize your app, they will be redirected to the URI specified by redirect_uri . OAuth 2.0 supports two authorization flows: The code flow returns a code via the redirect_uri callback which should then be converted into a bearer token using the /oauth2/token call . This is the recommended flow for apps that are running on a server. The token or implicit grant flow returns the bearer token via the redirect_uri callback, rather than requiring your app to make a second call to a server. This is useful for pure client-side apps, such as mobile apps or JavaScript-based apps. For more information on the two flows, see Section 1.3 of the OAuth 2 spec . If the user isn't already signed in to the Dropbox web site, they will be prompted to do so on this web page. Note that some users use their Google account to sign in to Dropbox. In order to comply with Google's policy against processing the OAuth flow inside a web-view , you should not display this web page inside a web-view.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "response_type": {
+            "type": "string",
+            "description": "The grant type requested, either or ."
+          },
+          "client_id": {
+            "type": "string",
+            "description": "The app's key, found in the ."
+          },
+          "redirect_uri": {
+            "type": "string",
+            "description": "Where to redirect the user after authorization has completed. This must be the exact URI registered in the ; even 'localhost' must be listed if it is used for testing. All redirect URIs must be HTTPS except for localhost URIs. A redirect URI is required for the flow, but optional for the flow. If the redirect URI is omitted, the will be presented directly to the user and they will be invited to enter the information in your app."
+          },
+          "state": {
+            "type": "string",
+            "description": "Up to 500 bytes of arbitrary data that will be passed back to your redirect URI. This parameter should be used to protect against cross-site request forgery (CSRF). See Sections and of the OAuth 2.0 threat model spec."
+          },
+          "require_role": {
+            "type": "string",
+            "description": "If this parameter is specified, the user will be asked to authorize with a particular type of Dropbox account, either for a team account or for a personal account. Your app should still verify the type of Dropbox account after authorization since the user could modify or remove the parameter."
+          },
+          "force_reapprove": {
+            "type": "boolean",
+            "description": "Whether or not to force the user to approve the app again if they've already done so. If (default), a user who has already approved the application may be automatically redirected to the URI specified by . If , the user will not be automatically redirected and will have to approve the app again."
+          },
+          "disable_signup": {
+            "type": "boolean",
+            "description": "When true (default is false) users will not be able to sign up for a Dropbox account via the authorization page. Instead, the authorization page will show a link to the Dropbox iOS app in the App Store. This is only intended for use when necessary for compliance with App Store policies."
+          },
+          "locale": {
+            "type": "string",
+            "description": "If the locale specified is a , Dropbox will direct users to a translated version of the authorization website. Locale tags should be ."
+          },
+          "force_reauthentication": {
+            "type": "boolean",
+            "description": "When (default is ) users will be signed out if they are currently signed in. This will make sure the user is brought to a page where they can create a new account or sign in to another account. This should only be used when there is a definite reason to believe that the user needs to sign in to a new or different account."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "paper.docs.create.post",
+      "title": "paper.docs.create.post",
+      "description": "Creates a new Paper doc with the provided content.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"import_format\", \"parent_folder_id\"]}"
+          },
+          "file": {
+            "type": [
+              "string",
+              "object"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "ascii",
+                  "utf8",
+                  "utf16le",
+                  "base64",
+                  "binary",
+                  "hex"
+                ]
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "doc_id",
+          "revision",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "doc_id": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "files.download.post",
+      "title": "files.download.post",
+      "description": "Download a file from a user's Dropbox.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"path\", \"rev deprecated\"]}"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "client_modified",
+          "content_hash",
+          "has_explicit_shared_members",
+          "id",
+          "name",
+          "path_display",
+          "path_lower",
+          "property_groups",
+          "rev",
+          "server_modified",
+          "sharing_info",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "client_modified": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "path_display": {
+            "type": "string"
+          },
+          "has_explicit_shared_members": {
+            "type": "boolean"
+          },
+          "path_lower": {
+            "type": "string"
+          },
+          "server_modified": {
+            "type": "string"
+          },
+          "sharing_info": {
+            "required": [
+              "modified_by",
+              "parent_shared_folder_id",
+              "read_only"
+            ],
+            "type": "object",
+            "properties": {
+              "read_only": {
+                "type": "boolean"
+              },
+              "parent_shared_folder_id": {
+                "type": "string"
+              },
+              "modified_by": {
+                "type": "string"
+              }
+            }
+          },
+          "property_groups": {
+            "items": {
+              "required": [
+                "fields",
+                "template_id"
+              ],
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "items": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "template_id": {
+                  "type": "string"
+                }
+              }
+            },
+            "type": "array"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "files.upload_session.append.post",
+      "title": "files.upload_session.append.post",
+      "description": "Append more data to an upload session. When the parameter close is set, this call will close the session. A single request should not upload more than 150 MB. The maximum size of a file one can upload to an upload session is 350 GB. Calls to this endpoint will count as data transport calls for any Dropbox Business teams with a limit on the number of data transport calls allowed per month. For more information, see the Data transport limit page .",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"cursor\", \"close\"]}"
+          },
+          "file": {
+            "type": [
+              "string",
+              "object"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "ascii",
+                  "utf8",
+                  "utf16le",
+                  "base64",
+                  "binary",
+                  "hex"
+                ]
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "deprecated.alpha.upload.post",
+      "title": "deprecated.alpha.upload.post",
+      "description": "Create a new file with the contents provided in the request. Note that this endpoint is part of the properties API alpha and is slightly different from upload . Do not use this to upload a file larger than 150 MB. Instead, create an upload session with upload_session/start .",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"path\", \"mode\", \"autorename\", \"client_modified\", \"mute\", \"property_groups\", \"strict_conflict\"]}"
+          },
+          "file": {
+            "type": [
+              "string",
+              "object"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "ascii",
+                  "utf8",
+                  "utf16le",
+                  "base64",
+                  "binary",
+                  "hex"
+                ]
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "client_modified",
+          "content_hash",
+          "has_explicit_shared_members",
+          "id",
+          "name",
+          "path_display",
+          "path_lower",
+          "property_groups",
+          "rev",
+          "server_modified",
+          "sharing_info",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "client_modified": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "path_display": {
+            "type": "string"
+          },
+          "has_explicit_shared_members": {
+            "type": "boolean"
+          },
+          "path_lower": {
+            "type": "string"
+          },
+          "server_modified": {
+            "type": "string"
+          },
+          "sharing_info": {
+            "required": [
+              "modified_by",
+              "parent_shared_folder_id",
+              "read_only"
+            ],
+            "type": "object",
+            "properties": {
+              "read_only": {
+                "type": "boolean"
+              },
+              "parent_shared_folder_id": {
+                "type": "string"
+              },
+              "modified_by": {
+                "type": "string"
+              }
+            }
+          },
+          "property_groups": {
+            "items": {
+              "required": [
+                "fields",
+                "template_id"
+              ],
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "items": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "template_id": {
+                  "type": "string"
+                }
+              }
+            },
+            "type": "array"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "sharing.get_shared_link_file.post",
+      "title": "sharing.get_shared_link_file.post",
+      "description": "Download the shared link's file from a user's Dropbox.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"url\", \"path\", \"link_password\"]}"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          ".tag",
+          "client_modified",
+          "id",
+          "link_permissions",
+          "name",
+          "path_lower",
+          "rev",
+          "server_modified",
+          "size",
+          "team_member_info",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "client_modified": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          ".tag": {
+            "type": "string"
+          },
+          "path_lower": {
+            "type": "string"
+          },
+          "server_modified": {
+            "type": "string"
+          },
+          "link_permissions": {
+            "required": [
+              "can_revoke",
+              "resolved_visibility",
+              "revoke_failure_reason"
+            ],
+            "type": "object",
+            "properties": {
+              "resolved_visibility": {
+                "required": [
+                  ".tag"
+                ],
+                "type": "object",
+                "properties": {
+                  ".tag": {
+                    "type": "string"
+                  }
+                }
+              },
+              "can_revoke": {
+                "type": "boolean"
+              },
+              "revoke_failure_reason": {
+                "required": [
+                  ".tag"
+                ],
+                "type": "object",
+                "properties": {
+                  ".tag": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "team_member_info": {
+            "required": [
+              "display_name",
+              "member_id",
+              "team_info"
+            ],
+            "type": "object",
+            "properties": {
+              "member_id": {
+                "type": "string"
+              },
+              "display_name": {
+                "type": "string"
+              },
+              "team_info": {
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "paper.docs.download.post",
+      "title": "paper.docs.download.post",
+      "description": "Exports and downloads Paper doc either as HTML or markdown.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"doc_id\", \"export_format\"]}"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "mime_type",
+          "owner",
+          "revision",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "integer"
+          },
+          "mime_type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "files.get_thumbnail.post",
+      "title": "files.get_thumbnail.post",
+      "description": "Get a thumbnail for an image. This method currently supports files with the following file extensions: jpg, jpeg, png, tiff, tif, gif and bmp. Photos that are larger than 20MB in size won't be converted to a thumbnail.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"path\", \"format\", \"size\", \"mode\"]}"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "client_modified",
+          "content_hash",
+          "has_explicit_shared_members",
+          "id",
+          "name",
+          "path_display",
+          "path_lower",
+          "property_groups",
+          "rev",
+          "server_modified",
+          "sharing_info",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "client_modified": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "path_display": {
+            "type": "string"
+          },
+          "has_explicit_shared_members": {
+            "type": "boolean"
+          },
+          "path_lower": {
+            "type": "string"
+          },
+          "server_modified": {
+            "type": "string"
+          },
+          "sharing_info": {
+            "required": [
+              "modified_by",
+              "parent_shared_folder_id",
+              "read_only"
+            ],
+            "type": "object",
+            "properties": {
+              "read_only": {
+                "type": "boolean"
+              },
+              "parent_shared_folder_id": {
+                "type": "string"
+              },
+              "modified_by": {
+                "type": "string"
+              }
+            }
+          },
+          "property_groups": {
+            "items": {
+              "required": [
+                "fields",
+                "template_id"
+              ],
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "items": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "template_id": {
+                  "type": "string"
+                }
+              }
+            },
+            "type": "array"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "files.upload.post",
+      "title": "files.upload.post",
+      "description": "Create a new file with the contents provided in the request. Do not use this to upload a file larger than 150 MB. Instead, create an upload session with upload_session/start . Calls to this endpoint will count as data transport calls for any Dropbox Business teams with a limit on the number of data transport calls allowed per month. For more information, see the Data transport limit page .",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"path\", \"mode\", \"autorename\", \"client_modified\", \"mute\", \"property_groups\", \"strict_conflict\"]}"
+          },
+          "file": {
+            "type": [
+              "string",
+              "object"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "ascii",
+                  "utf8",
+                  "utf16le",
+                  "base64",
+                  "binary",
+                  "hex"
+                ]
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "client_modified",
+          "content_hash",
+          "has_explicit_shared_members",
+          "id",
+          "name",
+          "path_display",
+          "path_lower",
+          "property_groups",
+          "rev",
+          "server_modified",
+          "sharing_info",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "client_modified": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "path_display": {
+            "type": "string"
+          },
+          "has_explicit_shared_members": {
+            "type": "boolean"
+          },
+          "path_lower": {
+            "type": "string"
+          },
+          "server_modified": {
+            "type": "string"
+          },
+          "sharing_info": {
+            "required": [
+              "modified_by",
+              "parent_shared_folder_id",
+              "read_only"
+            ],
+            "type": "object",
+            "properties": {
+              "read_only": {
+                "type": "boolean"
+              },
+              "parent_shared_folder_id": {
+                "type": "string"
+              },
+              "modified_by": {
+                "type": "string"
+              }
+            }
+          },
+          "property_groups": {
+            "items": {
+              "required": [
+                "fields",
+                "template_id"
+              ],
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "items": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "template_id": {
+                  "type": "string"
+                }
+              }
+            },
+            "type": "array"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "files.upload_session.start.post",
+      "title": "files.upload_session.start.post",
+      "description": "Upload sessions allow you to upload a single file in one or more requests, for example where the size of the file is greater than 150 MB. This call starts a new upload session with the given data. You can then use upload_session/append:2 to add more data and upload_session/finish to save all the data to a file in Dropbox. A single request should not upload more than 150 MB. The maximum size of a file one can upload to an upload session is 350 GB. An upload session can be used for a maximum of 48 hours. Attempting to use an UploadSessionStartResult.session_id with upload_session/append:2 or upload_session/finish more than 48 hours after its creation will return a UploadSessionLookupError.not_found. Calls to this endpoint will count as data transport calls for any Dropbox Business teams with a limit on the number of data transport calls allowed per month. For more information, see the Data transport limit page .",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"close\"]}"
+          },
+          "file": {
+            "type": [
+              "string",
+              "object"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "ascii",
+                  "utf8",
+                  "utf16le",
+                  "base64",
+                  "binary",
+                  "hex"
+                ]
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "session_id"
+        ],
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    },
+    {
+      "id": "paper.docs.update.post",
+      "title": "paper.docs.update.post",
+      "description": "Updates an existing Paper doc with the provided content.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Dropbox-API-Arg": {
+            "type": "string",
+            "description": "{\"properties\": [\"doc_id\", \"doc_update_policy\", \"revision\", \"import_format\"]}"
+          },
+          "file": {
+            "type": [
+              "string",
+              "object"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "ascii",
+                  "utf8",
+                  "utf16le",
+                  "base64",
+                  "binary",
+                  "hex"
+                ]
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "doc_id",
+          "revision",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "doc_id": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "dropbox_content": {
+          "integration": "dropbox_content"
+        }
+      }
+    }
+  ]
+}

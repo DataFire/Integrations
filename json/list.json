@@ -16364,6 +16364,68 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "dropbox_content": {
+    "id": "dropbox_content",
+    "title": "Dropbox Content",
+    "description": "Dropbox API",
+    "security": {
+      "dropbox_content": {
+        "integration": "dropbox_content",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "flow": "application",
+          "tokenUrl": "https://api.dropbox.com/1/oauth2/token",
+          "type": "oauth2",
+          "authorizationUrl": "https://www.dropbox.com/1/oauth2/authorize",
+          "scopes": {}
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dropbox_content.png"
+    },
+    "actionCount": 17,
+    "directory": "generated",
+    "tags": [],
+    "latestVersion": "2.0.0"
+  },
+  "dropbox_data": {
+    "id": "dropbox_data",
+    "title": "Dropbox Data",
+    "description": "Dropbox API",
+    "security": {
+      "dropbox_data": {
+        "integration": "dropbox_data",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "flow": "application",
+          "tokenUrl": "https://api.dropbox.com/1/oauth2/token",
+          "type": "oauth2",
+          "authorizationUrl": "https://www.dropbox.com/1/oauth2/authorize",
+          "scopes": {}
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dropbox_data.png"
+    },
+    "actionCount": 191,
+    "directory": "generated",
+    "tags": [],
+    "latestVersion": "2.0.0"
+  },
   "dropx": {
     "id": "dropx",
     "title": "DropX",
@@ -16925,7 +16987,6 @@
     "description": "ExaVault's API allows you to incorporate ExaVault's suite of file transfer and user management tools into your own appli...",
     "security": {},
     "logo": {
-      "backgroundColor": "#222222",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/exavault.png"
     },
     "actionCount": 35,
@@ -17000,7 +17061,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/facebook.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/facebook.gif"
     },
     "actionCount": 195,
     "directory": "generated",
