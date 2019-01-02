@@ -3,12 +3,19 @@ let datafire = require('datafire');
 let openapi = require('./openapi.json');
 module.exports = datafire.Integration.fromOpenAPI(openapi, "google_gmail");
 
+function bracketEmail(email) {
+  if (email.indexOf('<') === -1) {
+    email = '<' + email + '>';
+  }
+  return email;
+}
+
 module.exports.addAction('buildMessage', new datafire.Action({
   inputSchema: {
     type: 'object',
     properties: {
-      to: {type: ['string', 'array'], items: {type: 'string'}},
-      from: {type: 'string'},
+      to: {type: ['string', 'array'], items: {type: 'string'}, description: "One or more email addresses"},
+      from: {type: 'string', description: "An email address, or a name and email address in the form `John Doe <john@doe.com>`"},
       subject: {type: 'string', default: ''},
       body: {type: 'string', default: ''},
     }
@@ -22,10 +29,12 @@ module.exports.addAction('buildMessage', new datafire.Action({
     if (!Array.isArray(input.to)) {
       input.to = [input.to]
     }
+    let from = bracketEmail(input.from);
+    let to = input.to.map(bracketEmail).join(', ');
     let message = `
 
-From: <${input.from}>
-To: <${input.to.join('>, <')}>
+From: ${from}
+To: ${to}
 Subject: ${input.subject}
 Date: ${new Date().toString()}
 Content-Type: text/html; charset=utf-8

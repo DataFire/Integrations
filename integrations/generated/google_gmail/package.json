@@ -1,6 +1,6 @@
 {
   "name": "@datafire/google_gmail",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "main": "index.js",
   "description": "DataFire integration for Gmail",
   "repository": {

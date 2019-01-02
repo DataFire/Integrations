@@ -1709,9 +1709,9 @@ google_gmail.buildMessage({}, context)
 
 #### Input
 * input `object`
-  * to `string`, `array`
+  * to `string`, `array`: One or more email addresses
     * items `string`
-  * from `string`
+  * from `string`: An email address, or a name and email address in the form `John Doe <john@doe.com>`
   * subject `string`
   * body `string`
 

@@ -20736,7 +20736,7 @@
       "email",
       "google"
     ],
-    "latestVersion": "5.0.0"
+    "latestVersion": "5.1.0"
   },
   "google_groupsmigration": {
     "id": "google_groupsmigration",
