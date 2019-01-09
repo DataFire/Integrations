@@ -6,4 +6,8 @@ module.exports = spec => {
       op.parameters = op.parameters.filter(p => p.name !== 'Authorization');
     }
   }
+  for (let name in spec.definitions) {
+    let def = spec.definitions[name];
+    delete def.example;
+  }
 }
