@@ -141,6 +141,7 @@ smtp.addAction('send', {
         if (err) reject(err);
         else resolve(data);
       }
+      conn.on('error', finish);
       conn.connect(err => {
         if (err) return finish(err);
         let auth = {
