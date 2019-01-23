@@ -2230,6 +2230,11 @@
             "type": "string",
             "name": "project_constructionId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "templates.templateId.project_constructions.project_constructionId.json.get"
@@ -3712,7 +3717,13 @@
             "description": "Unknown"
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
         "operationId": "circles.people.json.get"
       }
     },
@@ -6715,6 +6726,11 @@
             "type": "string",
             "name": "projectId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "projects.projectId.people.json.get"
@@ -7079,6 +7095,11 @@
             "type": "string",
             "name": "Upload",
             "description": "Upload ."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "projects.recordings.json.get"

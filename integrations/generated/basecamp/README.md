@@ -963,6 +963,7 @@ basecamp.templates.templateId.project_constructions.project_constructionId.json.
 * input `object`
   * templateId **required** `string`
   * project_constructionId **required** `string`
+  * page `integer`
 
 #### Output
 *Output schema unknown*
@@ -1566,11 +1567,12 @@ basecamp.buckets.bucketId.inbox_forwards.inbox_forwardId.json.get({
 
 
 ```js
-basecamp.circles.people.json.get(null, context)
+basecamp.circles.people.json.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`
 
 #### Output
 *Output schema unknown*
@@ -2774,6 +2776,7 @@ basecamp.projects.projectId.people.json.get({
 #### Input
 * input `object`
   * projectId **required** `string`
+  * page `integer`
 
 #### Output
 *Output schema unknown*
@@ -2940,6 +2943,7 @@ basecamp.projects.recordings.json.get({}, context)
   * Todo `string`: Todo ,
   * Todolist `string`: Todolist , or
   * Upload `string`: Upload .
+  * page `integer`
 
 #### Output
 *Output schema unknown*
