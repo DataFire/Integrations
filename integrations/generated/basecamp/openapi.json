@@ -223,6 +223,11 @@
             "type": "string",
             "name": "bucketId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.client.approvals.json.get"
@@ -416,6 +421,11 @@
             "type": "string",
             "name": "recordingId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.client.recordings.recordingId.replies.json.get"
@@ -1124,6 +1134,11 @@
             "type": "string",
             "name": "chatId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.chats.chatId.integrations.json.get"
@@ -1630,6 +1645,11 @@
             "type": "string",
             "name": "questionnaireId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.questionnaires.questionnaireId.questions.json.get"
@@ -1875,6 +1895,11 @@
             "type": "string",
             "name": "recordingId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.recordings.recordingId.comments.json.get"
@@ -2046,6 +2071,11 @@
             "type": "string",
             "name": "integrationId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.chats.chatId.integrations.integrationId.json.get"
@@ -2169,6 +2199,11 @@
             "type": "string",
             "name": "bucketId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.categories.json.get"
@@ -2911,6 +2946,11 @@
             "type": "string",
             "name": "inboxeId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.inboxes.inboxeId.forwards.json.get"
@@ -3398,7 +3438,13 @@
             }
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
         "operationId": "people.json.get"
       }
     },
@@ -4481,6 +4527,11 @@
             "type": "string",
             "name": "todolistId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.todolists.todolistId.todos.json.get"
@@ -4857,6 +4908,11 @@
             "type": "string",
             "name": "todolistId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.todolists.todolistId.groups.json.get"
@@ -5106,6 +5162,11 @@
             "type": "string",
             "name": "bucketId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.client.correspondences.json.get"
@@ -5301,6 +5362,11 @@
             "type": "string",
             "name": "chatId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.chats.chatId.lines.json.get"
@@ -5426,7 +5492,13 @@
             }
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
         "operationId": "chats.json.get"
       }
     },
@@ -5529,6 +5601,11 @@
             "type": "string",
             "name": "recordingId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.recordings.recordingId.events.json.get"
@@ -5686,6 +5763,11 @@
             "type": "string",
             "name": "questionId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.questions.questionId.answers.json.get"
@@ -5919,6 +6001,11 @@
             "type": "string",
             "name": "vaultId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.vaults.vaultId.documents.json.get"
@@ -6604,7 +6691,13 @@
             }
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
         "operationId": "templates.json.get"
       }
     },
@@ -7286,6 +7379,11 @@
             "type": "string",
             "name": "vaultId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.vaults.vaultId.uploads.json.get"
@@ -7814,6 +7912,11 @@
             "type": "string",
             "name": "bucketId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.webhooks.json.get"
@@ -8038,6 +8141,11 @@
             "type": "string",
             "name": "vaultId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.vaults.vaultId.vaults.json.get"
@@ -8486,6 +8594,11 @@
             "type": "string",
             "name": "message_boardId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.message_boards.message_boardId.messages.json.get"
@@ -8867,6 +8980,11 @@
             "type": "string",
             "name": "todosetId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.todosets.todosetId.todolists.json.get"
@@ -9565,6 +9683,11 @@
             "type": "string",
             "name": "scheduleId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
         "operationId": "buckets.bucketId.schedules.scheduleId.entries.json.get"
@@ -10142,7 +10265,13 @@
             }
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
         "operationId": "projects.json.get"
       }
     }

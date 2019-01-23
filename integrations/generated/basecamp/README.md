@@ -17,7 +17,7 @@ let basecamp = require('@datafire/basecamp').create({
   account_id: ""
 });
 
-basecamp.projects.json.post({}).then(data => {
+basecamp.projects.json.get({}).then(data => {
   console.log(data);
 });
 ```
@@ -82,6 +82,7 @@ basecamp.buckets.bucketId.client.approvals.json.get({
 #### Input
 * input `object`
   * bucketId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -178,6 +179,7 @@ basecamp.buckets.bucketId.client.recordings.recordingId.replies.json.get({
 * input `object`
   * bucketId **required** `string`
   * recordingId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -480,6 +482,7 @@ basecamp.buckets.bucketId.chats.chatId.integrations.json.get({
 * input `object`
   * bucketId **required** `string`
   * chatId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -627,6 +630,7 @@ basecamp.buckets.bucketId.questionnaires.questionnaireId.questions.json.get({
 * input `object`
   * bucketId **required** `string`
   * questionnaireId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -755,6 +759,7 @@ basecamp.buckets.bucketId.recordings.recordingId.comments.json.get({
 * input `object`
   * bucketId **required** `string`
   * recordingId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -862,6 +867,7 @@ basecamp.buckets.bucketId.chats.chatId.integrations.integrationId.json.get({
   * bucketId **required** `string`
   * chatId **required** `string`
   * integrationId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -931,6 +937,7 @@ basecamp.buckets.bucketId.categories.json.get({
 #### Input
 * input `object`
   * bucketId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -1207,6 +1214,7 @@ basecamp.buckets.bucketId.inboxes.inboxeId.forwards.json.get({
 * input `object`
   * bucketId **required** `string`
   * inboxeId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -1415,11 +1423,12 @@ basecamp.buckets.bucketId.uploads.uploadId.json.get({
 
 
 ```js
-basecamp.people.json.get(null, context)
+basecamp.people.json.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -1843,6 +1852,7 @@ basecamp.buckets.bucketId.todolists.todolistId.todos.json.get({
 * input `object`
   * bucketId **required** `string`
   * todolistId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -1992,6 +2002,7 @@ basecamp.buckets.bucketId.todolists.todolistId.groups.json.get({
 * input `object`
   * bucketId **required** `string`
   * todolistId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -2099,6 +2110,7 @@ basecamp.buckets.bucketId.client.correspondences.json.get({
 #### Input
 * input `object`
   * bucketId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -2183,6 +2195,7 @@ basecamp.buckets.bucketId.chats.chatId.lines.json.get({
 * input `object`
   * bucketId **required** `string`
   * chatId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -2228,11 +2241,12 @@ basecamp.buckets.bucketId.chats.chatId.lines.json.get({
 
 
 ```js
-basecamp.chats.json.get(null, context)
+basecamp.chats.json.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -2286,6 +2300,7 @@ basecamp.buckets.bucketId.recordings.recordingId.events.json.get({
 * input `object`
   * bucketId **required** `string`
   * recordingId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -2328,6 +2343,7 @@ basecamp.buckets.bucketId.questions.questionId.answers.json.get({
 * input `object`
   * bucketId **required** `string`
   * questionId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -2415,6 +2431,7 @@ basecamp.buckets.bucketId.vaults.vaultId.documents.json.get({
 * input `object`
   * bucketId **required** `string`
   * vaultId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -2725,11 +2742,12 @@ basecamp.templates.json.post({}, context)
 
 
 ```js
-basecamp.templates.json.get(null, context)
+basecamp.templates.json.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -2991,6 +3009,7 @@ basecamp.buckets.bucketId.vaults.vaultId.uploads.json.get({
 * input `object`
   * bucketId **required** `string`
   * vaultId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -3261,6 +3280,7 @@ basecamp.buckets.bucketId.webhooks.json.get({
 #### Input
 * input `object`
   * bucketId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -3313,6 +3333,7 @@ basecamp.buckets.bucketId.vaults.vaultId.vaults.json.get({
 * input `object`
   * bucketId **required** `string`
   * vaultId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -3494,6 +3515,7 @@ basecamp.buckets.bucketId.message_boards.message_boardId.messages.json.get({
 * input `object`
   * bucketId **required** `string`
   * message_boardId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -3628,6 +3650,7 @@ basecamp.buckets.bucketId.todosets.todosetId.todolists.json.get({
 * input `object`
   * bucketId **required** `string`
   * todosetId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -3883,6 +3906,7 @@ basecamp.buckets.bucketId.schedules.scheduleId.entries.json.get({
 * input `object`
   * bucketId **required** `string`
   * scheduleId **required** `string`
+  * page `integer`
 
 #### Output
 * output `array`
@@ -4146,11 +4170,12 @@ basecamp.projects.json.post({}, context)
 
 
 ```js
-basecamp.projects.json.get(null, context)
+basecamp.projects.json.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`
 
 #### Output
 * output `array`
