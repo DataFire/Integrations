@@ -4534,6 +4534,13 @@
           },
           {
             "description": "",
+            "required": false,
+            "type": "boolean",
+            "name": "completed",
+            "in": "query"
+          },
+          {
+            "description": "",
             "required": true,
             "type": "string",
             "name": "todolistId",
