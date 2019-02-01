@@ -1853,6 +1853,7 @@ basecamp.buckets.bucketId.todolists.todolistId.todos.json.get({
 #### Input
 * input `object`
   * bucketId **required** `string`
+  * completed `boolean`
   * todolistId **required** `string`
   * page `integer`
 
