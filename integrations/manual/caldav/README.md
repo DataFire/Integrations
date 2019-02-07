@@ -10,6 +10,7 @@ npm install --save @datafire/caldav
 let caldav = require('@datafire/caldav').create({
   username: "",
   password: "",
+  access_token: "",
   server: "",
   basePath: "",
   principalPath: ""

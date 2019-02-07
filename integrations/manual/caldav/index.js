@@ -17,6 +17,7 @@ const caldav = module.exports = new datafire.Integration({
       fields: {
         username: "",
         password: "",
+        access_token: "An access token to use in place of username/password (required for Google)",
         server: "e.g. http://localhost:3333",
         basePath: "The absolute path for caldav calls, e.g. /caldav/v2 for Google Calendar",
         principalPath: "The relative path where principals can be found, e.g. 'p'",
