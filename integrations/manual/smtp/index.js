@@ -152,7 +152,7 @@ smtp.addAction('send', {
         conn.login(auth, err => {
           if (err) return finish(err);
           let envelope = Object.assign({}, input);
-          envelope.to = [input.to].concat(input.cc || []).concat(input.bcc || []);
+          envelope.to = (input.to || []).concat(input.cc || []).concat(input.bcc || []);
           conn.send(envelope, message.compile().createReadStream(), finish);
         })
       })
