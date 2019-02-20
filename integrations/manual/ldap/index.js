@@ -23,6 +23,9 @@ function getClient(context) {
     url: context.accounts.ldap.host,
   });
   return new Promise((resolve, reject) => {
+    client.on('error', err => {
+      return reject(err);
+    });
     client.bind(context.accounts.ldap.dn, context.accounts.ldap.password, function(err) {
       if (err) return reject(err);
       else resolve(client);
@@ -160,7 +163,8 @@ ldap.addAction('search', new datafire.Action({
         res.on('searchEntry', entry => results.push(entry.object));
         res.on('end', () => resolve(results));
         res.on('error', err => reject(err));
-      })
+      },
+      err => reject(err));
     });
   }
 }))
