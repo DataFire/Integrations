@@ -1,6 +1,6 @@
 {
   "name": "@datafire/ldap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "description": "An IMAP integration for DataFire",
   "repository": {
