@@ -80,21 +80,21 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The text content to check. This can be either a URL to load content from or an actual content string",
-            "in": "formData",
+            "in": "query",
             "name": "content",
             "required": true,
             "type": "string"
           },
           {
             "description": "The character to use to censor out the bad words found",
-            "in": "formData",
+            "in": "query",
             "name": "censor-character",
             "required": false,
             "type": "string"
@@ -152,21 +152,21 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The BIN or IIN number (the first 6 digits of a credit card number)",
-            "in": "formData",
+            "in": "query",
             "name": "bin-number",
             "required": true,
             "type": "string"
           },
           {
             "description": "Pass in a customers remote IP address. The API will then determine the country of the IP address and match it against the BIN country. This feature is designed for fraud prevention and detection checks.",
-            "in": "formData",
+            "in": "query",
             "name": "customer-ip",
             "required": false,
             "type": "string"
@@ -222,14 +222,14 @@
         "parameters": [
           {
             "description": "The source content. This can be either a URL to load from or an actual content string",
-            "in": "formData",
+            "in": "query",
             "name": "content",
             "required": true,
             "type": "string"
           },
           {
             "description": "The code type. See the API docs for all supported types",
-            "in": "formData",
+            "in": "query",
             "name": "type",
             "required": true,
             "type": "string"
@@ -237,7 +237,7 @@
           {
             "default": false,
             "description": "Add links on source code keywords to the relevant language documentation",
-            "in": "formData",
+            "in": "query",
             "name": "add-keyword-links",
             "required": false,
             "type": "boolean"
@@ -296,28 +296,28 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The value to convert from",
-            "in": "formData",
+            "in": "query",
             "name": "from-value",
             "required": true,
             "type": "string"
           },
           {
             "description": "The type of the value to convert from",
-            "in": "formData",
+            "in": "query",
             "name": "from-type",
             "required": true,
             "type": "string"
           },
           {
             "description": "The type to convert to",
-            "in": "formData",
+            "in": "query",
             "name": "to-type",
             "required": true,
             "type": "string"
@@ -375,14 +375,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The email address",
-            "in": "formData",
+            "in": "query",
             "name": "email",
             "required": true,
             "type": "string"
@@ -390,7 +390,7 @@
           {
             "default": false,
             "description": "Automatically attempt to fix typos in the address",
-            "in": "formData",
+            "in": "query",
             "name": "fix-typos",
             "required": false,
             "type": "boolean"
@@ -508,21 +508,21 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The address or partial address to try and locate",
-            "in": "formData",
+            "in": "query",
             "name": "address",
             "required": true,
             "type": "string"
           },
           {
             "description": "The ISO 2-letter country code to be biased towards (default is no country bias)",
-            "in": "formData",
+            "in": "query",
             "name": "country-code",
             "required": false,
             "type": "string"
@@ -530,7 +530,7 @@
           {
             "default": "en",
             "description": "The language to display results in, available languages are: de, en, es, fr, it, pt, ru",
-            "in": "formData",
+            "in": "query",
             "name": "language-code",
             "required": false,
             "type": "string"
@@ -538,7 +538,7 @@
           {
             "default": false,
             "description": "If no matches are found for the given address, start performing a recursive fuzzy search until a geolocation is found. We use a combination of approximate string matching and data cleansing to find possible location matches",
-            "in": "formData",
+            "in": "query",
             "name": "fuzzy-search",
             "required": false,
             "type": "boolean"
@@ -596,7 +596,7 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
@@ -604,7 +604,7 @@
           {
             "description": "The location latitude",
             "format": "double",
-            "in": "formData",
+            "in": "query",
             "name": "latitude",
             "required": true,
             "type": "number"
@@ -612,7 +612,7 @@
           {
             "description": "The location longitude",
             "format": "double",
-            "in": "formData",
+            "in": "query",
             "name": "longitude",
             "required": true,
             "type": "number"
@@ -620,7 +620,7 @@
           {
             "default": "en",
             "description": "The language to display results in, available languages are: de, en, es, fr, it, pt, ru",
-            "in": "formData",
+            "in": "query",
             "name": "language-code",
             "required": false,
             "type": "string"
@@ -678,21 +678,21 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "A phone number",
-            "in": "formData",
+            "in": "query",
             "name": "number",
             "required": true,
             "type": "string"
           },
           {
             "description": "ISO 2-letter country code, assume numbers are based in this country. If not set numbers are assumed to be in international format (with or without the leading + sign)",
-            "in": "formData",
+            "in": "query",
             "name": "country-code",
             "required": false,
             "type": "string"
@@ -750,14 +750,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "An IPv4 address or a domain name. If you supply a domain name it will be checked against the URI DNSBL list",
-            "in": "formData",
+            "in": "query",
             "name": "host",
             "required": true,
             "type": "string"
@@ -813,14 +813,14 @@
         "parameters": [
           {
             "description": "The HTML content. This can be either a URL to load HTML from or an actual HTML content string",
-            "in": "formData",
+            "in": "query",
             "name": "content",
             "required": true,
             "type": "string"
           },
           {
             "description": "The level of sanitization, possible values are: plain-text, simple-text, basic-html, basic-html-with-images, advanced-html",
-            "in": "formData",
+            "in": "query",
             "name": "output-type",
             "required": true,
             "type": "string"
@@ -879,35 +879,35 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The HTML content. This can be either a URL to load HTML from or an actual HTML content string",
-            "in": "formData",
+            "in": "query",
             "name": "content",
             "required": true,
             "type": "string"
           },
           {
             "description": "The HTML tag(s) to extract data from. This can just be a simple tag name like 'img' OR a CSS/jQuery style selector",
-            "in": "formData",
+            "in": "query",
             "name": "tag",
             "required": true,
             "type": "string"
           },
           {
             "description": "If set, then extract data from the specified tag attribute. If not set, then data will be extracted from the tags inner content",
-            "in": "formData",
+            "in": "query",
             "name": "attribute",
             "required": false,
             "type": "string"
           },
           {
             "description": "The base URL to replace into realive links",
-            "in": "formData",
+            "in": "query",
             "name": "base-url",
             "required": false,
             "type": "string"
@@ -966,14 +966,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The HTML content. This can be either a URL to load HTML from or an actual HTML content string",
-            "in": "formData",
+            "in": "query",
             "name": "content",
             "required": true,
             "type": "string"
@@ -981,7 +981,7 @@
           {
             "default": "PDF",
             "description": "Which format to output, available options are: PDF, PNG, JPG",
-            "in": "formData",
+            "in": "query",
             "name": "format",
             "required": false,
             "type": "string"
@@ -989,14 +989,14 @@
           {
             "default": "A4",
             "description": "Set the document page size, can be one of: A0 - A9, B0 - B10, Comm10E, DLE or Letter",
-            "in": "formData",
+            "in": "query",
             "name": "page-size",
             "required": false,
             "type": "string"
           },
           {
             "description": "The document title",
-            "in": "formData",
+            "in": "query",
             "name": "title",
             "required": false,
             "type": "string"
@@ -1005,7 +1005,7 @@
             "default": 0,
             "description": "The document margin (in mm)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "margin",
             "required": false,
             "type": "integer"
@@ -1014,7 +1014,7 @@
             "default": 0,
             "description": "The document left margin (in mm)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "margin-left",
             "required": false,
             "type": "integer"
@@ -1023,7 +1023,7 @@
             "default": 0,
             "description": "The document right margin (in mm)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "margin-right",
             "required": false,
             "type": "integer"
@@ -1032,7 +1032,7 @@
             "default": 0,
             "description": "The document top margin (in mm)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "margin-top",
             "required": false,
             "type": "integer"
@@ -1041,7 +1041,7 @@
             "default": 0,
             "description": "The document bottom margin (in mm)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "margin-bottom",
             "required": false,
             "type": "integer"
@@ -1049,7 +1049,7 @@
           {
             "default": false,
             "description": "Set the document to lanscape orientation",
-            "in": "formData",
+            "in": "query",
             "name": "landscape",
             "required": false,
             "type": "boolean"
@@ -1058,7 +1058,7 @@
             "default": 1,
             "description": "Set the zoom factor when rendering the page (2.0 for double size, 0.5 for half size)",
             "format": "double",
-            "in": "formData",
+            "in": "query",
             "name": "zoom",
             "required": false,
             "type": "number"
@@ -1066,7 +1066,7 @@
           {
             "default": false,
             "description": "Render the final document in grayscale",
-            "in": "formData",
+            "in": "query",
             "name": "grayscale",
             "required": false,
             "type": "boolean"
@@ -1074,7 +1074,7 @@
           {
             "default": false,
             "description": "Use @media print CSS styles to render the document",
-            "in": "formData",
+            "in": "query",
             "name": "media-print",
             "required": false,
             "type": "boolean"
@@ -1082,7 +1082,7 @@
           {
             "default": false,
             "description": "Activate all @media queries before rendering. This can be useful if you wan't to render the mobile version of a responsive website",
-            "in": "formData",
+            "in": "query",
             "name": "media-queries",
             "required": false,
             "type": "boolean"
@@ -1090,14 +1090,14 @@
           {
             "default": false,
             "description": "Generate real (fillable) PDF forms from HTML forms",
-            "in": "formData",
+            "in": "query",
             "name": "forms",
             "required": false,
             "type": "boolean"
           },
           {
             "description": "Inject custom CSS into the HTML. e.g. 'body { background-color: red;}'",
-            "in": "formData",
+            "in": "query",
             "name": "css",
             "required": false,
             "type": "string"
@@ -1106,7 +1106,7 @@
             "default": 1024,
             "description": "If rendering to an image format (PNG or JPG) use this image width (in pixels)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "image-width",
             "required": false,
             "type": "integer"
@@ -1114,7 +1114,7 @@
           {
             "description": "If rendering to an image format (PNG or JPG) use this image height (in pixels). The default is automatic which dynamically sets the image height based on the content",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "image-height",
             "required": false,
             "type": "integer"
@@ -1171,7 +1171,7 @@
         "parameters": [
           {
             "description": "The URL to the source image",
-            "in": "formData",
+            "in": "query",
             "name": "image-url",
             "required": true,
             "type": "string"
@@ -1179,7 +1179,7 @@
           {
             "description": "Width to resize to (in px)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "width",
             "required": true,
             "type": "integer"
@@ -1187,7 +1187,7 @@
           {
             "description": "Height to resize to (in px)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "height",
             "required": true,
             "type": "integer"
@@ -1195,7 +1195,7 @@
           {
             "default": "png",
             "description": "The output image format, can be either png or jpg",
-            "in": "formData",
+            "in": "query",
             "name": "format",
             "required": false,
             "type": "string"
@@ -1252,14 +1252,14 @@
         "parameters": [
           {
             "description": "The URL to the source image",
-            "in": "formData",
+            "in": "query",
             "name": "image-url",
             "required": true,
             "type": "string"
           },
           {
             "description": "The URL to the watermark image",
-            "in": "formData",
+            "in": "query",
             "name": "watermark-url",
             "required": true,
             "type": "string"
@@ -1268,7 +1268,7 @@
             "default": 50,
             "description": "The opacity of the watermark (0 to 100)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "opacity",
             "required": false,
             "type": "integer"
@@ -1276,7 +1276,7 @@
           {
             "default": "png",
             "description": "The output image format, can be either png or jpg",
-            "in": "formData",
+            "in": "query",
             "name": "format",
             "required": false,
             "type": "string"
@@ -1284,7 +1284,7 @@
           {
             "default": "center",
             "description": "The position of the watermark image, possible values are: center, top-left, top-center, top-right, bottom-left, bottom-center, bottom-right",
-            "in": "formData",
+            "in": "query",
             "name": "position",
             "required": false,
             "type": "string"
@@ -1292,7 +1292,7 @@
           {
             "description": "If set resize the resulting image to this width (preserving aspect ratio)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "width",
             "required": false,
             "type": "integer"
@@ -1300,7 +1300,7 @@
           {
             "description": "If set resize the resulting image to this height (preserving aspect ratio)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "height",
             "required": false,
             "type": "integer"
@@ -1359,14 +1359,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "An IPv4 address",
-            "in": "formData",
+            "in": "query",
             "name": "ip",
             "required": true,
             "type": "string"
@@ -1424,14 +1424,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The IP address",
-            "in": "formData",
+            "in": "query",
             "name": "ip",
             "required": true,
             "type": "string"
@@ -1439,7 +1439,7 @@
           {
             "default": false,
             "description": "Do a reverse DNS (PTR) lookup. This option can add extra delay to the request so only use it if you need it",
-            "in": "formData",
+            "in": "query",
             "name": "reverse-lookup",
             "required": false,
             "type": "boolean"
@@ -1498,14 +1498,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "IPv4 or IPv6 address",
-            "in": "formData",
+            "in": "query",
             "name": "ip",
             "required": true,
             "type": "string"
@@ -1563,21 +1563,21 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The phone number to call. Must be valid international format",
-            "in": "formData",
+            "in": "query",
             "name": "number",
             "required": true,
             "type": "string"
           },
           {
             "description": "A URL to a valid audio file. Accepted audio formats are: MP3, WAV, OGG",
-            "in": "formData",
+            "in": "query",
             "name": "audio-url",
             "required": true,
             "type": "string"
@@ -1635,28 +1635,28 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The phone number",
-            "in": "formData",
+            "in": "query",
             "name": "number",
             "required": true,
             "type": "string"
           },
           {
             "description": "ISO 2-letter country code, assume numbers are based in this country. If not set numbers are assumed to be in international format (with or without the leading + sign)",
-            "in": "formData",
+            "in": "query",
             "name": "country-code",
             "required": false,
             "type": "string"
           },
           {
             "description": "Pass in a users IP address and we will assume numbers are based in the country of the IP address",
-            "in": "formData",
+            "in": "query",
             "name": "ip",
             "required": false,
             "type": "string"
@@ -1714,14 +1714,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The phone number to send the verification code to",
-            "in": "formData",
+            "in": "query",
             "name": "number",
             "required": true,
             "type": "string"
@@ -1730,7 +1730,7 @@
             "default": 6,
             "description": "The number of digits to use in the security code (between 4 and 12)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "code-length",
             "required": false,
             "type": "integer"
@@ -1738,7 +1738,7 @@
           {
             "description": "Pass in your own security code. This is useful if you have implemented TOTP or similar 2FA methods. If not set then we will generate a secure random code (only numerical security codes are currently supported)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "security-code",
             "required": false,
             "type": "integer"
@@ -1747,14 +1747,14 @@
             "default": 800,
             "description": "The delay in milliseconds between the playback of each security code",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "playback-delay",
             "required": false,
             "type": "integer"
           },
           {
             "description": "ISO 2-letter country code, assume numbers are based in this country. If not set numbers are assumed to be in international format (with or without the leading + sign)",
-            "in": "formData",
+            "in": "query",
             "name": "country-code",
             "required": false,
             "type": "string"
@@ -1762,7 +1762,7 @@
           {
             "default": "en",
             "description": "The language to playback the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian",
-            "in": "formData",
+            "in": "query",
             "name": "language-code",
             "required": false,
             "type": "string"
@@ -1818,7 +1818,7 @@
         "parameters": [
           {
             "description": "The content to encode into the QR code (e.g. a URL or a phone number)",
-            "in": "formData",
+            "in": "query",
             "name": "content",
             "required": true,
             "type": "string"
@@ -1836,7 +1836,7 @@
             "default": 250,
             "description": "The height of the QR code (in px)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "height",
             "required": false,
             "type": "integer"
@@ -1844,7 +1844,7 @@
           {
             "default": "#000000",
             "description": "The QR code foreground color (you should always use a dark color for this)",
-            "in": "formData",
+            "in": "query",
             "name": "fg-color",
             "required": false,
             "type": "string"
@@ -1852,7 +1852,7 @@
           {
             "default": "#ffffff",
             "description": "The QR code background color (you should always use a light color for this)",
-            "in": "formData",
+            "in": "query",
             "name": "bg-color",
             "required": false,
             "type": "string"
@@ -1911,14 +1911,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The phone number to send a verification code to",
-            "in": "formData",
+            "in": "query",
             "name": "number",
             "required": true,
             "type": "string"
@@ -1927,7 +1927,7 @@
             "default": 5,
             "description": "The number of digits to use in the security code (must be between 4 and 12)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "code-length",
             "required": false,
             "type": "integer"
@@ -1935,14 +1935,14 @@
           {
             "description": "ass in your own security code. This is useful if you have implemented TOTP or similar 2FA methods. If not set then we will generate a secure random code (only numerical security codes are currently supported)",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "security-code",
             "required": false,
             "type": "integer"
           },
           {
             "description": "ISO 2-letter country code, assume numbers are based in this country. If not set numbers are assumed to be in international format (with or without the leading + sign)",
-            "in": "formData",
+            "in": "query",
             "name": "country-code",
             "required": false,
             "type": "string"
@@ -1950,7 +1950,7 @@
           {
             "default": "en",
             "description": "The language to send the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian",
-            "in": "formData",
+            "in": "query",
             "name": "language-code",
             "required": false,
             "type": "string"
@@ -2008,21 +2008,21 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "The URL to process",
-            "in": "formData",
+            "in": "query",
             "name": "url",
             "required": true,
             "type": "string"
           },
           {
             "description": "If this URL responds with html, text, json or xml then return the response. This option is useful if you want to perform further processing on the URL content",
-            "in": "formData",
+            "in": "query",
             "name": "fetch-content",
             "required": true,
             "type": "boolean"
@@ -2080,14 +2080,14 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
           },
           {
             "description": "A user-agent string",
-            "in": "formData",
+            "in": "query",
             "name": "user-agent",
             "required": true,
             "type": "string"
@@ -2145,7 +2145,7 @@
             "enum": [
               "camel"
             ],
-            "in": "formData",
+            "in": "query",
             "name": "output-case",
             "required": false,
             "type": "string"
@@ -2153,7 +2153,7 @@
           {
             "description": "The security code to verify",
             "format": "int32",
-            "in": "formData",
+            "in": "query",
             "name": "security-code",
             "required": true,
             "type": "integer"
