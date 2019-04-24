@@ -21,7 +21,7 @@
       }
     }
   },
-  "actionCount": 106,
+  "actionCount": 109,
   "actions": [
     {
       "id": "oauthCallback",
@@ -106,6 +106,9 @@
           "bucketId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -364,6 +367,9 @@
           "recordingId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -1168,6 +1174,9 @@
           "chatId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -1396,6 +1405,182 @@
       }
     },
     {
+      "id": "buckets.bucketId.inboxes.inboxId.forwards.json.get",
+      "title": "buckets.bucketId.inboxes.inboxId.forwards.json.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "inboxId": {
+            "type": "string",
+            "description": ""
+          },
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId",
+          "inboxId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "app_url": {
+              "type": "string"
+            },
+            "from": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "app_url": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "subscription_url": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "creator": {
+              "type": "object",
+              "properties": {
+                "attachable_sgid": {
+                  "type": "string"
+                },
+                "bio": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "admin": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "time_zone": {
+                  "type": "string"
+                },
+                "company": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "avatar_url": {
+                  "type": "string"
+                },
+                "personable_type": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "boolean"
+                },
+                "email_address": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                }
+              }
+            },
+            "bucket": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "content": {
+              "type": "string"
+            },
+            "replies_url": {
+              "type": "string"
+            },
+            "replies_count": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string"
+            },
+            "inherits_status": {
+              "type": "boolean"
+            },
+            "bookmark_url": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            }
+          }
+        },
+        "type": "array"
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
       "id": "buckets.bucketId.questionnaires.questionnaireId.json.get",
       "title": "buckets.bucketId.questionnaires.questionnaireId.json.get",
       "description": "",
@@ -1553,6 +1738,9 @@
           "questionnaireId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -1785,29 +1973,21 @@
       }
     },
     {
-      "id": "buckets.bucketId.recordings.recordingId.comments.json.post",
-      "title": "buckets.bucketId.recordings.recordingId.comments.json.post",
+      "id": "buckets.bucketId.inbox_forwards.inbox_forwardId.replies.replyId.json.get",
+      "title": "buckets.bucketId.inbox_forwards.inbox_forwardId.replies.replyId.json.get",
       "description": "",
       "inputSchema": {
         "type": "object",
         "properties": {
-          "content": {
-            "type": "string",
-            "description": "content as the body of the message. See our Rich text guide for what HTML tags are allowed."
-          },
-          "body": {
-            "type": "object",
-            "properties": {
-              "content": {
-                "type": "string"
-              }
-            }
-          },
           "bucketId": {
             "type": "string",
             "description": ""
           },
-          "recordingId": {
+          "inbox_forwardId": {
+            "type": "string",
+            "description": ""
+          },
+          "replyId": {
             "type": "string",
             "description": ""
           }
@@ -1815,13 +1995,139 @@
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "recordingId"
+          "inbox_forwardId",
+          "replyId"
         ]
       },
       "outputSchema": {
         "type": "object",
         "properties": {
+          "status": {
+            "type": "string"
+          },
+          "app_url": {
+            "type": "string"
+          },
+          "parent": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "app_url": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "creator": {
+            "type": "object",
+            "properties": {
+              "attachable_sgid": {
+                "type": "string"
+              },
+              "bio": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "admin": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "time_zone": {
+                "type": "string"
+              },
+              "company": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "avatar_url": {
+                "type": "string"
+              },
+              "client": {
+                "type": "boolean"
+              },
+              "owner": {
+                "type": "boolean"
+              },
+              "email_address": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "personable_type": {
+                "type": "string"
+              }
+            }
+          },
+          "bucket": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "updated_at": {
+            "type": "string"
+          },
           "content": {
+            "type": "string"
+          },
+          "inherits_status": {
+            "type": "boolean"
+          },
+          "visible_to_clients": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "bookmark_url": {
             "type": "string"
           }
         }
@@ -1833,8 +2139,52 @@
       }
     },
     {
-      "id": "buckets.bucketId.recordings.recordingId.comments.json.get",
-      "title": "buckets.bucketId.recordings.recordingId.comments.json.get",
+      "id": "buckets.bucketId.recordings.recordingId.client_visibility.json.put",
+      "title": "buckets.bucketId.recordings.recordingId.client_visibility.json.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "object",
+            "properties": {
+              "visible_to_clients": {
+                "type": "boolean"
+              }
+            }
+          },
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "recordingId": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId",
+          "recordingId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "visible_to_clients": {
+            "type": "boolean"
+          }
+        }
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.recordings.recordingId.status.archived.json.put",
+      "title": "buckets.bucketId.recordings.recordingId.status.archived.json.put",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -1854,125 +2204,138 @@
           "recordingId"
         ]
       },
+      "outputSchema": {},
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.categories.json.post",
+      "title": "buckets.bucketId.categories.json.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name and"
+          },
+          "icon": {
+            "type": "string",
+            "description": "icon for the new message type."
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              }
+            }
+          },
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.categories.json.get",
+      "title": "buckets.bucketId.categories.json.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId"
+        ]
+      },
       "outputSchema": {
         "items": {
           "type": "object",
           "properties": {
-            "status": {
-              "type": "string"
-            },
-            "app_url": {
-              "type": "string"
-            },
-            "parent": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string"
-                },
-                "app_url": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "title": {
-                  "type": "string"
-                }
-              }
-            },
-            "title": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            },
             "created_at": {
               "type": "string"
             },
-            "creator": {
-              "type": "object",
-              "properties": {
-                "attachable_sgid": {
-                  "type": "string"
-                },
-                "bio": {
-                  "type": "null"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "admin": {
-                  "type": "boolean"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "time_zone": {
-                  "type": "string"
-                },
-                "avatar_url": {
-                  "type": "string"
-                },
-                "personable_type": {
-                  "type": "string"
-                },
-                "owner": {
-                  "type": "boolean"
-                },
-                "email_address": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                }
-              }
-            },
-            "bucket": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            },
-            "updated_at": {
+            "icon": {
               "type": "string"
             },
             "id": {
               "type": "integer"
             },
-            "content": {
+            "name": {
               "type": "string"
             },
-            "type": {
-              "type": "string"
-            },
-            "inherits_status": {
-              "type": "boolean"
-            },
-            "bookmark_url": {
+            "updated_at": {
               "type": "string"
             }
           }
         },
         "type": "array"
       },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "templates.templateId.project_constructions.project_constructionId.json.get",
+      "title": "templates.templateId.project_constructions.project_constructionId.json.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "templateId": {
+            "type": "string",
+            "description": ""
+          },
+          "project_constructionId": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "templateId",
+          "project_constructionId"
+        ]
+      },
+      "outputSchema": {},
       "security": {
         "basecamp": {
           "integration": "basecamp"
@@ -2146,163 +2509,6 @@
       }
     },
     {
-      "id": "buckets.bucketId.recordings.recordingId.status.archived.json.put",
-      "title": "buckets.bucketId.recordings.recordingId.status.archived.json.put",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          },
-          "recordingId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId",
-          "recordingId"
-        ]
-      },
-      "outputSchema": {},
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
-      "id": "buckets.bucketId.categories.json.post",
-      "title": "buckets.bucketId.categories.json.post",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "name and"
-          },
-          "icon": {
-            "type": "string",
-            "description": "icon for the new message type."
-          },
-          "body": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "icon": {
-                "type": "string"
-              }
-            }
-          },
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId"
-        ]
-      },
-      "outputSchema": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "icon": {
-            "type": "string"
-          }
-        }
-      },
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
-      "id": "buckets.bucketId.categories.json.get",
-      "title": "buckets.bucketId.categories.json.get",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId"
-        ]
-      },
-      "outputSchema": {
-        "items": {
-          "type": "object",
-          "properties": {
-            "created_at": {
-              "type": "string"
-            },
-            "icon": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "name": {
-              "type": "string"
-            },
-            "updated_at": {
-              "type": "string"
-            }
-          }
-        },
-        "type": "array"
-      },
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
-      "id": "templates.templateId.project_constructions.project_constructionId.json.get",
-      "title": "templates.templateId.project_constructions.project_constructionId.json.get",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "templateId": {
-            "type": "string",
-            "description": ""
-          },
-          "project_constructionId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "templateId",
-          "project_constructionId"
-        ]
-      },
-      "outputSchema": {},
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
       "id": "buckets.bucketId.question_answers.question_answerId.json.get",
       "title": "buckets.bucketId.question_answers.question_answerId.json.get",
       "description": "",
@@ -2461,6 +2667,173 @@
       "description": "",
       "inputSchema": {},
       "outputSchema": {},
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.inbox_forwards.inbox_forwardId.replies.json.get",
+      "title": "buckets.bucketId.inbox_forwards.inbox_forwardId.replies.json.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "inbox_forwardId": {
+            "type": "string",
+            "description": ""
+          },
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId",
+          "inbox_forwardId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "app_url": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "app_url": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "creator": {
+              "type": "object",
+              "properties": {
+                "attachable_sgid": {
+                  "type": "string"
+                },
+                "bio": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "admin": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "time_zone": {
+                  "type": "string"
+                },
+                "company": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "avatar_url": {
+                  "type": "string"
+                },
+                "client": {
+                  "type": "boolean"
+                },
+                "owner": {
+                  "type": "boolean"
+                },
+                "email_address": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "personable_type": {
+                  "type": "string"
+                }
+              }
+            },
+            "bucket": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "inherits_status": {
+              "type": "boolean"
+            },
+            "visible_to_clients": {
+              "type": "boolean"
+            },
+            "type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "bookmark_url": {
+              "type": "string"
+            }
+          }
+        },
+        "type": "array"
+      },
       "security": {
         "basecamp": {
           "integration": "basecamp"
@@ -2852,179 +3225,6 @@
         ]
       },
       "outputSchema": {},
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
-      "id": "buckets.bucketId.inboxes.inboxeId.forwards.json.get",
-      "title": "buckets.bucketId.inboxes.inboxeId.forwards.json.get",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          },
-          "inboxeId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId",
-          "inboxeId"
-        ]
-      },
-      "outputSchema": {
-        "items": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "string"
-            },
-            "app_url": {
-              "type": "string"
-            },
-            "from": {
-              "type": "string"
-            },
-            "parent": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string"
-                },
-                "app_url": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "title": {
-                  "type": "string"
-                }
-              }
-            },
-            "title": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            },
-            "subscription_url": {
-              "type": "string"
-            },
-            "created_at": {
-              "type": "string"
-            },
-            "creator": {
-              "type": "object",
-              "properties": {
-                "attachable_sgid": {
-                  "type": "string"
-                },
-                "bio": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "admin": {
-                  "type": "boolean"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "time_zone": {
-                  "type": "string"
-                },
-                "company": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "avatar_url": {
-                  "type": "string"
-                },
-                "personable_type": {
-                  "type": "string"
-                },
-                "owner": {
-                  "type": "boolean"
-                },
-                "email_address": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                }
-              }
-            },
-            "bucket": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            },
-            "updated_at": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "content": {
-              "type": "string"
-            },
-            "replies_url": {
-              "type": "string"
-            },
-            "replies_count": {
-              "type": "integer"
-            },
-            "type": {
-              "type": "string"
-            },
-            "inherits_status": {
-              "type": "boolean"
-            },
-            "bookmark_url": {
-              "type": "string"
-            },
-            "subject": {
-              "type": "string"
-            }
-          }
-        },
-        "type": "array"
-      },
       "security": {
         "basecamp": {
           "integration": "basecamp"
@@ -3454,7 +3654,18 @@
       "id": "people.json.get",
       "title": "people.json.get",
       "description": "",
-      "inputSchema": {},
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
       "outputSchema": {
         "items": {
           "type": "object",
@@ -3789,7 +4000,18 @@
       "id": "circles.people.json.get",
       "title": "circles.people.json.get",
       "description": "",
-      "inputSchema": {},
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
       "outputSchema": {},
       "security": {
         "basecamp": {
@@ -3798,70 +4020,8 @@
       }
     },
     {
-      "id": "buckets.bucketId.schedule_entries.schedule_entrieId.json.put",
-      "title": "buckets.bucketId.schedule_entries.schedule_entrieId.json.put",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "body": {
-            "type": "object",
-            "properties": {
-              "starts_at": {
-                "type": "string"
-              },
-              "ends_at": {
-                "type": "string"
-              },
-              "all_day": {
-                "type": "boolean"
-              },
-              "summary": {
-                "type": "string"
-              }
-            }
-          },
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          },
-          "schedule_entrieId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId",
-          "schedule_entrieId"
-        ]
-      },
-      "outputSchema": {
-        "type": "object",
-        "properties": {
-          "starts_at": {
-            "type": "string"
-          },
-          "ends_at": {
-            "type": "string"
-          },
-          "all_day": {
-            "type": "boolean"
-          },
-          "summary": {
-            "type": "string"
-          }
-        }
-      },
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
-      "id": "buckets.bucketId.schedule_entries.schedule_entrieId.json.get",
-      "title": "buckets.bucketId.schedule_entries.schedule_entrieId.json.get",
+      "id": "buckets.bucketId.todosets.todosetId.json.get",
+      "title": "buckets.bucketId.todosets.todosetId.json.get",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -3870,7 +4030,7 @@
             "type": "string",
             "description": ""
           },
-          "schedule_entrieId": {
+          "todosetId": {
             "type": "string",
             "description": ""
           }
@@ -3878,7 +4038,7 @@
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "schedule_entrieId"
+          "todosetId"
         ]
       },
       "outputSchema": {
@@ -3890,28 +4050,20 @@
           "app_url": {
             "type": "string"
           },
-          "description": {
+          "name": {
             "type": "string"
           },
-          "parent": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string"
-              },
-              "app_url": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              },
-              "id": {
-                "type": "integer"
-              },
-              "title": {
-                "type": "string"
-              }
-            }
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "todolists_count": {
+            "type": "integer"
+          },
+          "inherits_status": {
+            "type": "boolean"
           },
           "creator": {
             "type": "object",
@@ -3968,9 +4120,6 @@
               }
             }
           },
-          "url": {
-            "type": "string"
-          },
           "bucket": {
             "type": "object",
             "properties": {
@@ -3985,102 +4134,35 @@
               }
             }
           },
-          "created_at": {
-            "type": "string"
-          },
-          "comments_url": {
-            "type": "string"
-          },
           "updated_at": {
+            "type": "string"
+          },
+          "todolists_url": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "completed_ratio": {
+            "type": "string"
+          },
+          "app_todoslists_url": {
             "type": "string"
           },
           "id": {
             "type": "integer"
           },
-          "summary": {
-            "type": "string"
-          },
-          "participants": {
-            "items": {
-              "type": "object",
-              "properties": {
-                "attachable_sgid": {
-                  "type": "string"
-                },
-                "bio": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "admin": {
-                  "type": "boolean"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "time_zone": {
-                  "type": "string"
-                },
-                "company": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "avatar_url": {
-                  "type": "string"
-                },
-                "personable_type": {
-                  "type": "string"
-                },
-                "owner": {
-                  "type": "boolean"
-                },
-                "email_address": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                }
-              }
-            },
-            "type": "array"
-          },
-          "comments_count": {
+          "position": {
             "type": "integer"
-          },
-          "subscription_url": {
-            "type": "string"
-          },
-          "starts_at": {
-            "type": "string"
-          },
-          "ends_at": {
-            "type": "string"
           },
           "type": {
             "type": "string"
           },
-          "inherits_status": {
-            "type": "boolean"
+          "created_at": {
+            "type": "string"
           },
           "bookmark_url": {
             "type": "string"
-          },
-          "all_day": {
-            "type": "boolean"
           }
         }
       },
@@ -4240,8 +4322,8 @@
       }
     },
     {
-      "id": "buckets.bucketId.inboxes.inboxeId.json.get",
-      "title": "buckets.bucketId.inboxes.inboxeId.json.get",
+      "id": "buckets.bucketId.inboxes.inboxId.json.get",
+      "title": "buckets.bucketId.inboxes.inboxId.json.get",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -4250,7 +4332,7 @@
             "type": "string",
             "description": ""
           },
-          "inboxeId": {
+          "inboxId": {
             "type": "string",
             "description": ""
           }
@@ -4258,7 +4340,7 @@
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "inboxeId"
+          "inboxId"
         ]
       },
       "outputSchema": {
@@ -4454,6 +4536,9 @@
           "todolistId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -4785,20 +4870,34 @@
       }
     },
     {
-      "id": "buckets.bucketId.todolists.todolistId.groups.json.post",
-      "title": "buckets.bucketId.todolists.todolistId.groups.json.post",
+      "id": "buckets.bucketId.message_boards.message_boardId.messages.json.post",
+      "title": "buckets.bucketId.message_boards.message_boardId.messages.json.post",
       "description": "",
       "inputSchema": {
         "type": "object",
         "properties": {
-          "name": {
+          "subject": {
             "type": "string",
-            "description": "name of the to-do list group."
+            "description": "subject as the title of the message, and"
+          },
+          "status": {
+            "type": "string",
+            "description": "status , set to"
+          },
+          "active": {
+            "type": "string",
+            "description": "active to publish immediately."
           },
           "body": {
             "type": "object",
             "properties": {
-              "name": {
+              "content": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "subject": {
                 "type": "string"
               }
             }
@@ -4807,7 +4906,7 @@
             "type": "string",
             "description": ""
           },
-          "todolistId": {
+          "message_boardId": {
             "type": "string",
             "description": ""
           }
@@ -4815,13 +4914,19 @@
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "todolistId"
+          "message_boardId"
         ]
       },
       "outputSchema": {
         "type": "object",
         "properties": {
-          "name": {
+          "content": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "subject": {
             "type": "string"
           }
         }
@@ -4833,8 +4938,8 @@
       }
     },
     {
-      "id": "buckets.bucketId.todolists.todolistId.groups.json.get",
-      "title": "buckets.bucketId.todolists.todolistId.groups.json.get",
+      "id": "buckets.bucketId.message_boards.message_boardId.messages.json.get",
+      "title": "buckets.bucketId.message_boards.message_boardId.messages.json.get",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -4843,93 +4948,28 @@
             "type": "string",
             "description": ""
           },
-          "todolistId": {
+          "message_boardId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "todolistId"
+          "message_boardId"
         ]
       },
       "outputSchema": {
         "items": {
           "type": "object",
           "properties": {
-            "creator": {
-              "type": "object",
-              "properties": {
-                "attachable_sgid": {
-                  "type": "string"
-                },
-                "bio": {
-                  "type": "null"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "admin": {
-                  "type": "boolean"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "time_zone": {
-                  "type": "string"
-                },
-                "avatar_url": {
-                  "type": "string"
-                },
-                "personable_type": {
-                  "type": "string"
-                },
-                "owner": {
-                  "type": "boolean"
-                },
-                "email_address": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                }
-              }
-            },
-            "subscription_url": {
-              "type": "string"
-            },
-            "updated_at": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "app_url": {
-              "type": "string"
-            },
-            "title": {
-              "type": "string"
-            },
-            "app_todos_url": {
-              "type": "string"
-            },
-            "comments_count": {
-              "type": "integer"
-            },
-            "type": {
-              "type": "string"
-            },
             "status": {
               "type": "string"
             },
-            "description": {
+            "app_url": {
               "type": "string"
             },
             "parent": {
@@ -4952,28 +4992,45 @@
                 }
               }
             },
-            "todos_url": {
-              "type": "string"
-            },
-            "completed": {
-              "type": "boolean"
-            },
-            "comments_url": {
-              "type": "string"
-            },
-            "bookmark_url": {
-              "type": "string"
-            },
-            "group_position_url": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
+            "creator": {
+              "type": "object",
+              "properties": {
+                "attachable_sgid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "admin": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "avatar_url": {
+                  "type": "string"
+                },
+                "personable_type": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "boolean"
+                },
+                "email_address": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                }
+              }
             },
             "url": {
-              "type": "string"
-            },
-            "created_at": {
               "type": "string"
             },
             "bucket": {
@@ -4990,14 +5047,38 @@
                 }
               }
             },
-            "completed_ratio": {
+            "created_at": {
               "type": "string"
             },
-            "position": {
+            "comments_url": {
+              "type": "string"
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "id": {
               "type": "integer"
+            },
+            "content": {
+              "type": "string"
+            },
+            "comments_count": {
+              "type": "integer"
+            },
+            "subscription_url": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
             },
             "inherits_status": {
               "type": "boolean"
+            },
+            "bookmark_url": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
             }
           }
         },
@@ -5107,6 +5188,9 @@
           "bucketId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -5321,6 +5405,9 @@
           "chatId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -5455,10 +5542,141 @@
       }
     },
     {
+      "id": "buckets.bucketId.webhooks.json.post",
+      "title": "buckets.bucketId.webhooks.json.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "payload_url": {
+            "type": "string",
+            "description": "payload_url for the HTTPS url that Basecamp should call. Optional parameters :"
+          },
+          "types": {
+            "type": "string",
+            "description": "types as an array of types, options given in the introduction."
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "types": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "payload_url": {
+                "type": "string"
+              }
+            }
+          },
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "types": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "payload_url": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.webhooks.json.get",
+      "title": "buckets.bucketId.webhooks.json.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "object",
+          "properties": {
+            "app_url": {
+              "type": "string"
+            },
+            "payload_url": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "active": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "types": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "type": "array"
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
       "id": "chats.json.get",
       "title": "chats.json.get",
       "description": "",
-      "inputSchema": {},
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
       "outputSchema": {
         "items": {
           "type": "object",
@@ -5592,6 +5810,9 @@
           "recordingId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -5698,6 +5919,9 @@
           "questionId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -5921,6 +6145,9 @@
           "vaultId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -6739,7 +6966,18 @@
       "id": "templates.json.get",
       "title": "templates.json.get",
       "description": "",
-      "inputSchema": {},
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
       "outputSchema": {
         "items": {
           "type": "object",
@@ -6788,6 +7026,9 @@
           "projectId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -6796,6 +7037,204 @@
         ]
       },
       "outputSchema": {},
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.recordings.recordingId.comments.json.post",
+      "title": "buckets.bucketId.recordings.recordingId.comments.json.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "content as the body of the message. See our Rich text guide for what HTML tags are allowed."
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string"
+              }
+            }
+          },
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "recordingId": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId",
+          "recordingId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.recordings.recordingId.comments.json.get",
+      "title": "buckets.bucketId.recordings.recordingId.comments.json.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "recordingId": {
+            "type": "string",
+            "description": ""
+          },
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId",
+          "recordingId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "app_url": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "app_url": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "creator": {
+              "type": "object",
+              "properties": {
+                "attachable_sgid": {
+                  "type": "string"
+                },
+                "bio": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "admin": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "time_zone": {
+                  "type": "string"
+                },
+                "avatar_url": {
+                  "type": "string"
+                },
+                "personable_type": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "boolean"
+                },
+                "email_address": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                }
+              }
+            },
+            "bucket": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "content": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "inherits_status": {
+              "type": "boolean"
+            },
+            "bookmark_url": {
+              "type": "string"
+            }
+          }
+        },
+        "type": "array"
+      },
       "security": {
         "basecamp": {
           "integration": "basecamp"
@@ -7006,6 +7445,166 @@
       }
     },
     {
+      "id": "buckets.bucketId.client.recordings.recordingId.replies.replyId.json.get",
+      "title": "buckets.bucketId.client.recordings.recordingId.replies.replyId.json.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "recordingId": {
+            "type": "string",
+            "description": ""
+          },
+          "replyId": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId",
+          "recordingId",
+          "replyId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "app_url": {
+            "type": "string"
+          },
+          "parent": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "app_url": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "creator": {
+            "type": "object",
+            "properties": {
+              "attachable_sgid": {
+                "type": "string"
+              },
+              "bio": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "admin": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "time_zone": {
+                "type": "string"
+              },
+              "company": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "avatar_url": {
+                "type": "string"
+              },
+              "personable_type": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "boolean"
+              },
+              "email_address": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              }
+            }
+          },
+          "bucket": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "content": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "inherits_status": {
+            "type": "boolean"
+          },
+          "bookmark_url": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
       "id": "templates.templateId.json.put",
       "title": "templates.templateId.json.put",
       "description": "",
@@ -7102,6 +7701,38 @@
           "updated_at": {
             "type": "string"
           },
+          "dock": {
+            "items": {
+              "type": "object",
+              "properties": {
+                "app_url": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "enabled": {
+                  "type": "boolean"
+                },
+                "position": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "id": {
+                  "type": "integer"
+                }
+              }
+            },
+            "type": "array"
+          },
           "id": {
             "type": "integer"
           },
@@ -7161,6 +7792,9 @@
           "Upload": {
             "type": "string",
             "description": "Upload ."
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false
@@ -7294,6 +7928,9 @@
           "vaultId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -7469,8 +8106,56 @@
       }
     },
     {
-      "id": "buckets.bucketId.todosets.todosetId.json.get",
-      "title": "buckets.bucketId.todosets.todosetId.json.get",
+      "id": "buckets.bucketId.todolists.todolistId.groups.json.post",
+      "title": "buckets.bucketId.todolists.todolistId.groups.json.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of the to-do list group."
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "todolistId": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId",
+          "todolistId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.todolists.todolistId.groups.json.get",
+      "title": "buckets.bucketId.todolists.todolistId.groups.json.get",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -7479,141 +8164,168 @@
             "type": "string",
             "description": ""
           },
-          "todosetId": {
+          "todolistId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "todosetId"
+          "todolistId"
         ]
       },
       "outputSchema": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string"
-          },
-          "app_url": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "todolists_count": {
-            "type": "integer"
-          },
-          "inherits_status": {
-            "type": "boolean"
-          },
-          "creator": {
-            "type": "object",
-            "properties": {
-              "attachable_sgid": {
-                "type": "string"
-              },
-              "bio": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "admin": {
-                "type": "boolean"
-              },
-              "created_at": {
-                "type": "string"
-              },
-              "updated_at": {
-                "type": "string"
-              },
-              "time_zone": {
-                "type": "string"
-              },
-              "company": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "integer"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
+        "items": {
+          "type": "object",
+          "properties": {
+            "creator": {
+              "type": "object",
+              "properties": {
+                "attachable_sgid": {
+                  "type": "string"
+                },
+                "bio": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "admin": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "time_zone": {
+                  "type": "string"
+                },
+                "avatar_url": {
+                  "type": "string"
+                },
+                "personable_type": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "boolean"
+                },
+                "email_address": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
                 }
-              },
-              "avatar_url": {
-                "type": "string"
-              },
-              "personable_type": {
-                "type": "string"
-              },
-              "owner": {
-                "type": "boolean"
-              },
-              "email_address": {
-                "type": "string"
-              },
-              "id": {
-                "type": "integer"
               }
-            }
-          },
-          "bucket": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string"
-              },
-              "id": {
-                "type": "integer"
-              },
-              "name": {
-                "type": "string"
+            },
+            "subscription_url": {
+              "type": "string"
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "app_url": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "app_todos_url": {
+              "type": "string"
+            },
+            "comments_count": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "app_url": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                }
               }
+            },
+            "todos_url": {
+              "type": "string"
+            },
+            "completed": {
+              "type": "boolean"
+            },
+            "comments_url": {
+              "type": "string"
+            },
+            "bookmark_url": {
+              "type": "string"
+            },
+            "group_position_url": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "bucket": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "completed_ratio": {
+              "type": "string"
+            },
+            "position": {
+              "type": "integer"
+            },
+            "inherits_status": {
+              "type": "boolean"
             }
-          },
-          "updated_at": {
-            "type": "string"
-          },
-          "todolists_url": {
-            "type": "string"
-          },
-          "completed": {
-            "type": "boolean"
-          },
-          "completed_ratio": {
-            "type": "string"
-          },
-          "app_todoslists_url": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "position": {
-            "type": "integer"
-          },
-          "type": {
-            "type": "string"
-          },
-          "created_at": {
-            "type": "string"
-          },
-          "bookmark_url": {
-            "type": "string"
           }
-        }
+        },
+        "type": "array"
       },
       "security": {
         "basecamp": {
@@ -7766,8 +8478,8 @@
       }
     },
     {
-      "id": "buckets.bucketId.categories.categorieId.json.put",
-      "title": "buckets.bucketId.categories.categorieId.json.put",
+      "id": "buckets.bucketId.categories.categoryId.json.put",
+      "title": "buckets.bucketId.categories.categoryId.json.put",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -7787,7 +8499,7 @@
             "type": "string",
             "description": ""
           },
-          "categorieId": {
+          "categoryId": {
             "type": "string",
             "description": ""
           }
@@ -7795,7 +8507,7 @@
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "categorieId"
+          "categoryId"
         ]
       },
       "outputSchema": {
@@ -7816,8 +8528,8 @@
       }
     },
     {
-      "id": "buckets.bucketId.categories.categorieId.json.delete",
-      "title": "buckets.bucketId.categories.categorieId.json.delete",
+      "id": "buckets.bucketId.categories.categoryId.json.delete",
+      "title": "buckets.bucketId.categories.categoryId.json.delete",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -7826,7 +8538,7 @@
             "type": "string",
             "description": ""
           },
-          "categorieId": {
+          "categoryId": {
             "type": "string",
             "description": ""
           }
@@ -7834,7 +8546,7 @@
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "categorieId"
+          "categoryId"
         ]
       },
       "outputSchema": {},
@@ -7845,8 +8557,8 @@
       }
     },
     {
-      "id": "buckets.bucketId.categories.categorieId.json.get",
-      "title": "buckets.bucketId.categories.categorieId.json.get",
+      "id": "buckets.bucketId.categories.categoryId.json.get",
+      "title": "buckets.bucketId.categories.categoryId.json.get",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -7855,7 +8567,7 @@
             "type": "string",
             "description": ""
           },
-          "categorieId": {
+          "categoryId": {
             "type": "string",
             "description": ""
           }
@@ -7863,7 +8575,7 @@
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "categorieId"
+          "categoryId"
         ]
       },
       "outputSchema": {
@@ -7885,123 +8597,6 @@
             "type": "string"
           }
         }
-      },
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
-      "id": "buckets.bucketId.webhooks.json.post",
-      "title": "buckets.bucketId.webhooks.json.post",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "payload_url": {
-            "type": "string",
-            "description": "payload_url for the HTTPS url that Basecamp should call. Optional parameters :"
-          },
-          "types": {
-            "type": "string",
-            "description": "types as an array of types, options given in the introduction."
-          },
-          "body": {
-            "type": "object",
-            "properties": {
-              "types": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              "payload_url": {
-                "type": "string"
-              }
-            }
-          },
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId"
-        ]
-      },
-      "outputSchema": {
-        "type": "object",
-        "properties": {
-          "types": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "payload_url": {
-            "type": "string"
-          }
-        }
-      },
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
-      "id": "buckets.bucketId.webhooks.json.get",
-      "title": "buckets.bucketId.webhooks.json.get",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId"
-        ]
-      },
-      "outputSchema": {
-        "items": {
-          "type": "object",
-          "properties": {
-            "app_url": {
-              "type": "string"
-            },
-            "payload_url": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            },
-            "created_at": {
-              "type": "string"
-            },
-            "updated_at": {
-              "type": "string"
-            },
-            "active": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "types": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          }
-        },
-        "type": "array"
       },
       "security": {
         "basecamp": {
@@ -8071,6 +8666,9 @@
           "vaultId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -8462,224 +9060,6 @@
       }
     },
     {
-      "id": "buckets.bucketId.message_boards.message_boardId.messages.json.post",
-      "title": "buckets.bucketId.message_boards.message_boardId.messages.json.post",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "subject": {
-            "type": "string",
-            "description": "subject as the title of the message, and"
-          },
-          "status": {
-            "type": "string",
-            "description": "status , set to"
-          },
-          "active": {
-            "type": "string",
-            "description": "active to publish immediately."
-          },
-          "body": {
-            "type": "object",
-            "properties": {
-              "content": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string"
-              },
-              "subject": {
-                "type": "string"
-              }
-            }
-          },
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          },
-          "message_boardId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId",
-          "message_boardId"
-        ]
-      },
-      "outputSchema": {
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "subject": {
-            "type": "string"
-          }
-        }
-      },
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
-      "id": "buckets.bucketId.message_boards.message_boardId.messages.json.get",
-      "title": "buckets.bucketId.message_boards.message_boardId.messages.json.get",
-      "description": "",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "bucketId": {
-            "type": "string",
-            "description": ""
-          },
-          "message_boardId": {
-            "type": "string",
-            "description": ""
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "bucketId",
-          "message_boardId"
-        ]
-      },
-      "outputSchema": {
-        "items": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "string"
-            },
-            "app_url": {
-              "type": "string"
-            },
-            "parent": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string"
-                },
-                "app_url": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "title": {
-                  "type": "string"
-                }
-              }
-            },
-            "creator": {
-              "type": "object",
-              "properties": {
-                "attachable_sgid": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "admin": {
-                  "type": "boolean"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "avatar_url": {
-                  "type": "string"
-                },
-                "personable_type": {
-                  "type": "string"
-                },
-                "owner": {
-                  "type": "boolean"
-                },
-                "email_address": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                }
-              }
-            },
-            "url": {
-              "type": "string"
-            },
-            "bucket": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            },
-            "created_at": {
-              "type": "string"
-            },
-            "comments_url": {
-              "type": "string"
-            },
-            "updated_at": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "content": {
-              "type": "string"
-            },
-            "comments_count": {
-              "type": "integer"
-            },
-            "subscription_url": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            },
-            "inherits_status": {
-              "type": "boolean"
-            },
-            "bookmark_url": {
-              "type": "string"
-            },
-            "subject": {
-              "type": "string"
-            }
-          }
-        },
-        "type": "array"
-      },
-      "security": {
-        "basecamp": {
-          "integration": "basecamp"
-        }
-      }
-    },
-    {
       "id": "buckets.bucketId.chats.chatId.json.get",
       "title": "buckets.bucketId.chats.chatId.json.get",
       "description": "",
@@ -8888,6 +9268,9 @@
           "todosetId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -9063,8 +9446,70 @@
       }
     },
     {
-      "id": "buckets.bucketId.client.recordings.recordingId.replies.replieId.json.get",
-      "title": "buckets.bucketId.client.recordings.recordingId.replies.replieId.json.get",
+      "id": "buckets.bucketId.schedule_entries.schedule_entryId.json.put",
+      "title": "buckets.bucketId.schedule_entries.schedule_entryId.json.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "object",
+            "properties": {
+              "starts_at": {
+                "type": "string"
+              },
+              "ends_at": {
+                "type": "string"
+              },
+              "all_day": {
+                "type": "boolean"
+              },
+              "summary": {
+                "type": "string"
+              }
+            }
+          },
+          "bucketId": {
+            "type": "string",
+            "description": ""
+          },
+          "schedule_entryId": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketId",
+          "schedule_entryId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "starts_at": {
+            "type": "string"
+          },
+          "ends_at": {
+            "type": "string"
+          },
+          "all_day": {
+            "type": "boolean"
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "basecamp": {
+          "integration": "basecamp"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketId.schedule_entries.schedule_entryId.json.get",
+      "title": "buckets.bucketId.schedule_entries.schedule_entryId.json.get",
       "description": "",
       "inputSchema": {
         "type": "object",
@@ -9073,11 +9518,7 @@
             "type": "string",
             "description": ""
           },
-          "recordingId": {
-            "type": "string",
-            "description": ""
-          },
-          "replieId": {
+          "schedule_entryId": {
             "type": "string",
             "description": ""
           }
@@ -9085,8 +9526,7 @@
         "additionalProperties": false,
         "required": [
           "bucketId",
-          "recordingId",
-          "replieId"
+          "schedule_entryId"
         ]
       },
       "outputSchema": {
@@ -9096,6 +9536,9 @@
             "type": "string"
           },
           "app_url": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "parent": {
@@ -9117,15 +9560,6 @@
                 "type": "string"
               }
             }
-          },
-          "title": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "created_at": {
-            "type": "string"
           },
           "creator": {
             "type": "object",
@@ -9182,6 +9616,9 @@
               }
             }
           },
+          "url": {
+            "type": "string"
+          },
           "bucket": {
             "type": "object",
             "properties": {
@@ -9196,13 +9633,89 @@
               }
             }
           },
+          "created_at": {
+            "type": "string"
+          },
+          "comments_url": {
+            "type": "string"
+          },
           "updated_at": {
             "type": "string"
           },
           "id": {
             "type": "integer"
           },
-          "content": {
+          "summary": {
+            "type": "string"
+          },
+          "participants": {
+            "items": {
+              "type": "object",
+              "properties": {
+                "attachable_sgid": {
+                  "type": "string"
+                },
+                "bio": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "admin": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "time_zone": {
+                  "type": "string"
+                },
+                "company": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "avatar_url": {
+                  "type": "string"
+                },
+                "personable_type": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "boolean"
+                },
+                "email_address": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                }
+              }
+            },
+            "type": "array"
+          },
+          "comments_count": {
+            "type": "integer"
+          },
+          "subscription_url": {
+            "type": "string"
+          },
+          "starts_at": {
+            "type": "string"
+          },
+          "ends_at": {
             "type": "string"
           },
           "type": {
@@ -9213,6 +9726,9 @@
           },
           "bookmark_url": {
             "type": "string"
+          },
+          "all_day": {
+            "type": "boolean"
           }
         }
       },
@@ -9537,6 +10053,9 @@
           "scheduleId": {
             "type": "string",
             "description": ""
+          },
+          "page": {
+            "type": "integer"
           }
         },
         "additionalProperties": false,
@@ -10243,7 +10762,18 @@
       "id": "projects.json.get",
       "title": "projects.json.get",
       "description": "",
-      "inputSchema": {},
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
       "outputSchema": {
         "items": {
           "type": "object",

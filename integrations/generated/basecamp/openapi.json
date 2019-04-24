@@ -454,7 +454,7 @@
         },
         "parameters": [
           {
-            "in": "formData",
+            "in": "body",
             "type": "string",
             "name": "assignee_ids",
             "description": "assignee_ids clears existing assignees."
@@ -1323,6 +1323,182 @@
         "operationId": "buckets.bucketId.questions.questionId.json.get"
       }
     },
+    "/buckets/{bucketId}/inboxes/{inboxId}/forwards.json": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  },
+                  "app_url": {
+                    "type": "string"
+                  },
+                  "from": {
+                    "type": "string"
+                  },
+                  "parent": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      },
+                      "app_url": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "subscription_url": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "creator": {
+                    "type": "object",
+                    "properties": {
+                      "attachable_sgid": {
+                        "type": "string"
+                      },
+                      "bio": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "time_zone": {
+                        "type": "string"
+                      },
+                      "company": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "avatar_url": {
+                        "type": "string"
+                      },
+                      "personable_type": {
+                        "type": "string"
+                      },
+                      "owner": {
+                        "type": "boolean"
+                      },
+                      "email_address": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "bucket": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "replies_url": {
+                    "type": "string"
+                  },
+                  "replies_count": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "inherits_status": {
+                    "type": "boolean"
+                  },
+                  "bookmark_url": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "inboxId",
+            "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
+        "operationId": "buckets.bucketId.inboxes.inboxId.forwards.json.get"
+      }
+    },
     "/buckets/{bucketId}/questionnaires/{questionnaireId}.json": {
       "get": {
         "responses": {
@@ -1705,179 +1881,143 @@
         "operationId": "buckets.bucketId.todos.todoId.completion.json.delete"
       }
     },
-    "/buckets/{bucketId}/recordings/{recordingId}/comments.json": {
-      "post": {
-        "responses": {
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "content": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "content",
-            "description": "content as the body of the message. See our Rich text guide for what HTML tags are allowed."
-          },
-          {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "content": {
-                  "type": "string"
-                }
-              }
-            },
-            "name": "body",
-            "in": "body"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "recordingId",
-            "in": "path"
-          }
-        ],
-        "operationId": "buckets.bucketId.recordings.recordingId.comments.json.post"
-      },
+    "/buckets/{bucketId}/inbox_forwards/{inbox_forwardId}/replies/{replyId}.json": {
       "get": {
         "responses": {
           "200": {
             "description": "",
             "schema": {
-              "items": {
-                "type": "object",
-                "properties": {
-                  "status": {
-                    "type": "string"
-                  },
-                  "app_url": {
-                    "type": "string"
-                  },
-                  "parent": {
-                    "type": "object",
-                    "properties": {
-                      "url": {
-                        "type": "string"
-                      },
-                      "app_url": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      },
-                      "title": {
-                        "type": "string"
-                      }
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "app_url": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "app_url": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
                     }
-                  },
-                  "title": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "created_at": {
-                    "type": "string"
-                  },
-                  "creator": {
-                    "type": "object",
-                    "properties": {
-                      "attachable_sgid": {
-                        "type": "string"
-                      },
-                      "bio": {
-                        "type": "null"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "admin": {
-                        "type": "boolean"
-                      },
-                      "created_at": {
-                        "type": "string"
-                      },
-                      "updated_at": {
-                        "type": "string"
-                      },
-                      "time_zone": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string"
-                      },
-                      "personable_type": {
-                        "type": "string"
-                      },
-                      "owner": {
-                        "type": "boolean"
-                      },
-                      "email_address": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "bucket": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      },
-                      "name": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "updated_at": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "content": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "type": "string"
-                  },
-                  "inherits_status": {
-                    "type": "boolean"
-                  },
-                  "bookmark_url": {
-                    "type": "string"
                   }
+                },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "creator": {
+                  "type": "object",
+                  "properties": {
+                    "attachable_sgid": {
+                      "type": "string"
+                    },
+                    "bio": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "admin": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "time_zone": {
+                      "type": "string"
+                    },
+                    "company": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "avatar_url": {
+                      "type": "string"
+                    },
+                    "client": {
+                      "type": "boolean"
+                    },
+                    "owner": {
+                      "type": "boolean"
+                    },
+                    "email_address": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "personable_type": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "bucket": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "inherits_status": {
+                  "type": "boolean"
+                },
+                "visible_to_clients": {
+                  "type": "boolean"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "bookmark_url": {
+                  "type": "string"
                 }
-              },
-              "type": "array"
+              }
             }
           }
         },
@@ -1893,19 +2033,21 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "recordingId",
+            "name": "inbox_forwardId",
             "in": "path"
           },
           {
-            "name": "page",
-            "in": "query",
-            "type": "integer"
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "replyId",
+            "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.recordings.recordingId.comments.json.get"
+        "operationId": "buckets.bucketId.inbox_forwards.inbox_forwardId.replies.replyId.json.get"
       }
     },
-    "/buckets/{bucketId}/chats/{chatId}/integrations/{integrationId}.json": {
+    "/buckets/{bucketId}/recordings/{recordingId}/client_visibility.json": {
       "put": {
         "responses": {
           "200": {
@@ -1913,11 +2055,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "service_name": {
-                  "type": "string"
-                },
-                "command_url": {
-                  "type": "string"
+                "visible_to_clients": {
+                  "type": "boolean"
                 }
               }
             }
@@ -1925,32 +2064,11 @@
         },
         "parameters": [
           {
-            "in": "formData",
-            "type": "string",
-            "name": "service_name",
-            "description": "service_name for the chatbot name, which will be used to invoke queries and commands on interactive bots. No spaces, emoji or non-word characters are allowed, as you need to be able to call it like"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "!tally myCommand",
-            "description": "!tally myCommand Optional parameters :"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "command_url",
-            "description": "command_url for the HTTPS url that Basecamp should call when the bot is addressed."
-          },
-          {
             "schema": {
               "type": "object",
               "properties": {
-                "service_name": {
-                  "type": "string"
-                },
-                "command_url": {
-                  "type": "string"
+                "visible_to_clients": {
+                  "type": "boolean"
                 }
               }
             },
@@ -1968,117 +2086,11 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "chatId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "integrationId",
+            "name": "recordingId",
             "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.chats.chatId.integrations.integrationId.json.put"
-      },
-      "delete": {
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "parameters": [
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "chatId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "integrationId",
-            "in": "path"
-          }
-        ],
-        "operationId": "buckets.bucketId.chats.chatId.integrations.integrationId.json.delete"
-      },
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "items": {
-                "type": "object",
-                "properties": {
-                  "app_url": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "service_name": {
-                    "type": "string"
-                  },
-                  "created_at": {
-                    "type": "string"
-                  },
-                  "updated_at": {
-                    "type": "string"
-                  },
-                  "lines_url": {
-                    "type": "string"
-                  },
-                  "command_url": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": "integer"
-                  }
-                }
-              },
-              "type": "array"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "chatId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "integrationId",
-            "in": "path"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "type": "integer"
-          }
-        ],
-        "operationId": "buckets.bucketId.chats.chatId.integrations.integrationId.json.get"
+        "operationId": "buckets.bucketId.recordings.recordingId.client_visibility.json.put"
       }
     },
     "/buckets/{bucketId}/recordings/{recordingId}/status/archived.json": {
@@ -2230,14 +2242,180 @@
             "type": "string",
             "name": "project_constructionId",
             "in": "path"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "type": "integer"
           }
         ],
         "operationId": "templates.templateId.project_constructions.project_constructionId.json.get"
+      }
+    },
+    "/buckets/{bucketId}/chats/{chatId}/integrations/{integrationId}.json": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "service_name": {
+                  "type": "string"
+                },
+                "command_url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "type": "string",
+            "name": "service_name",
+            "description": "service_name for the chatbot name, which will be used to invoke queries and commands on interactive bots. No spaces, emoji or non-word characters are allowed, as you need to be able to call it like"
+          },
+          {
+            "in": "body",
+            "type": "string",
+            "name": "!tally myCommand",
+            "description": "!tally myCommand Optional parameters :"
+          },
+          {
+            "in": "body",
+            "type": "string",
+            "name": "command_url",
+            "description": "command_url for the HTTPS url that Basecamp should call when the bot is addressed."
+          },
+          {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "service_name": {
+                  "type": "string"
+                },
+                "command_url": {
+                  "type": "string"
+                }
+              }
+            },
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "chatId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "integrationId",
+            "in": "path"
+          }
+        ],
+        "operationId": "buckets.bucketId.chats.chatId.integrations.integrationId.json.put"
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "parameters": [
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "chatId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "integrationId",
+            "in": "path"
+          }
+        ],
+        "operationId": "buckets.bucketId.chats.chatId.integrations.integrationId.json.delete"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "app_url": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "service_name": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  },
+                  "lines_url": {
+                    "type": "string"
+                  },
+                  "command_url": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "chatId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "integrationId",
+            "in": "path"
+          }
+        ],
+        "operationId": "buckets.bucketId.chats.chatId.integrations.integrationId.json.get"
       }
     },
     "/buckets/{bucketId}/question_answers/{question_answerId}.json": {
@@ -2400,6 +2578,173 @@
         },
         "parameters": [],
         "operationId": "my.profile.json.get"
+      }
+    },
+    "/buckets/{bucketId}/inbox_forwards/{inbox_forwardId}/replies.json": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  },
+                  "app_url": {
+                    "type": "string"
+                  },
+                  "parent": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      },
+                      "app_url": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "creator": {
+                    "type": "object",
+                    "properties": {
+                      "attachable_sgid": {
+                        "type": "string"
+                      },
+                      "bio": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "time_zone": {
+                        "type": "string"
+                      },
+                      "company": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "avatar_url": {
+                        "type": "string"
+                      },
+                      "client": {
+                        "type": "boolean"
+                      },
+                      "owner": {
+                        "type": "boolean"
+                      },
+                      "email_address": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "personable_type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "bucket": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "inherits_status": {
+                    "type": "boolean"
+                  },
+                  "visible_to_clients": {
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "bookmark_url": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "inbox_forwardId",
+            "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
+        "operationId": "buckets.bucketId.inbox_forwards.inbox_forwardId.replies.json.get"
       }
     },
     "/buckets/{bucketId}/chats/{chatId}/lines/{lineId}.json": {
@@ -2783,182 +3128,6 @@
           }
         ],
         "operationId": "buckets.bucketId.recordings.recordingId.status.trashed.json.put"
-      }
-    },
-    "/buckets/{bucketId}/inboxes/{inboxeId}/forwards.json": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "items": {
-                "type": "object",
-                "properties": {
-                  "status": {
-                    "type": "string"
-                  },
-                  "app_url": {
-                    "type": "string"
-                  },
-                  "from": {
-                    "type": "string"
-                  },
-                  "parent": {
-                    "type": "object",
-                    "properties": {
-                      "url": {
-                        "type": "string"
-                      },
-                      "app_url": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      },
-                      "title": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "title": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "subscription_url": {
-                    "type": "string"
-                  },
-                  "created_at": {
-                    "type": "string"
-                  },
-                  "creator": {
-                    "type": "object",
-                    "properties": {
-                      "attachable_sgid": {
-                        "type": "string"
-                      },
-                      "bio": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "admin": {
-                        "type": "boolean"
-                      },
-                      "created_at": {
-                        "type": "string"
-                      },
-                      "updated_at": {
-                        "type": "string"
-                      },
-                      "time_zone": {
-                        "type": "string"
-                      },
-                      "company": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "name": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "avatar_url": {
-                        "type": "string"
-                      },
-                      "personable_type": {
-                        "type": "string"
-                      },
-                      "owner": {
-                        "type": "boolean"
-                      },
-                      "email_address": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "bucket": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      },
-                      "name": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "updated_at": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "content": {
-                    "type": "string"
-                  },
-                  "replies_url": {
-                    "type": "string"
-                  },
-                  "replies_count": {
-                    "type": "integer"
-                  },
-                  "type": {
-                    "type": "string"
-                  },
-                  "inherits_status": {
-                    "type": "boolean"
-                  },
-                  "bookmark_url": {
-                    "type": "string"
-                  },
-                  "subject": {
-                    "type": "string"
-                  }
-                }
-              },
-              "type": "array"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "inboxeId",
-            "in": "path"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "type": "integer"
-          }
-        ],
-        "operationId": "buckets.bucketId.inboxes.inboxeId.forwards.json.get"
       }
     },
     "/projects/{projectId}/people/users.json": {
@@ -3727,69 +3896,7 @@
         "operationId": "circles.people.json.get"
       }
     },
-    "/buckets/{bucketId}/schedule_entries/{schedule_entrieId}.json": {
-      "put": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "starts_at": {
-                  "type": "string"
-                },
-                "ends_at": {
-                  "type": "string"
-                },
-                "all_day": {
-                  "type": "boolean"
-                },
-                "summary": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "starts_at": {
-                  "type": "string"
-                },
-                "ends_at": {
-                  "type": "string"
-                },
-                "all_day": {
-                  "type": "boolean"
-                },
-                "summary": {
-                  "type": "string"
-                }
-              }
-            },
-            "name": "body",
-            "in": "body"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "schedule_entrieId",
-            "in": "path"
-          }
-        ],
-        "operationId": "buckets.bucketId.schedule_entries.schedule_entrieId.json.put"
-      },
+    "/buckets/{bucketId}/todosets/{todosetId}.json": {
       "get": {
         "responses": {
           "200": {
@@ -3803,28 +3910,20 @@
                 "app_url": {
                   "type": "string"
                 },
-                "description": {
+                "name": {
                   "type": "string"
                 },
-                "parent": {
-                  "type": "object",
-                  "properties": {
-                    "url": {
-                      "type": "string"
-                    },
-                    "app_url": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer"
-                    },
-                    "title": {
-                      "type": "string"
-                    }
-                  }
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "todolists_count": {
+                  "type": "integer"
+                },
+                "inherits_status": {
+                  "type": "boolean"
                 },
                 "creator": {
                   "type": "object",
@@ -3881,9 +3980,6 @@
                     }
                   }
                 },
-                "url": {
-                  "type": "string"
-                },
                 "bucket": {
                   "type": "object",
                   "properties": {
@@ -3898,102 +3994,35 @@
                     }
                   }
                 },
-                "created_at": {
-                  "type": "string"
-                },
-                "comments_url": {
-                  "type": "string"
-                },
                 "updated_at": {
+                  "type": "string"
+                },
+                "todolists_url": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "completed_ratio": {
+                  "type": "string"
+                },
+                "app_todoslists_url": {
                   "type": "string"
                 },
                 "id": {
                   "type": "integer"
                 },
-                "summary": {
-                  "type": "string"
-                },
-                "participants": {
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "attachable_sgid": {
-                        "type": "string"
-                      },
-                      "bio": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "admin": {
-                        "type": "boolean"
-                      },
-                      "created_at": {
-                        "type": "string"
-                      },
-                      "updated_at": {
-                        "type": "string"
-                      },
-                      "time_zone": {
-                        "type": "string"
-                      },
-                      "company": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "name": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "avatar_url": {
-                        "type": "string"
-                      },
-                      "personable_type": {
-                        "type": "string"
-                      },
-                      "owner": {
-                        "type": "boolean"
-                      },
-                      "email_address": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "type": "array"
-                },
-                "comments_count": {
+                "position": {
                   "type": "integer"
-                },
-                "subscription_url": {
-                  "type": "string"
-                },
-                "starts_at": {
-                  "type": "string"
-                },
-                "ends_at": {
-                  "type": "string"
                 },
                 "type": {
                   "type": "string"
                 },
-                "inherits_status": {
-                  "type": "boolean"
+                "created_at": {
+                  "type": "string"
                 },
                 "bookmark_url": {
                   "type": "string"
-                },
-                "all_day": {
-                  "type": "boolean"
                 }
               }
             }
@@ -4011,11 +4040,11 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "schedule_entrieId",
+            "name": "todosetId",
             "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.schedule_entries.schedule_entrieId.json.get"
+        "operationId": "buckets.bucketId.todosets.todosetId.json.get"
       }
     },
     "/projects/{projectId}.json": {
@@ -4153,7 +4182,7 @@
         "operationId": "projects.projectId.json.get"
       }
     },
-    "/buckets/{bucketId}/inboxes/{inboxeId}.json": {
+    "/buckets/{bucketId}/inboxes/{inboxId}.json": {
       "get": {
         "responses": {
           "200": {
@@ -4285,11 +4314,11 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "inboxeId",
+            "name": "inboxId",
             "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.inboxes.inboxeId.json.get"
+        "operationId": "buckets.bucketId.inboxes.inboxId.json.get"
       }
     },
     "/buckets/{bucketId}/todolists/{todolistId}/todos.json": {
@@ -4534,13 +4563,6 @@
           },
           {
             "description": "",
-            "required": false,
-            "type": "boolean",
-            "name": "completed",
-            "in": "query"
-          },
-          {
-            "description": "",
             "required": true,
             "type": "string",
             "name": "todolistId",
@@ -4706,7 +4728,7 @@
         "operationId": "buckets.bucketId.client.correspondences.correspondenceId.json.get"
       }
     },
-    "/buckets/{bucketId}/todolists/{todolistId}/groups.json": {
+    "/buckets/{bucketId}/message_boards/{message_boardId}/messages.json": {
       "post": {
         "responses": {
           "201": {
@@ -4714,7 +4736,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "content": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "subject": {
                   "type": "string"
                 }
               }
@@ -4725,14 +4753,32 @@
           {
             "in": "formData",
             "type": "string",
-            "name": "name",
-            "description": "name of the to-do list group."
+            "name": "subject",
+            "description": "subject as the title of the message, and"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "status",
+            "description": "status , set to"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "active",
+            "description": "active to publish immediately."
           },
           {
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "content": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "subject": {
                   "type": "string"
                 }
               }
@@ -4751,11 +4797,11 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "todolistId",
+            "name": "message_boardId",
             "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.todolists.todolistId.groups.json.post"
+        "operationId": "buckets.bucketId.message_boards.message_boardId.messages.json.post"
       },
       "get": {
         "responses": {
@@ -4765,78 +4811,10 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "creator": {
-                    "type": "object",
-                    "properties": {
-                      "attachable_sgid": {
-                        "type": "string"
-                      },
-                      "bio": {
-                        "type": "null"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "admin": {
-                        "type": "boolean"
-                      },
-                      "created_at": {
-                        "type": "string"
-                      },
-                      "updated_at": {
-                        "type": "string"
-                      },
-                      "time_zone": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string"
-                      },
-                      "personable_type": {
-                        "type": "string"
-                      },
-                      "owner": {
-                        "type": "boolean"
-                      },
-                      "email_address": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "subscription_url": {
-                    "type": "string"
-                  },
-                  "updated_at": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "app_url": {
-                    "type": "string"
-                  },
-                  "title": {
-                    "type": "string"
-                  },
-                  "app_todos_url": {
-                    "type": "string"
-                  },
-                  "comments_count": {
-                    "type": "integer"
-                  },
-                  "type": {
-                    "type": "string"
-                  },
                   "status": {
                     "type": "string"
                   },
-                  "description": {
+                  "app_url": {
                     "type": "string"
                   },
                   "parent": {
@@ -4859,28 +4837,45 @@
                       }
                     }
                   },
-                  "todos_url": {
-                    "type": "string"
-                  },
-                  "completed": {
-                    "type": "boolean"
-                  },
-                  "comments_url": {
-                    "type": "string"
-                  },
-                  "bookmark_url": {
-                    "type": "string"
-                  },
-                  "group_position_url": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
+                  "creator": {
+                    "type": "object",
+                    "properties": {
+                      "attachable_sgid": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string"
+                      },
+                      "personable_type": {
+                        "type": "string"
+                      },
+                      "owner": {
+                        "type": "boolean"
+                      },
+                      "email_address": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      }
+                    }
                   },
                   "url": {
-                    "type": "string"
-                  },
-                  "created_at": {
                     "type": "string"
                   },
                   "bucket": {
@@ -4897,14 +4892,38 @@
                       }
                     }
                   },
-                  "completed_ratio": {
+                  "created_at": {
                     "type": "string"
                   },
-                  "position": {
+                  "comments_url": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  },
+                  "id": {
                     "type": "integer"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "comments_count": {
+                    "type": "integer"
+                  },
+                  "subscription_url": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
                   },
                   "inherits_status": {
                     "type": "boolean"
+                  },
+                  "bookmark_url": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
                   }
                 }
               },
@@ -4924,7 +4943,7 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "todolistId",
+            "name": "message_boardId",
             "in": "path"
           },
           {
@@ -4933,7 +4952,7 @@
             "type": "integer"
           }
         ],
-        "operationId": "buckets.bucketId.todolists.todolistId.groups.json.get"
+        "operationId": "buckets.bucketId.message_boards.message_boardId.messages.json.get"
       }
     },
     "/buckets/{bucketId}/todolists/groups/{groupId}/position.json": {
@@ -4953,7 +4972,7 @@
         },
         "parameters": [
           {
-            "in": "formData",
+            "in": "body",
             "type": "string",
             "name": "position",
             "description": "position greater than or equal to one."
@@ -5388,6 +5407,126 @@
           }
         ],
         "operationId": "buckets.bucketId.chats.chatId.lines.json.get"
+      }
+    },
+    "/buckets/{bucketId}/webhooks.json": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "types": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "payload_url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "payload_url",
+            "description": "payload_url for the HTTPS url that Basecamp should call. Optional parameters :"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "types",
+            "description": "types as an array of types, options given in the introduction."
+          },
+          {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "types": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "payload_url": {
+                  "type": "string"
+                }
+              }
+            },
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          }
+        ],
+        "operationId": "buckets.bucketId.webhooks.json.post"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "app_url": {
+                    "type": "string"
+                  },
+                  "payload_url": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  },
+                  "active": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "types": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
+        "operationId": "buckets.bucketId.webhooks.json.get"
       }
     },
     "/chats.json": {
@@ -6743,6 +6882,206 @@
         "operationId": "projects.projectId.people.json.get"
       }
     },
+    "/buckets/{bucketId}/recordings/{recordingId}/comments.json": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "content",
+            "description": "content as the body of the message. See our Rich text guide for what HTML tags are allowed."
+          },
+          {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string"
+                }
+              }
+            },
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "recordingId",
+            "in": "path"
+          }
+        ],
+        "operationId": "buckets.bucketId.recordings.recordingId.comments.json.post"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  },
+                  "app_url": {
+                    "type": "string"
+                  },
+                  "parent": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      },
+                      "app_url": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "creator": {
+                    "type": "object",
+                    "properties": {
+                      "attachable_sgid": {
+                        "type": "string"
+                      },
+                      "bio": {
+                        "type": "null"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "time_zone": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string"
+                      },
+                      "personable_type": {
+                        "type": "string"
+                      },
+                      "owner": {
+                        "type": "boolean"
+                      },
+                      "email_address": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "bucket": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "inherits_status": {
+                    "type": "boolean"
+                  },
+                  "bookmark_url": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "array"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "recordingId",
+            "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
+        "operationId": "buckets.bucketId.recordings.recordingId.comments.json.get"
+      }
+    },
     "/buckets/{bucketId}/documents/{documentId}.json": {
       "put": {
         "responses": {
@@ -6944,6 +7283,166 @@
         "operationId": "buckets.bucketId.documents.documentId.json.get"
       }
     },
+    "/buckets/{bucketId}/client/recordings/{recordingId}/replies/{replyId}.json": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "app_url": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "app_url": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "creator": {
+                  "type": "object",
+                  "properties": {
+                    "attachable_sgid": {
+                      "type": "string"
+                    },
+                    "bio": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "admin": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    },
+                    "time_zone": {
+                      "type": "string"
+                    },
+                    "company": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "avatar_url": {
+                      "type": "string"
+                    },
+                    "personable_type": {
+                      "type": "string"
+                    },
+                    "owner": {
+                      "type": "boolean"
+                    },
+                    "email_address": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "bucket": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "inherits_status": {
+                  "type": "boolean"
+                },
+                "bookmark_url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "recordingId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "replyId",
+            "in": "path"
+          }
+        ],
+        "operationId": "buckets.bucketId.client.recordings.recordingId.replies.replyId.json.get"
+      }
+    },
     "/templates/{templateId}.json": {
       "put": {
         "responses": {
@@ -7018,6 +7517,38 @@
                 },
                 "updated_at": {
                   "type": "string"
+                },
+                "dock": {
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "app_url": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "position": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      },
+                      "id": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "type": "array"
                 },
                 "id": {
                   "type": "integer"
@@ -7417,135 +7948,209 @@
         "operationId": "buckets.bucketId.vaults.vaultId.uploads.json.get"
       }
     },
-    "/buckets/{bucketId}/todosets/{todosetId}.json": {
+    "/buckets/{bucketId}/todolists/{todolistId}/groups.json": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "name",
+            "description": "name of the to-do list group."
+          },
+          {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "todolistId",
+            "in": "path"
+          }
+        ],
+        "operationId": "buckets.bucketId.todolists.todolistId.groups.json.post"
+      },
       "get": {
         "responses": {
           "200": {
             "description": "",
             "schema": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "string"
-                },
-                "app_url": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "todolists_count": {
-                  "type": "integer"
-                },
-                "inherits_status": {
-                  "type": "boolean"
-                },
-                "creator": {
-                  "type": "object",
-                  "properties": {
-                    "attachable_sgid": {
-                      "type": "string"
-                    },
-                    "bio": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "admin": {
-                      "type": "boolean"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
-                    },
-                    "time_zone": {
-                      "type": "string"
-                    },
-                    "company": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer"
-                        },
-                        "name": {
-                          "type": "string"
-                        }
+              "items": {
+                "type": "object",
+                "properties": {
+                  "creator": {
+                    "type": "object",
+                    "properties": {
+                      "attachable_sgid": {
+                        "type": "string"
+                      },
+                      "bio": {
+                        "type": "null"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "time_zone": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string"
+                      },
+                      "personable_type": {
+                        "type": "string"
+                      },
+                      "owner": {
+                        "type": "boolean"
+                      },
+                      "email_address": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
                       }
-                    },
-                    "avatar_url": {
-                      "type": "string"
-                    },
-                    "personable_type": {
-                      "type": "string"
-                    },
-                    "owner": {
-                      "type": "boolean"
-                    },
-                    "email_address": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer"
                     }
-                  }
-                },
-                "bucket": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
+                  },
+                  "subscription_url": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "app_url": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "app_todos_url": {
+                    "type": "string"
+                  },
+                  "comments_count": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "parent": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      },
+                      "app_url": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      }
                     }
+                  },
+                  "todos_url": {
+                    "type": "string"
+                  },
+                  "completed": {
+                    "type": "boolean"
+                  },
+                  "comments_url": {
+                    "type": "string"
+                  },
+                  "bookmark_url": {
+                    "type": "string"
+                  },
+                  "group_position_url": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "bucket": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "completed_ratio": {
+                    "type": "string"
+                  },
+                  "position": {
+                    "type": "integer"
+                  },
+                  "inherits_status": {
+                    "type": "boolean"
                   }
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "todolists_url": {
-                  "type": "string"
-                },
-                "completed": {
-                  "type": "boolean"
-                },
-                "completed_ratio": {
-                  "type": "string"
-                },
-                "app_todoslists_url": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "position": {
-                  "type": "integer"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "bookmark_url": {
-                  "type": "string"
                 }
-              }
+              },
+              "type": "array"
             }
           }
         },
@@ -7561,11 +8166,16 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "todosetId",
+            "name": "todolistId",
             "in": "path"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer"
           }
         ],
-        "operationId": "buckets.bucketId.todosets.todosetId.json.get"
+        "operationId": "buckets.bucketId.todolists.todolistId.groups.json.get"
       }
     },
     "/buckets/{bucketId}/message_boards/{message_boardId}.json": {
@@ -7710,7 +8320,7 @@
         "operationId": "buckets.bucketId.message_boards.message_boardId.json.get"
       }
     },
-    "/buckets/{bucketId}/categories/{categorieId}.json": {
+    "/buckets/{bucketId}/categories/{categoryId}.json": {
       "put": {
         "responses": {
           "200": {
@@ -7755,11 +8365,11 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "categorieId",
+            "name": "categoryId",
             "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.categories.categorieId.json.put"
+        "operationId": "buckets.bucketId.categories.categoryId.json.put"
       },
       "delete": {
         "responses": {
@@ -7779,11 +8389,11 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "categorieId",
+            "name": "categoryId",
             "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.categories.categorieId.json.delete"
+        "operationId": "buckets.bucketId.categories.categoryId.json.delete"
       },
       "get": {
         "responses": {
@@ -7823,131 +8433,11 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "categorieId",
+            "name": "categoryId",
             "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.categories.categorieId.json.get"
-      }
-    },
-    "/buckets/{bucketId}/webhooks.json": {
-      "post": {
-        "responses": {
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "types": {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                "payload_url": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "payload_url",
-            "description": "payload_url for the HTTPS url that Basecamp should call. Optional parameters :"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "types",
-            "description": "types as an array of types, options given in the introduction."
-          },
-          {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "types": {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                "payload_url": {
-                  "type": "string"
-                }
-              }
-            },
-            "name": "body",
-            "in": "body"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          }
-        ],
-        "operationId": "buckets.bucketId.webhooks.json.post"
-      },
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "items": {
-                "type": "object",
-                "properties": {
-                  "app_url": {
-                    "type": "string"
-                  },
-                  "payload_url": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "created_at": {
-                    "type": "string"
-                  },
-                  "updated_at": {
-                    "type": "string"
-                  },
-                  "active": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "types": {
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  }
-                }
-              },
-              "type": "array"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "type": "integer"
-          }
-        ],
-        "operationId": "buckets.bucketId.webhooks.json.get"
+        "operationId": "buckets.bucketId.categories.categoryId.json.get"
       }
     },
     "/buckets/{bucketId}/vaults/{vaultId}/vaults.json": {
@@ -8405,233 +8895,6 @@
         "operationId": "buckets.bucketId.messages.messageId.json.get"
       }
     },
-    "/buckets/{bucketId}/message_boards/{message_boardId}/messages.json": {
-      "post": {
-        "responses": {
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "content": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "subject": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "subject",
-            "description": "subject as the title of the message, and"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "status",
-            "description": "status , set to"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "active",
-            "description": "active to publish immediately."
-          },
-          {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "content": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "subject": {
-                  "type": "string"
-                }
-              }
-            },
-            "name": "body",
-            "in": "body"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "message_boardId",
-            "in": "path"
-          }
-        ],
-        "operationId": "buckets.bucketId.message_boards.message_boardId.messages.json.post"
-      },
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "items": {
-                "type": "object",
-                "properties": {
-                  "status": {
-                    "type": "string"
-                  },
-                  "app_url": {
-                    "type": "string"
-                  },
-                  "parent": {
-                    "type": "object",
-                    "properties": {
-                      "url": {
-                        "type": "string"
-                      },
-                      "app_url": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      },
-                      "title": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "creator": {
-                    "type": "object",
-                    "properties": {
-                      "attachable_sgid": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "admin": {
-                        "type": "boolean"
-                      },
-                      "created_at": {
-                        "type": "string"
-                      },
-                      "updated_at": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string"
-                      },
-                      "personable_type": {
-                        "type": "string"
-                      },
-                      "owner": {
-                        "type": "boolean"
-                      },
-                      "email_address": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "bucket": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer"
-                      },
-                      "name": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "created_at": {
-                    "type": "string"
-                  },
-                  "comments_url": {
-                    "type": "string"
-                  },
-                  "updated_at": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "content": {
-                    "type": "string"
-                  },
-                  "comments_count": {
-                    "type": "integer"
-                  },
-                  "subscription_url": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "type": "string"
-                  },
-                  "inherits_status": {
-                    "type": "boolean"
-                  },
-                  "bookmark_url": {
-                    "type": "string"
-                  },
-                  "subject": {
-                    "type": "string"
-                  }
-                }
-              },
-              "type": "array"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "bucketId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "message_boardId",
-            "in": "path"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "type": "integer"
-          }
-        ],
-        "operationId": "buckets.bucketId.message_boards.message_boardId.messages.json.get"
-      }
-    },
     "/buckets/{bucketId}/chats/{chatId}.json": {
       "get": {
         "responses": {
@@ -9018,7 +9281,69 @@
         "operationId": "buckets.bucketId.todosets.todosetId.todolists.json.get"
       }
     },
-    "/buckets/{bucketId}/client/recordings/{recordingId}/replies/{replieId}.json": {
+    "/buckets/{bucketId}/schedule_entries/{schedule_entryId}.json": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "starts_at": {
+                  "type": "string"
+                },
+                "ends_at": {
+                  "type": "string"
+                },
+                "all_day": {
+                  "type": "boolean"
+                },
+                "summary": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "starts_at": {
+                  "type": "string"
+                },
+                "ends_at": {
+                  "type": "string"
+                },
+                "all_day": {
+                  "type": "boolean"
+                },
+                "summary": {
+                  "type": "string"
+                }
+              }
+            },
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "bucketId",
+            "in": "path"
+          },
+          {
+            "description": "",
+            "required": true,
+            "type": "string",
+            "name": "schedule_entryId",
+            "in": "path"
+          }
+        ],
+        "operationId": "buckets.bucketId.schedule_entries.schedule_entryId.json.put"
+      },
       "get": {
         "responses": {
           "200": {
@@ -9030,6 +9355,9 @@
                   "type": "string"
                 },
                 "app_url": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "parent": {
@@ -9051,15 +9379,6 @@
                       "type": "string"
                     }
                   }
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "created_at": {
-                  "type": "string"
                 },
                 "creator": {
                   "type": "object",
@@ -9116,6 +9435,9 @@
                     }
                   }
                 },
+                "url": {
+                  "type": "string"
+                },
                 "bucket": {
                   "type": "object",
                   "properties": {
@@ -9130,13 +9452,89 @@
                     }
                   }
                 },
+                "created_at": {
+                  "type": "string"
+                },
+                "comments_url": {
+                  "type": "string"
+                },
                 "updated_at": {
                   "type": "string"
                 },
                 "id": {
                   "type": "integer"
                 },
-                "content": {
+                "summary": {
+                  "type": "string"
+                },
+                "participants": {
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "attachable_sgid": {
+                        "type": "string"
+                      },
+                      "bio": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "time_zone": {
+                        "type": "string"
+                      },
+                      "company": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "avatar_url": {
+                        "type": "string"
+                      },
+                      "personable_type": {
+                        "type": "string"
+                      },
+                      "owner": {
+                        "type": "boolean"
+                      },
+                      "email_address": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "comments_count": {
+                  "type": "integer"
+                },
+                "subscription_url": {
+                  "type": "string"
+                },
+                "starts_at": {
+                  "type": "string"
+                },
+                "ends_at": {
                   "type": "string"
                 },
                 "type": {
@@ -9147,6 +9545,9 @@
                 },
                 "bookmark_url": {
                   "type": "string"
+                },
+                "all_day": {
+                  "type": "boolean"
                 }
               }
             }
@@ -9164,18 +9565,11 @@
             "description": "",
             "required": true,
             "type": "string",
-            "name": "recordingId",
-            "in": "path"
-          },
-          {
-            "description": "",
-            "required": true,
-            "type": "string",
-            "name": "replieId",
+            "name": "schedule_entryId",
             "in": "path"
           }
         ],
-        "operationId": "buckets.bucketId.client.recordings.recordingId.replies.replieId.json.get"
+        "operationId": "buckets.bucketId.schedule_entries.schedule_entryId.json.get"
       }
     },
     "/buckets/{bucketId}/todos/{todoId}/position.json": {
@@ -9195,7 +9589,7 @@
         },
         "parameters": [
           {
-            "in": "formData",
+            "in": "body",
             "type": "string",
             "name": "position",
             "description": "position greater than or equal to one."
@@ -9747,19 +10141,19 @@
         },
         "parameters": [
           {
-            "in": "formData",
+            "in": "body",
             "type": "string",
             "name": "payload_url",
             "description": "payload_url for the HTTPS url that Basecamp will call. Optional parameters :"
           },
           {
-            "in": "formData",
+            "in": "body",
             "type": "string",
             "name": "types",
             "description": "types as an array of types, options given in the introduction."
           },
           {
-            "in": "formData",
+            "in": "body",
             "type": "string",
             "name": "active",
             "description": "active as a boolean whether this webhook should be matching."

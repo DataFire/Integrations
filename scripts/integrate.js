@@ -5,9 +5,18 @@ const DESTINATION = __dirname + '/../integrations/generated';
 
 const TYPES = ['rss', 'openapi', 'openapi_3', 'raml', 'wadl', 'api_blueprint'];
 
+const maybeGetPatch = (name) => {
+  try {
+    return require('../patches/' + name);
+  } catch (e) {
+    return;
+  }
+}
+
 module.exports = (args, callback=()=>{}) => {
   args.name = args.name.toLowerCase().replace(/\W+/g, '_');
   args.destination = DESTINATION;
+  args.patch = maybeGetPatch(args.name) || maybeGetPatch(args.provider);
   let type = TYPES.filter(t => args[t])[0];
   function writeIntegrationFiles() {
     console.log('Writing', args.name);

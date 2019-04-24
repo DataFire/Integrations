@@ -44,7 +44,7 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
       } else {
         let opts = {
           name,
-          patch: maybeGetPatch(name) || maybeGetPatch(provider),
+          provider,
           bump: args.bump,
         };
         if (api.swaggerUrl.endsWith('openapi.json')) {
@@ -100,10 +100,3 @@ function updateSpec(name, url, infoOnly, callback) {
   })
 }
 
-const maybeGetPatch = (name) => {
-  try {
-    return require('../patches/' + name);
-  } catch (e) {
-    return;
-  }
-}

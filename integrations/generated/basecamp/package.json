@@ -1,6 +1,6 @@
 {
   "name": "@datafire/basecamp",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for The Basecamp 3 API",
   "repository": {
@@ -14,7 +14,6 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "/home/ubuntu/downloads/ruediger_swagger/basecamp_swagger_7.json",
     "type": "openapi"
   },
   "peerDependencies": {
