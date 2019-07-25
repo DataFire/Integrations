@@ -1,7 +1,6 @@
 "use strict";
 const datafire = require('datafire');
-const SMTPConnection = require('nodemailer/lib/smtp-connection');
-const MailComposer = require('nodemailer/lib/mail-composer');
+const nodemailer = require('nodemailer');
 
 const smtp = module.exports = new datafire.Integration({
   id: 'smtp',
@@ -130,32 +129,27 @@ smtp.addAction('send', {
   },
 
   handler: (input, context) => {
-    let opts = {
+    const opts = {
       host: context.accounts.smtp.host,
       port: context.accounts.smtp.port,
+      secure: context.accounts.smtp.port === 465,
+      auth: {
+        user: context.accounts.smtp.username,
+        pass: context.accounts.smtp.password,
+      }
     };
-    let conn = new SMTPConnection(opts);
+
+    const transporter = nodemailer.createTransport(opts);
+
     return new Promise((resolve, reject) => {
       let finish = (err, data) => {
-        conn.quit();
+        transporter.close();
         if (err) reject(err);
         else resolve(data);
-      }
-      conn.on('error', finish);
-      conn.connect(err => {
-        if (err) return finish(err);
-        let auth = {
-          user: context.accounts.smtp.username,
-          pass: context.accounts.smtp.password,
-        };
-        let message = new MailComposer(input);
-        conn.login(auth, err => {
-          if (err) return finish(err);
-          let envelope = Object.assign({}, input);
-          envelope.to = (input.to || []).concat(input.cc || []).concat(input.bcc || []);
-          conn.send(envelope, message.compile().createReadStream(), finish);
-        })
-      })
+      };
+      input.envelope.from = input.envelope.from || input.from;
+      input.envelope.to = (input.to || []).concat(input.cc || []).concat(input.bcc || []);
+      transporter.sendMail(input, (error, info) => finish(error, info));
     })
   },
 })

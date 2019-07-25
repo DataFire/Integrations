@@ -2,3 +2,5 @@ node_modules/
 credentials/
 logos/
 json/**/*
+
+.idea

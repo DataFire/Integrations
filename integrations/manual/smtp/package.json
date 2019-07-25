@@ -1,6 +1,6 @@
 {
   "name": "@datafire/smtp",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "main": "index.js",
   "description": "An SMTP integration for sending e-mail with DataFire",
   "repository": {
@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "datafire": "^2.0.0",
-    "nodemailer": "^4.4.2"
+    "nodemailer": "^6.3.0"
   }
 }

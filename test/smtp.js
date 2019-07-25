@@ -70,7 +70,7 @@ describe("SMTP", () => {
       let message = messages.pop();
       expect(message).to.not.equal(null);
       expect(message.session.envelope.mailFrom).to.deep.equal({address: 'me@example.com', args: false});
-      expect(message.session.envelope.rcptTo).to.deep.equal(recipients.map(r => ({address: r, args: false})))
+      expect(message.session.envelope.rcptTo).to.deep.equal(recipients.map(r => ({address: r, args: false})));
       expect(message.message.indexOf('anonymous@')).to.equal(-1);
       let lines = message.message.split('\r\n');
       let from = lines.filter(l => l.startsWith('From:')).pop();
@@ -120,4 +120,40 @@ describe("SMTP", () => {
       expect(contents).to.equal('this is an attachment');
     })
   })
+
+  it('should allow friendly names', () => {
+    let context = new datafire.Context({
+      accounts: {
+        smtp: CREDS,
+      }
+    });
+    return smtp.send({
+      from: 'Test From <me@example.com>',
+      to: ['Test ToRecipient <you@example.com>', 'Test AnotherToRecipient <youtoo@example.com>'],
+      cc: ['Test CcRecipient <someone@example.com>'],
+      bcc: ['Test BccRecipient <anonymous@example.com>'],
+      subject: 'hi there',
+      text: 'hello!',
+    }, context)
+      .then(data => {
+        let recipients = ['you@example.com', 'youtoo@example.com', 'someone@example.com', 'anonymous@example.com'];
+        expect(data.accepted).to.deep.equal(recipients);
+        expect(data.response).to.equal('250 OK: message queued');
+        expect(messages.length).to.equal(1);
+        let message = messages.pop();
+        expect(message).to.not.equal(null);
+        expect(message.session.envelope.mailFrom).to.deep.equal({address: 'me@example.com', args: false});
+        expect(message.session.envelope.rcptTo).to.deep.equal(recipients.map(r => ({address: r, args: false})));
+        expect(message.message.indexOf('anonymous@')).to.equal(-1);
+        let lines = message.message.split('\r\n');
+        let from = lines.filter(l => l.startsWith('From:')).pop();
+        let toIndex = lines.findIndex(line => line.startsWith('To:'));
+        let to = lines[toIndex] + lines[toIndex +1]; // The mail 'youtoo@example.com' is always on the next line
+        let cc = lines.filter(l => l.startsWith('Cc:')).pop();
+
+        expect(from).to.equal('From: Test From <me@example.com>');
+        expect(to).to.equal('To: Test ToRecipient <you@example.com>, Test AnotherToRecipient <youtoo@example.com>');
+        expect(cc).to.equal('Cc: Test CcRecipient <someone@example.com>');
+      });
+  });
 })
