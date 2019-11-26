@@ -1,0 +1,63 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "The Single Validation API does validation on a single email address and returns all the validation results in either JSON or XML format. Refer to https://www.mailboxvalidator.com for further information.",
+    "title": "MailboxValidator Email Validation",
+    "version": "0.1",
+    "x-datafire": {
+      "name": "mailboxvalidator",
+      "type": "openapi"
+    }
+  },
+  "host": "api.mailboxvalidator.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v1/validation/single": {
+      "get": {
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "description": "Return the result in json (default) or xml format.",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The email address to be validated.",
+            "in": "query",
+            "name": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "API key.",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "single email validation response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "The Single Validation API does validation on a single email address and returns all the validation results in either JSON or XML format."
+      }
+    }
+  },
+  "x-components": {}
+}
