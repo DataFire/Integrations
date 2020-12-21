@@ -11,6 +11,10 @@ const overrides = require('../overrides.json');
 
 const MAX_DESCRIPTION_LENGTH = 120;
 const LOGO_BASE = 'https://s3-us-west-2.amazonaws.com/datafire-logos';
+const LOGO_DIR = __dirname + '/../logos/';
+
+// FIXME
+process.setMaxListeners(0);
 
 const maybeMkdirp = (dir) => {
   try {
@@ -81,7 +85,12 @@ iterateIntegs((dir, name, integ) => {
     }
     if (info.logo) {
       let extname = info.logo.url.match(/\.(\w+)$/)[1];
-      info.logo.url = LOGO_BASE + '/' + name + '.' + extname;
+      let filename = name + '.' + extname;
+      if (fs.existsSync(LOGO_DIR + '/' + filename)) {
+        info.logo.url = LOGO_BASE + '/' + name + '.' + extname;
+      } else {
+        console.log('logo missing for', name);
+      }
     }
     if (list[name] && !args.name) throw new Error("Duplicate name " + name);
     let listDetails = list[name] = Object.assign({}, integ.getDetails(), info);

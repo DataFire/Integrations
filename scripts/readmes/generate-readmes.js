@@ -5,10 +5,13 @@ let iterateIntegs = require('../iterate-integrations');
 let args = require('yargs').argv;
 
 const NO_GENERATE = ['lucybot_docs', 'swaggerui', 'fileserver'];
+const MAX_DEPTH = 5;
+
+const tick = '`';
 
 function render(template, args) {
   let tmpl = fs.readFileSync(__dirname + '/' + template + '.md', 'utf8');
-  let md = eval('`' + tmpl.replace(/`/g,'\\`') + '`');
+  let md = eval(tick + tmpl.replace(/`/g,'\\`') + tick);
   return md;
 }
 
@@ -64,6 +67,7 @@ function actionToMarkdown(action, integration) {
 const NEEDED_FIELDS = ['type', '$ref', 'enum', 'default', 'allOf', 'properties', 'items'];
 function schemaToMarkdown(schema, base, property='', required=false, depth=0) {
   if (!schema) return '';
+  if (depth > MAX_DEPTH) return '';
   let missingNeededFields = NEEDED_FIELDS.filter(field => !schema[field]).length === NEEDED_FIELDS.length;
   if (missingNeededFields) return '';
   let md = '';
@@ -108,12 +112,13 @@ function schemaToMarkdown(schema, base, property='', required=false, depth=0) {
     let propSchema = schema.properties[prop];
     let propRequired = (schema.required || []).indexOf(prop) !== -1;
     let propMD = schemaToMarkdown(propSchema, base, prop, propRequired, depth + 1);
-    if (propMD) md += '\n' + propMD;
+    if (propMD.trim()) md += '\n' + propMD;
     //else console.log("skipping property", prop, propSchema);
   });
 
   if (schema.items) {
-    md += '\n' + schemaToMarkdown(schema.items, base, 'items', false, depth + 1);
+    let itemsMD = schemaToMarkdown(schema.items, base, 'items', false, depth + 1);
+    if (itemsMD.trim()) md += '\n' + schemaToMarkdown(schema.items, base, 'items', false, depth + 1);
   }
   (schema.allOf || []).forEach(subschema => {
     if (subschema.$ref) subschema = resolveRef(subschema.$ref, base);
@@ -164,8 +169,11 @@ iterateIntegs((dir, name, integ) => {
     definitionsMarkdown += '### ' + key + '\n' + schemaToMarkdown(def, {definitions}) + '\n\n';
   }
   if (!definitionsMarkdown) definitionsMarkdown = '*This integration has no definitions*';
-  let sampleInput = getExample(sampleAction.inputSchema);
-  let sampleActionCall = `${integVarName}.${sampleAction.id.replace(/^.*\//, '')}(${JSON.stringify(sampleInput, null, 2)})`;
+  let sampleActionCall = '';
+  if (sampleAction) {
+    let sampleInput = getExample(sampleAction.inputSchema);
+    let sampleActionCall = `${integVarName}.${sampleAction.id.replace(/^.*\//, '')}(${JSON.stringify(sampleInput, null, 2)})`;
+  }
 
   let md = render('template', {
     integration: integ,

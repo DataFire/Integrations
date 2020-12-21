@@ -38,12 +38,14 @@ async.series(Object.keys(logos).map(name => {
     request.get(logos[name], (err, resp, body) => {
       err = err || (resp.statusCode >= 300 ? resp.statusCode : null);
       if (err) {
-        done(err);
+        console.log('error while retrieving logo for', name, err);
+        done();
         done = null;
       }
     })
     .pipe(fs.createWriteStream(filename))
-    .on('close', () => done && done());
+    .on('close', () => done && done())
+    .on('warning', console.log);
   }
 }), function(err) {
   if (err) throw err;

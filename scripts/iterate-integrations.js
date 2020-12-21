@@ -2,6 +2,9 @@ const path = require('path');
 const fs = require('fs');
 const BASE_DIR = __dirname + '/../integrations/';
 
+// FIXME
+process.setMaxListeners(0);
+
 module.exports = function(fn, filterFn) {
   if (!filterFn) filterFn = (name) => true;
   function iterateDir(dir) {
