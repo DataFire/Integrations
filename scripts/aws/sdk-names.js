@@ -24,6 +24,7 @@ const sdkMap = module.exports = {
   events: 'CloudWatchEvents',
   iot1click_devices: 'IoT1ClickDevicesService',
   iot1click_projects: 'IoT1ClickProjects',
+  kinesis_video_signaling: 'KinesisVideoSignalingChannels',
   logs: 'CloudWatchLogs',
   metering_marketplace: 'MarketplaceMetering',
   mgh: 'MigrationHub',
@@ -32,8 +33,10 @@ const sdkMap = module.exports = {
   mturk_requester: 'MTurk',
   runtime_lex: 'LexRuntime',
   runtime_sagemaker: 'SageMakerRuntime',
+  sagemaker_a2i_runtime: 'SageMakerFeatureStoreRuntime',
   serverlessrepo: 'ServerlessApplicationRepository',
   sdb: 'SimpleDB',
+  sms_voice: 'SMS',
   states: 'StepFunctions',
   streams_dynamodb: 'DynamoDBStreams',
   tagging: 'ResourceGroupsTaggingAPI',
@@ -42,7 +45,9 @@ const sdkMap = module.exports = {
 
 list.forEach(name => {
   let objName = sdkMap[name] || Object.keys(sdk).filter(serviceName => {
-    return serviceName.toLowerCase() === name.replace(/_/g, '');
+    let sName = serviceName.toLowerCase();
+    let iName = name.replace(/_/g, '');
+    return sName === iName || sName === iName + 'service';
   }).pop();
   if (!objName || !sdk[objName]) throw new Error("obj name not found for " + name + ':' + sdkMap[name]);
   sdkMap[name] = objName;
